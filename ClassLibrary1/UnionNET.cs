@@ -94,21 +94,6 @@ namespace SpacerUnion
         }
 
 
-        [DllExport]
-        public static void ShowLoading()
-        {
-            form.AddText("ZEN загружается...");
-            
-        }
-
-        [DllExport]
-        public static void CloseLoading()
-        {
-            form.AddText("ZEN успешно загружен!");
-
-           // objWin.Show();
-           // vobList.Show();
-        }
     }
 
 }

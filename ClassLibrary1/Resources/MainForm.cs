@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -61,8 +62,17 @@ namespace SpacerUnion
 
                 IntPtr filePathPtr = Marshal.StringToHGlobalAnsi(filePath);
 
+                Stopwatch s = new Stopwatch();
+                s.Start();
+
+                UnionNET.form.AddText("ZEN загружается...");
 
                 Extern_LoadWorld(filePathPtr);
+
+                s.Stop();
+
+                string timeSpend = string.Format("{0:HH:mm:ss}", new DateTime(s.Elapsed.Ticks));
+                UnionNET.form.AddText("Загрузка ZEN выполнена за (" + timeSpend + ")");
 
                 Marshal.FreeHGlobal(filePathPtr);
             }
