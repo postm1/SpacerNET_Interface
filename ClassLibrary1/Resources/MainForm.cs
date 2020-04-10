@@ -37,6 +37,12 @@ namespace SpacerUnion
             Extern_Exit();
         }
 
+        public void ResetInterface()
+        {
+            ObjTree.globalNodes.Clear();
+            UnionNET.objTreeWin.globalTree.Nodes.Clear();
+        }
+
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -65,7 +71,9 @@ namespace SpacerUnion
                 Stopwatch s = new Stopwatch();
                 s.Start();
 
-                UnionNET.form.AddText("ZEN загружается...");
+                ResetInterface();
+
+                UnionNET.form.AddText(openFileDialog1.SafeFileName + " загружается...");
 
                 Extern_LoadWorld(filePathPtr);
 

@@ -66,6 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ObjTree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ObjTree.Designer.cs">
+      <DependentUpon>ObjTree.cs</DependentUpon>
+    </Compile>
     <Compile Include="UnionNET.cs" />
     <Compile Include="CompileLightWin.cs">
       <SubType>Form</SubType>
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoadWindow.resx">
       <DependentUpon>LoadWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ObjTree.resx">
+      <DependentUpon>ObjTree.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

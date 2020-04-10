@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -20,6 +21,7 @@ namespace SpacerUnion
         public static LoadWindow loadWin;
 
         public static CompileLightWin comLightWin;
+        public static ObjTree objTreeWin;
 
         [DllExport]
         public static int UnionInitialize(IntPtr L)
@@ -40,6 +42,7 @@ namespace SpacerUnion
            
             objWin = new ObjectsWindow();
             objWin.Owner = form;
+            
 
             loadWin = new LoadWindow();
             loadWin.Owner = form;
@@ -48,9 +51,15 @@ namespace SpacerUnion
             infoWin = new InfoWin();
             infoWin.Owner = form;
             infoWin.Show();
-
             infoWin.Left = 0;
             infoWin.Top = 600;
+
+            objTreeWin = new ObjTree();
+            objTreeWin.Owner = form;
+           
+
+
+
 
             comLightWin = new CompileLightWin();
             comLightWin.Owner = form;
@@ -76,8 +85,16 @@ namespace SpacerUnion
             //form.Enabled = true;
             form.menuStrip1.Enabled = true;
             //loadWin.Hide();
-            //objWin.Show();
+            objWin.Show();
             //vobList.Show();
+            objTreeWin.Show();
+
+            objTreeWin.Left = 1500;
+            objTreeWin.Top = 530;
+
+            objWin.Left = 1500;
+            objWin.Top = 50;
+
         }
 
         [DllExport]
