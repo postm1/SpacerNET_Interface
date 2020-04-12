@@ -48,7 +48,7 @@ namespace SpacerUnion
 
             //nodes.Add(name + " (" + depth.ToString() + ") " + baseClassName);
 
-            Console.WriteLine(" Class: " + name + " (" + baseClassName + ")");
+            //Console.WriteLine(" Class: " + name + " (" + baseClassName + ")");
 
             if (name == baseClassName)
             {
@@ -84,7 +84,7 @@ namespace SpacerUnion
             }
             */
 
-            Console.WriteLine("==========");
+            //Console.WriteLine("==========");
 
             /*
              * for (int i = 0; i < count; i ++) {

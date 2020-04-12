@@ -72,6 +72,12 @@
     <Compile Include="ObjTree.Designer.cs">
       <DependentUpon>ObjTree.cs</DependentUpon>
     </Compile>
+    <Compile Include="ParticleWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ParticleWin.Designer.cs">
+      <DependentUpon>ParticleWin.cs</DependentUpon>
+    </Compile>
     <Compile Include="UnionNET.cs" />
     <Compile Include="CompileLightWin.cs">
       <SubType>Form</SubType>
@@ -115,6 +121,7 @@
     <Compile Include="VobListForm.Designer.cs">
       <DependentUpon>VobListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="zEngine\zCObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CompileLightWin.resx">
@@ -128,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ObjTree.resx">
       <DependentUpon>ObjTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParticleWin.resx">
+      <DependentUpon>ParticleWin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

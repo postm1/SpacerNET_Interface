@@ -22,6 +22,7 @@ namespace SpacerUnion
 
         public static CompileLightWin comLightWin;
         public static ObjTree objTreeWin;
+        public static ParticleWin partWin;
 
         [DllExport]
         public static int UnionInitialize(IntPtr L)
@@ -56,7 +57,9 @@ namespace SpacerUnion
 
             objTreeWin = new ObjTree();
             objTreeWin.Owner = form;
-           
+
+            partWin = new ParticleWin();
+            partWin.Owner = form;
 
 
 
@@ -95,6 +98,9 @@ namespace SpacerUnion
             objWin.Left = 1500;
             objWin.Top = 50;
 
+
+            partWin.Show();
+            form.Focus();
         }
 
         [DllExport]

@@ -39,8 +39,10 @@ namespace SpacerUnion
 
         public void ResetInterface()
         {
-            ObjTree.globalNodes.Clear();
+            ObjTree.globalEntries.Clear();
             UnionNET.objTreeWin.globalTree.Nodes.Clear();
+            UnionNET.partWin.listBoxParticles.Items.Clear();
+            UnionNET.partWin.listBoxItems.Items.Clear();
         }
 
 
@@ -183,6 +185,18 @@ namespace SpacerUnion
 
             Extern_SetValue((int)CmdType.ShowVobs, Convert.ToInt32(item.Checked));
             toolStripMenuItem5.Checked = item.Checked;
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            if (UnionNET.partWin.Visible)
+            {
+                UnionNET.partWin.Hide();
+            }
+            else
+            {
+                UnionNET.partWin.Show();
+            }
         }
     }
 }

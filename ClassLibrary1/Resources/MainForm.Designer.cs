@@ -50,8 +50,9 @@
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -85,14 +86,14 @@
             // openZENToolStripMenuItem
             // 
             this.openZENToolStripMenuItem.Name = "openZENToolStripMenuItem";
-            this.openZENToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openZENToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.openZENToolStripMenuItem.Text = "Открыть ZEN";
             this.openZENToolStripMenuItem.Click += new System.EventHandler(this.openZENToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -191,6 +192,7 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
+            this.toolStripButton5,
             this.toolStripSeparator1,
             this.toolStripButton4,
             this.toolStripButton2,
@@ -253,14 +255,24 @@
             this.toolStripButton3.Text = "Показывать help-вобы";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton5.Text = "toolStripButton5";
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
             // MainForm
             // 
@@ -313,5 +325,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
     }
 }
