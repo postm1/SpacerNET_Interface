@@ -18,7 +18,6 @@ namespace SpacerUnion
             
         }
 
-        static int maxDepth = 0;
         static int lastNumber = 0;
 
         static TreeNode last = null;

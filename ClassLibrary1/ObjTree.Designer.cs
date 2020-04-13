@@ -55,10 +55,13 @@
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "folder-vertical-document-icon.png");
+            this.imageList1.Images.SetKeyName(1, "pointred.jpg");
+            this.imageList1.Images.SetKeyName(2, "pointvio.jpg");
+            this.imageList1.Images.SetKeyName(3, "green.jpg");
             // 
             // buttonCollapse
             // 
-            this.buttonCollapse.Location = new System.Drawing.Point(2, 13);
+            this.buttonCollapse.Location = new System.Drawing.Point(2, 12);
             this.buttonCollapse.Name = "buttonCollapse";
             this.buttonCollapse.Size = new System.Drawing.Size(110, 23);
             this.buttonCollapse.TabIndex = 1;

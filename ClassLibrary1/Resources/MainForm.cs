@@ -41,8 +41,8 @@ namespace SpacerUnion
         {
             ObjTree.globalEntries.Clear();
             UnionNET.objTreeWin.globalTree.Nodes.Clear();
-            UnionNET.partWin.listBoxParticles.Items.Clear();
-            UnionNET.partWin.listBoxItems.Items.Clear();
+           // UnionNET.partWin.listBoxParticles.Items.Clear();
+           // UnionNET.partWin.listBoxItems.Items.Clear();
         }
 
 

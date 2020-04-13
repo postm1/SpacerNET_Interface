@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace SpacerUnion
 {
+
     public static class UnionNET
     {
         public static MainForm form;
@@ -24,26 +25,41 @@ namespace SpacerUnion
         public static ObjTree objTreeWin;
         public static ParticleWin partWin;
 
-        [DllExport]
-        public static int UnionInitialize(IntPtr L)
+        [STAThread]
+        public static void StartDLL()
         {
+            //..Thread.SetApartmentState(ApartmentState.STA);
+
+            //Application.DoEvents();
+            //Thread.Sleep(1000);
+            // Application.
+            // Console.WriteLine();
             MessageBox.Show("C# init");
+            //Console.WriteLine(Application.MessageLoop);
+            //Thread.Sleep(2000);
+            //Application.DoEvents();
+            // Application.DoEvents();
+            //Application.UnregisterMessageLoop();
 
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //  Thread.Sleep(2000);
+            //Thread.Sleep(2000);
+            //Application.DoEvents();
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
+            //
             form = new MainForm();
             form.Left = 0;
             form.Top = 0;
 
+
             vobList = new VobListForm();
             vobList.Owner = form;
-            
-           
+
+
             objWin = new ObjectsWindow();
             objWin.Owner = form;
-            
+
 
             loadWin = new LoadWindow();
             loadWin.Owner = form;
@@ -52,8 +68,7 @@ namespace SpacerUnion
             infoWin = new InfoWin();
             infoWin.Owner = form;
             infoWin.Show();
-            infoWin.Left = 0;
-            infoWin.Top = 600;
+
 
             objTreeWin = new ObjTree();
             objTreeWin.Owner = form;
@@ -70,13 +85,24 @@ namespace SpacerUnion
 
             form.Show();
             form.panel1.Show();
- 
-           
+
+            infoWin.Left = 0;
+            infoWin.Top = 600;
+
+
 
             form.AddText("Загрузка Spacer...");
 
-          //  form.Enabled = false;
+            //  form.Enabled = false;
             form.menuStrip1.Enabled = false;
+        }
+
+        [STAThread]
+        [DllExport]
+        public static int UnionInitialize(IntPtr L)
+        {
+
+            StartDLL();
 
             return 0;
         }
@@ -91,6 +117,8 @@ namespace SpacerUnion
             objWin.Show();
             //vobList.Show();
             objTreeWin.Show();
+            partWin.Show();
+
 
             objTreeWin.Left = 1500;
             objTreeWin.Top = 530;
@@ -98,8 +126,12 @@ namespace SpacerUnion
             objWin.Left = 1500;
             objWin.Top = 50;
 
+            
+            partWin.Left = 430;
+            partWin.Top = 600;
 
-            partWin.Show();
+
+            
             form.Focus();
         }
 
