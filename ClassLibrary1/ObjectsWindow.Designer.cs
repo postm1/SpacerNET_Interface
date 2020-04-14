@@ -147,6 +147,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Objects";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ObjectsWindow_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);

@@ -391,24 +391,7 @@ namespace SpacerUnion
         }
 
 
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SelectVob(int a);
-
-        private void globalTree_DoubleClick(object sender, EventArgs e)
-        {
-            TreeNode node = globalTree.SelectedNode;
-
-            string tag = node.Tag.ToString();
-
-            if (tag.Length == 0 || tag == TAG_FOLDER)
-            {
-                return;
-            }
-
-            int addr = Convert.ToInt32(node.Tag);
-            Extern_SelectVob(addr);
-            UnionNET.form.Focus();
-        }
+      
 
         private void globalTree_DrawNode(object sender, DrawTreeNodeEventArgs e)
         {
@@ -441,6 +424,60 @@ namespace SpacerUnion
         private void buttonExpand_Click(object sender, EventArgs e)
         {
             globalTree.ExpandAll();
+        }
+
+        private void ObjTree_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            e.Cancel = true;
+        }
+
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SelectVobSync(int a);
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SelectVob(int a);
+
+
+        private void globalTree_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            
+        }
+
+        private void globalTree_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            TreeNode node = globalTree.SelectedNode;
+
+            string tag = node.Tag.ToString();
+
+            if (tag.Length == 0 || tag == TAG_FOLDER)
+            {
+                return;
+            }
+
+            int addr = Convert.ToInt32(node.Tag);
+            Console.WriteLine("OnSelectDoubleClick: " + addr);
+            Extern_SelectVob(addr);
+            UnionNET.form.Focus();
+        }
+
+        private void globalTree_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            TreeNode node = globalTree.SelectedNode;
+
+            string tag = node.Tag.ToString();
+
+            if (tag.Length == 0 || tag == TAG_FOLDER)
+            {
+                return;
+            }
+
+            int addr = Convert.ToInt32(node.Tag);
+
+            Console.WriteLine("OnSelectVobSync: " + addr);
+            Extern_SelectVobSync(addr);
+            UnionNET.form.Focus();
         }
     }
 }

@@ -129,5 +129,11 @@ namespace SpacerUnion
 
             UnionNET.objWin.classesTreeView.ExpandAll();
         }
+
+        private void ObjectsWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Hide();
+            e.Cancel = true;
+        }
     }
 }

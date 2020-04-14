@@ -79,6 +79,12 @@
     <Compile Include="ParticleWin.Designer.cs">
       <DependentUpon>ParticleWin.cs</DependentUpon>
     </Compile>
+    <Compile Include="SoundWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SoundWin.Designer.cs">
+      <DependentUpon>SoundWin.cs</DependentUpon>
+    </Compile>
     <Compile Include="UnionNET.cs" />
     <Compile Include="CompileLightWin.cs">
       <SubType>Form</SubType>
@@ -116,6 +122,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utils.cs" />
     <Compile Include="VobListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +156,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SoundWin.resx">
+      <DependentUpon>SoundWin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VobListForm.resx">
       <DependentUpon>VobListForm.cs</DependentUpon>

@@ -198,5 +198,32 @@ namespace SpacerUnion
                 UnionNET.partWin.Show();
             }
         }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            if (UnionNET.soundWin.Visible)
+            {
+                UnionNET.soundWin.Hide();
+            }
+            else
+            {
+                UnionNET.soundWin.Show();
+            }
+        }
+
+        private void menuStrip1_MouseMove(object sender, MouseEventArgs e)
+        {
+           
+        }
+
+        private void toolStrip1_MouseEnter(object sender, EventArgs e)
+        {
+            UnionNET.form.Focus();
+        }
+
+        private void menuStrip1_MouseEnter(object sender, EventArgs e)
+        {
+            UnionNET.form.Focus();
+        }
     }
 }

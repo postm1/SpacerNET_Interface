@@ -33,27 +33,13 @@ namespace SpacerUnion
             UnionNET.partWin.listBoxParticles.Items.Add(name);
         }
 
-        public static void SortListBox(ListBox lstBox)
-        {
-            ArrayList q = new ArrayList();
-            foreach (object o in lstBox.Items)
-            {
-                q.Add(o);
-            }
-            q.Sort();
-
-            lstBox.Items.Clear();
-            foreach (object o in q)
-            {
-                lstBox.Items.Add(o);
-            }
-        }
+        
         [DllExport]
         public static void SortPFX()
         {
             //UnionNET.partWin.listBoxParticles.Sorted = true;
             ListBox lstBox = UnionNET.partWin.listBoxParticles;
-            SortListBox(lstBox);
+            Utils.SortListBox(lstBox);
         }
 
         [DllExport]
@@ -69,7 +55,7 @@ namespace SpacerUnion
         public static void SortItems()
         {
             //UnionNET.partWin.listBoxItems.Sorted = true;
-            SortListBox(UnionNET.partWin.listBoxItems);
+            Utils.SortListBox(UnionNET.partWin.listBoxItems);
         }
 
         private void ParticleWin_FormClosing(object sender, FormClosingEventArgs e)

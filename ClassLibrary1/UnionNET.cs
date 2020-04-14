@@ -24,6 +24,7 @@ namespace SpacerUnion
         public static CompileLightWin comLightWin;
         public static ObjTree objTreeWin;
         public static ParticleWin partWin;
+        public static SoundWin soundWin;
 
         [STAThread]
         public static void StartDLL()
@@ -76,6 +77,9 @@ namespace SpacerUnion
             partWin = new ParticleWin();
             partWin.Owner = form;
 
+            soundWin = new SoundWin();
+            soundWin.Owner = form;
+
 
 
 
@@ -97,7 +101,7 @@ namespace SpacerUnion
             form.menuStrip1.Enabled = false;
         }
 
-        [STAThread]
+
         [DllExport]
         public static int UnionInitialize(IntPtr L)
         {
@@ -118,6 +122,7 @@ namespace SpacerUnion
             //vobList.Show();
             objTreeWin.Show();
             partWin.Show();
+            soundWin.Show();
 
 
             objTreeWin.Left = 1500;
@@ -130,8 +135,11 @@ namespace SpacerUnion
             partWin.Left = 430;
             partWin.Top = 600;
 
-
             
+            soundWin.Left = 0;
+            soundWin.Top = 300;
+
+
             form.Focus();
         }
 
@@ -148,6 +156,52 @@ namespace SpacerUnion
             return (int)form.Handle;
         }
 
+        static List<Form> windowsToHideList = null;
+        static List<Form> windowsList = null;
+        [DllExport]
+        public static void HideWindows()
+        {
+            Console.WriteLine("HideWindows");
+
+            if (windowsToHideList == null)
+            {
+                windowsToHideList = new List<Form>();
+            }
+
+            if (windowsList == null)
+            {
+                windowsList = new List<Form>();
+                windowsList.Add(objTreeWin);
+                windowsList.Add(partWin);
+                windowsList.Add(infoWin);
+                windowsList.Add(objWin);
+                windowsList.Add(soundWin);
+            }
+                
+            for (int i = 0; i < windowsList.Count; i++)
+            {
+                if (windowsList[i].Visible)
+                {
+                    windowsToHideList.Add(windowsList[i]);
+                    windowsList[i].Hide();
+                }
+                
+            }
+
+        }
+
+        [DllExport]
+        public static void ShowWindows()
+        {
+            Console.WriteLine("ShowWindows");
+
+            for (int i = 0; i < windowsToHideList.Count; i++)
+            {
+                windowsToHideList[i].Show();
+            }
+
+            windowsToHideList.Clear();
+        }
 
     }
 

@@ -48,7 +48,8 @@
             this.globalTree.Size = new System.Drawing.Size(389, 431);
             this.globalTree.TabIndex = 0;
             this.globalTree.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.globalTree_DrawNode);
-            this.globalTree.DoubleClick += new System.EventHandler(this.globalTree_DoubleClick);
+            this.globalTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.globalTree_AfterSelect);
+            this.globalTree.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.globalTree_NodeMouseDoubleClick);
             // 
             // imageList1
             // 
@@ -91,6 +92,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Список объектов";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ObjTree_FormClosing);
             this.ResumeLayout(false);
 
         }
