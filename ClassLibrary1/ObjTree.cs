@@ -284,18 +284,30 @@ namespace SpacerUnion
 
             Console.WriteLine("OnVobRemove: " + vob);
 
+
+            if (vob == 0)
+            {
+                return;
+            }
+
+
             List<TreeEntry> entries = globalEntries
                     .Where(pair => pair.zCVob == vob || pair.parent == vob)
                     .ToList();
 
             if (entries.Count > 0)
             {
+
                 for (int i = 0; i < entries.Count; i++)
                 {
                     if (entries[i].node != null)
                     {
                         Console.WriteLine("Remove node: " + entries[i].node.Text);
                         entries[i].node.Remove();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Remove node... already is NULL");
                     }
                 }
             }
@@ -315,6 +327,9 @@ namespace SpacerUnion
             string className = Marshal.PtrToStringAnsi(classNamePtr);
 
             TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
+
+          
+
 
             Console.WriteLine("OnVobInsert: " + name + " parent: " + parent);
 
@@ -352,6 +367,14 @@ namespace SpacerUnion
             string className = Marshal.PtrToStringAnsi(classNamePtr);
 
             TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
+
+
+            if (name.ToUpper().Contains("EDITOR_CAMERA_VOB"))
+            {
+                Console.WriteLine("Ignoring EDITOR_CAMERA_VOB");
+                return;
+            }
+
 
             TreeEntry entry = new TreeEntry();
 
@@ -451,13 +474,17 @@ namespace SpacerUnion
 
             string tag = node.Tag.ToString();
 
+            Console.WriteLine("OnSelectDoubleClick: " + tag);
+
+
             if (tag.Length == 0 || tag == TAG_FOLDER)
             {
+                Console.WriteLine("No select for: " + tag);
                 return;
             }
 
             int addr = Convert.ToInt32(node.Tag);
-            Console.WriteLine("OnSelectDoubleClick: " + addr);
+            
             Extern_SelectVob(addr);
             UnionNET.form.Focus();
         }
@@ -468,14 +495,17 @@ namespace SpacerUnion
 
             string tag = node.Tag.ToString();
 
+            Console.WriteLine("OnSelectVobSync: " + tag);
+
             if (tag.Length == 0 || tag == TAG_FOLDER)
             {
+                Console.WriteLine("No select for: " + tag);
                 return;
             }
 
             int addr = Convert.ToInt32(node.Tag);
 
-            Console.WriteLine("OnSelectVobSync: " + addr);
+          
             Extern_SelectVobSync(addr);
             UnionNET.form.Focus();
         }

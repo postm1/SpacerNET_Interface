@@ -21,6 +21,8 @@ namespace SpacerUnion
         public static void SortSounds()
         {
             Utils.SortListBox(UnionNET.soundWin.listBoxSound);
+
+            UnionNET.soundWin.Text += ", всего: " + UnionNET.soundWin.listBoxSound.Items.Count;
         }
 
         [DllExport]

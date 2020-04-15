@@ -25,6 +25,7 @@ namespace SpacerUnion
         public static ObjTree objTreeWin;
         public static ParticleWin partWin;
         public static SoundWin soundWin;
+        public static InputBox inputBox;
 
         [STAThread]
         public static void StartDLL()
@@ -68,7 +69,7 @@ namespace SpacerUnion
 
             infoWin = new InfoWin();
             infoWin.Owner = form;
-            infoWin.Show();
+            
 
 
             objTreeWin = new ObjTree();
@@ -81,6 +82,9 @@ namespace SpacerUnion
             soundWin.Owner = form;
 
 
+            inputBox = new InputBox();
+            inputBox.Owner = form;
+
 
 
             comLightWin = new CompileLightWin();
@@ -90,7 +94,9 @@ namespace SpacerUnion
             form.Show();
             form.panel1.Show();
 
-            infoWin.Left = 0;
+
+            infoWin.Show();
+            infoWin.Left = 405;
             infoWin.Top = 600;
 
 
@@ -118,11 +124,11 @@ namespace SpacerUnion
             //form.Enabled = true;
             form.menuStrip1.Enabled = true;
             //loadWin.Hide();
-            objWin.Show();
+            //objWin.Show();
             //vobList.Show();
             objTreeWin.Show();
             partWin.Show();
-            soundWin.Show();
+            //soundWin.Show();
 
 
             objTreeWin.Left = 1500;
@@ -132,7 +138,7 @@ namespace SpacerUnion
             objWin.Top = 50;
 
             
-            partWin.Left = 430;
+            partWin.Left = 0;
             partWin.Top = 600;
 
             
@@ -201,8 +207,13 @@ namespace SpacerUnion
             }
 
             windowsToHideList.Clear();
+            form.Focus();
         }
 
+      
+
+
+        
     }
 
 }

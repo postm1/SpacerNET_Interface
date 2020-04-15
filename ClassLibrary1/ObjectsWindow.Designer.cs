@@ -40,13 +40,11 @@
             treeNode6});
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.classesTreeView = new System.Windows.Forms.TreeView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,7 +62,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.classesTreeView);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -72,14 +69,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Create";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // classesTreeView
-            // 
-            this.classesTreeView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.classesTreeView.Location = new System.Drawing.Point(3, 3);
-            this.classesTreeView.Name = "classesTreeView";
-            this.classesTreeView.Size = new System.Drawing.Size(306, 323);
-            this.classesTreeView.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -149,7 +138,6 @@
             this.Text = "Objects";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ObjectsWindow_FormClosing);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
@@ -164,6 +152,5 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TextBox textBox1;
-        public System.Windows.Forms.TreeView classesTreeView;
     }
 }

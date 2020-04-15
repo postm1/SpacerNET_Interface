@@ -23,6 +23,7 @@ namespace SpacerUnion
     public partial class MainForm : Form
     {
         public Form renderTarget = null;
+        public string currentWorldName = "";
        
         public MainForm()
         {
@@ -66,7 +67,11 @@ namespace SpacerUnion
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
+              
+
                 string filePath = openFileDialog1.FileName;
+
+                this.Text = "Spacer.NET " + openFileDialog1.SafeFileName;
 
                 IntPtr filePathPtr = Marshal.StringToHGlobalAnsi(filePath);
 
@@ -77,11 +82,12 @@ namespace SpacerUnion
 
                 UnionNET.form.AddText(openFileDialog1.SafeFileName + " загружается...");
 
+                currentWorldName = openFileDialog1.SafeFileName;
                 Extern_LoadWorld(filePathPtr);
 
                 s.Stop();
 
-                string timeSpend = string.Format("{0:HH:mm:ss}", new DateTime(s.Elapsed.Ticks));
+                string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
                 UnionNET.form.AddText("Загрузка ZEN выполнена за (" + timeSpend + ")");
 
                 Marshal.FreeHGlobal(filePathPtr);
@@ -224,6 +230,72 @@ namespace SpacerUnion
         private void menuStrip1_MouseEnter(object sender, EventArgs e)
         {
             UnionNET.form.Focus();
+        }
+
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SaveWorld(IntPtr str, int type);
+
+        private void сохранитьZENToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (currentWorldName.Length == 0)
+            {
+                return;
+            }
+
+            saveFileDialog1.Filter = "Compiled ZEN (ascii)|*.zen|Uncompiled ZEN (ascii)|*.zen|Compiled ZEN (binary safe)|*.zen";
+            saveFileDialog1.InitialDirectory = Directory.GetCurrentDirectory() + "../WORK/DATA/Worlds/";
+
+
+            string zenName = currentWorldName.Replace(".zen", "").Replace(".ZEN", "");
+            string time = DateTime.Now.ToString("yyyy_MM_dd HH-mm-ss");
+            int lastPos = zenName.Length - 1;
+
+            if (zenName[lastPos - 2] == '-' && zenName[lastPos - 5] == '-' && zenName[lastPos - 8] == ' '
+                && zenName[lastPos - 11] == '_' && zenName[lastPos - 14] == '_')
+            {
+                zenName = zenName.Substring(0, lastPos - 19);
+
+            }
+
+
+            zenName = zenName.Replace(".zen", "").Replace(".ZEN", "") +  "_" + time + ".ZEN";
+
+            saveFileDialog1.FileName = zenName;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+
+                string filePath = saveFileDialog1.FileName;
+              
+
+
+                if (saveFileDialog1.FilterIndex == 2)
+                {
+                    //filePath = filePath.Replace(".zen", "") + "_vobs.zen";
+                }
+
+
+                IntPtr filePathPtr = Marshal.StringToHGlobalAnsi(filePath);
+
+                Stopwatch s = new Stopwatch();
+                s.Start();
+
+               
+
+
+                UnionNET.form.AddText(zenName + " сохраняется...");
+
+                Extern_SaveWorld(filePathPtr, saveFileDialog1.FilterIndex - 1);
+
+                s.Stop();
+
+                string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
+                UnionNET.form.AddText("Сохранение ZEN выполнено за (" + timeSpend + ")");
+
+                Marshal.FreeHGlobal(filePathPtr);
+            }
         }
     }
 }

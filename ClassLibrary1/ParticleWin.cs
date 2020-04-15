@@ -25,6 +25,16 @@ namespace SpacerUnion
         public static extern void Extern_CreatePFX(IntPtr name);
 
 
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_CreateNewVob(IntPtr name, IntPtr vobName);
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_ConnectWP();
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_DisconnectWP();
+
+
         [DllExport]
         public static void AddPacticleToList(IntPtr ptr)
         {
@@ -40,6 +50,8 @@ namespace SpacerUnion
             //UnionNET.partWin.listBoxParticles.Sorted = true;
             ListBox lstBox = UnionNET.partWin.listBoxParticles;
             Utils.SortListBox(lstBox);
+
+            UnionNET.partWin.groupBox1.Text += ", всего: " + UnionNET.partWin.listBoxParticles.Items.Count;
         }
 
         [DllExport]
@@ -56,6 +68,8 @@ namespace SpacerUnion
         {
             //UnionNET.partWin.listBoxItems.Sorted = true;
             Utils.SortListBox(UnionNET.partWin.listBoxItems);
+
+            UnionNET.partWin.groupBox2.Text += ", всего: " + UnionNET.partWin.listBoxItems.Items.Count;
         }
 
         private void ParticleWin_FormClosing(object sender, FormClosingEventArgs e)
@@ -130,6 +144,132 @@ namespace SpacerUnion
             Marshal.FreeHGlobal(PfxName);
 
             UnionNET.form.Focus();
+        }
+
+        public static void FindClass(TreeNodeCollection nodes, string baseClass, string name)
+        {
+            for (int i = 0; i < nodes.Count; i++)
+            {
+                if (nodes[i].Text == baseClass)
+                {
+                    nodes[i].Nodes.Add(name);
+                    return;
+                }
+
+                FindClass(nodes[i].Nodes, baseClass, name);
+            }
+        }
+
+        [DllExport]
+        public static void AddClassNode(IntPtr ptr, int depth, IntPtr ptrB)
+        {
+            string name = Marshal.PtrToStringAnsi(ptr);
+            string baseClassName = Marshal.PtrToStringAnsi(ptrB);
+            TreeNodeCollection nodes = UnionNET.partWin.classesTreeView.Nodes;
+            if (name == baseClassName)
+            {
+                nodes.Add(name);
+                return;
+            }
+            FindClass(nodes, baseClassName, name);
+
+            UnionNET.partWin.classesTreeView.ExpandAll();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (classesTreeView.SelectedNode == null)
+            {
+                return;
+            }
+
+            string name = classesTreeView.SelectedNode.Text;
+            string vobName = textBoxVobName.Text.Trim();
+
+            Console.WriteLine("OnCreateVob: ClassDef: " + name);
+
+            if (name == "oCItem")
+            {
+                MessageBox.Show("Итемы создаются в окне правее!");
+                return;
+            }
+
+            textBoxVobName.Text = "";
+
+            IntPtr ptrName = Marshal.StringToHGlobalAnsi(name);
+            IntPtr ptrVobName = Marshal.StringToHGlobalAnsi(vobName);
+
+            Extern_CreateNewVob(ptrName, ptrVobName);
+            Marshal.FreeHGlobal(ptrName);
+        }
+
+        private void classesTreeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
+        {
+            if (e.Node == null) return;
+
+            // if treeview's HideSelection property is "True", 
+            // this will always returns "False" on unfocused treeview
+            var selected = (e.State & TreeNodeStates.Selected) == TreeNodeStates.Selected;
+            var unfocused = !e.Node.TreeView.Focused;
+
+            // we need to do owner drawing only on a selected node
+            // and when the treeview is unfocused, else let the OS do it for us
+            if (selected && unfocused)
+            {
+                var font = e.Node.NodeFont ?? e.Node.TreeView.Font;
+                e.Graphics.FillRectangle(SystemBrushes.Highlight, e.Bounds);
+                TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, SystemColors.HighlightText, TextFormatFlags.GlyphOverhangPadding);
+            }
+            else
+            {
+                e.DrawDefault = true;
+            }
+        }
+
+        private void buttonFP_Click(object sender, EventArgs e)
+        {
+
+            
+        }
+
+        private void buttonWP_Click(object sender, EventArgs e)
+        {
+            string name = "zCVobWaypoint";
+
+            string vobName = textBoxWP.Text.Trim();
+
+            Console.WriteLine("OnCreateVob: ClassDef: " + name);
+
+            IntPtr ptrName = Marshal.StringToHGlobalAnsi(name);
+            IntPtr ptrVobName = Marshal.StringToHGlobalAnsi(vobName);
+
+            Extern_CreateNewVob(ptrName, ptrVobName);
+            Marshal.FreeHGlobal(ptrName);
+        }
+
+        private void buttonFP_Click_1(object sender, EventArgs e)
+        {
+            string name = "zCVobSpot";
+
+            string vobName = textBoxFP.Text.Trim();
+
+            Console.WriteLine("OnCreateVob: ClassDef: " + name);
+
+            IntPtr ptrName = Marshal.StringToHGlobalAnsi(name);
+            IntPtr ptrVobName = Marshal.StringToHGlobalAnsi(vobName);
+
+            Extern_CreateNewVob(ptrName, ptrVobName);
+            Marshal.FreeHGlobal(ptrName);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Extern_ConnectWP();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Extern_DisconnectWP();
         }
     }
 }
