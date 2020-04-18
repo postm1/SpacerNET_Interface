@@ -135,7 +135,7 @@
     <Compile Include="VobListForm.Designer.cs">
       <DependentUpon>VobListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="zEngine\zCObject.cs" />
+    <Compile Include="zEngine\CProperty.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CompileLightWin.resx">

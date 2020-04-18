@@ -88,6 +88,7 @@
             this.Controls.Add(this.buttonExpand);
             this.Controls.Add(this.buttonCollapse);
             this.Controls.Add(this.globalTree);
+            this.DoubleBuffered = true;
             this.Name = "ObjTree";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -100,7 +101,7 @@
         #endregion
 
         public System.Windows.Forms.TreeView globalTree;
-        private System.Windows.Forms.ImageList imageList1;
+        public System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button buttonCollapse;
         private System.Windows.Forms.Button buttonExpand;
     }

@@ -58,7 +58,6 @@ namespace SpacerUnion
             vobList = new VobListForm();
             vobList.Owner = form;
 
-
             objWin = new ObjectsWindow();
             objWin.Owner = form;
 
@@ -124,7 +123,7 @@ namespace SpacerUnion
             //form.Enabled = true;
             form.menuStrip1.Enabled = true;
             //loadWin.Hide();
-            //objWin.Show();
+            objWin.Show();
             //vobList.Show();
             objTreeWin.Show();
             partWin.Show();
