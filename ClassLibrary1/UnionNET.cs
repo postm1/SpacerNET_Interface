@@ -19,8 +19,6 @@ namespace SpacerUnion
 
         public static InfoWin infoWin;
 
-        public static LoadWindow loadWin;
-
         public static CompileLightWin comLightWin;
         public static ObjTree objTreeWin;
         public static ParticleWin partWin;
@@ -61,9 +59,6 @@ namespace SpacerUnion
             objWin = new ObjectsWindow();
             objWin.Owner = form;
 
-
-            loadWin = new LoadWindow();
-            loadWin.Owner = form;
 
 
             infoWin = new InfoWin();

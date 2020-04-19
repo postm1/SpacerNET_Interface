@@ -160,8 +160,8 @@ namespace SpacerUnion
                         if (parentNode == null)
                         {
                             noParentCount++;
-                            Console.WriteLine("Parent node is null. ParentAddr: " + entry.parent 
-                                + " Child: " + entry.name + " Parent: " + parentResult.parentEntry.name);
+                            //Console.WriteLine("Parent node is null. ParentAddr: " + entry.parent 
+                              //  + " Child: " + entry.name + " Parent: " + parentResult.parentEntry.name);
                             return;
                         }
 

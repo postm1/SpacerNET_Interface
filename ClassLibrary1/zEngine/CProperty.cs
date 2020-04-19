@@ -33,6 +33,7 @@ namespace SpacerUnion.zEngine
         public List<string> enumArray = new List<string>();
         public TreeNode node;
         public TreeNode ownNode;
+        public static string originalStr;
 
         public CProperty()
         {
@@ -41,6 +42,26 @@ namespace SpacerUnion.zEngine
             backup_value = "";
             oldValueInit = false;
             value = "";
+        }
+
+        public string GetNameType()
+        {
+            string result = "";
+
+            switch (type)
+            {
+                case TPropEditType.PETbool: result = "bool"; break;
+                case TPropEditType.PETint: result = "int"; break;
+                case TPropEditType.PETfloat: result = "float"; break;
+                case TPropEditType.PETenum: result = "enum"; break;
+                case TPropEditType.PETstring: result = "string"; break;
+                case TPropEditType.PETvec3: result = "vec"; break;
+                case TPropEditType.PETraw: result = "rawfloat"; break;
+            }
+
+
+
+            return result;
         }
 
         public string ShowValue()
@@ -58,7 +79,7 @@ namespace SpacerUnion.zEngine
 
                 Int32.TryParse(value, out index);
 
-                Console.WriteLine("Get Enum with index {0}. Result is {1} Value is {2}", index, enumArray[index], value);
+                //Console.WriteLine("Get Enum with index {0}. Result is {1} Value is {2}", index, enumArray[index], value);
                 result = enumArray[index];
 
             }

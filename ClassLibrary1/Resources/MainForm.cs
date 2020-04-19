@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -250,12 +251,14 @@ namespace SpacerUnion
 
             string zenName = currentWorldName.Replace(".zen", "").Replace(".ZEN", "");
             string time = DateTime.Now.ToString("yyyy_MM_dd HH-mm-ss");
-            int lastPos = zenName.Length - 1;
 
-            if (zenName[lastPos - 2] == '-' && zenName[lastPos - 5] == '-' && zenName[lastPos - 8] == ' '
-                && zenName[lastPos - 11] == '_' && zenName[lastPos - 14] == '_')
+
+
+            var match = Regex.Match(zenName, @"(^.*)_\d\d\d\d_\d\d_\d\d\s\d\d-\d\d-\d\d");
+
+            if (match.Groups.Count > 1)
             {
-                zenName = zenName.Substring(0, lastPos - 19);
+                zenName = match.Groups[1].Value;
 
             }
 
@@ -295,6 +298,30 @@ namespace SpacerUnion
                 UnionNET.form.AddText("Сохранение ZEN выполнено за (" + timeSpend + ")");
 
                 Marshal.FreeHGlobal(filePathPtr);
+            }
+        }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+            if (UnionNET.objTreeWin.Visible)
+            {
+                UnionNET.objTreeWin.Hide();
+            }
+            else
+            {
+                UnionNET.objTreeWin.Show();
+            }
+        }
+
+        private void toolStripButton8_Click(object sender, EventArgs e)
+        {
+            if (UnionNET.objWin.Visible)
+            {
+                UnionNET.objWin.Hide();
+            }
+            else
+            {
+                UnionNET.objWin.Show();
             }
         }
     }

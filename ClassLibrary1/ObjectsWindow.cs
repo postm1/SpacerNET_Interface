@@ -7,12 +7,19 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace SpacerUnion
 {
     public partial class ObjectsWindow : Form
     {
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_ApplyProps(IntPtr propStr);
+
+
+
         static List<CProperty> props = new List<CProperty>();
         static Dictionary<string, FolderEntry> folders = new Dictionary<string, FolderEntry>();
         static string currentFolderName;
@@ -57,7 +64,12 @@ namespace SpacerUnion
             TreeNode firstNode = tree.Nodes.Add(className + ": zCVob");
             firstNode.Tag = "folder";
 
+            CProperty.originalStr = name;
+
             string[] words = name.Replace("\t", "").Split('\n');
+
+            // сохраняем нетронутую строку
+           
 
             for (int i = 0; i < words.Length; i++)
             {
@@ -322,10 +334,47 @@ namespace SpacerUnion
 
         private void buttonApply_Click(object sender, EventArgs e)
         {
-
+            
             // блокируем кнопку Применить
             changed = false;
             buttonApply.Enabled = false;
+
+            StringBuilder str = new StringBuilder();
+
+           
+
+            string[] words = CProperty.originalStr.Replace("\t", "").Split('\n');
+
+            //Console.WriteLine("Original: {0}", CProperty.originalStr);
+
+            for (int j = 0; j < words.Length; j++)
+            {
+                if (words[j].Length == 0)
+                {
+                    continue;
+                }
+                
+                for (int i = 0; i < props.Count; i++)
+                {
+                    if (Regex.IsMatch(words[j], "^" + props[i].Name + @"=\w", RegexOptions.IgnoreCase))
+                    {
+                        string baseStr = words[j].Substring(0, words[j].IndexOf(':') + 1) + props[i].value;
+                        //Console.WriteLine(baseStr);
+                        words[j] = baseStr;
+                    }
+                }
+                
+            }
+
+            for (int j = 0; j < words.Length; j++)
+            {
+                str.Append(words[j] + "\n");
+            }
+
+            IntPtr ptr = Marshal.StringToHGlobalAnsi(str.ToString());
+
+            Extern_ApplyProps(ptr);
+            Marshal.FreeHGlobal(ptr);
         }
 
         public void HideAllInput()
@@ -418,7 +467,7 @@ namespace SpacerUnion
                 if (index >= 0)
                 {
 
-                    Console.WriteLine("Change entry with index: " + index);
+                    //Console.WriteLine("Change entry with index: " + index);
                     CProperty prop = props[index];
 
                     prop.value = textBox.Text.Trim();

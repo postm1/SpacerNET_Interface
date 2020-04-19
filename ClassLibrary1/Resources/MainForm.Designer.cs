@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openZENToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьZENToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mFCГовноToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.граттToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,8 +56,9 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.сохранитьZENToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -96,6 +98,13 @@
             this.openZENToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.openZENToolStripMenuItem.Text = "Открыть ZEN";
             this.openZENToolStripMenuItem.Click += new System.EventHandler(this.openZENToolStripMenuItem_Click);
+            // 
+            // сохранитьZENToolStripMenuItem
+            // 
+            this.сохранитьZENToolStripMenuItem.Name = "сохранитьZENToolStripMenuItem";
+            this.сохранитьZENToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.сохранитьZENToolStripMenuItem.Text = "Сохранить ZEN";
+            this.сохранитьZENToolStripMenuItem.Click += new System.EventHandler(this.сохранитьZENToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem
             // 
@@ -201,6 +210,8 @@
             this.toolStripButton1,
             this.toolStripButton5,
             this.toolStripButton6,
+            this.toolStripButton7,
+            this.toolStripButton8,
             this.toolStripSeparator1,
             this.toolStripSeparator3,
             this.toolStripButton4,
@@ -299,12 +310,25 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // сохранитьZENToolStripMenuItem
+            // toolStripButton7
             // 
-            this.сохранитьZENToolStripMenuItem.Name = "сохранитьZENToolStripMenuItem";
-            this.сохранитьZENToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.сохранитьZENToolStripMenuItem.Text = "Сохранить ZEN";
-            this.сохранитьZENToolStripMenuItem.Click += new System.EventHandler(this.сохранитьZENToolStripMenuItem_Click);
+            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
+            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton7.Text = "toolStripButton7";
+            this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
+            // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
+            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton8.Text = "toolStripButton8";
+            this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
             // 
             // MainForm
             // 
@@ -362,5 +386,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem сохранитьZENToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.ToolStripButton toolStripButton8;
     }
 }
