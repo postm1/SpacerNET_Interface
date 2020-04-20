@@ -79,13 +79,14 @@ namespace SpacerUnion
             TreeEntry entry = globalEntries
                     .Where(pair => pair.zCVob == parentId)
                     .Select(pair => pair)
-                    .First();
+                    .FirstOrDefault();
 
-            ParentResult result = new ParentResult();
+            ParentResult result = null;
 
 
             if (entry != null)
             {
+                result = new ParentResult();
                // Console.WriteLine("Parent found " + entry.zCVob);
                 result.isCompo = entry.isLevel;
                 result.node = entry.node;
@@ -331,7 +332,7 @@ namespace SpacerUnion
           
 
 
-            Console.WriteLine("OnVobInsert: " + name + " parent: " + parent);
+            Console.WriteLine("OnVobInsert: " + name + " parent: " + parent + " className: " + className);
 
             int classNameFoundPos = -1;
 
@@ -346,17 +347,46 @@ namespace SpacerUnion
             entry.isLevel = entry.className == "zCVobLevelCompo";
             globalEntries.Add(entry);
 
+
+            ParentResult parentResult = GetParentResult(parent);
+
+
             if (parent == 0)
             {
-                TreeNode node = nodes[classNameFoundPos].Nodes.Add(name);
+                TreeNode node = nodes[classNameFoundPos].Nodes.Add(name + " global");
                 node.Tag = vob;
                 entry.node = node;
                 ApplyNodeImage(className, node, true);
                 UnionNET.objTreeWin.globalTree.SelectedNode = node;
+
+                Console.WriteLine("OnVobInsert: Parent was compoLevel...Insert globally");
             }
             else
             {
 
+                if (parentResult != null)
+                {
+                    if (parentResult.node != null)
+                    {
+                        TreeNode node = null;
+
+                        if (parentResult.parentEntry.isLevel)
+                        {
+                            node = nodes[classNameFoundPos].Nodes.Add(name + " compo");
+                        }
+                        else
+                        {
+                            node = parentResult.node.Nodes.Add(name + " " + parent);
+                        }
+                       
+                        node.Tag = vob;
+                        entry.node = node;
+                        ApplyNodeImage(className, node, true);
+                        UnionNET.objTreeWin.globalTree.SelectedNode = node;
+
+                        Console.WriteLine("OnVobInsert: Insert in parent node " + parent);
+                    }
+                }
             }
         }
 

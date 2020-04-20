@@ -47,14 +47,26 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxFP = new System.Windows.Forms.TextBox();
             this.buttonFP = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxWP = new System.Windows.Forms.TextBox();
             this.buttonWP = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.checkBoxDyn = new System.Windows.Forms.CheckBox();
+            this.checkBoxStat = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.buttonSend = new System.Windows.Forms.Button();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -62,8 +74,10 @@
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -195,7 +209,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(374, 358);
+            this.tabControl1.Size = new System.Drawing.Size(439, 358);
             this.tabControl1.TabIndex = 4;
             // 
             // tabPage3
@@ -232,9 +246,18 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button4);
+            this.tabPage4.Controls.Add(this.label6);
+            this.tabPage4.Controls.Add(this.listBox3);
+            this.tabPage4.Controls.Add(this.groupBox6);
+            this.tabPage4.Controls.Add(this.label5);
+            this.tabPage4.Controls.Add(this.listBox2);
+            this.tabPage4.Controls.Add(this.buttonSend);
+            this.tabPage4.Controls.Add(this.listBox1);
+            this.tabPage4.Controls.Add(this.groupBox5);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(366, 332);
+            this.tabPage4.Size = new System.Drawing.Size(431, 332);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Триггеры";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -265,6 +288,26 @@
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Ключевые точки";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(6, 141);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(344, 30);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Разъединить WP";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(6, 107);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(344, 30);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Соединить WP";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label2
             // 
@@ -320,31 +363,132 @@
             this.buttonWP.UseVisualStyleBackColor = true;
             this.buttonWP.Click += new System.EventHandler(this.buttonWP_Click);
             // 
-            // button2
+            // groupBox5
             // 
-            this.button2.Location = new System.Drawing.Point(6, 107);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(344, 30);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Соединить WP";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.groupBox5.Controls.Add(this.label4);
+            this.groupBox5.Controls.Add(this.checkBoxStat);
+            this.groupBox5.Controls.Add(this.checkBoxDyn);
+            this.groupBox5.Location = new System.Drawing.Point(3, 3);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(227, 73);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Выбранный воб";
             // 
-            // button3
+            // checkBoxDyn
             // 
-            this.button3.Location = new System.Drawing.Point(6, 141);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(344, 30);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Разъединить WP";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.checkBoxDyn.AutoSize = true;
+            this.checkBoxDyn.Location = new System.Drawing.Point(71, 50);
+            this.checkBoxDyn.Name = "checkBoxDyn";
+            this.checkBoxDyn.Size = new System.Drawing.Size(72, 17);
+            this.checkBoxDyn.TabIndex = 0;
+            this.checkBoxDyn.Text = "динамич.";
+            this.checkBoxDyn.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxStat
+            // 
+            this.checkBoxStat.AutoSize = true;
+            this.checkBoxStat.Location = new System.Drawing.Point(149, 49);
+            this.checkBoxStat.Name = "checkBoxStat";
+            this.checkBoxStat.Size = new System.Drawing.Size(62, 17);
+            this.checkBoxStat.TabIndex = 1;
+            this.checkBoxStat.Text = "статич.";
+            this.checkBoxStat.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Коллизия:";
+            // 
+            // listBox1
+            // 
+            this.listBox1.DisplayMember = "TRIGGER";
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Items.AddRange(new object[] {
+            "DAMAGE",
+            "TOUCH",
+            "TOUCHLEVEL",
+            "TRIGGER",
+            "UNTOUCH",
+            "UNTRIGGER"});
+            this.listBox1.Location = new System.Drawing.Point(3, 99);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 95);
+            this.listBox1.Sorted = true;
+            this.listBox1.TabIndex = 1;
+            this.listBox1.ValueMember = "TRIGGER";
+            // 
+            // buttonSend
+            // 
+            this.buttonSend.Location = new System.Drawing.Point(129, 99);
+            this.buttonSend.Name = "buttonSend";
+            this.buttonSend.Size = new System.Drawing.Size(101, 23);
+            this.buttonSend.TabIndex = 2;
+            this.buttonSend.Text = "Запустить >>>";
+            this.buttonSend.UseVisualStyleBackColor = true;
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(236, 99);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(191, 95);
+            this.listBox2.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(236, 80);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Цели (targets)";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Location = new System.Drawing.Point(236, 3);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(191, 73);
+            this.groupBox6.TabIndex = 3;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Ключи";
+            // 
+            // listBox3
+            // 
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.Location = new System.Drawing.Point(236, 230);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(191, 95);
+            this.listBox3.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(234, 210);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(107, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Источники (sources)";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(344, 205);
+            this.button4.Margin = new System.Windows.Forms.Padding(0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(83, 22);
+            this.button4.TabIndex = 7;
+            this.button4.Text = "Собрать";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // ParticleWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 364);
+            this.ClientSize = new System.Drawing.Size(446, 364);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -363,9 +507,13 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -399,5 +547,17 @@
         private System.Windows.Forms.Button buttonFP;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox checkBoxStat;
+        private System.Windows.Forms.CheckBox checkBoxDyn;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Button buttonSend;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ListBox listBox3;
     }
 }
