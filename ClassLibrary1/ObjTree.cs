@@ -372,11 +372,11 @@ namespace SpacerUnion
 
                         if (parentResult.parentEntry.isLevel)
                         {
-                            node = nodes[classNameFoundPos].Nodes.Add(name + " compo");
+                            node = nodes[classNameFoundPos].Nodes.Add(name);
                         }
                         else
                         {
-                            node = parentResult.node.Nodes.Add(name + " " + parent);
+                            node = parentResult.node.Nodes.Add(name);
                         }
                        
                         node.Tag = vob;
@@ -384,7 +384,7 @@ namespace SpacerUnion
                         ApplyNodeImage(className, node, true);
                         UnionNET.objTreeWin.globalTree.SelectedNode = node;
 
-                        Console.WriteLine("OnVobInsert: Insert in parent node " + parent);
+                        Console.WriteLine("OnVobInsert: Insert in parent: " + parent);
                     }
                 }
             }

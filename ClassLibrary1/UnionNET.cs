@@ -149,6 +149,23 @@ namespace SpacerUnion
             return (int)form.renderTarget.Handle;
         }
 
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        static extern IntPtr GetForegroundWindow();
+
+        [DllExport]
+        public static int IsAppActive()
+        {
+            var handle = GetForegroundWindow();
+
+            for (int i = 0; i < windowsList.Count; i++)
+            {
+                if (windowsList[i].Handle == handle || handle == form.Handle || handle == form.renderTarget.Handle)
+                {
+                    return 1;
+                }
+            }
+            return 0;
+        }
 
         [DllExport]
         public static int GetMainWinHandler()
