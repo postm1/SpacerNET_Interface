@@ -30,6 +30,15 @@ namespace SpacerUnion
             public string folderName;
             public string className;
             public bool isLevel;
+            public TreeEntry parentEntry;
+            public List<TreeEntry> childs;
+            public bool toDelete;
+            public TreeEntry()
+            {
+                parentEntry = null;
+                childs = new List<TreeEntry>();
+                toDelete = false;
+            }
 
         }
 
@@ -240,7 +249,7 @@ namespace SpacerUnion
         [DllExport]
         public static void OnSelectVob(int ptr)
         {
-            Console.WriteLine("OnSelectVob: " + ptr);
+            //Console.WriteLine("C# OnSelectVob: " + ptr);
 
             if (ptr == 0)
             {
@@ -263,7 +272,7 @@ namespace SpacerUnion
 
                     if (node == null)
                     {
-                        Console.WriteLine("OnSelectVob addr " + ptr + ", node is null, index is " + i);
+                        Console.WriteLine("C#: OnSelectVob addr " + ptr + ", node is null, index is " + i);
                     }
                     else
                     {
@@ -278,13 +287,35 @@ namespace SpacerUnion
         }
 
 
+        public static void RemoveChildNodesRecursive(TreeEntry entry)
+        {
+            for (int i = 0; i < entry.childs.Count; i++)
+            {
+                RemoveChildNodesRecursive(entry.childs[i]);
+            }
+
+            if (entry.node != null)
+            {
+                Console.WriteLine("C#: Remove node: " + entry.node.Text + " Parent: " + entry.parent);
+                entry.node.Remove();
+            }
+            else
+            {
+                Console.WriteLine("C#: Remove node failure. Node is null");
+            }
+
+            entry.childs.Clear();
+            entry.toDelete = true;
+            entry.node = null;
+        }
         [DllExport]
         public static void OnVobRemove(int vob)
         {
             TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
 
-            Console.WriteLine("OnVobRemove: " + vob);
-
+            Console.WriteLine("=============================");
+            Console.WriteLine("C#: OnVobRemove: " + vob);
+            Console.WriteLine("GlobalEntries count: " + globalEntries.Count);
 
             if (vob == 0)
             {
@@ -293,32 +324,25 @@ namespace SpacerUnion
 
 
             List<TreeEntry> entries = globalEntries
-                    .Where(pair => pair.zCVob == vob || pair.parent == vob)
+                    .Where(pair => pair.zCVob == vob)
                     .ToList();
+
+
+            //Console.WriteLine("Found entries with Vob value: " + entries.Count);
 
             if (entries.Count > 0)
             {
+                TreeEntry entry = entries[0];
 
-                for (int i = 0; i < entries.Count; i++)
-                {
-                    if (entries[i].node != null)
-                    {
-                        Console.WriteLine("Remove node: " + entries[i].node.Text);
-                        entries[i].node.Remove();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Remove node... already is NULL");
-                    }
-                }
+                RemoveChildNodesRecursive(entry);
+
+                globalEntries = globalEntries
+                        .Where(pair => !pair.toDelete)
+                        .ToList();
             }
 
-            globalEntries = globalEntries
-                    .Where(pair => pair.zCVob != vob || pair.parent != vob)
-                    .ToList();
-
-
-
+            Console.WriteLine("GlobalEntries count: " + globalEntries.Count);
+            Console.WriteLine("=============================");
         }
 
         [DllExport]
@@ -329,10 +353,7 @@ namespace SpacerUnion
 
             TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
 
-          
-
-
-            Console.WriteLine("OnVobInsert: " + name + " parent: " + parent + " className: " + className);
+           
 
             int classNameFoundPos = -1;
 
@@ -348,18 +369,30 @@ namespace SpacerUnion
             globalEntries.Add(entry);
 
 
+            for (int i = 0; i < globalEntries.Count; i++)
+            {
+                if (globalEntries[i].zCVob == entry.parent)
+                {
+                    //Console.WriteLine("Add parent");
+
+                    entry.parentEntry = globalEntries[i];
+                    globalEntries[i].childs.Add(entry);
+                    break;
+                }
+            }
+
+
             ParentResult parentResult = GetParentResult(parent);
 
 
             if (parent == 0)
             {
-                TreeNode node = nodes[classNameFoundPos].Nodes.Add(name + " global");
+                TreeNode node = nodes[classNameFoundPos].Nodes.Add(name);
                 node.Tag = vob;
                 entry.node = node;
                 ApplyNodeImage(className, node, true);
                 UnionNET.objTreeWin.globalTree.SelectedNode = node;
-
-                Console.WriteLine("OnVobInsert: Parent was compoLevel...Insert globally");
+                Console.WriteLine("C# OnVobInsert globally: " + name + " parent: " + parent + " className: " + className);
             }
             else
             {
@@ -373,10 +406,12 @@ namespace SpacerUnion
                         if (parentResult.parentEntry.isLevel)
                         {
                             node = nodes[classNameFoundPos].Nodes.Add(name);
+                            Console.WriteLine("C# OnVobInsert: " + name + " parent: " + parentResult.parentEntry.name + " " + parent + " (Compo)");
                         }
                         else
                         {
                             node = parentResult.node.Nodes.Add(name);
+                            Console.WriteLine("C# OnVobInsert: " + name + " parent: " + parentResult.parentEntry.name  + " " + parent + " (Node)");
                         }
                        
                         node.Tag = vob;
@@ -384,8 +419,15 @@ namespace SpacerUnion
                         ApplyNodeImage(className, node, true);
                         UnionNET.objTreeWin.globalTree.SelectedNode = node;
 
-                        Console.WriteLine("OnVobInsert: Insert in parent: " + parent);
                     }
+                    else
+                    {
+                        Console.WriteLine("C# OnVobInsert: parentResult.Node is null");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("C# OnVobInsert: parentResult is null");
                 }
             }
         }
@@ -395,7 +437,6 @@ namespace SpacerUnion
         {
             string name = Marshal.PtrToStringAnsi(ptr);
             string className = Marshal.PtrToStringAnsi(classNamePtr);
-
             TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
 
 
@@ -404,7 +445,6 @@ namespace SpacerUnion
                 Console.WriteLine("Ignoring EDITOR_CAMERA_VOB");
                 return;
             }
-
 
             TreeEntry entry = new TreeEntry();
 
@@ -415,32 +455,17 @@ namespace SpacerUnion
             entry.isLevel = entry.className == "zCVobLevelCompo";
             globalEntries.Add(entry);
 
-           // Console.WriteLine(name + " has classname: " + className);
-            /*
-
-            if (globalNodes.ContainsValue(parent))
+            for (int i = 0; i < globalEntries.Count; i++)
             {
-                TreeNode existNode = globalNodes.Where(pair => pair.Value == parent)
-                    .Select(pair => pair.Key)
-                    .First();
+                if (globalEntries[i].zCVob == entry.parent)
+                {
+                    //Console.WriteLine("Add parent");
 
-                if (existNode != null)
-                {
-                    existNode.Nodes.Add(name);
-                }
-                else
-                {
-                    Console.WriteLine("No parent found");
+                    entry.parentEntry = globalEntries[i];
+                    globalEntries[i].childs.Add(entry);
+                    break;
                 }
             }
-            else
-            {
-                node = nodes.Add(name);
-                globalNodes.Add(node, parent);
-            }
-            */
-
-
         }
 
 
@@ -504,12 +529,12 @@ namespace SpacerUnion
 
             string tag = node.Tag.ToString();
 
-            Console.WriteLine("OnSelectDoubleClick: " + tag);
+            Console.WriteLine("C#: OnSelectDoubleClick: " + tag);
 
 
             if (tag.Length == 0 || tag == TAG_FOLDER)
             {
-                Console.WriteLine("No select for: " + tag);
+                Console.WriteLine("C#: No select for: " + tag);
                 return;
             }
 
@@ -525,11 +550,11 @@ namespace SpacerUnion
 
             string tag = node.Tag.ToString();
 
-            Console.WriteLine("OnSelectVobSync: " + tag);
+            Console.WriteLine("C#: AfterSelect event: " + tag);
 
             if (tag.Length == 0 || tag == TAG_FOLDER)
             {
-                Console.WriteLine("No select for: " + tag);
+                Console.WriteLine("C#:  No select for: " + tag);
                 return;
             }
 

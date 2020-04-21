@@ -178,7 +178,7 @@ namespace SpacerUnion
         [DllExport]
         public static void HideWindows()
         {
-            Console.WriteLine("HideWindows");
+            //Console.WriteLine("HideWindows");
 
             if (windowsToHideList == null)
             {
@@ -210,7 +210,7 @@ namespace SpacerUnion
         [DllExport]
         public static void ShowWindows()
         {
-            Console.WriteLine("ShowWindows");
+            //Console.WriteLine("ShowWindows");
 
             for (int i = 0; i < windowsToHideList.Count; i++)
             {

@@ -53,13 +53,13 @@ namespace SpacerUnion
 
             tree.Nodes.Clear();
 
-            UnionNET.objWin.panelButtons.Visible = false;
 
 
             if (name.Length == 0)
             {
                 return;
             }
+            UnionNET.objWin.panelButtons.Enabled = false;
 
             TreeNode firstNode = tree.Nodes.Add(className + ": zCVob");
             firstNode.Tag = "folder";
@@ -226,8 +226,8 @@ namespace SpacerUnion
                     folders.ElementAt(j).Value.node.Collapse();
                 }
             }
-
-            UnionNET.objWin.panelButtons.Visible = true;
+            
+            //UnionNET.objWin.panelButtons.Visible = true;
 
             // tree.Nodes["Internals"].Collapse();
 
@@ -428,6 +428,8 @@ namespace SpacerUnion
                     buttonRestore.Enabled = true;
                 }
             }
+
+            UnionNET.objWin.panelButtons.Enabled = true;
         }
 
         private void textBoxString_KeyDown(object sender, KeyEventArgs e)
@@ -480,7 +482,7 @@ namespace SpacerUnion
             }
             else
             {
-                Console.WriteLine("Textbox change with null node");
+                Console.WriteLine("C#: Textbox change with null node");
             }
         }
 
@@ -511,7 +513,7 @@ namespace SpacerUnion
             }
             else
             {
-                Console.WriteLine("Restore with null node");
+                Console.WriteLine("C#: Restore with null node");
             }
         }
     }

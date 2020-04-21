@@ -4,15 +4,18 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace SpacerUnion
 {
     public partial class ParticleWin : Form
     {
+        public static List<string> listVisuals = new List<string>();
         public ParticleWin()
         {
             InitializeComponent();
@@ -26,7 +29,11 @@ namespace SpacerUnion
 
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_CreateNewVob(IntPtr name, IntPtr vobName);
+        public static extern void Extern_CreateNewVob(IntPtr name, IntPtr vobName, int dyn, int stat);
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_CreateNewVobVisual(IntPtr name, IntPtr vobName, IntPtr visual, int dyn, int stat);
+
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_ConnectWP();
@@ -43,7 +50,31 @@ namespace SpacerUnion
             UnionNET.partWin.listBoxParticles.Items.Add(name);
         }
 
-        
+
+        [DllExport]
+        public static void AddVisualToList(IntPtr ptr)
+        {
+            string name = Marshal.PtrToStringAnsi(ptr);
+
+
+            name = Path.GetFileName(name);
+
+            //UnionNET.partWin.listBoxVisuals.Items.Add(name);
+            ParticleWin.listVisuals.Add(name);
+
+        }
+
+
+        [DllExport]
+        public static void SortVisuals()
+        {
+            ParticleWin.listVisuals = ParticleWin.listVisuals.Distinct().ToList();
+            ParticleWin.listVisuals.Sort();
+
+            UnionNET.partWin.labelSearchVisual.Text = "Поиск визуала. Всего: " + listVisuals.Count;
+        }
+
+
         [DllExport]
         public static void SortPFX()
         {
@@ -105,7 +136,28 @@ namespace SpacerUnion
 
         private void textBoxItems_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+            if (e.KeyChar == (char)13)
+            {
+                string strToFind = textBoxItems.Text.Trim().ToUpper();
+
+                listBoxResult.Items.Clear();
+
+                if (strToFind.Length == 0)
+                {
+                    return;
+                }
+
+
+                for (int i = 0; i < listBoxItems.Items.Count; i++)
+                {
+                    string value = listBoxItems.GetItemText(listBoxItems.Items[i]);
+
+                    if (Regex.IsMatch(value, strToFind))
+                    {
+                        listBoxResult.Items.Add(value);
+                    }
+                }
+            }
         }
 
         private void textBoxItems_KeyDown(object sender, KeyEventArgs e)
@@ -115,16 +167,7 @@ namespace SpacerUnion
 
         private void textBoxItems_TextChanged(object sender, EventArgs e)
         {
-            string strToFind = textBoxItems.Text.Trim().ToUpper();
-
-            for (int i = 0; i < listBoxItems.Items.Count; i++)
-            {
-                if (listBoxItems.GetItemText(listBoxItems.Items[i]).Contains(strToFind))
-                {
-                    listBoxItems.SelectedIndex = i;
-                    break;
-                }
-            }
+           
         }
 
         private void buttonParticles_Click(object sender, EventArgs e)
@@ -174,6 +217,8 @@ namespace SpacerUnion
             FindClass(nodes, baseClassName, name);
 
             UnionNET.partWin.classesTreeView.ExpandAll();
+            UnionNET.partWin.classesTreeView.SelectedNode = UnionNET.partWin.classesTreeView.Nodes[0];
+            UnionNET.partWin.classesTreeView.SelectedNode.EnsureVisible();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -185,12 +230,21 @@ namespace SpacerUnion
 
             string name = classesTreeView.SelectedNode.Text;
             string vobName = textBoxVobName.Text.Trim();
+            string visualVob = "";
+            int isDyn = Convert.ToInt32(checkBoxDynStat.Checked);
+            int isStat = Convert.ToInt32(checkBoxStaStat.Checked);
 
-            Console.WriteLine("OnCreateVob: ClassDef: " + name);
+
+            if (listBoxVisuals.SelectedItem != null)
+            {
+                visualVob = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
+            }
+
+            Console.WriteLine("C#: OnCreateVob: ClassDef: " + name);
 
             if (name == "oCItem")
             {
-                MessageBox.Show("Итемы создаются в окне правее!");
+                MessageBox.Show("Итемы создаются во вкладке правее!");
                 return;
             }
 
@@ -198,8 +252,9 @@ namespace SpacerUnion
 
             IntPtr ptrName = Marshal.StringToHGlobalAnsi(name);
             IntPtr ptrVobName = Marshal.StringToHGlobalAnsi(vobName);
+            IntPtr ptrVisual= Marshal.StringToHGlobalAnsi(visualVob);
 
-            Extern_CreateNewVob(ptrName, ptrVobName);
+            Extern_CreateNewVobVisual(ptrName, ptrVobName, ptrVisual, isDyn, isStat);
             Marshal.FreeHGlobal(ptrName);
         }
 
@@ -238,12 +293,12 @@ namespace SpacerUnion
 
             string vobName = textBoxWP.Text.Trim();
 
-            Console.WriteLine("OnCreateVob: ClassDef: " + name);
+            Console.WriteLine("C#: OnCreateVob: ClassDef: " + name);
 
             IntPtr ptrName = Marshal.StringToHGlobalAnsi(name);
             IntPtr ptrVobName = Marshal.StringToHGlobalAnsi(vobName);
 
-            Extern_CreateNewVob(ptrName, ptrVobName);
+            Extern_CreateNewVob(ptrName, ptrVobName, 0, 0);
             Marshal.FreeHGlobal(ptrName);
         }
 
@@ -253,12 +308,12 @@ namespace SpacerUnion
 
             string vobName = textBoxFP.Text.Trim();
 
-            Console.WriteLine("OnCreateVob: ClassDef: " + name);
+            Console.WriteLine("C#: OnCreateVob: ClassDef: " + name);
 
             IntPtr ptrName = Marshal.StringToHGlobalAnsi(name);
             IntPtr ptrVobName = Marshal.StringToHGlobalAnsi(vobName);
 
-            Extern_CreateNewVob(ptrName, ptrVobName);
+            Extern_CreateNewVob(ptrName, ptrVobName, 0, 0);
             Marshal.FreeHGlobal(ptrName);
         }
 
@@ -270,6 +325,115 @@ namespace SpacerUnion
         private void button3_Click(object sender, EventArgs e)
         {
             Extern_DisconnectWP();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (listBoxResult.SelectedItem == null)
+            {
+                return;
+            }
+            string name = listBoxResult.GetItemText(listBoxResult.SelectedItem);
+
+            //Console.WriteLine("Create item: " + name);
+
+
+            UnionNET.infoWin.AddText("Создаю Item " + name);
+
+            IntPtr item_name = Marshal.StringToHGlobalAnsi(name);
+
+            Extern_CreateItem(item_name);
+            Marshal.FreeHGlobal(item_name);
+
+            UnionNET.form.Focus();
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxPfxReg_TextChanged(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (listBoxPfxResult.SelectedItem == null)
+            {
+                return;
+            }
+            string name = listBoxParticles.GetItemText(listBoxPfxResult.SelectedItem);
+
+
+            UnionNET.infoWin.AddText("Создаю PFX " + name);
+
+            IntPtr PfxName = Marshal.StringToHGlobalAnsi(name);
+
+            Extern_CreatePFX(PfxName);
+            Marshal.FreeHGlobal(PfxName);
+
+            UnionNET.form.Focus();
+        }
+
+        private void textBoxPfxReg_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                string strToFind = textBoxPfxReg.Text.Trim().ToUpper();
+
+                listBoxPfxResult.Items.Clear();
+
+                if (strToFind.Length == 0)
+                {
+                    return;
+                }
+
+
+                for (int i = 0; i < listBoxParticles.Items.Count; i++)
+                {
+                    string value = listBoxParticles.GetItemText(listBoxParticles.Items[i]);
+
+                    if (Regex.IsMatch(value, strToFind))
+                    {
+                        listBoxPfxResult.Items.Add(value);
+                    }
+                }
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
+        private void textBoxVisuals_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                string strToFind = textBoxVisuals.Text.Trim().ToUpper();
+
+                listBoxVisuals.Items.Clear();
+
+                if (strToFind.Length == 0)
+                {
+                    return;
+                }
+
+
+                for (int i = 0; i < listVisuals.Count; i++)
+                {
+
+                    if (Regex.IsMatch(listVisuals[i], strToFind))
+                    {
+                        listBoxVisuals.Items.Add(listVisuals[i]);
+                    }
+                }
+
+                
+            }
         }
     }
 }
