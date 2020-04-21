@@ -25,6 +25,7 @@ namespace SpacerUnion
         static string currentFolderName;
         static bool changed = false;
         static TPropEditType currentFieldtype;
+        static TreeNode showFirst;
         class FolderEntry
         {
             public string parent;
@@ -157,7 +158,7 @@ namespace SpacerUnion
             }
 
 
-           
+
 
             /*
             for (int i = 0; i < folders.Count; i++)
@@ -185,14 +186,16 @@ namespace SpacerUnion
                 }
                 */
 
-                //Console.WriteLine(folders.ElementAt(i).Key + ": " + folders.ElementAt(i).Value);
-            
+            //Console.WriteLine(folders.ElementAt(i).Key + ": " + folders.ElementAt(i).Value);
 
-            
+            showFirst = null;
+
+
             for (int i = 0; i < props.Count; i++)
             {
                 TreeNode baseNode = props[i].node;
 
+               
                 if (baseNode != null)
                 {
                     TreeNode node = baseNode.Nodes.Add(props[i].Name + ": " + props[i].ShowValue());
@@ -200,6 +203,11 @@ namespace SpacerUnion
                     node.ImageIndex = 4;
                     node.Tag = i;
                     props[i].ownNode = node;
+
+                    if (props[i].Name == "vobName")
+                    {
+                        showFirst = node;
+                    }
                 }
                 else
                 {
@@ -208,6 +216,11 @@ namespace SpacerUnion
                     node.ImageIndex = 4;
                     node.Tag = i;
                     props[i].ownNode = node;
+
+                    if (props[i].Name == "vobName")
+                    {
+                        showFirst = node;
+                    }
                 }
                     
                 
@@ -226,7 +239,13 @@ namespace SpacerUnion
                     folders.ElementAt(j).Value.node.Collapse();
                 }
             }
+
+            if (showFirst != null)
+            {
+                tree.SelectedNode = showFirst;
+            }
             
+
             //UnionNET.objWin.panelButtons.Visible = true;
 
             // tree.Nodes["Internals"].Collapse();
@@ -377,11 +396,22 @@ namespace SpacerUnion
             Marshal.FreeHGlobal(ptr);
         }
 
+        public void DisableTabBBox()
+        {
+            textBoxBbox0.Text = "";
+            textBoxBbox1.Text = "";
+            textBoxBbox2.Text = "";
+            EnableTab(tabControl1.TabPages[1], false);
+        }
+
         public void HideAllInput()
         {
             textBoxString.Visible = false;
             Label_Backup.Visible = false;
-            
+            textBoxVec0.Visible = false;
+            textBoxVec1.Visible = false;
+            textBoxVec2.Visible = false;
+            DisableTabBBox();
 
         }
         private void treeViewProp_AfterSelect(object sender, TreeViewEventArgs e)
@@ -420,12 +450,26 @@ namespace SpacerUnion
                         }
                     }
 
+                    if (prop.type == TPropEditType.PETvec3)
+                    {
+                        textBoxVec0.Visible = true;
+                        textBoxVec1.Visible = true;
+                        textBoxVec2.Visible = true;
+
+                        string[] arr = prop.value.Split(' ');
+
+                        textBoxVec0.Text = arr[0];
+                        textBoxVec1.Text = arr[1];
+                        textBoxVec2.Text = arr[2];
+                    }
+
 
                     currentFieldtype = prop.type;
 
                     Label_Backup.Text = "Старое значение: " + prop.ShowBackupValue();
                     Label_Backup.Visible = true;
                     buttonRestore.Enabled = true;
+                    buttonBbox.Enabled = true;
                 }
             }
 
@@ -504,7 +548,19 @@ namespace SpacerUnion
                     prop.value = prop.backup_value;
                     node.Text = prop.Name + ": " + prop.ShowValue();
 
-                    textBoxString.Text = prop.value;
+                    if (currentFieldtype == TPropEditType.PETvec3)
+                    {
+                        string[] arr = prop.value.Split(' ');
+
+                        textBoxVec0.Text = arr[0];
+                        textBoxVec1.Text = arr[1];
+                        textBoxVec2.Text = arr[2];
+                    }
+                    else
+                    {
+                        textBoxString.Text = prop.value;
+                    }
+                   
 
                     changed = true;
                     buttonApply.Enabled = true;
@@ -515,6 +571,195 @@ namespace SpacerUnion
             {
                 Console.WriteLine("C#: Restore with null node");
             }
+        }
+
+        private void textBoxVec0_TextChanged(object sender, EventArgs e)
+        {
+            TreeNode node = treeViewProp.SelectedNode;
+            TextBox textBox = sender as TextBox;
+            int index = 0;
+
+            if (node != null && node.Tag.ToString() != "folder")
+            {
+                int.TryParse(node.Tag.ToString(), out index);
+
+                if (index >= 0)
+                {
+
+                    //Console.WriteLine("Change entry with index: " + index);
+                    CProperty prop = props[index];
+
+                    prop.value = textBoxVec0.Text.Trim() + " " + textBoxVec1.Text.Trim() + " " + textBoxVec2.Text.Trim();
+                    node.Text = prop.Name + ": " + prop.ShowValue();
+
+                    changed = true;
+                    buttonApply.Enabled = true;
+                    buttonRestore.Enabled = true;
+                }
+            }
+            else
+            {
+                Console.WriteLine("C#: Textbox change with null node");
+            }
+        }
+
+        private void textBoxVec1_TextChanged(object sender, EventArgs e)
+        {
+            TreeNode node = treeViewProp.SelectedNode;
+            TextBox textBox = sender as TextBox;
+            int index = 0;
+
+            if (node != null && node.Tag.ToString() != "folder")
+            {
+                int.TryParse(node.Tag.ToString(), out index);
+
+                if (index >= 0)
+                {
+
+                    //Console.WriteLine("Change entry with index: " + index);
+                    CProperty prop = props[index];
+
+                    prop.value = textBoxVec0.Text.Trim() + " " + textBoxVec1.Text.Trim() + " " + textBoxVec2.Text.Trim();
+                    node.Text = prop.Name + ": " + prop.ShowValue();
+
+                    changed = true;
+                    buttonApply.Enabled = true;
+                    buttonRestore.Enabled = true;
+                }
+            }
+            else
+            {
+                Console.WriteLine("C#: Textbox change with null node");
+            }
+        }
+
+        private void textBoxVec2_TextChanged(object sender, EventArgs e)
+        {
+            TreeNode node = treeViewProp.SelectedNode;
+            TextBox textBox = sender as TextBox;
+            int index = 0;
+
+            if (node != null && node.Tag.ToString() != "folder")
+            {
+                int.TryParse(node.Tag.ToString(), out index);
+
+                if (index >= 0)
+                {
+
+                    //Console.WriteLine("Change entry with index: " + index);
+                    CProperty prop = props[index];
+
+                    prop.value = textBoxVec0.Text.Trim() + " " + textBoxVec1.Text.Trim() + " " + textBoxVec2.Text.Trim();
+                    node.Text = prop.Name + ": " + prop.ShowValue();
+
+                    changed = true;
+                    buttonApply.Enabled = true;
+                    buttonRestore.Enabled = true;
+                }
+            }
+            else
+            {
+                Console.WriteLine("C#: Textbox change with null node");
+            }
+        }
+
+        private void textBoxVec0_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+         (e.KeyChar != '.') && (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void buttonResetBbox_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectTab(0);
+            DisableTabBBox();
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+         (e.KeyChar != '.') && (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern float Extern_GetBBox(int coord);
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern float Extern_SetBBox(int x, int y, int z);
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            EnableTab(tabControl1.TabPages[1], true);
+
+            tabControl1.SelectTab(1);
+
+            textBoxBbox0.Text = Extern_GetBBox(0).ToString().Replace(',', '.');
+            textBoxBbox1.Text = Extern_GetBBox(1).ToString().Replace(',', '.');
+            textBoxBbox2.Text = Extern_GetBBox(2).ToString().Replace(',', '.');
+
+
+            //(Control)(tabControl1.TabPages[1]).Enable = true;
+        }
+
+        private void buttonApplyBbox_Click(object sender, EventArgs e)
+        {
+            int x, y, z;
+
+            int.TryParse(textBoxBbox0.Text.Trim(), out x);
+            int.TryParse(textBoxBbox1.Text.Trim(), out y);
+            int.TryParse(textBoxBbox2.Text.Trim(), out z);
+
+            Extern_SetBBox(x, y, z);
+
+            tabControl1.SelectTab(0);
+            DisableTabBBox();
+        }
+
+        public static void EnableTab(TabPage page, bool enable)
+        {
+            EnableControls(page.Controls, enable);
+        }
+        private static void EnableControls(Control.ControlCollection ctls, bool enable)
+        {
+            foreach (Control ctl in ctls)
+            {
+                ctl.Enabled = enable;
+                EnableControls(ctl.Controls, enable);
+            }
+        }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            if (UnionNET.objWin.treeViewProp.SelectedNode != null)
+            {
+                EnableTab(tabControl1.TabPages[1], true);
+
+                textBoxBbox0.Text = Extern_GetBBox(0).ToString().Replace(',', '.');
+                textBoxBbox1.Text = Extern_GetBBox(1).ToString().Replace(',', '.');
+                textBoxBbox2.Text = Extern_GetBBox(2).ToString().Replace(',', '.');
+            }
+           
         }
     }
 }
