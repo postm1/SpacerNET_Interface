@@ -25,6 +25,8 @@ namespace SpacerUnion
         public static SoundWin soundWin;
         public static InputBox inputBox;
 
+
+        public static SettingsCamera settingsCam;
         [STAThread]
         public static void StartDLL()
         {
@@ -84,13 +86,16 @@ namespace SpacerUnion
             comLightWin = new CompileLightWin();
             comLightWin.Owner = form;
 
+            settingsCam = new SettingsCamera();
+            settingsCam.Owner = form;
+
 
             form.Show();
             form.panel1.Show();
 
 
             infoWin.Show();
-            infoWin.Left = 405;
+            infoWin.Left = 505;
             infoWin.Top = 600;
 
 

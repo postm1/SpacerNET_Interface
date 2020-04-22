@@ -85,6 +85,12 @@
     <Compile Include="ParticleWin.Designer.cs">
       <DependentUpon>ParticleWin.cs</DependentUpon>
     </Compile>
+    <Compile Include="SettingsCamera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsCamera.Designer.cs">
+      <DependentUpon>SettingsCamera.cs</DependentUpon>
+    </Compile>
     <Compile Include="SoundWin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsCamera.resx">
+      <DependentUpon>SettingsCamera.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SoundWin.resx">
       <DependentUpon>SoundWin.cs</DependentUpon>

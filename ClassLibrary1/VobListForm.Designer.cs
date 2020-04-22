@@ -36,26 +36,6 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
-            "WP_OW_WAY_1 (zCWaypoint)",
-            "WP_OW_WAY_1 (zCWaypoint)",
-            "WP_OW_WAY_1 (zCWaypoint)",
-            "WP_OW_WAY_1 (zCWaypoint)",
-            "WP_OW_WAY_1 (zCWaypoint)",
-            "WP_OW_WAY_1 (zCWaypoint)",
-            "WP_OW_WAY_1 (zCWaypoint)",
-            "WP_OW_WAY_1 (zCWaypoint)",
-            "WP_OW_WAY_1 (zCWaypoint)",
-            "WP_OW_WAY_1 (zCWaypoint)",
-            "WP_OW_WAY_1 (zCWaypoint)",
-            "WP_OW_WAY_1 (zCWaypoint)",
-            "WP_OW_WAY_1 (zCWaypoint)",
-            "WP_OW_WAY_1 (zCWaypoint)",
-            "WP_OW_WAY_1 (zCWaypoint)",
-            "WP_OW_WAY_1 (zCWaypoint)",
-            "WP_OW_WAY_1 (zCWaypoint)",
-            "WP_OW_WAY_1 (zCWaypoint)",
-            "WP_OW_WAY_1 (zCWaypoint)"});
             this.listBox1.Location = new System.Drawing.Point(6, 33);
             this.listBox1.Name = "listBox1";
             this.listBox1.ScrollAlwaysVisible = true;

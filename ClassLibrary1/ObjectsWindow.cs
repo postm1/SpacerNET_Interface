@@ -588,13 +588,15 @@ namespace SpacerUnion
 
                     //Console.WriteLine("Change entry with index: " + index);
                     CProperty prop = props[index];
-
+                    
                     prop.value = textBoxVec0.Text.Trim() + " " + textBoxVec1.Text.Trim() + " " + textBoxVec2.Text.Trim();
                     node.Text = prop.Name + ": " + prop.ShowValue();
 
                     changed = true;
                     buttonApply.Enabled = true;
                     buttonRestore.Enabled = true;
+  
+                    
                 }
             }
             else

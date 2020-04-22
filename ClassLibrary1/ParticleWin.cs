@@ -10,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static SpacerUnion.ObjTree;
 
 namespace SpacerUnion
 {
@@ -29,7 +30,16 @@ namespace SpacerUnion
 
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern bool Extern_VobNameExist(IntPtr name, bool isWaypoint);
+        
+
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_CreateNewVob(IntPtr name, IntPtr vobName, int dyn, int stat);
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_CreateWaypoint(IntPtr name, IntPtr vobName, bool addToWaynet);
+
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_CreateNewVobVisual(IntPtr name, IntPtr vobName, IntPtr visual, int dyn, int stat);
@@ -242,9 +252,9 @@ namespace SpacerUnion
 
             Console.WriteLine("C#: OnCreateVob: ClassDef: " + name);
 
-            if (name == "oCItem")
+            if (name == "oCItem" || name == "zCVobWaypoint" || name == "zCVobSpot")
             {
-                MessageBox.Show("Итемы создаются во вкладке правее!");
+                MessageBox.Show("Данный тип воба создается в отдельной вкладке справа!");
                 return;
             }
 
@@ -287,19 +297,55 @@ namespace SpacerUnion
             
         }
 
+        [DllExport]
+        public static void HotKey_AddWaypoint()
+        {
+            UnionNET.partWin.buttonWP.PerformClick();
+        }
+
         private void buttonWP_Click(object sender, EventArgs e)
         {
             string name = "zCVobWaypoint";
-
             string vobName = textBoxWP.Text.Trim();
+            bool addToNet = checkBoxWayNet.Checked;
+
+            if (vobName.Length == 0)
+            {
+                MessageBox.Show("Нельзя ввести пустое имя!");
+                return;
+            }
+
+            IntPtr ptrVobNameCheck = Marshal.StringToHGlobalAnsi(vobName);
+
+            bool nameFound = Extern_VobNameExist(ptrVobNameCheck, true);
+
+            if (nameFound)
+            {
+                MessageBox.Show("Такое имя уже существует");
+                return;
+            }
+
 
             Console.WriteLine("C#: OnCreateVob: ClassDef: " + name);
 
             IntPtr ptrName = Marshal.StringToHGlobalAnsi(name);
             IntPtr ptrVobName = Marshal.StringToHGlobalAnsi(vobName);
 
-            Extern_CreateNewVob(ptrName, ptrVobName, 0, 0);
+            Extern_CreateWaypoint(ptrName, ptrVobName, addToNet);
             Marshal.FreeHGlobal(ptrName);
+
+
+            if (vobName.Contains("_"))
+            {
+                string strNumber = Regex.Match(vobName, @"_\d+$").Value.Replace("_", "");
+                string strName = Regex.Match(vobName, @"^.*_").Value.Replace("_", "");
+
+                int number;
+                int.TryParse(strNumber, out number);
+                number++;
+                textBoxWP.Text = strName + "_" + number.ToString();
+            }
+            
         }
 
         private void buttonFP_Click_1(object sender, EventArgs e)
@@ -307,6 +353,22 @@ namespace SpacerUnion
             string name = "zCVobSpot";
 
             string vobName = textBoxFP.Text.Trim();
+
+            if (vobName.Length == 0)
+            {
+                MessageBox.Show("Нельзя ввести пустое имя!");
+                return;
+            }
+
+
+            IntPtr ptrVobNameCheck = Marshal.StringToHGlobalAnsi(vobName);
+
+            bool nameFound = Extern_VobNameExist(ptrVobNameCheck, false);
+            if (nameFound)
+            {
+                MessageBox.Show("Такое имя уже существует");
+                return;
+            }
 
             Console.WriteLine("C#: OnCreateVob: ClassDef: " + name);
 

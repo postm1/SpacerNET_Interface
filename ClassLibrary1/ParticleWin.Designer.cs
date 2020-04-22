@@ -45,6 +45,8 @@
             this.listBoxItems = new System.Windows.Forms.ListBox();
             this.buttonItems = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBoxStaStat = new System.Windows.Forms.CheckBox();
+            this.checkBoxDynStat = new System.Windows.Forms.CheckBox();
             this.pictureBoxPreview = new System.Windows.Forms.PictureBox();
             this.listBoxVisuals = new System.Windows.Forms.ListBox();
             this.labelSearchVisual = new System.Windows.Forms.Label();
@@ -80,8 +82,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxWP = new System.Windows.Forms.TextBox();
             this.buttonWP = new System.Windows.Forms.Button();
-            this.checkBoxDynStat = new System.Windows.Forms.CheckBox();
-            this.checkBoxStaStat = new System.Windows.Forms.CheckBox();
+            this.checkBoxWayNet = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -276,6 +277,28 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Все классы вобов";
+            // 
+            // checkBoxStaStat
+            // 
+            this.checkBoxStaStat.AutoSize = true;
+            this.checkBoxStaStat.Location = new System.Drawing.Point(291, 116);
+            this.checkBoxStaStat.Name = "checkBoxStaStat";
+            this.checkBoxStaStat.Size = new System.Drawing.Size(147, 17);
+            this.checkBoxStaStat.TabIndex = 11;
+            this.checkBoxStaStat.Text = "Статическая коллизиця";
+            this.checkBoxStaStat.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxDynStat
+            // 
+            this.checkBoxDynStat.AutoSize = true;
+            this.checkBoxDynStat.Checked = true;
+            this.checkBoxDynStat.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDynStat.Location = new System.Drawing.Point(291, 99);
+            this.checkBoxDynStat.Name = "checkBoxDynStat";
+            this.checkBoxDynStat.Size = new System.Drawing.Size(159, 17);
+            this.checkBoxDynStat.TabIndex = 10;
+            this.checkBoxDynStat.Text = "Динамическая коллизиця";
+            this.checkBoxDynStat.UseVisualStyleBackColor = true;
             // 
             // pictureBoxPreview
             // 
@@ -545,6 +568,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.checkBoxWayNet);
             this.groupBox4.Controls.Add(this.button3);
             this.groupBox4.Controls.Add(this.button2);
             this.groupBox4.Controls.Add(this.label2);
@@ -562,7 +586,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(6, 141);
+            this.button3.Location = new System.Drawing.Point(6, 166);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(344, 30);
             this.button3.TabIndex = 11;
@@ -572,7 +596,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(6, 107);
+            this.button2.Location = new System.Drawing.Point(6, 132);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(344, 30);
             this.button2.TabIndex = 10;
@@ -583,14 +607,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
             this.label2.Location = new System.Drawing.Point(8, 219);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 13);
+            this.label2.Size = new System.Drawing.Size(150, 13);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Имя (обязательно)";
+            this.label2.Text = "Имя Freepoint (обязательно)";
             // 
             // textBoxFP
             // 
+            this.textBoxFP.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxFP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxFP.Location = new System.Drawing.Point(7, 242);
             this.textBoxFP.Name = "textBoxFP";
@@ -610,14 +637,17 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
             this.label3.Location = new System.Drawing.Point(8, 25);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 13);
+            this.label3.Size = new System.Drawing.Size(151, 13);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Имя (обязательно)";
+            this.label3.Text = "Имя Waypoint (обязательно)";
             // 
             // textBoxWP
             // 
+            this.textBoxWP.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxWP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxWP.Location = new System.Drawing.Point(7, 45);
             this.textBoxWP.Name = "textBoxWP";
@@ -626,7 +656,7 @@
             // 
             // buttonWP
             // 
-            this.buttonWP.Location = new System.Drawing.Point(7, 73);
+            this.buttonWP.Location = new System.Drawing.Point(7, 98);
             this.buttonWP.Name = "buttonWP";
             this.buttonWP.Size = new System.Drawing.Size(344, 30);
             this.buttonWP.TabIndex = 3;
@@ -634,27 +664,17 @@
             this.buttonWP.UseVisualStyleBackColor = true;
             this.buttonWP.Click += new System.EventHandler(this.buttonWP_Click);
             // 
-            // checkBoxDynStat
+            // checkBoxWayNet
             // 
-            this.checkBoxDynStat.AutoSize = true;
-            this.checkBoxDynStat.Checked = true;
-            this.checkBoxDynStat.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxDynStat.Location = new System.Drawing.Point(291, 99);
-            this.checkBoxDynStat.Name = "checkBoxDynStat";
-            this.checkBoxDynStat.Size = new System.Drawing.Size(159, 17);
-            this.checkBoxDynStat.TabIndex = 10;
-            this.checkBoxDynStat.Text = "Динамическая коллизиця";
-            this.checkBoxDynStat.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxStaStat
-            // 
-            this.checkBoxStaStat.AutoSize = true;
-            this.checkBoxStaStat.Location = new System.Drawing.Point(291, 116);
-            this.checkBoxStaStat.Name = "checkBoxStaStat";
-            this.checkBoxStaStat.Size = new System.Drawing.Size(147, 17);
-            this.checkBoxStaStat.TabIndex = 11;
-            this.checkBoxStaStat.Text = "Статическая коллизиця";
-            this.checkBoxStaStat.UseVisualStyleBackColor = true;
+            this.checkBoxWayNet.AutoSize = true;
+            this.checkBoxWayNet.Checked = true;
+            this.checkBoxWayNet.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxWayNet.Location = new System.Drawing.Point(9, 75);
+            this.checkBoxWayNet.Name = "checkBoxWayNet";
+            this.checkBoxWayNet.Size = new System.Drawing.Size(268, 17);
+            this.checkBoxWayNet.TabIndex = 12;
+            this.checkBoxWayNet.Text = "Сразу соединять в сеть с текущим вейпоинтом";
+            this.checkBoxWayNet.UseVisualStyleBackColor = true;
             // 
             // ParticleWin
             // 
@@ -748,5 +768,6 @@
         private System.Windows.Forms.PictureBox pictureBoxPreview;
         private System.Windows.Forms.CheckBox checkBoxStaStat;
         private System.Windows.Forms.CheckBox checkBoxDynStat;
+        private System.Windows.Forms.CheckBox checkBoxWayNet;
     }
 }

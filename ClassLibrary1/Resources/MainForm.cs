@@ -20,6 +20,11 @@ namespace SpacerUnion
         ShowVobs,
         ShowWaynet,
         ShowHelpVobs,
+        CompileLight,
+        CamTrans,
+        CamRot,
+        RangeVobs,
+        RangeWorld
     };
     public partial class MainForm : Form
     {
@@ -61,14 +66,42 @@ namespace SpacerUnion
         [DllImport("SpacerUnionNet.dll", CharSet=CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_LoadWorld(IntPtr str);
 
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr Extern_GetOpenPath();
+
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SetOpenPath(IntPtr str);
+
         private void openZENToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFileDialog1.Filter = "Zen files (*.zen)|";
-            openFileDialog1.InitialDirectory = Directory.GetCurrentDirectory() + "../WORK/DATA/Worlds/";
+
+            IntPtr ptrPath = Extern_GetOpenPath();
+            string path = Marshal.PtrToStringAnsi(ptrPath);
+
+            //MessageBox.Show(path);
+
+            if (path != "")
+            {
+                //MessageBox.Show(path);
+                openFileDialog1.InitialDirectory = System.IO.Path.GetDirectoryName(@path + @"/");
+            }
+            else
+            {
+                openFileDialog1.InitialDirectory = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/Worlds/";
+            }
+
+            openFileDialog1.RestoreDirectory = true;
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-              
+
+                IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(openFileDialog1.FileName));
+
+                Extern_SetOpenPath(ptrPathSave);
+
 
                 string filePath = openFileDialog1.FileName;
 
@@ -246,7 +279,12 @@ namespace SpacerUnion
             }
 
             saveFileDialog1.Filter = "Compiled ZEN (ascii)|*.zen|Uncompiled ZEN (ascii)|*.zen|Compiled ZEN (binary safe)|*.zen";
-            saveFileDialog1.InitialDirectory = Directory.GetCurrentDirectory() + "../WORK/DATA/Worlds/";
+            saveFileDialog1.InitialDirectory = Directory.GetCurrentDirectory() + "../_WORK/DATA/Worlds/";
+
+
+
+
+
 
 
             string zenName = currentWorldName.Replace(".zen", "").Replace(".ZEN", "");
@@ -269,6 +307,13 @@ namespace SpacerUnion
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
+
+
+
+                IntPtr ptrPath = Marshal.StringToHGlobalAnsi(System.IO.Path.GetDirectoryName(saveFileDialog1.FileName));
+
+                Extern_SetOpenPath(ptrPath);
+
 
                 string filePath = saveFileDialog1.FileName;
               
@@ -323,6 +368,37 @@ namespace SpacerUnion
             {
                 UnionNET.objWin.Show();
             }
+        }
+
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int Extern_GetSetting(int type);
+
+
+        private void камераToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int transSpeed = Extern_GetSetting((int)CmdType.CamTrans);
+            int rotSpeed = Extern_GetSetting((int)CmdType.CamRot);
+
+            int world = Extern_GetSetting((int)CmdType.RangeWorld);
+            int vob = Extern_GetSetting((int)CmdType.RangeVobs);
+
+
+            UnionNET.settingsCam.trackBarTransSpeed.Value = transSpeed;
+            UnionNET.settingsCam.trackBarRotSpeed.Value = rotSpeed;
+
+            UnionNET.settingsCam.trackBarWorld.Value = world;
+            UnionNET.settingsCam.trackBarVobs.Value = vob;
+
+            UnionNET.settingsCam.UpdateAll();
+
+            UnionNET.settingsCam.Show();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Extern_Exit();
+            e.Cancel = true;
         }
     }
 }
