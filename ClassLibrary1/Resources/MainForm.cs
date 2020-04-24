@@ -26,7 +26,10 @@ namespace SpacerUnion
         RangeVobs,
         RangeWorld,
         ZenPath,
-        TreeVobPath
+        TreeVobPath,
+        MeshPath,
+        VobsPath,
+        ShowBBox
     };
     public partial class MainForm : Form
     {
@@ -61,7 +64,8 @@ namespace SpacerUnion
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_SetOpenPath(IntPtr str, int type);
 
-
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_ResetWorld();
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -420,7 +424,7 @@ namespace SpacerUnion
         {
             openFileDialog1.Filter = "Mesh-File (*.3ds)|*.3ds|All Files(*.*)|*.*||";
 
-            IntPtr ptrPath = Extern_GetOpenPath((int)CmdType.ZenPath);
+            IntPtr ptrPath = Extern_GetOpenPath((int)CmdType.MeshPath);
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
             //MessageBox.Show(path);
@@ -432,7 +436,7 @@ namespace SpacerUnion
             }
             else
             {
-                openFileDialog1.InitialDirectory = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/Worlds/";
+                openFileDialog1.InitialDirectory = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/";
             }
 
             openFileDialog1.RestoreDirectory = true;
@@ -442,7 +446,7 @@ namespace SpacerUnion
 
                 IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(openFileDialog1.FileName));
 
-                Extern_SetOpenPath(ptrPathSave, (int)CmdType.ZenPath);
+                Extern_SetOpenPath(ptrPathSave, (int)CmdType.MeshPath);
 
 
                 string filePath = openFileDialog1.FileName;
@@ -475,7 +479,7 @@ namespace SpacerUnion
         {
             openFileDialog1.Filter = "World (*.Zen)|*.zen|All Files(*.*)|*.*||";
 
-            IntPtr ptrPath = Extern_GetOpenPath((int)CmdType.ZenPath);
+            IntPtr ptrPath = Extern_GetOpenPath((int)CmdType.VobsPath);
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
             //MessageBox.Show(path);
@@ -497,7 +501,7 @@ namespace SpacerUnion
 
                 IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(openFileDialog1.FileName));
 
-                Extern_SetOpenPath(ptrPathSave, (int)CmdType.ZenPath);
+                Extern_SetOpenPath(ptrPathSave, (int)CmdType.VobsPath);
 
 
                 string filePath = openFileDialog1.FileName;
@@ -526,6 +530,25 @@ namespace SpacerUnion
             }
         }
 
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            ResetInterface();
+            Extern_ResetWorld();
+            
+        }
 
+        private void компиляцияМираToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UnionNET.compWorldWin.Show();
+        }
+
+        private void toolStripButtonBBox_Click(object sender, EventArgs e)
+        {
+            ToolStripButton item = sender as ToolStripButton;
+
+            item.Checked = !item.Checked;
+
+            Extern_SetValue((int)CmdType.ShowBBox, Convert.ToInt32(item.Checked));
+        }
     }
 }

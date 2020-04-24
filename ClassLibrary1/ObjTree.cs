@@ -38,7 +38,8 @@ namespace SpacerUnion
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_BlockMouse(bool disable);
 
-
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_RemoveVob(int vob);
 
         const string TAG_FOLDER = "folder";
 
@@ -596,6 +597,16 @@ namespace SpacerUnion
                 return;
             }
 
+            TreeNode node = globalTree.SelectedNode;
+
+            string tag = node.Tag.ToString();
+
+            if (tag.Length == 0 || tag == TAG_FOLDER)
+            {
+                return;
+            }
+
+
             saveFileDialogVobTree.Filter = "Zen file (*.zen)|";
             IntPtr ptrPath = Extern_GetOpenPath((int)CmdType.TreeVobPath);
             string path = Marshal.PtrToStringAnsi(ptrPath);
@@ -615,7 +626,7 @@ namespace SpacerUnion
             }
 
             saveFileDialogVobTree.RestoreDirectory = true;
-            saveFileDialogVobTree.FileName = fileName + ".zen";
+            saveFileDialogVobTree.FileName = fileName + ".ZEN";
 
             //Extern_BlockMouse(true);
 
@@ -736,6 +747,35 @@ namespace SpacerUnion
                 Marshal.FreeHGlobal(ptrPathSave);
                 Marshal.FreeHGlobal(filePathPtr);
             }
+        }
+
+        private void удалитьВобToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (globalTree.SelectedNode == null)
+            {
+                return;
+            }
+
+            TreeNode node = globalTree.SelectedNode;
+
+            string tag = node.Tag.ToString();
+
+            if (tag.Length == 0 || tag == TAG_FOLDER)
+            {
+                return;
+            }
+
+            int vob = 0;
+
+            int.TryParse(tag, out vob);
+
+            Extern_RemoveVob(vob);
+
+        }
+
+        private void globalTree_NodeMouseClick_1(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            globalTree.SelectedNode = e.Node;
         }
     }
 }

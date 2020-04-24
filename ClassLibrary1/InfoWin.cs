@@ -31,5 +31,11 @@ namespace SpacerUnion
             Hide();
             e.Cancel = true;
         }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionStart = richTextBox1.Text.Length;
+            richTextBox1.ScrollToCaret();
+        }
     }
 }

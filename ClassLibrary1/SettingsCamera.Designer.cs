@@ -38,6 +38,7 @@
             this.trackBarWorld = new System.Windows.Forms.TrackBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Применить = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRotSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobs)).BeginInit();
@@ -154,11 +155,22 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Прорисовка";
             // 
+            // Применить
+            // 
+            this.Применить.Location = new System.Drawing.Point(101, 307);
+            this.Применить.Name = "Применить";
+            this.Применить.Size = new System.Drawing.Size(115, 23);
+            this.Применить.TabIndex = 10;
+            this.Применить.Text = "Применить";
+            this.Применить.UseVisualStyleBackColor = true;
+            this.Применить.Click += new System.EventHandler(this.Применить_Click);
+            // 
             // SettingsCamera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(331, 311);
+            this.ClientSize = new System.Drawing.Size(331, 342);
+            this.Controls.Add(this.Применить);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.DoubleBuffered = true;
@@ -194,5 +206,6 @@
         public System.Windows.Forms.TrackBar trackBarRotSpeed;
         public System.Windows.Forms.TrackBar trackBarVobs;
         public System.Windows.Forms.TrackBar trackBarWorld;
+        private System.Windows.Forms.Button Применить;
     }
 }

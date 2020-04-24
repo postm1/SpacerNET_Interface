@@ -60,5 +60,10 @@ namespace SpacerUnion
             labelVobs.Text = "Вобы: " + trackBarVobs.Value;
             Extern_SetSetting((int)CmdType.RangeVobs, trackBarVobs.Value);
         }
+
+        private void Применить_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

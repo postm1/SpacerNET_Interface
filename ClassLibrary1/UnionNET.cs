@@ -24,6 +24,7 @@ namespace SpacerUnion
         public static ParticleWin partWin;
         public static SoundWin soundWin;
         public static InputBox inputBox;
+        public static CompileWorldWin compWorldWin;
 
 
         public static SettingsCamera settingsCam;
@@ -89,13 +90,15 @@ namespace SpacerUnion
             settingsCam = new SettingsCamera();
             settingsCam.Owner = form;
 
+            compWorldWin = new CompileWorldWin();
+            compWorldWin.Owner = form;
 
             form.Show();
             form.panel1.Show();
 
 
             infoWin.Show();
-            infoWin.Left = 505;
+            infoWin.Left = 600;
             infoWin.Top = 600;
 
 
@@ -127,6 +130,7 @@ namespace SpacerUnion
             //vobList.Show();
             objTreeWin.Show();
             partWin.Show();
+
             //soundWin.Show();
 
 
