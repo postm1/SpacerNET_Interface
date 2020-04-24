@@ -24,7 +24,9 @@ namespace SpacerUnion
         CamTrans,
         CamRot,
         RangeVobs,
-        RangeWorld
+        RangeWorld,
+        ZenPath,
+        TreeVobPath
     };
     public partial class MainForm : Form
     {
@@ -38,6 +40,28 @@ namespace SpacerUnion
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_Exit();
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_OpenVobTree(IntPtr str, bool globalInsert);
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_LoadWorld(IntPtr str);
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_LoadMesh(IntPtr str);
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_MergeZen(IntPtr str);
+
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr Extern_GetOpenPath(int type);
+
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SetOpenPath(IntPtr str, int type);
+
+
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -63,22 +87,13 @@ namespace SpacerUnion
             renderTarget.Show();
         }
 
-        [DllImport("SpacerUnionNet.dll", CharSet=CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_LoadWorld(IntPtr str);
-
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr Extern_GetOpenPath();
-
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SetOpenPath(IntPtr str);
+       
 
         private void openZENToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFileDialog1.Filter = "Zen files (*.zen)|";
 
-            IntPtr ptrPath = Extern_GetOpenPath();
+            IntPtr ptrPath = Extern_GetOpenPath((int)CmdType.ZenPath);
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
             //MessageBox.Show(path);
@@ -100,7 +115,7 @@ namespace SpacerUnion
 
                 IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(openFileDialog1.FileName));
 
-                Extern_SetOpenPath(ptrPathSave);
+                Extern_SetOpenPath(ptrPathSave, (int)CmdType.ZenPath);
 
 
                 string filePath = openFileDialog1.FileName;
@@ -312,7 +327,7 @@ namespace SpacerUnion
 
                 IntPtr ptrPath = Marshal.StringToHGlobalAnsi(System.IO.Path.GetDirectoryName(saveFileDialog1.FileName));
 
-                Extern_SetOpenPath(ptrPath);
+                Extern_SetOpenPath(ptrPath, (int)CmdType.ZenPath);
 
 
                 string filePath = saveFileDialog1.FileName;
@@ -400,5 +415,117 @@ namespace SpacerUnion
             Extern_Exit();
             e.Cancel = true;
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "Mesh-File (*.3ds)|*.3ds|All Files(*.*)|*.*||";
+
+            IntPtr ptrPath = Extern_GetOpenPath((int)CmdType.ZenPath);
+            string path = Marshal.PtrToStringAnsi(ptrPath);
+
+            //MessageBox.Show(path);
+
+            if (path != "")
+            {
+                //MessageBox.Show(path);
+                openFileDialog1.InitialDirectory = System.IO.Path.GetDirectoryName(@path + @"/");
+            }
+            else
+            {
+                openFileDialog1.InitialDirectory = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/Worlds/";
+            }
+
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+
+                IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(openFileDialog1.FileName));
+
+                Extern_SetOpenPath(ptrPathSave, (int)CmdType.ZenPath);
+
+
+                string filePath = openFileDialog1.FileName;
+
+                this.Text = "Spacer.NET " + openFileDialog1.SafeFileName;
+
+                IntPtr filePathPtr = Marshal.StringToHGlobalAnsi(filePath);
+
+                Stopwatch s = new Stopwatch();
+                s.Start();
+
+                ResetInterface();
+
+                UnionNET.form.AddText(openFileDialog1.SafeFileName + " загружается...");
+
+                currentWorldName = openFileDialog1.SafeFileName;
+
+                Extern_LoadMesh(filePathPtr);
+
+                s.Stop();
+
+                string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
+                UnionNET.form.AddText("Загрузка MESH выполнена за (" + timeSpend + ")");
+
+                Marshal.FreeHGlobal(filePathPtr);
+            }
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "World (*.Zen)|*.zen|All Files(*.*)|*.*||";
+
+            IntPtr ptrPath = Extern_GetOpenPath((int)CmdType.ZenPath);
+            string path = Marshal.PtrToStringAnsi(ptrPath);
+
+            //MessageBox.Show(path);
+
+            if (path != "")
+            {
+                //MessageBox.Show(path);
+                openFileDialog1.InitialDirectory = System.IO.Path.GetDirectoryName(@path + @"/");
+            }
+            else
+            {
+                openFileDialog1.InitialDirectory = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/Worlds/";
+            }
+
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+
+                IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(openFileDialog1.FileName));
+
+                Extern_SetOpenPath(ptrPathSave, (int)CmdType.ZenPath);
+
+
+                string filePath = openFileDialog1.FileName;
+
+                this.Text = "Spacer.NET " + openFileDialog1.SafeFileName;
+
+                IntPtr filePathPtr = Marshal.StringToHGlobalAnsi(filePath);
+
+                Stopwatch s = new Stopwatch();
+                s.Start();
+
+                ResetInterface();
+
+                UnionNET.form.AddText(openFileDialog1.SafeFileName + " загружается...");
+
+                currentWorldName = openFileDialog1.SafeFileName;
+
+                Extern_MergeZen(filePathPtr);
+
+                s.Stop();
+
+                string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
+                UnionNET.form.AddText("Объединение ZEN выполнено за (" + timeSpend + ")");
+
+                Marshal.FreeHGlobal(filePathPtr);
+            }
+        }
+
+
     }
 }

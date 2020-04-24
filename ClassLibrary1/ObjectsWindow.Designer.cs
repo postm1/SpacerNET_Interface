@@ -31,6 +31,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panelButtons = new System.Windows.Forms.Panel();
+            this.textBoxVec2 = new System.Windows.Forms.TextBox();
+            this.textBoxVec1 = new System.Windows.Forms.TextBox();
+            this.textBoxVec0 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonRestore = new System.Windows.Forms.Button();
             this.textBoxString = new System.Windows.Forms.TextBox();
@@ -38,19 +41,16 @@
             this.Label_Backup = new System.Windows.Forms.Label();
             this.buttonApply = new System.Windows.Forms.Button();
             this.treeViewProp = new System.Windows.Forms.TreeView();
-            this.textBoxVec0 = new System.Windows.Forms.TextBox();
-            this.textBoxVec1 = new System.Windows.Forms.TextBox();
-            this.textBoxVec2 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.buttonResetBbox = new System.Windows.Forms.Button();
-            this.buttonApplyBbox = new System.Windows.Forms.Button();
-            this.textBoxBbox0 = new System.Windows.Forms.TextBox();
-            this.textBoxBbox1 = new System.Windows.Forms.TextBox();
-            this.textBoxBbox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxBbox2 = new System.Windows.Forms.TextBox();
+            this.textBoxBbox1 = new System.Windows.Forms.TextBox();
+            this.textBoxBbox0 = new System.Windows.Forms.TextBox();
+            this.buttonApplyBbox = new System.Windows.Forms.Button();
+            this.buttonResetBbox = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panelButtons.SuspendLayout();
@@ -71,8 +71,8 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.panelButtons);
             this.tabPage1.Controls.Add(this.treeViewProp);
+            this.tabPage1.Controls.Add(this.panelButtons);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -98,6 +98,36 @@
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.Size = new System.Drawing.Size(284, 106);
             this.panelButtons.TabIndex = 6;
+            // 
+            // textBoxVec2
+            // 
+            this.textBoxVec2.Location = new System.Drawing.Point(190, 20);
+            this.textBoxVec2.Name = "textBoxVec2";
+            this.textBoxVec2.Size = new System.Drawing.Size(75, 20);
+            this.textBoxVec2.TabIndex = 10;
+            this.textBoxVec2.Visible = false;
+            this.textBoxVec2.TextChanged += new System.EventHandler(this.textBoxVec2_TextChanged);
+            this.textBoxVec2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVec0_KeyPress);
+            // 
+            // textBoxVec1
+            // 
+            this.textBoxVec1.Location = new System.Drawing.Point(96, 20);
+            this.textBoxVec1.Name = "textBoxVec1";
+            this.textBoxVec1.Size = new System.Drawing.Size(75, 20);
+            this.textBoxVec1.TabIndex = 9;
+            this.textBoxVec1.Visible = false;
+            this.textBoxVec1.TextChanged += new System.EventHandler(this.textBoxVec1_TextChanged);
+            this.textBoxVec1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVec0_KeyPress);
+            // 
+            // textBoxVec0
+            // 
+            this.textBoxVec0.Location = new System.Drawing.Point(6, 20);
+            this.textBoxVec0.Name = "textBoxVec0";
+            this.textBoxVec0.Size = new System.Drawing.Size(75, 20);
+            this.textBoxVec0.TabIndex = 8;
+            this.textBoxVec0.Visible = false;
+            this.textBoxVec0.TextChanged += new System.EventHandler(this.textBoxVec0_TextChanged);
+            this.textBoxVec0.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVec0_KeyPress);
             // 
             // button1
             // 
@@ -174,36 +204,6 @@
             this.treeViewProp.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewProp_AfterSelect);
             this.treeViewProp.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewProp_NodeMouseDoubleClick);
             // 
-            // textBoxVec0
-            // 
-            this.textBoxVec0.Location = new System.Drawing.Point(6, 20);
-            this.textBoxVec0.Name = "textBoxVec0";
-            this.textBoxVec0.Size = new System.Drawing.Size(75, 20);
-            this.textBoxVec0.TabIndex = 8;
-            this.textBoxVec0.Visible = false;
-            this.textBoxVec0.TextChanged += new System.EventHandler(this.textBoxVec0_TextChanged);
-            this.textBoxVec0.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVec0_KeyPress);
-            // 
-            // textBoxVec1
-            // 
-            this.textBoxVec1.Location = new System.Drawing.Point(96, 20);
-            this.textBoxVec1.Name = "textBoxVec1";
-            this.textBoxVec1.Size = new System.Drawing.Size(75, 20);
-            this.textBoxVec1.TabIndex = 9;
-            this.textBoxVec1.Visible = false;
-            this.textBoxVec1.TextChanged += new System.EventHandler(this.textBoxVec1_TextChanged);
-            this.textBoxVec1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVec0_KeyPress);
-            // 
-            // textBoxVec2
-            // 
-            this.textBoxVec2.Location = new System.Drawing.Point(190, 20);
-            this.textBoxVec2.Name = "textBoxVec2";
-            this.textBoxVec2.Size = new System.Drawing.Size(75, 20);
-            this.textBoxVec2.TabIndex = 10;
-            this.textBoxVec2.Visible = false;
-            this.textBoxVec2.TextChanged += new System.EventHandler(this.textBoxVec2_TextChanged);
-            this.textBoxVec2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVec0_KeyPress);
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.label4);
@@ -222,69 +222,15 @@
             this.tabPage2.Text = "BBox";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // buttonResetBbox
+            // label4
             // 
-            this.buttonResetBbox.Location = new System.Drawing.Point(42, 154);
-            this.buttonResetBbox.Name = "buttonResetBbox";
-            this.buttonResetBbox.Size = new System.Drawing.Size(104, 23);
-            this.buttonResetBbox.TabIndex = 0;
-            this.buttonResetBbox.Text = "Отмена";
-            this.buttonResetBbox.UseVisualStyleBackColor = true;
-            this.buttonResetBbox.Click += new System.EventHandler(this.buttonResetBbox_Click);
-            // 
-            // buttonApplyBbox
-            // 
-            this.buttonApplyBbox.Location = new System.Drawing.Point(152, 154);
-            this.buttonApplyBbox.Name = "buttonApplyBbox";
-            this.buttonApplyBbox.Size = new System.Drawing.Size(102, 23);
-            this.buttonApplyBbox.TabIndex = 1;
-            this.buttonApplyBbox.Text = "Применить";
-            this.buttonApplyBbox.UseVisualStyleBackColor = true;
-            this.buttonApplyBbox.Click += new System.EventHandler(this.buttonApplyBbox_Click);
-            // 
-            // textBoxBbox0
-            // 
-            this.textBoxBbox0.Location = new System.Drawing.Point(42, 40);
-            this.textBoxBbox0.Name = "textBoxBbox0";
-            this.textBoxBbox0.Size = new System.Drawing.Size(212, 20);
-            this.textBoxBbox0.TabIndex = 2;
-            this.textBoxBbox0.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
-            // 
-            // textBoxBbox1
-            // 
-            this.textBoxBbox1.Location = new System.Drawing.Point(42, 79);
-            this.textBoxBbox1.Name = "textBoxBbox1";
-            this.textBoxBbox1.Size = new System.Drawing.Size(212, 20);
-            this.textBoxBbox1.TabIndex = 3;
-            this.textBoxBbox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
-            // 
-            // textBoxBbox2
-            // 
-            this.textBoxBbox2.Location = new System.Drawing.Point(42, 119);
-            this.textBoxBbox2.Name = "textBoxBbox2";
-            this.textBoxBbox2.Size = new System.Drawing.Size(212, 20);
-            this.textBoxBbox2.TabIndex = 4;
-            this.textBoxBbox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(22, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(15, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "X";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(22, 82);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(15, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Y";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(102, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Размер bbox";
             // 
             // label3
             // 
@@ -296,15 +242,69 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Z";
             // 
-            // label4
+            // label2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(102, 15);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Размер bbox";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(22, 82);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(15, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Y";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(22, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(15, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "X";
+            // 
+            // textBoxBbox2
+            // 
+            this.textBoxBbox2.Location = new System.Drawing.Point(42, 119);
+            this.textBoxBbox2.Name = "textBoxBbox2";
+            this.textBoxBbox2.Size = new System.Drawing.Size(212, 20);
+            this.textBoxBbox2.TabIndex = 4;
+            this.textBoxBbox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
+            // textBoxBbox1
+            // 
+            this.textBoxBbox1.Location = new System.Drawing.Point(42, 79);
+            this.textBoxBbox1.Name = "textBoxBbox1";
+            this.textBoxBbox1.Size = new System.Drawing.Size(212, 20);
+            this.textBoxBbox1.TabIndex = 3;
+            this.textBoxBbox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
+            // textBoxBbox0
+            // 
+            this.textBoxBbox0.Location = new System.Drawing.Point(42, 40);
+            this.textBoxBbox0.Name = "textBoxBbox0";
+            this.textBoxBbox0.Size = new System.Drawing.Size(212, 20);
+            this.textBoxBbox0.TabIndex = 2;
+            this.textBoxBbox0.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
+            // buttonApplyBbox
+            // 
+            this.buttonApplyBbox.Location = new System.Drawing.Point(152, 154);
+            this.buttonApplyBbox.Name = "buttonApplyBbox";
+            this.buttonApplyBbox.Size = new System.Drawing.Size(102, 23);
+            this.buttonApplyBbox.TabIndex = 1;
+            this.buttonApplyBbox.Text = "Применить";
+            this.buttonApplyBbox.UseVisualStyleBackColor = true;
+            this.buttonApplyBbox.Click += new System.EventHandler(this.buttonApplyBbox_Click);
+            // 
+            // buttonResetBbox
+            // 
+            this.buttonResetBbox.Location = new System.Drawing.Point(42, 154);
+            this.buttonResetBbox.Name = "buttonResetBbox";
+            this.buttonResetBbox.Size = new System.Drawing.Size(104, 23);
+            this.buttonResetBbox.TabIndex = 0;
+            this.buttonResetBbox.Text = "Отмена";
+            this.buttonResetBbox.UseVisualStyleBackColor = true;
+            this.buttonResetBbox.Click += new System.EventHandler(this.buttonResetBbox_Click);
             // 
             // ObjectsWindow
             // 

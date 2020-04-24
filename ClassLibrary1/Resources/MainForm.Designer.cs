@@ -32,6 +32,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openZENToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьZENToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mFCГовноToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,7 +43,9 @@
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.оНасToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.здрастеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.компиляцияМираToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.камераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -59,7 +63,6 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.камераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -86,6 +89,8 @@
             // 
             this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openZENToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem8,
             this.сохранитьZENToolStripMenuItem,
             this.выходToolStripMenuItem});
             this.файлToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
@@ -96,21 +101,35 @@
             // openZENToolStripMenuItem
             // 
             this.openZENToolStripMenuItem.Name = "openZENToolStripMenuItem";
-            this.openZENToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.openZENToolStripMenuItem.Text = "Открыть ZEN";
+            this.openZENToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.openZENToolStripMenuItem.Text = "Открыть ZEN...";
             this.openZENToolStripMenuItem.Click += new System.EventHandler(this.openZENToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(175, 22);
+            this.toolStripMenuItem1.Text = "Открыть MESH...";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(175, 22);
+            this.toolStripMenuItem8.Text = "Объединить ZEN...";
+            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
             // сохранитьZENToolStripMenuItem
             // 
             this.сохранитьZENToolStripMenuItem.Name = "сохранитьZENToolStripMenuItem";
-            this.сохранитьZENToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.сохранитьZENToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.сохранитьZENToolStripMenuItem.Text = "Сохранить ZEN";
             this.сохранитьZENToolStripMenuItem.Click += new System.EventHandler(this.сохранитьZENToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -162,7 +181,8 @@
             // оНасToolStripMenuItem
             // 
             this.оНасToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.здрастеToolStripMenuItem});
+            this.здрастеToolStripMenuItem,
+            this.компиляцияМираToolStripMenuItem});
             this.оНасToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.оНасToolStripMenuItem.Name = "оНасToolStripMenuItem";
             this.оНасToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
@@ -176,6 +196,12 @@
             this.здрастеToolStripMenuItem.Text = "Компиляция света";
             this.здрастеToolStripMenuItem.Click += new System.EventHandler(this.здрастеToolStripMenuItem_Click);
             // 
+            // компиляцияМираToolStripMenuItem
+            // 
+            this.компиляцияМираToolStripMenuItem.Name = "компиляцияМираToolStripMenuItem";
+            this.компиляцияМираToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.компиляцияМираToolStripMenuItem.Text = "Компиляция мира";
+            // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -183,6 +209,13 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(79, 20);
             this.toolStripMenuItem2.Text = "Настройки";
+            // 
+            // камераToolStripMenuItem
+            // 
+            this.камераToolStripMenuItem.Name = "камераToolStripMenuItem";
+            this.камераToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.камераToolStripMenuItem.Text = "Камера";
+            this.камераToolStripMenuItem.Click += new System.EventHandler(this.камераToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -333,13 +366,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // камераToolStripMenuItem
-            // 
-            this.камераToolStripMenuItem.Name = "камераToolStripMenuItem";
-            this.камераToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.камераToolStripMenuItem.Text = "Камера";
-            this.камераToolStripMenuItem.Click += new System.EventHandler(this.камераToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,5 +426,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButton7;
         private System.Windows.Forms.ToolStripButton toolStripButton8;
         private System.Windows.Forms.ToolStripMenuItem камераToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem компиляцияМираToolStripMenuItem;
     }
 }

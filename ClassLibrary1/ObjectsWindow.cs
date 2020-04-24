@@ -26,6 +26,7 @@ namespace SpacerUnion
         static bool changed = false;
         static TPropEditType currentFieldtype;
         static TreeNode showFirst;
+        static bool isItemSelected;
         class FolderEntry
         {
             public string parent;
@@ -64,6 +65,17 @@ namespace SpacerUnion
 
             TreeNode firstNode = tree.Nodes.Add(className + ": zCVob");
             firstNode.Tag = "folder";
+
+
+
+            if (className == "oCItem")
+            {
+                isItemSelected = true;
+            }
+            else
+            {
+                isItemSelected = false;
+            }
 
             CProperty.originalStr = name;
 
@@ -309,6 +321,12 @@ namespace SpacerUnion
             int index = 0;
             TreeNode node = e.Node;
 
+
+            if (isItemSelected)
+            {
+                return;
+            }
+
             int.TryParse(node.Tag.ToString(), out index);
 
 
@@ -353,7 +371,12 @@ namespace SpacerUnion
 
         private void buttonApply_Click(object sender, EventArgs e)
         {
-            
+
+            if (isItemSelected)
+            {
+                return;
+            }
+
             // блокируем кнопку Применить
             changed = false;
             buttonApply.Enabled = false;
@@ -416,6 +439,7 @@ namespace SpacerUnion
         }
         private void treeViewProp_AfterSelect(object sender, TreeViewEventArgs e)
         {
+
             TreeNode node = e.Node;
             int index = 0;
 
@@ -467,6 +491,12 @@ namespace SpacerUnion
                     currentFieldtype = prop.type;
 
                     Label_Backup.Text = "Старое значение: " + prop.ShowBackupValue();
+
+                    if (isItemSelected)
+                    {
+                        return;
+                    }
+
                     Label_Backup.Visible = true;
                     buttonRestore.Enabled = true;
                     buttonBbox.Enabled = true;
@@ -502,6 +532,12 @@ namespace SpacerUnion
 
         private void textBoxString_TextChanged(object sender, EventArgs e)
         {
+
+            if (isItemSelected)
+            {
+                return;
+            }
+
             TreeNode node = treeViewProp.SelectedNode;
             TextBox textBox = sender as TextBox;
             int index = 0;
@@ -532,6 +568,11 @@ namespace SpacerUnion
 
         private void buttonRestore_Click(object sender, EventArgs e)
         {
+            if (isItemSelected)
+            {
+                return;
+            }
+
             TreeNode node = treeViewProp.SelectedNode;
             TextBox textBox = sender as TextBox;
             int index = 0;
@@ -579,6 +620,11 @@ namespace SpacerUnion
             TextBox textBox = sender as TextBox;
             int index = 0;
 
+            if (isItemSelected)
+            {
+                return;
+            }
+
             if (node != null && node.Tag.ToString() != "folder")
             {
                 int.TryParse(node.Tag.ToString(), out index);
@@ -611,6 +657,11 @@ namespace SpacerUnion
             TextBox textBox = sender as TextBox;
             int index = 0;
 
+            if (isItemSelected)
+            {
+                return;
+            }
+
             if (node != null && node.Tag.ToString() != "folder")
             {
                 int.TryParse(node.Tag.ToString(), out index);
@@ -640,6 +691,11 @@ namespace SpacerUnion
             TreeNode node = treeViewProp.SelectedNode;
             TextBox textBox = sender as TextBox;
             int index = 0;
+
+            if (isItemSelected)
+            {
+                return;
+            }
 
             if (node != null && node.Tag.ToString() != "folder")
             {
@@ -682,6 +738,11 @@ namespace SpacerUnion
 
         private void buttonResetBbox_Click(object sender, EventArgs e)
         {
+            if (isItemSelected)
+            {
+                return;
+            }
+
             tabControl1.SelectTab(0);
             DisableTabBBox();
         }

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -12,6 +14,32 @@ namespace SpacerUnion
 {
     public partial class ObjTree : Form
     {
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr Extern_GetOpenPath(int type);
+
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SetOpenPath(IntPtr str, int type);
+
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SaveVobTree(IntPtr str);
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_OpenVobTree(IntPtr str, bool globalInsert);
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SelectVobSync(int a);
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SelectVob(int a);
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_BlockMouse(bool disable);
+
+
+
         const string TAG_FOLDER = "folder";
 
         public ObjTree()
@@ -511,11 +539,7 @@ namespace SpacerUnion
         }
 
 
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SelectVobSync(int a);
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SelectVob(int a);
+        
 
 
         private void globalTree_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -563,6 +587,155 @@ namespace SpacerUnion
           
             Extern_SelectVobSync(addr);
             UnionNET.form.Focus();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (UnionNET.objTreeWin.globalTree.SelectedNode == null)
+            {
+                return;
+            }
+
+            saveFileDialogVobTree.Filter = "Zen file (*.zen)|";
+            IntPtr ptrPath = Extern_GetOpenPath((int)CmdType.TreeVobPath);
+            string path = Marshal.PtrToStringAnsi(ptrPath);
+
+            string fileName = UnionNET.objTreeWin.globalTree.SelectedNode.Text;
+
+            //MessageBox.Show(path);
+
+            if (path != "")
+            {
+                //MessageBox.Show(path);
+                saveFileDialogVobTree.InitialDirectory = System.IO.Path.GetDirectoryName(@path + @"/");
+            }
+            else
+            {
+                saveFileDialogVobTree.InitialDirectory = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/Worlds/";
+            }
+
+            saveFileDialogVobTree.RestoreDirectory = true;
+            saveFileDialogVobTree.FileName = fileName + ".zen";
+
+            //Extern_BlockMouse(true);
+
+            if (saveFileDialogVobTree.ShowDialog() == DialogResult.OK)
+            {
+
+                IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(saveFileDialogVobTree.FileName));
+
+                Extern_SetOpenPath(ptrPathSave, (int)CmdType.TreeVobPath);
+
+
+
+                string filePath = saveFileDialogVobTree.FileName;
+                IntPtr filePathPtr = Marshal.StringToHGlobalAnsi(filePath);
+                Extern_SaveVobTree(filePathPtr);
+
+                Marshal.FreeHGlobal(ptrPathSave);
+                Marshal.FreeHGlobal(filePathPtr);
+            }
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            if (globalTree.SelectedNode == null)
+            {
+                return;
+            }
+
+            TreeNode node = globalTree.SelectedNode;
+
+            string tag = node.Tag.ToString();
+
+            if (tag.Length == 0 || tag == TAG_FOLDER)
+            {
+                return;
+            }
+
+
+            openFileDialogVobTree.Filter = "Zen file (*.zen)|";
+            IntPtr ptrPath = Extern_GetOpenPath((int)CmdType.TreeVobPath);
+            string path = Marshal.PtrToStringAnsi(ptrPath);
+
+            string fileName = UnionNET.objTreeWin.globalTree.SelectedNode.Text;
+
+            //MessageBox.Show(path);
+
+            if (path != "")
+            {
+                //MessageBox.Show(path);
+                openFileDialogVobTree.InitialDirectory = System.IO.Path.GetDirectoryName(@path + @"/");
+            }
+            else
+            {
+                openFileDialogVobTree.InitialDirectory = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/Worlds/";
+            }
+
+            openFileDialogVobTree.RestoreDirectory = true;
+
+            //Extern_BlockMouse(true);
+
+            if (openFileDialogVobTree.ShowDialog() == DialogResult.OK)
+            {
+
+                IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(openFileDialogVobTree.FileName));
+
+                Extern_SetOpenPath(ptrPathSave, (int)CmdType.TreeVobPath);
+
+
+
+                string filePath = openFileDialogVobTree.FileName;
+                IntPtr filePathPtr = Marshal.StringToHGlobalAnsi(filePath);
+                Extern_OpenVobTree(filePathPtr, false);
+
+                Marshal.FreeHGlobal(ptrPathSave);
+                Marshal.FreeHGlobal(filePathPtr);
+            }
+        }
+
+        private void вставитьVobTreeГлобальноToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+            openFileDialogVobTree.Filter = "Zen file (*.zen)|";
+            IntPtr ptrPath = Extern_GetOpenPath((int)CmdType.TreeVobPath);
+            string path = Marshal.PtrToStringAnsi(ptrPath);
+
+            string fileName = UnionNET.objTreeWin.globalTree.SelectedNode.Text;
+
+            //MessageBox.Show(path);
+
+            if (path != "")
+            {
+                //MessageBox.Show(path);
+                openFileDialogVobTree.InitialDirectory = System.IO.Path.GetDirectoryName(@path + @"/");
+            }
+            else
+            {
+                openFileDialogVobTree.InitialDirectory = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/Worlds/";
+            }
+
+            openFileDialogVobTree.RestoreDirectory = true;
+
+            //Extern_BlockMouse(true);
+
+            if (openFileDialogVobTree.ShowDialog() == DialogResult.OK)
+            {
+
+                IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(openFileDialogVobTree.FileName));
+
+                Extern_SetOpenPath(ptrPathSave, (int)CmdType.TreeVobPath);
+
+
+
+                string filePath = openFileDialogVobTree.FileName;
+                IntPtr filePathPtr = Marshal.StringToHGlobalAnsi(filePath);
+                Extern_OpenVobTree(filePathPtr, true);
+
+                Marshal.FreeHGlobal(ptrPathSave);
+                Marshal.FreeHGlobal(filePathPtr);
+            }
         }
     }
 }

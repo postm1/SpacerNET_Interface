@@ -152,17 +152,12 @@ namespace SpacerUnion
 
                 listBoxResult.Items.Clear();
 
-                if (strToFind.Length == 0)
-                {
-                    return;
-                }
-
 
                 for (int i = 0; i < listBoxItems.Items.Count; i++)
                 {
                     string value = listBoxItems.GetItemText(listBoxItems.Items[i]);
 
-                    if (Regex.IsMatch(value, strToFind))
+                    if (Regex.IsMatch(value, @strToFind))
                     {
                         listBoxResult.Items.Add(value);
                     }
@@ -447,17 +442,13 @@ namespace SpacerUnion
 
                 listBoxPfxResult.Items.Clear();
 
-                if (strToFind.Length == 0)
-                {
-                    return;
-                }
 
 
                 for (int i = 0; i < listBoxParticles.Items.Count; i++)
                 {
                     string value = listBoxParticles.GetItemText(listBoxParticles.Items[i]);
 
-                    if (Regex.IsMatch(value, strToFind))
+                    if (Regex.IsMatch(value, @strToFind))
                     {
                         listBoxPfxResult.Items.Add(value);
                     }
@@ -479,23 +470,27 @@ namespace SpacerUnion
 
                 listBoxVisuals.Items.Clear();
 
-                if (strToFind.Length == 0)
-                {
-                    return;
-                }
-
 
                 for (int i = 0; i < listVisuals.Count; i++)
                 {
 
-                    if (Regex.IsMatch(listVisuals[i], strToFind))
+                    if (Regex.IsMatch(listVisuals[i], @strToFind))
                     {
                         listBoxVisuals.Items.Add(listVisuals[i]);
                     }
                 }
 
-                
+
+                UnionNET.partWin.labelSearchVisual.Text = "Поиск визуала. Всего: " + listBoxVisuals.Items.Count;
+
+
             }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            listBoxVisuals.Items.Clear();
+            listBoxVisuals.ClearSelected();
         }
     }
 }
