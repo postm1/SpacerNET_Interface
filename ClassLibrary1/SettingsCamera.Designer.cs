@@ -39,12 +39,16 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Применить = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBoxFPS = new System.Windows.Forms.CheckBox();
+            this.checkBoxTris = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRotSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarWorld)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // trackBarTransSpeed
@@ -148,7 +152,7 @@
             this.groupBox2.Controls.Add(this.trackBarWorld);
             this.groupBox2.Controls.Add(this.labelWorld);
             this.groupBox2.Controls.Add(this.trackBarVobs);
-            this.groupBox2.Location = new System.Drawing.Point(12, 157);
+            this.groupBox2.Location = new System.Drawing.Point(15, 157);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(301, 144);
             this.groupBox2.TabIndex = 9;
@@ -157,7 +161,7 @@
             // 
             // Применить
             // 
-            this.Применить.Location = new System.Drawing.Point(101, 307);
+            this.Применить.Location = new System.Drawing.Point(104, 378);
             this.Применить.Name = "Применить";
             this.Применить.Size = new System.Drawing.Size(115, 23);
             this.Применить.TabIndex = 10;
@@ -165,11 +169,45 @@
             this.Применить.UseVisualStyleBackColor = true;
             this.Применить.Click += new System.EventHandler(this.Применить_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.checkBoxTris);
+            this.groupBox3.Controls.Add(this.checkBoxFPS);
+            this.groupBox3.Location = new System.Drawing.Point(15, 307);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(301, 65);
+            this.groupBox3.TabIndex = 10;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Информация";
+            // 
+            // checkBoxFPS
+            // 
+            this.checkBoxFPS.AutoSize = true;
+            this.checkBoxFPS.Location = new System.Drawing.Point(9, 19);
+            this.checkBoxFPS.Name = "checkBoxFPS";
+            this.checkBoxFPS.Size = new System.Drawing.Size(112, 17);
+            this.checkBoxFPS.TabIndex = 0;
+            this.checkBoxFPS.Text = "Показывать FPS";
+            this.checkBoxFPS.UseVisualStyleBackColor = true;
+            this.checkBoxFPS.CheckedChanged += new System.EventHandler(this.checkBoxFPS_CheckedChanged);
+            // 
+            // checkBoxTris
+            // 
+            this.checkBoxTris.AutoSize = true;
+            this.checkBoxTris.Location = new System.Drawing.Point(9, 42);
+            this.checkBoxTris.Name = "checkBoxTris";
+            this.checkBoxTris.Size = new System.Drawing.Size(256, 17);
+            this.checkBoxTris.TabIndex = 1;
+            this.checkBoxTris.Text = "Показывать кол-во рисуемых треугольников";
+            this.checkBoxTris.UseVisualStyleBackColor = true;
+            this.checkBoxTris.CheckedChanged += new System.EventHandler(this.checkBoxTris_CheckedChanged);
+            // 
             // SettingsCamera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(331, 342);
+            this.ClientSize = new System.Drawing.Size(331, 413);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.Применить);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -191,6 +229,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -207,5 +247,8 @@
         public System.Windows.Forms.TrackBar trackBarVobs;
         public System.Windows.Forms.TrackBar trackBarWorld;
         private System.Windows.Forms.Button Применить;
+        private System.Windows.Forms.GroupBox groupBox3;
+        public System.Windows.Forms.CheckBox checkBoxTris;
+        public System.Windows.Forms.CheckBox checkBoxFPS;
     }
 }

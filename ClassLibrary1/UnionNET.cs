@@ -29,7 +29,6 @@ namespace SpacerUnion
 
         public static SettingsCamera settingsCam;
 
-        static Thread th = null;
 
 
         
@@ -90,7 +89,7 @@ namespace SpacerUnion
             compWorldWin.Owner = form;
 
             form.Show();
-            form.panel1.Show();
+            form.panelMain.Show();
 
 
             infoWin.Show();

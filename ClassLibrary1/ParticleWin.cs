@@ -372,6 +372,18 @@ namespace SpacerUnion
 
             Extern_CreateNewVob(ptrName, ptrVobName, 0, 0);
             Marshal.FreeHGlobal(ptrName);
+
+
+            if (vobName.Contains("_"))
+            {
+                string strNumber = Regex.Match(vobName, @"_\d+$").Value.Replace("_", "");
+                string strName = Regex.Match(vobName, @"^.*_").Value.Replace("_", "");
+
+                int number;
+                int.TryParse(strNumber, out number);
+                number++;
+                textBoxFP.Text = strName + "_" + number.ToString();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -491,6 +503,7 @@ namespace SpacerUnion
         {
             listBoxVisuals.Items.Clear();
             listBoxVisuals.ClearSelected();
+            UnionNET.partWin.labelSearchVisual.Text = "Поиск визуала.";
         }
     }
 }

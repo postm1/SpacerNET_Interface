@@ -45,6 +45,7 @@
             this.listBoxItems = new System.Windows.Forms.ListBox();
             this.buttonItems = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.checkBoxStaStat = new System.Windows.Forms.CheckBox();
             this.checkBoxDynStat = new System.Windows.Forms.CheckBox();
             this.pictureBoxPreview = new System.Windows.Forms.PictureBox();
@@ -55,7 +56,7 @@
             this.textBoxVobName = new System.Windows.Forms.TextBox();
             this.classesTreeView = new System.Windows.Forms.TreeView();
             this.button1 = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControlObjects = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -83,12 +84,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxWP = new System.Windows.Forms.TextBox();
             this.buttonWP = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).BeginInit();
-            this.tabControl1.SuspendLayout();
+            this.tabControlObjects.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -280,6 +280,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Все классы вобов";
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(193, 136);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(91, 25);
+            this.button7.TabIndex = 12;
+            this.button7.Text = "Очистить";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // checkBoxStaStat
             // 
             this.checkBoxStaStat.AutoSize = true;
@@ -374,18 +384,18 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // tabControl1
+            // tabControlObjects
             // 
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Location = new System.Drawing.Point(3, 5);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(569, 358);
-            this.tabControl1.TabIndex = 4;
+            this.tabControlObjects.Controls.Add(this.tabPage3);
+            this.tabControlObjects.Controls.Add(this.tabPage2);
+            this.tabControlObjects.Controls.Add(this.tabPage1);
+            this.tabControlObjects.Controls.Add(this.tabPage4);
+            this.tabControlObjects.Controls.Add(this.tabPage5);
+            this.tabControlObjects.Location = new System.Drawing.Point(3, 5);
+            this.tabControlObjects.Name = "tabControlObjects";
+            this.tabControlObjects.SelectedIndex = 0;
+            this.tabControlObjects.Size = new System.Drawing.Size(569, 358);
+            this.tabControlObjects.TabIndex = 4;
             // 
             // tabPage3
             // 
@@ -678,22 +688,12 @@
             this.buttonWP.UseVisualStyleBackColor = true;
             this.buttonWP.Click += new System.EventHandler(this.buttonWP_Click);
             // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(193, 136);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(91, 25);
-            this.button7.TabIndex = 12;
-            this.button7.Text = "Очистить";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
             // ParticleWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(570, 361);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControlObjects);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -709,7 +709,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).EndInit();
-            this.tabControl1.ResumeLayout(false);
+            this.tabControlObjects.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -738,7 +738,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxVobName;
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
@@ -782,5 +781,6 @@
         private System.Windows.Forms.CheckBox checkBoxDynStat;
         private System.Windows.Forms.CheckBox checkBoxWayNet;
         private System.Windows.Forms.Button button7;
+        public System.Windows.Forms.TabControl tabControlObjects;
     }
 }

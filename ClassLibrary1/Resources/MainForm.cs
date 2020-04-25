@@ -30,7 +30,9 @@ namespace SpacerUnion
         MeshPath,
         VobsPath,
         ShowBBox,
-        PrefixDate
+        PrefixDate,
+        ShowFps,
+        ShowTris
     };
     public partial class MainForm : Form
     {
@@ -86,7 +88,7 @@ namespace SpacerUnion
         {
             renderTarget = new Form();
             renderTarget.TopLevel = false;
-            panel1.Controls.Add(renderTarget);
+            panelMain.Controls.Add(renderTarget);
             renderTarget.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             renderTarget.Dock = DockStyle.Fill;
             renderTarget.Show();
@@ -412,6 +414,10 @@ namespace SpacerUnion
             UnionNET.settingsCam.trackBarVobs.Value = vob;
 
             UnionNET.settingsCam.UpdateAll();
+
+
+            UnionNET.settingsCam.checkBoxFPS.Checked = Convert.ToBoolean(Extern_GetSetting((int)CmdType.ShowFps));
+            UnionNET.settingsCam.checkBoxTris.Checked = Convert.ToBoolean(Extern_GetSetting((int)CmdType.ShowTris));
 
             UnionNET.settingsCam.Show();
         }

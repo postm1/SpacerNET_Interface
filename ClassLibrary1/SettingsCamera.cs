@@ -65,5 +65,19 @@ namespace SpacerUnion
         {
             this.Hide();
         }
+
+        private void checkBoxFPS_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+
+            Extern_SetSetting((int)CmdType.ShowFps, Convert.ToInt32(cb.Checked));
+        }
+
+        private void checkBoxTris_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+
+            Extern_SetSetting((int)CmdType.ShowTris, Convert.ToInt32(cb.Checked));
+        }
     }
 }

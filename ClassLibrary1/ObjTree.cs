@@ -45,22 +45,23 @@ namespace SpacerUnion
 
 
 
+
+
+
+
+
+
+
+
+
+
+
         const string TAG_FOLDER = "folder";
 
         private const int TVM_SETEXTENDEDSTYLE = 0x1100 + 44;
         private const int TVM_GETEXTENDEDSTYLE = 0x1100 + 45;
         private const int TVS_EX_DOUBLEBUFFER = 0x0004;
 
-        public ObjTree()
-        {
-            InitializeComponent();
-            globalTree.DrawMode = TreeViewDrawMode.OwnerDrawText;
-            globalTree.HideSelection = false;
-
-
-            //SendMessage(globalTree.Handle, TVM_SETEXTENDEDSTYLE, (IntPtr)TVS_EX_DOUBLEBUFFER, (IntPtr)TVS_EX_DOUBLEBUFFER);
-
-        }
 
         public class TreeEntry
         {
@@ -82,6 +83,29 @@ namespace SpacerUnion
             }
 
         }
+
+        public class ParentResult
+        {
+            public TreeNode node;
+            public bool isCompo;
+            public TreeEntry parentEntry;
+        }
+
+        public static List<TreeEntry> globalEntries = new List<TreeEntry>();
+
+
+        public ObjTree()
+        {
+            InitializeComponent();
+            globalTree.DrawMode = TreeViewDrawMode.OwnerDrawText;
+            globalTree.HideSelection = false;
+
+
+            //SendMessage(globalTree.Handle, TVM_SETEXTENDEDSTYLE, (IntPtr)TVS_EX_DOUBLEBUFFER, (IntPtr)TVS_EX_DOUBLEBUFFER);
+
+        }
+
+        
 
   
         public static int CreateAndGetFolder(string className)
@@ -114,15 +138,7 @@ namespace SpacerUnion
         }
 
 
-        public class ParentResult
-        {
-            public TreeNode node;
-            public bool isCompo;
-            public TreeEntry parentEntry;
-        }
-
-
-        public static List<TreeEntry> globalEntries = new List<TreeEntry>();
+        
 
         public static ParentResult GetParentResult(int parentId)
         {
@@ -644,7 +660,10 @@ namespace SpacerUnion
 
             int addr = Convert.ToInt32(node.Tag);
 
-          
+            if (node.Text.Contains("zCVobWaypoint") || node.Text.Contains("zCVobSpot"))
+            {
+                UnionNET.partWin.tabControlObjects.SelectedIndex = 4;
+            }
             Extern_SelectVobSync(addr);
             UnionNET.form.Focus();
         }
