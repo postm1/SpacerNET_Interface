@@ -28,27 +28,23 @@ namespace SpacerUnion
 
 
         public static SettingsCamera settingsCam;
+
+        static Thread th = null;
+
+
+        
+
         [STAThread]
+
         public static void StartDLL()
         {
-            //..Thread.SetApartmentState(ApartmentState.STA);
 
-            //Application.DoEvents();
-            //Thread.Sleep(1000);
-            // Application.
-            // Console.WriteLine();
-            MessageBox.Show("C# init");
-            //Console.WriteLine(Application.MessageLoop);
-            //Thread.Sleep(2000);
-            //Application.DoEvents();
-            // Application.DoEvents();
-            //Application.UnregisterMessageLoop();
+            AutoClosingMessageBox.Show("", "Spacer is loading...", 90);
 
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //  Thread.Sleep(2000);
-            //Thread.Sleep(2000);
-            //Application.DoEvents();
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
 
             //
             form = new MainForm();
@@ -107,16 +103,16 @@ namespace SpacerUnion
 
             //  form.Enabled = false;
             form.menuStrip1.Enabled = false;
+
+        
         }
 
 
-        [DllExport]
-        public static int UnionInitialize(IntPtr L)
+        [DllExport, STAThread]
+        public static void UnionInitialize(IntPtr L)
         {
-
             StartDLL();
 
-            return 0;
         }
 
         [DllExport]

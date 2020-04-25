@@ -31,16 +31,17 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ObjTree));
             this.globalTree = new System.Windows.Forms.TreeView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.вставитьVobTreeГлобальноToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьВобToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.buttonCollapse = new System.Windows.Forms.Button();
             this.buttonExpand = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogVobTree = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogVobTree = new System.Windows.Forms.SaveFileDialog();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.вставитьVobTreeГлобальноToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.удалитьВобToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonTreeSort = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +61,44 @@
             this.globalTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.globalTree_AfterSelect);
             this.globalTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.globalTree_NodeMouseClick_1);
             this.globalTree.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.globalTree_NodeMouseDoubleClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.вставитьVobTreeГлобальноToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.удалитьВобToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(283, 92);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(282, 22);
+            this.toolStripMenuItem2.Text = "Вставить VobTree в выделенный воб";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // вставитьVobTreeГлобальноToolStripMenuItem
+            // 
+            this.вставитьVobTreeГлобальноToolStripMenuItem.Name = "вставитьVobTreeГлобальноToolStripMenuItem";
+            this.вставитьVobTreeГлобальноToolStripMenuItem.Size = new System.Drawing.Size(282, 22);
+            this.вставитьVobTreeГлобальноToolStripMenuItem.Text = "Вставить VobTree глобально";
+            this.вставитьVobTreeГлобальноToolStripMenuItem.Click += new System.EventHandler(this.вставитьVobTreeГлобальноToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(282, 22);
+            this.toolStripMenuItem1.Text = "Сохранить выделенный воб в VobTree";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // удалитьВобToolStripMenuItem
+            // 
+            this.удалитьВобToolStripMenuItem.Name = "удалитьВобToolStripMenuItem";
+            this.удалитьВобToolStripMenuItem.Size = new System.Drawing.Size(282, 22);
+            this.удалитьВобToolStripMenuItem.Text = "Удалить воб";
+            this.удалитьВобToolStripMenuItem.Click += new System.EventHandler(this.удалитьВобToolStripMenuItem_Click);
             // 
             // imageList1
             // 
@@ -90,53 +129,26 @@
             this.buttonExpand.UseVisualStyleBackColor = true;
             this.buttonExpand.Click += new System.EventHandler(this.buttonExpand_Click);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.вставитьVobTreeГлобальноToolStripMenuItem,
-            this.toolStripMenuItem1,
-            this.удалитьВобToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(283, 92);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(282, 22);
-            this.toolStripMenuItem1.Text = "Сохранить выделенный воб в VobTree";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
             // openFileDialogVobTree
             // 
             this.openFileDialogVobTree.FileName = "openFileDialog1";
             // 
-            // toolStripMenuItem2
+            // buttonTreeSort
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(282, 22);
-            this.toolStripMenuItem2.Text = "Вставить VobTree в выделенный воб";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // вставитьVobTreeГлобальноToolStripMenuItem
-            // 
-            this.вставитьVobTreeГлобальноToolStripMenuItem.Name = "вставитьVobTreeГлобальноToolStripMenuItem";
-            this.вставитьVobTreeГлобальноToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
-            this.вставитьVobTreeГлобальноToolStripMenuItem.Text = "Вставить VobTree глобально";
-            this.вставитьVobTreeГлобальноToolStripMenuItem.Click += new System.EventHandler(this.вставитьVobTreeГлобальноToolStripMenuItem_Click);
-            // 
-            // удалитьВобToolStripMenuItem
-            // 
-            this.удалитьВобToolStripMenuItem.Name = "удалитьВобToolStripMenuItem";
-            this.удалитьВобToolStripMenuItem.Size = new System.Drawing.Size(282, 22);
-            this.удалитьВобToolStripMenuItem.Text = "Удалить воб";
-            this.удалитьВобToolStripMenuItem.Click += new System.EventHandler(this.удалитьВобToolStripMenuItem_Click);
+            this.buttonTreeSort.Location = new System.Drawing.Point(207, 12);
+            this.buttonTreeSort.Name = "buttonTreeSort";
+            this.buttonTreeSort.Size = new System.Drawing.Size(97, 23);
+            this.buttonTreeSort.TabIndex = 3;
+            this.buttonTreeSort.Text = "Сортировать";
+            this.buttonTreeSort.UseVisualStyleBackColor = true;
+            this.buttonTreeSort.Click += new System.EventHandler(this.buttonTreeSort_Click);
             // 
             // ObjTree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(389, 475);
+            this.Controls.Add(this.buttonTreeSort);
             this.Controls.Add(this.buttonExpand);
             this.Controls.Add(this.buttonCollapse);
             this.Controls.Add(this.globalTree);
@@ -164,5 +176,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem вставитьVobTreeГлобальноToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьВобToolStripMenuItem;
+        private System.Windows.Forms.Button buttonTreeSort;
     }
 }

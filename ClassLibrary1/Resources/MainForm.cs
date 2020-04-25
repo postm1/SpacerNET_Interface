@@ -29,7 +29,8 @@ namespace SpacerUnion
         TreeVobPath,
         MeshPath,
         VobsPath,
-        ShowBBox
+        ShowBBox,
+        PrefixDate
     };
     public partial class MainForm : Form
     {
@@ -145,7 +146,9 @@ namespace SpacerUnion
 
                 Marshal.FreeHGlobal(filePathPtr);
             }
-            
+
+            //Marshal.FreeHGlobal(ptrPath);
+
         }
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
@@ -301,11 +304,6 @@ namespace SpacerUnion
             saveFileDialog1.InitialDirectory = Directory.GetCurrentDirectory() + "../_WORK/DATA/Worlds/";
 
 
-
-
-
-
-
             string zenName = currentWorldName.Replace(".zen", "").Replace(".ZEN", "");
             string time = DateTime.Now.ToString("yyyy_MM_dd HH-mm-ss");
 
@@ -319,15 +317,19 @@ namespace SpacerUnion
 
             }
 
+            int addPrefx = Extern_GetSetting((int)CmdType.PrefixDate);
 
-            zenName = zenName.Replace(".zen", "").Replace(".ZEN", "") +  "_" + time + ".ZEN";
+
+            if (addPrefx != 0)
+            {
+                zenName = zenName.Replace(".zen", "").Replace(".ZEN", "") + "_" + time + ".ZEN";
+            }
+           
 
             saveFileDialog1.FileName = zenName;
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-
-
 
                 IntPtr ptrPath = Marshal.StringToHGlobalAnsi(System.IO.Path.GetDirectoryName(saveFileDialog1.FileName));
 
@@ -473,6 +475,8 @@ namespace SpacerUnion
 
                 Marshal.FreeHGlobal(filePathPtr);
             }
+
+            //Marshal.FreeHGlobal(ptrPath);
         }
 
         private void toolStripMenuItem8_Click(object sender, EventArgs e)
@@ -528,6 +532,8 @@ namespace SpacerUnion
 
                 Marshal.FreeHGlobal(filePathPtr);
             }
+            //Marshal.FreeHGlobal(ptrPath);
+            
         }
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)

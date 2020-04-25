@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.treeViewProp = new System.Windows.Forms.TreeView();
             this.panelButtons = new System.Windows.Forms.Panel();
             this.textBoxVec2 = new System.Windows.Forms.TextBox();
             this.textBoxVec1 = new System.Windows.Forms.TextBox();
@@ -40,7 +41,6 @@
             this.buttonBbox = new System.Windows.Forms.Button();
             this.Label_Backup = new System.Windows.Forms.Label();
             this.buttonApply = new System.Windows.Forms.Button();
-            this.treeViewProp = new System.Windows.Forms.TreeView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -80,6 +80,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Редактирование";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // treeViewProp
+            // 
+            this.treeViewProp.HideSelection = false;
+            this.treeViewProp.Location = new System.Drawing.Point(9, 8);
+            this.treeViewProp.Name = "treeViewProp";
+            this.treeViewProp.Size = new System.Drawing.Size(284, 342);
+            this.treeViewProp.TabIndex = 1;
+            this.treeViewProp.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.treeViewProp_DrawNode);
+            this.treeViewProp.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewProp_AfterSelect);
+            this.treeViewProp.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewProp_NodeMouseDoubleClick);
             // 
             // panelButtons
             // 
@@ -192,17 +203,6 @@
             this.buttonApply.Text = "Применить на вобе";
             this.buttonApply.UseVisualStyleBackColor = true;
             this.buttonApply.Click += new System.EventHandler(this.buttonApply_Click);
-            // 
-            // treeViewProp
-            // 
-            this.treeViewProp.HideSelection = false;
-            this.treeViewProp.Location = new System.Drawing.Point(9, 8);
-            this.treeViewProp.Name = "treeViewProp";
-            this.treeViewProp.Size = new System.Drawing.Size(284, 342);
-            this.treeViewProp.TabIndex = 1;
-            this.treeViewProp.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.treeViewProp_DrawNode);
-            this.treeViewProp.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewProp_AfterSelect);
-            this.treeViewProp.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewProp_NodeMouseDoubleClick);
             // 
             // tabPage2
             // 
@@ -318,7 +318,6 @@
             this.Name = "ObjectsWindow";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Свойства воба";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ObjectsWindow_FormClosing);
             this.Shown += new System.EventHandler(this.ObjectsWindow_Shown);
             this.tabControl1.ResumeLayout(false);

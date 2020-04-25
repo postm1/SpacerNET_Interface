@@ -18,10 +18,8 @@ namespace SpacerUnion
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr Extern_GetOpenPath(int type);
 
-
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_SetOpenPath(IntPtr str, int type);
-
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_SaveVobTree(IntPtr str);
@@ -41,13 +39,27 @@ namespace SpacerUnion
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_RemoveVob(int vob);
 
+        [DllImport("user32.dll")]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
+
+
+
+
         const string TAG_FOLDER = "folder";
+
+        private const int TVM_SETEXTENDEDSTYLE = 0x1100 + 44;
+        private const int TVM_GETEXTENDEDSTYLE = 0x1100 + 45;
+        private const int TVS_EX_DOUBLEBUFFER = 0x0004;
 
         public ObjTree()
         {
             InitializeComponent();
             globalTree.DrawMode = TreeViewDrawMode.OwnerDrawText;
             globalTree.HideSelection = false;
+
+
+            //SendMessage(globalTree.Handle, TVM_SETEXTENDEDSTYLE, (IntPtr)TVS_EX_DOUBLEBUFFER, (IntPtr)TVS_EX_DOUBLEBUFFER);
+
         }
 
         public class TreeEntry
@@ -233,7 +245,9 @@ namespace SpacerUnion
                 else
                 {
                     noParentCount++;
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(noParentCount + " Parent " + entry.parent + " is null: " + entry.name);
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
                 /*
                 else
@@ -255,17 +269,15 @@ namespace SpacerUnion
         public static void CreateTreeRecursive()
         {
             noParentCount = 0;
+
             for (int i = 0; i < globalEntries.Count; i++)
             {
                 AddVobToNodes(globalEntries[i]);
             }
 
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Не смог вставить вобов: " + noParentCount + "/" + globalEntries.Count);
-
-            if (noParentCount > 0)
-            {
-                //CreateTreeRecursive();
-            }
+            Console.ForegroundColor = ConsoleColor.White;
 
         }
 
@@ -275,10 +287,49 @@ namespace SpacerUnion
             CreateTreeRecursive();
         }
 
+        
+        [DllExport]
+        public static void UpdateVobName(int ptr, IntPtr namePtr)
+        {
+            if (ptr == 0)
+            {
+                return;
+            }
+
+            Stopwatch s = new Stopwatch();
+            s.Start();
+
+
+            string name = Marshal.PtrToStringAnsi(namePtr);
+
+
+
+            
+
+            TreeEntry entry = globalEntries.Where(pair => pair.zCVob == ptr)
+                .Select(pair => pair)
+                .FirstOrDefault();
+
+            if (entry != null)
+            {
+                if (entry.node != null)
+                {
+                    entry.name = name;
+                    entry.node.Text = name;
+                }
+            }
+
+            s.Stop();
+            string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
+            Console.WriteLine("C#: UpdateName for vob: " + ptr + " Time: " + timeSpend);
+
+
+        }
+
         [DllExport]
         public static void OnSelectVob(int ptr)
         {
-            //Console.WriteLine("C# OnSelectVob: " + ptr);
+            //Console.WriteLine("C#: OnSelectVob: " + ptr);
 
             if (ptr == 0)
             {
@@ -287,32 +338,43 @@ namespace SpacerUnion
 
 
 
-            //MessageBox.Show(ptr.ToString());
-            for (int i = 0; i < globalEntries.Count; i++)
+
+            TreeEntry entry = globalEntries.Where(pair => pair.zCVob == ptr)
+                .Select(pair => pair)
+                .FirstOrDefault();
+
+
+            if (entry != null)
             {
-                // Console.WriteLine("AddVobToNodes: " + i);
-
-                
-
-                if (globalEntries[i].zCVob == ptr)
+                if (entry.node != null)
                 {
-                    TreeNode node = globalEntries[i].node;
-                    //Console.WriteLine(node.Text);
-
-                    if (node == null)
-                    {
-                        Console.WriteLine("C#: OnSelectVob addr " + ptr + ", node is null, index is " + i);
-                    }
-                    else
-                    {
-                        UnionNET.objTreeWin.globalTree.SelectedNode = globalEntries[i].node;
-                        //UnionNET.objTreeWin.globalTree.SelectedNode.Expand();
-                    }
-                    
-                   
-                    break;
+                    UnionNET.objTreeWin.globalTree.SelectedNode = entry.node;
                 }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("C#: OnSelectVob: found  node is null, vob is " + ptr);
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+               
             }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("C#: OnSelectVob: Can't find vob in globalEntries: " + ptr);
+                //Console.WriteLine("C#: OnSelectVob: Adding vob to the list: " + ptr);
+                Console.ForegroundColor = ConsoleColor.White;
+
+
+                /*
+                TreeEntry newEntry = new TreeEntry();
+
+                globalEntries.Add(newEntry);
+                AddVobToNodes(newEntry);
+                */
+            }
+
+           
         }
 
 
@@ -451,14 +513,22 @@ namespace SpacerUnion
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("C# OnVobInsert: parentResult.Node is null");
+                        Console.ForegroundColor = ConsoleColor.White;
                     }
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("C# OnVobInsert: parentResult is null");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
             }
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("C#: GlobalCountEntries: " + globalEntries.Count);
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         [DllExport]
@@ -467,13 +537,6 @@ namespace SpacerUnion
             string name = Marshal.PtrToStringAnsi(ptr);
             string className = Marshal.PtrToStringAnsi(classNamePtr);
             TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
-
-
-            if (name.ToUpper().Contains("EDITOR_CAMERA_VOB"))
-            {
-                Console.WriteLine("Ignoring EDITOR_CAMERA_VOB");
-                return;
-            }
 
             TreeEntry entry = new TreeEntry();
 
@@ -488,8 +551,6 @@ namespace SpacerUnion
             {
                 if (globalEntries[i].zCVob == entry.parent)
                 {
-                    //Console.WriteLine("Add parent");
-
                     entry.parentEntry = globalEntries[i];
                     globalEntries[i].childs.Add(entry);
                     break;
@@ -559,7 +620,6 @@ namespace SpacerUnion
 
             if (tag.Length == 0 || tag == TAG_FOLDER)
             {
-                Console.WriteLine("C#: No select for: " + tag);
                 return;
             }
 
@@ -579,7 +639,6 @@ namespace SpacerUnion
 
             if (tag.Length == 0 || tag == TAG_FOLDER)
             {
-                Console.WriteLine("C#:  No select for: " + tag);
                 return;
             }
 
@@ -776,6 +835,11 @@ namespace SpacerUnion
         private void globalTree_NodeMouseClick_1(object sender, TreeNodeMouseClickEventArgs e)
         {
             globalTree.SelectedNode = e.Node;
+        }
+
+        private void buttonTreeSort_Click(object sender, EventArgs e)
+        {
+            globalTree.Sort();
         }
     }
 }
