@@ -24,6 +24,15 @@ namespace SpacerUnion
                 lstBox.Items.Add(o);
             }
         }
+        public static void WriteToFile(string str)
+        {
+            using (System.IO.StreamWriter file =
+            new System.IO.StreamWriter(@"./_SpacerNetErrors.txt"))
+            {
+                file.WriteLine(str);
+                file.Close();
+            }
+        }
     }
 }
 

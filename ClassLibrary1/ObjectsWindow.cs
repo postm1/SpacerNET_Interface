@@ -16,7 +16,7 @@ namespace SpacerUnion
     {
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_ApplyProps(IntPtr propStr);
+        public static extern void Extern_ApplyProps(IntPtr propStr, IntPtr propName);
 
 
 
@@ -211,8 +211,8 @@ namespace SpacerUnion
                 if (baseNode != null)
                 {
                     TreeNode node = baseNode.Nodes.Add(props[i].Name + ": " + props[i].ShowValue());
-                    node.SelectedImageIndex = 4;
-                    node.ImageIndex = 4;
+                    node.SelectedImageIndex = 5;
+                    node.ImageIndex = 5;
                     node.Tag = i;
                     props[i].ownNode = node;
 
@@ -224,8 +224,8 @@ namespace SpacerUnion
                 else
                 {
                     TreeNode node = tree.Nodes.Add(props[i].Name + ": " + props[i].ShowValue());
-                    node.SelectedImageIndex = 4;
-                    node.ImageIndex = 4;
+                    node.SelectedImageIndex = 5;
+                    node.ImageIndex = 5;
                     node.Tag = i;
                     props[i].ownNode = node;
 
@@ -389,6 +389,9 @@ namespace SpacerUnion
 
             //Console.WriteLine("Original: {0}", CProperty.originalStr);
 
+
+            string nameValue = "";
+
             for (int j = 0; j < words.Length; j++)
             {
                 if (words[j].Length == 0)
@@ -404,6 +407,11 @@ namespace SpacerUnion
                         //Console.WriteLine(baseStr);
                         words[j] = baseStr;
                     }
+
+                    if (props[i].Name == "vobName")
+                    {
+                        nameValue = props[i].value;
+                    }
                 }
                 
             }
@@ -414,9 +422,11 @@ namespace SpacerUnion
             }
 
             IntPtr ptr = Marshal.StringToHGlobalAnsi(str.ToString());
+            IntPtr ptrName = Marshal.StringToHGlobalAnsi(nameValue);
 
-            Extern_ApplyProps(ptr);
+            Extern_ApplyProps(ptr, ptrName);
             Marshal.FreeHGlobal(ptr);
+            Marshal.FreeHGlobal(ptrName);
         }
 
         public void DisableTabBBox()
@@ -823,6 +833,11 @@ namespace SpacerUnion
                 textBoxBbox2.Text = Extern_GetBBox(2).ToString().Replace(',', '.');
             }
            
+        }
+
+        private void treeViewProp_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+
         }
     }
 }

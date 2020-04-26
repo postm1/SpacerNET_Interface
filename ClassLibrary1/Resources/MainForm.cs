@@ -303,8 +303,25 @@ namespace SpacerUnion
             }
 
             saveFileDialog1.Filter = "Compiled ZEN (ascii)|*.zen|Uncompiled ZEN (ascii)|*.zen|Compiled ZEN (binary safe)|*.zen";
-            saveFileDialog1.InitialDirectory = Directory.GetCurrentDirectory() + "../_WORK/DATA/Worlds/";
 
+            //saveFileDialog1.InitialDirectory = Directory.GetCurrentDirectory() + "../_WORK/DATA/Worlds/";
+
+            IntPtr ptrPathInit = Extern_GetOpenPath((int)CmdType.ZenPath);
+            string path = Marshal.PtrToStringAnsi(ptrPathInit);
+
+            if (path != "")
+            {
+                //MessageBox.Show(path);
+                saveFileDialog1.InitialDirectory = System.IO.Path.GetDirectoryName(@path + @"/");
+            }
+            else
+            {
+                saveFileDialog1.InitialDirectory = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/";
+            }
+
+            saveFileDialog1.RestoreDirectory = true;
+
+            //Console.WriteLine(openFileDialog1.InitialDirectory);
 
             string zenName = currentWorldName.Replace(".zen", "").Replace(".ZEN", "");
             string time = DateTime.Now.ToString("yyyy_MM_dd HH-mm-ss");
@@ -544,8 +561,16 @@ namespace SpacerUnion
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
         {
-            ResetInterface();
-            Extern_ResetWorld();
+
+            DialogResult res = MessageBox.Show("Точно сбросить мир?", "Подтверждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (res == DialogResult.OK)
+            {
+                ResetInterface();
+                Extern_ResetWorld();
+            }
+
+           
             
         }
 

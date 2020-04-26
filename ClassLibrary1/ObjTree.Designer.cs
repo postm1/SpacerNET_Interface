@@ -48,16 +48,16 @@
             // globalTree
             // 
             this.globalTree.ContextMenuStrip = this.contextMenuStrip1;
-            this.globalTree.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.globalTree.HideSelection = false;
+            this.globalTree.HotTracking = true;
             this.globalTree.ImageIndex = 0;
             this.globalTree.ImageList = this.imageList1;
-            this.globalTree.Location = new System.Drawing.Point(0, 44);
+            this.globalTree.Location = new System.Drawing.Point(2, 41);
             this.globalTree.Name = "globalTree";
             this.globalTree.SelectedImageIndex = 0;
             this.globalTree.Size = new System.Drawing.Size(389, 431);
             this.globalTree.TabIndex = 0;
-            this.globalTree.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.globalTree_DrawNode);
+            this.globalTree.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.globalTree_BeforeSelect);
             this.globalTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.globalTree_AfterSelect);
             this.globalTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.globalTree_NodeMouseClick_1);
             this.globalTree.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.globalTree_NodeMouseDoubleClick);
@@ -104,10 +104,11 @@
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "folder-vertical-document-icon.png");
-            this.imageList1.Images.SetKeyName(1, "pointred.jpg");
-            this.imageList1.Images.SetKeyName(2, "pointvio.jpg");
-            this.imageList1.Images.SetKeyName(3, "green.jpg");
+            this.imageList1.Images.SetKeyName(0, "256-256-722452f33cc453c66fdb23d8c3b4c820-folder.png");
+            this.imageList1.Images.SetKeyName(1, "p3.png");
+            this.imageList1.Images.SetKeyName(2, "selWP.png");
+            this.imageList1.Images.SetKeyName(3, "selnew.png");
+            this.imageList1.Images.SetKeyName(4, "256-256-722452f33cc453c66fdb23d8c3b4c820-folder.png");
             // 
             // buttonCollapse
             // 

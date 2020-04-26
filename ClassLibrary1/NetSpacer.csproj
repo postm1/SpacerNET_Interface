@@ -126,6 +126,7 @@
     <Compile Include="SoundWin.Designer.cs">
       <DependentUpon>SoundWin.cs</DependentUpon>
     </Compile>
+    <Compile Include="TreeEntry.cs" />
     <Compile Include="UnionNET.cs" />
     <Compile Include="CompileLightWin.cs">
       <SubType>Form</SubType>
@@ -220,6 +221,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dsads.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ImportGroup Label=".NET DllExport">
