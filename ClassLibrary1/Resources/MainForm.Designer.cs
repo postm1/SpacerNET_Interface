@@ -70,6 +70,7 @@
             this.toolStripButtonBBox = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panelMain.SuspendLayout();
@@ -182,7 +183,7 @@
             this.toolStripMenuItem6,
             this.toolStripMenuItem7});
             this.граттToolStripMenuItem.Name = "граттToolStripMenuItem";
-            this.граттToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.граттToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.граттToolStripMenuItem.Text = "Показать";
             this.граттToolStripMenuItem.Click += new System.EventHandler(this.граттToolStripMenuItem_Click);
             // 
@@ -250,20 +251,20 @@
             // камераToolStripMenuItem
             // 
             this.камераToolStripMenuItem.Name = "камераToolStripMenuItem";
-            this.камераToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.камераToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.камераToolStripMenuItem.Text = "Камера";
             this.камераToolStripMenuItem.Click += new System.EventHandler(this.камераToolStripMenuItem_Click);
             // 
             // управлениеToolStripMenuItem
             // 
             this.управлениеToolStripMenuItem.Name = "управлениеToolStripMenuItem";
-            this.управлениеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.управлениеToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.управлениеToolStripMenuItem.Text = "Управление";
             // 
             // прочееToolStripMenuItem
             // 
             this.прочееToolStripMenuItem.Name = "прочееToolStripMenuItem";
-            this.прочееToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.прочееToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.прочееToolStripMenuItem.Text = "Прочее";
             // 
             // toolStripMenuItem3
@@ -292,6 +293,7 @@
             this.toolStripButton6,
             this.toolStripButton7,
             this.toolStripButton8,
+            this.toolStripButton9,
             this.toolStripSeparator1,
             this.toolStripSeparator3,
             this.toolStripButton4,
@@ -422,6 +424,16 @@
             this.panelMain.Size = new System.Drawing.Size(1201, 559);
             this.panelMain.TabIndex = 1;
             // 
+            // toolStripButton9
+            // 
+            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
+            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton9.Name = "toolStripButton9";
+            this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton9.Text = "toolStripButton9";
+            this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -432,6 +444,7 @@
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.DarkRed;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -492,5 +505,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonBBox;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         public System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.ToolStripButton toolStripButton9;
     }
 }

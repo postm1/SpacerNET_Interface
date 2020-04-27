@@ -79,6 +79,7 @@ namespace SpacerUnion
         {
             ObjTree.globalEntries.Clear();
             UnionNET.objTreeWin.globalTree.Nodes.Clear();
+            UnionNET.vobList.ClearListBox();
            // UnionNET.partWin.listBoxParticles.Items.Clear();
            // UnionNET.partWin.listBoxItems.Items.Clear();
         }
@@ -586,6 +587,19 @@ namespace SpacerUnion
             item.Checked = !item.Checked;
 
             Extern_SetValue((int)CmdType.ShowBBox, Convert.ToInt32(item.Checked));
+        }
+
+        private void toolStripButton9_Click(object sender, EventArgs e)
+        {
+            if (UnionNET.vobList.Visible)
+            {
+                UnionNET.vobList.Hide();
+            }
+            else
+            {
+                UnionNET.vobList.Show();
+            }
+            
         }
     }
 }

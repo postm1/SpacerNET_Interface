@@ -40,8 +40,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Применить = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.checkBoxFPS = new System.Windows.Forms.CheckBox();
             this.checkBoxTris = new System.Windows.Forms.CheckBox();
+            this.checkBoxFPS = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRotSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobs)).BeginInit();
@@ -103,7 +103,7 @@
             // trackBarVobs
             // 
             this.trackBarVobs.Location = new System.Drawing.Point(9, 92);
-            this.trackBarVobs.Maximum = 10000;
+            this.trackBarVobs.Maximum = 20000;
             this.trackBarVobs.Minimum = 100;
             this.trackBarVobs.Name = "trackBarVobs";
             this.trackBarVobs.Size = new System.Drawing.Size(235, 45);
@@ -124,7 +124,7 @@
             // trackBarWorld
             // 
             this.trackBarWorld.Location = new System.Drawing.Point(9, 38);
-            this.trackBarWorld.Maximum = 10000;
+            this.trackBarWorld.Maximum = 20000;
             this.trackBarWorld.Minimum = 100;
             this.trackBarWorld.Name = "trackBarWorld";
             this.trackBarWorld.Size = new System.Drawing.Size(235, 45);
@@ -180,17 +180,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Информация";
             // 
-            // checkBoxFPS
-            // 
-            this.checkBoxFPS.AutoSize = true;
-            this.checkBoxFPS.Location = new System.Drawing.Point(9, 19);
-            this.checkBoxFPS.Name = "checkBoxFPS";
-            this.checkBoxFPS.Size = new System.Drawing.Size(112, 17);
-            this.checkBoxFPS.TabIndex = 0;
-            this.checkBoxFPS.Text = "Показывать FPS";
-            this.checkBoxFPS.UseVisualStyleBackColor = true;
-            this.checkBoxFPS.CheckedChanged += new System.EventHandler(this.checkBoxFPS_CheckedChanged);
-            // 
             // checkBoxTris
             // 
             this.checkBoxTris.AutoSize = true;
@@ -201,6 +190,17 @@
             this.checkBoxTris.Text = "Показывать кол-во рисуемых треугольников";
             this.checkBoxTris.UseVisualStyleBackColor = true;
             this.checkBoxTris.CheckedChanged += new System.EventHandler(this.checkBoxTris_CheckedChanged);
+            // 
+            // checkBoxFPS
+            // 
+            this.checkBoxFPS.AutoSize = true;
+            this.checkBoxFPS.Location = new System.Drawing.Point(9, 19);
+            this.checkBoxFPS.Name = "checkBoxFPS";
+            this.checkBoxFPS.Size = new System.Drawing.Size(112, 17);
+            this.checkBoxFPS.TabIndex = 0;
+            this.checkBoxFPS.Text = "Показывать FPS";
+            this.checkBoxFPS.UseVisualStyleBackColor = true;
+            this.checkBoxFPS.CheckedChanged += new System.EventHandler(this.checkBoxFPS_CheckedChanged);
             // 
             // SettingsCamera
             // 

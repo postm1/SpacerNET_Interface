@@ -27,12 +27,19 @@ namespace SpacerUnion
         public static void WriteToFile(string str)
         {
             using (System.IO.StreamWriter file =
-            new System.IO.StreamWriter(@"./_SpacerNetErrors.txt"))
+            new System.IO.StreamWriter(@"./system/_SpacerNetErrors.txt"))
             {
                 file.WriteLine(str);
                 file.Close();
             }
         }
+
+        public static string ToHex(int num)
+        {
+            return  String.Format("0x{0:X}", num);
+        }
     }
+
+    
 }
 

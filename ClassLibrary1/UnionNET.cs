@@ -125,6 +125,7 @@ namespace SpacerUnion
             //vobList.Show();
             objTreeWin.Show();
             partWin.Show();
+            vobList.Show();
 
             //soundWin.Show();
 
@@ -135,7 +136,10 @@ namespace SpacerUnion
             objWin.Left = 1500;
             objWin.Top = 50;
 
-            
+
+
+            vobList.Left = 600;
+            vobList.Top = 600;
             partWin.Left = 0;
             partWin.Top = 600;
 
@@ -197,6 +201,8 @@ namespace SpacerUnion
                 windowsList.Add(infoWin);
                 windowsList.Add(objWin);
                 windowsList.Add(soundWin);
+                windowsList.Add(vobList);
+                
             }
                 
             for (int i = 0; i < windowsList.Count; i++)

@@ -28,19 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxVobs = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.trackBarRadius = new System.Windows.Forms.TrackBar();
+            this.labelRadius = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarRadius)).BeginInit();
             this.SuspendLayout();
             // 
-            // listBox1
+            // listBoxVobs
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(6, 33);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(267, 290);
-            this.listBox1.TabIndex = 0;
+            this.listBoxVobs.FormattingEnabled = true;
+            this.listBoxVobs.Location = new System.Drawing.Point(6, 85);
+            this.listBoxVobs.Name = "listBoxVobs";
+            this.listBoxVobs.ScrollAlwaysVisible = true;
+            this.listBoxVobs.Size = new System.Drawing.Size(291, 238);
+            this.listBoxVobs.TabIndex = 0;
+            this.listBoxVobs.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxVobs_MouseClick);
+            this.listBoxVobs.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxVobs_MouseDoubleClick);
             // 
             // button1
             // 
@@ -53,35 +58,62 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(181, 4);
+            this.button2.Location = new System.Drawing.Point(205, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(92, 23);
             this.button2.TabIndex = 2;
             this.button2.Text = "Actions >>";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // trackBarRadius
+            // 
+            this.trackBarRadius.Location = new System.Drawing.Point(116, 34);
+            this.trackBarRadius.Maximum = 800;
+            this.trackBarRadius.Minimum = 10;
+            this.trackBarRadius.Name = "trackBarRadius";
+            this.trackBarRadius.Size = new System.Drawing.Size(181, 45);
+            this.trackBarRadius.TabIndex = 3;
+            this.trackBarRadius.TickFrequency = 10;
+            this.trackBarRadius.Value = 200;
+            this.trackBarRadius.ValueChanged += new System.EventHandler(this.trackBarRadius_ValueChanged);
+            // 
+            // labelRadius
+            // 
+            this.labelRadius.AutoSize = true;
+            this.labelRadius.Location = new System.Drawing.Point(3, 34);
+            this.labelRadius.Name = "labelRadius";
+            this.labelRadius.Size = new System.Drawing.Size(106, 13);
+            this.labelRadius.TabIndex = 4;
+            this.labelRadius.Text = "Радиус поиска: 200";
+            // 
             // VobListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(276, 334);
+            this.ClientSize = new System.Drawing.Size(307, 334);
+            this.Controls.Add(this.labelRadius);
+            this.Controls.Add(this.trackBarRadius);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBoxVobs);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "VobListForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Vob-Container";
+            this.Text = "Контейнер вобов";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VobListForm_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarRadius)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.ListBox listBoxVobs;
+        private System.Windows.Forms.TrackBar trackBarRadius;
+        private System.Windows.Forms.Label labelRadius;
     }
 }

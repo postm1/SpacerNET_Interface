@@ -162,9 +162,8 @@ namespace SpacerUnion
                     {
                         noParentCount++;
 
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine(noParentCount + " ParentNode " + entry.parent + " is null: " + entry.name);
-                        Console.ForegroundColor = ConsoleColor.White;
+
+                        ConsoleEx.WriteLineRed(noParentCount + " ParentNode " + Utils.ToHex(entry.parent) + " is null: " + entry.name);
                         return;
                     }
 
@@ -197,9 +196,9 @@ namespace SpacerUnion
             else
             {
                 noParentCount++;
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(noParentCount + " ParentEntry " + entry.parent + " is null: " + entry.name);
-                Console.ForegroundColor = ConsoleColor.White;
+
+
+                ConsoleEx.WriteLineRed(noParentCount + " ParentEntry " + Utils.ToHex(entry.parent) + " is null: " + entry.name);
 
 
                 Utils.WriteToFile(String.Format("AddVobToNodes: Parent entry is null, parent {0}, name {1}", entry.parent, entry.name));
@@ -235,11 +234,9 @@ namespace SpacerUnion
             }
             catch
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("C#: UpdateName fail. No vob found in globalList. Addr: " + ptr);
-                Console.ForegroundColor = ConsoleColor.White;
+                ConsoleEx.WriteLineRed("C#: UpdateName fail. No vob found in globalList. Addr: " + Utils.ToHex(ptr));
 
-                Utils.WriteToFile(String.Format("UpdateName: No vob found in globalList addr: {0}, name {1}", ptr, name));
+                Utils.WriteToFile(String.Format("UpdateName: No vob found in globalList addr: {0}, name {1}", Utils.ToHex(ptr), name));
             }
 
 
@@ -288,11 +285,9 @@ namespace SpacerUnion
             }
             catch
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("C#: OnSelectVob fail. No vob found in globalList. Addr: " + ptr);
-                Console.ForegroundColor = ConsoleColor.White;
+                ConsoleEx.WriteLineRed("C#: OnSelectVob fail. No vob found in globalList. Addr: " + Utils.ToHex(ptr));
 
-                Utils.WriteToFile(String.Format("OnSelectVob: No vob found in globalList addr: {0}", ptr));
+                Utils.WriteToFile(String.Format("OnSelectVob: No vob found in globalList addr: {0}", Utils.ToHex(ptr)));
             }
             
 
@@ -301,7 +296,7 @@ namespace SpacerUnion
             s.Stop();
 
             string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-            Console.WriteLine("C#:OnSelectVob: " + ptr + " Time: " + timeSpend);
+            Console.WriteLine("C#:OnSelectVob: " + Utils.ToHex(ptr) + " Time: " + timeSpend);
 
 
             if (entry != null)
@@ -313,9 +308,8 @@ namespace SpacerUnion
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("C#: OnSelectVob: found  node is null, vob is " + ptr);
-                    Console.ForegroundColor = ConsoleColor.White;
+
+                    ConsoleEx.WriteLineRed("C#: OnSelectVob: found  node is null, vob is " + Utils.ToHex(ptr));
 
 
                     Utils.WriteToFile(String.Format("OnSelectVob: found  node is null, addr: {0}", ptr));
@@ -324,11 +318,10 @@ namespace SpacerUnion
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("C#: OnSelectVob: Can't find vob in globalEntries: " + ptr);
-                //Console.WriteLine("C#: OnSelectVob: Adding vob to the list: " + ptr);
-                Console.ForegroundColor = ConsoleColor.White;
-                Utils.WriteToFile(String.Format("OnSelectVob:  Can't find vob in globalEntries, addr: {0}", ptr));
+
+                ConsoleEx.WriteLineRed("C#: OnSelectVob: Can't find vob in globalEntries: " + Utils.ToHex(ptr));
+
+                Utils.WriteToFile(String.Format("OnSelectVob:  Can't find vob in globalEntries, addr: {0}", Utils.ToHex(ptr)));
 
                 /*
                 TreeEntry newEntry = new TreeEntry();
@@ -353,7 +346,7 @@ namespace SpacerUnion
 
             if (entry.node != null)
             {
-                Console.WriteLine("C#: Remove node: " + entry.node.Text + " Parent: " + entry.parent);
+                Console.WriteLine("C#: Remove node: " + entry.node.Text + " Parent: " + Utils.ToHex(entry.parent));
                 entry.node.Remove();
             }
             else
@@ -372,7 +365,7 @@ namespace SpacerUnion
             TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
 
             Console.WriteLine("=============================");
-            Console.WriteLine("C#: OnVobRemove: " + vob);
+            Console.WriteLine("C#: OnVobRemove: " + Utils.ToHex(vob));
             Console.WriteLine("GlobalEntries count: " + globalEntries.Count);
 
             if (vob == 0)
@@ -401,13 +394,14 @@ namespace SpacerUnion
 
                 if (entries.Count > 1)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("C#: Warning! I found more than 1 entries with same Vob addr! Count: " + entries.Count);
-                    Console.ForegroundColor = ConsoleColor.White;
+                    ConsoleEx.WriteLineRed("C#: Warning! I found more than 1 entries with same Vob addr! Count: " + entries.Count);
+
 
                     Utils.WriteToFile(String.Format("Warning! I found more than 1 entries with same Vob addr! addr: {0}, count {1}", vob, entries.Count));
                 }
             }
+
+            UnionNET.vobList.ClearListBox();
 
             Console.WriteLine("GlobalEntries count: " + globalEntries.Count);
             Console.WriteLine("=============================");
@@ -442,9 +436,15 @@ namespace SpacerUnion
             else
             {
 
-                Utils.WriteToFile("Ошибка! Воб " + vob + " уже есть в globalEntries!" + " " + globalEntries[vob].name);
+                Utils.WriteToFile("Ошибка! Воб " + Utils.ToHex(vob) + " уже есть в globalEntries!"
+                    + " " + globalEntries[vob].name + " .zCVob = " + Utils.ToHex(globalEntries[vob].zCVob));
+
 
                 MessageBox.Show("Ошибка! Воб " + vob + " уже есть в globalEntries! " + " " + globalEntries[vob].name);
+
+                ConsoleEx.WriteLineRed("Ошибка! Воб " + vob + " уже есть в globalEntries! " + " " + globalEntries[vob].name);
+
+
                 return;
             }
 
@@ -460,10 +460,8 @@ namespace SpacerUnion
             catch
             {
                 foundEntry = null;
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("C#: OnVobInsert. Can't found parent entry!");
-                Console.ForegroundColor = ConsoleColor.White;
 
+                ConsoleEx.WriteLineRed("C#: OnVobInsert. Can't found parent entry!");
                 Utils.WriteToFile("C#: OnVobInsert. Can't found parent entry!");
             }
             
@@ -480,7 +478,7 @@ namespace SpacerUnion
                 entry.node = node;
                 ApplyNodeImage(className, node, true);
                 UnionNET.objTreeWin.globalTree.SelectedNode = node;
-                Console.WriteLine("C# OnVobInsert globally: " + name + " parent: " + parent + " className: " + className);
+                Console.WriteLine("C# OnVobInsert globally: " + name + " parent: " + Utils.ToHex(parent) + " className: " + className);
             }
             else if (entry.parentEntry != null)
             {
@@ -504,22 +502,19 @@ namespace SpacerUnion
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("C# OnVobInsert: parent node is null");
-                    Console.ForegroundColor = ConsoleColor.White;
+                    ConsoleEx.WriteLineRed("C# OnVobInsert: parent node is null");
                 }
 
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("C# OnVobInsert: parent entry is null");
-                Console.ForegroundColor = ConsoleColor.White;
+
+                ConsoleEx.WriteLineRed("C# OnVobInsert: parent entry is null");
             }
 
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("C#: GlobalCountEntries: " + globalEntries.Count);
-            Console.ForegroundColor = ConsoleColor.White;
+
+            ConsoleEx.WriteLineGreen("C#: GlobalCountEntries: " + globalEntries.Count);
+
         }
 
 
@@ -558,7 +553,18 @@ namespace SpacerUnion
             entry.zCVob = vob;
             entry.className = className;
             entry.isLevel = entry.className == "zCVobLevelCompo";
-            globalEntries.Add(vob, entry);
+
+
+            try
+            {
+                globalEntries.Add(vob, entry);
+            }
+            catch
+            {
+
+                ConsoleEx.WriteLineRed("C#: AddGlobalEntry: add entry fail. Key exists!: " + Utils.ToHex(vob));
+            }
+            
 
             if (entry.parent == 0)
             {
@@ -575,10 +581,9 @@ namespace SpacerUnion
             catch
             {
                 foundEntry = null;
+                ConsoleEx.WriteLineRed("C#: AddTreeNode: no parent found in entries: " + Utils.ToHex(parent));
 
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("C#: AddTreeNode: no parent found in entries: " + parent);
-                Console.ForegroundColor = ConsoleColor.White;
+
             }
            
 
@@ -618,7 +623,7 @@ namespace SpacerUnion
 
             string tag = node.Tag.ToString();
 
-            Console.WriteLine("C#: OnSelectDoubleClick: " + tag);
+           
 
 
             if (tag.Length == 0 || tag == TAG_FOLDER)
@@ -627,7 +632,9 @@ namespace SpacerUnion
             }
 
             int addr = Convert.ToInt32(node.Tag);
-            
+
+            Console.WriteLine("C#: OnSelectDoubleClick node: vob" + Utils.ToHex(addr));
+
             Extern_SelectVob(addr);
             UnionNET.form.Focus();
         }
@@ -660,10 +667,12 @@ namespace SpacerUnion
 
             node.SelectedImageIndex = 4;
 
-            Console.WriteLine("C#: AfterSelect event: " + tag);
+           
 
 
             int addr = Convert.ToInt32(node.Tag);
+
+            Console.WriteLine("C#: AfterSelect node: vob " + Utils.ToHex(addr));
 
             if (node.Text.Contains("zCVobWaypoint") || node.Text.Contains("zCVobSpot"))
             {
@@ -849,6 +858,7 @@ namespace SpacerUnion
                 return;
             }
 
+            UnionNET.vobList.ClearListBox();
             int vob = 0;
 
             int.TryParse(tag, out vob);
