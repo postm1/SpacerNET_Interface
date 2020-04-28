@@ -144,6 +144,8 @@ namespace SpacerUnion
                 prop.Name = words[i].Substring(0, words[i].IndexOf('='));
                 prop.GroupName = currentFolderName;
 
+                
+
                 int pos = words[i].IndexOf('=');
                 int pos2 = words[i].IndexOf(':');
 
@@ -157,7 +159,27 @@ namespace SpacerUnion
                 {
                     prop.node = folders[currentFolderName].node;
                 }
-                
+
+
+                if (prop.Name == "sndName")
+                {
+                    string value = prop.value;
+
+                    ConsoleEx.WriteLineRed("Looking for the sound...");
+
+                    ListBox listBox = UnionNET.soundWin.listBoxSound;
+
+                    for (int k = 0; k < listBox.Items.Count; k++)
+                    {
+                        if (listBox.GetItemText(listBox.Items[k]) == value)
+                        {
+                            listBox.SelectedIndex = k;
+                            break;
+                        }
+                            
+                    }
+
+                }
                 /*
                 Console.WriteLine("=================================");
                 Console.WriteLine(words[i]);

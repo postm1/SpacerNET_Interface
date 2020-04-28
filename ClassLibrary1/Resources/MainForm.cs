@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpacerUnion.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,25 +16,7 @@ using System.Windows.Forms;
 namespace SpacerUnion
 {
 
-    public enum CmdType
-    {
-        ShowVobs,
-        ShowWaynet,
-        ShowHelpVobs,
-        CompileLight,
-        CamTrans,
-        CamRot,
-        RangeVobs,
-        RangeWorld,
-        ZenPath,
-        TreeVobPath,
-        MeshPath,
-        VobsPath,
-        ShowBBox,
-        PrefixDate,
-        ShowFps,
-        ShowTris
-    };
+   
     public partial class MainForm : Form
     {
         public Form renderTarget = null;
@@ -61,14 +44,28 @@ namespace SpacerUnion
 
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr Extern_GetOpenPath(int type);
-
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SetOpenPath(IntPtr str, int type);
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_ResetWorld();
+
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SetCameraPos(int x, int y, int z);
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SetSetting(IntPtr namePtr, int value);
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SetSettingStr(IntPtr namePtr, IntPtr value);
+
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int Extern_GetSetting(IntPtr namePtr);
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr Extern_GetSettingStr(IntPtr namePtr);
+
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SaveWorld(IntPtr str, int type);
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -101,7 +98,8 @@ namespace SpacerUnion
         {
             openFileDialog1.Filter = "Zen files (*.zen)|";
 
-            IntPtr ptrPath = Extern_GetOpenPath((int)CmdType.ZenPath);
+            IntPtr ptrPath = Extern_GetSettingStr(Marshal.StringToHGlobalAnsi("zenzPath"));
+
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
             //MessageBox.Show(path);
@@ -123,7 +121,7 @@ namespace SpacerUnion
 
                 IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(openFileDialog1.FileName));
 
-                Extern_SetOpenPath(ptrPathSave, (int)CmdType.ZenPath);
+                Extern_SetSettingStr(ptrPathSave, Marshal.StringToHGlobalAnsi("zenzPath"));
 
 
                 string filePath = openFileDialog1.FileName;
@@ -154,8 +152,7 @@ namespace SpacerUnion
 
         }
 
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SetValue(int type, int value);
+       
 
         private void граттToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -168,7 +165,7 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Extern_SetValue((int)CmdType.ShowVobs, Convert.ToInt32(item.Checked));
+            Extern_SetSetting(Marshal.StringToHGlobalAnsi("showVobs"), Convert.ToInt32(item.Checked));
 
         }
 
@@ -178,7 +175,7 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Extern_SetValue((int)CmdType.ShowWaynet, Convert.ToInt32(item.Checked));
+            Extern_SetSetting(Marshal.StringToHGlobalAnsi("showVobs"), Convert.ToInt32(item.Checked));
         }
 
         private void toolStripMenuItem7_Click(object sender, EventArgs e)
@@ -187,7 +184,7 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Extern_SetValue((int)CmdType.ShowHelpVobs, Convert.ToInt32(item.Checked));
+            Extern_SetSetting(Marshal.StringToHGlobalAnsi("showVobs"), Convert.ToInt32(item.Checked));
         }
 
         private void оНасToolStripMenuItem_Click(object sender, EventArgs e)
@@ -228,7 +225,7 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Extern_SetValue((int)CmdType.ShowWaynet, Convert.ToInt32(item.Checked));
+            Extern_SetSetting(Marshal.StringToHGlobalAnsi("showWaynet"), Convert.ToInt32(item.Checked));
             toolStripMenuItem6.Checked = item.Checked;
         }
 
@@ -238,7 +235,7 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Extern_SetValue((int)CmdType.ShowHelpVobs, Convert.ToInt32(item.Checked));
+            Extern_SetSetting(Marshal.StringToHGlobalAnsi("showHelpVobs"), Convert.ToInt32(item.Checked));
             toolStripMenuItem7.Checked = item.Checked;
         }
 
@@ -248,7 +245,7 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Extern_SetValue((int)CmdType.ShowVobs, Convert.ToInt32(item.Checked));
+            Extern_SetSetting(Marshal.StringToHGlobalAnsi("showVobs"), Convert.ToInt32(item.Checked));
             toolStripMenuItem5.Checked = item.Checked;
         }
 
@@ -292,8 +289,7 @@ namespace SpacerUnion
         }
 
 
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SaveWorld(IntPtr str, int type);
+        
 
         private void сохранитьZENToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -307,7 +303,7 @@ namespace SpacerUnion
 
             //saveFileDialog1.InitialDirectory = Directory.GetCurrentDirectory() + "../_WORK/DATA/Worlds/";
 
-            IntPtr ptrPathInit = Extern_GetOpenPath((int)CmdType.ZenPath);
+            IntPtr ptrPathInit = Extern_GetSettingStr(Marshal.StringToHGlobalAnsi("zenzPath"));
             string path = Marshal.PtrToStringAnsi(ptrPathInit);
 
             if (path != "")
@@ -337,7 +333,7 @@ namespace SpacerUnion
 
             }
 
-            int addPrefx = Extern_GetSetting((int)CmdType.PrefixDate);
+            int addPrefx = Extern_GetSetting(Marshal.StringToHGlobalAnsi("addDatePrefix"));
 
 
             if (addPrefx != 0)
@@ -353,7 +349,7 @@ namespace SpacerUnion
 
                 IntPtr ptrPath = Marshal.StringToHGlobalAnsi(System.IO.Path.GetDirectoryName(saveFileDialog1.FileName));
 
-                Extern_SetOpenPath(ptrPath, (int)CmdType.ZenPath);
+                Extern_SetSettingStr(ptrPath, Marshal.StringToHGlobalAnsi("zenzPath"));
 
 
                 string filePath = saveFileDialog1.FileName;
@@ -412,17 +408,16 @@ namespace SpacerUnion
         }
 
 
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int Extern_GetSetting(int type);
+
 
 
         private void камераToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int transSpeed = Extern_GetSetting((int)CmdType.CamTrans);
-            int rotSpeed = Extern_GetSetting((int)CmdType.CamRot);
+            int transSpeed = Extern_GetSetting(Marshal.StringToHGlobalAnsi("camTransSpeed"));
+            int rotSpeed = Extern_GetSetting(Marshal.StringToHGlobalAnsi("camRotSpeed"));
 
-            int world = Extern_GetSetting((int)CmdType.RangeWorld);
-            int vob = Extern_GetSetting((int)CmdType.RangeVobs);
+            int world = Extern_GetSetting(Marshal.StringToHGlobalAnsi("rangeWorld"));
+            int vob = Extern_GetSetting(Marshal.StringToHGlobalAnsi("rangeVobs"));
 
 
             UnionNET.settingsCam.trackBarTransSpeed.Value = transSpeed;
@@ -434,8 +429,8 @@ namespace SpacerUnion
             UnionNET.settingsCam.UpdateAll();
 
 
-            UnionNET.settingsCam.checkBoxFPS.Checked = Convert.ToBoolean(Extern_GetSetting((int)CmdType.ShowFps));
-            UnionNET.settingsCam.checkBoxTris.Checked = Convert.ToBoolean(Extern_GetSetting((int)CmdType.ShowTris));
+            UnionNET.settingsCam.checkBoxFPS.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("showFps")));
+            UnionNET.settingsCam.checkBoxTris.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("showTris")));
 
             UnionNET.settingsCam.Show();
         }
@@ -450,7 +445,7 @@ namespace SpacerUnion
         {
             openFileDialog1.Filter = "Mesh-File (*.3ds)|*.3ds|All Files(*.*)|*.*||";
 
-            IntPtr ptrPath = Extern_GetOpenPath((int)CmdType.MeshPath);
+            IntPtr ptrPath = Extern_GetSettingStr(Marshal.StringToHGlobalAnsi("meshPath"));
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
             //MessageBox.Show(path);
@@ -472,7 +467,7 @@ namespace SpacerUnion
 
                 IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(openFileDialog1.FileName));
 
-                Extern_SetOpenPath(ptrPathSave, (int)CmdType.MeshPath);
+                Extern_SetSettingStr(ptrPathSave, Marshal.StringToHGlobalAnsi("meshPath"));
 
 
                 string filePath = openFileDialog1.FileName;
@@ -507,7 +502,7 @@ namespace SpacerUnion
         {
             openFileDialog1.Filter = "World (*.Zen)|*.zen|All Files(*.*)|*.*||";
 
-            IntPtr ptrPath = Extern_GetOpenPath((int)CmdType.VobsPath);
+            IntPtr ptrPath = Extern_GetSettingStr(Marshal.StringToHGlobalAnsi("vobsPath"));
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
             //MessageBox.Show(path);
@@ -529,7 +524,8 @@ namespace SpacerUnion
 
                 IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(openFileDialog1.FileName));
 
-                Extern_SetOpenPath(ptrPathSave, (int)CmdType.VobsPath);
+                Extern_SetSettingStr(ptrPathSave, Marshal.StringToHGlobalAnsi("vobsPath"));
+
 
 
                 string filePath = openFileDialog1.FileName;
@@ -586,7 +582,7 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Extern_SetValue((int)CmdType.ShowBBox, Convert.ToInt32(item.Checked));
+            Extern_SetSetting(Marshal.StringToHGlobalAnsi("drawBBoxGlobal"), Convert.ToInt32(item.Checked));
         }
 
         private void toolStripButton9_Click(object sender, EventArgs e)
@@ -600,6 +596,16 @@ namespace SpacerUnion
                 UnionNET.vobList.Show();
             }
             
+        }
+
+        private void toolStripTop_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void прыгнутьНа000КоординатыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Extern_SetCameraPos(0, 0, 0);
         }
     }
 }

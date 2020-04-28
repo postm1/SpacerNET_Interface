@@ -73,6 +73,16 @@ namespace SpacerUnion.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Spinner_0_5s_137px {
+            get {
+                object obj = ResourceManager.GetObject("Spinner-0.5s-137px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap реклама {
             get {
                 object obj = ResourceManager.GetObject("реклама", resourceCulture);

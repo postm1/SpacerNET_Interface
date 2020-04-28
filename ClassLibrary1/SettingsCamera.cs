@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpacerUnion.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,7 +19,7 @@ namespace SpacerUnion
         }
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SetSetting(int type, int value);
+        public static extern void Extern_SetSetting(IntPtr namePtr, int value);
 
 
         private void SettingsCamera_FormClosing(object sender, FormClosingEventArgs e)
@@ -40,25 +41,25 @@ namespace SpacerUnion
         private void trackBarTransSpeed_ValueChanged(object sender, EventArgs e)
         {
             labelTrans.Text = "Скорость полета: " + trackBarTransSpeed.Value;
-            Extern_SetSetting((int)CmdType.CamTrans, trackBarTransSpeed.Value);
+            Extern_SetSetting(Marshal.StringToHGlobalAnsi("camTransSpeed"), trackBarTransSpeed.Value);
         }
 
         private void trackBarRotSpeed_ValueChanged(object sender, EventArgs e)
         {
             labelRot.Text = "Скорость поворота: " + trackBarRotSpeed.Value;
-            Extern_SetSetting((int)CmdType.CamRot, trackBarRotSpeed.Value);
+            Extern_SetSetting(Marshal.StringToHGlobalAnsi("camRotSpeed"), trackBarRotSpeed.Value);
         }
 
         private void trackBarWorld_ValueChanged(object sender, EventArgs e)
         {
             labelWorld.Text = "Мир: " + trackBarWorld.Value;
-            Extern_SetSetting((int)CmdType.RangeWorld, trackBarWorld.Value);
+            Extern_SetSetting(Marshal.StringToHGlobalAnsi("rangeWorld"), trackBarWorld.Value);
         }
 
         private void trackBarVobs_ValueChanged(object sender, EventArgs e)
         {
             labelVobs.Text = "Вобы: " + trackBarVobs.Value;
-            Extern_SetSetting((int)CmdType.RangeVobs, trackBarVobs.Value);
+            Extern_SetSetting(Marshal.StringToHGlobalAnsi("rangeVobs"), trackBarVobs.Value);
         }
 
         private void Применить_Click(object sender, EventArgs e)
@@ -70,14 +71,14 @@ namespace SpacerUnion
         {
             CheckBox cb = sender as CheckBox;
 
-            Extern_SetSetting((int)CmdType.ShowFps, Convert.ToInt32(cb.Checked));
+            Extern_SetSetting(Marshal.StringToHGlobalAnsi("showFps"), Convert.ToInt32(cb.Checked));
         }
 
         private void checkBoxTris_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
 
-            Extern_SetSetting((int)CmdType.ShowTris, Convert.ToInt32(cb.Checked));
+            Extern_SetSetting(Marshal.StringToHGlobalAnsi("showTris"), Convert.ToInt32(cb.Checked));
         }
     }
 }

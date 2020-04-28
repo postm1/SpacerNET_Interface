@@ -125,5 +125,10 @@ namespace SpacerUnion
 
             }
         }
+
+        private void очиститьСписокToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listBoxVobs.Items.Clear();
+        }
     }
 }

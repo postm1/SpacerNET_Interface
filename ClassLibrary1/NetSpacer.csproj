@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoClosingMessageBox.cs" />
+    <Compile Include="Common\CmdType.cs" />
     <Compile Include="CompileWorldWin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +107,12 @@
     </Compile>
     <Compile Include="InputBox.Designer.cs">
       <DependentUpon>InputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ObjTree.cs">
       <SubType>Form</SubType>
@@ -170,7 +177,7 @@
     <Compile Include="VobListForm.Designer.cs">
       <DependentUpon>VobListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="zEngine\CProperty.cs" />
+    <Compile Include="Common\CProperty.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CompileLightWin.resx">
@@ -184,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InputBox.resx">
       <DependentUpon>InputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ObjTree.resx">
       <DependentUpon>ObjTree.cs</DependentUpon>
@@ -232,6 +242,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Letter_S_red_34876.ico" />
+    <None Include="Resources\Spinner-0.5s-137px.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ImportGroup Label=".NET DllExport">

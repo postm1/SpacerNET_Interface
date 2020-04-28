@@ -153,7 +153,6 @@
         #endregion
 
         private System.Windows.Forms.Button buttonPlaySound;
-        private System.Windows.Forms.ListBox listBoxSound;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListBox listBoxSndResult;
@@ -161,5 +160,6 @@
         private System.Windows.Forms.Label labelSndList;
         private System.Windows.Forms.Label labelAllSounds;
         private System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.ListBox listBoxSound;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpacerUnion.Common;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -26,12 +27,15 @@ namespace SpacerUnion
         public static InputBox inputBox;
         public static CompileWorldWin compWorldWin;
 
+        public static LoadingForm loadForm = null;
+
 
         public static SettingsCamera settingsCam;
 
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int Extern_GetSetting(IntPtr namePtr);
 
 
-        
 
         [STAThread]
 
@@ -147,6 +151,34 @@ namespace SpacerUnion
             soundWin.Left = 0;
             soundWin.Top = 300;
 
+            ToolStripButton btn = form.toolStripTop.Items[8] as ToolStripButton;
+            btn.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("renderVobs")));
+            btn = form.toolStripTop.Items[9] as ToolStripButton;
+            btn.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("showWaynet")));
+            btn = form.toolStripTop.Items[10] as ToolStripButton;
+            btn.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("showHelpVobs")));
+
+
+
+            btn = form.toolStripTop.Items[0] as ToolStripButton;
+            btn.Checked = Convert.ToBoolean(infoWin.Visible);
+
+            btn = form.toolStripTop.Items[1] as ToolStripButton;
+            btn.Checked = Convert.ToBoolean(partWin.Visible);
+
+            btn = form.toolStripTop.Items[2] as ToolStripButton;
+            btn.Checked = Convert.ToBoolean(soundWin.Visible);
+
+            btn = form.toolStripTop.Items[3] as ToolStripButton;
+            btn.Checked = Convert.ToBoolean(objTreeWin.Visible);
+
+            btn = form.toolStripTop.Items[4] as ToolStripButton;
+            btn.Checked = Convert.ToBoolean(objWin.Visible);
+
+
+            btn = form.toolStripTop.Items[5] as ToolStripButton;
+            btn.Checked = Convert.ToBoolean(vobList.Visible);
+
 
             form.Focus();
         }
@@ -231,10 +263,58 @@ namespace SpacerUnion
             form.Focus();
         }
 
-      
+        [DllExport]
+        public static void ShowLoadingForm(int type)
+        {
+            if (loadForm == null)
+            {
+                loadForm = new LoadingForm();
+            }
 
 
-        
+            if (type == 0)
+            {
+                loadForm.labelLoading.Text = "Идет загрузка Zen...";
+            }
+
+            if (type == 1)
+            {
+                loadForm.labelLoading.Text = "Идет компиляция Zen...";
+            }
+
+            if (type == 2)
+            {
+                loadForm.labelLoading.Text = "Идет компиляция света...";
+            }
+
+
+            if (type == 3)
+            {
+                loadForm.labelLoading.Text = "Идет сохранение ZEN...";
+            }
+
+
+
+            loadForm.Show();
+            Application.DoEvents();
+        }
+
+        [DllExport]
+        public static void CloseLoadingForm()
+        {
+            if (loadForm != null)
+            {
+                loadForm.Hide();
+            }
+
+            Application.DoEvents();
+
+        }
+
+
+
+
+
     }
 
 }

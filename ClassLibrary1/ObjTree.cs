@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpacerUnion.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,11 +16,7 @@ namespace SpacerUnion
     public partial class ObjTree : Form
     {
         #region Imports
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr Extern_GetOpenPath(int type);
 
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SetOpenPath(IntPtr str, int type);
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_SaveVobTree(IntPtr str);
@@ -41,6 +38,14 @@ namespace SpacerUnion
 
         [DllImport("user32.dll")]
         private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr Extern_GetSettingStr(IntPtr namePtr);
+
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SetSettingStr(IntPtr namePtr, IntPtr value);
+
         #endregion
 
         public static TreeNode previousSelectedNode = null;
@@ -701,7 +706,7 @@ namespace SpacerUnion
 
 
             saveFileDialogVobTree.Filter = "Zen file (*.zen)|";
-            IntPtr ptrPath = Extern_GetOpenPath((int)CmdType.TreeVobPath);
+            IntPtr ptrPath = Extern_GetSettingStr(Marshal.StringToHGlobalAnsi("treeVobPath"));
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
             string fileName = UnionNET.objTreeWin.globalTree.SelectedNode.Text;
@@ -728,7 +733,9 @@ namespace SpacerUnion
 
                 IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(saveFileDialogVobTree.FileName));
 
-                Extern_SetOpenPath(ptrPathSave, (int)CmdType.TreeVobPath);
+
+                Extern_SetSettingStr(ptrPathSave, Marshal.StringToHGlobalAnsi("treeVobPath"));
+
 
 
 
@@ -759,7 +766,7 @@ namespace SpacerUnion
 
 
             openFileDialogVobTree.Filter = "Zen file (*.zen)|";
-            IntPtr ptrPath = Extern_GetOpenPath((int)CmdType.TreeVobPath);
+            IntPtr ptrPath = Extern_GetSettingStr(Marshal.StringToHGlobalAnsi("treeVobPath"));
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
             string fileName = UnionNET.objTreeWin.globalTree.SelectedNode.Text;
@@ -785,7 +792,7 @@ namespace SpacerUnion
 
                 IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(openFileDialogVobTree.FileName));
 
-                Extern_SetOpenPath(ptrPathSave, (int)CmdType.TreeVobPath);
+                Extern_SetSettingStr(ptrPathSave, Marshal.StringToHGlobalAnsi("treeVobPath"));
 
 
 
@@ -803,7 +810,7 @@ namespace SpacerUnion
 
 
             openFileDialogVobTree.Filter = "Zen file (*.zen)|";
-            IntPtr ptrPath = Extern_GetOpenPath((int)CmdType.TreeVobPath);
+            IntPtr ptrPath = Extern_GetSettingStr(Marshal.StringToHGlobalAnsi("treeVobPath"));
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
             string fileName = UnionNET.objTreeWin.globalTree.SelectedNode.Text;
@@ -829,7 +836,7 @@ namespace SpacerUnion
 
                 IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(openFileDialogVobTree.FileName));
 
-                Extern_SetOpenPath(ptrPathSave, (int)CmdType.TreeVobPath);
+                Extern_SetSettingStr(ptrPathSave, Marshal.StringToHGlobalAnsi("treeVobPath"));
 
 
 

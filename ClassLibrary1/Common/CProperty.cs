@@ -173,6 +173,8 @@ namespace SpacerUnion.zEngine
 
         public void SetValue(string v)
         {
+            v = v.ToUpper();
+
             value = v;
 
             if (!oldValueInit)
