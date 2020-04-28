@@ -80,5 +80,33 @@ namespace SpacerUnion
 
             Extern_SetSetting(Marshal.StringToHGlobalAnsi("showTris"), Convert.ToInt32(cb.Checked));
         }
+
+        private void checkBoxCamCoord_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+
+            Extern_SetSetting(Marshal.StringToHGlobalAnsi("showCamCoords"), Convert.ToInt32(cb.Checked));
+        }
+
+        private void checkBoxVobs_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+
+            Extern_SetSetting(Marshal.StringToHGlobalAnsi("showVobsCount"), Convert.ToInt32(cb.Checked));
+        }
+
+        private void checkBoxWaypoints_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+
+            Extern_SetSetting(Marshal.StringToHGlobalAnsi("showWaypointsCount"), Convert.ToInt32(cb.Checked));
+        }
+
+        private void checkBoxDistVob_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+
+            Extern_SetSetting(Marshal.StringToHGlobalAnsi("showVobDist"), Convert.ToInt32(cb.Checked));
+        }
     }
 }

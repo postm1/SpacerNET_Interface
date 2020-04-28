@@ -51,16 +51,28 @@
             this.textBoxBbox0 = new System.Windows.Forms.TextBox();
             this.buttonApplyBbox = new System.Windows.Forms.Button();
             this.buttonResetBbox = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.buttonContainerApply = new System.Windows.Forms.Button();
+            this.buttonContainerCancel = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.buttonClearItems = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -307,6 +319,90 @@
             this.buttonResetBbox.UseVisualStyleBackColor = true;
             this.buttonResetBbox.Click += new System.EventHandler(this.buttonResetBbox_Click);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.groupBox1);
+            this.tabPage3.Controls.Add(this.dataGridView1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(305, 464);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Контейнер";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // buttonContainerApply
+            // 
+            this.buttonContainerApply.Location = new System.Drawing.Point(157, 48);
+            this.buttonContainerApply.Name = "buttonContainerApply";
+            this.buttonContainerApply.Size = new System.Drawing.Size(102, 23);
+            this.buttonContainerApply.TabIndex = 3;
+            this.buttonContainerApply.Text = "Применить";
+            this.buttonContainerApply.UseVisualStyleBackColor = true;
+            this.buttonContainerApply.Click += new System.EventHandler(this.buttonContainerApply_Click);
+            // 
+            // buttonContainerCancel
+            // 
+            this.buttonContainerCancel.Location = new System.Drawing.Point(29, 48);
+            this.buttonContainerCancel.Name = "buttonContainerCancel";
+            this.buttonContainerCancel.Size = new System.Drawing.Size(102, 23);
+            this.buttonContainerCancel.TabIndex = 2;
+            this.buttonContainerCancel.Text = "Отмена";
+            this.buttonContainerCancel.UseVisualStyleBackColor = true;
+            this.buttonContainerCancel.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.dataGridView1.Location = new System.Drawing.Point(8, 18);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridView1.Size = new System.Drawing.Size(289, 350);
+            this.dataGridView1.TabIndex = 4;
+            // 
+            // buttonClearItems
+            // 
+            this.buttonClearItems.Location = new System.Drawing.Point(157, 19);
+            this.buttonClearItems.Name = "buttonClearItems";
+            this.buttonClearItems.Size = new System.Drawing.Size(102, 23);
+            this.buttonClearItems.TabIndex = 5;
+            this.buttonClearItems.Text = "Очистить все";
+            this.buttonClearItems.UseVisualStyleBackColor = true;
+            this.buttonClearItems.Click += new System.EventHandler(this.buttonClearItems_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Инстанция";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 218;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Кол-во";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 66;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.buttonClearItems);
+            this.groupBox1.Controls.Add(this.buttonContainerCancel);
+            this.groupBox1.Controls.Add(this.buttonContainerApply);
+            this.groupBox1.Location = new System.Drawing.Point(8, 374);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(289, 82);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Управление";
+            // 
             // ObjectsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,6 +423,9 @@
             this.panelButtons.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -356,5 +455,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button buttonContainerApply;
+        private System.Windows.Forms.Button buttonContainerCancel;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button buttonClearItems;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

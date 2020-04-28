@@ -151,13 +151,14 @@ namespace SpacerUnion
             soundWin.Left = 0;
             soundWin.Top = 300;
 
-            ToolStripButton btn = form.toolStripTop.Items[8] as ToolStripButton;
-            btn.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("renderVobs")));
-            btn = form.toolStripTop.Items[9] as ToolStripButton;
+            ToolStripButton btn = form.toolStripTop.Items[7] as ToolStripButton;
+            btn.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("showVobs")));
+            btn = form.toolStripTop.Items[8] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("showWaynet")));
-            btn = form.toolStripTop.Items[10] as ToolStripButton;
+            btn = form.toolStripTop.Items[9] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("showHelpVobs")));
-
+            btn = form.toolStripTop.Items[10] as ToolStripButton;
+            btn.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("drawBBoxGlobal")));
 
 
             btn = form.toolStripTop.Items[0] as ToolStripButton;

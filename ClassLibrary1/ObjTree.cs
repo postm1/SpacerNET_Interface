@@ -44,7 +44,7 @@ namespace SpacerUnion
 
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SetSettingStr(IntPtr namePtr, IntPtr value);
+        public static extern void Extern_SetSettingStr(IntPtr namePtr, IntPtr optionName);
 
         #endregion
 

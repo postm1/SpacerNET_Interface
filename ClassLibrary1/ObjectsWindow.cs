@@ -27,6 +27,11 @@ namespace SpacerUnion
         static TPropEditType currentFieldtype;
         static TreeNode showFirst;
         static bool isItemSelected;
+
+        static string currentContents;
+        static int containsIndex;
+        static TreeNode containsNode;
+
         class FolderEntry
         {
             public string parent;
@@ -45,7 +50,7 @@ namespace SpacerUnion
         [DllExport]
         public static void AddProps(IntPtr ptr, IntPtr ptrType)
         {
-            string name = Marshal.PtrToStringAnsi(ptr);
+            string inputStr = Marshal.PtrToStringAnsi(ptr);
             string className = Marshal.PtrToStringAnsi(ptrType);
 
             props.Clear();
@@ -54,13 +59,18 @@ namespace SpacerUnion
             TreeView tree = UnionNET.objWin.treeViewProp;
 
             tree.Nodes.Clear();
+            EnableTab(UnionNET.objWin.tabControl1.TabPages[2], false);
 
 
-
-            if (name.Length == 0)
+            if (inputStr.Length == 0)
             {
+                UnionNET.objWin.HideAllInput();
+                UnionNET.objWin.buttonApply.Enabled = false;
+                UnionNET.objWin.buttonRestore.Enabled = false;
+                UnionNET.objWin.buttonBbox.Enabled = false;
                 return;
             }
+
             UnionNET.objWin.panelButtons.Enabled = false;
 
             TreeNode firstNode = tree.Nodes.Add(className + ": zCVob");
@@ -77,9 +87,9 @@ namespace SpacerUnion
                 isItemSelected = false;
             }
 
-            CProperty.originalStr = name;
+            CProperty.originalStr = inputStr;
 
-            string[] words = name.Replace("\t", "").Split('\n');
+            string[] words = inputStr.Replace("\t", "").Split('\n');
 
             // сохраняем нетронутую строку
            
@@ -387,6 +397,43 @@ namespace SpacerUnion
                     buttonRestore.Enabled = true;
                 }
 
+                if (prop.Name == "contains")
+                {
+                    EnableTab(tabControl1.TabPages[2], true);
+                    tabControl1.SelectedIndex = 2;
+
+                    dataGridView1.Visible = true;
+                    dataGridView1.Rows.Clear();
+
+                    currentContents = prop.value;
+                    containsIndex = index;
+                    containsNode = props[index].node;
+
+                    List<string> items = currentContents.Split(',').ToList();
+
+                    for (int i = 0; i < items.Count; i++)
+                    {
+                        string item = items[i].Trim();
+
+                        string[] arr = item.Split(':');
+
+                        if (arr[0].Trim().Length == 0)
+                        {
+                            continue;
+                        }
+
+                        if (arr.Length == 1)
+                        {
+                            dataGridView1.Rows.Add(arr[0].Trim(), "1");
+                        }
+                        else
+                        {
+                            dataGridView1.Rows.Add(arr[0].Trim(), arr[1].Trim());
+                        }
+ 
+                    }
+                   
+                }
             }
 
         }
@@ -457,6 +504,7 @@ namespace SpacerUnion
             textBoxBbox1.Text = "";
             textBoxBbox2.Text = "";
             EnableTab(tabControl1.TabPages[1], false);
+            EnableTab(tabControl1.TabPages[2], false);
         }
 
         public void HideAllInput()
@@ -860,6 +908,73 @@ namespace SpacerUnion
         private void treeViewProp_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Visible = false;
+            tabControl1.SelectTab(0);
+            DisableTabBBox();
+        }
+
+        private void buttonContainerApply_Click(object sender, EventArgs e)
+        {
+            StringBuilder str = new StringBuilder();
+
+            int index = 1;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[0].Value == null && row.Cells[1].Value == null)
+                {
+                    continue;
+                }
+
+                if (row.Cells[0].Value == null || row.Cells[0].Value.ToString().Trim().Length == 0)
+                {
+                    MessageBox.Show("Имя вещи не может быть пустым! Строка: " + index);
+                    return;
+                }
+
+                if (row.Cells[1].Value == null || row.Cells[1].Value.ToString().Trim().Length == 0)
+                {
+                    MessageBox.Show("Кол-во итемов не может быть пустым! Строка: " + index);
+                    return;
+                }
+
+                if (!Regex.IsMatch(row.Cells[1].Value.ToString().Trim(), @"^\d+$"))
+                {
+                    MessageBox.Show("Некорректное число итемов. Строка: " + index);
+                    return;
+                }
+
+                str.Append(row.Cells[0].Value.ToString().Trim() + ":" + row.Cells[1].Value.ToString().Trim() + ",");
+                index++;
+            }
+
+
+
+            string final = str.ToString().Trim();
+
+            if (final.Length != 0)
+            {
+                final = final.Substring(0, final.Length - 1);
+            }
+            
+
+            props[containsIndex].value = final;
+            textBoxString.Text = final;
+            props[containsIndex].ownNode.Text = props[containsIndex].Name + ": " + props[containsIndex].ShowValue();
+
+
+            buttonApply.Enabled = false;
+            tabControl1.SelectTab(0);
+            DisableTabBBox();
+        }
+
+        private void buttonClearItems_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
         }
     }
 }

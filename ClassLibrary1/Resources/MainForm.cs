@@ -432,6 +432,14 @@ namespace SpacerUnion
             UnionNET.settingsCam.checkBoxFPS.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("showFps")));
             UnionNET.settingsCam.checkBoxTris.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("showTris")));
 
+
+            UnionNET.settingsCam.checkBoxCamCoord.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("showCamCoords")));
+            UnionNET.settingsCam.checkBoxVobs.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("showVobsCount")));
+
+
+            UnionNET.settingsCam.checkBoxWaypoints.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("showWaypointsCount")));
+            UnionNET.settingsCam.checkBoxDistVob.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("showVobDist")));
+
             UnionNET.settingsCam.Show();
         }
 
@@ -563,6 +571,8 @@ namespace SpacerUnion
 
             if (res == DialogResult.OK)
             {
+                currentWorldName = "";
+
                 ResetInterface();
                 Extern_ResetWorld();
             }
