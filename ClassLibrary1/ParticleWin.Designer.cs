@@ -65,11 +65,21 @@
             this.label6 = new System.Windows.Forms.Label();
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.radioButtonBefore = new System.Windows.Forms.RadioButton();
+            this.radioButtonAfter = new System.Windows.Forms.RadioButton();
+            this.radioButtonOverwrite = new System.Windows.Forms.RadioButton();
+            this.buttonRemoveKey = new System.Windows.Forms.Button();
+            this.buttonNewKey = new System.Windows.Forms.Button();
+            this.labelCurrentKey = new System.Windows.Forms.Label();
+            this.buttonKeyPlus = new System.Windows.Forms.Button();
+            this.buttonKeyMinus = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.listBoxTargetList = new System.Windows.Forms.ListBox();
             this.buttonSend = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxActionType = new System.Windows.Forms.ListBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.labelTriggerName = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.checkBoxStat = new System.Windows.Forms.CheckBox();
             this.checkBoxDyn = new System.Windows.Forms.CheckBox();
@@ -85,12 +95,12 @@
             this.textBoxWP = new System.Windows.Forms.TextBox();
             this.buttonWP = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -100,6 +110,7 @@
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -446,9 +457,9 @@
             this.tabPage4.Controls.Add(this.listBox3);
             this.tabPage4.Controls.Add(this.groupBox6);
             this.tabPage4.Controls.Add(this.label5);
-            this.tabPage4.Controls.Add(this.listBox2);
+            this.tabPage4.Controls.Add(this.listBoxTargetList);
             this.tabPage4.Controls.Add(this.buttonSend);
-            this.tabPage4.Controls.Add(this.listBox1);
+            this.tabPage4.Controls.Add(this.listBoxActionType);
             this.tabPage4.Controls.Add(this.groupBox5);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
@@ -459,10 +470,10 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(344, 205);
+            this.button4.Location = new System.Drawing.Point(447, 100);
             this.button4.Margin = new System.Windows.Forms.Padding(0);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(83, 22);
+            this.button4.Size = new System.Drawing.Size(98, 22);
             this.button4.TabIndex = 7;
             this.button4.Text = "Собрать";
             this.button4.UseVisualStyleBackColor = true;
@@ -470,7 +481,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(234, 210);
+            this.label6.Location = new System.Drawing.Point(336, 109);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(107, 13);
             this.label6.TabIndex = 6;
@@ -479,66 +490,172 @@
             // listBox3
             // 
             this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(236, 230);
+            this.listBox3.Location = new System.Drawing.Point(339, 125);
             this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(191, 95);
+            this.listBox3.Size = new System.Drawing.Size(212, 134);
             this.listBox3.TabIndex = 5;
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.label13);
+            this.groupBox6.Controls.Add(this.radioButtonBefore);
+            this.groupBox6.Controls.Add(this.radioButtonAfter);
+            this.groupBox6.Controls.Add(this.radioButtonOverwrite);
+            this.groupBox6.Controls.Add(this.buttonRemoveKey);
+            this.groupBox6.Controls.Add(this.buttonNewKey);
+            this.groupBox6.Controls.Add(this.labelCurrentKey);
+            this.groupBox6.Controls.Add(this.buttonKeyPlus);
+            this.groupBox6.Controls.Add(this.buttonKeyMinus);
             this.groupBox6.Location = new System.Drawing.Point(236, 3);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(191, 73);
+            this.groupBox6.Size = new System.Drawing.Size(315, 73);
             this.groupBox6.TabIndex = 3;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Ключи";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(111, 48);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(57, 13);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Вставить:";
+            // 
+            // radioButtonBefore
+            // 
+            this.radioButtonBefore.AutoSize = true;
+            this.radioButtonBefore.Location = new System.Drawing.Point(235, 46);
+            this.radioButtonBefore.Name = "radioButtonBefore";
+            this.radioButtonBefore.Size = new System.Drawing.Size(37, 17);
+            this.radioButtonBefore.TabIndex = 7;
+            this.radioButtonBefore.Text = "до";
+            this.radioButtonBefore.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonAfter
+            // 
+            this.radioButtonAfter.AutoSize = true;
+            this.radioButtonAfter.Checked = true;
+            this.radioButtonAfter.Location = new System.Drawing.Point(174, 46);
+            this.radioButtonAfter.Name = "radioButtonAfter";
+            this.radioButtonAfter.Size = new System.Drawing.Size(55, 17);
+            this.radioButtonAfter.TabIndex = 6;
+            this.radioButtonAfter.TabStop = true;
+            this.radioButtonAfter.Text = "после";
+            this.radioButtonAfter.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonOverwrite
+            // 
+            this.radioButtonOverwrite.AutoSize = true;
+            this.radioButtonOverwrite.Location = new System.Drawing.Point(6, 46);
+            this.radioButtonOverwrite.Name = "radioButtonOverwrite";
+            this.radioButtonOverwrite.Size = new System.Drawing.Size(98, 17);
+            this.radioButtonOverwrite.TabIndex = 5;
+            this.radioButtonOverwrite.Text = "Перезаписать";
+            this.radioButtonOverwrite.UseVisualStyleBackColor = true;
+            // 
+            // buttonRemoveKey
+            // 
+            this.buttonRemoveKey.Location = new System.Drawing.Point(211, 15);
+            this.buttonRemoveKey.Name = "buttonRemoveKey";
+            this.buttonRemoveKey.Size = new System.Drawing.Size(98, 23);
+            this.buttonRemoveKey.TabIndex = 4;
+            this.buttonRemoveKey.Text = "Удалить ключ";
+            this.buttonRemoveKey.UseVisualStyleBackColor = true;
+            this.buttonRemoveKey.Click += new System.EventHandler(this.buttonRemoveKey_Click);
+            // 
+            // buttonNewKey
+            // 
+            this.buttonNewKey.Location = new System.Drawing.Point(114, 15);
+            this.buttonNewKey.Name = "buttonNewKey";
+            this.buttonNewKey.Size = new System.Drawing.Size(91, 23);
+            this.buttonNewKey.TabIndex = 3;
+            this.buttonNewKey.Text = "Новый ключ";
+            this.buttonNewKey.UseVisualStyleBackColor = true;
+            this.buttonNewKey.Click += new System.EventHandler(this.buttonNewKey_Click);
+            // 
+            // labelCurrentKey
+            // 
+            this.labelCurrentKey.Location = new System.Drawing.Point(33, 18);
+            this.labelCurrentKey.Name = "labelCurrentKey";
+            this.labelCurrentKey.Size = new System.Drawing.Size(34, 18);
+            this.labelCurrentKey.TabIndex = 2;
+            this.labelCurrentKey.Text = "0";
+            this.labelCurrentKey.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // buttonKeyPlus
+            // 
+            this.buttonKeyPlus.Location = new System.Drawing.Point(67, 15);
+            this.buttonKeyPlus.Name = "buttonKeyPlus";
+            this.buttonKeyPlus.Size = new System.Drawing.Size(27, 23);
+            this.buttonKeyPlus.TabIndex = 1;
+            this.buttonKeyPlus.Text = ">";
+            this.buttonKeyPlus.UseVisualStyleBackColor = true;
+            this.buttonKeyPlus.Click += new System.EventHandler(this.buttonKeyPlus_Click);
+            // 
+            // buttonKeyMinus
+            // 
+            this.buttonKeyMinus.Location = new System.Drawing.Point(6, 15);
+            this.buttonKeyMinus.Name = "buttonKeyMinus";
+            this.buttonKeyMinus.Size = new System.Drawing.Size(27, 23);
+            this.buttonKeyMinus.TabIndex = 0;
+            this.buttonKeyMinus.Text = "<";
+            this.buttonKeyMinus.UseVisualStyleBackColor = true;
+            this.buttonKeyMinus.Click += new System.EventHandler(this.buttonKeyMinus_Click);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(236, 80);
+            this.label5.Location = new System.Drawing.Point(129, 109);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "Цели (targets)";
             // 
-            // listBox2
+            // listBoxTargetList
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(236, 99);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(191, 95);
-            this.listBox2.TabIndex = 3;
+            this.listBoxTargetList.FormattingEnabled = true;
+            this.listBoxTargetList.Location = new System.Drawing.Point(132, 125);
+            this.listBoxTargetList.Name = "listBoxTargetList";
+            this.listBoxTargetList.Size = new System.Drawing.Size(201, 134);
+            this.listBoxTargetList.TabIndex = 3;
+            this.listBoxTargetList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxTargetList_MouseClick);
+            this.listBoxTargetList.SelectedIndexChanged += new System.EventHandler(this.listBoxTargetList_SelectedIndexChanged);
+            this.listBoxTargetList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxTargetList_MouseDoubleClick);
             // 
             // buttonSend
             // 
-            this.buttonSend.Location = new System.Drawing.Point(129, 99);
+            this.buttonSend.Location = new System.Drawing.Point(3, 86);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(101, 23);
             this.buttonSend.TabIndex = 2;
             this.buttonSend.Text = "Запустить >>>";
             this.buttonSend.UseVisualStyleBackColor = true;
+            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
-            // listBox1
+            // listBoxActionType
             // 
-            this.listBox1.DisplayMember = "TRIGGER";
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
-            "DAMAGE",
-            "TOUCH",
-            "TOUCHLEVEL",
+            this.listBoxActionType.DisplayMember = "TRIGGER";
+            this.listBoxActionType.FormattingEnabled = true;
+            this.listBoxActionType.Items.AddRange(new object[] {
             "TRIGGER",
+            "UNTRIGGER",
+            "TOUCH",
             "UNTOUCH",
-            "UNTRIGGER"});
-            this.listBox1.Location = new System.Drawing.Point(3, 99);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 95);
-            this.listBox1.Sorted = true;
-            this.listBox1.TabIndex = 1;
-            this.listBox1.ValueMember = "TRIGGER";
+            "TOUCHLEVEL",
+            "DAMAGE",
+            "",
+            ""});
+            this.listBoxActionType.Location = new System.Drawing.Point(3, 125);
+            this.listBoxActionType.Name = "listBoxActionType";
+            this.listBoxActionType.Size = new System.Drawing.Size(120, 134);
+            this.listBoxActionType.TabIndex = 1;
+            this.listBoxActionType.ValueMember = "TRIGGER";
+            this.listBoxActionType.SelectedIndexChanged += new System.EventHandler(this.listBoxActionType_SelectedIndexChanged);
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.labelTriggerName);
             this.groupBox5.Controls.Add(this.label4);
             this.groupBox5.Controls.Add(this.checkBoxStat);
             this.groupBox5.Controls.Add(this.checkBoxDyn);
@@ -549,10 +666,19 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Выбранный воб";
             // 
+            // labelTriggerName
+            // 
+            this.labelTriggerName.AutoSize = true;
+            this.labelTriggerName.Location = new System.Drawing.Point(7, 20);
+            this.labelTriggerName.Name = "labelTriggerName";
+            this.labelTriggerName.Size = new System.Drawing.Size(51, 13);
+            this.labelTriggerName.TabIndex = 3;
+            this.labelTriggerName.Text = "Триггер:";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 49);
+            this.label4.Location = new System.Drawing.Point(6, 50);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 13);
             this.label4.TabIndex = 2;
@@ -561,12 +687,13 @@
             // checkBoxStat
             // 
             this.checkBoxStat.AutoSize = true;
-            this.checkBoxStat.Location = new System.Drawing.Point(149, 49);
+            this.checkBoxStat.Location = new System.Drawing.Point(149, 50);
             this.checkBoxStat.Name = "checkBoxStat";
             this.checkBoxStat.Size = new System.Drawing.Size(62, 17);
             this.checkBoxStat.TabIndex = 1;
             this.checkBoxStat.Text = "статич.";
             this.checkBoxStat.UseVisualStyleBackColor = true;
+            this.checkBoxStat.CheckedChanged += new System.EventHandler(this.checkBoxStat_CheckedChanged);
             // 
             // checkBoxDyn
             // 
@@ -577,6 +704,7 @@
             this.checkBoxDyn.TabIndex = 0;
             this.checkBoxDyn.Text = "динамич.";
             this.checkBoxDyn.UseVisualStyleBackColor = true;
+            this.checkBoxDyn.CheckedChanged += new System.EventHandler(this.checkBoxDyn_CheckedChanged);
             // 
             // tabPage5
             // 
@@ -708,14 +836,6 @@
             this.tabPage6.Text = "Поиск";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // treeView1
-            // 
-            this.treeView1.HideSelection = false;
-            this.treeView1.Location = new System.Drawing.Point(6, 46);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(231, 271);
-            this.treeView1.TabIndex = 2;
-            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.textBox1);
@@ -730,22 +850,12 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Класс воба";
             // 
-            // comboBox1
+            // textBox1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(231, 21);
-            this.comboBox1.TabIndex = 3;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(447, 16);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 4;
-            this.button8.Text = "Сбросить";
-            this.button8.UseVisualStyleBackColor = true;
+            this.textBox1.Location = new System.Drawing.Point(256, 87);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(266, 20);
+            this.textBox1.TabIndex = 6;
             // 
             // button9
             // 
@@ -756,12 +866,30 @@
             this.button9.Text = "Искать";
             this.button9.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // button8
             // 
-            this.textBox1.Location = new System.Drawing.Point(256, 87);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(266, 20);
-            this.textBox1.TabIndex = 6;
+            this.button8.Location = new System.Drawing.Point(447, 16);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 4;
+            this.button8.Text = "Сбросить";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(6, 19);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(231, 21);
+            this.comboBox1.TabIndex = 3;
+            // 
+            // treeView1
+            // 
+            this.treeView1.HideSelection = false;
+            this.treeView1.Location = new System.Drawing.Point(6, 46);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(231, 271);
+            this.treeView1.TabIndex = 2;
             // 
             // ParticleWin
             // 
@@ -777,6 +905,7 @@
             this.ShowInTaskbar = false;
             this.Text = "Окно объектов";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ParticleWin_FormClosing);
+            this.Shown += new System.EventHandler(this.ParticleWin_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -790,6 +919,8 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.tabPage5.ResumeLayout(false);
@@ -836,9 +967,9 @@
         private System.Windows.Forms.CheckBox checkBoxDyn;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox listBoxTargetList;
         private System.Windows.Forms.Button buttonSend;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxActionType;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox listBox3;
@@ -867,5 +998,15 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.RadioButton radioButtonBefore;
+        private System.Windows.Forms.RadioButton radioButtonAfter;
+        private System.Windows.Forms.RadioButton radioButtonOverwrite;
+        private System.Windows.Forms.Button buttonRemoveKey;
+        private System.Windows.Forms.Button buttonNewKey;
+        private System.Windows.Forms.Label labelCurrentKey;
+        private System.Windows.Forms.Button buttonKeyPlus;
+        private System.Windows.Forms.Button buttonKeyMinus;
+        private System.Windows.Forms.Label labelTriggerName;
     }
 }

@@ -130,5 +130,10 @@ namespace SpacerUnion
         {
             listBoxVobs.Items.Clear();
         }
+
+        private void listBoxVobs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

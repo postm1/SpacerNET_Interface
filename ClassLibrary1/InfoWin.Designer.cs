@@ -69,6 +69,7 @@
             this.ShowInTaskbar = false;
             this.Text = "Информация";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InfoWin_FormClosing);
+            this.Move += new System.EventHandler(this.InfoWin_Move);
             this.ResumeLayout(false);
 
         }

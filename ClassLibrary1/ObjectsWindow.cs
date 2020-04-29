@@ -45,7 +45,18 @@ namespace SpacerUnion
 
         }
 
-    
+        public static void ChangeProp(string propName, string value)
+        {
+            for (int i = 0; i < props.Count; i++)
+            {
+                if (props[i].Name == propName)
+                {
+                    props[i].value = value;
+                    props[i].ownNode.Text = props[i].Name + ": " + props[i].ShowValue();
+                    break;
+                }
+            }
+        }
 
         [DllExport]
         public static void AddProps(IntPtr ptr, IntPtr ptrType)

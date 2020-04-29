@@ -97,7 +97,7 @@ namespace SpacerUnion
 
 
             infoWin.Show();
-            infoWin.Left = 600;
+            infoWin.Left = 610;
             infoWin.Top = 600;
 
 

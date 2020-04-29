@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.listBoxVobs = new System.Windows.Forms.ListBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.очиститьСписокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.trackBarRadius = new System.Windows.Forms.TrackBar();
             this.labelRadius = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.очиститьСписокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarRadius)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarRadius)).BeginInit();
             this.SuspendLayout();
             // 
             // listBoxVobs
@@ -50,7 +50,22 @@
             this.listBoxVobs.Size = new System.Drawing.Size(291, 238);
             this.listBoxVobs.TabIndex = 0;
             this.listBoxVobs.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxVobs_MouseClick);
+            this.listBoxVobs.SelectedIndexChanged += new System.EventHandler(this.listBoxVobs_SelectedIndexChanged);
             this.listBoxVobs.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxVobs_MouseDoubleClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.очиститьСписокToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(169, 26);
+            // 
+            // очиститьСписокToolStripMenuItem
+            // 
+            this.очиститьСписокToolStripMenuItem.Name = "очиститьСписокToolStripMenuItem";
+            this.очиститьСписокToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.очиститьСписокToolStripMenuItem.Text = "Очистить список";
+            this.очиститьСписокToolStripMenuItem.Click += new System.EventHandler(this.очиститьСписокToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -91,20 +106,6 @@
             this.labelRadius.TabIndex = 4;
             this.labelRadius.Text = "Радиус поиска: 200";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.очиститьСписокToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(169, 48);
-            // 
-            // очиститьСписокToolStripMenuItem
-            // 
-            this.очиститьСписокToolStripMenuItem.Name = "очиститьСписокToolStripMenuItem";
-            this.очиститьСписокToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.очиститьСписокToolStripMenuItem.Text = "Очистить список";
-            this.очиститьСписокToolStripMenuItem.Click += new System.EventHandler(this.очиститьСписокToolStripMenuItem_Click);
-            // 
             // VobListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -122,8 +123,8 @@
             this.ShowInTaskbar = false;
             this.Text = "Контейнер вобов";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VobListForm_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarRadius)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarRadius)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
