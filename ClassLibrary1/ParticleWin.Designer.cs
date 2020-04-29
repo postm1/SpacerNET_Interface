@@ -101,6 +101,9 @@
             this.button8 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.buttonAddContainer = new System.Windows.Forms.Button();
+            this.textBoxItemCount = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -201,6 +204,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.textBoxItemCount);
+            this.groupBox2.Controls.Add(this.buttonAddContainer);
             this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
@@ -210,7 +216,7 @@
             this.groupBox2.Controls.Add(this.buttonItems);
             this.groupBox2.Location = new System.Drawing.Point(6, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(419, 313);
+            this.groupBox2.Size = new System.Drawing.Size(545, 313);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Предметы";
@@ -637,15 +643,6 @@
             // 
             this.listBoxActionType.DisplayMember = "TRIGGER";
             this.listBoxActionType.FormattingEnabled = true;
-            this.listBoxActionType.Items.AddRange(new object[] {
-            "TRIGGER",
-            "UNTRIGGER",
-            "TOUCH",
-            "UNTOUCH",
-            "TOUCHLEVEL",
-            "DAMAGE",
-            "",
-            ""});
             this.listBoxActionType.Location = new System.Drawing.Point(3, 125);
             this.listBoxActionType.Name = "listBoxActionType";
             this.listBoxActionType.Size = new System.Drawing.Size(120, 134);
@@ -891,6 +888,35 @@
             this.treeView1.Size = new System.Drawing.Size(231, 271);
             this.treeView1.TabIndex = 2;
             // 
+            // buttonAddContainer
+            // 
+            this.buttonAddContainer.Location = new System.Drawing.Point(393, 19);
+            this.buttonAddContainer.Name = "buttonAddContainer";
+            this.buttonAddContainer.Size = new System.Drawing.Size(146, 30);
+            this.buttonAddContainer.TabIndex = 7;
+            this.buttonAddContainer.Text = "Добавить в контейнер->";
+            this.buttonAddContainer.UseVisualStyleBackColor = true;
+            this.buttonAddContainer.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // textBoxItemCount
+            // 
+            this.textBoxItemCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxItemCount.Location = new System.Drawing.Point(392, 81);
+            this.textBoxItemCount.Name = "textBoxItemCount";
+            this.textBoxItemCount.Size = new System.Drawing.Size(146, 22);
+            this.textBoxItemCount.TabIndex = 8;
+            this.textBoxItemCount.Text = "1";
+            this.textBoxItemCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxItemCount_KeyPress);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(390, 63);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(66, 13);
+            this.label11.TabIndex = 9;
+            this.label11.Text = "Количество";
+            // 
             // ParticleWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1008,5 +1034,8 @@
         private System.Windows.Forms.Button buttonKeyPlus;
         private System.Windows.Forms.Button buttonKeyMinus;
         private System.Windows.Forms.Label labelTriggerName;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBoxItemCount;
+        private System.Windows.Forms.Button buttonAddContainer;
     }
 }

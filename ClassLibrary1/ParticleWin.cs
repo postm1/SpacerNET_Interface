@@ -601,7 +601,7 @@ namespace SpacerUnion
 
             if (listBoxActionType.SelectedItem == null)
             {
-                listBoxActionType.SelectedIndex = 0;
+                //listBoxActionType.SelectedIndex = 0;
             }
            
         }
@@ -616,8 +616,13 @@ namespace SpacerUnion
             UnionNET.partWin.triggerEntry.dynColl = false;
             UnionNET.partWin.triggerEntry.statColl = false;
             UnionNET.partWin.listBoxTargetList.Items.Clear();
+            UnionNET.partWin.listBoxActionType.Items.Clear();
             UnionNET.partWin.triggerEntry.targetListAddr.Clear();
+            
+
+
             UnionNET.partWin.UpdateTriggerWindow();
+
         }
 
 
@@ -626,6 +631,21 @@ namespace SpacerUnion
         {
             UnionNET.partWin.tabControlObjects.SelectedIndex = 3;
         }
+
+
+        [DllExport]
+        public static void AddActionTypeMover(IntPtr itemPtr)
+        {
+            string value = Marshal.PtrToStringAnsi(itemPtr);
+            UnionNET.partWin.listBoxActionType.Items.Add(value);
+
+
+            if (UnionNET.partWin.listBoxActionType.Items.Count > 0)
+            {
+                UnionNET.partWin.listBoxActionType.SelectedIndex = 0;
+            }
+        }
+
 
         [DllExport]
         public static void AddTargetToList(IntPtr itemPtr, int addr)
@@ -648,6 +668,7 @@ namespace SpacerUnion
             UnionNET.partWin.triggerEntry.dynColl = Convert.ToBoolean(dyn);
             UnionNET.partWin.triggerEntry.statColl = Convert.ToBoolean(stat);
             UnionNET.partWin.listBoxTargetList.Items.Clear();
+            UnionNET.partWin.listBoxActionType.Items.Clear();
             UnionNET.partWin.triggerEntry.targetListAddr.Clear();
 
 
@@ -704,7 +725,7 @@ namespace SpacerUnion
 
         private void ParticleWin_Shown(object sender, EventArgs e)
         {
-            listBoxActionType.SelectedIndex = 0;
+            //listBoxActionType.SelectedIndex = 0;
         }
 
         private void listBoxTargetList_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -737,6 +758,53 @@ namespace SpacerUnion
         private void listBoxTargetList_MouseClick(object sender, MouseEventArgs e)
         {
 
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            string name = "";
+            string count = textBoxItemCount.Text.Trim();
+
+            if (count == String.Empty)
+            {
+                count = "1";
+            }
+
+            if (listBoxResult.SelectedItem != null)
+            {
+                name = listBoxResult.GetItemText(listBoxResult.SelectedItem).Trim();
+
+
+            }
+            else if (listBoxItems.SelectedItem != null)
+            {
+                name = listBoxItems.GetItemText(listBoxItems.SelectedItem).Trim();
+            }
+
+            if (name != String.Empty)
+            {
+                if (UnionNET.objWin.tabControl1.SelectedIndex == 2 && UnionNET.objWin.dataGridView1.Visible
+                    && UnionNET.objWin.buttonContainerApply.Enabled
+                    )
+                {
+                    UnionNET.objWin.dataGridView1.Rows.Add(name, count);
+                }
+            }
+        }
+
+        private void textBoxItemCount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+        (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -71,7 +71,7 @@ namespace SpacerUnion
 
             tree.Nodes.Clear();
             EnableTab(UnionNET.objWin.tabControl1.TabPages[2], false);
-
+            UnionNET.objWin.tabControl1.SelectedIndex = 0;
 
             if (inputStr.Length == 0)
             {
@@ -415,6 +415,8 @@ namespace SpacerUnion
 
                     dataGridView1.Visible = true;
                     dataGridView1.Rows.Clear();
+
+                    UnionNET.partWin.tabControlObjects.SelectedIndex = 1;
 
                     currentContents = prop.value;
                     containsIndex = index;
@@ -978,7 +980,7 @@ namespace SpacerUnion
             props[containsIndex].ownNode.Text = props[containsIndex].Name + ": " + props[containsIndex].ShowValue();
 
 
-            buttonApply.Enabled = false;
+            buttonApply.Enabled = true;
             tabControl1.SelectTab(0);
             DisableTabBBox();
         }
@@ -986,6 +988,38 @@ namespace SpacerUnion
         private void buttonClearItems_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
+        }
+
+        private void удалитьСтрокуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            
+        }
+
+       
+
+        private void contextMenuStripContainer_Click(object sender, EventArgs e)
+        {
+            
+        }
+        
+        private void dataGridView1_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
+        {
+           
+        }
+
+        private void dataGridView1_MouseUp(object sender, MouseEventArgs e)
+        {
+       
+        }
+
+        private void buttonRowDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentCell != null && dataGridView1.CurrentCell.RowIndex != dataGridView1.Rows.Count-1)
+            {
+                dataGridView1.Rows.RemoveAt(dataGridView1.CurrentCell.RowIndex);
+            }
+            
         }
     }
 }

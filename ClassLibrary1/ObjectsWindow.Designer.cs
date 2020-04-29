@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.treeViewProp = new System.Windows.Forms.TreeView();
@@ -52,20 +53,24 @@
             this.buttonApplyBbox = new System.Windows.Forms.Button();
             this.buttonResetBbox = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.buttonContainerApply = new System.Windows.Forms.Button();
-            this.buttonContainerCancel = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonRowDelete = new System.Windows.Forms.Button();
             this.buttonClearItems = new System.Windows.Forms.Button();
+            this.buttonContainerCancel = new System.Windows.Forms.Button();
+            this.buttonContainerApply = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.contextMenuStripContainer = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.удалитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextMenuStripContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -330,25 +335,58 @@
             this.tabPage3.Text = "Контейнер";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // buttonContainerApply
+            // groupBox1
             // 
-            this.buttonContainerApply.Location = new System.Drawing.Point(157, 48);
-            this.buttonContainerApply.Name = "buttonContainerApply";
-            this.buttonContainerApply.Size = new System.Drawing.Size(102, 23);
-            this.buttonContainerApply.TabIndex = 3;
-            this.buttonContainerApply.Text = "Применить";
-            this.buttonContainerApply.UseVisualStyleBackColor = true;
-            this.buttonContainerApply.Click += new System.EventHandler(this.buttonContainerApply_Click);
+            this.groupBox1.Controls.Add(this.buttonRowDelete);
+            this.groupBox1.Controls.Add(this.buttonClearItems);
+            this.groupBox1.Controls.Add(this.buttonContainerCancel);
+            this.groupBox1.Controls.Add(this.buttonContainerApply);
+            this.groupBox1.Location = new System.Drawing.Point(8, 374);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(289, 82);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Управление";
+            // 
+            // buttonRowDelete
+            // 
+            this.buttonRowDelete.Location = new System.Drawing.Point(150, 19);
+            this.buttonRowDelete.Name = "buttonRowDelete";
+            this.buttonRowDelete.Size = new System.Drawing.Size(111, 23);
+            this.buttonRowDelete.TabIndex = 6;
+            this.buttonRowDelete.Text = "Удалить текущую";
+            this.buttonRowDelete.UseVisualStyleBackColor = true;
+            this.buttonRowDelete.Click += new System.EventHandler(this.buttonRowDelete_Click);
+            // 
+            // buttonClearItems
+            // 
+            this.buttonClearItems.Location = new System.Drawing.Point(11, 19);
+            this.buttonClearItems.Name = "buttonClearItems";
+            this.buttonClearItems.Size = new System.Drawing.Size(111, 23);
+            this.buttonClearItems.TabIndex = 5;
+            this.buttonClearItems.Text = "Очистить все";
+            this.buttonClearItems.UseVisualStyleBackColor = true;
+            this.buttonClearItems.Click += new System.EventHandler(this.buttonClearItems_Click);
             // 
             // buttonContainerCancel
             // 
-            this.buttonContainerCancel.Location = new System.Drawing.Point(29, 48);
+            this.buttonContainerCancel.Location = new System.Drawing.Point(11, 48);
             this.buttonContainerCancel.Name = "buttonContainerCancel";
-            this.buttonContainerCancel.Size = new System.Drawing.Size(102, 23);
+            this.buttonContainerCancel.Size = new System.Drawing.Size(111, 23);
             this.buttonContainerCancel.TabIndex = 2;
             this.buttonContainerCancel.Text = "Отмена";
             this.buttonContainerCancel.UseVisualStyleBackColor = true;
             this.buttonContainerCancel.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // buttonContainerApply
+            // 
+            this.buttonContainerApply.Location = new System.Drawing.Point(150, 48);
+            this.buttonContainerApply.Name = "buttonContainerApply";
+            this.buttonContainerApply.Size = new System.Drawing.Size(111, 23);
+            this.buttonContainerApply.TabIndex = 3;
+            this.buttonContainerApply.Text = "Применить";
+            this.buttonContainerApply.UseVisualStyleBackColor = true;
+            this.buttonContainerApply.Click += new System.EventHandler(this.buttonContainerApply_Click);
             // 
             // dataGridView1
             // 
@@ -362,22 +400,14 @@
             this.Column1,
             this.Column2});
             this.dataGridView1.Location = new System.Drawing.Point(8, 18);
-            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(289, 350);
             this.dataGridView1.TabIndex = 4;
-            // 
-            // buttonClearItems
-            // 
-            this.buttonClearItems.Location = new System.Drawing.Point(157, 19);
-            this.buttonClearItems.Name = "buttonClearItems";
-            this.buttonClearItems.Size = new System.Drawing.Size(102, 23);
-            this.buttonClearItems.TabIndex = 5;
-            this.buttonClearItems.Text = "Очистить все";
-            this.buttonClearItems.UseVisualStyleBackColor = true;
-            this.buttonClearItems.Click += new System.EventHandler(this.buttonClearItems_Click);
+            this.dataGridView1.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridView1_RowContextMenuStripNeeded);
+            this.dataGridView1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseUp);
             // 
             // Column1
             // 
@@ -391,17 +421,20 @@
             this.Column2.Name = "Column2";
             this.Column2.Width = 66;
             // 
-            // groupBox1
+            // contextMenuStripContainer
             // 
-            this.groupBox1.Controls.Add(this.buttonClearItems);
-            this.groupBox1.Controls.Add(this.buttonContainerCancel);
-            this.groupBox1.Controls.Add(this.buttonContainerApply);
-            this.groupBox1.Location = new System.Drawing.Point(8, 374);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(289, 82);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Управление";
+            this.contextMenuStripContainer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.удалитьСтрокуToolStripMenuItem});
+            this.contextMenuStripContainer.Name = "contextMenuStripContainer";
+            this.contextMenuStripContainer.Size = new System.Drawing.Size(159, 26);
+            this.contextMenuStripContainer.Click += new System.EventHandler(this.contextMenuStripContainer_Click);
+            // 
+            // удалитьСтрокуToolStripMenuItem
+            // 
+            this.удалитьСтрокуToolStripMenuItem.Name = "удалитьСтрокуToolStripMenuItem";
+            this.удалитьСтрокуToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.удалитьСтрокуToolStripMenuItem.Text = "Удалить строку";
+            this.удалитьСтрокуToolStripMenuItem.Click += new System.EventHandler(this.удалитьСтрокуToolStripMenuItem_Click);
             // 
             // ObjectsWindow
             // 
@@ -424,15 +457,14 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStripContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TreeView treeViewProp;
         private System.Windows.Forms.Button buttonBbox;
@@ -456,12 +488,16 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button buttonContainerApply;
         private System.Windows.Forms.Button buttonContainerCancel;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonClearItems;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        public System.Windows.Forms.TabControl tabControl1;
+        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.Button buttonContainerApply;
+        public System.Windows.Forms.ContextMenuStrip contextMenuStripContainer;
+        private System.Windows.Forms.ToolStripMenuItem удалитьСтрокуToolStripMenuItem;
+        private System.Windows.Forms.Button buttonRowDelete;
     }
 }
