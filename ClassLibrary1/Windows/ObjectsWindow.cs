@@ -31,6 +31,7 @@ namespace SpacerUnion
         static string currentContents;
         static int containsIndex;
         static TreeNode containsNode;
+        
 
         class FolderEntry
         {

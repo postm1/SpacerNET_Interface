@@ -19,7 +19,7 @@ namespace SpacerUnion
         public static void WriteLineGreen(String message)
         {
             var oldColor = Console.ForegroundColor;
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(message);
             Console.ForegroundColor = oldColor;
         }

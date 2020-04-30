@@ -39,6 +39,13 @@ namespace SpacerUnion
         {
             return  String.Format("0x{0:X}", num);
         }
+
+        public static void Error(string msg)
+        {
+            msg = "C#: " + msg;
+            ConsoleEx.WriteLineRed(msg);
+            Utils.WriteToFile(msg);
+        }
     }
 
     

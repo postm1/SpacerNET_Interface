@@ -54,8 +54,8 @@ namespace SpacerUnion
         const string TAG_FOLDER = "folder";
 
         public static Dictionary<uint, TreeEntry> globalEntries = new Dictionary<uint, TreeEntry>();
-
-     
+        static bool nextAfterEventBlocked = false;
+        static TreeNode lastSelectedNode = null;
 
         public ObjTree()
         {
@@ -247,9 +247,7 @@ namespace SpacerUnion
             }
 
 
-            s.Stop();
-            string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-            Console.WriteLine("C#: UpdateName for vob: " + ptr + " Time: " + timeSpend);
+            Console.WriteLine("C#: UpdateName for vob: " + Utils.ToHex(ptr));
 
 
         }
@@ -257,79 +255,40 @@ namespace SpacerUnion
         [DllExport]
         public static void OnSelectVob(uint ptr)
         {
-            //Console.WriteLine("C#: OnSelectVob: " + ptr);
 
             if (ptr == 0)
             {
                 return;
             }
 
-            Stopwatch s = new Stopwatch();
-            s.Start();
-
-
             TreeEntry entry = null;
 
-            //entry = lst.Where(x => x.zCVob == ptr).FirstOrDefault();
-            
-            try
-            {
-                entry = globalEntries
+
+            entry = globalEntries
                     .Where(x => x.Value.zCVob == ptr)
                     .Select(pair => pair.Value)
                     .FirstOrDefault();
-            }
-            catch
-            {
-                ConsoleEx.WriteLineRed("C#: OnSelectVob fail. No vob found in globalList. Addr: " + Utils.ToHex(ptr));
-
-                Utils.WriteToFile(String.Format("OnSelectVob: No vob found in globalList addr: {0}", Utils.ToHex(ptr)));
-            }
-            
 
 
-
-            s.Stop();
-
-            string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-            Console.WriteLine("C#:OnSelectVob: " + Utils.ToHex(ptr) + " Time: " + timeSpend);
+            Console.WriteLine("C#: OnSelectVob: " + Utils.ToHex(ptr));
 
 
             if (entry != null)
             {
                 if (entry.node != null)
                 {
-                    //UnionNET.objTreeWin.treeViewFast1.SelectedNode = entry.node;
                     UnionNET.objTreeWin.globalTree.SelectedNode = entry.node;
                 }
                 else
                 {
-
-                    ConsoleEx.WriteLineRed("C#: OnSelectVob: found  node is null, vob is " + Utils.ToHex(ptr));
-
-
-                    Utils.WriteToFile(String.Format("OnSelectVob: found  node is null, addr: {0}", ptr));
+                    Utils.Error("OnSelectVob: entry.node is null, key/addr/vob is " + Utils.ToHex(ptr));
                 }
                
             }
             else
             {
-
-                ConsoleEx.WriteLineRed("C#: OnSelectVob: Can't find vob in globalEntries: " + Utils.ToHex(ptr));
-
-                Utils.WriteToFile(String.Format("OnSelectVob:  Can't find vob in globalEntries, addr: {0}", Utils.ToHex(ptr)));
-
-                /*
-                TreeEntry newEntry = new TreeEntry();
-
-                globalEntries.Add(newEntry);
-                AddVobToNodes(newEntry);
-                */
+                Utils.Error("OnSelectVob: No key/addr/vob found in globalList. Key: " + Utils.ToHex(ptr));
             }
-
-            
-
-
         }
 
 
@@ -362,7 +321,7 @@ namespace SpacerUnion
 
             Console.WriteLine("=============================");
             Console.WriteLine("C#: OnVobRemove: " + Utils.ToHex(vob));
-            Console.WriteLine("GlobalEntries count: " + globalEntries.Count);
+            ConsoleEx.WriteLineGreen("C#: Всего вобов в списке: " + globalEntries.Count);
 
             if (vob == 0)
             {
@@ -399,19 +358,19 @@ namespace SpacerUnion
 
             UnionNET.vobList.ClearListBox();
 
-            Console.WriteLine("GlobalEntries count: " + globalEntries.Count);
+            ConsoleEx.WriteLineGreen("C#: Всего вобов в списке: " + globalEntries.Count);
             Console.WriteLine("=============================");
         }
 
         [DllExport]
-        public static void OnVobInsert(IntPtr ptr, uint vob, uint parent, IntPtr classNamePtr)
+        public static void OnDynamicUpdateVob(IntPtr ptr, uint vob, uint parent, IntPtr classNamePtr)
         {
             string name = Marshal.PtrToStringAnsi(ptr);
             string className = Marshal.PtrToStringAnsi(classNamePtr);
 
             TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
 
-           
+            Console.WriteLine("=============================");
 
             int classNameFoundPos = -1;
 
@@ -432,15 +391,35 @@ namespace SpacerUnion
             else
             {
 
-                Utils.WriteToFile("Ошибка! Воб " + Utils.ToHex(vob) + " уже есть в globalEntries!"
-                    + " " + globalEntries[vob].name + " .zCVob = " + Utils.ToHex(globalEntries[vob].zCVob));
+                string msg = "==============================\nОшибка! Пытаюсь добавить воб "
+                    + Utils.ToHex(vob)
+                    + ", но такой адрес-ключ уже есть в globalEntries!"
+                    + "\nNewVob: " + globalEntries[vob].name
+                    + " addr: zCVob = "
+                    + Utils.ToHex(globalEntries[vob].zCVob)
+                    + ", Parent: " + Utils.ToHex(globalEntries[vob].parent)
+                    + ", ChildrenCount: " + globalEntries[vob].childs.Count
+                    + ", ToDelete: " + globalEntries[vob].toDelete;
 
+                if (globalEntries[vob].node != null)
+                {
+                    msg += "\nnode.text: " + globalEntries[vob].node.Text;
+                    msg += ", node.Tag: " + Utils.ToHex(Convert.ToUInt32(globalEntries[vob].node.Tag.ToString()));
+                }
 
-                MessageBox.Show("Ошибка! Воб " + vob + " " + name + " уже есть в globalEntries! Сущ. воб: " + " " + globalEntries[vob].name);
+                if (globalEntries[vob].parentEntry != null)
+                {
+                    msg += "\nparentEntryName: " + globalEntries[vob].parentEntry.name;
+                    msg += ", parentEntryClassName: " + globalEntries[vob].parentEntry.className;
+                    msg += ", parentEntryAddr: " + Utils.ToHex(globalEntries[vob].parentEntry.zCVob);
+                }
 
-                ConsoleEx.WriteLineRed("Ошибка! Воб " + vob + " " + name + " уже есть в globalEntries! Сущ. воб: " + " " + globalEntries[vob].name);
+                msg += "\n==============================";
 
+                Utils.WriteToFile(msg);
+                ConsoleEx.WriteLineRed(msg);
 
+                MessageBox.Show(msg);
                 return;
             }
 
@@ -457,8 +436,147 @@ namespace SpacerUnion
             {
                 foundEntry = null;
 
-                ConsoleEx.WriteLineRed("C#: OnVobInsert. Can't found parent entry!");
-                Utils.WriteToFile("C#: OnVobInsert. Can't found parent entry!");
+                //ConsoleEx.WriteLineRed("C#: OnVobInsert. Can't found parent entry!");
+                //Utils.WriteToFile("C#: OnVobInsert. Can't found parent entry!");
+            }
+
+            if (foundEntry != null)
+            {
+                entry.parentEntry = foundEntry;
+                foundEntry.childs.Add(entry);
+            }
+
+            nextAfterEventBlocked = true;
+            lastSelectedNode = UnionNET.objTreeWin.globalTree.SelectedNode;
+
+            if (parent == 0)
+            {
+                TreeNode node = nodes[classNameFoundPos].Nodes.Add(name);
+                node.Tag = vob;
+                entry.node = node;
+                ApplyNodeImage(className, node, true);
+                UnionNET.objTreeWin.globalTree.SelectedNode = node;
+                ConsoleEx.WriteLineGreen("C# OnDynamicUpdate: Insert globally: " + name + " parent: " + Utils.ToHex(parent) + " className: " + className);
+            }
+            else if (entry.parentEntry != null)
+            {
+                if (entry.parentEntry.node != null)
+                {
+                    TreeNode node = null;
+
+                    if (entry.parentEntry.isLevel)
+                    {
+                        node = nodes[classNameFoundPos].Nodes.Add(name);
+                    }
+                    else
+                    {
+                        node = entry.parentEntry.node.Nodes.Add(name);
+                    }
+
+                    node.Tag = vob;
+                    entry.node = node;
+                    ApplyNodeImage(className, node, true);
+                    //UnionNET.objTreeWin.globalTree.SelectedNode = node;
+                }
+                else
+                {
+
+                    string msg = "C# OnDynamicUpdate: parent node is null. Vob  "
+                    + entry.parentEntry.name;
+
+
+                    ConsoleEx.WriteLineRed(msg);
+                    Utils.WriteToFile(msg);
+                }
+
+            }
+            else
+            {
+
+                ConsoleEx.WriteLineRed("C# OnDynamicUpdate: parent entry is null");
+                Utils.WriteToFile("C# OnDynamicUpdate: parent node is null");
+            }
+
+
+            ConsoleEx.WriteLineGreen("C#: Всего вобов в списке: " + globalEntries.Count);
+            Console.WriteLine("=============================");
+        }
+        [DllExport]
+        public static void OnVobInsert(IntPtr ptr, uint vob, uint parent, IntPtr classNamePtr)
+        {
+            string name = Marshal.PtrToStringAnsi(ptr);
+            string className = Marshal.PtrToStringAnsi(classNamePtr);
+
+            TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
+
+            Console.WriteLine("=============================");
+
+            int classNameFoundPos = -1;
+
+            classNameFoundPos = CreateAndGetFolder(className);
+
+            TreeEntry entry = new TreeEntry();
+
+            entry.name = name;
+            entry.parent = parent;
+            entry.zCVob = vob;
+            entry.className = className;
+            entry.isLevel = entry.className == "zCVobLevelCompo";
+
+            if (!globalEntries.ContainsKey(vob))
+            {
+                globalEntries.Add(vob, entry);
+            }
+            else
+            {
+
+                string msg = "==============================\nОшибка! Пытаюсь добавить воб "
+                    + Utils.ToHex(vob)
+                    + ", но такой адрес-ключ уже есть в globalEntries!"
+                    + "\nNewVob: " + globalEntries[vob].name 
+                    + " addr: zCVob = "
+                    + Utils.ToHex(globalEntries[vob].zCVob)
+                    + ", Parent: " + Utils.ToHex(globalEntries[vob].parent)
+                    + ", ChildrenCount: " + globalEntries[vob].childs.Count
+                    + ", ToDelete: " + globalEntries[vob].toDelete;
+
+                if (globalEntries[vob].node != null)
+                {
+                    msg += "\nnode.text: " + globalEntries[vob].node.Text;
+                    msg += ", node.Tag: " + Utils.ToHex(Convert.ToUInt32(globalEntries[vob].node.Tag.ToString()));
+                }
+
+                if (globalEntries[vob].parentEntry != null)
+                {
+                    msg += "\nparentEntryName: " + globalEntries[vob].parentEntry.name;
+                    msg += ", parentEntryClassName: " + globalEntries[vob].parentEntry.className;
+                    msg += ", parentEntryAddr: " + Utils.ToHex(globalEntries[vob].parentEntry.zCVob);
+                }
+
+                msg += "\n==============================";
+
+                Utils.WriteToFile(msg);
+                ConsoleEx.WriteLineRed(msg);
+
+                MessageBox.Show(msg);
+                return;
+            }
+
+
+
+
+            TreeEntry foundEntry = null;
+
+            try
+            {
+                foundEntry = globalEntries[entry.parent];
+            }
+            catch
+            {
+                foundEntry = null;
+
+                //ConsoleEx.WriteLineRed("C#: OnVobInsert. Can't found parent entry!");
+                //Utils.WriteToFile("C#: OnVobInsert. Can't found parent entry!");
             }
             
             if (foundEntry != null)
@@ -466,6 +584,7 @@ namespace SpacerUnion
                 entry.parentEntry = foundEntry;
                 foundEntry.childs.Add(entry);
             }
+            
 
             if (parent == 0)
             {
@@ -498,7 +617,13 @@ namespace SpacerUnion
                 }
                 else
                 {
-                    ConsoleEx.WriteLineRed("C# OnVobInsert: parent node is null");
+
+                    string msg = "C# OnVobInsert: parent node is null. Vob  "
+                    + entry.parentEntry.name;
+                   
+
+                    ConsoleEx.WriteLineRed(msg);
+                    Utils.WriteToFile(msg);
                 }
 
             }
@@ -506,11 +631,12 @@ namespace SpacerUnion
             {
 
                 ConsoleEx.WriteLineRed("C# OnVobInsert: parent entry is null");
+                Utils.WriteToFile("C# OnVobInsert: parent node is null");
             }
 
 
-            ConsoleEx.WriteLineGreen("C#: GlobalCountEntries: " + globalEntries.Count);
-
+            ConsoleEx.WriteLineGreen("C#: Всего вобов в списке: " + globalEntries.Count);
+            Console.WriteLine("=============================");
         }
 
 
@@ -526,6 +652,7 @@ namespace SpacerUnion
                 AddVobToNodes(entry.Value);
             }
 
+            ConsoleEx.WriteLineGreen("C#: Дерево заполнено. Всего записей: " + globalEntries.Count);
             UnionNET.objTreeWin.globalTree.Visible = true;
             Application.DoEvents();
 
@@ -558,18 +685,16 @@ namespace SpacerUnion
             catch
             {
 
-                ConsoleEx.WriteLineRed("C#: AddGlobalEntry: add entry fail. Key exists!: " + Utils.ToHex(vob));
+                Utils.Error("AddGlobalEntry: ключ уже существует!: Key: " + Utils.ToHex(vob) + ", Name: " + name + " Parent: " + Utils.ToHex(parent));
             }
             
 
             if (entry.parent == 0)
             {
-                //ConsoleEx.WriteLineRed("C#: Add vob with no parent: " + Utils.ToHex(vob) + " " + className);
                 return;
             }
 
             TreeEntry foundEntry = null;
-
 
             try
             {
@@ -578,8 +703,8 @@ namespace SpacerUnion
             catch
             {
                 foundEntry = null;
-                ConsoleEx.WriteLineRed("C#: AddTreeNode: no parent found in entries: " + Utils.ToHex(parent));
 
+                Utils.Error("AddGlobalEntry: Не смог найти entry.parent!: " + Utils.ToHex(vob) + ", Name: " + name + " Parent: " + Utils.ToHex(entry.parent));
 
             }
            
@@ -630,7 +755,7 @@ namespace SpacerUnion
 
             uint addr = Convert.ToUInt32(node.Tag);
 
-            Console.WriteLine("C#: OnSelectDoubleClick node: vob" + Utils.ToHex(addr));
+            Console.WriteLine("C#: OnSelectDoubleClick node: vob " + Utils.ToHex(addr));
 
             Extern_SelectVob(addr);
             UnionNET.form.Focus();
@@ -638,7 +763,20 @@ namespace SpacerUnion
 
         private void globalTree_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            TreeView tree = sender as TreeView;
 
+            if (nextAfterEventBlocked)
+            {
+                Console.WriteLine("C#: AfterSelect event was aborted.");
+                nextAfterEventBlocked = false;
+
+                if (lastSelectedNode != null)
+                {
+                    tree.SelectedNode = lastSelectedNode;
+                }
+
+                return;
+            }
            
             TreeNode node = globalTree.SelectedNode;
 
