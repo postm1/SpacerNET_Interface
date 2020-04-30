@@ -27,7 +27,7 @@ namespace SpacerUnion
         public static void WriteToFile(string str)
         {
             using (System.IO.StreamWriter file =
-            new System.IO.StreamWriter(@"./system/_SpacerNetErrors.txt"))
+            new System.IO.StreamWriter(@"./system/_SpacerNetErrors.txt", true))
             {
                 file.WriteLine(str);
                 file.Close();

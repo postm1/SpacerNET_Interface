@@ -53,11 +53,6 @@ namespace SpacerUnion
 
         const string TAG_FOLDER = "folder";
 
-        private const int TVM_SETEXTENDEDSTYLE = 0x1100 + 44;
-        private const int TVM_GETEXTENDEDSTYLE = 0x1100 + 45;
-        private const int TVS_EX_DOUBLEBUFFER = 0x0004;
-
-
         public static Dictionary<int, TreeEntry> globalEntries = new Dictionary<int, TreeEntry>();
 
      
@@ -65,10 +60,6 @@ namespace SpacerUnion
         public ObjTree()
         {
             InitializeComponent();
-            //globalTree.DrawMode = TreeViewDrawMode.OwnerDrawText;
-
-            
-            //SendMessage(globalTree.Handle, TVM_SETEXTENDEDSTYLE, (IntPtr)TVS_EX_DOUBLEBUFFER, (IntPtr)TVS_EX_DOUBLEBUFFER);
 
         }
 
@@ -445,9 +436,9 @@ namespace SpacerUnion
                     + " " + globalEntries[vob].name + " .zCVob = " + Utils.ToHex(globalEntries[vob].zCVob));
 
 
-                MessageBox.Show("Ошибка! Воб " + vob + " уже есть в globalEntries! " + " " + globalEntries[vob].name);
+                MessageBox.Show("Ошибка! Воб " + vob + " " + name + " уже есть в globalEntries! Сущ. воб: " + " " + globalEntries[vob].name);
 
-                ConsoleEx.WriteLineRed("Ошибка! Воб " + vob + " уже есть в globalEntries! " + " " + globalEntries[vob].name);
+                ConsoleEx.WriteLineRed("Ошибка! Воб " + vob + " " + name + " уже есть в globalEntries! Сущ. воб: " + " " + globalEntries[vob].name);
 
 
                 return;
@@ -573,6 +564,7 @@ namespace SpacerUnion
 
             if (entry.parent == 0)
             {
+                //ConsoleEx.WriteLineRed("C#: Add vob with no parent: " + Utils.ToHex(vob) + " " + className);
                 return;
             }
 
