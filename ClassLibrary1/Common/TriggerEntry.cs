@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SpacerUnion.Common
+namespace SpacerUnion
 {
     public class TriggerEntry
     {
@@ -15,8 +15,6 @@ namespace SpacerUnion.Common
 
         public int currentActionIndex;
 
-        public List<int> targetListAddr = new List<int>();
-
-
+        public List<uint> targetListAddr = new List<uint>();
     }
 }

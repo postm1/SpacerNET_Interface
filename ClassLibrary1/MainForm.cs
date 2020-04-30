@@ -1,4 +1,4 @@
-﻿using SpacerUnion.Common;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,14 +19,7 @@ namespace SpacerUnion
    
     public partial class MainForm : Form
     {
-        public Form renderTarget = null;
-        public string currentWorldName = "";
-       
-        public MainForm()
-        {
-            InitializeComponent();
-        }
-
+        #region imports
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_Exit();
 
@@ -66,7 +59,16 @@ namespace SpacerUnion
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_SaveWorld(IntPtr str, int type);
+        #endregion
 
+        public Form renderTarget = null;
+        public string currentWorldName = "";
+       
+        public MainForm()
+        {
+            InitializeComponent();
+        }
+        
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Extern_Exit();
@@ -154,11 +156,6 @@ namespace SpacerUnion
 
        
 
-        private void граттToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
@@ -185,11 +182,6 @@ namespace SpacerUnion
             item.Checked = !item.Checked;
 
             Extern_SetSetting(Marshal.StringToHGlobalAnsi("showVobs"), Convert.ToInt32(item.Checked));
-        }
-
-        private void оНасToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
 

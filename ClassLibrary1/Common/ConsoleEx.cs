@@ -5,6 +5,7 @@ using System.Text;
 
 namespace SpacerUnion
 {
+    // Класс для управления цветом текста консоли
     public static class ConsoleEx
     {
         public static void WriteLineRed(String message)

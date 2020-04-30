@@ -74,7 +74,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Letter_S_red_34876.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Pictures\Letter_S_red_34876.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DllExport, PublicKeyToken=8337224c9ad9e356">
@@ -99,132 +99,133 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoClosingMessageBox.cs" />
+    <Compile Include="Common\AutoClosingMessageBox.cs" />
     <Compile Include="Common\CmdType.cs" />
     <Compile Include="Common\TriggerEntry.cs" />
-    <Compile Include="CompileWorldWin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CompileWorldWin.Designer.cs">
-      <DependentUpon>CompileWorldWin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ConsoleEx.cs" />
-    <Compile Include="InputBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="InputBox.Designer.cs">
-      <DependentUpon>InputBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LoadingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoadingForm.Designer.cs">
-      <DependentUpon>LoadingForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ObjTree.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ObjTree.Designer.cs">
-      <DependentUpon>ObjTree.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ParticleWin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ParticleWin.Designer.cs">
-      <DependentUpon>ParticleWin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SettingsCamera.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SettingsCamera.Designer.cs">
-      <DependentUpon>SettingsCamera.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SoundWin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SoundWin.Designer.cs">
-      <DependentUpon>SoundWin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TreeEntry.cs" />
-    <Compile Include="UnionNET.cs" />
-    <Compile Include="CompileLightWin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CompileLightWin.Designer.cs">
-      <DependentUpon>CompileLightWin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InfoWin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="InfoWin.Designer.cs">
-      <DependentUpon>InfoWin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Resources\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ObjectsWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ObjectsWindow.Designer.cs">
-      <DependentUpon>ObjectsWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Utils.cs" />
-    <Compile Include="VobListForm.cs">
+    <Compile Include="Resources\Lang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lang.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CompileWorldWin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VobListForm.Designer.cs">
+    <Compile Include="Windows\CompileWorldWin.Designer.cs">
+      <DependentUpon>CompileWorldWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ConsoleEx.cs" />
+    <Compile Include="Windows\LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ObjTree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ObjTree.Designer.cs">
+      <DependentUpon>ObjTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ParticleWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ParticleWin.Designer.cs">
+      <DependentUpon>ParticleWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SettingsCamera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\SettingsCamera.Designer.cs">
+      <DependentUpon>SettingsCamera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SoundWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\SoundWin.Designer.cs">
+      <DependentUpon>SoundWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\TreeEntry.cs" />
+    <Compile Include="UnionNET.cs" />
+    <Compile Include="Windows\CompileLightWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\CompileLightWin.Designer.cs">
+      <DependentUpon>CompileLightWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\InfoWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\InfoWin.Designer.cs">
+      <DependentUpon>InfoWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ObjectsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ObjectsWindow.Designer.cs">
+      <DependentUpon>ObjectsWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Common\Utils.cs" />
+    <Compile Include="Windows\VobListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\VobListForm.Designer.cs">
       <DependentUpon>VobListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\CProperty.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CompileLightWin.resx">
+    <EmbeddedResource Include="Resources\Lang.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Lang.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\CompileLightWin.resx">
       <DependentUpon>CompileLightWin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CompileWorldWin.resx">
+    <EmbeddedResource Include="Windows\CompileWorldWin.resx">
       <DependentUpon>CompileWorldWin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InfoWin.resx">
+    <EmbeddedResource Include="Windows\InfoWin.resx">
       <DependentUpon>InfoWin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InputBox.resx">
-      <DependentUpon>InputBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoadingForm.resx">
+    <EmbeddedResource Include="Windows\LoadingForm.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ObjTree.resx">
+    <EmbeddedResource Include="Windows\ObjTree.resx">
       <DependentUpon>ObjTree.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ParticleWin.resx">
+    <EmbeddedResource Include="Windows\ParticleWin.resx">
       <DependentUpon>ParticleWin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\MainForm.resx">
+    <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ObjectsWindow.resx">
+    <EmbeddedResource Include="Windows\ObjectsWindow.resx">
       <DependentUpon>ObjectsWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsCamera.resx">
+    <EmbeddedResource Include="Windows\SettingsCamera.resx">
       <DependentUpon>SettingsCamera.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SoundWin.resx">
+    <EmbeddedResource Include="Windows\SoundWin.resx">
       <DependentUpon>SoundWin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VobListForm.resx">
+    <EmbeddedResource Include="Windows\VobListForm.resx">
       <DependentUpon>VobListForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
@@ -239,17 +240,16 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\реклама.jpg" />
+    <None Include="Resources\Pictures\реклама.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dsads.jpg" />
+    <None Include="Resources\Pictures\GothicVisualTemplate.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Controls\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Letter_S_red_34876.ico" />
-    <None Include="Resources\Spinner-0.5s-137px.gif" />
+    <Content Include="Resources\Pictures\Letter_S_red_34876.ico" />
+    <None Include="Resources\x317623-775512241.png" />
+    <None Include="Resources\Pictures\Spinner-0.5s-137px.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ImportGroup Label=".NET DllExport">

@@ -13,6 +13,12 @@ namespace SpacerUnion
 {
     public partial class CompileLightWin : Form
     {
+        #region Imports
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_ComplileLight(int radioButton, int radius);
+        #endregion
+
+
         const int RADIO_BUTTONS_MAX = 4;
 
         RadioButton[] buttons = new RadioButton[RADIO_BUTTONS_MAX];
@@ -31,8 +37,7 @@ namespace SpacerUnion
             this.Hide();
         }
 
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_ComplileLight(int radioButton, int radius);
+        
 
 
         public void PrintLightInfo(int type)

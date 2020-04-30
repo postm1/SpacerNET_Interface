@@ -1,4 +1,4 @@
-﻿using SpacerUnion.Common;
+﻿
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -648,7 +648,7 @@ namespace SpacerUnion
 
 
         [DllExport]
-        public static void AddTargetToList(IntPtr itemPtr, int addr)
+        public static void AddTargetToList(IntPtr itemPtr, uint addr)
         {
             string value = Marshal.PtrToStringAnsi(itemPtr);
 
@@ -734,7 +734,7 @@ namespace SpacerUnion
 
             if (index != System.Windows.Forms.ListBox.NoMatches)
             {
-                int addr = triggerEntry.targetListAddr[index];
+                uint addr = triggerEntry.targetListAddr[index];
 
                 try
                 {

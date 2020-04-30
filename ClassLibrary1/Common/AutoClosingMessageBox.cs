@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace SpacerUnion
 {
+    // Класс для авто-закрытия messageBox
     public class AutoClosingMessageBox
     {
         System.Threading.Timer _timeoutTimer;

@@ -16,14 +16,14 @@ namespace SpacerUnion
     public partial class VobListForm : Form
     {
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SelectVobSync(int a);
+        public static extern void Extern_SelectVobSync(uint a);
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SelectVob(int a);
+        public static extern void Extern_SelectVob(uint a);
 
 
 
-        public static List<int> vobList = new List<int>();
+        public static List<uint> vobList = new List<uint>();
 
         public VobListForm()
         {
@@ -47,7 +47,7 @@ namespace SpacerUnion
 
 
         [DllExport]
-        public static void AddToVobList(int vob, IntPtr vobNamePtr)
+        public static void AddToVobList(uint vob, IntPtr vobNamePtr)
         {
             string vobName = Marshal.PtrToStringAnsi(vobNamePtr);
 
@@ -69,7 +69,7 @@ namespace SpacerUnion
             {
                 if (listBoxVobs.Items.Count >= index - 1)
                 {
-                    int vobAddr = vobList[index];
+                    uint vobAddr = vobList[index];
                     //ConsoleEx.WriteLineGreen(vobAddr + " index " + index);
 
                     try
@@ -107,7 +107,7 @@ namespace SpacerUnion
             {
                 if (listBoxVobs.Items.Count >= index - 1)
                 {
-                    int vobAddr = vobList[index];
+                    uint vobAddr = vobList[index];
                     //ConsoleEx.WriteLineGreen(vobAddr + " index " + index);
 
                     try

@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace SpacerUnion
 {
+    // Класс различных функций
     public class Utils
     {
         public static void SortListBox(ListBox lstBox)
@@ -34,7 +35,7 @@ namespace SpacerUnion
             }
         }
 
-        public static string ToHex(int num)
+        public static string ToHex(uint num)
         {
             return  String.Format("0x{0:X}", num);
         }

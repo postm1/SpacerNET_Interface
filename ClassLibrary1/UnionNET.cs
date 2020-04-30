@@ -1,4 +1,5 @@
-﻿using SpacerUnion.Common;
+﻿
+using SpacerUnion.Resources;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,124 +15,103 @@ namespace SpacerUnion
 
     public static class UnionNET
     {
+        #region Imports
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int Extern_GetSetting(IntPtr namePtr);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        static extern IntPtr GetForegroundWindow();
+
+        #endregion
+
+        // Окна приложения
         public static MainForm form;
         public static VobListForm vobList;
         public static ObjectsWindow objWin;
-
         public static InfoWin infoWin;
-
         public static CompileLightWin comLightWin;
         public static ObjTree objTreeWin;
         public static ParticleWin partWin;
         public static SoundWin soundWin;
-        public static InputBox inputBox;
         public static CompileWorldWin compWorldWin;
-
-        public static LoadingForm loadForm = null;
-
-
+        public static LoadingForm loadForm;
         public static SettingsCamera settingsCam;
 
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int Extern_GetSetting(IntPtr namePtr);
+
+        // Список скрытых окон
+        static List<Form> windowsToHideList = null;
+
+        // Список окон
+        static List<Form> windowsList = null;
 
 
 
-        [STAThread]
-
-        public static void StartDLL()
+        // Главная функция запуска, вызывается из Union
+        [DllExport, STAThread]
+        public static void UnionInitialize(IntPtr L)
         {
-
-            AutoClosingMessageBox.Show("", "Spacer is loading...", 90);
-
+            AutoClosingMessageBox.Show("", "", 90);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            windowsToHideList = new List<Form>();
+            windowsList = new List<Form>();
 
-            //
             form = new MainForm();
-            form.Left = 0;
-            form.Top = 0;
-
-
             vobList = new VobListForm();
-            vobList.Owner = form;
-
             objWin = new ObjectsWindow();
-            objWin.Owner = form;
-
-
-
             infoWin = new InfoWin();
-            infoWin.Owner = form;
-            
-
-
             objTreeWin = new ObjTree();
-            objTreeWin.Owner = form;
-
             partWin = new ParticleWin();
-            partWin.Owner = form;
-
             soundWin = new SoundWin();
-            soundWin.Owner = form;
-
-
-            inputBox = new InputBox();
-            inputBox.Owner = form;
-
-
-
             comLightWin = new CompileLightWin();
-            comLightWin.Owner = form;
-
             settingsCam = new SettingsCamera();
-            settingsCam.Owner = form;
-
             compWorldWin = new CompileWorldWin();
-            compWorldWin.Owner = form;
+            loadForm = new LoadingForm();
+
+            windowsList.Add(objTreeWin);
+            windowsList.Add(partWin);
+            windowsList.Add(infoWin);
+            windowsList.Add(objWin);
+            windowsList.Add(soundWin);
+            windowsList.Add(vobList);
+            windowsList.Add(compWorldWin);
+            windowsList.Add(comLightWin);
+            windowsList.Add(settingsCam);
+            windowsList.Add(loadForm);
+
+
+            windowsList.ForEach(x => x.Owner = form);
+
+            form.menuStripTopMain.Enabled = false;
 
             form.Show();
             form.panelMain.Show();
-
-
             infoWin.Show();
-            infoWin.Left = 610;
+
+            form.Left = 0;
+            form.Top = 0;
+
+            infoWin.Left = 950;
             infoWin.Top = 600;
 
 
-
-            form.AddText("Загрузка Spacer...");
-
-            //  form.Enabled = false;
-            form.menuStrip1.Enabled = false;
-
-        
+            form.AddText(Lang.appIsLoading);
+ 
         }
 
-
-        [DllExport, STAThread]
-        public static void UnionInitialize(IntPtr L)
-        {
-            StartDLL();
-
-        }
-
+        // Функция вызывается, когда загрузился движок игры, вызывается из Union
         [DllExport]
         public static void Form_EnableInterface()
         {
-            form.AddText("Программа готова к работе!");
-            //form.Enabled = true;
-            form.menuStrip1.Enabled = true;
-            //loadWin.Hide();
+            form.AddText(Lang.appIsReady);
+
+            form.menuStripTopMain.Enabled = true;
             objWin.Show();
-            //vobList.Show();
             objTreeWin.Show();
             partWin.Show();
             vobList.Show();
-
-            //soundWin.Show();
 
 
             objTreeWin.Left = 1500;
@@ -147,10 +127,21 @@ namespace SpacerUnion
             partWin.Left = 0;
             partWin.Top = 600;
 
-            
+
             soundWin.Left = 0;
             soundWin.Top = 300;
 
+            LoadSettingsToInterface();
+
+
+
+
+            form.Focus();
+        }
+
+        // загружает настройки в интерфейс 
+        public static void LoadSettingsToInterface()
+        {
             ToolStripButton btn = form.toolStripTop.Items[7] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("showVobs")));
             btn = form.toolStripTop.Items[8] as ToolStripButton;
@@ -179,9 +170,6 @@ namespace SpacerUnion
 
             btn = form.toolStripTop.Items[5] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(vobList.Visible);
-
-
-            form.Focus();
         }
 
         [DllExport]
@@ -190,8 +178,7 @@ namespace SpacerUnion
             return (int)form.renderTarget.Handle;
         }
 
-        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        static extern IntPtr GetForegroundWindow();
+        
 
         [DllExport]
         public static int IsAppActive()
@@ -214,29 +201,10 @@ namespace SpacerUnion
             return (int)form.Handle;
         }
 
-        static List<Form> windowsToHideList = null;
-        static List<Form> windowsList = null;
+        
         [DllExport]
         public static void HideWindows()
         {
-            //Console.WriteLine("HideWindows");
-
-            if (windowsToHideList == null)
-            {
-                windowsToHideList = new List<Form>();
-            }
-
-            if (windowsList == null)
-            {
-                windowsList = new List<Form>();
-                windowsList.Add(objTreeWin);
-                windowsList.Add(partWin);
-                windowsList.Add(infoWin);
-                windowsList.Add(objWin);
-                windowsList.Add(soundWin);
-                windowsList.Add(vobList);
-                
-            }
                 
             for (int i = 0; i < windowsList.Count; i++)
             {
@@ -253,7 +221,6 @@ namespace SpacerUnion
         [DllExport]
         public static void ShowWindows()
         {
-            //Console.WriteLine("ShowWindows");
 
             for (int i = 0; i < windowsToHideList.Count; i++)
             {
@@ -263,6 +230,8 @@ namespace SpacerUnion
             windowsToHideList.Clear();
             form.Focus();
         }
+
+
 
         [DllExport]
         public static void ShowLoadingForm(int type)
@@ -275,23 +244,23 @@ namespace SpacerUnion
 
             if (type == 0)
             {
-                loadForm.labelLoading.Text = "Идет загрузка Zen...";
+                loadForm.labelLoading.Text = Lang.loadZen;
             }
 
             if (type == 1)
             {
-                loadForm.labelLoading.Text = "Идет компиляция Zen...";
+                loadForm.labelLoading.Text = Lang.compileZen;
             }
 
             if (type == 2)
             {
-                loadForm.labelLoading.Text = "Идет компиляция света...";
+                loadForm.labelLoading.Text = Lang.compileLight;
             }
 
 
             if (type == 3)
             {
-                loadForm.labelLoading.Text = "Идет сохранение ZEN...";
+                loadForm.labelLoading.Text = Lang.savingZen;
             }
 
 
@@ -299,6 +268,9 @@ namespace SpacerUnion
             loadForm.Show();
             Application.DoEvents();
         }
+
+
+
 
         [DllExport]
         public static void CloseLoadingForm()
@@ -311,10 +283,6 @@ namespace SpacerUnion
             Application.DoEvents();
 
         }
-
-
-
-
 
     }
 

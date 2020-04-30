@@ -1,4 +1,4 @@
-﻿using SpacerUnion.Common;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,16 +25,16 @@ namespace SpacerUnion
         public static extern void Extern_OpenVobTree(IntPtr str, bool globalInsert);
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SelectVobSync(int a);
+        public static extern void Extern_SelectVobSync(uint a);
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SelectVob(int a);
+        public static extern void Extern_SelectVob(uint a);
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_BlockMouse(bool disable);
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_RemoveVob(int vob);
+        public static extern void Extern_RemoveVob(uint vob);
 
         [DllImport("user32.dll")]
         private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
@@ -53,7 +53,7 @@ namespace SpacerUnion
 
         const string TAG_FOLDER = "folder";
 
-        public static Dictionary<int, TreeEntry> globalEntries = new Dictionary<int, TreeEntry>();
+        public static Dictionary<uint, TreeEntry> globalEntries = new Dictionary<uint, TreeEntry>();
 
      
 
@@ -207,7 +207,7 @@ namespace SpacerUnion
 
         
         [DllExport]
-        public static void UpdateVobName(int ptr, IntPtr namePtr)
+        public static void UpdateVobName(uint ptr, IntPtr namePtr)
         {
             if (ptr == 0)
             {
@@ -255,7 +255,7 @@ namespace SpacerUnion
         }
 
         [DllExport]
-        public static void OnSelectVob(int ptr)
+        public static void OnSelectVob(uint ptr)
         {
             //Console.WriteLine("C#: OnSelectVob: " + ptr);
 
@@ -356,7 +356,7 @@ namespace SpacerUnion
         }
 
         [DllExport]
-        public static void OnVobRemove(int vob)
+        public static void OnVobRemove(uint vob)
         {
             TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
 
@@ -404,7 +404,7 @@ namespace SpacerUnion
         }
 
         [DllExport]
-        public static void OnVobInsert(IntPtr ptr, int vob, int parent, IntPtr classNamePtr)
+        public static void OnVobInsert(IntPtr ptr, uint vob, uint parent, IntPtr classNamePtr)
         {
             string name = Marshal.PtrToStringAnsi(ptr);
             string className = Marshal.PtrToStringAnsi(classNamePtr);
@@ -532,7 +532,7 @@ namespace SpacerUnion
         }
 
         [DllExport]
-        public static void AddGlobalEntry(IntPtr ptr, int vob, int parent, IntPtr classNamePtr)
+        public static void AddGlobalEntry(IntPtr ptr, uint vob, uint parent, IntPtr classNamePtr)
         {
 
             string name = Marshal.PtrToStringAnsi(ptr);
@@ -628,7 +628,7 @@ namespace SpacerUnion
                 return;
             }
 
-            int addr = Convert.ToInt32(node.Tag);
+            uint addr = Convert.ToUInt32(node.Tag);
 
             Console.WriteLine("C#: OnSelectDoubleClick node: vob" + Utils.ToHex(addr));
 
@@ -664,10 +664,10 @@ namespace SpacerUnion
 
             node.SelectedImageIndex = 4;
 
-           
 
 
-            int addr = Convert.ToInt32(node.Tag);
+
+            uint addr = Convert.ToUInt32(node.Tag);
 
             Console.WriteLine("C#: AfterSelect node: vob " + Utils.ToHex(addr));
 
@@ -858,9 +858,9 @@ namespace SpacerUnion
             }
 
             UnionNET.vobList.ClearListBox();
-            int vob = 0;
+            uint vob = 0;
 
-            int.TryParse(tag, out vob);
+            uint.TryParse(tag, out vob);
 
             Extern_RemoveVob(vob);
 

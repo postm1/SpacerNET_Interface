@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SpacerUnion.Properties {
+namespace SpacerUnion.Resources {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace SpacerUnion.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class Lang {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal Lang() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace SpacerUnion.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SpacerUnion.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SpacerUnion.Resources.Lang", typeof(Lang).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,42 +61,56 @@ namespace SpacerUnion.Properties {
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        ///   Ищет локализованную строку, похожую на Spacer.net загружается....
         /// </summary>
-        internal static System.Drawing.Bitmap dsads {
+        internal static string appIsLoading {
             get {
-                object obj = ResourceManager.GetObject("dsads", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("appIsLoading", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        ///   Ищет локализованную строку, похожую на Программа готова к работе!.
         /// </summary>
-        internal static System.Drawing.Bitmap Spinner_0_5s_137px {
+        internal static string appIsReady {
             get {
-                object obj = ResourceManager.GetObject("Spinner-0.5s-137px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("appIsReady", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        ///   Ищет локализованную строку, похожую на Идет компиляция света....
         /// </summary>
-        internal static System.Drawing.Bitmap x317623_775512241 {
+        internal static string compileLight {
             get {
-                object obj = ResourceManager.GetObject("x317623-775512241", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("compileLight", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        ///   Ищет локализованную строку, похожую на Идет компиляция zen....
         /// </summary>
-        internal static System.Drawing.Bitmap реклама {
+        internal static string compileZen {
             get {
-                object obj = ResourceManager.GetObject("реклама", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("compileZen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Идет загрузка zen....
+        /// </summary>
+        internal static string loadZen {
+            get {
+                return ResourceManager.GetString("loadZen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Идет сохранение zen....
+        /// </summary>
+        internal static string savingZen {
+            get {
+                return ResourceManager.GetString("savingZen", resourceCulture);
             }
         }
     }

@@ -13,10 +13,11 @@ namespace SpacerUnion
 {
     public partial class CompileWorldWin : Form
     {
-
+        #region Imports
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr Extern_CompileWorld(int type);
 
+        #endregion
 
         public CompileWorldWin()
         {
@@ -27,16 +28,6 @@ namespace SpacerUnion
         {
             this.Hide();
             e.Cancel = true;
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)

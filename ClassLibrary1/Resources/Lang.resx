@@ -117,4 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="appIsLoading" xml:space="preserve">
+    <value>Spacer.net загружается...</value>
+  </data>
+  <data name="appIsReady" xml:space="preserve">
+    <value>Программа готова к работе!</value>
+  </data>
+  <data name="compileLight" xml:space="preserve">
+    <value>Идет компиляция света...</value>
+  </data>
+  <data name="compileZen" xml:space="preserve">
+    <value>Идет компиляция zen...</value>
+  </data>
+  <data name="loadZen" xml:space="preserve">
+    <value>Идет загрузка zen...</value>
+  </data>
+  <data name="savingZen" xml:space="preserve">
+    <value>Идет сохранение zen...</value>
+  </data>
 </root>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace SpacerUnion.zEngine
+namespace SpacerUnion
 {
     public enum TPropEditType
     {
@@ -59,10 +59,9 @@ namespace SpacerUnion.zEngine
                 case TPropEditType.PETraw: result = "rawfloat"; break;
             }
 
-
-
             return result;
         }
+
 
         public string ShowValue()
         {
