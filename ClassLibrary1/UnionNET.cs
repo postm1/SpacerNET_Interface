@@ -1,4 +1,5 @@
 ﻿
+using SpacerUnion.Common;
 using SpacerUnion.Resources;
 using System;
 using System.Collections.Generic;
@@ -15,14 +16,7 @@ namespace SpacerUnion
 
     public static class UnionNET
     {
-        #region Imports
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int Extern_GetSetting(IntPtr namePtr);
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        static extern IntPtr GetForegroundWindow();
-
-        #endregion
+        
 
         // Окна приложения
         public static MainForm form;
@@ -81,13 +75,13 @@ namespace SpacerUnion
             windowsList.Add(settingsCam);
             windowsList.Add(loadForm);
 
-
+            // каждому окну из списка задаем владельца: главную форму
             windowsList.ForEach(x => x.Owner = form);
 
             form.menuStripTopMain.Enabled = false;
 
             form.Show();
-            form.panelMain.Show();
+            //form.panelMain.Show();
             infoWin.Show();
 
             form.Left = 0;
@@ -143,13 +137,13 @@ namespace SpacerUnion
         public static void LoadSettingsToInterface()
         {
             ToolStripButton btn = form.toolStripTop.Items[7] as ToolStripButton;
-            btn.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("showVobs")));
+            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("showVobs")));
             btn = form.toolStripTop.Items[8] as ToolStripButton;
-            btn.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("showWaynet")));
+            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("showWaynet")));
             btn = form.toolStripTop.Items[9] as ToolStripButton;
-            btn.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("showHelpVobs")));
+            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("showHelpVobs")));
             btn = form.toolStripTop.Items[10] as ToolStripButton;
-            btn.Checked = Convert.ToBoolean(Extern_GetSetting(Marshal.StringToHGlobalAnsi("drawBBoxGlobal")));
+            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("drawBBoxGlobal")));
 
 
             btn = form.toolStripTop.Items[0] as ToolStripButton;
@@ -183,7 +177,7 @@ namespace SpacerUnion
         [DllExport]
         public static int IsAppActive()
         {
-            var handle = GetForegroundWindow();
+            var handle = Imports.GetForegroundWindow();
 
             for (int i = 0; i < windowsList.Count; i++)
             {

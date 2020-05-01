@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpacerUnion.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,12 +14,7 @@ namespace SpacerUnion
 {
     public partial class CompileLightWin : Form
     {
-        #region Imports
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_ComplileLight(int radioButton, int radius);
-        #endregion
-
-
+  
         const int RADIO_BUTTONS_MAX = 4;
 
         RadioButton[] buttons = new RadioButton[RADIO_BUTTONS_MAX];
@@ -74,7 +70,7 @@ namespace SpacerUnion
                 if (buttons[i].Checked)
                 {
                     PrintLightInfo(i);
-                    Extern_ComplileLight(i, radiusCamera);
+                    Imports.Extern_ComplileLight(i, radiusCamera);
                     break;
                 }
             }

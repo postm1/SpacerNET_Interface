@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpacerUnion.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,11 +16,7 @@ namespace SpacerUnion
 
     public partial class VobListForm : Form
     {
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SelectVobSync(uint a);
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SelectVob(uint a);
+       
 
 
 
@@ -82,7 +79,7 @@ namespace SpacerUnion
                         ConsoleEx.WriteLineGreen("C#: vobListSelect. Can't find vob with addr: " + Utils.ToHex(vobAddr));
                     }
 
-                    Extern_SelectVob(vobAddr);
+                    Imports.Extern_SelectVob(vobAddr);
 
 
                 }
@@ -120,7 +117,7 @@ namespace SpacerUnion
                         ConsoleEx.WriteLineGreen("C#: vobListSelect. Can't find vob with addr: " + Utils.ToHex(vobAddr));
                     }
 
-                    Extern_SelectVobSync(vobAddr);
+                    Imports.Extern_SelectVobSync(vobAddr);
                 }
 
             }

@@ -12,8 +12,6 @@ namespace SpacerUnion
 {
     public partial class InfoWin : Form
     {
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SetSetting(IntPtr namePtr, int value);
 
         public InfoWin()
         {

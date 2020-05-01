@@ -1,4 +1,5 @@
 ﻿
+using SpacerUnion.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,8 +19,6 @@ namespace SpacerUnion
             InitializeComponent();
         }
 
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SetSetting(IntPtr namePtr, int value);
 
 
         private void SettingsCamera_FormClosing(object sender, FormClosingEventArgs e)
@@ -41,25 +40,25 @@ namespace SpacerUnion
         private void trackBarTransSpeed_ValueChanged(object sender, EventArgs e)
         {
             labelTrans.Text = "Скорость полета: " + trackBarTransSpeed.Value;
-            Extern_SetSetting(Marshal.StringToHGlobalAnsi("camTransSpeed"), trackBarTransSpeed.Value);
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("camTransSpeed"), trackBarTransSpeed.Value);
         }
 
         private void trackBarRotSpeed_ValueChanged(object sender, EventArgs e)
         {
             labelRot.Text = "Скорость поворота: " + trackBarRotSpeed.Value;
-            Extern_SetSetting(Marshal.StringToHGlobalAnsi("camRotSpeed"), trackBarRotSpeed.Value);
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("camRotSpeed"), trackBarRotSpeed.Value);
         }
 
         private void trackBarWorld_ValueChanged(object sender, EventArgs e)
         {
             labelWorld.Text = "Мир: " + trackBarWorld.Value;
-            Extern_SetSetting(Marshal.StringToHGlobalAnsi("rangeWorld"), trackBarWorld.Value);
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("rangeWorld"), trackBarWorld.Value);
         }
 
         private void trackBarVobs_ValueChanged(object sender, EventArgs e)
         {
             labelVobs.Text = "Вобы: " + trackBarVobs.Value;
-            Extern_SetSetting(Marshal.StringToHGlobalAnsi("rangeVobs"), trackBarVobs.Value);
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("rangeVobs"), trackBarVobs.Value);
         }
 
         private void Применить_Click(object sender, EventArgs e)
@@ -71,42 +70,42 @@ namespace SpacerUnion
         {
             CheckBox cb = sender as CheckBox;
 
-            Extern_SetSetting(Marshal.StringToHGlobalAnsi("showFps"), Convert.ToInt32(cb.Checked));
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("showFps"), Convert.ToInt32(cb.Checked));
         }
 
         private void checkBoxTris_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
 
-            Extern_SetSetting(Marshal.StringToHGlobalAnsi("showTris"), Convert.ToInt32(cb.Checked));
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("showTris"), Convert.ToInt32(cb.Checked));
         }
 
         private void checkBoxCamCoord_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
 
-            Extern_SetSetting(Marshal.StringToHGlobalAnsi("showCamCoords"), Convert.ToInt32(cb.Checked));
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("showCamCoords"), Convert.ToInt32(cb.Checked));
         }
 
         private void checkBoxVobs_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
 
-            Extern_SetSetting(Marshal.StringToHGlobalAnsi("showVobsCount"), Convert.ToInt32(cb.Checked));
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("showVobsCount"), Convert.ToInt32(cb.Checked));
         }
 
         private void checkBoxWaypoints_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
 
-            Extern_SetSetting(Marshal.StringToHGlobalAnsi("showWaypointsCount"), Convert.ToInt32(cb.Checked));
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("showWaypointsCount"), Convert.ToInt32(cb.Checked));
         }
 
         private void checkBoxDistVob_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
 
-            Extern_SetSetting(Marshal.StringToHGlobalAnsi("showVobDist"), Convert.ToInt32(cb.Checked));
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("showVobDist"), Convert.ToInt32(cb.Checked));
         }
     }
 }

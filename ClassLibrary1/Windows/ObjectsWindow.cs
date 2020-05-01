@@ -1,4 +1,5 @@
 ﻿
+using SpacerUnion.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,22 +17,7 @@ namespace SpacerUnion
 {
     public partial class ObjectsWindow : Form
     {
-        #region Imports
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_ApplyProps(IntPtr propStr, IntPtr propName);
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern float Extern_GetBBox(int coord);
 
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern float Extern_SetBBox(int x, int y, int z);
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr Extern_GetSettingStr(IntPtr namePtr);
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SetSettingStr(IntPtr namePtr, IntPtr value);
-
-        #endregion
 
         static List<CProperty> props = new List<CProperty>();
         static Dictionary<string, FolderEntry> folders = new Dictionary<string, FolderEntry>();
@@ -552,7 +538,7 @@ namespace SpacerUnion
             IntPtr ptr = Marshal.StringToHGlobalAnsi(str.ToString());
             IntPtr ptrName = Marshal.StringToHGlobalAnsi(nameValue);
 
-            Extern_ApplyProps(ptr, ptrName);
+            Imports.Extern_ApplyProps(ptr, ptrName);
             Marshal.FreeHGlobal(ptr);
             Marshal.FreeHGlobal(ptrName);
         }
@@ -915,9 +901,9 @@ namespace SpacerUnion
 
             tabControl1.SelectTab(1);
 
-            textBoxBbox0.Text = Extern_GetBBox(0).ToString().Replace(',', '.');
-            textBoxBbox1.Text = Extern_GetBBox(1).ToString().Replace(',', '.');
-            textBoxBbox2.Text = Extern_GetBBox(2).ToString().Replace(',', '.');
+            textBoxBbox0.Text = Imports.Extern_GetBBox(0).ToString().Replace(',', '.');
+            textBoxBbox1.Text = Imports.Extern_GetBBox(1).ToString().Replace(',', '.');
+            textBoxBbox2.Text = Imports.Extern_GetBBox(2).ToString().Replace(',', '.');
 
 
             //(Control)(tabControl1.TabPages[1]).Enable = true;
@@ -931,7 +917,7 @@ namespace SpacerUnion
             int.TryParse(textBoxBbox1.Text.Trim(), out y);
             int.TryParse(textBoxBbox2.Text.Trim(), out z);
 
-            Extern_SetBBox(x, y, z);
+            Imports.Extern_SetBBox(x, y, z);
 
             tabControl1.SelectTab(0);
             DisableTabBBox();
@@ -956,9 +942,9 @@ namespace SpacerUnion
             {
                 EnableTab(tabControl1.TabPages[1], true);
 
-                textBoxBbox0.Text = Extern_GetBBox(0).ToString().Replace(',', '.');
-                textBoxBbox1.Text = Extern_GetBBox(1).ToString().Replace(',', '.');
-                textBoxBbox2.Text = Extern_GetBBox(2).ToString().Replace(',', '.');
+                textBoxBbox0.Text = Imports.Extern_GetBBox(0).ToString().Replace(',', '.');
+                textBoxBbox1.Text = Imports.Extern_GetBBox(1).ToString().Replace(',', '.');
+                textBoxBbox2.Text = Imports.Extern_GetBBox(2).ToString().Replace(',', '.');
             }
            
         }
@@ -1079,7 +1065,7 @@ namespace SpacerUnion
         {
             openFileDialogFileName.Filter = "All files (*.)|";
 
-            IntPtr ptrPath = Extern_GetSettingStr(Marshal.StringToHGlobalAnsi("vobResPath"));
+            IntPtr ptrPath = Imports.Extern_GetSettingStr(Marshal.StringToHGlobalAnsi("vobResPath"));
 
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
@@ -1102,7 +1088,7 @@ namespace SpacerUnion
 
                 IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(openFileDialogFileName.FileName));
 
-                Extern_SetSettingStr(ptrPathSave, Marshal.StringToHGlobalAnsi("vobResPath"));
+                Imports.Extern_SetSettingStr(ptrPathSave, Marshal.StringToHGlobalAnsi("vobResPath"));
 
                 string fileName = openFileDialogFileName.SafeFileName;
 

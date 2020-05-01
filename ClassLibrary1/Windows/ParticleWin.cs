@@ -1,4 +1,5 @@
 ﻿
+using SpacerUnion.Common;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -27,58 +28,7 @@ namespace SpacerUnion
             InitializeComponent();
         }
 
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_CreateItem(IntPtr name);
 
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_CreatePFX(IntPtr name);
-
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern bool Extern_VobNameExist(IntPtr name, bool isWaypoint);
-        
-
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_CreateNewVob(IntPtr name, IntPtr vobName, int dyn, int stat);
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_CreateWaypoint(IntPtr name, IntPtr vobName, bool addToWaynet);
-
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_CreateNewVobVisual(IntPtr name, IntPtr vobName, IntPtr visual, int dyn, int stat);
-
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_ConnectWP();
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_DisconnectWP();
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SetToKeyPos(int pos);
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_OnKeyRemove();
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_OnAddKey(int mode);
-
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int Extern_GetCurrentKey();
-
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int Extern_GetMaxKey();
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SendTrigger(int actionIndex);
-
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SetCollTrigger(int mode, int val);
 
         [DllExport]
         public static void AddPacticleToList(IntPtr ptr)
@@ -165,7 +115,7 @@ namespace SpacerUnion
 
             IntPtr item_name = Marshal.StringToHGlobalAnsi(name);
 
-            Extern_CreateItem(item_name);
+            Imports.Extern_CreateItem(item_name);
             Marshal.FreeHGlobal(item_name);
 
             UnionNET.form.Focus();
@@ -216,7 +166,7 @@ namespace SpacerUnion
 
             IntPtr PfxName = Marshal.StringToHGlobalAnsi(name);
 
-            Extern_CreatePFX(PfxName);
+            Imports.Extern_CreatePFX(PfxName);
             Marshal.FreeHGlobal(PfxName);
 
             UnionNET.form.Focus();
@@ -287,7 +237,7 @@ namespace SpacerUnion
             IntPtr ptrVobName = Marshal.StringToHGlobalAnsi(vobName);
             IntPtr ptrVisual= Marshal.StringToHGlobalAnsi(visualVob);
 
-            Extern_CreateNewVobVisual(ptrName, ptrVobName, ptrVisual, isDyn, isStat);
+            Imports.Extern_CreateNewVobVisual(ptrName, ptrVobName, ptrVisual, isDyn, isStat);
             Marshal.FreeHGlobal(ptrName);
         }
 
@@ -340,7 +290,7 @@ namespace SpacerUnion
 
             IntPtr ptrVobNameCheck = Marshal.StringToHGlobalAnsi(vobName);
 
-            bool nameFound = Extern_VobNameExist(ptrVobNameCheck, true);
+            bool nameFound = Imports.Extern_VobNameExist(ptrVobNameCheck, true);
 
             if (nameFound)
             {
@@ -354,7 +304,7 @@ namespace SpacerUnion
             IntPtr ptrName = Marshal.StringToHGlobalAnsi(name);
             IntPtr ptrVobName = Marshal.StringToHGlobalAnsi(vobName);
 
-            Extern_CreateWaypoint(ptrName, ptrVobName, addToNet);
+            Imports.Extern_CreateWaypoint(ptrName, ptrVobName, addToNet);
             Marshal.FreeHGlobal(ptrName);
 
 
@@ -386,7 +336,7 @@ namespace SpacerUnion
 
             IntPtr ptrVobNameCheck = Marshal.StringToHGlobalAnsi(vobName);
 
-            bool nameFound = Extern_VobNameExist(ptrVobNameCheck, false);
+            bool nameFound = Imports.Extern_VobNameExist(ptrVobNameCheck, false);
             if (nameFound)
             {
                 MessageBox.Show("Такое имя уже существует");
@@ -398,7 +348,7 @@ namespace SpacerUnion
             IntPtr ptrName = Marshal.StringToHGlobalAnsi(name);
             IntPtr ptrVobName = Marshal.StringToHGlobalAnsi(vobName);
 
-            Extern_CreateNewVob(ptrName, ptrVobName, 0, 0);
+            Imports.Extern_CreateNewVob(ptrName, ptrVobName, 0, 0);
             Marshal.FreeHGlobal(ptrName);
 
 
@@ -416,12 +366,12 @@ namespace SpacerUnion
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Extern_ConnectWP();
+            Imports.Extern_ConnectWP();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Extern_DisconnectWP();
+            Imports.Extern_DisconnectWP();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -439,7 +389,7 @@ namespace SpacerUnion
 
             IntPtr item_name = Marshal.StringToHGlobalAnsi(name);
 
-            Extern_CreateItem(item_name);
+            Imports.Extern_CreateItem(item_name);
             Marshal.FreeHGlobal(item_name);
 
             UnionNET.form.Focus();
@@ -468,7 +418,7 @@ namespace SpacerUnion
 
             IntPtr PfxName = Marshal.StringToHGlobalAnsi(name);
 
-            Extern_CreatePFX(PfxName);
+            Imports.Extern_CreatePFX(PfxName);
             Marshal.FreeHGlobal(PfxName);
 
             UnionNET.form.Focus();
@@ -543,7 +493,7 @@ namespace SpacerUnion
             ObjectsWindow.ChangeProp("cdDyn", Convert.ToInt32(triggerEntry.dynColl).ToString());
 
 
-            Extern_SetCollTrigger(0, Convert.ToInt32(triggerEntry.dynColl));
+            Imports.Extern_SetCollTrigger(0, Convert.ToInt32(triggerEntry.dynColl));
         }
 
         private void checkBoxStat_CheckedChanged(object sender, EventArgs e)
@@ -554,7 +504,7 @@ namespace SpacerUnion
 
             ObjectsWindow.ChangeProp("cdStatic", Convert.ToInt32(triggerEntry.statColl).ToString());
 
-            Extern_SetCollTrigger(1, Convert.ToInt32(triggerEntry.statColl));
+            Imports.Extern_SetCollTrigger(1, Convert.ToInt32(triggerEntry.statColl));
         }
 
         private void listBoxActionType_SelectedIndexChanged(object sender, EventArgs e)
@@ -571,7 +521,7 @@ namespace SpacerUnion
                 triggerEntry.m_kf_pos--;
 
 
-                Extern_SetToKeyPos(triggerEntry.m_kf_pos);
+                Imports.Extern_SetToKeyPos(triggerEntry.m_kf_pos);
                 labelCurrentKey.Text = triggerEntry.m_kf_pos.ToString();
             }
 
@@ -583,7 +533,7 @@ namespace SpacerUnion
             if (triggerEntry.m_kf_pos + 1 < triggerEntry.maxKey)
             {
                 triggerEntry.m_kf_pos++;
-                Extern_SetToKeyPos(triggerEntry.m_kf_pos);
+                Imports.Extern_SetToKeyPos(triggerEntry.m_kf_pos);
                 labelCurrentKey.Text = triggerEntry.m_kf_pos.ToString();
             }
 
@@ -694,10 +644,10 @@ namespace SpacerUnion
 
         private void buttonRemoveKey_Click(object sender, EventArgs e)
         {
-            Extern_OnKeyRemove();
+            Imports.Extern_OnKeyRemove();
 
-            triggerEntry.m_kf_pos = Extern_GetCurrentKey();
-            triggerEntry.maxKey = Extern_GetMaxKey();
+            triggerEntry.m_kf_pos = Imports.Extern_GetCurrentKey();
+            triggerEntry.maxKey = Imports.Extern_GetMaxKey();
             UpdateTriggerWindow();
         }
 
@@ -722,10 +672,10 @@ namespace SpacerUnion
             }
 
 
-            Extern_OnAddKey(mode);
+            Imports.Extern_OnAddKey(mode);
 
-            triggerEntry.m_kf_pos = Extern_GetCurrentKey();
-            triggerEntry.maxKey = Extern_GetMaxKey();
+            triggerEntry.m_kf_pos = Imports.Extern_GetCurrentKey();
+            triggerEntry.maxKey = Imports.Extern_GetMaxKey();
 
             //ConsoleEx.WriteLineRed("CurrentKey: " + triggerEntry.m_kf_pos + "/" + triggerEntry.maxKey);
             UpdateTriggerWindow();
@@ -736,8 +686,8 @@ namespace SpacerUnion
             string name = listBoxActionType.GetItemText(listBoxActionType.SelectedItem);
 
             ConsoleEx.WriteLineRed("Send trigger: action " + name);
-            Extern_SendTrigger(triggerEntry.currentActionIndex);
-            triggerEntry.m_kf_pos = Extern_GetCurrentKey();
+            Imports.Extern_SendTrigger(triggerEntry.currentActionIndex);
+            triggerEntry.m_kf_pos = Imports.Extern_GetCurrentKey();
         }
 
         private void ParticleWin_Shown(object sender, EventArgs e)
@@ -763,7 +713,7 @@ namespace SpacerUnion
                     ConsoleEx.WriteLineGreen("C#: triggetTargetList. Can't find vob with addr: " + Utils.ToHex(addr));
                 }
 
-                Extern_SelectVob(addr);
+                Imports.Extern_SelectVob(addr);
             }
         }
 

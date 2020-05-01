@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpacerUnion.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +14,6 @@ namespace SpacerUnion
 {
     public partial class CompileWorldWin : Form
     {
-        #region Imports
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr Extern_CompileWorld(int type);
-
-        #endregion
 
         public CompileWorldWin()
         {
@@ -49,7 +45,7 @@ namespace SpacerUnion
 
             UnionNET.form.ResetInterface();
 
-            Extern_CompileWorld(type);
+            Imports.Extern_CompileWorld(type);
 
             string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
             UnionNET.form.AddText("Компиляция мира выполнена за (" + timeSpend + ")");

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpacerUnion.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,8 +15,7 @@ namespace SpacerUnion
     public partial class SoundWin : Form
     {
 
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern bool Extern_StopAllSounds();
+        
 
         public SoundWin()
         {
@@ -69,7 +69,7 @@ namespace SpacerUnion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Extern_StopAllSounds();
+            Imports.Extern_StopAllSounds();
         }
 
         private void textBoxSnd_KeyPress(object sender, KeyPressEventArgs e)
