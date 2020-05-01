@@ -609,5 +609,25 @@ namespace SpacerUnion
         {
             Extern_SetCameraPos(0, 0, 0);
         }
+
+        private void вобыВФайлToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var entries = ObjTree.globalEntries;
+
+
+            foreach (var entry in entries)
+            {
+                Utils.InfoFile(String.Format("Name: {0}, Addr: {1}, Parent: {2}, Class: {3}",
+                    entry.Value.name, entry.Value.zCVob, entry.Value.parent, entry.Value.className));
+
+                
+                for (int i = 0; i < entry.Value.childs.Count; i++)
+                {
+                    Utils.InfoFile(String.Format("\tName: {0}, Addr: {1}, Parent: {2}, Class: {3}",
+                   entry.Value.childs[i].name, entry.Value.childs[i].zCVob, entry.Value.childs[i].parent, entry.Value.childs[i].className));
+                }
+                
+            }
+        }
     }
 }

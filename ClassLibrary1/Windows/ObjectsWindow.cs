@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -14,11 +16,22 @@ namespace SpacerUnion
 {
     public partial class ObjectsWindow : Form
     {
-
+        #region Imports
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_ApplyProps(IntPtr propStr, IntPtr propName);
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern float Extern_GetBBox(int coord);
 
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern float Extern_SetBBox(int x, int y, int z);
 
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr Extern_GetSettingStr(IntPtr namePtr);
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SetSettingStr(IntPtr namePtr, IntPtr value);
+
+        #endregion
 
         static List<CProperty> props = new List<CProperty>();
         static Dictionary<string, FolderEntry> folders = new Dictionary<string, FolderEntry>();
@@ -31,6 +44,7 @@ namespace SpacerUnion
         static string currentContents;
         static int containsIndex;
         static TreeNode containsNode;
+        static bool vobHasContainer = false;
         
 
         class FolderEntry
@@ -80,6 +94,7 @@ namespace SpacerUnion
                 UnionNET.objWin.buttonApply.Enabled = false;
                 UnionNET.objWin.buttonRestore.Enabled = false;
                 UnionNET.objWin.buttonBbox.Enabled = false;
+                UnionNET.objWin.buttonFileOpen.Enabled = false;
                 return;
             }
 
@@ -182,6 +197,8 @@ namespace SpacerUnion
                     prop.node = folders[currentFolderName].node;
                 }
 
+              
+               
 
                 if (prop.Name == "sndName")
                 {
@@ -245,13 +262,21 @@ namespace SpacerUnion
             //Console.WriteLine(folders.ElementAt(i).Key + ": " + folders.ElementAt(i).Value);
 
             showFirst = null;
-
+            vobHasContainer = false;
+            UnionNET.objWin.buttonOpenContainer.Enabled = false;
 
             for (int i = 0; i < props.Count; i++)
             {
                 TreeNode baseNode = props[i].node;
 
-               
+
+                if (props[i].Name == "contains")
+                {
+                    vobHasContainer = true;
+                    UnionNET.objWin.buttonOpenContainer.Enabled = true;
+                }
+
+
                 if (baseNode != null)
                 {
                     TreeNode node = baseNode.Nodes.Add(props[i].Name + ": " + props[i].ShowValue());
@@ -411,47 +436,66 @@ namespace SpacerUnion
 
                 if (prop.Name == "contains")
                 {
-                    EnableTab(tabControl1.TabPages[2], true);
-                    tabControl1.SelectedIndex = 2;
-
-                    dataGridView1.Visible = true;
-                    dataGridView1.Rows.Clear();
-
-                    UnionNET.partWin.tabControlObjects.SelectedIndex = 1;
-
-                    currentContents = prop.value;
-                    containsIndex = index;
-                    containsNode = props[index].node;
-
-                    List<string> items = currentContents.Split(',').ToList();
-
-                    for (int i = 0; i < items.Count; i++)
-                    {
-                        string item = items[i].Trim();
-
-                        string[] arr = item.Split(':');
-
-                        if (arr[0].Trim().Length == 0)
-                        {
-                            continue;
-                        }
-
-                        if (arr.Length == 1)
-                        {
-                            dataGridView1.Rows.Add(arr[0].Trim(), "1");
-                        }
-                        else
-                        {
-                            dataGridView1.Rows.Add(arr[0].Trim(), arr[1].Trim());
-                        }
- 
-                    }
-                   
+                    OpenVobContainer(prop, index);
                 }
             }
 
         }
 
+
+        public void OpenVobContainer(CProperty prop = null, int index=-1)
+        {
+
+            if (prop == null)
+            {
+                for (int i = 0; i < props.Count; i++)
+                {
+                    if (props[i].Name == "contains")
+                    {
+                        prop = props[i];
+                        index = i;
+                        UnionNET.objWin.treeViewProp.SelectedNode = prop.ownNode;
+                        break;
+                    }
+                }
+            }
+
+            EnableTab(tabControl1.TabPages[2], true);
+            tabControl1.SelectedIndex = 2;
+
+            dataGridView1.Visible = true;
+            dataGridView1.Rows.Clear();
+
+            UnionNET.partWin.tabControlObjects.SelectedIndex = 1;
+
+            currentContents = prop.value;
+            containsIndex = index;
+            containsNode = props[index].node;
+
+            List<string> items = currentContents.Split(',').ToList();
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                string item = items[i].Trim();
+
+                string[] arr = item.Split(':');
+
+                if (arr[0].Trim().Length == 0)
+                {
+                    continue;
+                }
+
+                if (arr.Length == 1)
+                {
+                    dataGridView1.Rows.Add(arr[0].Trim(), "1");
+                }
+                else
+                {
+                    dataGridView1.Rows.Add(arr[0].Trim(), arr[1].Trim());
+                }
+
+            }
+        }
         private void buttonApply_Click(object sender, EventArgs e)
         {
 
@@ -463,6 +507,7 @@ namespace SpacerUnion
             // блокируем кнопку Применить
             changed = false;
             buttonApply.Enabled = false;
+
 
             StringBuilder str = new StringBuilder();
 
@@ -528,6 +573,7 @@ namespace SpacerUnion
             textBoxVec0.Visible = false;
             textBoxVec1.Visible = false;
             textBoxVec2.Visible = false;
+            buttonFileOpen.Enabled = false;
             DisableTabBBox();
 
         }
@@ -560,7 +606,8 @@ namespace SpacerUnion
 
                         if (prop.type == TPropEditType.PETstring || prop.type == TPropEditType.PETraw)
                         {
-                            textBoxString.Width = 230;
+                            textBoxString.Width = 298;
+                            buttonFileOpen.Enabled = true;
                         }
                         else if (prop.type == TPropEditType.PETint || prop.type == TPropEditType.PETfloat)
                         {
@@ -594,6 +641,7 @@ namespace SpacerUnion
                     Label_Backup.Visible = true;
                     buttonRestore.Enabled = true;
                     buttonBbox.Enabled = true;
+                    
                 }
             }
 
@@ -857,11 +905,7 @@ namespace SpacerUnion
         }
 
 
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern float Extern_GetBBox(int coord);
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern float Extern_SetBBox(int x, int y, int z);
+      
 
 
         private void button2_Click(object sender, EventArgs e)
@@ -1021,6 +1065,78 @@ namespace SpacerUnion
                 dataGridView1.Rows.RemoveAt(dataGridView1.CurrentCell.RowIndex);
             }
             
+        }
+
+        private void buttonOpenContainer_Click(object sender, EventArgs e)
+        {
+            if (vobHasContainer)
+            {
+                OpenVobContainer();
+            }
+        }
+
+        private void buttonFileOpen_Click(object sender, EventArgs e)
+        {
+            openFileDialogFileName.Filter = "All files (*.)|";
+
+            IntPtr ptrPath = Extern_GetSettingStr(Marshal.StringToHGlobalAnsi("vobResPath"));
+
+            string path = Marshal.PtrToStringAnsi(ptrPath);
+
+            //MessageBox.Show(path);
+
+            if (path != "")
+            {
+                //MessageBox.Show(path);
+                openFileDialogFileName.InitialDirectory = System.IO.Path.GetDirectoryName(@path + @"/");
+            }
+            else
+            {
+                openFileDialogFileName.InitialDirectory = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/";
+            }
+
+            openFileDialogFileName.RestoreDirectory = true;
+
+            if (openFileDialogFileName.ShowDialog() == DialogResult.OK)
+            {
+
+                IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(openFileDialogFileName.FileName));
+
+                Extern_SetSettingStr(ptrPathSave, Marshal.StringToHGlobalAnsi("vobResPath"));
+
+                string fileName = openFileDialogFileName.SafeFileName;
+
+
+                TreeNode node = UnionNET.objWin.treeViewProp.SelectedNode;
+
+                if (node != null)
+                {
+                    int index = 0;
+
+                    if (node.Tag != null && node.Tag.ToString() != "folder")
+                    {
+                        int.TryParse(node.Tag.ToString(), out index);
+
+                        if (index >= 0)
+                        {
+
+                            CProperty prop = props[index];
+
+                            if (prop.type == TPropEditType.PETstring)
+                            {
+                                prop.value = fileName.ToUpper();
+                                prop.ownNode.Text = prop.Name + ": " + prop.ShowValue();
+                                textBoxString.Text = prop.value;
+
+                                buttonApply.Enabled = true;
+                                buttonRestore.Enabled = true;
+                            }
+                        }
+
+                    }
+                }
+            }
+               
         }
     }
 }

@@ -603,7 +603,13 @@ namespace SpacerUnion
             {
                 //listBoxActionType.SelectedIndex = 0;
             }
-           
+
+            buttonRemoveKey.Enabled = false;
+            buttonNewKey.Enabled = false;
+            buttonKeyMinus.Enabled = false;
+            buttonKeyPlus.Enabled = false;
+
+
         }
 
         [DllExport]
@@ -623,6 +629,14 @@ namespace SpacerUnion
 
             UnionNET.partWin.UpdateTriggerWindow();
 
+        }
+
+        private void EnableTriggerWindow()
+        {
+            buttonRemoveKey.Enabled = true;
+            buttonNewKey.Enabled = true;
+            buttonKeyMinus.Enabled = true;
+            buttonKeyPlus.Enabled = true;
         }
 
 
@@ -673,7 +687,10 @@ namespace SpacerUnion
 
 
             UnionNET.partWin.UpdateTriggerWindow();
+            UnionNET.partWin.EnableTriggerWindow();
         }
+
+        
 
         private void buttonRemoveKey_Click(object sender, EventArgs e)
         {

@@ -314,6 +314,24 @@ namespace SpacerUnion
             entry.node = null;
         }
 
+        static int countNodeView = 0;
+
+        public static void CalcNodesCount(TreeNodeCollection nodes)
+        {
+            for (int i = 0; i < nodes.Count; i++)
+            {
+                CalcNodesCount(nodes[i].Nodes);
+
+                if (nodes[i].Tag != null && nodes[i].Tag.ToString() != TAG_FOLDER)
+                {
+                    countNodeView++;
+                }
+
+            }
+
+
+        }
+
         [DllExport]
         public static void OnVobRemove(uint vob)
         {
@@ -347,160 +365,28 @@ namespace SpacerUnion
                         .Where(pair => !pair.Value.toDelete)
                         .ToDictionary(pair=>pair.Key, pair=>pair.Value);
 
+                if (globalEntries.ContainsKey(vob))
+                {
+                    Utils.Error("C#: WTF? I have removed the vob with such key: " + Utils.ToHex(vob) + " " + entry.name);
+                }
+
                 if (entries.Count > 1)
                 {
-                    ConsoleEx.WriteLineRed("C#: Warning! I found more than 1 entries with same Vob addr! Count: " + entries.Count);
-
-
-                    Utils.WriteToFile(String.Format("Warning! I found more than 1 entries with same Vob addr! addr: {0}, count {1}", vob, entries.Count));
+                    Utils.Error("C#: Warning! I found more than 1 entries with same Vob addr! Count: " + entries.Count);
                 }
             }
 
             UnionNET.vobList.ClearListBox();
 
             ConsoleEx.WriteLineGreen("C#: Всего вобов в списке: " + globalEntries.Count);
+            countNodeView = 0;
+            CalcNodesCount(UnionNET.objTreeWin.globalTree.Nodes);
+            ConsoleEx.WriteLineGreen("C#: Всего узлов TreeView: " + countNodeView);
+            
             Console.WriteLine("=============================");
         }
 
-        [DllExport]
-        public static void OnDynamicUpdateVob(IntPtr ptr, uint vob, uint parent, IntPtr classNamePtr)
-        {
-            string name = Marshal.PtrToStringAnsi(ptr);
-            string className = Marshal.PtrToStringAnsi(classNamePtr);
-
-            TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
-
-            Console.WriteLine("=============================");
-
-            int classNameFoundPos = -1;
-
-            classNameFoundPos = CreateAndGetFolder(className);
-
-            TreeEntry entry = new TreeEntry();
-
-            entry.name = name;
-            entry.parent = parent;
-            entry.zCVob = vob;
-            entry.className = className;
-            entry.isLevel = entry.className == "zCVobLevelCompo";
-
-            if (!globalEntries.ContainsKey(vob))
-            {
-                globalEntries.Add(vob, entry);
-            }
-            else
-            {
-
-                string msg = "==============================\nОшибка! Пытаюсь добавить воб "
-                    + Utils.ToHex(vob)
-                    + ", но такой адрес-ключ уже есть в globalEntries!"
-                    + "\nNewVob: " + globalEntries[vob].name
-                    + " addr: zCVob = "
-                    + Utils.ToHex(globalEntries[vob].zCVob)
-                    + ", Parent: " + Utils.ToHex(globalEntries[vob].parent)
-                    + ", ChildrenCount: " + globalEntries[vob].childs.Count
-                    + ", ToDelete: " + globalEntries[vob].toDelete;
-
-                if (globalEntries[vob].node != null)
-                {
-                    msg += "\nnode.text: " + globalEntries[vob].node.Text;
-                    msg += ", node.Tag: " + Utils.ToHex(Convert.ToUInt32(globalEntries[vob].node.Tag.ToString()));
-                }
-
-                if (globalEntries[vob].parentEntry != null)
-                {
-                    msg += "\nparentEntryName: " + globalEntries[vob].parentEntry.name;
-                    msg += ", parentEntryClassName: " + globalEntries[vob].parentEntry.className;
-                    msg += ", parentEntryAddr: " + Utils.ToHex(globalEntries[vob].parentEntry.zCVob);
-                }
-
-                msg += "\n==============================";
-
-                Utils.WriteToFile(msg);
-                ConsoleEx.WriteLineRed(msg);
-
-                MessageBox.Show(msg);
-                return;
-            }
-
-
-
-
-            TreeEntry foundEntry = null;
-
-            try
-            {
-                foundEntry = globalEntries[entry.parent];
-            }
-            catch
-            {
-                foundEntry = null;
-
-                //ConsoleEx.WriteLineRed("C#: OnVobInsert. Can't found parent entry!");
-                //Utils.WriteToFile("C#: OnVobInsert. Can't found parent entry!");
-            }
-
-            if (foundEntry != null)
-            {
-                entry.parentEntry = foundEntry;
-                foundEntry.childs.Add(entry);
-            }
-
-            nextAfterEventBlocked = true;
-            lastSelectedNode = UnionNET.objTreeWin.globalTree.SelectedNode;
-
-            if (parent == 0)
-            {
-                TreeNode node = nodes[classNameFoundPos].Nodes.Add(name);
-                node.Tag = vob;
-                entry.node = node;
-                ApplyNodeImage(className, node, true);
-                UnionNET.objTreeWin.globalTree.SelectedNode = node;
-                ConsoleEx.WriteLineGreen("C# OnDynamicUpdate: Insert globally: " + name + " parent: " + Utils.ToHex(parent) + " className: " + className);
-            }
-            else if (entry.parentEntry != null)
-            {
-                if (entry.parentEntry.node != null)
-                {
-                    TreeNode node = null;
-
-                    if (entry.parentEntry.isLevel)
-                    {
-                        node = nodes[classNameFoundPos].Nodes.Add(name);
-                    }
-                    else
-                    {
-                        node = entry.parentEntry.node.Nodes.Add(name);
-                    }
-
-                    node.Tag = vob;
-                    entry.node = node;
-                    ApplyNodeImage(className, node, true);
-                    //UnionNET.objTreeWin.globalTree.SelectedNode = node;
-                }
-                else
-                {
-
-                    string msg = "C# OnDynamicUpdate: parent node is null. Vob  "
-                    + entry.parentEntry.name;
-
-
-                    ConsoleEx.WriteLineRed(msg);
-                    Utils.WriteToFile(msg);
-                }
-
-            }
-            else
-            {
-
-                ConsoleEx.WriteLineRed("C# OnDynamicUpdate: parent entry is null");
-                Utils.WriteToFile("C# OnDynamicUpdate: parent node is null");
-            }
-
-
-            ConsoleEx.WriteLineGreen("C#: Всего вобов в списке: " + globalEntries.Count);
-            Console.WriteLine("=============================");
-        }
+       
         [DllExport]
         public static void OnVobInsert(IntPtr ptr, uint vob, uint parent, IntPtr classNamePtr)
         {
@@ -510,7 +396,7 @@ namespace SpacerUnion
             TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
 
             Console.WriteLine("=============================");
-
+            Console.WriteLine("C#: OnVobInsert: " + name);
             int classNameFoundPos = -1;
 
             classNameFoundPos = CreateAndGetFolder(className);
@@ -620,22 +506,22 @@ namespace SpacerUnion
 
                     string msg = "C# OnVobInsert: parent node is null. Vob  "
                     + entry.parentEntry.name;
-                   
 
-                    ConsoleEx.WriteLineRed(msg);
-                    Utils.WriteToFile(msg);
+
+                    Utils.Error(msg);
                 }
 
             }
             else
             {
-
-                ConsoleEx.WriteLineRed("C# OnVobInsert: parent entry is null");
-                Utils.WriteToFile("C# OnVobInsert: parent node is null");
+                Utils.Error("C# OnVobInsert: parent entry is null");
             }
 
 
             ConsoleEx.WriteLineGreen("C#: Всего вобов в списке: " + globalEntries.Count);
+            countNodeView = 0;
+            CalcNodesCount(UnionNET.objTreeWin.globalTree.Nodes);
+            ConsoleEx.WriteLineGreen("C#: Всего узлов TreeView: " + countNodeView);
             Console.WriteLine("=============================");
         }
 

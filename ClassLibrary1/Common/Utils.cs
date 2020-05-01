@@ -46,6 +46,12 @@ namespace SpacerUnion
             ConsoleEx.WriteLineRed(msg);
             Utils.WriteToFile(msg);
         }
+
+        public static void InfoFile(string msg)
+        {
+            msg = "Info >> " + msg;
+            Utils.WriteToFile(msg);
+        }
     }
 
     
