@@ -20,12 +20,12 @@ namespace SpacerUnion
         
         public void AddText(string str)
         {
-            this.richTextBox1.AppendText(" " + str + "\n");
+            this.richTextBoxInfo.AppendText(" " + str + "\n");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            richTextBox1.Clear();
+            richTextBoxInfo.Clear();
         }
 
         private void InfoWin_FormClosing(object sender, FormClosingEventArgs e)
@@ -36,8 +36,8 @@ namespace SpacerUnion
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            richTextBox1.SelectionStart = richTextBox1.Text.Length;
-            richTextBox1.ScrollToCaret();
+            richTextBoxInfo.SelectionStart = richTextBoxInfo.Text.Length;
+            richTextBoxInfo.ScrollToCaret();
         }
 
         private void InfoWin_Move(object sender, EventArgs e)

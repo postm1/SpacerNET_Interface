@@ -750,11 +750,11 @@ namespace SpacerUnion
 
             if (name != String.Empty)
             {
-                if (UnionNET.objWin.tabControl1.SelectedIndex == 2 && UnionNET.objWin.dataGridView1.Visible
-                    && UnionNET.objWin.buttonContainerApply.Enabled
+                if (UnionNET.propWin.tabControl1.SelectedIndex == 2 && UnionNET.propWin.dataGridView1.Visible
+                    && UnionNET.propWin.buttonContainerApply.Enabled
                     )
                 {
-                    UnionNET.objWin.dataGridView1.Rows.Add(name, count);
+                    UnionNET.propWin.dataGridView1.Rows.Add(name, count);
                 }
             }
         }

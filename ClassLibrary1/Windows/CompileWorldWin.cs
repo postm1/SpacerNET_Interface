@@ -33,10 +33,7 @@ namespace SpacerUnion
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int type = radioButton1.Checked ? 0 : 1;
-
-
-          
+            int type = radioButtonIndoor.Checked ? 0 : 1;
 
             UnionNET.form.AddText("Мир компилируется...");
 

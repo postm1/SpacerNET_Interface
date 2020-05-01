@@ -121,6 +121,10 @@ namespace SpacerUnion.Common
         public static extern void Extern_DisconnectWP();
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern bool Extern_StopAllSounds();
+
+        #region Функции триггеров
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_SetToKeyPos(int pos);
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
@@ -143,10 +147,9 @@ namespace SpacerUnion.Common
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_SetCollTrigger(int mode, int val);
+        #endregion
 
-
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern bool Extern_StopAllSounds();
+        
 
 
     }

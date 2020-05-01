@@ -21,7 +21,7 @@ namespace SpacerUnion
         // Окна приложения
         public static MainForm form;
         public static VobListForm vobList;
-        public static ObjectsWindow objWin;
+        public static ObjectsWindow propWin;
         public static InfoWin infoWin;
         public static CompileLightWin comLightWin;
         public static ObjTree objTreeWin;
@@ -54,7 +54,7 @@ namespace SpacerUnion
 
             form = new MainForm();
             vobList = new VobListForm();
-            objWin = new ObjectsWindow();
+            propWin = new ObjectsWindow();
             infoWin = new InfoWin();
             objTreeWin = new ObjTree();
             partWin = new ParticleWin();
@@ -67,7 +67,7 @@ namespace SpacerUnion
             windowsList.Add(objTreeWin);
             windowsList.Add(partWin);
             windowsList.Add(infoWin);
-            windowsList.Add(objWin);
+            windowsList.Add(propWin);
             windowsList.Add(soundWin);
             windowsList.Add(vobList);
             windowsList.Add(compWorldWin);
@@ -102,7 +102,7 @@ namespace SpacerUnion
             form.AddText(Lang.appIsReady);
 
             form.menuStripTopMain.Enabled = true;
-            objWin.Show();
+            propWin.Show();
             objTreeWin.Show();
             partWin.Show();
             vobList.Show();
@@ -111,8 +111,8 @@ namespace SpacerUnion
             objTreeWin.Left = 1500;
             objTreeWin.Top = 530;
 
-            objWin.Left = 1500;
-            objWin.Top = 50;
+            propWin.Left = 1500;
+            propWin.Top = 50;
 
 
 
@@ -159,7 +159,7 @@ namespace SpacerUnion
             btn.Checked = Convert.ToBoolean(objTreeWin.Visible);
 
             btn = form.toolStripTop.Items[4] as ToolStripButton;
-            btn.Checked = Convert.ToBoolean(objWin.Visible);
+            btn.Checked = Convert.ToBoolean(propWin.Visible);
 
 
             btn = form.toolStripTop.Items[5] as ToolStripButton;

@@ -68,23 +68,23 @@ namespace SpacerUnion
             props.Clear();
             folders.Clear();
             currentFolderName = "";
-            TreeView tree = UnionNET.objWin.treeViewProp;
+            TreeView tree = UnionNET.propWin.treeViewProp;
 
             tree.Nodes.Clear();
-            EnableTab(UnionNET.objWin.tabControl1.TabPages[2], false);
-            UnionNET.objWin.tabControl1.SelectedIndex = 0;
+            EnableTab(UnionNET.propWin.tabControl1.TabPages[2], false);
+            UnionNET.propWin.tabControl1.SelectedIndex = 0;
 
             if (inputStr.Length == 0)
             {
-                UnionNET.objWin.HideAllInput();
-                UnionNET.objWin.buttonApply.Enabled = false;
-                UnionNET.objWin.buttonRestore.Enabled = false;
-                UnionNET.objWin.buttonBbox.Enabled = false;
-                UnionNET.objWin.buttonFileOpen.Enabled = false;
+                UnionNET.propWin.HideAllInput();
+                UnionNET.propWin.buttonApply.Enabled = false;
+                UnionNET.propWin.buttonRestore.Enabled = false;
+                UnionNET.propWin.buttonBbox.Enabled = false;
+                UnionNET.propWin.buttonFileOpen.Enabled = false;
                 return;
             }
 
-            UnionNET.objWin.panelButtons.Enabled = false;
+            UnionNET.propWin.panelButtons.Enabled = false;
 
             TreeNode firstNode = tree.Nodes.Add(className + ": zCVob");
             firstNode.Tag = "folder";
@@ -249,7 +249,7 @@ namespace SpacerUnion
 
             showFirst = null;
             vobHasContainer = false;
-            UnionNET.objWin.buttonOpenContainer.Enabled = false;
+            UnionNET.propWin.buttonOpenContainer.Enabled = false;
 
             for (int i = 0; i < props.Count; i++)
             {
@@ -259,7 +259,7 @@ namespace SpacerUnion
                 if (props[i].Name == "contains")
                 {
                     vobHasContainer = true;
-                    UnionNET.objWin.buttonOpenContainer.Enabled = true;
+                    UnionNET.propWin.buttonOpenContainer.Enabled = true;
                 }
 
 
@@ -440,7 +440,7 @@ namespace SpacerUnion
                     {
                         prop = props[i];
                         index = i;
-                        UnionNET.objWin.treeViewProp.SelectedNode = prop.ownNode;
+                        UnionNET.propWin.treeViewProp.SelectedNode = prop.ownNode;
                         break;
                     }
                 }
@@ -631,7 +631,7 @@ namespace SpacerUnion
                 }
             }
 
-            UnionNET.objWin.panelButtons.Enabled = true;
+            UnionNET.propWin.panelButtons.Enabled = true;
         }
 
         private void textBoxString_KeyDown(object sender, KeyEventArgs e)
@@ -938,7 +938,7 @@ namespace SpacerUnion
 
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
-            if (UnionNET.objWin.treeViewProp.SelectedNode != null)
+            if (UnionNET.propWin.treeViewProp.SelectedNode != null)
             {
                 EnableTab(tabControl1.TabPages[1], true);
 
@@ -1093,7 +1093,7 @@ namespace SpacerUnion
                 string fileName = openFileDialogFileName.SafeFileName;
 
 
-                TreeNode node = UnionNET.objWin.treeViewProp.SelectedNode;
+                TreeNode node = UnionNET.propWin.treeViewProp.SelectedNode;
 
                 if (node != null)
                 {

@@ -46,10 +46,10 @@ namespace SpacerUnion
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+
             renderTarget = new Form();
             renderTarget.TopLevel = false;
-            //panelMain.Controls.Add(renderTarget);
-            Controls.Add(renderTarget);
+            panelMain.Controls.Add(renderTarget);
             renderTarget.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             renderTarget.Dock = DockStyle.Fill;
             renderTarget.Show();
@@ -159,19 +159,6 @@ namespace SpacerUnion
             Application.DoEvents();
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-
-            if (UnionNET.infoWin.Visible)
-            {
-                UnionNET.infoWin.Hide();
-            }
-            else
-            {
-                UnionNET.infoWin.Show();
-            }
-
-        }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
@@ -203,29 +190,7 @@ namespace SpacerUnion
             toolStripMenuItem5.Checked = item.Checked;
         }
 
-        private void toolStripButton5_Click(object sender, EventArgs e)
-        {
-            if (UnionNET.partWin.Visible)
-            {
-                UnionNET.partWin.Hide();
-            }
-            else
-            {
-                UnionNET.partWin.Show();
-            }
-        }
 
-        private void toolStripButton6_Click(object sender, EventArgs e)
-        {
-            if (UnionNET.soundWin.Visible)
-            {
-                UnionNET.soundWin.Hide();
-            }
-            else
-            {
-                UnionNET.soundWin.Show();
-            }
-        }
 
         private void menuStrip1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -336,31 +301,6 @@ namespace SpacerUnion
                 Marshal.FreeHGlobal(filePathPtr);
             }
         }
-
-        private void toolStripButton7_Click(object sender, EventArgs e)
-        {
-            if (UnionNET.objTreeWin.Visible)
-            {
-                UnionNET.objTreeWin.Hide();
-            }
-            else
-            {
-                UnionNET.objTreeWin.Show();
-            }
-        }
-
-        private void toolStripButton8_Click(object sender, EventArgs e)
-        {
-            if (UnionNET.objWin.Visible)
-            {
-                UnionNET.objWin.Hide();
-            }
-            else
-            {
-                UnionNET.objWin.Show();
-            }
-        }
-
 
 
 
@@ -540,32 +480,6 @@ namespace SpacerUnion
             UnionNET.compWorldWin.Show();
         }
 
-        private void toolStripButtonBBox_Click(object sender, EventArgs e)
-        {
-            ToolStripButton item = sender as ToolStripButton;
-
-            item.Checked = !item.Checked;
-
-            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("drawBBoxGlobal"), Convert.ToInt32(item.Checked));
-        }
-
-        private void toolStripButton9_Click(object sender, EventArgs e)
-        {
-            if (UnionNET.vobList.Visible)
-            {
-                UnionNET.vobList.Hide();
-            }
-            else
-            {
-                UnionNET.vobList.Show();
-            }
-            
-        }
-
-        private void toolStripTop_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
 
         private void прыгнутьНа000КоординатыToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -590,6 +504,117 @@ namespace SpacerUnion
                 }
                 
             }
+        }
+
+        private void toolStripButtonInfo_Click(object sender, EventArgs e)
+        {
+            if (UnionNET.infoWin.Visible)
+            {
+                UnionNET.infoWin.Hide();
+            }
+            else
+            {
+                UnionNET.infoWin.Show();
+            }
+        }
+
+        private void toolStripButtonBig_Click(object sender, EventArgs e)
+        {
+            if (UnionNET.partWin.Visible)
+            {
+                UnionNET.partWin.Hide();
+            }
+            else
+            {
+                UnionNET.partWin.Show();
+            }
+        }
+
+        private void toolStripButtonSound_Click(object sender, EventArgs e)
+        {
+            if (UnionNET.soundWin.Visible)
+            {
+                UnionNET.soundWin.Hide();
+            }
+            else
+            {
+                UnionNET.soundWin.Show();
+            }
+        }
+
+        private void toolStripButtonTree_Click(object sender, EventArgs e)
+        {
+            if (UnionNET.objTreeWin.Visible)
+            {
+                UnionNET.objTreeWin.Hide();
+            }
+            else
+            {
+                UnionNET.objTreeWin.Show();
+            }
+        }
+
+        private void toolStripButton8_Click_1(object sender, EventArgs e)
+        {
+            if (UnionNET.propWin.Visible)
+            {
+                UnionNET.propWin.Hide();
+            }
+            else
+            {
+                UnionNET.propWin.Show();
+            }
+        }
+
+        private void toolStripButton9_Click_1(object sender, EventArgs e)
+        {
+            if (UnionNET.vobList.Visible)
+            {
+                UnionNET.vobList.Hide();
+            }
+            else
+            {
+                UnionNET.vobList.Show();
+            }
+        }
+
+        private void toolStripButtonVobs_Click(object sender, EventArgs e)
+        {
+            ToolStripButton item = sender as ToolStripButton;
+
+            item.Checked = !item.Checked;
+
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("showVobs"), Convert.ToInt32(item.Checked));
+            toolStripMenuItem5.Checked = item.Checked;
+        }
+
+        private void toolStripButtonWaynet_Click(object sender, EventArgs e)
+        {
+            ToolStripButton item = sender as ToolStripButton;
+
+            item.Checked = !item.Checked;
+
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("showWaynet"), Convert.ToInt32(item.Checked));
+            toolStripMenuItem6.Checked = item.Checked;
+        }
+
+        private void toolStripButtonHelpVobs_Click(object sender, EventArgs e)
+        {
+            ToolStripButton item = sender as ToolStripButton;
+
+            item.Checked = !item.Checked;
+
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("showHelpVobs"), Convert.ToInt32(item.Checked));
+            toolStripMenuItem7.Checked = item.Checked;
+        }
+
+        private void toolStripButtonBBox_Click_1(object sender, EventArgs e)
+        {
+            ToolStripButton item = sender as ToolStripButton;
+
+            item.Checked = !item.Checked;
+
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("drawBBoxGlobal"), Convert.ToInt32(item.Checked));
         }
     }
 }

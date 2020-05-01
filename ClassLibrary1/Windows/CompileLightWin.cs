@@ -22,10 +22,10 @@ namespace SpacerUnion
         {
             InitializeComponent();
 
-            buttons[0] = radioButton1;
-            buttons[1] = radioButton2;
-            buttons[2] = radioButton3;
-            buttons[3] = radioButton4;
+            buttons[0] = radioButtonVertex;
+            buttons[1] = radioButtonLow;
+            buttons[2] = radioButtonMiddle;
+            buttons[3] = radioButtonHigh;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -52,9 +52,9 @@ namespace SpacerUnion
 
             int radiusCamera = 0;
 
-            if (checkBox1.Checked)
+            if (checkBoxCompileRegion.Checked)
             {
-                radiusCamera = Convert.ToInt32(textBox1.Text.Trim());
+                radiusCamera = Convert.ToInt32(textBoxRadius.Text.Trim());
             }
 
             this.Hide();
@@ -85,7 +85,7 @@ namespace SpacerUnion
         {
             CheckBox check = sender as CheckBox;
 
-            textBox1.Enabled = check.Checked;
+            textBoxRadius.Enabled = check.Checked;
 
         }
 
@@ -94,9 +94,6 @@ namespace SpacerUnion
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
-        private void CompileLightWin_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }

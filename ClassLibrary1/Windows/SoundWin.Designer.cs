@@ -30,8 +30,8 @@
         {
             this.buttonPlaySound = new System.Windows.Forms.Button();
             this.listBoxSound = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonStopAllSounds = new System.Windows.Forms.Button();
+            this.buttonPlaySoundRegex = new System.Windows.Forms.Button();
             this.listBoxSndResult = new System.Windows.Forms.ListBox();
             this.textBoxSnd = new System.Windows.Forms.TextBox();
             this.labelSndList = new System.Windows.Forms.Label();
@@ -58,25 +58,25 @@
             this.listBoxSound.Size = new System.Drawing.Size(174, 199);
             this.listBoxSound.TabIndex = 1;
             // 
-            // button1
+            // buttonStopAllSounds
             // 
-            this.button1.Location = new System.Drawing.Point(119, 296);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 32);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Заглушить все звуки";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonStopAllSounds.Location = new System.Drawing.Point(119, 296);
+            this.buttonStopAllSounds.Name = "buttonStopAllSounds";
+            this.buttonStopAllSounds.Size = new System.Drawing.Size(150, 32);
+            this.buttonStopAllSounds.TabIndex = 2;
+            this.buttonStopAllSounds.Text = "Заглушить все звуки";
+            this.buttonStopAllSounds.UseVisualStyleBackColor = true;
+            this.buttonStopAllSounds.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // buttonPlaySoundRegex
             // 
-            this.button2.Location = new System.Drawing.Point(211, 19);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(188, 32);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Воспроизвести";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonPlaySoundRegex.Location = new System.Drawing.Point(211, 19);
+            this.buttonPlaySoundRegex.Name = "buttonPlaySoundRegex";
+            this.buttonPlaySoundRegex.Size = new System.Drawing.Size(188, 32);
+            this.buttonPlaySoundRegex.TabIndex = 3;
+            this.buttonPlaySoundRegex.Text = "Воспроизвести";
+            this.buttonPlaySoundRegex.UseVisualStyleBackColor = true;
+            this.buttonPlaySoundRegex.Click += new System.EventHandler(this.button2_Click);
             // 
             // listBoxSndResult
             // 
@@ -116,11 +116,11 @@
             // 
             this.groupBox1.Controls.Add(this.buttonPlaySound);
             this.groupBox1.Controls.Add(this.labelAllSounds);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.buttonPlaySoundRegex);
             this.groupBox1.Controls.Add(this.labelSndList);
             this.groupBox1.Controls.Add(this.listBoxSound);
             this.groupBox1.Controls.Add(this.textBoxSnd);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.buttonStopAllSounds);
             this.groupBox1.Controls.Add(this.listBoxSndResult);
             this.groupBox1.Location = new System.Drawing.Point(3, 2);
             this.groupBox1.Name = "groupBox1";
@@ -153,8 +153,8 @@
         #endregion
 
         private System.Windows.Forms.Button buttonPlaySound;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonStopAllSounds;
+        private System.Windows.Forms.Button buttonPlaySoundRegex;
         private System.Windows.Forms.ListBox listBoxSndResult;
         private System.Windows.Forms.TextBox textBoxSnd;
         private System.Windows.Forms.Label labelSndList;

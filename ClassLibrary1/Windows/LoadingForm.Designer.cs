@@ -30,9 +30,9 @@
         {
             this.labelLoading = new System.Windows.Forms.Label();
             this.pictureBoxLoading = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelLoadingFront = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoading)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.panelLoadingFront.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelLoading
@@ -57,15 +57,15 @@
             this.pictureBoxLoading.TabIndex = 1;
             this.pictureBoxLoading.TabStop = false;
             // 
-            // panel1
+            // panelLoadingFront
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Window;
-            this.panel1.Controls.Add(this.pictureBoxLoading);
-            this.panel1.Controls.Add(this.labelLoading);
-            this.panel1.Location = new System.Drawing.Point(1, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(455, 339);
-            this.panel1.TabIndex = 2;
+            this.panelLoadingFront.BackColor = System.Drawing.SystemColors.Window;
+            this.panelLoadingFront.Controls.Add(this.pictureBoxLoading);
+            this.panelLoadingFront.Controls.Add(this.labelLoading);
+            this.panelLoadingFront.Location = new System.Drawing.Point(1, 1);
+            this.panelLoadingFront.Name = "panelLoadingFront";
+            this.panelLoadingFront.Size = new System.Drawing.Size(455, 339);
+            this.panelLoadingFront.TabIndex = 2;
             // 
             // LoadingForm
             // 
@@ -73,7 +73,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowText;
             this.ClientSize = new System.Drawing.Size(457, 341);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelLoadingFront);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Blue;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -85,8 +85,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Загрузка...";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoading)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelLoadingFront.ResumeLayout(false);
+            this.panelLoadingFront.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -95,6 +95,6 @@
 
         public System.Windows.Forms.Label labelLoading;
         private System.Windows.Forms.PictureBox pictureBoxLoading;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelLoadingFront;
     }
 }

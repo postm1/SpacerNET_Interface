@@ -36,23 +36,23 @@
             this.trackBarVobs = new System.Windows.Forms.TrackBar();
             this.labelVobs = new System.Windows.Forms.Label();
             this.trackBarWorld = new System.Windows.Forms.TrackBar();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBoxCam = new System.Windows.Forms.GroupBox();
+            this.groupBoxRange = new System.Windows.Forms.GroupBox();
             this.Применить = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBoxInfo = new System.Windows.Forms.GroupBox();
+            this.checkBoxDistVob = new System.Windows.Forms.CheckBox();
+            this.checkBoxWaypoints = new System.Windows.Forms.CheckBox();
+            this.checkBoxVobs = new System.Windows.Forms.CheckBox();
+            this.checkBoxCamCoord = new System.Windows.Forms.CheckBox();
             this.checkBoxTris = new System.Windows.Forms.CheckBox();
             this.checkBoxFPS = new System.Windows.Forms.CheckBox();
-            this.checkBoxCamCoord = new System.Windows.Forms.CheckBox();
-            this.checkBoxVobs = new System.Windows.Forms.CheckBox();
-            this.checkBoxWaypoints = new System.Windows.Forms.CheckBox();
-            this.checkBoxDistVob = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRotSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarWorld)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupBoxCam.SuspendLayout();
+            this.groupBoxRange.SuspendLayout();
+            this.groupBoxInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // trackBarTransSpeed
@@ -137,31 +137,31 @@
             this.trackBarWorld.Value = 1000;
             this.trackBarWorld.ValueChanged += new System.EventHandler(this.trackBarWorld_ValueChanged);
             // 
-            // groupBox1
+            // groupBoxCam
             // 
-            this.groupBox1.Controls.Add(this.labelTrans);
-            this.groupBox1.Controls.Add(this.labelRot);
-            this.groupBox1.Controls.Add(this.trackBarTransSpeed);
-            this.groupBox1.Controls.Add(this.trackBarRotSpeed);
-            this.groupBox1.Location = new System.Drawing.Point(15, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(298, 139);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Камера";
+            this.groupBoxCam.Controls.Add(this.labelTrans);
+            this.groupBoxCam.Controls.Add(this.labelRot);
+            this.groupBoxCam.Controls.Add(this.trackBarTransSpeed);
+            this.groupBoxCam.Controls.Add(this.trackBarRotSpeed);
+            this.groupBoxCam.Location = new System.Drawing.Point(15, 12);
+            this.groupBoxCam.Name = "groupBoxCam";
+            this.groupBoxCam.Size = new System.Drawing.Size(298, 139);
+            this.groupBoxCam.TabIndex = 8;
+            this.groupBoxCam.TabStop = false;
+            this.groupBoxCam.Text = "Камера";
             // 
-            // groupBox2
+            // groupBoxRange
             // 
-            this.groupBox2.Controls.Add(this.labelVobs);
-            this.groupBox2.Controls.Add(this.trackBarWorld);
-            this.groupBox2.Controls.Add(this.labelWorld);
-            this.groupBox2.Controls.Add(this.trackBarVobs);
-            this.groupBox2.Location = new System.Drawing.Point(15, 157);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(301, 144);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Прорисовка";
+            this.groupBoxRange.Controls.Add(this.labelVobs);
+            this.groupBoxRange.Controls.Add(this.trackBarWorld);
+            this.groupBoxRange.Controls.Add(this.labelWorld);
+            this.groupBoxRange.Controls.Add(this.trackBarVobs);
+            this.groupBoxRange.Location = new System.Drawing.Point(15, 157);
+            this.groupBoxRange.Name = "groupBoxRange";
+            this.groupBoxRange.Size = new System.Drawing.Size(301, 144);
+            this.groupBoxRange.TabIndex = 9;
+            this.groupBoxRange.TabStop = false;
+            this.groupBoxRange.Text = "Прорисовка";
             // 
             // Применить
             // 
@@ -173,20 +173,64 @@
             this.Применить.UseVisualStyleBackColor = true;
             this.Применить.Click += new System.EventHandler(this.Применить_Click);
             // 
-            // groupBox3
+            // groupBoxInfo
             // 
-            this.groupBox3.Controls.Add(this.checkBoxDistVob);
-            this.groupBox3.Controls.Add(this.checkBoxWaypoints);
-            this.groupBox3.Controls.Add(this.checkBoxVobs);
-            this.groupBox3.Controls.Add(this.checkBoxCamCoord);
-            this.groupBox3.Controls.Add(this.checkBoxTris);
-            this.groupBox3.Controls.Add(this.checkBoxFPS);
-            this.groupBox3.Location = new System.Drawing.Point(15, 307);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(301, 178);
-            this.groupBox3.TabIndex = 10;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Информация";
+            this.groupBoxInfo.Controls.Add(this.checkBoxDistVob);
+            this.groupBoxInfo.Controls.Add(this.checkBoxWaypoints);
+            this.groupBoxInfo.Controls.Add(this.checkBoxVobs);
+            this.groupBoxInfo.Controls.Add(this.checkBoxCamCoord);
+            this.groupBoxInfo.Controls.Add(this.checkBoxTris);
+            this.groupBoxInfo.Controls.Add(this.checkBoxFPS);
+            this.groupBoxInfo.Location = new System.Drawing.Point(15, 307);
+            this.groupBoxInfo.Name = "groupBoxInfo";
+            this.groupBoxInfo.Size = new System.Drawing.Size(301, 178);
+            this.groupBoxInfo.TabIndex = 10;
+            this.groupBoxInfo.TabStop = false;
+            this.groupBoxInfo.Text = "Информация";
+            // 
+            // checkBoxDistVob
+            // 
+            this.checkBoxDistVob.AutoSize = true;
+            this.checkBoxDistVob.Location = new System.Drawing.Point(9, 134);
+            this.checkBoxDistVob.Name = "checkBoxDistVob";
+            this.checkBoxDistVob.Size = new System.Drawing.Size(257, 17);
+            this.checkBoxDistVob.TabIndex = 5;
+            this.checkBoxDistVob.Text = "Показывать расстояние до выбранного воба";
+            this.checkBoxDistVob.UseVisualStyleBackColor = true;
+            this.checkBoxDistVob.CheckedChanged += new System.EventHandler(this.checkBoxDistVob_CheckedChanged);
+            // 
+            // checkBoxWaypoints
+            // 
+            this.checkBoxWaypoints.AutoSize = true;
+            this.checkBoxWaypoints.Location = new System.Drawing.Point(9, 111);
+            this.checkBoxWaypoints.Name = "checkBoxWaypoints";
+            this.checkBoxWaypoints.Size = new System.Drawing.Size(187, 17);
+            this.checkBoxWaypoints.TabIndex = 4;
+            this.checkBoxWaypoints.Text = "Показывать кол-во вейпоинтов";
+            this.checkBoxWaypoints.UseVisualStyleBackColor = true;
+            this.checkBoxWaypoints.CheckedChanged += new System.EventHandler(this.checkBoxWaypoints_CheckedChanged);
+            // 
+            // checkBoxVobs
+            // 
+            this.checkBoxVobs.AutoSize = true;
+            this.checkBoxVobs.Location = new System.Drawing.Point(9, 88);
+            this.checkBoxVobs.Name = "checkBoxVobs";
+            this.checkBoxVobs.Size = new System.Drawing.Size(158, 17);
+            this.checkBoxVobs.TabIndex = 3;
+            this.checkBoxVobs.Text = "Показывать кол-во вобов";
+            this.checkBoxVobs.UseVisualStyleBackColor = true;
+            this.checkBoxVobs.CheckedChanged += new System.EventHandler(this.checkBoxVobs_CheckedChanged);
+            // 
+            // checkBoxCamCoord
+            // 
+            this.checkBoxCamCoord.AutoSize = true;
+            this.checkBoxCamCoord.Location = new System.Drawing.Point(9, 65);
+            this.checkBoxCamCoord.Name = "checkBoxCamCoord";
+            this.checkBoxCamCoord.Size = new System.Drawing.Size(196, 17);
+            this.checkBoxCamCoord.TabIndex = 2;
+            this.checkBoxCamCoord.Text = "Показывать координаты камеры";
+            this.checkBoxCamCoord.UseVisualStyleBackColor = true;
+            this.checkBoxCamCoord.CheckedChanged += new System.EventHandler(this.checkBoxCamCoord_CheckedChanged);
             // 
             // checkBoxTris
             // 
@@ -210,59 +254,15 @@
             this.checkBoxFPS.UseVisualStyleBackColor = true;
             this.checkBoxFPS.CheckedChanged += new System.EventHandler(this.checkBoxFPS_CheckedChanged);
             // 
-            // checkBoxCamCoord
-            // 
-            this.checkBoxCamCoord.AutoSize = true;
-            this.checkBoxCamCoord.Location = new System.Drawing.Point(9, 65);
-            this.checkBoxCamCoord.Name = "checkBoxCamCoord";
-            this.checkBoxCamCoord.Size = new System.Drawing.Size(196, 17);
-            this.checkBoxCamCoord.TabIndex = 2;
-            this.checkBoxCamCoord.Text = "Показывать координаты камеры";
-            this.checkBoxCamCoord.UseVisualStyleBackColor = true;
-            this.checkBoxCamCoord.CheckedChanged += new System.EventHandler(this.checkBoxCamCoord_CheckedChanged);
-            // 
-            // checkBoxVobs
-            // 
-            this.checkBoxVobs.AutoSize = true;
-            this.checkBoxVobs.Location = new System.Drawing.Point(9, 88);
-            this.checkBoxVobs.Name = "checkBoxVobs";
-            this.checkBoxVobs.Size = new System.Drawing.Size(158, 17);
-            this.checkBoxVobs.TabIndex = 3;
-            this.checkBoxVobs.Text = "Показывать кол-во вобов";
-            this.checkBoxVobs.UseVisualStyleBackColor = true;
-            this.checkBoxVobs.CheckedChanged += new System.EventHandler(this.checkBoxVobs_CheckedChanged);
-            // 
-            // checkBoxWaypoints
-            // 
-            this.checkBoxWaypoints.AutoSize = true;
-            this.checkBoxWaypoints.Location = new System.Drawing.Point(9, 111);
-            this.checkBoxWaypoints.Name = "checkBoxWaypoints";
-            this.checkBoxWaypoints.Size = new System.Drawing.Size(187, 17);
-            this.checkBoxWaypoints.TabIndex = 4;
-            this.checkBoxWaypoints.Text = "Показывать кол-во вейпоинтов";
-            this.checkBoxWaypoints.UseVisualStyleBackColor = true;
-            this.checkBoxWaypoints.CheckedChanged += new System.EventHandler(this.checkBoxWaypoints_CheckedChanged);
-            // 
-            // checkBoxDistVob
-            // 
-            this.checkBoxDistVob.AutoSize = true;
-            this.checkBoxDistVob.Location = new System.Drawing.Point(9, 134);
-            this.checkBoxDistVob.Name = "checkBoxDistVob";
-            this.checkBoxDistVob.Size = new System.Drawing.Size(257, 17);
-            this.checkBoxDistVob.TabIndex = 5;
-            this.checkBoxDistVob.Text = "Показывать расстояние до выбранного воба";
-            this.checkBoxDistVob.UseVisualStyleBackColor = true;
-            this.checkBoxDistVob.CheckedChanged += new System.EventHandler(this.checkBoxDistVob_CheckedChanged);
-            // 
             // SettingsCamera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(331, 526);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBoxInfo);
             this.Controls.Add(this.Применить);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxRange);
+            this.Controls.Add(this.groupBoxCam);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -277,12 +277,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRotSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarWorld)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBoxCam.ResumeLayout(false);
+            this.groupBoxCam.PerformLayout();
+            this.groupBoxRange.ResumeLayout(false);
+            this.groupBoxRange.PerformLayout();
+            this.groupBoxInfo.ResumeLayout(false);
+            this.groupBoxInfo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -292,14 +292,14 @@
         private System.Windows.Forms.Label labelRot;
         private System.Windows.Forms.Label labelWorld;
         private System.Windows.Forms.Label labelVobs;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBoxCam;
+        private System.Windows.Forms.GroupBox groupBoxRange;
         public System.Windows.Forms.TrackBar trackBarTransSpeed;
         public System.Windows.Forms.TrackBar trackBarRotSpeed;
         public System.Windows.Forms.TrackBar trackBarVobs;
         public System.Windows.Forms.TrackBar trackBarWorld;
         private System.Windows.Forms.Button Применить;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBoxInfo;
         public System.Windows.Forms.CheckBox checkBoxTris;
         public System.Windows.Forms.CheckBox checkBoxFPS;
         public System.Windows.Forms.CheckBox checkBoxVobs;
