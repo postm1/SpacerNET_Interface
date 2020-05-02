@@ -148,7 +148,8 @@ namespace SpacerUnion
             btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("showHelpVobs")));
             btn = form.toolStripTop.Items[10] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("drawBBoxGlobal")));
-
+            btn = form.toolStripTop.Items[11] as ToolStripButton;
+            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("showInvisibleVobs")));
 
             btn = form.toolStripTop.Items[0] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(infoWin.Visible);

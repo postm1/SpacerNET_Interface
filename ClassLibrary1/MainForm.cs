@@ -334,6 +334,11 @@ namespace SpacerUnion
             UnionNET.settingsCam.checkBoxWaypoints.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("showWaypointsCount")));
             UnionNET.settingsCam.checkBoxDistVob.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("showVobDist")));
 
+
+
+
+       
+
             UnionNET.settingsCam.Show();
         }
 
@@ -630,6 +635,15 @@ namespace SpacerUnion
             UnionNET.settingsControl.UpdateAll();
 
             UnionNET.settingsControl.Show();
+        }
+
+        private void toolStripButtonInvisible_Click(object sender, EventArgs e)
+        {
+            ToolStripButton item = sender as ToolStripButton;
+
+            item.Checked = !item.Checked;
+
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("showInvisibleVobs"), Convert.ToInt32(item.Checked));
         }
     }
 }

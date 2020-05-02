@@ -413,8 +413,8 @@ namespace SpacerUnion
                 Utils.WriteToFile(msg);
                 ConsoleEx.WriteLineRed(msg);
 
-                MessageBox.Show(msg);
-                return;
+                //MessageBox.Show(msg);
+                //return;
             }
 
 

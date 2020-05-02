@@ -74,6 +74,7 @@
             this.toolStripButtonHelpVobs = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonBBox = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonInvisible = new System.Windows.Forms.ToolStripButton();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -269,21 +270,21 @@
             // камераToolStripMenuItem
             // 
             this.камераToolStripMenuItem.Name = "камераToolStripMenuItem";
-            this.камераToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.камераToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.камераToolStripMenuItem.Text = "Камера";
             this.камераToolStripMenuItem.Click += new System.EventHandler(this.камераToolStripMenuItem_Click);
             // 
             // управлениеToolStripMenuItem
             // 
             this.управлениеToolStripMenuItem.Name = "управлениеToolStripMenuItem";
-            this.управлениеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.управлениеToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.управлениеToolStripMenuItem.Text = "Управление";
             this.управлениеToolStripMenuItem.Click += new System.EventHandler(this.управлениеToolStripMenuItem_Click);
             // 
             // прочееToolStripMenuItem
             // 
             this.прочееToolStripMenuItem.Name = "прочееToolStripMenuItem";
-            this.прочееToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.прочееToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.прочееToolStripMenuItem.Text = "Прочее";
             // 
             // toolStripMenuItemWindows
@@ -343,6 +344,7 @@
             this.toolStripButtonWaynet,
             this.toolStripButtonHelpVobs,
             this.toolStripButtonBBox,
+            this.toolStripButtonInvisible,
             this.toolStripSeparator2});
             this.toolStripTop.Location = new System.Drawing.Point(0, 0);
             this.toolStripTop.Name = "toolStripTop";
@@ -416,7 +418,7 @@
             // 
             // toolStripButtonVobs
             // 
-            this.toolStripButtonVobs.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripButtonVobs.BackColor = System.Drawing.Color.Silver;
             this.toolStripButtonVobs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonVobs.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonVobs.Image")));
             this.toolStripButtonVobs.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -460,6 +462,16 @@
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButtonInvisible
+            // 
+            this.toolStripButtonInvisible.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonInvisible.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonInvisible.Image")));
+            this.toolStripButtonInvisible.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonInvisible.Name = "toolStripButtonInvisible";
+            this.toolStripButtonInvisible.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonInvisible.Text = "Показать невидимые вобы";
+            this.toolStripButtonInvisible.Click += new System.EventHandler(this.toolStripButtonInvisible_Click);
             // 
             // MainForm
             // 
@@ -536,5 +548,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonHelpVobs;
         private System.Windows.Forms.ToolStripButton toolStripButtonBBox;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton toolStripButtonInvisible;
     }
 }
