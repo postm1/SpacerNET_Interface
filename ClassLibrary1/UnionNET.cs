@@ -1,6 +1,7 @@
 ﻿
 using SpacerUnion.Common;
 using SpacerUnion.Resources;
+using SpacerUnion.Windows;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -30,7 +31,7 @@ namespace SpacerUnion
         public static CompileWorldWin compWorldWin;
         public static LoadingForm loadForm;
         public static SettingsCamera settingsCam;
-
+        public static SettingsControls settingsControl;
 
         // Список скрытых окон
         static List<Form> windowsToHideList = null;
@@ -61,6 +62,7 @@ namespace SpacerUnion
             soundWin = new SoundWin();
             comLightWin = new CompileLightWin();
             settingsCam = new SettingsCamera();
+            settingsControl = new SettingsControls();
             compWorldWin = new CompileWorldWin();
             loadForm = new LoadingForm();
 
@@ -74,6 +76,8 @@ namespace SpacerUnion
             windowsList.Add(comLightWin);
             windowsList.Add(settingsCam);
             windowsList.Add(loadForm);
+            windowsList.Add(settingsControl);
+            
 
             // каждому окну из списка задаем владельца: главную форму
             windowsList.ForEach(x => x.Owner = form);

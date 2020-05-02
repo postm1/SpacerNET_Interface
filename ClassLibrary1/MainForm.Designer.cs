@@ -269,20 +269,21 @@
             // камераToolStripMenuItem
             // 
             this.камераToolStripMenuItem.Name = "камераToolStripMenuItem";
-            this.камераToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.камераToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.камераToolStripMenuItem.Text = "Камера";
             this.камераToolStripMenuItem.Click += new System.EventHandler(this.камераToolStripMenuItem_Click);
             // 
             // управлениеToolStripMenuItem
             // 
             this.управлениеToolStripMenuItem.Name = "управлениеToolStripMenuItem";
-            this.управлениеToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.управлениеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.управлениеToolStripMenuItem.Text = "Управление";
+            this.управлениеToolStripMenuItem.Click += new System.EventHandler(this.управлениеToolStripMenuItem_Click);
             // 
             // прочееToolStripMenuItem
             // 
             this.прочееToolStripMenuItem.Name = "прочееToolStripMenuItem";
-            this.прочееToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.прочееToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.прочееToolStripMenuItem.Text = "Прочее";
             // 
             // toolStripMenuItemWindows

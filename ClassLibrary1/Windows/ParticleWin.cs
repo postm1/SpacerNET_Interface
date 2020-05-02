@@ -20,7 +20,8 @@ namespace SpacerUnion
 
     public partial class ParticleWin : Form
     {
-        public static List<string> listVisuals = new List<string>();
+        public static List<string> listVisualsVDF = new List<string>();
+        public static List<string> listVisualsWORK = new List<string>();
         public TriggerEntry triggerEntry = new TriggerEntry();
 
         public ParticleWin()
@@ -38,28 +39,117 @@ namespace SpacerUnion
             UnionNET.partWin.listBoxParticles.Items.Add(name);
         }
 
+        public static HashSet<string> ignoreFileNameSet = new HashSet<string>()
+        {
+            ".WAV", ".DAT", ".D", ".FNT", ".BIN", ".ZEN", ".M3D", ".BMP", ".SGT",
+            ".DLI", ".DLS", ".STY", ".PML", ".TXT", ".DLE", ".MI", ".DDS",
+            ".TEX", ".FNT", ".DAT", ".MRM", ".ZEN", ".BIN", ".MDM", ".MAN", ".MDH", ".MSB", ".MAN1", ".MMB", ".WAV", ".MDL",
+            ".DLL", ".M3D", ".BMP", ".MSH", ".MMS", ".TGA", ".MDS", ".SCC", ".3DS", ".SGT", ".DLS", ".STY", ".RAR", ".D",
+            ".CSL", ".LSC", ".SRC", ".INF", ".INI", ".BAK", ".BIK", ".GSP", ".FBX", "", ".LNK", ".EXE", ".MOD", ".NSH",
+            ".RTF", ".BAT", ".NSI", ".VM", ".PML", ".OPF", ".CONFIG", ".XML", ".ZMF", ".DLE", ".TXT", ".DLI", ".CFG",
+            ".LOG", ".DLL2", ".EXP", ".IOBJ", ".IPDB", ".LIB", ".PDB", ".LAST", ".MTL", ".OBJ", ".PNG", ".MCACHE",
+            ".VI", ".H", ".HLSL", ".FX", ".FXH", ".DDS", ".MI", ".JPG", ".MANIFEST", ".FLT", ".RPT", ".TLB",
+            ".PATCH", ".SAV", ".BMP$",
+
+            // ".TEX", ".MRM", ".MDM", ".MAN", ".MDH", ".MSB", ".MMB", ".MDL", ".MSH", ".MMS", ".MDS"
+        };
+
+        public static Dictionary<string, string> allowedFileNames = new Dictionary<string, string>
+        {      
+            //  1        1                              1               1                        1
+            //".TEX", ".MRM", ".MDM", ".MAN", ".MDH", ".MSB", ".MMB", ".MDL", ".MSH", ".MMS", ".MDS"
+            
+            {".TGA", ".TGA" },
+            {"-C.TEX", ".TGA" },
+
+            {".3DS", ".3DS" },
+            {".MRM", ".3DS" },
+            {".MSH ", ".3DS" },
+
+            {".ASC", ".ASC" },
+            {".MDL", ".ASC" },
+            //{".MAN", ".ASC" },
+            {".MDH", ".ASC" },
+
+
+            {".MDS", ".MDS" },
+            {".MSB", ".MDS" },
+            {".MBH", ".MMS" },
+
+
+
+        };
+
+        public static bool IsFileAllowed(StringBuilder name)
+        {
+            string checkStr = name.ToString();
+
+            foreach (var item in allowedFileNames)
+            {
+                if (checkStr.EndsWith(item.Key))
+                {
+                    name = name.Replace(item.Key, item.Value);
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public static void AddVisualsFiles(string name, bool isVDF=true)
+        {
+            StringBuilder fileName = new StringBuilder();
+
+            fileName.Append(name);
+
+            if (IsFileAllowed(fileName))
+            {
+                if (isVDF)
+                {
+                    ParticleWin.listVisualsVDF.Add(fileName.ToString());
+                }
+                else
+                {
+                    ParticleWin.listVisualsWORK.Add(fileName.ToString());
+                }
+            }
+
+            
+        }
 
         [DllExport]
-        public static void AddVisualToList(IntPtr ptr)
+        public static void AddVisualToListVDF(IntPtr ptr)
         {
             string name = Marshal.PtrToStringAnsi(ptr);
 
-
-            name = Path.GetFileName(name);
-
-            //UnionNET.partWin.listBoxVisuals.Items.Add(name);
-            ParticleWin.listVisuals.Add(name);
-
+            AddVisualsFiles(Path.GetFileName(name).ToUpper());
+ 
         }
+
+        [DllExport]
+        public static void AddVisualToListWORK(IntPtr ptr)
+        {
+            string name = Marshal.PtrToStringAnsi(ptr);
+
+            AddVisualsFiles(Path.GetFileName(name).ToUpper(), false);
+        }
+
 
 
         [DllExport]
         public static void SortVisuals()
         {
-            ParticleWin.listVisuals = ParticleWin.listVisuals.Distinct().ToList();
-            ParticleWin.listVisuals.Sort();
+            ParticleWin.listVisualsVDF = ParticleWin.listVisualsVDF.Distinct().ToList();
+            ParticleWin.listVisualsVDF.Sort();
 
-            UnionNET.partWin.labelSearchVisual.Text = "Поиск визуала. Всего: " + listVisuals.Count;
+
+            ParticleWin.listVisualsWORK = ParticleWin.listVisualsWORK.Distinct().ToList();
+            ParticleWin.listVisualsWORK.Sort();
+
+
+            
+            //UnionNET.partWin.labelSearchVisual.Text = "Поиск визуала. Всего: " + listVisualsVDF.Count + "/" + listVisualsWORK.Count;
+            UnionNET.partWin.labelAllModels.Text = "Всего моделей: " + listVisualsVDF.Count + "/" + listVisualsWORK.Count;
         }
 
 
@@ -460,13 +550,24 @@ namespace SpacerUnion
 
                 listBoxVisuals.Items.Clear();
 
-
-                for (int i = 0; i < listVisuals.Count; i++)
+                if (radioButtonVdf.Checked)
                 {
-
-                    if (Regex.IsMatch(listVisuals[i], @strToFind))
+                    for (int i = 0; i < listVisualsVDF.Count; i++)
                     {
-                        listBoxVisuals.Items.Add(listVisuals[i]);
+                        if (Regex.IsMatch(listVisualsVDF[i], @strToFind))
+                        {
+                            listBoxVisuals.Items.Add(listVisualsVDF[i]);
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < listVisualsWORK.Count; i++)
+                    {
+                        if (Regex.IsMatch(listVisualsWORK[i], @strToFind))
+                        {
+                            listBoxVisuals.Items.Add(listVisualsWORK[i]);
+                        }
                     }
                 }
 

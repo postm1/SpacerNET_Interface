@@ -37,6 +37,9 @@
             this.listBoxParticles = new System.Windows.Forms.ListBox();
             this.buttonParticles = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBoxItemCount = new System.Windows.Forms.TextBox();
+            this.buttonAddContainer = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -45,10 +48,11 @@
             this.listBoxItems = new System.Windows.Forms.ListBox();
             this.buttonItems = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.radioButtonWork = new System.Windows.Forms.RadioButton();
+            this.radioButtonVdf = new System.Windows.Forms.RadioButton();
             this.button7 = new System.Windows.Forms.Button();
             this.checkBoxStaStat = new System.Windows.Forms.CheckBox();
             this.checkBoxDynStat = new System.Windows.Forms.CheckBox();
-            this.pictureBoxPreview = new System.Windows.Forms.PictureBox();
             this.listBoxVisuals = new System.Windows.Forms.ListBox();
             this.labelSearchVisual = new System.Windows.Forms.Label();
             this.textBoxVisuals = new System.Windows.Forms.TextBox();
@@ -101,13 +105,11 @@
             this.button8 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.buttonAddContainer = new System.Windows.Forms.Button();
-            this.textBoxItemCount = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.pictureBoxPreview = new System.Windows.Forms.PictureBox();
+            this.labelAllModels = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).BeginInit();
             this.tabControlObjects.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -119,6 +121,7 @@
             this.groupBox4.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -221,6 +224,35 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Предметы";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(390, 63);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(66, 13);
+            this.label11.TabIndex = 9;
+            this.label11.Text = "Количество";
+            // 
+            // textBoxItemCount
+            // 
+            this.textBoxItemCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxItemCount.Location = new System.Drawing.Point(392, 81);
+            this.textBoxItemCount.Name = "textBoxItemCount";
+            this.textBoxItemCount.Size = new System.Drawing.Size(146, 22);
+            this.textBoxItemCount.TabIndex = 8;
+            this.textBoxItemCount.Text = "1";
+            this.textBoxItemCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxItemCount_KeyPress);
+            // 
+            // buttonAddContainer
+            // 
+            this.buttonAddContainer.Location = new System.Drawing.Point(393, 19);
+            this.buttonAddContainer.Name = "buttonAddContainer";
+            this.buttonAddContainer.Size = new System.Drawing.Size(146, 30);
+            this.buttonAddContainer.TabIndex = 7;
+            this.buttonAddContainer.Text = "Добавить в контейнер->";
+            this.buttonAddContainer.UseVisualStyleBackColor = true;
+            this.buttonAddContainer.Click += new System.EventHandler(this.button10_Click);
+            // 
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(201, 19);
@@ -288,6 +320,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.labelAllModels);
+            this.groupBox3.Controls.Add(this.radioButtonWork);
+            this.groupBox3.Controls.Add(this.radioButtonVdf);
             this.groupBox3.Controls.Add(this.button7);
             this.groupBox3.Controls.Add(this.checkBoxStaStat);
             this.groupBox3.Controls.Add(this.checkBoxDynStat);
@@ -301,16 +336,38 @@
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Location = new System.Drawing.Point(6, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(545, 323);
+            this.groupBox3.Size = new System.Drawing.Size(545, 350);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Все классы вобов";
             // 
+            // radioButtonWork
+            // 
+            this.radioButtonWork.AutoSize = true;
+            this.radioButtonWork.Location = new System.Drawing.Point(61, 139);
+            this.radioButtonWork.Name = "radioButtonWork";
+            this.radioButtonWork.Size = new System.Drawing.Size(65, 17);
+            this.radioButtonWork.TabIndex = 14;
+            this.radioButtonWork.Text = "_WORK";
+            this.radioButtonWork.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonVdf
+            // 
+            this.radioButtonVdf.AutoSize = true;
+            this.radioButtonVdf.Checked = true;
+            this.radioButtonVdf.Location = new System.Drawing.Point(9, 139);
+            this.radioButtonVdf.Name = "radioButtonVdf";
+            this.radioButtonVdf.Size = new System.Drawing.Size(46, 17);
+            this.radioButtonVdf.TabIndex = 13;
+            this.radioButtonVdf.TabStop = true;
+            this.radioButtonVdf.Text = "VDF";
+            this.radioButtonVdf.UseVisualStyleBackColor = true;
+            // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(193, 136);
+            this.button7.Location = new System.Drawing.Point(212, 177);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(91, 25);
+            this.button7.Size = new System.Drawing.Size(73, 25);
             this.button7.TabIndex = 12;
             this.button7.Text = "Очистить";
             this.button7.UseVisualStyleBackColor = true;
@@ -338,27 +395,18 @@
             this.checkBoxDynStat.Text = "Динамическая коллизия";
             this.checkBoxDynStat.UseVisualStyleBackColor = true;
             // 
-            // pictureBoxPreview
-            // 
-            this.pictureBoxPreview.Image = global::SpacerUnion.Properties.Resources.dsads;
-            this.pictureBoxPreview.Location = new System.Drawing.Point(291, 167);
-            this.pictureBoxPreview.Name = "pictureBoxPreview";
-            this.pictureBoxPreview.Size = new System.Drawing.Size(248, 149);
-            this.pictureBoxPreview.TabIndex = 9;
-            this.pictureBoxPreview.TabStop = false;
-            // 
             // listBoxVisuals
             // 
             this.listBoxVisuals.FormattingEnabled = true;
-            this.listBoxVisuals.Location = new System.Drawing.Point(6, 195);
+            this.listBoxVisuals.Location = new System.Drawing.Point(6, 210);
             this.listBoxVisuals.Name = "listBoxVisuals";
-            this.listBoxVisuals.Size = new System.Drawing.Size(278, 121);
+            this.listBoxVisuals.Size = new System.Drawing.Size(278, 134);
             this.listBoxVisuals.TabIndex = 8;
             // 
             // labelSearchVisual
             // 
             this.labelSearchVisual.AutoSize = true;
-            this.labelSearchVisual.Location = new System.Drawing.Point(6, 142);
+            this.labelSearchVisual.Location = new System.Drawing.Point(6, 163);
             this.labelSearchVisual.Name = "labelSearchVisual";
             this.labelSearchVisual.Size = new System.Drawing.Size(109, 13);
             this.labelSearchVisual.TabIndex = 7;
@@ -367,9 +415,9 @@
             // textBoxVisuals
             // 
             this.textBoxVisuals.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxVisuals.Location = new System.Drawing.Point(6, 167);
+            this.textBoxVisuals.Location = new System.Drawing.Point(6, 179);
             this.textBoxVisuals.Name = "textBoxVisuals";
-            this.textBoxVisuals.Size = new System.Drawing.Size(278, 22);
+            this.textBoxVisuals.Size = new System.Drawing.Size(200, 22);
             this.textBoxVisuals.TabIndex = 6;
             this.textBoxVisuals.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVisuals_KeyPress);
             // 
@@ -421,7 +469,7 @@
             this.tabControlObjects.Location = new System.Drawing.Point(3, 5);
             this.tabControlObjects.Name = "tabControlObjects";
             this.tabControlObjects.SelectedIndex = 0;
-            this.tabControlObjects.Size = new System.Drawing.Size(569, 358);
+            this.tabControlObjects.Size = new System.Drawing.Size(569, 382);
             this.tabControlObjects.TabIndex = 4;
             // 
             // tabPage3
@@ -429,7 +477,7 @@
             this.tabPage3.Controls.Add(this.groupBox3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(561, 332);
+            this.tabPage3.Size = new System.Drawing.Size(561, 356);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Все классы";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -888,40 +936,29 @@
             this.treeView1.Size = new System.Drawing.Size(231, 271);
             this.treeView1.TabIndex = 2;
             // 
-            // buttonAddContainer
+            // pictureBoxPreview
             // 
-            this.buttonAddContainer.Location = new System.Drawing.Point(393, 19);
-            this.buttonAddContainer.Name = "buttonAddContainer";
-            this.buttonAddContainer.Size = new System.Drawing.Size(146, 30);
-            this.buttonAddContainer.TabIndex = 7;
-            this.buttonAddContainer.Text = "Добавить в контейнер->";
-            this.buttonAddContainer.UseVisualStyleBackColor = true;
-            this.buttonAddContainer.Click += new System.EventHandler(this.button10_Click);
+            this.pictureBoxPreview.Image = global::SpacerUnion.Properties.Resources.dsads;
+            this.pictureBoxPreview.Location = new System.Drawing.Point(291, 176);
+            this.pictureBoxPreview.Name = "pictureBoxPreview";
+            this.pictureBoxPreview.Size = new System.Drawing.Size(248, 168);
+            this.pictureBoxPreview.TabIndex = 9;
+            this.pictureBoxPreview.TabStop = false;
             // 
-            // textBoxItemCount
+            // labelAllModels
             // 
-            this.textBoxItemCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxItemCount.Location = new System.Drawing.Point(392, 81);
-            this.textBoxItemCount.Name = "textBoxItemCount";
-            this.textBoxItemCount.Size = new System.Drawing.Size(146, 22);
-            this.textBoxItemCount.TabIndex = 8;
-            this.textBoxItemCount.Text = "1";
-            this.textBoxItemCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxItemCount_KeyPress);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(390, 63);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(66, 13);
-            this.label11.TabIndex = 9;
-            this.label11.Text = "Количество";
+            this.labelAllModels.AutoSize = true;
+            this.labelAllModels.Location = new System.Drawing.Point(132, 141);
+            this.labelAllModels.Name = "labelAllModels";
+            this.labelAllModels.Size = new System.Drawing.Size(87, 13);
+            this.labelAllModels.TabIndex = 15;
+            this.labelAllModels.Text = "Всего моделей:";
             // 
             // ParticleWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 361);
+            this.ClientSize = new System.Drawing.Size(570, 389);
             this.Controls.Add(this.tabControlObjects);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -938,7 +975,6 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).EndInit();
             this.tabControlObjects.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -955,6 +991,7 @@
             this.tabPage6.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1011,7 +1048,6 @@
         private System.Windows.Forms.Label labelSearchVisual;
         private System.Windows.Forms.TextBox textBoxVisuals;
         private System.Windows.Forms.ListBox listBoxVisuals;
-        private System.Windows.Forms.PictureBox pictureBoxPreview;
         private System.Windows.Forms.CheckBox checkBoxStaStat;
         private System.Windows.Forms.CheckBox checkBoxDynStat;
         private System.Windows.Forms.CheckBox checkBoxWayNet;
@@ -1037,5 +1073,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBoxItemCount;
         private System.Windows.Forms.Button buttonAddContainer;
+        private System.Windows.Forms.RadioButton radioButtonWork;
+        private System.Windows.Forms.RadioButton radioButtonVdf;
+        private System.Windows.Forms.PictureBox pictureBoxPreview;
+        private System.Windows.Forms.Label labelAllModels;
     }
 }

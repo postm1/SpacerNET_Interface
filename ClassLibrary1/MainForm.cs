@@ -616,5 +616,20 @@ namespace SpacerUnion
 
             Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("drawBBoxGlobal"), Convert.ToInt32(item.Checked));
         }
+
+        private void управлениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int transSpeed = Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("vobTransSpeed"));
+            int rotSpeed = Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("vobRotSpeed"));
+
+
+            UnionNET.settingsControl.trackBarVobTransSpeed.Value = transSpeed;
+            UnionNET.settingsControl.trackBarVobRotSpeed.Value = rotSpeed;
+
+
+            UnionNET.settingsControl.UpdateAll();
+
+            UnionNET.settingsControl.Show();
+        }
     }
 }
