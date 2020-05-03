@@ -171,10 +171,17 @@ namespace SpacerUnion
 
         }
 
+        [DllExport]
+        public static void ClearAllEntries()
+        {
+            UnionNET.objTreeWin.globalTree.Nodes.Clear();
+            ObjTree.globalEntries.Clear();
+        }
 
-        
 
-        
+
+
+
         [DllExport]
         public static void UpdateVobName(uint ptr, IntPtr namePtr)
         {

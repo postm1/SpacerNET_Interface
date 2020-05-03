@@ -28,6 +28,12 @@ namespace SpacerUnion
         {
             InitializeComponent();
         }
+
+        public void UpdateSpacerCaption(string title)
+        {
+            currentWorldName = title;
+            this.Text = "Spacer.NET: " + title;
+        }
         
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -90,7 +96,9 @@ namespace SpacerUnion
 
                 string filePath = openFileDialog1.FileName;
 
-                this.Text = "Spacer.NET " + openFileDialog1.SafeFileName;
+
+
+                UpdateSpacerCaption(openFileDialog1.SafeFileName);
 
                 IntPtr filePathPtr = Marshal.StringToHGlobalAnsi(filePath);
 
@@ -100,6 +108,7 @@ namespace SpacerUnion
                 ResetInterface();
 
                 UnionNET.form.AddText(openFileDialog1.SafeFileName + " загружается...");
+                ConsoleEx.WriteLineGreen(openFileDialog1.SafeFileName + " загружается...");
 
                 currentWorldName = openFileDialog1.SafeFileName;
                 Imports.Extern_LoadWorld(filePathPtr);
@@ -108,7 +117,7 @@ namespace SpacerUnion
 
                 string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
                 UnionNET.form.AddText("Загрузка ZEN выполнена за (" + timeSpend + ")");
-
+                ConsoleEx.WriteLineGreen("Загрузка ZEN выполнена за (" + timeSpend + ")");
                 Marshal.FreeHGlobal(filePathPtr);
             }
 
@@ -266,19 +275,22 @@ namespace SpacerUnion
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPath = Marshal.StringToHGlobalAnsi(System.IO.Path.GetDirectoryName(saveFileDialog1.FileName));
+                IntPtr ptrPath = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(saveFileDialog1.FileName));
 
                 Imports.Extern_SetSettingStr(ptrPath, Marshal.StringToHGlobalAnsi("zenzPath"));
 
 
                 string filePath = saveFileDialog1.FileName;
-              
+                string selectedFileName = Path.GetFileName(saveFileDialog1.FileName);
+
+                UpdateSpacerCaption(selectedFileName);
 
 
                 if (saveFileDialog1.FilterIndex == 2)
                 {
                     //filePath = filePath.Replace(".zen", "") + "_vobs.zen";
                 }
+                
 
 
                 IntPtr filePathPtr = Marshal.StringToHGlobalAnsi(filePath);
@@ -286,10 +298,9 @@ namespace SpacerUnion
                 Stopwatch s = new Stopwatch();
                 s.Start();
 
-               
 
-
-                UnionNET.form.AddText(zenName + " сохраняется...");
+                ConsoleEx.WriteLineGreen(selectedFileName + " сохраняется...");
+                UnionNET.form.AddText(selectedFileName + " сохраняется...");
 
                 Imports.Extern_SaveWorld(filePathPtr, saveFileDialog1.FilterIndex - 1);
 
@@ -297,7 +308,7 @@ namespace SpacerUnion
 
                 string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
                 UnionNET.form.AddText("Сохранение ZEN выполнено за (" + timeSpend + ")");
-
+                ConsoleEx.WriteLineGreen("Сохранение ZEN выполнено за (" + timeSpend + ")");
                 Marshal.FreeHGlobal(filePathPtr);
             }
         }
@@ -379,7 +390,8 @@ namespace SpacerUnion
 
                 string filePath = openFileDialog1.FileName;
 
-                this.Text = "Spacer.NET " + openFileDialog1.SafeFileName;
+
+                UpdateSpacerCaption(openFileDialog1.SafeFileName);
 
                 IntPtr filePathPtr = Marshal.StringToHGlobalAnsi(filePath);
 
@@ -437,7 +449,7 @@ namespace SpacerUnion
 
                 string filePath = openFileDialog1.FileName;
 
-                this.Text = "Spacer.NET " + openFileDialog1.SafeFileName;
+                UpdateSpacerCaption(openFileDialog1.SafeFileName);
 
                 IntPtr filePathPtr = Marshal.StringToHGlobalAnsi(filePath);
 
