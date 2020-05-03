@@ -107,7 +107,11 @@ namespace SpacerUnion.Common
         public static extern void Extern_CreateNewVob(IntPtr name, IntPtr vobName, int dyn, int stat);
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_CreateWaypoint(IntPtr name, IntPtr vobName, bool addToWaynet);
+        public static extern void Extern_CreateWaypoint(IntPtr name, IntPtr vobName, bool addToWaynet, bool autoGenerate);
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_CreateFreePoint(IntPtr name, IntPtr vobName, bool autoGenerate, bool ground);
+        
 
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
@@ -149,8 +153,9 @@ namespace SpacerUnion.Common
         public static extern void Extern_SetCollTrigger(int mode, int val);
         #endregion
 
-        
 
 
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SetTime(int hour, int min);
     }
 }

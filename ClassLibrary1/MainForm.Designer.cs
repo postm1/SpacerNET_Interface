@@ -73,8 +73,13 @@
             this.toolStripButtonWaynet = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonHelpVobs = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonBBox = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonInvisible = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.времяСутокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuTimeMorning = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuTimeDay = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuTimeEvening = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuTimeNight = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -221,7 +226,8 @@
             this.ToolStripMenuWorld.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.здрастеToolStripMenuItem,
             this.компиляцияМираToolStripMenuItem,
-            this.камераToolStripMenuItem1});
+            this.камераToolStripMenuItem1,
+            this.времяСутокToolStripMenuItem});
             this.ToolStripMenuWorld.ForeColor = System.Drawing.Color.Black;
             this.ToolStripMenuWorld.Name = "ToolStripMenuWorld";
             this.ToolStripMenuWorld.Size = new System.Drawing.Size(44, 20);
@@ -458,11 +464,6 @@
             this.toolStripButtonBBox.ToolTipText = "Показывать Bbox";
             this.toolStripButtonBBox.Click += new System.EventHandler(this.toolStripButtonBBox_Click_1);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
             // toolStripButtonInvisible
             // 
             this.toolStripButtonInvisible.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -472,6 +473,50 @@
             this.toolStripButtonInvisible.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonInvisible.Text = "Показать невидимые вобы";
             this.toolStripButtonInvisible.Click += new System.EventHandler(this.toolStripButtonInvisible_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // времяСутокToolStripMenuItem
+            // 
+            this.времяСутокToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuTimeMorning,
+            this.ToolStripMenuTimeDay,
+            this.ToolStripMenuTimeEvening,
+            this.ToolStripMenuTimeNight});
+            this.времяСутокToolStripMenuItem.Name = "времяСутокToolStripMenuItem";
+            this.времяСутокToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.времяСутокToolStripMenuItem.Text = "Время суток";
+            // 
+            // ToolStripMenuTimeMorning
+            // 
+            this.ToolStripMenuTimeMorning.Name = "ToolStripMenuTimeMorning";
+            this.ToolStripMenuTimeMorning.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuTimeMorning.Text = "Утро (07:00)";
+            this.ToolStripMenuTimeMorning.Click += new System.EventHandler(this.ToolStripMenuTimeMorning_Click);
+            // 
+            // ToolStripMenuTimeDay
+            // 
+            this.ToolStripMenuTimeDay.Name = "ToolStripMenuTimeDay";
+            this.ToolStripMenuTimeDay.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuTimeDay.Text = "День (12:00)";
+            this.ToolStripMenuTimeDay.Click += new System.EventHandler(this.ToolStripMenuTimeDay_Click);
+            // 
+            // ToolStripMenuTimeEvening
+            // 
+            this.ToolStripMenuTimeEvening.Name = "ToolStripMenuTimeEvening";
+            this.ToolStripMenuTimeEvening.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuTimeEvening.Text = "Вечер (17:00)";
+            this.ToolStripMenuTimeEvening.Click += new System.EventHandler(this.ToolStripMenuTimeEvening_Click);
+            // 
+            // ToolStripMenuTimeNight
+            // 
+            this.ToolStripMenuTimeNight.Name = "ToolStripMenuTimeNight";
+            this.ToolStripMenuTimeNight.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuTimeNight.Text = "Ночь (00:00)";
+            this.ToolStripMenuTimeNight.Click += new System.EventHandler(this.ToolStripMenuTimeNight_Click);
             // 
             // MainForm
             // 
@@ -549,5 +594,10 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonBBox;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton toolStripButtonInvisible;
+        private System.Windows.Forms.ToolStripMenuItem времяСутокToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuTimeMorning;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuTimeDay;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuTimeEvening;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuTimeNight;
     }
 }

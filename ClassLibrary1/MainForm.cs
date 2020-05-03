@@ -657,5 +657,25 @@ namespace SpacerUnion
 
             Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("showInvisibleVobs"), Convert.ToInt32(item.Checked));
         }
+
+        private void ToolStripMenuTimeMorning_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_SetTime(7, 0);
+        }
+
+        private void ToolStripMenuTimeDay_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_SetTime(12, 0);
+        }
+
+        private void ToolStripMenuTimeEvening_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_SetTime(17, 0);
+        }
+
+        private void ToolStripMenuTimeNight_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_SetTime(0, 0);
+        }
     }
 }

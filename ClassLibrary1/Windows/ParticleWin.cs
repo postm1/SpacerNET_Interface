@@ -371,6 +371,7 @@ namespace SpacerUnion
             string name = "zCVobWaypoint";
             string vobName = textBoxWP.Text.Trim();
             bool addToNet = checkBoxWayNet.Checked;
+            bool autoGenerate = checkBoxWPAutoName.Checked;
 
             if (vobName.Length == 0)
             {
@@ -378,11 +379,17 @@ namespace SpacerUnion
                 return;
             }
 
+            if (vobName.All(char.IsDigit))
+            {
+                MessageBox.Show("Имя вейпоинта не может состоять только из цифр!");
+                return;
+            }
+
             IntPtr ptrVobNameCheck = Marshal.StringToHGlobalAnsi(vobName);
 
             bool nameFound = Imports.Extern_VobNameExist(ptrVobNameCheck, true);
 
-            if (nameFound)
+            if (nameFound && !autoGenerate)
             {
                 MessageBox.Show("Такое имя уже существует");
                 return;
@@ -394,10 +401,12 @@ namespace SpacerUnion
             IntPtr ptrName = Marshal.StringToHGlobalAnsi(name);
             IntPtr ptrVobName = Marshal.StringToHGlobalAnsi(vobName);
 
-            Imports.Extern_CreateWaypoint(ptrName, ptrVobName, addToNet);
+            Imports.Extern_CreateWaypoint(ptrName, ptrVobName, addToNet, autoGenerate);
             Marshal.FreeHGlobal(ptrName);
 
+            UnionNET.form.Focus();
 
+            /*
             if (vobName.Contains("_"))
             {
                 string strNumber = Regex.Match(vobName, @"_\d+$").Value.Replace("_", "");
@@ -408,7 +417,7 @@ namespace SpacerUnion
                 number++;
                 textBoxWP.Text = strName + "_" + number.ToString();
             }
-            
+            */
         }
 
         private void buttonFP_Click_1(object sender, EventArgs e)
@@ -416,6 +425,8 @@ namespace SpacerUnion
             string name = "zCVobSpot";
 
             string vobName = textBoxFP.Text.Trim();
+            bool autoName = checkBoxAutoNameFP.Checked;
+            bool ground = checkBoxFPGround.Checked;
 
             if (vobName.Length == 0)
             {
@@ -423,6 +434,12 @@ namespace SpacerUnion
                 return;
             }
 
+            if (!vobName.StartsWith("FP_"))
+            {
+                MessageBox.Show("Имя фрипоинта должно начинаться с FP_");
+                return;
+
+            }
 
             IntPtr ptrVobNameCheck = Marshal.StringToHGlobalAnsi(vobName);
 
@@ -438,20 +455,10 @@ namespace SpacerUnion
             IntPtr ptrName = Marshal.StringToHGlobalAnsi(name);
             IntPtr ptrVobName = Marshal.StringToHGlobalAnsi(vobName);
 
-            Imports.Extern_CreateNewVob(ptrName, ptrVobName, 0, 0);
+            Imports.Extern_CreateFreePoint(ptrName, ptrVobName, autoName, ground);
             Marshal.FreeHGlobal(ptrName);
 
 
-            if (vobName.Contains("_"))
-            {
-                string strNumber = Regex.Match(vobName, @"_\d+$").Value.Replace("_", "");
-                string strName = Regex.Match(vobName, @"^.*_").Value.Replace("_", "");
-
-                int number;
-                int.TryParse(strNumber, out number);
-                number++;
-                textBoxFP.Text = strName + "_" + number.ToString();
-            }
         }
 
         private void button2_Click(object sender, EventArgs e)

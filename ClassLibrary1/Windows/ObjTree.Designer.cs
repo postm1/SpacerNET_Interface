@@ -159,6 +159,8 @@
             this.ShowInTaskbar = false;
             this.Text = "Список объектов";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ObjTree_FormClosing);
+            this.Load += new System.EventHandler(this.ObjTree_Load);
+            this.Shown += new System.EventHandler(this.ObjTree_Shown);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 

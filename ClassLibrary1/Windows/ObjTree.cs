@@ -24,7 +24,9 @@ namespace SpacerUnion
 
         public static Dictionary<uint, TreeEntry> globalEntries = new Dictionary<uint, TreeEntry>();
         static bool nextAfterEventBlocked = false;
+        static bool nextAfterEventBlockedSelect = false;
         static TreeNode lastSelectedNode = null;
+        
 
         public ObjTree()
         {
@@ -364,20 +366,22 @@ namespace SpacerUnion
 
        
         [DllExport]
-        public static void OnVobInsert(IntPtr ptr, uint vob, uint parent, IntPtr classNamePtr)
+        public static void OnVobInsert(IntPtr ptr, uint vob, uint parent, IntPtr classNamePtr, int isNodeBlocked)
         {
             string name = Marshal.PtrToStringAnsi(ptr);
             string className = Marshal.PtrToStringAnsi(classNamePtr);
 
             TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
 
-            Console.WriteLine("=============================");
+            Console.WriteLine("");
+            Console.WriteLine("=======================================");
             Console.WriteLine("C#: OnVobInsert: " + name);
             int classNameFoundPos = -1;
 
             classNameFoundPos = CreateAndGetFolder(className);
 
             TreeEntry entry = new TreeEntry();
+
 
             entry.name = name;
             entry.parent = parent;
@@ -454,8 +458,12 @@ namespace SpacerUnion
                 node.Tag = vob;
                 entry.node = node;
                 ApplyNodeImage(className, node, true);
+
+                
                 UnionNET.objTreeWin.globalTree.SelectedNode = node;
-                Console.WriteLine("C# OnVobInsert globally: " + name + " parent: " + Utils.ToHex(parent) + " className: " + className);
+                
+                
+                Console.WriteLine("C# OnVobInsert Глобально: " + name + " parent: " + Utils.ToHex(parent) + " className: " + className);
             }
             else if (entry.parentEntry != null)
             {
@@ -475,7 +483,11 @@ namespace SpacerUnion
                     node.Tag = vob;
                     entry.node = node;
                     ApplyNodeImage(className, node, true);
+
+
                     UnionNET.objTreeWin.globalTree.SelectedNode = node;
+                    
+                        
                 }
                 else
                 {
@@ -498,7 +510,8 @@ namespace SpacerUnion
             countNodeView = 0;
             CalcNodesCount(UnionNET.objTreeWin.globalTree.Nodes);
             ConsoleEx.WriteLineGreen("C#: Всего узлов TreeView: " + countNodeView);
-            Console.WriteLine("=============================");
+            Console.WriteLine("=======================================");
+            Console.WriteLine("");
         }
 
 
@@ -593,6 +606,21 @@ namespace SpacerUnion
 
         private void ObjTree_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                // save location and size if the state is normal
+                Properties.Settings.Default.TreeWinLocation = this.Location;
+            }
+            else
+            {
+                // save the RestoreBounds if the form is minimized or maximized!
+                Properties.Settings.Default.TreeWinLocation = this.RestoreBounds.Location;
+            }
+
+            // don't forget to save the settings
+            Properties.Settings.Default.Save();
+
+
             this.Hide();
             e.Cancel = true;
         }
@@ -677,6 +705,7 @@ namespace SpacerUnion
             }
 
             Imports.Extern_SelectVobSync(addr);
+
             UnionNET.form.Focus();
         }
 
@@ -879,6 +908,15 @@ namespace SpacerUnion
         private void globalTree_BeforeSelect(object sender, TreeViewCancelEventArgs e)
         {
             previousSelectedNode = globalTree.SelectedNode;
+        }
+
+        private void ObjTree_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ObjTree_Shown(object sender, EventArgs e)
+        {
         }
     }
 }
