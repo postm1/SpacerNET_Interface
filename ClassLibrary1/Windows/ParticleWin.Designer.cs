@@ -112,6 +112,8 @@
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.checkBoxFPGround = new System.Windows.Forms.CheckBox();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -491,7 +493,9 @@
             this.tabControlObjects.Controls.Add(this.tabPage4);
             this.tabControlObjects.Controls.Add(this.tabPage5);
             this.tabControlObjects.Controls.Add(this.tabPage6);
-            this.tabControlObjects.Location = new System.Drawing.Point(3, 5);
+            this.tabControlObjects.Controls.Add(this.tabPage7);
+            this.tabControlObjects.Controls.Add(this.tabPage8);
+            this.tabControlObjects.Location = new System.Drawing.Point(3, 12);
             this.tabControlObjects.Name = "tabControlObjects";
             this.tabControlObjects.SelectedIndex = 0;
             this.tabControlObjects.Size = new System.Drawing.Size(569, 382);
@@ -1021,6 +1025,24 @@
             this.checkBoxFPGround.Text = "Прижимать к земле";
             this.checkBoxFPGround.UseVisualStyleBackColor = true;
             // 
+            // tabPage7
+            // 
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(561, 356);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "Камера";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Size = new System.Drawing.Size(561, 356);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "Свет";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
             // ParticleWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1152,5 +1174,7 @@
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.CheckBox checkBoxAutoNameFP;
         private System.Windows.Forms.CheckBox checkBoxFPGround;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.TabPage tabPage8;
     }
 }
