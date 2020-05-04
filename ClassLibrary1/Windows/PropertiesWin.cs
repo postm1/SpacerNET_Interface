@@ -490,6 +490,40 @@ namespace SpacerUnion
                 return;
             }
 
+
+            TreeNode node = treeViewProp.SelectedNode;
+            TextBox textBox = sender as TextBox;
+            int index = 0;
+
+            if (node != null && node.Tag.ToString() != "folder")
+            {
+                int.TryParse(node.Tag.ToString(), out index);
+
+                if (index >= 0)
+                {
+
+                    //Console.WriteLine("Change entry with index: " + index);
+                    CProperty prop = props[index];
+
+                    if (prop.Name == "vobName")
+                    {
+                        string newName = prop.value;
+                        IntPtr newNamePtr = Marshal.StringToHGlobalAnsi(newName);
+
+                        if (Imports.Extern_CheckUniqueNameExist(newNamePtr))
+                        {
+                            MessageBox.Show("Такое имя уже существует!");
+                            Marshal.FreeHGlobal(newNamePtr);
+                            return;
+                        }
+                    }
+
+                }
+            }
+
+
+
+
             // блокируем кнопку Применить
             changed = false;
             buttonApply.Enabled = false;
@@ -666,6 +700,8 @@ namespace SpacerUnion
                 return;
             }
 
+
+
             TreeNode node = treeViewProp.SelectedNode;
             TextBox textBox = sender as TextBox;
             int index = 0;
@@ -677,13 +713,21 @@ namespace SpacerUnion
                 if (index >= 0)
                 {
 
+
                     //Console.WriteLine("Change entry with index: " + index);
                     CProperty prop = props[index];
 
+                    /*
+                    if (prop.backup_value == textBox.Text.Trim())
+                    {
+                        buttonApply.Enabled = false;
+                        buttonRestore.Enabled = false;
+                        return;
+                    }
+                    */
+
                     prop.value = textBox.Text.Trim();
                     node.Text = prop.Name + ": " + prop.ShowValue();
-
-                    changed = true;
                     buttonApply.Enabled = true;
                     buttonRestore.Enabled = true;
                 }
