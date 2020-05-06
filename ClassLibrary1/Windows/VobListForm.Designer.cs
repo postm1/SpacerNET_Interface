@@ -32,10 +32,10 @@
             this.listBoxVobs = new System.Windows.Forms.ListBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.очиститьСписокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.trackBarRadius = new System.Windows.Forms.TrackBar();
             this.labelRadius = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.labelVobType = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRadius)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +58,7 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.очиститьСписокToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(169, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(169, 26);
             // 
             // очиститьСписокToolStripMenuItem
             // 
@@ -66,24 +66,6 @@
             this.очиститьСписокToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.очиститьСписокToolStripMenuItem.Text = "Очистить список";
             this.очиститьСписокToolStripMenuItem.Click += new System.EventHandler(this.очиститьСписокToolStripMenuItem_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(6, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Custom";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(205, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(92, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Actions >>";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // trackBarRadius
             // 
@@ -106,15 +88,36 @@
             this.labelRadius.TabIndex = 4;
             this.labelRadius.Text = "Радиус поиска: 200";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Все вобы",
+            "Итемы",
+            "Только zCVob"});
+            this.comboBox1.Location = new System.Drawing.Point(116, 7);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(179, 21);
+            this.comboBox1.TabIndex = 5;
+            // 
+            // labelVobType
+            // 
+            this.labelVobType.AutoSize = true;
+            this.labelVobType.Location = new System.Drawing.Point(53, 10);
+            this.labelVobType.Name = "labelVobType";
+            this.labelVobType.Size = new System.Drawing.Size(56, 13);
+            this.labelVobType.TabIndex = 6;
+            this.labelVobType.Text = "Тип воба:";
+            // 
             // VobListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(307, 334);
+            this.Controls.Add(this.labelVobType);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.labelRadius);
             this.Controls.Add(this.trackBarRadius);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.listBoxVobs);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -131,12 +134,12 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         public System.Windows.Forms.ListBox listBoxVobs;
         private System.Windows.Forms.TrackBar trackBarRadius;
         private System.Windows.Forms.Label labelRadius;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem очиститьСписокToolStripMenuItem;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label labelVobType;
     }
 }

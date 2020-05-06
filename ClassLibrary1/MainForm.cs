@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -676,6 +677,71 @@ namespace SpacerUnion
         private void ToolStripMenuTimeNight_Click(object sender, EventArgs e)
         {
             Imports.Extern_SetTime(0, 0);
+        }
+
+        private void анализWaynetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IntPtr result = Imports.Extern_AnalyseWaynet();
+
+            string resultStr = Marshal.PtrToStringAnsi(result);
+
+            if (resultStr.Length == 0)
+            {
+                MessageBox.Show("Ошибки waynet не найдены");
+            }
+            else
+            {
+                MessageBox.Show(resultStr);
+            }
+        }
+
+        private void игратьЗаГерояToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public static Image CaptureScreens(params Screen[] screens)
+        {
+            if (screens == null || screens.Length == 0)
+                throw new ArgumentNullException("screens");
+
+            // Order them in logical left-to-right fashion.
+            var orderedScreens = screens.OrderBy(s => s.Bounds.Left).ToList();
+            // Calculate the total width needed to fit all the screen into a single image
+            var totalWidth = orderedScreens.Sum(s => s.Bounds.Width);
+            // In order to handle screens of different sizes, make sure to make the Bitmap large enough to fit the tallest screen
+            var maxHeight = orderedScreens.Max(s => s.Bounds.Top + s.Bounds.Height);
+
+            var bmp = new Bitmap(totalWidth, maxHeight);
+            int offset = 0;
+
+            // Copy each screen to the bitmap
+            using (var g = Graphics.FromImage(bmp))
+            {
+                foreach (var screen in orderedScreens)
+                {
+                    g.CopyFromScreen(screen.Bounds.Left, screen.Bounds.Top, offset, screen.Bounds.Top, screen.Bounds.Size);
+                    offset += screen.Bounds.Width;
+                }
+            }
+
+            return bmp;
+        }
+
+        private void сделатьСкринToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+
+            Rectangle bounds = this.Bounds;
+            using (Bitmap bitmap = new Bitmap(bounds.Width, bounds.Height))
+            {
+                using (Graphics g = Graphics.FromImage(bitmap))
+                {
+                    g.CopyFromScreen(new Point(bounds.Left, bounds.Top), Point.Empty, bounds.Size);
+                }
+                bitmap.Save("./system/spacer_net/test.png", ImageFormat.Png);
+            }
         }
     }
 }

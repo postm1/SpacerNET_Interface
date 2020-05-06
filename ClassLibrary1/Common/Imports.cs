@@ -161,5 +161,13 @@ namespace SpacerUnion.Common
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern bool Extern_CheckUniqueNameExist(IntPtr vobName);
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr Extern_AnalyseWaynet();
+
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_RenderSelectedVob(IntPtr visual);
+
     }
 }

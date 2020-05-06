@@ -268,7 +268,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Resources\Pictures\Letter_S_red_34876.ico" />
-    <None Include="Resources\x317623-775512241.png" />
+    <None Include="Resources\Pictures\Loading.png" />
     <None Include="Resources\Pictures\Spinner-0.5s-137px.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

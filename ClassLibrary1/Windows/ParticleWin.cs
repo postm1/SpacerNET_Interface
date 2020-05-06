@@ -289,6 +289,9 @@ namespace SpacerUnion
             }
             FindClass(nodes, baseClassName, name);
 
+            UnionNET.partWin.comboBoxSearchClass.Items.Add(name);
+            UnionNET.partWin.comboBoxSearchClass.SelectedIndex = 0;
+
             UnionNET.partWin.classesTreeView.ExpandAll();
             UnionNET.partWin.classesTreeView.SelectedNode = UnionNET.partWin.classesTreeView.Nodes[0];
             UnionNET.partWin.classesTreeView.SelectedNode.EnsureVisible();
@@ -590,6 +593,13 @@ namespace SpacerUnion
             listBoxVisuals.Items.Clear();
             listBoxVisuals.ClearSelected();
             UnionNET.partWin.labelSearchVisual.Text = "Поиск визуала.";
+
+            string visual = "";
+            IntPtr visualPtr = Marshal.StringToHGlobalAnsi(visual);
+
+            Imports.Extern_RenderSelectedVob(visualPtr);
+
+            Marshal.FreeHGlobal(visualPtr);
         }
 
         private void checkBoxDyn_CheckedChanged(object sender, EventArgs e)
@@ -879,6 +889,55 @@ namespace SpacerUnion
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
+            }
+        }
+
+
+        private void listBoxVisuals_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxVisuals.SelectedItem != null && checkBoxShowPreview.Checked)
+            {
+                string visual = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
+                IntPtr visualPtr = Marshal.StringToHGlobalAnsi(visual);
+
+                Imports.Extern_RenderSelectedVob(visualPtr);
+
+                Marshal.FreeHGlobal(visualPtr);
+
+                UnionNET.form.Focus();
+            }
+            
+        }
+
+        private void checkBoxShowPreview_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox ch = sender as CheckBox;
+
+            if (!ch.Checked)
+            {
+                string visual = "";
+                IntPtr visualPtr = Marshal.StringToHGlobalAnsi(visual);
+
+                Imports.Extern_RenderSelectedVob(visualPtr);
+
+                Marshal.FreeHGlobal(visualPtr);
+
+                UnionNET.form.Focus();
+            }
+            else
+            {
+                if (listBoxVisuals.SelectedItem != null)
+                {
+                    string visual = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
+                    IntPtr visualPtr = Marshal.StringToHGlobalAnsi(visual);
+
+                    Imports.Extern_RenderSelectedVob(visualPtr);
+
+                    Marshal.FreeHGlobal(visualPtr);
+
+                    UnionNET.form.Focus();
+                }
+
             }
         }
     }

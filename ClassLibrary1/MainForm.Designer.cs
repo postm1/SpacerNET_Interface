@@ -55,6 +55,8 @@
             this.ToolStripMenuTimeDay = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuTimeEvening = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuTimeNight = new System.Windows.Forms.ToolStripMenuItem();
+            this.анализWaynetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.игратьЗаГерояToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.камераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.управлениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,6 +82,7 @@
             this.toolStripButtonBBox = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonInvisible = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.сделатьСкринToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -227,7 +230,9 @@
             this.здрастеToolStripMenuItem,
             this.компиляцияМираToolStripMenuItem,
             this.камераToolStripMenuItem1,
-            this.времяСутокToolStripMenuItem});
+            this.времяСутокToolStripMenuItem,
+            this.анализWaynetToolStripMenuItem,
+            this.игратьЗаГерояToolStripMenuItem});
             this.ToolStripMenuWorld.ForeColor = System.Drawing.Color.Black;
             this.ToolStripMenuWorld.Name = "ToolStripMenuWorld";
             this.ToolStripMenuWorld.Size = new System.Drawing.Size(44, 20);
@@ -301,6 +306,20 @@
             this.ToolStripMenuTimeNight.Text = "Ночь (00:00)";
             this.ToolStripMenuTimeNight.Click += new System.EventHandler(this.ToolStripMenuTimeNight_Click);
             // 
+            // анализWaynetToolStripMenuItem
+            // 
+            this.анализWaynetToolStripMenuItem.Name = "анализWaynetToolStripMenuItem";
+            this.анализWaynetToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.анализWaynetToolStripMenuItem.Text = "Анализ Waynet";
+            this.анализWaynetToolStripMenuItem.Click += new System.EventHandler(this.анализWaynetToolStripMenuItem_Click);
+            // 
+            // игратьЗаГерояToolStripMenuItem
+            // 
+            this.игратьЗаГерояToolStripMenuItem.Name = "игратьЗаГерояToolStripMenuItem";
+            this.игратьЗаГерояToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.игратьЗаГерояToolStripMenuItem.Text = "Играть за героя";
+            this.игратьЗаГерояToolStripMenuItem.Click += new System.EventHandler(this.игратьЗаГерояToolStripMenuItem_Click);
+            // 
             // toolStripMenuItemSettings
             // 
             this.toolStripMenuItemSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -349,7 +368,8 @@
             // отладкаToolStripMenuItem
             // 
             this.отладкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.вобыВФайлToolStripMenuItem});
+            this.вобыВФайлToolStripMenuItem,
+            this.сделатьСкринToolStripMenuItem});
             this.отладкаToolStripMenuItem.Name = "отладкаToolStripMenuItem";
             this.отладкаToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.отладкаToolStripMenuItem.Text = "Отладка";
@@ -357,7 +377,7 @@
             // вобыВФайлToolStripMenuItem
             // 
             this.вобыВФайлToolStripMenuItem.Name = "вобыВФайлToolStripMenuItem";
-            this.вобыВФайлToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.вобыВФайлToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.вобыВФайлToolStripMenuItem.Text = "Вобы в файл";
             this.вобыВФайлToolStripMenuItem.Click += new System.EventHandler(this.вобыВФайлToolStripMenuItem_Click);
             // 
@@ -518,6 +538,13 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // сделатьСкринToolStripMenuItem
+            // 
+            this.сделатьСкринToolStripMenuItem.Name = "сделатьСкринToolStripMenuItem";
+            this.сделатьСкринToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.сделатьСкринToolStripMenuItem.Text = "Сделать скрин";
+            this.сделатьСкринToolStripMenuItem.Click += new System.EventHandler(this.сделатьСкринToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -599,5 +626,8 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuTimeDay;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuTimeEvening;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuTimeNight;
+        private System.Windows.Forms.ToolStripMenuItem анализWaynetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem игратьЗаГерояToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сделатьСкринToolStripMenuItem;
     }
 }

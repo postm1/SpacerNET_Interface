@@ -54,7 +54,6 @@
             this.button7 = new System.Windows.Forms.Button();
             this.checkBoxStaStat = new System.Windows.Forms.CheckBox();
             this.checkBoxDynStat = new System.Windows.Forms.CheckBox();
-            this.pictureBoxPreview = new System.Windows.Forms.PictureBox();
             this.listBoxVisuals = new System.Windows.Forms.ListBox();
             this.labelSearchVisual = new System.Windows.Forms.Label();
             this.textBoxVisuals = new System.Windows.Forms.TextBox();
@@ -91,33 +90,37 @@
             this.checkBoxDyn = new System.Windows.Forms.CheckBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.checkBoxWayNet = new System.Windows.Forms.CheckBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxFP = new System.Windows.Forms.TextBox();
-            this.buttonFP = new System.Windows.Forms.Button();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBoxWP = new System.Windows.Forms.TextBox();
             this.buttonWP = new System.Windows.Forms.Button();
+            this.checkBoxWPAutoName = new System.Windows.Forms.CheckBox();
+            this.textBoxWP = new System.Windows.Forms.TextBox();
+            this.checkBoxWayNet = new System.Windows.Forms.CheckBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.checkBoxFPGround = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.checkBoxAutoNameFP = new System.Windows.Forms.CheckBox();
+            this.buttonFP = new System.Windows.Forms.Button();
+            this.textBoxFP = new System.Windows.Forms.TextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.labelSearchResult = new System.Windows.Forms.Label();
+            this.listBoxSearchResult = new System.Windows.Forms.ListBox();
+            this.checkBoxSearchDerived = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.checkBoxWPAutoName = new System.Windows.Forms.CheckBox();
-            this.checkBoxAutoNameFP = new System.Windows.Forms.CheckBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.checkBoxFPGround = new System.Windows.Forms.CheckBox();
+            this.comboBoxSearchClass = new System.Windows.Forms.ComboBox();
+            this.treeViewSearchClass = new System.Windows.Forms.TreeView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.checkBoxShowPreview = new System.Windows.Forms.CheckBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).BeginInit();
             this.tabControlObjects.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -127,10 +130,11 @@
             this.groupBox5.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox7.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            this.groupBox9.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -329,20 +333,16 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.groupBox10);
+            this.groupBox3.Controls.Add(this.checkBoxShowPreview);
             this.groupBox3.Controls.Add(this.labelAllModels);
             this.groupBox3.Controls.Add(this.radioButtonWork);
             this.groupBox3.Controls.Add(this.radioButtonVdf);
             this.groupBox3.Controls.Add(this.button7);
-            this.groupBox3.Controls.Add(this.checkBoxStaStat);
-            this.groupBox3.Controls.Add(this.checkBoxDynStat);
-            this.groupBox3.Controls.Add(this.pictureBoxPreview);
             this.groupBox3.Controls.Add(this.listBoxVisuals);
             this.groupBox3.Controls.Add(this.labelSearchVisual);
             this.groupBox3.Controls.Add(this.textBoxVisuals);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.textBoxVobName);
             this.groupBox3.Controls.Add(this.classesTreeView);
-            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Location = new System.Drawing.Point(6, 6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(545, 350);
@@ -353,7 +353,7 @@
             // labelAllModels
             // 
             this.labelAllModels.AutoSize = true;
-            this.labelAllModels.Location = new System.Drawing.Point(132, 141);
+            this.labelAllModels.Location = new System.Drawing.Point(385, 153);
             this.labelAllModels.Name = "labelAllModels";
             this.labelAllModels.Size = new System.Drawing.Size(87, 13);
             this.labelAllModels.TabIndex = 15;
@@ -362,7 +362,7 @@
             // radioButtonWork
             // 
             this.radioButtonWork.AutoSize = true;
-            this.radioButtonWork.Location = new System.Drawing.Point(61, 139);
+            this.radioButtonWork.Location = new System.Drawing.Point(314, 152);
             this.radioButtonWork.Name = "radioButtonWork";
             this.radioButtonWork.Size = new System.Drawing.Size(65, 17);
             this.radioButtonWork.TabIndex = 14;
@@ -373,7 +373,7 @@
             // 
             this.radioButtonVdf.AutoSize = true;
             this.radioButtonVdf.Checked = true;
-            this.radioButtonVdf.Location = new System.Drawing.Point(9, 139);
+            this.radioButtonVdf.Location = new System.Drawing.Point(262, 152);
             this.radioButtonVdf.Name = "radioButtonVdf";
             this.radioButtonVdf.Size = new System.Drawing.Size(46, 17);
             this.radioButtonVdf.TabIndex = 13;
@@ -383,7 +383,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(212, 177);
+            this.button7.Location = new System.Drawing.Point(466, 195);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(73, 25);
             this.button7.TabIndex = 12;
@@ -394,11 +394,11 @@
             // checkBoxStaStat
             // 
             this.checkBoxStaStat.AutoSize = true;
-            this.checkBoxStaStat.Location = new System.Drawing.Point(291, 116);
+            this.checkBoxStaStat.Location = new System.Drawing.Point(166, 93);
             this.checkBoxStaStat.Name = "checkBoxStaStat";
-            this.checkBoxStaStat.Size = new System.Drawing.Size(141, 17);
+            this.checkBoxStaStat.Size = new System.Drawing.Size(103, 17);
             this.checkBoxStaStat.TabIndex = 11;
-            this.checkBoxStaStat.Text = "Статическая коллизия";
+            this.checkBoxStaStat.Text = "Стат. коллизия";
             this.checkBoxStaStat.UseVisualStyleBackColor = true;
             // 
             // checkBoxDynStat
@@ -406,34 +406,26 @@
             this.checkBoxDynStat.AutoSize = true;
             this.checkBoxDynStat.Checked = true;
             this.checkBoxDynStat.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxDynStat.Location = new System.Drawing.Point(291, 99);
+            this.checkBoxDynStat.Location = new System.Drawing.Point(9, 93);
             this.checkBoxDynStat.Name = "checkBoxDynStat";
-            this.checkBoxDynStat.Size = new System.Drawing.Size(153, 17);
+            this.checkBoxDynStat.Size = new System.Drawing.Size(126, 17);
             this.checkBoxDynStat.TabIndex = 10;
-            this.checkBoxDynStat.Text = "Динамическая коллизия";
+            this.checkBoxDynStat.Text = "Динамич. коллизия";
             this.checkBoxDynStat.UseVisualStyleBackColor = true;
-            // 
-            // pictureBoxPreview
-            // 
-            this.pictureBoxPreview.Image = global::SpacerUnion.Properties.Resources.dsads;
-            this.pictureBoxPreview.Location = new System.Drawing.Point(291, 176);
-            this.pictureBoxPreview.Name = "pictureBoxPreview";
-            this.pictureBoxPreview.Size = new System.Drawing.Size(248, 168);
-            this.pictureBoxPreview.TabIndex = 9;
-            this.pictureBoxPreview.TabStop = false;
             // 
             // listBoxVisuals
             // 
             this.listBoxVisuals.FormattingEnabled = true;
-            this.listBoxVisuals.Location = new System.Drawing.Point(6, 210);
+            this.listBoxVisuals.Location = new System.Drawing.Point(261, 223);
             this.listBoxVisuals.Name = "listBoxVisuals";
-            this.listBoxVisuals.Size = new System.Drawing.Size(278, 134);
+            this.listBoxVisuals.Size = new System.Drawing.Size(278, 121);
             this.listBoxVisuals.TabIndex = 8;
+            this.listBoxVisuals.SelectedIndexChanged += new System.EventHandler(this.listBoxVisuals_SelectedIndexChanged);
             // 
             // labelSearchVisual
             // 
             this.labelSearchVisual.AutoSize = true;
-            this.labelSearchVisual.Location = new System.Drawing.Point(6, 163);
+            this.labelSearchVisual.Location = new System.Drawing.Point(258, 174);
             this.labelSearchVisual.Name = "labelSearchVisual";
             this.labelSearchVisual.Size = new System.Drawing.Size(109, 13);
             this.labelSearchVisual.TabIndex = 7;
@@ -442,7 +434,7 @@
             // textBoxVisuals
             // 
             this.textBoxVisuals.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxVisuals.Location = new System.Drawing.Point(6, 179);
+            this.textBoxVisuals.Location = new System.Drawing.Point(261, 196);
             this.textBoxVisuals.Name = "textBoxVisuals";
             this.textBoxVisuals.Size = new System.Drawing.Size(200, 22);
             this.textBoxVisuals.TabIndex = 6;
@@ -451,7 +443,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(288, 19);
+            this.label1.Location = new System.Drawing.Point(6, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 4;
@@ -461,9 +453,9 @@
             // textBoxVobName
             // 
             this.textBoxVobName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxVobName.Location = new System.Drawing.Point(291, 36);
+            this.textBoxVobName.Location = new System.Drawing.Point(9, 33);
             this.textBoxVobName.Name = "textBoxVobName";
-            this.textBoxVobName.Size = new System.Drawing.Size(211, 22);
+            this.textBoxVobName.Size = new System.Drawing.Size(260, 22);
             this.textBoxVobName.TabIndex = 3;
             // 
             // classesTreeView
@@ -471,15 +463,15 @@
             this.classesTreeView.HideSelection = false;
             this.classesTreeView.Location = new System.Drawing.Point(6, 19);
             this.classesTreeView.Name = "classesTreeView";
-            this.classesTreeView.Size = new System.Drawing.Size(276, 114);
+            this.classesTreeView.Size = new System.Drawing.Size(240, 325);
             this.classesTreeView.TabIndex = 1;
             this.classesTreeView.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.classesTreeView_DrawNode);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(291, 63);
+            this.button1.Location = new System.Drawing.Point(9, 60);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(211, 30);
+            this.button1.Size = new System.Drawing.Size(260, 26);
             this.button1.TabIndex = 0;
             this.button1.Text = "Создать Vob";
             this.button1.UseVisualStyleBackColor = true;
@@ -801,202 +793,6 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Ключевые точки";
             // 
-            // checkBoxWayNet
-            // 
-            this.checkBoxWayNet.AutoSize = true;
-            this.checkBoxWayNet.Checked = true;
-            this.checkBoxWayNet.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxWayNet.Location = new System.Drawing.Point(9, 67);
-            this.checkBoxWayNet.Name = "checkBoxWayNet";
-            this.checkBoxWayNet.Size = new System.Drawing.Size(147, 17);
-            this.checkBoxWayNet.TabIndex = 12;
-            this.checkBoxWayNet.Text = "Сразу соединять в сеть";
-            this.checkBoxWayNet.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(8, 182);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(232, 30);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Разъединить WP";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(8, 148);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(232, 30);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Соединить WP";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(6, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Имя Freepoint (обязательно)";
-            // 
-            // textBoxFP
-            // 
-            this.textBoxFP.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBoxFP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxFP.Location = new System.Drawing.Point(9, 33);
-            this.textBoxFP.Name = "textBoxFP";
-            this.textBoxFP.Size = new System.Drawing.Size(232, 22);
-            this.textBoxFP.TabIndex = 8;
-            this.textBoxFP.Text = "FP_";
-            // 
-            // buttonFP
-            // 
-            this.buttonFP.Location = new System.Drawing.Point(9, 114);
-            this.buttonFP.Name = "buttonFP";
-            this.buttonFP.Size = new System.Drawing.Size(232, 30);
-            this.buttonFP.TabIndex = 7;
-            this.buttonFP.Text = "Создать Freepoint";
-            this.buttonFP.UseVisualStyleBackColor = true;
-            this.buttonFP.Click += new System.EventHandler(this.buttonFP_Click_1);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(10, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(151, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Имя Waypoint (обязательно)";
-            // 
-            // textBoxWP
-            // 
-            this.textBoxWP.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBoxWP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxWP.Location = new System.Drawing.Point(9, 33);
-            this.textBoxWP.Name = "textBoxWP";
-            this.textBoxWP.Size = new System.Drawing.Size(232, 22);
-            this.textBoxWP.TabIndex = 5;
-            // 
-            // buttonWP
-            // 
-            this.buttonWP.Location = new System.Drawing.Point(8, 114);
-            this.buttonWP.Name = "buttonWP";
-            this.buttonWP.Size = new System.Drawing.Size(232, 30);
-            this.buttonWP.TabIndex = 3;
-            this.buttonWP.Text = "Создать Waypoint";
-            this.buttonWP.UseVisualStyleBackColor = true;
-            this.buttonWP.Click += new System.EventHandler(this.buttonWP_Click);
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.groupBox7);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(561, 356);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Поиск";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.textBox1);
-            this.groupBox7.Controls.Add(this.button9);
-            this.groupBox7.Controls.Add(this.button8);
-            this.groupBox7.Controls.Add(this.comboBox1);
-            this.groupBox7.Controls.Add(this.treeView1);
-            this.groupBox7.Location = new System.Drawing.Point(5, 3);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(546, 326);
-            this.groupBox7.TabIndex = 4;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Класс воба";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(256, 87);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(266, 20);
-            this.textBox1.TabIndex = 6;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(447, 46);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 5;
-            this.button9.Text = "Искать";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(447, 16);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 4;
-            this.button8.Text = "Сбросить";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(231, 21);
-            this.comboBox1.TabIndex = 3;
-            // 
-            // treeView1
-            // 
-            this.treeView1.HideSelection = false;
-            this.treeView1.Location = new System.Drawing.Point(6, 46);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(231, 271);
-            this.treeView1.TabIndex = 2;
-            // 
-            // checkBoxWPAutoName
-            // 
-            this.checkBoxWPAutoName.AutoSize = true;
-            this.checkBoxWPAutoName.Checked = true;
-            this.checkBoxWPAutoName.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxWPAutoName.Location = new System.Drawing.Point(9, 90);
-            this.checkBoxWPAutoName.Name = "checkBoxWPAutoName";
-            this.checkBoxWPAutoName.Size = new System.Drawing.Size(138, 17);
-            this.checkBoxWPAutoName.TabIndex = 13;
-            this.checkBoxWPAutoName.Text = "Автогенерация имени";
-            this.checkBoxWPAutoName.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxAutoNameFP
-            // 
-            this.checkBoxAutoNameFP.AutoSize = true;
-            this.checkBoxAutoNameFP.Checked = true;
-            this.checkBoxAutoNameFP.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxAutoNameFP.Location = new System.Drawing.Point(9, 91);
-            this.checkBoxAutoNameFP.Name = "checkBoxAutoNameFP";
-            this.checkBoxAutoNameFP.Size = new System.Drawing.Size(138, 17);
-            this.checkBoxAutoNameFP.TabIndex = 14;
-            this.checkBoxAutoNameFP.Text = "Автогенерация имени";
-            this.checkBoxAutoNameFP.UseVisualStyleBackColor = true;
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.checkBoxFPGround);
-            this.groupBox8.Controls.Add(this.label2);
-            this.groupBox8.Controls.Add(this.checkBoxAutoNameFP);
-            this.groupBox8.Controls.Add(this.buttonFP);
-            this.groupBox8.Controls.Add(this.textBoxFP);
-            this.groupBox8.Location = new System.Drawing.Point(278, 25);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(260, 309);
-            this.groupBox8.TabIndex = 15;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Freepoints";
-            // 
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.label3);
@@ -1013,6 +809,94 @@
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Waypoints";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(10, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(151, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Имя Waypoint (обязательно)";
+            // 
+            // buttonWP
+            // 
+            this.buttonWP.Location = new System.Drawing.Point(8, 114);
+            this.buttonWP.Name = "buttonWP";
+            this.buttonWP.Size = new System.Drawing.Size(232, 30);
+            this.buttonWP.TabIndex = 3;
+            this.buttonWP.Text = "Создать Waypoint";
+            this.buttonWP.UseVisualStyleBackColor = true;
+            this.buttonWP.Click += new System.EventHandler(this.buttonWP_Click);
+            // 
+            // checkBoxWPAutoName
+            // 
+            this.checkBoxWPAutoName.AutoSize = true;
+            this.checkBoxWPAutoName.Checked = true;
+            this.checkBoxWPAutoName.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxWPAutoName.Location = new System.Drawing.Point(9, 90);
+            this.checkBoxWPAutoName.Name = "checkBoxWPAutoName";
+            this.checkBoxWPAutoName.Size = new System.Drawing.Size(138, 17);
+            this.checkBoxWPAutoName.TabIndex = 13;
+            this.checkBoxWPAutoName.Text = "Автогенерация имени";
+            this.checkBoxWPAutoName.UseVisualStyleBackColor = true;
+            // 
+            // textBoxWP
+            // 
+            this.textBoxWP.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxWP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxWP.Location = new System.Drawing.Point(9, 33);
+            this.textBoxWP.Name = "textBoxWP";
+            this.textBoxWP.Size = new System.Drawing.Size(232, 22);
+            this.textBoxWP.TabIndex = 5;
+            // 
+            // checkBoxWayNet
+            // 
+            this.checkBoxWayNet.AutoSize = true;
+            this.checkBoxWayNet.Checked = true;
+            this.checkBoxWayNet.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxWayNet.Location = new System.Drawing.Point(9, 67);
+            this.checkBoxWayNet.Name = "checkBoxWayNet";
+            this.checkBoxWayNet.Size = new System.Drawing.Size(147, 17);
+            this.checkBoxWayNet.TabIndex = 12;
+            this.checkBoxWayNet.Text = "Сразу соединять в сеть";
+            this.checkBoxWayNet.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(8, 148);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(232, 30);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Соединить WP";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(8, 182);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(232, 30);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Разъединить WP";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.checkBoxFPGround);
+            this.groupBox8.Controls.Add(this.label2);
+            this.groupBox8.Controls.Add(this.checkBoxAutoNameFP);
+            this.groupBox8.Controls.Add(this.buttonFP);
+            this.groupBox8.Controls.Add(this.textBoxFP);
+            this.groupBox8.Location = new System.Drawing.Point(278, 25);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(260, 309);
+            this.groupBox8.TabIndex = 15;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Freepoints";
+            // 
             // checkBoxFPGround
             // 
             this.checkBoxFPGround.AutoSize = true;
@@ -1024,6 +908,144 @@
             this.checkBoxFPGround.TabIndex = 15;
             this.checkBoxFPGround.Text = "Прижимать к земле";
             this.checkBoxFPGround.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(6, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(150, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Имя Freepoint (обязательно)";
+            // 
+            // checkBoxAutoNameFP
+            // 
+            this.checkBoxAutoNameFP.AutoSize = true;
+            this.checkBoxAutoNameFP.Checked = true;
+            this.checkBoxAutoNameFP.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxAutoNameFP.Location = new System.Drawing.Point(9, 91);
+            this.checkBoxAutoNameFP.Name = "checkBoxAutoNameFP";
+            this.checkBoxAutoNameFP.Size = new System.Drawing.Size(138, 17);
+            this.checkBoxAutoNameFP.TabIndex = 14;
+            this.checkBoxAutoNameFP.Text = "Автогенерация имени";
+            this.checkBoxAutoNameFP.UseVisualStyleBackColor = true;
+            // 
+            // buttonFP
+            // 
+            this.buttonFP.Location = new System.Drawing.Point(9, 114);
+            this.buttonFP.Name = "buttonFP";
+            this.buttonFP.Size = new System.Drawing.Size(232, 30);
+            this.buttonFP.TabIndex = 7;
+            this.buttonFP.Text = "Создать Freepoint";
+            this.buttonFP.UseVisualStyleBackColor = true;
+            this.buttonFP.Click += new System.EventHandler(this.buttonFP_Click_1);
+            // 
+            // textBoxFP
+            // 
+            this.textBoxFP.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxFP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxFP.Location = new System.Drawing.Point(9, 33);
+            this.textBoxFP.Name = "textBoxFP";
+            this.textBoxFP.Size = new System.Drawing.Size(232, 22);
+            this.textBoxFP.TabIndex = 8;
+            this.textBoxFP.Text = "FP_";
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.groupBox7);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(561, 356);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Поиск";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.labelSearchResult);
+            this.groupBox7.Controls.Add(this.listBoxSearchResult);
+            this.groupBox7.Controls.Add(this.checkBoxSearchDerived);
+            this.groupBox7.Controls.Add(this.textBox1);
+            this.groupBox7.Controls.Add(this.button9);
+            this.groupBox7.Controls.Add(this.button8);
+            this.groupBox7.Controls.Add(this.comboBoxSearchClass);
+            this.groupBox7.Controls.Add(this.treeViewSearchClass);
+            this.groupBox7.Location = new System.Drawing.Point(5, 3);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(546, 350);
+            this.groupBox7.TabIndex = 4;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Класс воба";
+            // 
+            // labelSearchResult
+            // 
+            this.labelSearchResult.AutoSize = true;
+            this.labelSearchResult.Location = new System.Drawing.Point(243, 77);
+            this.labelSearchResult.Name = "labelSearchResult";
+            this.labelSearchResult.Size = new System.Drawing.Size(62, 13);
+            this.labelSearchResult.TabIndex = 9;
+            this.labelSearchResult.Text = "Результат:";
+            // 
+            // listBoxSearchResult
+            // 
+            this.listBoxSearchResult.FormattingEnabled = true;
+            this.listBoxSearchResult.Location = new System.Drawing.Point(243, 102);
+            this.listBoxSearchResult.Name = "listBoxSearchResult";
+            this.listBoxSearchResult.Size = new System.Drawing.Size(297, 238);
+            this.listBoxSearchResult.TabIndex = 8;
+            // 
+            // checkBoxSearchDerived
+            // 
+            this.checkBoxSearchDerived.AutoSize = true;
+            this.checkBoxSearchDerived.Location = new System.Drawing.Point(243, 22);
+            this.checkBoxSearchDerived.Name = "checkBoxSearchDerived";
+            this.checkBoxSearchDerived.Size = new System.Drawing.Size(165, 17);
+            this.checkBoxSearchDerived.TabIndex = 7;
+            this.checkBoxSearchDerived.Text = "Искать в дочерних классах";
+            this.checkBoxSearchDerived.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(243, 50);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(165, 20);
+            this.textBox1.TabIndex = 6;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(414, 48);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.TabIndex = 5;
+            this.button9.Text = "Искать";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(414, 19);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 4;
+            this.button8.Text = "Сбросить";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxSearchClass
+            // 
+            this.comboBoxSearchClass.FormattingEnabled = true;
+            this.comboBoxSearchClass.Location = new System.Drawing.Point(6, 19);
+            this.comboBoxSearchClass.Name = "comboBoxSearchClass";
+            this.comboBoxSearchClass.Size = new System.Drawing.Size(231, 21);
+            this.comboBoxSearchClass.TabIndex = 3;
+            // 
+            // treeViewSearchClass
+            // 
+            this.treeViewSearchClass.HideSelection = false;
+            this.treeViewSearchClass.Location = new System.Drawing.Point(6, 46);
+            this.treeViewSearchClass.Name = "treeViewSearchClass";
+            this.treeViewSearchClass.Size = new System.Drawing.Size(231, 294);
+            this.treeViewSearchClass.TabIndex = 2;
             // 
             // tabPage7
             // 
@@ -1042,6 +1064,33 @@
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Свет";
             this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxShowPreview
+            // 
+            this.checkBoxShowPreview.AutoSize = true;
+            this.checkBoxShowPreview.Checked = true;
+            this.checkBoxShowPreview.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxShowPreview.Location = new System.Drawing.Point(409, 173);
+            this.checkBoxShowPreview.Name = "checkBoxShowPreview";
+            this.checkBoxShowPreview.Size = new System.Drawing.Size(130, 17);
+            this.checkBoxShowPreview.TabIndex = 17;
+            this.checkBoxShowPreview.Text = "Показывать модель";
+            this.checkBoxShowPreview.UseVisualStyleBackColor = true;
+            this.checkBoxShowPreview.CheckedChanged += new System.EventHandler(this.checkBoxShowPreview_CheckedChanged);
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.label1);
+            this.groupBox10.Controls.Add(this.button1);
+            this.groupBox10.Controls.Add(this.textBoxVobName);
+            this.groupBox10.Controls.Add(this.checkBoxDynStat);
+            this.groupBox10.Controls.Add(this.checkBoxStaStat);
+            this.groupBox10.Location = new System.Drawing.Point(252, 13);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(287, 130);
+            this.groupBox10.TabIndex = 18;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Свойства воба";
             // 
             // ParticleWin
             // 
@@ -1064,7 +1113,6 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).EndInit();
             this.tabControlObjects.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -1077,13 +1125,15 @@
             this.groupBox5.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1150,8 +1200,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TreeView treeViewSearchClass;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.RadioButton radioButtonBefore;
         private System.Windows.Forms.RadioButton radioButtonAfter;
@@ -1167,7 +1216,6 @@
         private System.Windows.Forms.Button buttonAddContainer;
         private System.Windows.Forms.RadioButton radioButtonWork;
         private System.Windows.Forms.RadioButton radioButtonVdf;
-        private System.Windows.Forms.PictureBox pictureBoxPreview;
         private System.Windows.Forms.Label labelAllModels;
         private System.Windows.Forms.CheckBox checkBoxWPAutoName;
         private System.Windows.Forms.GroupBox groupBox9;
@@ -1176,5 +1224,11 @@
         private System.Windows.Forms.CheckBox checkBoxFPGround;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage8;
+        public System.Windows.Forms.ComboBox comboBoxSearchClass;
+        private System.Windows.Forms.CheckBox checkBoxSearchDerived;
+        private System.Windows.Forms.Label labelSearchResult;
+        private System.Windows.Forms.ListBox listBoxSearchResult;
+        private System.Windows.Forms.CheckBox checkBoxShowPreview;
+        private System.Windows.Forms.GroupBox groupBox10;
     }
 }
