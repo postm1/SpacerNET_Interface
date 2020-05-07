@@ -42,14 +42,18 @@ namespace SpacerUnion
 
         public static void Error(string msg)
         {
-            msg = "C#: " + msg;
+            DateTime now = DateTime.Now;
+
+            msg = now.ToString("dd.MM.yyyy hh:mm:ss") + " C#: " + msg;
             ConsoleEx.WriteLineRed(msg);
             Utils.WriteToFile(msg);
         }
 
         public static void InfoFile(string msg)
         {
-            msg = "Info >> " + msg;
+            DateTime now = DateTime.Now;
+
+            msg = now.ToString("dd.MM.yyyy hh:mm:ss") + " C# info: " + msg;
             Utils.WriteToFile(msg);
         }
     }

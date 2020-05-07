@@ -23,10 +23,11 @@ namespace SpacerUnion
         const string TAG_FOLDER = "folder";
 
         public static Dictionary<uint, TreeEntry> globalEntries = new Dictionary<uint, TreeEntry>();
+        public static Dictionary<uint, TreeEntry> tempEntries = new Dictionary<uint, TreeEntry>();
         static bool nextAfterEventBlocked = false;
         static bool nextAfterEventBlockedSelect = false;
         static TreeNode lastSelectedNode = null;
-        
+        static bool IsWaypointReload = false;
 
         public ObjTree()
         {
@@ -311,6 +312,73 @@ namespace SpacerUnion
         }
 
         [DllExport]
+        public static void ReloadWaypoint()
+        {
+            ConsoleEx.WriteLineGreen("C#: Перестраиваю список вейпоинтов в интерфейсе: Кол-во вобов в списке " + globalEntries.Count);
+
+            foreach (var entry in tempEntries)
+            {
+                AddVobToNodes(entry.Value);
+            }
+
+            IsWaypointReload = false;
+            tempEntries.Clear();
+
+            ConsoleEx.WriteLineGreen("C#: Дерево вейпоинтов обновлено заполнено. Всего записей: " + globalEntries.Count);
+        }
+        
+        [DllExport]
+        public static void ClearWaypoints()
+        {
+
+            ConsoleEx.WriteLineGreen("C#: Начало очистки вейпоинтов: Кол-во вобов в списке " + globalEntries.Count);
+
+
+            TreeNode node = UnionNET.objTreeWin.globalTree.SelectedNode;
+
+            // Если есть выделенный объект и это вейпоинт, то снимает выделение, потому что Node будет удален, иначе вылет
+            if (node != null)
+            {
+                string tag = node.Tag.ToString();
+
+                if (tag != TAG_FOLDER && tag.Length > 0)
+                {
+                    uint addr = Convert.ToUInt32(node.Tag);
+
+                    if (globalEntries[addr].className == "zCVobWaypoint")
+                    {
+                        UnionNET.objTreeWin.globalTree.SelectedNode = null;
+                    }
+                }
+            }
+
+         
+            var waypointsNodesList = globalEntries
+                        .Where(pair => pair.Value.className == "zCVobWaypoint")
+                        .ToDictionary(pair => pair.Key, pair => pair.Value);
+
+
+
+            foreach (var entry in waypointsNodesList)
+            {
+                if (entry.Value.node != null)
+                {
+                    entry.Value.node.Remove();
+                }
+            }
+
+            globalEntries = globalEntries
+                        .Where(pair => pair.Value.className != "zCVobWaypoint")
+                        .ToDictionary(pair => pair.Key, pair => pair.Value);
+
+
+            IsWaypointReload = true;
+            tempEntries.Clear();
+            ConsoleEx.WriteLineGreen("C#: Очистил вейпоины: Кол-во вобов в списке " + globalEntries.Count);
+
+        }
+
+        [DllExport]
         public static void OnVobRemove(uint vob)
         {
             TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
@@ -406,6 +474,16 @@ namespace SpacerUnion
                     + ", ChildrenCount: " + globalEntries[vob].childs.Count
                     + ", ToDelete: " + globalEntries[vob].toDelete;
 
+
+                msg += "\nglobalEntries Count: " + globalEntries.Count.ToString();
+
+
+                countNodeView = 0;
+                CalcNodesCount(UnionNET.objTreeWin.globalTree.Nodes);
+
+
+                msg += "\nNodes Count: " + countNodeView.ToString();
+
                 if (globalEntries[vob].node != null)
                 {
                     msg += "\nnode.text: " + globalEntries[vob].node.Text;
@@ -421,10 +499,9 @@ namespace SpacerUnion
 
                 msg += "\n==============================";
 
-                Utils.WriteToFile(msg);
-                ConsoleEx.WriteLineRed(msg);
+                Utils.Error(msg);
 
-                //MessageBox.Show(msg);
+                MessageBox.Show(msg);
                 //return;
             }
 
@@ -556,6 +633,11 @@ namespace SpacerUnion
             try
             {
                 globalEntries.Add(vob, entry);
+
+                if (IsWaypointReload)
+                {
+                    tempEntries.Add(vob, entry);
+                }
             }
             catch
             {
