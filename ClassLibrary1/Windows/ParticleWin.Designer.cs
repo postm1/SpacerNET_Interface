@@ -48,19 +48,21 @@
             this.listBoxItems = new System.Windows.Forms.ListBox();
             this.buttonItems = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBoxVobName = new System.Windows.Forms.TextBox();
+            this.checkBoxDynStat = new System.Windows.Forms.CheckBox();
+            this.checkBoxStaStat = new System.Windows.Forms.CheckBox();
+            this.checkBoxShowPreview = new System.Windows.Forms.CheckBox();
             this.labelAllModels = new System.Windows.Forms.Label();
             this.radioButtonWork = new System.Windows.Forms.RadioButton();
             this.radioButtonVdf = new System.Windows.Forms.RadioButton();
             this.button7 = new System.Windows.Forms.Button();
-            this.checkBoxStaStat = new System.Windows.Forms.CheckBox();
-            this.checkBoxDynStat = new System.Windows.Forms.CheckBox();
             this.listBoxVisuals = new System.Windows.Forms.ListBox();
             this.labelSearchVisual = new System.Windows.Forms.Label();
             this.textBoxVisuals = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxVobName = new System.Windows.Forms.TextBox();
             this.classesTreeView = new System.Windows.Forms.TreeView();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabControlObjects = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -116,11 +118,10 @@
             this.treeViewSearchClass = new System.Windows.Forms.TreeView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.checkBoxShowPreview = new System.Windows.Forms.CheckBox();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.tabControlObjects.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -134,7 +135,6 @@
             this.groupBox8.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox7.SuspendLayout();
-            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -350,6 +350,83 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Все классы вобов";
             // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.label1);
+            this.groupBox10.Controls.Add(this.button1);
+            this.groupBox10.Controls.Add(this.textBoxVobName);
+            this.groupBox10.Controls.Add(this.checkBoxDynStat);
+            this.groupBox10.Controls.Add(this.checkBoxStaStat);
+            this.groupBox10.Location = new System.Drawing.Point(252, 13);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(287, 130);
+            this.groupBox10.TabIndex = 18;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Свойства воба";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Имя воба";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(9, 60);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(260, 26);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Создать Vob";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBoxVobName
+            // 
+            this.textBoxVobName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxVobName.Location = new System.Drawing.Point(9, 33);
+            this.textBoxVobName.Name = "textBoxVobName";
+            this.textBoxVobName.Size = new System.Drawing.Size(260, 22);
+            this.textBoxVobName.TabIndex = 3;
+            // 
+            // checkBoxDynStat
+            // 
+            this.checkBoxDynStat.AutoSize = true;
+            this.checkBoxDynStat.Checked = true;
+            this.checkBoxDynStat.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDynStat.Location = new System.Drawing.Point(9, 93);
+            this.checkBoxDynStat.Name = "checkBoxDynStat";
+            this.checkBoxDynStat.Size = new System.Drawing.Size(126, 17);
+            this.checkBoxDynStat.TabIndex = 10;
+            this.checkBoxDynStat.Text = "Динамич. коллизия";
+            this.checkBoxDynStat.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxStaStat
+            // 
+            this.checkBoxStaStat.AutoSize = true;
+            this.checkBoxStaStat.Location = new System.Drawing.Point(166, 93);
+            this.checkBoxStaStat.Name = "checkBoxStaStat";
+            this.checkBoxStaStat.Size = new System.Drawing.Size(103, 17);
+            this.checkBoxStaStat.TabIndex = 11;
+            this.checkBoxStaStat.Text = "Стат. коллизия";
+            this.checkBoxStaStat.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxShowPreview
+            // 
+            this.checkBoxShowPreview.AutoSize = true;
+            this.checkBoxShowPreview.Checked = true;
+            this.checkBoxShowPreview.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxShowPreview.Location = new System.Drawing.Point(409, 173);
+            this.checkBoxShowPreview.Name = "checkBoxShowPreview";
+            this.checkBoxShowPreview.Size = new System.Drawing.Size(130, 17);
+            this.checkBoxShowPreview.TabIndex = 17;
+            this.checkBoxShowPreview.Text = "Показывать модель";
+            this.checkBoxShowPreview.UseVisualStyleBackColor = true;
+            this.checkBoxShowPreview.CheckedChanged += new System.EventHandler(this.checkBoxShowPreview_CheckedChanged);
+            // 
             // labelAllModels
             // 
             this.labelAllModels.AutoSize = true;
@@ -391,28 +468,6 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // checkBoxStaStat
-            // 
-            this.checkBoxStaStat.AutoSize = true;
-            this.checkBoxStaStat.Location = new System.Drawing.Point(166, 93);
-            this.checkBoxStaStat.Name = "checkBoxStaStat";
-            this.checkBoxStaStat.Size = new System.Drawing.Size(103, 17);
-            this.checkBoxStaStat.TabIndex = 11;
-            this.checkBoxStaStat.Text = "Стат. коллизия";
-            this.checkBoxStaStat.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxDynStat
-            // 
-            this.checkBoxDynStat.AutoSize = true;
-            this.checkBoxDynStat.Checked = true;
-            this.checkBoxDynStat.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxDynStat.Location = new System.Drawing.Point(9, 93);
-            this.checkBoxDynStat.Name = "checkBoxDynStat";
-            this.checkBoxDynStat.Size = new System.Drawing.Size(126, 17);
-            this.checkBoxDynStat.TabIndex = 10;
-            this.checkBoxDynStat.Text = "Динамич. коллизия";
-            this.checkBoxDynStat.UseVisualStyleBackColor = true;
-            // 
             // listBoxVisuals
             // 
             this.listBoxVisuals.FormattingEnabled = true;
@@ -440,24 +495,6 @@
             this.textBoxVisuals.TabIndex = 6;
             this.textBoxVisuals.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVisuals_KeyPress);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Имя воба";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // textBoxVobName
-            // 
-            this.textBoxVobName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxVobName.Location = new System.Drawing.Point(9, 33);
-            this.textBoxVobName.Name = "textBoxVobName";
-            this.textBoxVobName.Size = new System.Drawing.Size(260, 22);
-            this.textBoxVobName.TabIndex = 3;
-            // 
             // classesTreeView
             // 
             this.classesTreeView.HideSelection = false;
@@ -466,16 +503,6 @@
             this.classesTreeView.Size = new System.Drawing.Size(240, 325);
             this.classesTreeView.TabIndex = 1;
             this.classesTreeView.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.classesTreeView_DrawNode);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(9, 60);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(260, 26);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Создать Vob";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabControlObjects
             // 
@@ -492,6 +519,7 @@
             this.tabControlObjects.SelectedIndex = 0;
             this.tabControlObjects.Size = new System.Drawing.Size(569, 382);
             this.tabControlObjects.TabIndex = 4;
+            this.tabControlObjects.SelectedIndexChanged += new System.EventHandler(this.tabControlObjects_SelectedIndexChanged);
             // 
             // tabPage3
             // 
@@ -950,7 +978,7 @@
             this.textBoxFP.Name = "textBoxFP";
             this.textBoxFP.Size = new System.Drawing.Size(232, 22);
             this.textBoxFP.TabIndex = 8;
-            this.textBoxFP.Text = "FP_";
+            this.textBoxFP.Text = "FP";
             // 
             // tabPage6
             // 
@@ -1065,33 +1093,6 @@
             this.tabPage8.Text = "Свет";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // checkBoxShowPreview
-            // 
-            this.checkBoxShowPreview.AutoSize = true;
-            this.checkBoxShowPreview.Checked = true;
-            this.checkBoxShowPreview.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxShowPreview.Location = new System.Drawing.Point(409, 173);
-            this.checkBoxShowPreview.Name = "checkBoxShowPreview";
-            this.checkBoxShowPreview.Size = new System.Drawing.Size(130, 17);
-            this.checkBoxShowPreview.TabIndex = 17;
-            this.checkBoxShowPreview.Text = "Показывать модель";
-            this.checkBoxShowPreview.UseVisualStyleBackColor = true;
-            this.checkBoxShowPreview.CheckedChanged += new System.EventHandler(this.checkBoxShowPreview_CheckedChanged);
-            // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.label1);
-            this.groupBox10.Controls.Add(this.button1);
-            this.groupBox10.Controls.Add(this.textBoxVobName);
-            this.groupBox10.Controls.Add(this.checkBoxDynStat);
-            this.groupBox10.Controls.Add(this.checkBoxStaStat);
-            this.groupBox10.Location = new System.Drawing.Point(252, 13);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(287, 130);
-            this.groupBox10.TabIndex = 18;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Свойства воба";
-            // 
             // ParticleWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1113,6 +1114,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             this.tabControlObjects.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -1132,8 +1135,6 @@
             this.tabPage6.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
             this.ResumeLayout(false);
 
         }

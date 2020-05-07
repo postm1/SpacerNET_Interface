@@ -940,5 +940,22 @@ namespace SpacerUnion
 
             }
         }
+
+        private void tabControlObjects_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TabControl tab = sender as TabControl;
+
+            if (tab.SelectedIndex != 0)
+            {
+                string visual = "";
+                IntPtr visualPtr = Marshal.StringToHGlobalAnsi(visual);
+
+                Imports.Extern_RenderSelectedVob(visualPtr);
+
+                Marshal.FreeHGlobal(visualPtr);
+
+                UnionNET.form.Focus();
+            }
+        }
     }
 }

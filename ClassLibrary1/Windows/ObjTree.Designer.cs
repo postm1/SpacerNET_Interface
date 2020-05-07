@@ -154,6 +154,8 @@
             this.Controls.Add(this.buttonCollapse);
             this.Controls.Add(this.globalTree);
             this.DoubleBuffered = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ObjTree";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

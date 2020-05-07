@@ -159,7 +159,11 @@ namespace SpacerUnion
 
         private void здрастеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UnionNET.comLightWin.Show();
+            if (!UnionNET.compWorldWin.Visible)
+            {
+                UnionNET.comLightWin.Show();
+            }
+            
 
         }
         public void AddText(string text)
@@ -495,7 +499,11 @@ namespace SpacerUnion
 
         private void компиляцияМираToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UnionNET.compWorldWin.Show();
+            if (!UnionNET.comLightWin.Visible)
+            {
+                UnionNET.compWorldWin.Show();
+            }
+           
         }
 
 
