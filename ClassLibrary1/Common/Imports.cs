@@ -6,12 +6,14 @@ using System.Text;
 
 namespace SpacerUnion.Common
 {
+    // Функции импорта из Юниона
     public class Imports
     {
         
-
+        
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern IntPtr GetForegroundWindow();
+
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_Exit();

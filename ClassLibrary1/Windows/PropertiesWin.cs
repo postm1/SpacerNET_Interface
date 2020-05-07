@@ -955,16 +955,7 @@ namespace SpacerUnion
 
         private void buttonApplyBbox_Click(object sender, EventArgs e)
         {
-            int x, y, z;
-
-            int.TryParse(textBoxBbox0.Text.Trim(), out x);
-            int.TryParse(textBoxBbox1.Text.Trim(), out y);
-            int.TryParse(textBoxBbox2.Text.Trim(), out z);
-
-            Imports.Extern_SetBBox(x, y, z);
-
-            tabControl1.SelectTab(0);
-            DisableTabBBox();
+            
         }
 
         public static void EnableTab(TabPage page, bool enable)
@@ -1000,9 +991,7 @@ namespace SpacerUnion
 
         private void button3_Click(object sender, EventArgs e)
         {
-            dataGridView1.Visible = false;
-            tabControl1.SelectTab(0);
-            DisableTabBBox();
+            
         }
 
         private void buttonContainerApply_Click(object sender, EventArgs e)
@@ -1167,6 +1156,27 @@ namespace SpacerUnion
                 }
             }
                
+        }
+
+        private void buttonResetBbox_Click_1(object sender, EventArgs e)
+        {
+            dataGridView1.Visible = false;
+            tabControl1.SelectTab(0);
+            DisableTabBBox();
+        }
+
+        private void buttonApplyBbox_Click_1(object sender, EventArgs e)
+        {
+            int x, y, z;
+
+            int.TryParse(textBoxBbox0.Text.Trim(), out x);
+            int.TryParse(textBoxBbox1.Text.Trim(), out y);
+            int.TryParse(textBoxBbox2.Text.Trim(), out z);
+
+            Imports.Extern_SetBBox(x, y, z);
+
+            tabControl1.SelectTab(0);
+            DisableTabBBox();
         }
     }
 }

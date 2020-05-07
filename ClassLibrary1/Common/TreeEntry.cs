@@ -8,15 +8,15 @@ namespace SpacerUnion
 {
     public class TreeEntry
     {
-        // реальный адрес воба
+        // адрес воба в памяти
         public uint zCVob;
-        // адрес его родителя или 0
+        // адрес его родителя или 0 если родителя нет
         public uint parent;
         // имя воба
         public string name;
         // имя папки в структуре tree
         public string folderName;
-        // класс моба (oCMobInter...)
+        // класс моба (oCMobInter, zCVob...)
         public string className;
         // is zCVobLevelCompo
         public bool isLevel;
@@ -29,7 +29,7 @@ namespace SpacerUnion
         // ссылка на родительскую запись
         public TreeEntry parentEntry;
 
-        // список ссылок на детей текущей записи
+        // список ссылок на своих детей
         public List<TreeEntry> childs;
        
         public TreeEntry()

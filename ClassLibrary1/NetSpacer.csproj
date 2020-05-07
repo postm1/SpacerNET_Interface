@@ -55,8 +55,8 @@
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>..\..\..\..\..\Games\Gothic 2 Spacer\System\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Optimize>true</Optimize>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Optimize>false</Optimize>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
@@ -100,7 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\AutoClosingMessageBox.cs" />
-    <Compile Include="Common\CmdType.cs" />
     <Compile Include="Common\Imports.cs" />
     <Compile Include="Common\TriggerEntry.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -162,7 +161,7 @@
       <DependentUpon>SoundWin.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\TreeEntry.cs" />
-    <Compile Include="UnionNET.cs" />
+    <Compile Include="Common\UnionNET.cs" />
     <Compile Include="Windows\CompileLightWin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,10 +174,10 @@
     <Compile Include="Windows\InfoWin.Designer.cs">
       <DependentUpon>InfoWin.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Windows\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Windows\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\PropertiesWin.cs">
@@ -220,7 +219,7 @@
     <EmbeddedResource Include="Windows\ParticleWin.resx">
       <DependentUpon>ParticleWin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Windows\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\PropertiesWin.resx">

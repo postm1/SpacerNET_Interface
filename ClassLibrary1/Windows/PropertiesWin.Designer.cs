@@ -33,6 +33,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.treeViewProp = new System.Windows.Forms.TreeView();
             this.panelButtons = new System.Windows.Forms.Panel();
+            this.buttonFileOpen = new System.Windows.Forms.Button();
             this.textBoxVec2 = new System.Windows.Forms.TextBox();
             this.textBoxVec1 = new System.Windows.Forms.TextBox();
             this.textBoxVec0 = new System.Windows.Forms.TextBox();
@@ -43,6 +44,15 @@
             this.Label_Backup = new System.Windows.Forms.Label();
             this.buttonApply = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxBbox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.buttonResetBbox = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxBbox1 = new System.Windows.Forms.TextBox();
+            this.buttonApplyBbox = new System.Windows.Forms.Button();
+            this.textBoxBbox0 = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonRowDelete = new System.Windows.Forms.Button();
@@ -50,30 +60,20 @@
             this.buttonContainerCancel = new System.Windows.Forms.Button();
             this.buttonContainerApply = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.contextMenuStripContainer = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.удалитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBoxBbox2 = new System.Windows.Forms.TextBox();
-            this.textBoxBbox1 = new System.Windows.Forms.TextBox();
-            this.textBoxBbox0 = new System.Windows.Forms.TextBox();
-            this.buttonApplyBbox = new System.Windows.Forms.Button();
-            this.buttonResetBbox = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonFileOpen = new System.Windows.Forms.Button();
+            this.contextMenuStripContainer = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.удалитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogFileName = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStripContainer.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -131,6 +131,16 @@
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.Size = new System.Drawing.Size(310, 106);
             this.panelButtons.TabIndex = 6;
+            // 
+            // buttonFileOpen
+            // 
+            this.buttonFileOpen.Location = new System.Drawing.Point(256, 46);
+            this.buttonFileOpen.Name = "buttonFileOpen";
+            this.buttonFileOpen.Size = new System.Drawing.Size(48, 23);
+            this.buttonFileOpen.TabIndex = 11;
+            this.buttonFileOpen.Text = "Файл";
+            this.buttonFileOpen.UseVisualStyleBackColor = true;
+            this.buttonFileOpen.Click += new System.EventHandler(this.buttonFileOpen_Click);
             // 
             // textBoxVec2
             // 
@@ -237,6 +247,94 @@
             this.tabPage2.Text = "BBox";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.textBoxBbox2);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.buttonResetBbox);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.textBoxBbox1);
+            this.groupBox2.Controls.Add(this.buttonApplyBbox);
+            this.groupBox2.Controls.Add(this.textBoxBbox0);
+            this.groupBox2.Location = new System.Drawing.Point(8, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(306, 208);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Редактирование BBox";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(12, 128);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(15, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Z";
+            // 
+            // textBoxBbox2
+            // 
+            this.textBoxBbox2.Location = new System.Drawing.Point(33, 125);
+            this.textBoxBbox2.Name = "textBoxBbox2";
+            this.textBoxBbox2.Size = new System.Drawing.Size(212, 20);
+            this.textBoxBbox2.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(12, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(15, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Y";
+            // 
+            // buttonResetBbox
+            // 
+            this.buttonResetBbox.Location = new System.Drawing.Point(33, 160);
+            this.buttonResetBbox.Name = "buttonResetBbox";
+            this.buttonResetBbox.Size = new System.Drawing.Size(104, 23);
+            this.buttonResetBbox.TabIndex = 10;
+            this.buttonResetBbox.Text = "Отмена";
+            this.buttonResetBbox.UseVisualStyleBackColor = true;
+            this.buttonResetBbox.Click += new System.EventHandler(this.buttonResetBbox_Click_1);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(12, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(15, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "X";
+            // 
+            // textBoxBbox1
+            // 
+            this.textBoxBbox1.Location = new System.Drawing.Point(33, 85);
+            this.textBoxBbox1.Name = "textBoxBbox1";
+            this.textBoxBbox1.Size = new System.Drawing.Size(212, 20);
+            this.textBoxBbox1.TabIndex = 13;
+            // 
+            // buttonApplyBbox
+            // 
+            this.buttonApplyBbox.Location = new System.Drawing.Point(143, 160);
+            this.buttonApplyBbox.Name = "buttonApplyBbox";
+            this.buttonApplyBbox.Size = new System.Drawing.Size(102, 23);
+            this.buttonApplyBbox.TabIndex = 11;
+            this.buttonApplyBbox.Text = "Применить";
+            this.buttonApplyBbox.UseVisualStyleBackColor = true;
+            this.buttonApplyBbox.Click += new System.EventHandler(this.buttonApplyBbox_Click_1);
+            // 
+            // textBoxBbox0
+            // 
+            this.textBoxBbox0.Location = new System.Drawing.Point(33, 46);
+            this.textBoxBbox0.Name = "textBoxBbox0";
+            this.textBoxBbox0.Size = new System.Drawing.Size(212, 20);
+            this.textBoxBbox0.TabIndex = 12;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.groupBox1);
@@ -322,6 +420,18 @@
             this.dataGridView1.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridView1_RowContextMenuStripNeeded);
             this.dataGridView1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseUp);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Инстанция";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 236;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Кол-во";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 66;
+            // 
             // contextMenuStripContainer
             // 
             this.contextMenuStripContainer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -336,114 +446,6 @@
             this.удалитьСтрокуToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.удалитьСтрокуToolStripMenuItem.Text = "Удалить строку";
             this.удалитьСтрокуToolStripMenuItem.Click += new System.EventHandler(this.удалитьСтрокуToolStripMenuItem_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.textBoxBbox2);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.buttonResetBbox);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.textBoxBbox1);
-            this.groupBox2.Controls.Add(this.buttonApplyBbox);
-            this.groupBox2.Controls.Add(this.textBoxBbox0);
-            this.groupBox2.Location = new System.Drawing.Point(8, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(306, 208);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Редактирование BBox";
-            // 
-            // textBoxBbox2
-            // 
-            this.textBoxBbox2.Location = new System.Drawing.Point(33, 125);
-            this.textBoxBbox2.Name = "textBoxBbox2";
-            this.textBoxBbox2.Size = new System.Drawing.Size(212, 20);
-            this.textBoxBbox2.TabIndex = 14;
-            // 
-            // textBoxBbox1
-            // 
-            this.textBoxBbox1.Location = new System.Drawing.Point(33, 85);
-            this.textBoxBbox1.Name = "textBoxBbox1";
-            this.textBoxBbox1.Size = new System.Drawing.Size(212, 20);
-            this.textBoxBbox1.TabIndex = 13;
-            // 
-            // textBoxBbox0
-            // 
-            this.textBoxBbox0.Location = new System.Drawing.Point(33, 46);
-            this.textBoxBbox0.Name = "textBoxBbox0";
-            this.textBoxBbox0.Size = new System.Drawing.Size(212, 20);
-            this.textBoxBbox0.TabIndex = 12;
-            // 
-            // buttonApplyBbox
-            // 
-            this.buttonApplyBbox.Location = new System.Drawing.Point(143, 160);
-            this.buttonApplyBbox.Name = "buttonApplyBbox";
-            this.buttonApplyBbox.Size = new System.Drawing.Size(102, 23);
-            this.buttonApplyBbox.TabIndex = 11;
-            this.buttonApplyBbox.Text = "Применить";
-            this.buttonApplyBbox.UseVisualStyleBackColor = true;
-            // 
-            // buttonResetBbox
-            // 
-            this.buttonResetBbox.Location = new System.Drawing.Point(33, 160);
-            this.buttonResetBbox.Name = "buttonResetBbox";
-            this.buttonResetBbox.Size = new System.Drawing.Size(104, 23);
-            this.buttonResetBbox.TabIndex = 10;
-            this.buttonResetBbox.Text = "Отмена";
-            this.buttonResetBbox.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(12, 128);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(15, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Z";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(12, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(15, 13);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Y";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(15, 13);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "X";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Инстанция";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 236;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Кол-во";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 66;
-            // 
-            // buttonFileOpen
-            // 
-            this.buttonFileOpen.Location = new System.Drawing.Point(256, 46);
-            this.buttonFileOpen.Name = "buttonFileOpen";
-            this.buttonFileOpen.Size = new System.Drawing.Size(48, 23);
-            this.buttonFileOpen.TabIndex = 11;
-            this.buttonFileOpen.Text = "Файл";
-            this.buttonFileOpen.UseVisualStyleBackColor = true;
-            this.buttonFileOpen.Click += new System.EventHandler(this.buttonFileOpen_Click);
             // 
             // ObjectsWindow
             // 
@@ -464,12 +466,12 @@
             this.panelButtons.ResumeLayout(false);
             this.panelButtons.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStripContainer.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
