@@ -351,9 +351,12 @@ namespace SpacerUnion
             UnionNET.settingsCam.checkBoxDistVob.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("showVobDist")));
 
 
+            UnionNET.settingsCam.checkBoxCameraHideWins.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("hideCamWindows")));
+
+            
 
 
-       
+
 
             UnionNET.settingsCam.Show();
         }
@@ -647,12 +650,15 @@ namespace SpacerUnion
         {
             int transSpeed = Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("vobTransSpeed"));
             int rotSpeed = Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("vobRotSpeed"));
+            bool insertVobItemLevel = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("vobInsertItemLevel")));
+            bool vobInsertVobRotRand = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("vobInsertVobRotRand")));
 
+            
 
             UnionNET.settingsControl.trackBarVobTransSpeed.Value = transSpeed;
             UnionNET.settingsControl.trackBarVobRotSpeed.Value = rotSpeed;
-
-
+            UnionNET.settingsControl.checkBoxInsertVob.Checked = insertVobItemLevel;
+            UnionNET.settingsControl.checkBoxVobRotRandAngle.Checked = vobInsertVobRotRand;
             UnionNET.settingsControl.UpdateAll();
 
             UnionNET.settingsControl.Show();

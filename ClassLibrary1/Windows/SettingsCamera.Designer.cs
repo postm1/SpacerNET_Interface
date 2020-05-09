@@ -46,6 +46,7 @@
             this.checkBoxCamCoord = new System.Windows.Forms.CheckBox();
             this.checkBoxTris = new System.Windows.Forms.CheckBox();
             this.checkBoxFPS = new System.Windows.Forms.CheckBox();
+            this.checkBoxCameraHideWins = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRotSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobs)).BeginInit();
@@ -165,7 +166,7 @@
             // 
             // Применить
             // 
-            this.Применить.Location = new System.Drawing.Point(103, 491);
+            this.Применить.Location = new System.Drawing.Point(105, 495);
             this.Применить.Name = "Применить";
             this.Применить.Size = new System.Drawing.Size(115, 23);
             this.Применить.TabIndex = 10;
@@ -175,6 +176,7 @@
             // 
             // groupBoxInfo
             // 
+            this.groupBoxInfo.Controls.Add(this.checkBoxCameraHideWins);
             this.groupBoxInfo.Controls.Add(this.checkBoxDistVob);
             this.groupBoxInfo.Controls.Add(this.checkBoxWaypoints);
             this.groupBoxInfo.Controls.Add(this.checkBoxVobs);
@@ -183,7 +185,7 @@
             this.groupBoxInfo.Controls.Add(this.checkBoxFPS);
             this.groupBoxInfo.Location = new System.Drawing.Point(15, 307);
             this.groupBoxInfo.Name = "groupBoxInfo";
-            this.groupBoxInfo.Size = new System.Drawing.Size(301, 178);
+            this.groupBoxInfo.Size = new System.Drawing.Size(301, 182);
             this.groupBoxInfo.TabIndex = 10;
             this.groupBoxInfo.TabStop = false;
             this.groupBoxInfo.Text = "Информация";
@@ -254,6 +256,17 @@
             this.checkBoxFPS.UseVisualStyleBackColor = true;
             this.checkBoxFPS.CheckedChanged += new System.EventHandler(this.checkBoxFPS_CheckedChanged);
             // 
+            // checkBoxCameraHideWins
+            // 
+            this.checkBoxCameraHideWins.AutoSize = true;
+            this.checkBoxCameraHideWins.Location = new System.Drawing.Point(9, 157);
+            this.checkBoxCameraHideWins.Name = "checkBoxCameraHideWins";
+            this.checkBoxCameraHideWins.Size = new System.Drawing.Size(205, 17);
+            this.checkBoxCameraHideWins.TabIndex = 6;
+            this.checkBoxCameraHideWins.Text = "Скрывать окна при полете камеры";
+            this.checkBoxCameraHideWins.UseVisualStyleBackColor = true;
+            this.checkBoxCameraHideWins.CheckedChanged += new System.EventHandler(this.checkBoxCameraHideWins_CheckedChanged);
+            // 
             // SettingsCamera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,5 +319,6 @@
         public System.Windows.Forms.CheckBox checkBoxCamCoord;
         public System.Windows.Forms.CheckBox checkBoxDistVob;
         public System.Windows.Forms.CheckBox checkBoxWaypoints;
+        public System.Windows.Forms.CheckBox checkBoxCameraHideWins;
     }
 }

@@ -107,5 +107,12 @@ namespace SpacerUnion
 
             Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("showVobDist"), Convert.ToInt32(cb.Checked));
         }
+
+        private void checkBoxCameraHideWins_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("hideCamWindows"), Convert.ToInt32(cb.Checked));
+        }
     }
 }

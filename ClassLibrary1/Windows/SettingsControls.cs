@@ -48,5 +48,19 @@ namespace SpacerUnion.Windows
         {
             this.Hide();
         }
+
+        private void checkBoxInsertVob_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("vobInsertItemLevel"), Convert.ToInt32(cb.Checked));
+        }
+
+        private void checkBoxVobRotRandAngle_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("vobInsertVobRotRand"), Convert.ToInt32(cb.Checked));
+        }
     }
 }

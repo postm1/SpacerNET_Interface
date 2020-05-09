@@ -34,9 +34,13 @@
             this.trackBarVobTransSpeed = new System.Windows.Forms.TrackBar();
             this.trackBarVobRotSpeed = new System.Windows.Forms.TrackBar();
             this.buttonVobControlApply = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxInsertVob = new System.Windows.Forms.CheckBox();
+            this.checkBoxVobRotRandAngle = new System.Windows.Forms.CheckBox();
             this.groupBoxControlVob.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobRotSpeed)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxControlVob
@@ -95,7 +99,7 @@
             // 
             // buttonVobControlApply
             // 
-            this.buttonVobControlApply.Location = new System.Drawing.Point(93, 174);
+            this.buttonVobControlApply.Location = new System.Drawing.Point(110, 325);
             this.buttonVobControlApply.Name = "buttonVobControlApply";
             this.buttonVobControlApply.Size = new System.Drawing.Size(115, 23);
             this.buttonVobControlApply.TabIndex = 11;
@@ -103,11 +107,47 @@
             this.buttonVobControlApply.UseVisualStyleBackColor = true;
             this.buttonVobControlApply.Click += new System.EventHandler(this.buttonVobControlApply_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.checkBoxVobRotRandAngle);
+            this.groupBox1.Controls.Add(this.checkBoxInsertVob);
+            this.groupBox1.Location = new System.Drawing.Point(13, 168);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(298, 139);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Вставка воба";
+            // 
+            // checkBoxInsertVob
+            // 
+            this.checkBoxInsertVob.AutoSize = true;
+            this.checkBoxInsertVob.Checked = true;
+            this.checkBoxInsertVob.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxInsertVob.Location = new System.Drawing.Point(8, 23);
+            this.checkBoxInsertVob.Name = "checkBoxInsertVob";
+            this.checkBoxInsertVob.Size = new System.Drawing.Size(192, 17);
+            this.checkBoxInsertVob.TabIndex = 0;
+            this.checkBoxInsertVob.Text = "Вставлять воб на той же высоте";
+            this.checkBoxInsertVob.UseVisualStyleBackColor = true;
+            this.checkBoxInsertVob.CheckedChanged += new System.EventHandler(this.checkBoxInsertVob_CheckedChanged);
+            // 
+            // checkBoxVobRotRandAngle
+            // 
+            this.checkBoxVobRotRandAngle.AutoSize = true;
+            this.checkBoxVobRotRandAngle.Location = new System.Drawing.Point(8, 46);
+            this.checkBoxVobRotRandAngle.Name = "checkBoxVobRotRandAngle";
+            this.checkBoxVobRotRandAngle.Size = new System.Drawing.Size(216, 17);
+            this.checkBoxVobRotRandAngle.TabIndex = 1;
+            this.checkBoxVobRotRandAngle.Text = "Поворачивать воб на случайный угол";
+            this.checkBoxVobRotRandAngle.UseVisualStyleBackColor = true;
+            this.checkBoxVobRotRandAngle.CheckedChanged += new System.EventHandler(this.checkBoxVobRotRandAngle_CheckedChanged);
+            // 
             // SettingsControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(331, 526);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonVobControlApply);
             this.Controls.Add(this.groupBoxControlVob);
             this.MaximizeBox = false;
@@ -122,6 +162,8 @@
             this.groupBoxControlVob.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobTransSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobRotSpeed)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -134,5 +176,8 @@
         public System.Windows.Forms.TrackBar trackBarVobTransSpeed;
         public System.Windows.Forms.TrackBar trackBarVobRotSpeed;
         private System.Windows.Forms.Button buttonVobControlApply;
+        private System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.CheckBox checkBoxInsertVob;
+        public System.Windows.Forms.CheckBox checkBoxVobRotRandAngle;
     }
 }
