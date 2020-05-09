@@ -65,6 +65,7 @@
             this.toolStripMenuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.отладкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вобыВФайлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сделатьСкринToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panelMain = new System.Windows.Forms.Panel();
@@ -82,7 +83,7 @@
             this.toolStripButtonBBox = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonInvisible = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.сделатьСкринToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сброситьОкнаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -103,6 +104,8 @@
             this.menuStripTopMain.Size = new System.Drawing.Size(1201, 24);
             this.menuStripTopMain.TabIndex = 0;
             this.menuStripTopMain.Text = "menuStrip1";
+            this.menuStripTopMain.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menuStripTopMain_MouseClick);
+            this.menuStripTopMain.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menuStripTopMain_MouseDoubleClick);
             this.menuStripTopMain.MouseEnter += new System.EventHandler(this.menuStrip1_MouseEnter);
             this.menuStripTopMain.MouseMove += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseMove);
             // 
@@ -334,25 +337,27 @@
             // камераToolStripMenuItem
             // 
             this.камераToolStripMenuItem.Name = "камераToolStripMenuItem";
-            this.камераToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.камераToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.камераToolStripMenuItem.Text = "Камера";
             this.камераToolStripMenuItem.Click += new System.EventHandler(this.камераToolStripMenuItem_Click);
             // 
             // управлениеToolStripMenuItem
             // 
             this.управлениеToolStripMenuItem.Name = "управлениеToolStripMenuItem";
-            this.управлениеToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.управлениеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.управлениеToolStripMenuItem.Text = "Управление";
             this.управлениеToolStripMenuItem.Click += new System.EventHandler(this.управлениеToolStripMenuItem_Click);
             // 
             // прочееToolStripMenuItem
             // 
             this.прочееToolStripMenuItem.Name = "прочееToolStripMenuItem";
-            this.прочееToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.прочееToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.прочееToolStripMenuItem.Text = "Прочее";
             // 
             // toolStripMenuItemWindows
             // 
+            this.toolStripMenuItemWindows.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сброситьОкнаToolStripMenuItem});
             this.toolStripMenuItemWindows.ForeColor = System.Drawing.Color.Black;
             this.toolStripMenuItemWindows.Name = "toolStripMenuItemWindows";
             this.toolStripMenuItemWindows.Size = new System.Drawing.Size(47, 20);
@@ -380,6 +385,13 @@
             this.вобыВФайлToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.вобыВФайлToolStripMenuItem.Text = "Вобы в файл";
             this.вобыВФайлToolStripMenuItem.Click += new System.EventHandler(this.вобыВФайлToolStripMenuItem_Click);
+            // 
+            // сделатьСкринToolStripMenuItem
+            // 
+            this.сделатьСкринToolStripMenuItem.Name = "сделатьСкринToolStripMenuItem";
+            this.сделатьСкринToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.сделатьСкринToolStripMenuItem.Text = "Сделать скрин";
+            this.сделатьСкринToolStripMenuItem.Click += new System.EventHandler(this.сделатьСкринToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -415,6 +427,8 @@
             this.toolStripTop.Name = "toolStripTop";
             this.toolStripTop.Size = new System.Drawing.Size(1201, 25);
             this.toolStripTop.TabIndex = 3;
+            this.toolStripTop.MouseClick += new System.Windows.Forms.MouseEventHandler(this.toolStripTop_MouseClick);
+            this.toolStripTop.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.toolStripTop_MouseDoubleClick);
             // 
             // toolStripButtonInfo
             // 
@@ -538,12 +552,11 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // сделатьСкринToolStripMenuItem
+            // сброситьОкнаToolStripMenuItem
             // 
-            this.сделатьСкринToolStripMenuItem.Name = "сделатьСкринToolStripMenuItem";
-            this.сделатьСкринToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.сделатьСкринToolStripMenuItem.Text = "Сделать скрин";
-            this.сделатьСкринToolStripMenuItem.Click += new System.EventHandler(this.сделатьСкринToolStripMenuItem_Click);
+            this.сброситьОкнаToolStripMenuItem.Name = "сброситьОкнаToolStripMenuItem";
+            this.сброситьОкнаToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.сброситьОкнаToolStripMenuItem.Text = "Сбросить";
             // 
             // MainForm
             // 
@@ -629,5 +642,6 @@
         private System.Windows.Forms.ToolStripMenuItem анализWaynetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem игратьЗаГерояToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сделатьСкринToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сброситьОкнаToolStripMenuItem;
     }
 }

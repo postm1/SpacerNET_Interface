@@ -757,5 +757,25 @@ namespace SpacerUnion
                 bitmap.Save("./system/spacer_net/test.png", ImageFormat.Png);
             }
         }
+
+        private void toolStripTop_MouseClick(object sender, MouseEventArgs e)
+        {
+            Imports.Extern_ClearMouseClick();
+        }
+
+        private void menuStripTopMain_MouseClick(object sender, MouseEventArgs e)
+        {
+            Imports.Extern_ClearMouseClick();
+        }
+
+        private void menuStripTopMain_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Imports.Extern_ClearMouseClick();
+        }
+
+        private void toolStripTop_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Imports.Extern_ClearMouseClick();
+        }
     }
 }

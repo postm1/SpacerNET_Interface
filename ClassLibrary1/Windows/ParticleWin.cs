@@ -437,12 +437,6 @@ namespace SpacerUnion
                 return;
             }
 
-            if (!vobName.StartsWith("FP_"))
-            {
-                MessageBox.Show("Имя фрипоинта должно начинаться с FP_");
-                return;
-
-            }
 
             IntPtr ptrVobNameCheck = Marshal.StringToHGlobalAnsi(vobName);
 

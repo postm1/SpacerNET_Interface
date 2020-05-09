@@ -171,5 +171,10 @@ namespace SpacerUnion.Common
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_RenderSelectedVob(IntPtr visual);
 
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_ClearMouseClick();
+
+        
     }
 }

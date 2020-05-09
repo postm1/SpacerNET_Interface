@@ -598,7 +598,9 @@ namespace SpacerUnion
             noParentCount = 0;
 
             UnionNET.objTreeWin.globalTree.Visible = false;
-            
+
+            //globalEntries = globalEntries.OrderBy(x => x.Value.name).ToDictionary(x => x.Key, x => x.Value);
+
             foreach (var entry in globalEntries)
             {
                 AddVobToNodes(entry.Value);
