@@ -353,8 +353,8 @@ namespace SpacerUnion
 
             UnionNET.settingsCam.checkBoxCameraHideWins.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("hideCamWindows")));
 
-            
 
+            UnionNET.settingsCam.textBoxLimitFPS.Text = Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("maxFPS")).ToString();
 
 
 

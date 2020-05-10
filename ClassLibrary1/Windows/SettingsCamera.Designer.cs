@@ -40,13 +40,15 @@
             this.groupBoxRange = new System.Windows.Forms.GroupBox();
             this.Применить = new System.Windows.Forms.Button();
             this.groupBoxInfo = new System.Windows.Forms.GroupBox();
+            this.checkBoxCameraHideWins = new System.Windows.Forms.CheckBox();
             this.checkBoxDistVob = new System.Windows.Forms.CheckBox();
             this.checkBoxWaypoints = new System.Windows.Forms.CheckBox();
             this.checkBoxVobs = new System.Windows.Forms.CheckBox();
             this.checkBoxCamCoord = new System.Windows.Forms.CheckBox();
             this.checkBoxTris = new System.Windows.Forms.CheckBox();
             this.checkBoxFPS = new System.Windows.Forms.CheckBox();
-            this.checkBoxCameraHideWins = new System.Windows.Forms.CheckBox();
+            this.textBoxLimitFPS = new System.Windows.Forms.TextBox();
+            this.labelLimitFPS = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRotSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobs)).BeginInit();
@@ -166,7 +168,7 @@
             // 
             // Применить
             // 
-            this.Применить.Location = new System.Drawing.Point(105, 495);
+            this.Применить.Location = new System.Drawing.Point(259, 317);
             this.Применить.Name = "Применить";
             this.Применить.Size = new System.Drawing.Size(115, 23);
             this.Применить.TabIndex = 10;
@@ -176,6 +178,8 @@
             // 
             // groupBoxInfo
             // 
+            this.groupBoxInfo.Controls.Add(this.labelLimitFPS);
+            this.groupBoxInfo.Controls.Add(this.textBoxLimitFPS);
             this.groupBoxInfo.Controls.Add(this.checkBoxCameraHideWins);
             this.groupBoxInfo.Controls.Add(this.checkBoxDistVob);
             this.groupBoxInfo.Controls.Add(this.checkBoxWaypoints);
@@ -183,12 +187,23 @@
             this.groupBoxInfo.Controls.Add(this.checkBoxCamCoord);
             this.groupBoxInfo.Controls.Add(this.checkBoxTris);
             this.groupBoxInfo.Controls.Add(this.checkBoxFPS);
-            this.groupBoxInfo.Location = new System.Drawing.Point(15, 307);
+            this.groupBoxInfo.Location = new System.Drawing.Point(319, 12);
             this.groupBoxInfo.Name = "groupBoxInfo";
-            this.groupBoxInfo.Size = new System.Drawing.Size(301, 182);
+            this.groupBoxInfo.Size = new System.Drawing.Size(301, 289);
             this.groupBoxInfo.TabIndex = 10;
             this.groupBoxInfo.TabStop = false;
             this.groupBoxInfo.Text = "Информация";
+            // 
+            // checkBoxCameraHideWins
+            // 
+            this.checkBoxCameraHideWins.AutoSize = true;
+            this.checkBoxCameraHideWins.Location = new System.Drawing.Point(9, 157);
+            this.checkBoxCameraHideWins.Name = "checkBoxCameraHideWins";
+            this.checkBoxCameraHideWins.Size = new System.Drawing.Size(205, 17);
+            this.checkBoxCameraHideWins.TabIndex = 6;
+            this.checkBoxCameraHideWins.Text = "Скрывать окна при полете камеры";
+            this.checkBoxCameraHideWins.UseVisualStyleBackColor = true;
+            this.checkBoxCameraHideWins.CheckedChanged += new System.EventHandler(this.checkBoxCameraHideWins_CheckedChanged);
             // 
             // checkBoxDistVob
             // 
@@ -256,22 +271,29 @@
             this.checkBoxFPS.UseVisualStyleBackColor = true;
             this.checkBoxFPS.CheckedChanged += new System.EventHandler(this.checkBoxFPS_CheckedChanged);
             // 
-            // checkBoxCameraHideWins
+            // textBoxLimitFPS
             // 
-            this.checkBoxCameraHideWins.AutoSize = true;
-            this.checkBoxCameraHideWins.Location = new System.Drawing.Point(9, 157);
-            this.checkBoxCameraHideWins.Name = "checkBoxCameraHideWins";
-            this.checkBoxCameraHideWins.Size = new System.Drawing.Size(205, 17);
-            this.checkBoxCameraHideWins.TabIndex = 6;
-            this.checkBoxCameraHideWins.Text = "Скрывать окна при полете камеры";
-            this.checkBoxCameraHideWins.UseVisualStyleBackColor = true;
-            this.checkBoxCameraHideWins.CheckedChanged += new System.EventHandler(this.checkBoxCameraHideWins_CheckedChanged);
+            this.textBoxLimitFPS.Location = new System.Drawing.Point(101, 196);
+            this.textBoxLimitFPS.Name = "textBoxLimitFPS";
+            this.textBoxLimitFPS.Size = new System.Drawing.Size(29, 20);
+            this.textBoxLimitFPS.TabIndex = 7;
+            this.textBoxLimitFPS.Text = "0";
+            this.textBoxLimitFPS.TextChanged += new System.EventHandler(this.textBoxLimitFPS_TextChanged);
+            // 
+            // labelLimitFPS
+            // 
+            this.labelLimitFPS.AutoSize = true;
+            this.labelLimitFPS.Location = new System.Drawing.Point(6, 199);
+            this.labelLimitFPS.Name = "labelLimitFPS";
+            this.labelLimitFPS.Size = new System.Drawing.Size(89, 13);
+            this.labelLimitFPS.TabIndex = 8;
+            this.labelLimitFPS.Text = "Ограничить FPS";
             // 
             // SettingsCamera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(331, 526);
+            this.ClientSize = new System.Drawing.Size(625, 353);
             this.Controls.Add(this.groupBoxInfo);
             this.Controls.Add(this.Применить);
             this.Controls.Add(this.groupBoxRange);
@@ -320,5 +342,7 @@
         public System.Windows.Forms.CheckBox checkBoxDistVob;
         public System.Windows.Forms.CheckBox checkBoxWaypoints;
         public System.Windows.Forms.CheckBox checkBoxCameraHideWins;
+        private System.Windows.Forms.Label labelLimitFPS;
+        public System.Windows.Forms.TextBox textBoxLimitFPS;
     }
 }

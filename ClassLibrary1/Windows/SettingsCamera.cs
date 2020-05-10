@@ -63,6 +63,14 @@ namespace SpacerUnion
 
         private void Применить_Click(object sender, EventArgs e)
         {
+
+            int value;
+
+            int.TryParse(textBoxLimitFPS.Text.Trim(), out value);
+
+
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("maxFPS"), value);
+
             this.Hide();
         }
 
@@ -113,6 +121,11 @@ namespace SpacerUnion
             CheckBox cb = sender as CheckBox;
 
             Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("hideCamWindows"), Convert.ToInt32(cb.Checked));
+        }
+
+        private void textBoxLimitFPS_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
