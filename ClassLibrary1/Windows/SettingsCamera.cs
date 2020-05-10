@@ -23,9 +23,21 @@ namespace SpacerUnion
 
         private void SettingsCamera_FormClosing(object sender, FormClosingEventArgs e)
         {
+            OnApplySettings();
             Hide();
             e.Cancel = true;
             
+        }
+        
+        private void OnApplySettings()
+        {
+
+            int value;
+
+            int.TryParse(textBoxLimitFPS.Text.Trim(), out value);
+
+
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("maxFPS"), value);
         }
         
         public void UpdateAll()
@@ -63,13 +75,7 @@ namespace SpacerUnion
 
         private void Применить_Click(object sender, EventArgs e)
         {
-
-            int value;
-
-            int.TryParse(textBoxLimitFPS.Text.Trim(), out value);
-
-
-            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("maxFPS"), value);
+            OnApplySettings();
 
             this.Hide();
         }

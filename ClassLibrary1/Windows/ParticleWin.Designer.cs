@@ -118,6 +118,7 @@
             this.treeViewSearchClass = new System.Windows.Forms.TreeView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.checkBoxSearchOnly3DS = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -333,6 +334,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.checkBoxSearchOnly3DS);
             this.groupBox3.Controls.Add(this.groupBox10);
             this.groupBox3.Controls.Add(this.checkBoxShowPreview);
             this.groupBox3.Controls.Add(this.labelAllModels);
@@ -359,7 +361,7 @@
             this.groupBox10.Controls.Add(this.checkBoxStaStat);
             this.groupBox10.Location = new System.Drawing.Point(252, 13);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(287, 130);
+            this.groupBox10.Size = new System.Drawing.Size(287, 115);
             this.groupBox10.TabIndex = 18;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Свойства воба";
@@ -419,7 +421,7 @@
             this.checkBoxShowPreview.AutoSize = true;
             this.checkBoxShowPreview.Checked = true;
             this.checkBoxShowPreview.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxShowPreview.Location = new System.Drawing.Point(409, 173);
+            this.checkBoxShowPreview.Location = new System.Drawing.Point(255, 180);
             this.checkBoxShowPreview.Name = "checkBoxShowPreview";
             this.checkBoxShowPreview.Size = new System.Drawing.Size(130, 17);
             this.checkBoxShowPreview.TabIndex = 17;
@@ -430,7 +432,7 @@
             // labelAllModels
             // 
             this.labelAllModels.AutoSize = true;
-            this.labelAllModels.Location = new System.Drawing.Point(385, 153);
+            this.labelAllModels.Location = new System.Drawing.Point(373, 136);
             this.labelAllModels.Name = "labelAllModels";
             this.labelAllModels.Size = new System.Drawing.Size(87, 13);
             this.labelAllModels.TabIndex = 15;
@@ -439,7 +441,7 @@
             // radioButtonWork
             // 
             this.radioButtonWork.AutoSize = true;
-            this.radioButtonWork.Location = new System.Drawing.Point(314, 152);
+            this.radioButtonWork.Location = new System.Drawing.Point(303, 134);
             this.radioButtonWork.Name = "radioButtonWork";
             this.radioButtonWork.Size = new System.Drawing.Size(65, 17);
             this.radioButtonWork.TabIndex = 14;
@@ -450,7 +452,7 @@
             // 
             this.radioButtonVdf.AutoSize = true;
             this.radioButtonVdf.Checked = true;
-            this.radioButtonVdf.Location = new System.Drawing.Point(262, 152);
+            this.radioButtonVdf.Location = new System.Drawing.Point(255, 134);
             this.radioButtonVdf.Name = "radioButtonVdf";
             this.radioButtonVdf.Size = new System.Drawing.Size(46, 17);
             this.radioButtonVdf.TabIndex = 13;
@@ -460,7 +462,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(466, 195);
+            this.button7.Location = new System.Drawing.Point(466, 200);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(73, 25);
             this.button7.TabIndex = 12;
@@ -471,16 +473,16 @@
             // listBoxVisuals
             // 
             this.listBoxVisuals.FormattingEnabled = true;
-            this.listBoxVisuals.Location = new System.Drawing.Point(261, 223);
+            this.listBoxVisuals.Location = new System.Drawing.Point(255, 236);
             this.listBoxVisuals.Name = "listBoxVisuals";
-            this.listBoxVisuals.Size = new System.Drawing.Size(278, 121);
+            this.listBoxVisuals.Size = new System.Drawing.Size(284, 108);
             this.listBoxVisuals.TabIndex = 8;
             this.listBoxVisuals.SelectedIndexChanged += new System.EventHandler(this.listBoxVisuals_SelectedIndexChanged);
             // 
             // labelSearchVisual
             // 
             this.labelSearchVisual.AutoSize = true;
-            this.labelSearchVisual.Location = new System.Drawing.Point(258, 174);
+            this.labelSearchVisual.Location = new System.Drawing.Point(252, 158);
             this.labelSearchVisual.Name = "labelSearchVisual";
             this.labelSearchVisual.Size = new System.Drawing.Size(109, 13);
             this.labelSearchVisual.TabIndex = 7;
@@ -489,7 +491,7 @@
             // textBoxVisuals
             // 
             this.textBoxVisuals.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxVisuals.Location = new System.Drawing.Point(261, 196);
+            this.textBoxVisuals.Location = new System.Drawing.Point(255, 203);
             this.textBoxVisuals.Name = "textBoxVisuals";
             this.textBoxVisuals.Size = new System.Drawing.Size(200, 22);
             this.textBoxVisuals.TabIndex = 6;
@@ -537,7 +539,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(561, 356);
+            this.tabPage2.Size = new System.Drawing.Size(561, 362);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Вещи";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -548,7 +550,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(561, 356);
+            this.tabPage1.Size = new System.Drawing.Size(561, 362);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Эффекты";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -566,7 +568,7 @@
             this.tabPage4.Controls.Add(this.groupBox5);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(561, 356);
+            this.tabPage4.Size = new System.Drawing.Size(561, 362);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Триггеры";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -805,7 +807,7 @@
             this.tabPage5.Controls.Add(this.groupBox4);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(561, 356);
+            this.tabPage5.Size = new System.Drawing.Size(561, 362);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "WP/FP";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -985,7 +987,7 @@
             this.tabPage6.Controls.Add(this.groupBox7);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(561, 356);
+            this.tabPage6.Size = new System.Drawing.Size(561, 362);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Поиск";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -1079,7 +1081,7 @@
             // 
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(561, 356);
+            this.tabPage7.Size = new System.Drawing.Size(561, 362);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Камера";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1088,10 +1090,22 @@
             // 
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(561, 356);
+            this.tabPage8.Size = new System.Drawing.Size(561, 362);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Свет";
             this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxSearchOnly3DS
+            // 
+            this.checkBoxSearchOnly3DS.AutoSize = true;
+            this.checkBoxSearchOnly3DS.Checked = true;
+            this.checkBoxSearchOnly3DS.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxSearchOnly3DS.Location = new System.Drawing.Point(414, 180);
+            this.checkBoxSearchOnly3DS.Name = "checkBoxSearchOnly3DS";
+            this.checkBoxSearchOnly3DS.Size = new System.Drawing.Size(125, 17);
+            this.checkBoxSearchOnly3DS.TabIndex = 19;
+            this.checkBoxSearchOnly3DS.Text = "Искать только 3DS";
+            this.checkBoxSearchOnly3DS.UseVisualStyleBackColor = true;
             // 
             // ParticleWin
             // 
@@ -1231,5 +1245,6 @@
         private System.Windows.Forms.ListBox listBoxSearchResult;
         private System.Windows.Forms.GroupBox groupBox10;
         public System.Windows.Forms.CheckBox checkBoxShowPreview;
+        public System.Windows.Forms.CheckBox checkBoxSearchOnly3DS;
     }
 }

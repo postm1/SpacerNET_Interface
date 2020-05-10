@@ -552,6 +552,11 @@ namespace SpacerUnion
             {
                 string strToFind = textBoxVisuals.Text.Trim().ToUpper();
 
+                if (checkBoxSearchOnly3DS.Checked)
+                {
+                    strToFind += ".*3DS";
+                }
+
                 listBoxVisuals.Items.Clear();
 
                 if (radioButtonVdf.Checked)
@@ -586,6 +591,8 @@ namespace SpacerUnion
         {
             listBoxVisuals.Items.Clear();
             listBoxVisuals.ClearSelected();
+            textBoxVisuals.Clear();
+
             UnionNET.partWin.labelSearchVisual.Text = "Поиск визуала.";
 
             string visual = "";

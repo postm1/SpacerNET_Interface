@@ -107,6 +107,7 @@
             this.Controls.Add(this.buttonCompileWorld);
             this.Controls.Add(this.buttonCompileCancel);
             this.Controls.Add(this.groupBox1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
