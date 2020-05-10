@@ -2,8 +2,20 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SpacerUnion.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
+    <Setting Name="PartWinLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">0, 500</Value>
+    </Setting>
+    <Setting Name="VobListWinLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">500, 500</Value>
+    </Setting>
+    <Setting Name="InfoWinLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">500, 500</Value>
+    </Setting>
     <Setting Name="TreeWinLocation" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+      <Value Profile="(Default)">0, 150</Value>
+    </Setting>
+    <Setting Name="PropWinLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">500, 150</Value>
     </Setting>
   </Settings>
 </SettingsFile>

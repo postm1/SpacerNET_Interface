@@ -94,6 +94,9 @@ namespace SpacerUnion
         private void trackBarRadius_ValueChanged(object sender, EventArgs e)
         {
             labelRadius.Text = "Радиус поиска: " + trackBarRadius.Value;
+
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("vobListRadius"), trackBarRadius.Value);
+
         }
 
         private void listBoxVobs_MouseClick(object sender, MouseEventArgs e)

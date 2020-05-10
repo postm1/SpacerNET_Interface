@@ -907,6 +907,10 @@ namespace SpacerUnion
         {
             CheckBox ch = sender as CheckBox;
 
+
+            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("showModelPreview"), Convert.ToInt32(ch.Checked));
+
+
             if (!ch.Checked)
             {
                 string visual = "";
@@ -948,7 +952,7 @@ namespace SpacerUnion
 
                 Marshal.FreeHGlobal(visualPtr);
 
-                UnionNET.form.Focus();
+                //UnionNET.form.Focus();
             }
         }
     }

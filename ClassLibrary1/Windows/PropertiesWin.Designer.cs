@@ -65,6 +65,7 @@
             this.contextMenuStripContainer = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.удалитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogFileName = new System.Windows.Forms.OpenFileDialog();
+            this.textBoxVec3 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panelButtons.SuspendLayout();
@@ -117,6 +118,7 @@
             // 
             this.panelButtons.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panelButtons.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelButtons.Controls.Add(this.textBoxVec3);
             this.panelButtons.Controls.Add(this.buttonFileOpen);
             this.panelButtons.Controls.Add(this.textBoxVec2);
             this.panelButtons.Controls.Add(this.textBoxVec1);
@@ -144,9 +146,9 @@
             // 
             // textBoxVec2
             // 
-            this.textBoxVec2.Location = new System.Drawing.Point(190, 20);
+            this.textBoxVec2.Location = new System.Drawing.Point(158, 20);
             this.textBoxVec2.Name = "textBoxVec2";
-            this.textBoxVec2.Size = new System.Drawing.Size(75, 20);
+            this.textBoxVec2.Size = new System.Drawing.Size(70, 20);
             this.textBoxVec2.TabIndex = 10;
             this.textBoxVec2.Visible = false;
             this.textBoxVec2.TextChanged += new System.EventHandler(this.textBoxVec2_TextChanged);
@@ -154,9 +156,9 @@
             // 
             // textBoxVec1
             // 
-            this.textBoxVec1.Location = new System.Drawing.Point(96, 20);
+            this.textBoxVec1.Location = new System.Drawing.Point(82, 20);
             this.textBoxVec1.Name = "textBoxVec1";
-            this.textBoxVec1.Size = new System.Drawing.Size(75, 20);
+            this.textBoxVec1.Size = new System.Drawing.Size(70, 20);
             this.textBoxVec1.TabIndex = 9;
             this.textBoxVec1.Visible = false;
             this.textBoxVec1.TextChanged += new System.EventHandler(this.textBoxVec1_TextChanged);
@@ -166,7 +168,7 @@
             // 
             this.textBoxVec0.Location = new System.Drawing.Point(6, 20);
             this.textBoxVec0.Name = "textBoxVec0";
-            this.textBoxVec0.Size = new System.Drawing.Size(75, 20);
+            this.textBoxVec0.Size = new System.Drawing.Size(70, 20);
             this.textBoxVec0.TabIndex = 8;
             this.textBoxVec0.Visible = false;
             this.textBoxVec0.TextChanged += new System.EventHandler(this.textBoxVec0_TextChanged);
@@ -200,7 +202,6 @@
             this.textBoxString.Name = "textBoxString";
             this.textBoxString.Size = new System.Drawing.Size(298, 20);
             this.textBoxString.TabIndex = 0;
-            this.textBoxString.Visible = false;
             this.textBoxString.TextChanged += new System.EventHandler(this.textBoxString_TextChanged);
             this.textBoxString.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxString_KeyDown);
             this.textBoxString.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxString_KeyPress);
@@ -447,6 +448,15 @@
             this.удалитьСтрокуToolStripMenuItem.Text = "Удалить строку";
             this.удалитьСтрокуToolStripMenuItem.Click += new System.EventHandler(this.удалитьСтрокуToolStripMenuItem_Click);
             // 
+            // textBoxVec3
+            // 
+            this.textBoxVec3.Location = new System.Drawing.Point(234, 20);
+            this.textBoxVec3.Name = "textBoxVec3";
+            this.textBoxVec3.Size = new System.Drawing.Size(70, 20);
+            this.textBoxVec3.TabIndex = 12;
+            this.textBoxVec3.Visible = false;
+            this.textBoxVec3.TextChanged += new System.EventHandler(this.textBoxVec3_TextChanged);
+            // 
             // ObjectsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -513,5 +523,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.Button buttonFileOpen;
         private System.Windows.Forms.OpenFileDialog openFileDialogFileName;
+        private System.Windows.Forms.TextBox textBoxVec3;
     }
 }

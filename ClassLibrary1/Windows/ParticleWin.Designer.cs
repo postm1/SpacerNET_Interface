@@ -514,10 +514,10 @@
             this.tabControlObjects.Controls.Add(this.tabPage6);
             this.tabControlObjects.Controls.Add(this.tabPage7);
             this.tabControlObjects.Controls.Add(this.tabPage8);
-            this.tabControlObjects.Location = new System.Drawing.Point(3, 12);
+            this.tabControlObjects.Location = new System.Drawing.Point(3, 2);
             this.tabControlObjects.Name = "tabControlObjects";
             this.tabControlObjects.SelectedIndex = 0;
-            this.tabControlObjects.Size = new System.Drawing.Size(569, 382);
+            this.tabControlObjects.Size = new System.Drawing.Size(569, 388);
             this.tabControlObjects.TabIndex = 4;
             this.tabControlObjects.SelectedIndexChanged += new System.EventHandler(this.tabControlObjects_SelectedIndexChanged);
             // 
@@ -526,7 +526,7 @@
             this.tabPage3.Controls.Add(this.groupBox3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(561, 356);
+            this.tabPage3.Size = new System.Drawing.Size(561, 362);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Все классы";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1229,7 +1229,7 @@
         private System.Windows.Forms.CheckBox checkBoxSearchDerived;
         private System.Windows.Forms.Label labelSearchResult;
         private System.Windows.Forms.ListBox listBoxSearchResult;
-        private System.Windows.Forms.CheckBox checkBoxShowPreview;
         private System.Windows.Forms.GroupBox groupBox10;
+        public System.Windows.Forms.CheckBox checkBoxShowPreview;
     }
 }

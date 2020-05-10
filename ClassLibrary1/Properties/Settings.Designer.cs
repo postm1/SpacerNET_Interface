@@ -25,13 +25,61 @@ namespace SpacerUnion.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 500")]
+        public global::System.Drawing.Point PartWinLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["PartWinLocation"]));
+            }
+            set {
+                this["PartWinLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("500, 500")]
+        public global::System.Drawing.Point VobListWinLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["VobListWinLocation"]));
+            }
+            set {
+                this["VobListWinLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("500, 500")]
+        public global::System.Drawing.Point InfoWinLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["InfoWinLocation"]));
+            }
+            set {
+                this["InfoWinLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 150")]
         public global::System.Drawing.Point TreeWinLocation {
             get {
                 return ((global::System.Drawing.Point)(this["TreeWinLocation"]));
             }
             set {
                 this["TreeWinLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("500, 150")]
+        public global::System.Drawing.Point PropWinLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["PropWinLocation"]));
+            }
+            set {
+                this["PropWinLocation"] = value;
             }
         }
     }

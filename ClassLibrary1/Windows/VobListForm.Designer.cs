@@ -34,7 +34,7 @@
             this.очиститьСписокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackBarRadius = new System.Windows.Forms.TrackBar();
             this.labelRadius = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxVobListType = new System.Windows.Forms.ComboBox();
             this.labelVobType = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRadius)).BeginInit();
@@ -88,17 +88,18 @@
             this.labelRadius.TabIndex = 4;
             this.labelRadius.Text = "Радиус поиска: 200";
             // 
-            // comboBox1
+            // comboBoxVobListType
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxVobListType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxVobListType.FormattingEnabled = true;
+            this.comboBoxVobListType.Items.AddRange(new object[] {
             "Все вобы",
             "Итемы",
             "Только zCVob"});
-            this.comboBox1.Location = new System.Drawing.Point(116, 7);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(179, 21);
-            this.comboBox1.TabIndex = 5;
+            this.comboBoxVobListType.Location = new System.Drawing.Point(116, 7);
+            this.comboBoxVobListType.Name = "comboBoxVobListType";
+            this.comboBoxVobListType.Size = new System.Drawing.Size(179, 21);
+            this.comboBoxVobListType.TabIndex = 5;
             // 
             // labelVobType
             // 
@@ -115,7 +116,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(307, 334);
             this.Controls.Add(this.labelVobType);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxVobListType);
             this.Controls.Add(this.labelRadius);
             this.Controls.Add(this.trackBarRadius);
             this.Controls.Add(this.listBoxVobs);
@@ -135,11 +136,11 @@
 
         #endregion
         public System.Windows.Forms.ListBox listBoxVobs;
-        private System.Windows.Forms.TrackBar trackBarRadius;
         private System.Windows.Forms.Label labelRadius;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem очиститьСписокToolStripMenuItem;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label labelVobType;
+        public System.Windows.Forms.TrackBar trackBarRadius;
+        public System.Windows.Forms.ComboBox comboBoxVobListType;
     }
 }

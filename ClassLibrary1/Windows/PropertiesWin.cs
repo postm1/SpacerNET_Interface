@@ -593,6 +593,7 @@ namespace SpacerUnion
             textBoxVec0.Visible = false;
             textBoxVec1.Visible = false;
             textBoxVec2.Visible = false;
+            textBoxVec3.Visible = false;
             buttonFileOpen.Enabled = false;
             DisableTabBBox();
 
@@ -635,17 +636,27 @@ namespace SpacerUnion
                         }
                     }
 
-                    if (prop.type == TPropEditType.PETvec3)
+                    if (prop.type == TPropEditType.PETvec3 || prop.type == TPropEditType.PETcolor)
                     {
                         textBoxVec0.Visible = true;
                         textBoxVec1.Visible = true;
                         textBoxVec2.Visible = true;
+
+                       
+                        
 
                         string[] arr = prop.value.Split(' ');
 
                         textBoxVec0.Text = arr[0];
                         textBoxVec1.Text = arr[1];
                         textBoxVec2.Text = arr[2];
+
+
+                        if (prop.type == TPropEditType.PETcolor)
+                        {
+                            textBoxVec3.Visible = true;
+                            textBoxVec3.Text = arr[3];
+                        }
                     }
 
 
@@ -761,13 +772,18 @@ namespace SpacerUnion
                     prop.value = prop.backup_value;
                     node.Text = prop.Name + ": " + prop.ShowValue();
 
-                    if (currentFieldtype == TPropEditType.PETvec3)
+                    if (currentFieldtype == TPropEditType.PETvec3 || prop.type == TPropEditType.PETcolor)
                     {
                         string[] arr = prop.value.Split(' ');
 
                         textBoxVec0.Text = arr[0];
                         textBoxVec1.Text = arr[1];
                         textBoxVec2.Text = arr[2];
+
+                        if (prop.type == TPropEditType.PETcolor)
+                        {
+                            textBoxVec3.Text = arr[3];
+                        }
                     }
                     else
                     {
@@ -786,7 +802,7 @@ namespace SpacerUnion
             }
         }
 
-        private void textBoxVec0_TextChanged(object sender, EventArgs e)
+        private void ChangeVecDataTextBox(object sender, EventArgs e)
         {
             TreeNode node = treeViewProp.SelectedNode;
             TextBox textBox = sender as TextBox;
@@ -806,92 +822,51 @@ namespace SpacerUnion
 
                     //Console.WriteLine("Change entry with index: " + index);
                     CProperty prop = props[index];
-                    
+
                     prop.value = textBoxVec0.Text.Trim() + " " + textBoxVec1.Text.Trim() + " " + textBoxVec2.Text.Trim();
+
+                    if (prop.type == TPropEditType.PETcolor)
+                    {
+                        prop.value += " " + textBoxVec3.Text.Trim();
+                    }
+
                     node.Text = prop.Name + ": " + prop.ShowValue();
 
                     changed = true;
                     buttonApply.Enabled = true;
                     buttonRestore.Enabled = true;
-  
-                    
+
+
                 }
             }
             else
             {
                 Console.WriteLine("C#: Textbox change with null node");
             }
+        }
+
+        private void textBoxVec0_TextChanged(object sender, EventArgs e)
+        {
+            ChangeVecDataTextBox(sender, e);
         }
 
         private void textBoxVec1_TextChanged(object sender, EventArgs e)
         {
-            TreeNode node = treeViewProp.SelectedNode;
-            TextBox textBox = sender as TextBox;
-            int index = 0;
-
-            if (isItemSelected)
-            {
-                return;
-            }
-
-            if (node != null && node.Tag.ToString() != "folder")
-            {
-                int.TryParse(node.Tag.ToString(), out index);
-
-                if (index >= 0)
-                {
-
-                    //Console.WriteLine("Change entry with index: " + index);
-                    CProperty prop = props[index];
-
-                    prop.value = textBoxVec0.Text.Trim() + " " + textBoxVec1.Text.Trim() + " " + textBoxVec2.Text.Trim();
-                    node.Text = prop.Name + ": " + prop.ShowValue();
-
-                    changed = true;
-                    buttonApply.Enabled = true;
-                    buttonRestore.Enabled = true;
-                }
-            }
-            else
-            {
-                Console.WriteLine("C#: Textbox change with null node");
-            }
+            ChangeVecDataTextBox(sender, e);
         }
 
         private void textBoxVec2_TextChanged(object sender, EventArgs e)
         {
-            TreeNode node = treeViewProp.SelectedNode;
-            TextBox textBox = sender as TextBox;
-            int index = 0;
-
-            if (isItemSelected)
-            {
-                return;
-            }
-
-            if (node != null && node.Tag.ToString() != "folder")
-            {
-                int.TryParse(node.Tag.ToString(), out index);
-
-                if (index >= 0)
-                {
-
-                    //Console.WriteLine("Change entry with index: " + index);
-                    CProperty prop = props[index];
-
-                    prop.value = textBoxVec0.Text.Trim() + " " + textBoxVec1.Text.Trim() + " " + textBoxVec2.Text.Trim();
-                    node.Text = prop.Name + ": " + prop.ShowValue();
-
-                    changed = true;
-                    buttonApply.Enabled = true;
-                    buttonRestore.Enabled = true;
-                }
-            }
-            else
-            {
-                Console.WriteLine("C#: Textbox change with null node");
-            }
+            ChangeVecDataTextBox(sender, e);
         }
+
+
+        private void textBoxVec3_TextChanged(object sender, EventArgs e)
+        {
+            ChangeVecDataTextBox(sender, e);
+        }
+
+
 
         private void textBoxVec0_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -1178,5 +1153,7 @@ namespace SpacerUnion
             tabControl1.SelectTab(0);
             DisableTabBBox();
         }
+
+        
     }
 }

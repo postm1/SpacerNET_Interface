@@ -55,7 +55,7 @@
             this.globalTree.Location = new System.Drawing.Point(2, 41);
             this.globalTree.Name = "globalTree";
             this.globalTree.SelectedImageIndex = 0;
-            this.globalTree.Size = new System.Drawing.Size(389, 431);
+            this.globalTree.Size = new System.Drawing.Size(389, 411);
             this.globalTree.TabIndex = 0;
             this.globalTree.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.globalTree_BeforeSelect);
             this.globalTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.globalTree_AfterSelect);
@@ -148,7 +148,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(389, 475);
+            this.ClientSize = new System.Drawing.Size(389, 453);
             this.Controls.Add(this.buttonTreeSort);
             this.Controls.Add(this.buttonExpand);
             this.Controls.Add(this.buttonCollapse);
@@ -159,6 +159,7 @@
             this.Name = "ObjTree";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Список объектов";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ObjTree_FormClosing);
             this.Load += new System.EventHandler(this.ObjTree_Load);

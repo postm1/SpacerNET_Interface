@@ -86,13 +86,13 @@ namespace SpacerUnion
 
             form.Show();
             //form.panelMain.Show();
-            infoWin.Show();
+           // infoWin.Show();
 
             form.Left = 0;
             form.Top = 0;
 
-            infoWin.Left = 950;
-            infoWin.Top = 600;
+            //infoWin.Left = 950;
+            //infoWin.Top = 600;
 
 
             form.AddText(Lang.appIsLoading);
@@ -110,20 +110,41 @@ namespace SpacerUnion
             objTreeWin.Show();
             partWin.Show();
             vobList.Show();
+            infoWin.Show();
 
 
+            /*
             objTreeWin.Left = 1500;
             objTreeWin.Top = 530;
-
-            propWin.Left = 1500;
-            propWin.Top = 50;
+            */
 
 
+            if (Properties.Settings.Default.TreeWinLocation != null)
+            {
+                objTreeWin.Location = Properties.Settings.Default.TreeWinLocation;
+            }
 
-            vobList.Left = 600;
-            vobList.Top = 600;
-            partWin.Left = 0;
-            partWin.Top = 600;
+            if (Properties.Settings.Default.PartWinLocation != null)
+            {
+                partWin.Location = Properties.Settings.Default.PartWinLocation;
+            }
+
+            if (Properties.Settings.Default.VobListWinLocation != null)
+            {
+                vobList.Location = Properties.Settings.Default.VobListWinLocation;
+            }
+
+            if (Properties.Settings.Default.PropWinLocation != null)
+            {
+                propWin.Location = Properties.Settings.Default.PropWinLocation;
+            }
+
+
+            if (Properties.Settings.Default.InfoWinLocation != null)
+            {
+                infoWin.Location = Properties.Settings.Default.InfoWinLocation;
+            }
+
 
 
             soundWin.Left = 0;
@@ -169,7 +190,31 @@ namespace SpacerUnion
 
             btn = form.toolStripTop.Items[5] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(vobList.Visible);
+
+            int radius = Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("vobListRadius"));
+            vobList.trackBarRadius.Value = radius;
+            vobList.comboBoxVobListType.SelectedIndex = 0;
+
+            partWin.checkBoxShowPreview.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("showModelPreview")));
+
+
         }
+
+
+
+        public static void CloseApplication()
+        {
+            //MessageBox.Show("CloseApplication");
+            Properties.Settings.Default.TreeWinLocation = objTreeWin.Location;
+            Properties.Settings.Default.PartWinLocation = partWin.Location;
+            Properties.Settings.Default.PropWinLocation = propWin.Location;
+            Properties.Settings.Default.VobListWinLocation = vobList.Location;
+            Properties.Settings.Default.InfoWinLocation = infoWin.Location;
+
+            Properties.Settings.Default.Save();
+            Imports.Extern_Exit();
+        }
+
 
         [DllExport]
         public static int GetHandlerFunc()

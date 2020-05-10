@@ -38,7 +38,7 @@ namespace SpacerUnion
         
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Imports.Extern_Exit();
+            UnionNET.CloseApplication();
         }
 
         public void ResetInterface()
@@ -361,9 +361,12 @@ namespace SpacerUnion
             UnionNET.settingsCam.Show();
         }
 
+
+
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Imports.Extern_Exit();
+
+            UnionNET.CloseApplication();
             e.Cancel = true;
         }
 
@@ -776,6 +779,11 @@ namespace SpacerUnion
         private void toolStripTop_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Imports.Extern_ClearMouseClick();
+        }
+
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Spacer.NET, 2020");
         }
     }
 }
