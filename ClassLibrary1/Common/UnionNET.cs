@@ -40,6 +40,26 @@ namespace SpacerUnion
         static List<Form> windowsList = null;
 
 
+        private static Dictionary<string, IntPtr> marshalList = new Dictionary<string, IntPtr>();
+
+        public static IntPtr AddString(string s)
+        {
+            IntPtr ptr = Marshal.StringToHGlobalAnsi(s);
+
+            marshalList.Add(s, ptr);
+            return marshalList[s];
+        }
+
+        public static void FreeString(string s)
+        {
+            if (marshalList.ContainsKey(s))
+            {
+                Marshal.FreeHGlobal(marshalList[s]);
+                marshalList.Remove(s);
+            }
+        }
+
+
 
         // Главная функция запуска, вызывается из Union
         [DllExport, STAThread]
@@ -158,19 +178,26 @@ namespace SpacerUnion
             form.Focus();
         }
 
+        
+
+
         // загружает настройки в интерфейс 
         public static void LoadSettingsToInterface()
         {
             ToolStripButton btn = form.toolStripTop.Items[7] as ToolStripButton;
-            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("showVobs")));
+            
+
+
+
+            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(AddString("showVobs")));
             btn = form.toolStripTop.Items[8] as ToolStripButton;
-            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("showWaynet")));
+            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(AddString("showWaynet")));
             btn = form.toolStripTop.Items[9] as ToolStripButton;
-            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("showHelpVobs")));
+            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(AddString("showHelpVobs")));
             btn = form.toolStripTop.Items[10] as ToolStripButton;
-            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("drawBBoxGlobal")));
+            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(AddString("drawBBoxGlobal")));
             btn = form.toolStripTop.Items[11] as ToolStripButton;
-            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("showInvisibleVobs")));
+            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(AddString("showInvisibleVobs")));
 
             btn = form.toolStripTop.Items[0] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(infoWin.Visible);
@@ -285,29 +312,7 @@ namespace SpacerUnion
                 loadForm = new LoadingForm();
             }
 
-
-            if (type == 0)
-            {
-                loadForm.labelLoading.Text = Lang.loadZen;
-            }
-
-            if (type == 1)
-            {
-                loadForm.labelLoading.Text = Lang.compileZen;
-            }
-
-            if (type == 2)
-            {
-                loadForm.labelLoading.Text = Lang.compileLight;
-            }
-
-
-            if (type == 3)
-            {
-                loadForm.labelLoading.Text = Lang.savingZen;
-            }
-
-
+            loadForm.UpdateText(type);
 
             loadForm.Show();
             Application.DoEvents();

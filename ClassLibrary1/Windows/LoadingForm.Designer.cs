@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.labelLoading = new System.Windows.Forms.Label();
-            this.pictureBoxLoading = new System.Windows.Forms.PictureBox();
             this.panelLoadingFront = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoading)).BeginInit();
+            this.pictureBoxLoading = new System.Windows.Forms.PictureBox();
             this.panelLoadingFront.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoading)).BeginInit();
             this.SuspendLayout();
             // 
             // labelLoading
@@ -46,17 +46,6 @@
             this.labelLoading.Text = "Идет загрузка... Подождите...";
             this.labelLoading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBoxLoading
-            // 
-            this.pictureBoxLoading.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxLoading.Image = global::SpacerUnion.Properties.Resources.x317623_775512241;
-            this.pictureBoxLoading.Location = new System.Drawing.Point(93, 54);
-            this.pictureBoxLoading.Name = "pictureBoxLoading";
-            this.pictureBoxLoading.Size = new System.Drawing.Size(258, 258);
-            this.pictureBoxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBoxLoading.TabIndex = 1;
-            this.pictureBoxLoading.TabStop = false;
-            // 
             // panelLoadingFront
             // 
             this.panelLoadingFront.BackColor = System.Drawing.SystemColors.Window;
@@ -66,6 +55,17 @@
             this.panelLoadingFront.Name = "panelLoadingFront";
             this.panelLoadingFront.Size = new System.Drawing.Size(455, 339);
             this.panelLoadingFront.TabIndex = 2;
+            // 
+            // pictureBoxLoading
+            // 
+            this.pictureBoxLoading.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxLoading.Image = global::SpacerUnion.Properties.Resources.jab;
+            this.pictureBoxLoading.Location = new System.Drawing.Point(96, 49);
+            this.pictureBoxLoading.Name = "pictureBoxLoading";
+            this.pictureBoxLoading.Size = new System.Drawing.Size(260, 260);
+            this.pictureBoxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxLoading.TabIndex = 1;
+            this.pictureBoxLoading.TabStop = false;
             // 
             // LoadingForm
             // 
@@ -84,9 +84,9 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Загрузка...";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoading)).EndInit();
             this.panelLoadingFront.ResumeLayout(false);
             this.panelLoadingFront.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoading)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -94,7 +94,7 @@
         #endregion
 
         public System.Windows.Forms.Label labelLoading;
-        private System.Windows.Forms.PictureBox pictureBoxLoading;
         private System.Windows.Forms.Panel panelLoadingFront;
+        public System.Windows.Forms.PictureBox pictureBoxLoading;
     }
 }

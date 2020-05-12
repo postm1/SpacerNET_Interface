@@ -63,9 +63,29 @@ namespace SpacerUnion.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap b8e50283001faab2208a3574ce750878 {
+            get {
+                object obj = ResourceManager.GetObject("b8e50283001faab2208a3574ce750878", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dsads {
             get {
                 object obj = ResourceManager.GetObject("dsads", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap jab {
+            get {
+                object obj = ResourceManager.GetObject("jab", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
