@@ -82,5 +82,17 @@ namespace SpacerUnion.Properties {
                 this["PropWinLocation"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("500, 150")]
+        public global::System.Drawing.Point SoundWinLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["SoundWinLocation"]));
+            }
+            set {
+                this["SoundWinLocation"] = value;
+            }
+        }
     }
 }

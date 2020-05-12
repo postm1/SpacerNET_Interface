@@ -175,6 +175,11 @@ namespace SpacerUnion.Common
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_ClearMouseClick();
 
-        
+
+
+
+        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_ToggleMusic(bool mod);
+
     }
 }

@@ -44,19 +44,26 @@ namespace SpacerUnion
 
         public static IntPtr AddString(string s)
         {
-            IntPtr ptr = Marshal.StringToHGlobalAnsi(s);
-
-            marshalList.Add(s, ptr);
+            if (!marshalList.ContainsKey(s))
+            {
+                IntPtr ptr = Marshal.StringToHGlobalAnsi(s);
+                marshalList.Add(s, ptr);
+            }
+            
             return marshalList[s];
         }
 
-        public static void FreeString(string s)
+        public static void FreeStrings()
         {
-            if (marshalList.ContainsKey(s))
+            ConsoleEx.WriteLineGreen("Marshal list before: " + marshalList.Count);
+            foreach (var entry in marshalList)
             {
-                Marshal.FreeHGlobal(marshalList[s]);
-                marshalList.Remove(s);
+                Marshal.FreeHGlobal(entry.Value);
             }
+
+            marshalList.Clear();
+
+            ConsoleEx.WriteLineGreen("Marshal list after: " + marshalList.Count);
         }
 
 
@@ -133,12 +140,6 @@ namespace SpacerUnion
             infoWin.Show();
 
 
-            /*
-            objTreeWin.Left = 1500;
-            objTreeWin.Top = 530;
-            */
-
-
             if (Properties.Settings.Default.TreeWinLocation != null)
             {
                 objTreeWin.Location = Properties.Settings.Default.TreeWinLocation;
@@ -166,9 +167,11 @@ namespace SpacerUnion
             }
 
 
+            if (Properties.Settings.Default.SoundWinLocation != null)
+            {
+                soundWin.Location = Properties.Settings.Default.SoundWinLocation;
+            }
 
-            soundWin.Left = 0;
-            soundWin.Top = 300;
 
             LoadSettingsToInterface();
 
@@ -185,9 +188,6 @@ namespace SpacerUnion
         public static void LoadSettingsToInterface()
         {
             ToolStripButton btn = form.toolStripTop.Items[7] as ToolStripButton;
-            
-
-
 
             btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(AddString("showVobs")));
             btn = form.toolStripTop.Items[8] as ToolStripButton;
@@ -218,13 +218,14 @@ namespace SpacerUnion
             btn = form.toolStripTop.Items[5] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(vobList.Visible);
 
-            int radius = Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("vobListRadius"));
+            int radius = Imports.Extern_GetSetting(AddString("vobListRadius"));
             vobList.trackBarRadius.Value = radius;
             vobList.comboBoxVobListType.SelectedIndex = 0;
 
-            partWin.checkBoxShowPreview.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(Marshal.StringToHGlobalAnsi("showModelPreview")));
+            partWin.checkBoxShowPreview.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(AddString("showModelPreview")));
+            partWin.checkBoxSearchOnly3DS.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(AddString("searchOnly3DS")));
 
-
+            FreeStrings();
         }
 
 
@@ -237,6 +238,7 @@ namespace SpacerUnion
             Properties.Settings.Default.PropWinLocation = propWin.Location;
             Properties.Settings.Default.VobListWinLocation = vobList.Location;
             Properties.Settings.Default.InfoWinLocation = infoWin.Location;
+            Properties.Settings.Default.SoundWinLocation = soundWin.Location;
 
             Properties.Settings.Default.Save();
             Imports.Extern_Exit();

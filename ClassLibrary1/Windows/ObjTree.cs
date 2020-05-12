@@ -796,7 +796,7 @@ namespace SpacerUnion
 
 
             saveFileDialogVobTree.Filter = "Zen file (*.zen)|";
-            IntPtr ptrPath = Imports.Extern_GetSettingStr(Marshal.StringToHGlobalAnsi("treeVobPath"));
+            IntPtr ptrPath = Imports.Extern_GetSettingStr(UnionNET.AddString("treeVobPath"));
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
             string fileName = UnionNET.objTreeWin.globalTree.SelectedNode.Text;
@@ -821,21 +821,19 @@ namespace SpacerUnion
             if (saveFileDialogVobTree.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(saveFileDialogVobTree.FileName));
+                IntPtr ptrPathSave = UnionNET.AddString(Path.GetDirectoryName(saveFileDialogVobTree.FileName));
 
 
-                Imports.Extern_SetSettingStr(ptrPathSave, Marshal.StringToHGlobalAnsi("treeVobPath"));
+                Imports.Extern_SetSettingStr(ptrPathSave, UnionNET.AddString("treeVobPath"));
 
 
 
 
                 string filePath = saveFileDialogVobTree.FileName;
-                IntPtr filePathPtr = Marshal.StringToHGlobalAnsi(filePath);
+                IntPtr filePathPtr = UnionNET.AddString(filePath);
                 Imports.Extern_SaveVobTree(filePathPtr);
-
-                Marshal.FreeHGlobal(ptrPathSave);
-                Marshal.FreeHGlobal(filePathPtr);
             }
+            UnionNET.FreeStrings();
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -856,7 +854,7 @@ namespace SpacerUnion
 
 
             openFileDialogVobTree.Filter = "Zen file (*.zen)|";
-            IntPtr ptrPath = Imports.Extern_GetSettingStr(Marshal.StringToHGlobalAnsi("treeVobPath"));
+            IntPtr ptrPath = Imports.Extern_GetSettingStr(UnionNET.AddString("treeVobPath"));
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
             string fileName = UnionNET.objTreeWin.globalTree.SelectedNode.Text;
@@ -880,19 +878,19 @@ namespace SpacerUnion
             if (openFileDialogVobTree.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(openFileDialogVobTree.FileName));
+                IntPtr ptrPathSave = UnionNET.AddString(Path.GetDirectoryName(openFileDialogVobTree.FileName));
 
-                Imports.Extern_SetSettingStr(ptrPathSave, Marshal.StringToHGlobalAnsi("treeVobPath"));
+                Imports.Extern_SetSettingStr(ptrPathSave, UnionNET.AddString("treeVobPath"));
 
 
 
                 string filePath = openFileDialogVobTree.FileName;
-                IntPtr filePathPtr = Marshal.StringToHGlobalAnsi(filePath);
+                IntPtr filePathPtr = UnionNET.AddString(filePath);
                 Imports.Extern_OpenVobTree(filePathPtr, false);
 
-                Marshal.FreeHGlobal(ptrPathSave);
-                Marshal.FreeHGlobal(filePathPtr);
             }
+
+            UnionNET.FreeStrings();
         }
 
         private void вставитьVobTreeГлобальноToolStripMenuItem_Click(object sender, EventArgs e)
@@ -900,7 +898,7 @@ namespace SpacerUnion
 
 
             openFileDialogVobTree.Filter = "Zen file (*.zen)|";
-            IntPtr ptrPath = Imports.Extern_GetSettingStr(Marshal.StringToHGlobalAnsi("treeVobPath"));
+            IntPtr ptrPath = Imports.Extern_GetSettingStr(UnionNET.AddString("treeVobPath"));
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
             string fileName = UnionNET.objTreeWin.globalTree.SelectedNode.Text;
@@ -924,19 +922,19 @@ namespace SpacerUnion
             if (openFileDialogVobTree.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(openFileDialogVobTree.FileName));
+                IntPtr ptrPathSave = UnionNET.AddString(Path.GetDirectoryName(openFileDialogVobTree.FileName));
 
-                Imports.Extern_SetSettingStr(ptrPathSave, Marshal.StringToHGlobalAnsi("treeVobPath"));
+                Imports.Extern_SetSettingStr(ptrPathSave, UnionNET.AddString("treeVobPath"));
 
 
 
                 string filePath = openFileDialogVobTree.FileName;
-                IntPtr filePathPtr = Marshal.StringToHGlobalAnsi(filePath);
+                IntPtr filePathPtr = UnionNET.AddString(filePath);
                 Imports.Extern_OpenVobTree(filePathPtr, true);
 
-                Marshal.FreeHGlobal(ptrPathSave);
-                Marshal.FreeHGlobal(filePathPtr);
+
             }
+            UnionNET.FreeStrings();
         }
 
         private void удалитьВобToolStripMenuItem_Click(object sender, EventArgs e)

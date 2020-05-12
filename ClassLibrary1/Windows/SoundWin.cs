@@ -22,6 +22,14 @@ namespace SpacerUnion
             InitializeComponent();
         }
 
+
+        public void UpdateAll()
+        {
+            trackBarMusicVoluem_ValueChanged(null, EventArgs.Empty);
+
+        }
+
+
         [DllExport]
         public static void SortSounds()
         {
@@ -62,9 +70,10 @@ namespace SpacerUnion
             }
 
             string name = listBox.GetItemText(listBox.SelectedItem);
-            IntPtr namePtr = Marshal.StringToHGlobalAnsi(name);
+            IntPtr namePtr = UnionNET.AddString(name);
             Extern_PlaySound(namePtr);
-            Marshal.FreeHGlobal(namePtr);
+            UnionNET.FreeStrings();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -103,9 +112,38 @@ namespace SpacerUnion
             }
 
             string name = listBoxSndResult.GetItemText(listBoxSndResult.SelectedItem);
-            IntPtr namePtr = Marshal.StringToHGlobalAnsi(name);
+            IntPtr namePtr = UnionNET.AddString(name);
             Extern_PlaySound(namePtr);
-            Marshal.FreeHGlobal(namePtr);
+            UnionNET.FreeStrings();
+
+        }
+
+        private void buttonOffMusic_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_ToggleMusic(false);
+        }
+
+        private void trackBarMusicVoluem_ValueChanged(object sender, EventArgs e)
+        {
+            labelMusicVolume.Text = "Громкость " + trackBarMusicVoluem.Value + "%";
+
+            Imports.Extern_SetSetting(UnionNET.AddString("musicVolume"), trackBarMusicVoluem.Value);
+            UnionNET.FreeStrings();
+            
+        }
+
+        private void buttonMusicOn_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_ToggleMusic(true);
+        }
+
+        private void checkBoxShutMusic_CheckedChanged(object sender, EventArgs e)
+        {
+
+            CheckBox cb = sender as CheckBox;
+
+            Imports.Extern_SetSetting(UnionNET.AddString("musicZenOff"), Convert.ToInt32(cb.Checked));
+            UnionNET.FreeStrings();
         }
     }
 }

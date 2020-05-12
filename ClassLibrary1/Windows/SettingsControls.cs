@@ -35,13 +35,15 @@ namespace SpacerUnion.Windows
         private void trackBarVobTransSpeed_ValueChanged(object sender, EventArgs e)
         {
             labelVobTrans.Text = "Скорость перемещения: " + trackBarVobTransSpeed.Value;
-            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("vobTransSpeed"), trackBarVobTransSpeed.Value);
+            Imports.Extern_SetSetting(UnionNET.AddString("vobTransSpeed"), trackBarVobTransSpeed.Value);
+            UnionNET.FreeStrings();
         }
 
         private void trackBarVobRotSpeed_ValueChanged(object sender, EventArgs e)
         {
             labelVobRot.Text = "Скорость вращения: " + trackBarVobRotSpeed.Value;
-            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("vobRotSpeed"), trackBarVobRotSpeed.Value);
+            Imports.Extern_SetSetting(UnionNET.AddString("vobRotSpeed"), trackBarVobRotSpeed.Value);
+            UnionNET.FreeStrings();
         }
 
         private void buttonVobControlApply_Click(object sender, EventArgs e)
@@ -53,14 +55,16 @@ namespace SpacerUnion.Windows
         {
             CheckBox cb = sender as CheckBox;
 
-            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("vobInsertItemLevel"), Convert.ToInt32(cb.Checked));
+            Imports.Extern_SetSetting(UnionNET.AddString("vobInsertItemLevel"), Convert.ToInt32(cb.Checked));
+            UnionNET.FreeStrings();
         }
 
         private void checkBoxVobRotRandAngle_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
 
-            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("vobInsertVobRotRand"), Convert.ToInt32(cb.Checked));
+            Imports.Extern_SetSetting(UnionNET.AddString("vobInsertVobRotRand"), Convert.ToInt32(cb.Checked));
+            UnionNET.FreeStrings();
         }
     }
 }

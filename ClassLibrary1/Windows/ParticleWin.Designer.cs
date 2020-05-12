@@ -48,6 +48,7 @@
             this.listBoxItems = new System.Windows.Forms.ListBox();
             this.buttonItems = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBoxSearchOnly3DS = new System.Windows.Forms.CheckBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -118,7 +119,6 @@
             this.treeViewSearchClass = new System.Windows.Forms.TreeView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.checkBoxSearchOnly3DS = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -351,6 +351,19 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Все классы вобов";
+            // 
+            // checkBoxSearchOnly3DS
+            // 
+            this.checkBoxSearchOnly3DS.AutoSize = true;
+            this.checkBoxSearchOnly3DS.Checked = true;
+            this.checkBoxSearchOnly3DS.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxSearchOnly3DS.Location = new System.Drawing.Point(391, 180);
+            this.checkBoxSearchOnly3DS.Name = "checkBoxSearchOnly3DS";
+            this.checkBoxSearchOnly3DS.Size = new System.Drawing.Size(125, 17);
+            this.checkBoxSearchOnly3DS.TabIndex = 19;
+            this.checkBoxSearchOnly3DS.Text = "Искать только 3DS";
+            this.checkBoxSearchOnly3DS.UseVisualStyleBackColor = true;
+            this.checkBoxSearchOnly3DS.CheckedChanged += new System.EventHandler(this.checkBoxSearchOnly3DS_CheckedChanged);
             // 
             // groupBox10
             // 
@@ -1094,18 +1107,6 @@
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Свет";
             this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxSearchOnly3DS
-            // 
-            this.checkBoxSearchOnly3DS.AutoSize = true;
-            this.checkBoxSearchOnly3DS.Checked = true;
-            this.checkBoxSearchOnly3DS.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxSearchOnly3DS.Location = new System.Drawing.Point(414, 180);
-            this.checkBoxSearchOnly3DS.Name = "checkBoxSearchOnly3DS";
-            this.checkBoxSearchOnly3DS.Size = new System.Drawing.Size(125, 17);
-            this.checkBoxSearchOnly3DS.TabIndex = 19;
-            this.checkBoxSearchOnly3DS.Text = "Искать только 3DS";
-            this.checkBoxSearchOnly3DS.UseVisualStyleBackColor = true;
             // 
             // ParticleWin
             // 

@@ -203,12 +203,13 @@ namespace SpacerUnion
 
             UnionNET.infoWin.AddText("Создаю Item " + name);
 
-            IntPtr item_name = Marshal.StringToHGlobalAnsi(name);
+            IntPtr item_name = UnionNET.AddString(name);
 
             Imports.Extern_CreateItem(item_name);
-            Marshal.FreeHGlobal(item_name);
 
             UnionNET.form.Focus();
+
+            UnionNET.FreeStrings();
 
         }
 
@@ -254,12 +255,13 @@ namespace SpacerUnion
 
             UnionNET.infoWin.AddText("Создаю PFX " + name);
 
-            IntPtr PfxName = Marshal.StringToHGlobalAnsi(name);
+            IntPtr PfxName = UnionNET.AddString(name);
 
             Imports.Extern_CreatePFX(PfxName);
-            Marshal.FreeHGlobal(PfxName);
+  
 
             UnionNET.form.Focus();
+            UnionNET.FreeStrings();
         }
 
         public static void FindClass(TreeNodeCollection nodes, string baseClass, string name)
@@ -326,12 +328,14 @@ namespace SpacerUnion
 
             textBoxVobName.Text = "";
 
-            IntPtr ptrName = Marshal.StringToHGlobalAnsi(name);
-            IntPtr ptrVobName = Marshal.StringToHGlobalAnsi(vobName);
-            IntPtr ptrVisual= Marshal.StringToHGlobalAnsi(visualVob);
+            IntPtr ptrName = UnionNET.AddString(name);
+            IntPtr ptrVobName = UnionNET.AddString(vobName);
+            IntPtr ptrVisual= UnionNET.AddString(visualVob);
 
             Imports.Extern_CreateNewVobVisual(ptrName, ptrVobName, ptrVisual, isDyn, isStat);
-            Marshal.FreeHGlobal(ptrName);
+
+            UnionNET.FreeStrings();
+
         }
 
         private void classesTreeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
@@ -388,27 +392,27 @@ namespace SpacerUnion
                 return;
             }
 
-            IntPtr ptrVobNameCheck = Marshal.StringToHGlobalAnsi(vobName);
+            IntPtr ptrVobNameCheck = UnionNET.AddString(vobName);
 
             bool nameFound = Imports.Extern_VobNameExist(ptrVobNameCheck, true);
 
             if (nameFound && !autoGenerate)
             {
                 MessageBox.Show("Такое имя уже существует");
+                UnionNET.FreeStrings();
                 return;
             }
 
 
             Console.WriteLine("C#: OnCreateVob: ClassDef: " + name);
 
-            IntPtr ptrName = Marshal.StringToHGlobalAnsi(name);
-            IntPtr ptrVobName = Marshal.StringToHGlobalAnsi(vobName);
+            IntPtr ptrName = UnionNET.AddString(name);
+            IntPtr ptrVobName = UnionNET.AddString(vobName);
 
             Imports.Extern_CreateWaypoint(ptrName, ptrVobName, addToNet, autoGenerate);
-            Marshal.FreeHGlobal(ptrName);
 
             UnionNET.form.Focus();
-
+            UnionNET.FreeStrings();
             /*
             if (vobName.Contains("_"))
             {
@@ -438,22 +442,23 @@ namespace SpacerUnion
             }
 
 
-            IntPtr ptrVobNameCheck = Marshal.StringToHGlobalAnsi(vobName);
+            IntPtr ptrVobNameCheck = UnionNET.AddString(vobName);
 
             bool nameFound = Imports.Extern_VobNameExist(ptrVobNameCheck, false);
             if (nameFound)
             {
+                UnionNET.FreeStrings();
                 MessageBox.Show("Такое имя уже существует");
                 return;
             }
 
             Console.WriteLine("C#: OnCreateVob: ClassDef: " + name);
 
-            IntPtr ptrName = Marshal.StringToHGlobalAnsi(name);
-            IntPtr ptrVobName = Marshal.StringToHGlobalAnsi(vobName);
+            IntPtr ptrName = UnionNET.AddString(name);
+            IntPtr ptrVobName = UnionNET.AddString(vobName);
 
             Imports.Extern_CreateFreePoint(ptrName, ptrVobName, autoName, ground);
-            Marshal.FreeHGlobal(ptrName);
+            UnionNET.FreeStrings();
 
 
         }
@@ -481,12 +486,13 @@ namespace SpacerUnion
 
             UnionNET.infoWin.AddText("Создаю Item " + name);
 
-            IntPtr item_name = Marshal.StringToHGlobalAnsi(name);
+            IntPtr item_name = UnionNET.AddString(name);
 
             Imports.Extern_CreateItem(item_name);
-            Marshal.FreeHGlobal(item_name);
+
 
             UnionNET.form.Focus();
+            UnionNET.FreeStrings();
         }
 
         private void label10_Click(object sender, EventArgs e)
@@ -510,12 +516,13 @@ namespace SpacerUnion
 
             UnionNET.infoWin.AddText("Создаю PFX " + name);
 
-            IntPtr PfxName = Marshal.StringToHGlobalAnsi(name);
+            IntPtr PfxName = UnionNET.AddString(name);
 
             Imports.Extern_CreatePFX(PfxName);
-            Marshal.FreeHGlobal(PfxName);
+
 
             UnionNET.form.Focus();
+            UnionNET.FreeStrings();
         }
 
         private void textBoxPfxReg_KeyPress(object sender, KeyPressEventArgs e)
@@ -596,11 +603,11 @@ namespace SpacerUnion
             UnionNET.partWin.labelSearchVisual.Text = "Поиск визуала.";
 
             string visual = "";
-            IntPtr visualPtr = Marshal.StringToHGlobalAnsi(visual);
+            IntPtr visualPtr = UnionNET.AddString(visual);
 
             Imports.Extern_RenderSelectedVob(visualPtr);
+            UnionNET.FreeStrings();
 
-            Marshal.FreeHGlobal(visualPtr);
         }
 
         private void checkBoxDyn_CheckedChanged(object sender, EventArgs e)
@@ -899,13 +906,14 @@ namespace SpacerUnion
             if (listBoxVisuals.SelectedItem != null && checkBoxShowPreview.Checked)
             {
                 string visual = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
-                IntPtr visualPtr = Marshal.StringToHGlobalAnsi(visual);
+                IntPtr visualPtr = UnionNET.AddString(visual);
 
                 Imports.Extern_RenderSelectedVob(visualPtr);
 
-                Marshal.FreeHGlobal(visualPtr);
+
 
                 UnionNET.form.Focus();
+                UnionNET.FreeStrings();
             }
             
         }
@@ -915,17 +923,15 @@ namespace SpacerUnion
             CheckBox ch = sender as CheckBox;
 
 
-            Imports.Extern_SetSetting(Marshal.StringToHGlobalAnsi("showModelPreview"), Convert.ToInt32(ch.Checked));
+            Imports.Extern_SetSetting(UnionNET.AddString("showModelPreview"), Convert.ToInt32(ch.Checked));
 
 
             if (!ch.Checked)
             {
                 string visual = "";
-                IntPtr visualPtr = Marshal.StringToHGlobalAnsi(visual);
+                IntPtr visualPtr = UnionNET.AddString(visual);
 
                 Imports.Extern_RenderSelectedVob(visualPtr);
-
-                Marshal.FreeHGlobal(visualPtr);
 
                 UnionNET.form.Focus();
             }
@@ -934,16 +940,17 @@ namespace SpacerUnion
                 if (listBoxVisuals.SelectedItem != null)
                 {
                     string visual = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
-                    IntPtr visualPtr = Marshal.StringToHGlobalAnsi(visual);
+                    IntPtr visualPtr = UnionNET.AddString(visual);
 
                     Imports.Extern_RenderSelectedVob(visualPtr);
 
-                    Marshal.FreeHGlobal(visualPtr);
+              
 
                     UnionNET.form.Focus();
                 }
-
+                
             }
+            UnionNET.FreeStrings();
         }
 
         private void tabControlObjects_SelectedIndexChanged(object sender, EventArgs e)
@@ -953,14 +960,20 @@ namespace SpacerUnion
             if (tab.SelectedIndex != 0)
             {
                 string visual = "";
-                IntPtr visualPtr = Marshal.StringToHGlobalAnsi(visual);
+                IntPtr visualPtr = UnionNET.AddString(visual);
 
                 Imports.Extern_RenderSelectedVob(visualPtr);
 
-                Marshal.FreeHGlobal(visualPtr);
 
+                UnionNET.FreeStrings();
                 //UnionNET.form.Focus();
             }
+        }
+
+        private void checkBoxSearchOnly3DS_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox ch = sender as CheckBox;
+            Imports.Extern_SetSetting(UnionNET.AddString("searchOnly3DS"), Convert.ToInt32(ch.Checked));
         }
     }
 }

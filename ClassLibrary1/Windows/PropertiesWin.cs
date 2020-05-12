@@ -508,12 +508,12 @@ namespace SpacerUnion
                     if (prop.Name == "vobName")
                     {
                         string newName = prop.value;
-                        IntPtr newNamePtr = Marshal.StringToHGlobalAnsi(newName);
+                        IntPtr newNamePtr = UnionNET.AddString(newName);
 
                         if (Imports.Extern_CheckUniqueNameExist(newNamePtr))
                         {
                             MessageBox.Show("Такое имя уже существует!");
-                            Marshal.FreeHGlobal(newNamePtr);
+                            UnionNET.FreeStrings();
                             return;
                         }
                     }
@@ -569,12 +569,12 @@ namespace SpacerUnion
                 str.Append(words[j] + "\n");
             }
 
-            IntPtr ptr = Marshal.StringToHGlobalAnsi(str.ToString());
-            IntPtr ptrName = Marshal.StringToHGlobalAnsi(nameValue);
+            IntPtr ptr = UnionNET.AddString(str.ToString());
+            IntPtr ptrName = UnionNET.AddString(nameValue);
 
             Imports.Extern_ApplyProps(ptr, ptrName);
-            Marshal.FreeHGlobal(ptr);
-            Marshal.FreeHGlobal(ptrName);
+            UnionNET.FreeStrings();
+
         }
 
         public void DisableTabBBox()
@@ -1073,7 +1073,7 @@ namespace SpacerUnion
         {
             openFileDialogFileName.Filter = "All files (*.)|";
 
-            IntPtr ptrPath = Imports.Extern_GetSettingStr(Marshal.StringToHGlobalAnsi("vobResPath"));
+            IntPtr ptrPath = Imports.Extern_GetSettingStr(UnionNET.AddString("vobResPath"));
 
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
@@ -1094,9 +1094,9 @@ namespace SpacerUnion
             if (openFileDialogFileName.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPathSave = Marshal.StringToHGlobalAnsi(Path.GetDirectoryName(openFileDialogFileName.FileName));
+                IntPtr ptrPathSave = UnionNET.AddString(Path.GetDirectoryName(openFileDialogFileName.FileName));
 
-                Imports.Extern_SetSettingStr(ptrPathSave, Marshal.StringToHGlobalAnsi("vobResPath"));
+                Imports.Extern_SetSettingStr(ptrPathSave, UnionNET.AddString("vobResPath"));
 
                 string fileName = openFileDialogFileName.SafeFileName;
 
@@ -1130,7 +1130,9 @@ namespace SpacerUnion
                     }
                 }
             }
-               
+
+            UnionNET.FreeStrings();
+
         }
 
         private void buttonResetBbox_Click_1(object sender, EventArgs e)

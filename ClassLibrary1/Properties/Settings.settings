@@ -17,5 +17,8 @@
     <Setting Name="PropWinLocation" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">500, 150</Value>
     </Setting>
+    <Setting Name="SoundWinLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">500, 150</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
