@@ -43,9 +43,11 @@
             this.labelMusicVolume = new System.Windows.Forms.Label();
             this.buttonMusicOn = new System.Windows.Forms.Button();
             this.checkBoxShutMusic = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarMusicVoluem)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonPlaySound
@@ -68,9 +70,9 @@
             // 
             // buttonStopAllSounds
             // 
-            this.buttonStopAllSounds.Location = new System.Drawing.Point(119, 296);
+            this.buttonStopAllSounds.Location = new System.Drawing.Point(10, 32);
             this.buttonStopAllSounds.Name = "buttonStopAllSounds";
-            this.buttonStopAllSounds.Size = new System.Drawing.Size(150, 32);
+            this.buttonStopAllSounds.Size = new System.Drawing.Size(195, 32);
             this.buttonStopAllSounds.TabIndex = 2;
             this.buttonStopAllSounds.Text = "Заглушить все звуки";
             this.buttonStopAllSounds.UseVisualStyleBackColor = true;
@@ -78,7 +80,7 @@
             // 
             // buttonPlaySoundRegex
             // 
-            this.buttonPlaySoundRegex.Location = new System.Drawing.Point(211, 19);
+            this.buttonPlaySoundRegex.Location = new System.Drawing.Point(186, 19);
             this.buttonPlaySoundRegex.Name = "buttonPlaySoundRegex";
             this.buttonPlaySoundRegex.Size = new System.Drawing.Size(188, 32);
             this.buttonPlaySoundRegex.TabIndex = 3;
@@ -89,14 +91,14 @@
             // listBoxSndResult
             // 
             this.listBoxSndResult.FormattingEnabled = true;
-            this.listBoxSndResult.Location = new System.Drawing.Point(211, 108);
+            this.listBoxSndResult.Location = new System.Drawing.Point(186, 108);
             this.listBoxSndResult.Name = "listBoxSndResult";
             this.listBoxSndResult.Size = new System.Drawing.Size(188, 173);
             this.listBoxSndResult.TabIndex = 4;
             // 
             // textBoxSnd
             // 
-            this.textBoxSnd.Location = new System.Drawing.Point(211, 82);
+            this.textBoxSnd.Location = new System.Drawing.Point(186, 82);
             this.textBoxSnd.Name = "textBoxSnd";
             this.textBoxSnd.Size = new System.Drawing.Size(188, 20);
             this.textBoxSnd.TabIndex = 5;
@@ -105,7 +107,7 @@
             // labelSndList
             // 
             this.labelSndList.AutoSize = true;
-            this.labelSndList.Location = new System.Drawing.Point(208, 61);
+            this.labelSndList.Location = new System.Drawing.Point(183, 61);
             this.labelSndList.Name = "labelSndList";
             this.labelSndList.Size = new System.Drawing.Size(140, 13);
             this.labelSndList.TabIndex = 6;
@@ -128,11 +130,10 @@
             this.groupBox1.Controls.Add(this.labelSndList);
             this.groupBox1.Controls.Add(this.listBoxSound);
             this.groupBox1.Controls.Add(this.textBoxSnd);
-            this.groupBox1.Controls.Add(this.buttonStopAllSounds);
             this.groupBox1.Controls.Add(this.listBoxSndResult);
             this.groupBox1.Location = new System.Drawing.Point(3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(405, 342);
+            this.groupBox1.Size = new System.Drawing.Size(383, 290);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Звуки";
@@ -144,9 +145,9 @@
             this.groupBox2.Controls.Add(this.labelMusicVolume);
             this.groupBox2.Controls.Add(this.trackBarMusicVoluem);
             this.groupBox2.Controls.Add(this.buttonOffMusic);
-            this.groupBox2.Location = new System.Drawing.Point(415, 2);
+            this.groupBox2.Location = new System.Drawing.Point(392, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(216, 342);
+            this.groupBox2.Size = new System.Drawing.Size(216, 180);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Музыка";
@@ -155,7 +156,7 @@
             // 
             this.buttonOffMusic.Location = new System.Drawing.Point(10, 19);
             this.buttonOffMusic.Name = "buttonOffMusic";
-            this.buttonOffMusic.Size = new System.Drawing.Size(188, 32);
+            this.buttonOffMusic.Size = new System.Drawing.Size(195, 32);
             this.buttonOffMusic.TabIndex = 8;
             this.buttonOffMusic.Text = "Отключить музыку";
             this.buttonOffMusic.UseVisualStyleBackColor = true;
@@ -163,7 +164,7 @@
             // 
             // trackBarMusicVoluem
             // 
-            this.trackBarMusicVoluem.Location = new System.Drawing.Point(87, 108);
+            this.trackBarMusicVoluem.Location = new System.Drawing.Point(87, 131);
             this.trackBarMusicVoluem.Maximum = 100;
             this.trackBarMusicVoluem.Name = "trackBarMusicVoluem";
             this.trackBarMusicVoluem.Size = new System.Drawing.Size(111, 45);
@@ -173,7 +174,7 @@
             // labelMusicVolume
             // 
             this.labelMusicVolume.AutoSize = true;
-            this.labelMusicVolume.Location = new System.Drawing.Point(7, 108);
+            this.labelMusicVolume.Location = new System.Drawing.Point(7, 131);
             this.labelMusicVolume.Name = "labelMusicVolume";
             this.labelMusicVolume.Size = new System.Drawing.Size(62, 13);
             this.labelMusicVolume.TabIndex = 10;
@@ -183,7 +184,7 @@
             // 
             this.buttonMusicOn.Location = new System.Drawing.Point(10, 61);
             this.buttonMusicOn.Name = "buttonMusicOn";
-            this.buttonMusicOn.Size = new System.Drawing.Size(188, 32);
+            this.buttonMusicOn.Size = new System.Drawing.Size(195, 32);
             this.buttonMusicOn.TabIndex = 11;
             this.buttonMusicOn.Text = "Включить музыку";
             this.buttonMusicOn.UseVisualStyleBackColor = true;
@@ -192,19 +193,30 @@
             // checkBoxShutMusic
             // 
             this.checkBoxShutMusic.AutoSize = true;
-            this.checkBoxShutMusic.Location = new System.Drawing.Point(10, 159);
+            this.checkBoxShutMusic.Location = new System.Drawing.Point(10, 99);
             this.checkBoxShutMusic.Name = "checkBoxShutMusic";
-            this.checkBoxShutMusic.Size = new System.Drawing.Size(170, 17);
+            this.checkBoxShutMusic.Size = new System.Drawing.Size(195, 17);
             this.checkBoxShutMusic.TabIndex = 12;
-            this.checkBoxShutMusic.Text = "Не включать музыку в мире";
+            this.checkBoxShutMusic.Text = "Отключать музыку при загрузке ";
             this.checkBoxShutMusic.UseVisualStyleBackColor = true;
             this.checkBoxShutMusic.CheckedChanged += new System.EventHandler(this.checkBoxShutMusic_CheckedChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.buttonStopAllSounds);
+            this.groupBox3.Location = new System.Drawing.Point(392, 192);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(216, 100);
+            this.groupBox3.TabIndex = 10;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Звуки";
             // 
             // SoundWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(643, 366);
+            this.ClientSize = new System.Drawing.Size(612, 297);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -221,6 +233,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarMusicVoluem)).EndInit();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -242,5 +255,6 @@
         public System.Windows.Forms.TrackBar trackBarMusicVoluem;
         private System.Windows.Forms.Button buttonMusicOn;
         public System.Windows.Forms.CheckBox checkBoxShutMusic;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

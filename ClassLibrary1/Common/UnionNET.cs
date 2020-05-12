@@ -218,6 +218,9 @@ namespace SpacerUnion
             btn = form.toolStripTop.Items[5] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(vobList.Visible);
 
+
+           
+
             int radius = Imports.Extern_GetSetting(AddString("vobListRadius"));
             vobList.trackBarRadius.Value = radius;
             vobList.comboBoxVobListType.SelectedIndex = 0;
