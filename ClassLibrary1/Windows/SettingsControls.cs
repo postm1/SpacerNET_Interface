@@ -66,5 +66,13 @@ namespace SpacerUnion.Windows
             Imports.Extern_SetSetting(UnionNET.AddString("vobInsertVobRotRand"), Convert.ToInt32(cb.Checked));
             UnionNET.FreeStrings();
         }
+
+        private void checkBoxVobInsertHierarchy_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+
+            Imports.Extern_SetSetting(UnionNET.AddString("vobInsertHierarchy"), Convert.ToInt32(cb.Checked));
+            UnionNET.FreeStrings();
+        }
     }
 }

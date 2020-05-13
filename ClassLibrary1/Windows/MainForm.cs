@@ -687,6 +687,8 @@ namespace SpacerUnion
             int rotSpeed = Imports.Extern_GetSetting(UnionNET.AddString("vobRotSpeed"));
             bool insertVobItemLevel = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("vobInsertItemLevel")));
             bool vobInsertVobRotRand = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("vobInsertVobRotRand")));
+            bool vobInsertHierarchy = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("vobInsertHierarchy")));
+
 
             
 
@@ -694,6 +696,7 @@ namespace SpacerUnion
             UnionNET.settingsControl.trackBarVobRotSpeed.Value = rotSpeed;
             UnionNET.settingsControl.checkBoxInsertVob.Checked = insertVobItemLevel;
             UnionNET.settingsControl.checkBoxVobRotRandAngle.Checked = vobInsertVobRotRand;
+            UnionNET.settingsControl.checkBoxVobInsertHierarchy.Checked = vobInsertHierarchy;
             UnionNET.settingsControl.UpdateAll();
 
             UnionNET.settingsControl.Show();

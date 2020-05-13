@@ -231,6 +231,28 @@ namespace SpacerUnion
 
         }
 
+
+        [DllExport]
+        public static void SelectNode(uint ptr)
+        {
+            TreeEntry entry = null;
+
+
+            entry = globalEntries
+                    .Where(x => x.Value.zCVob == ptr)
+                    .Select(pair => pair.Value)
+                    .FirstOrDefault();
+
+            if (entry != null)
+            {
+                if (entry.node != null)
+                {
+                    UnionNET.objTreeWin.globalTree.SelectedNode = entry.node;
+                    UnionNET.objTreeWin.globalTree.SelectedNode.ExpandAll();
+                }
+            }
+        }
+
         [DllExport]
         public static void OnSelectVob(uint ptr)
         {
@@ -434,7 +456,7 @@ namespace SpacerUnion
 
        
         [DllExport]
-        public static void OnVobInsert(IntPtr ptr, uint vob, uint parent, IntPtr classNamePtr, int isNodeBlocked)
+        public static void OnVobInsert(IntPtr ptr, uint vob, uint parent, IntPtr classNamePtr, int isNodeBlocked, bool select)
         {
             string name = Marshal.PtrToStringAnsi(ptr);
             string className = Marshal.PtrToStringAnsi(classNamePtr);
@@ -502,7 +524,7 @@ namespace SpacerUnion
                 Utils.Error(msg);
 
                 MessageBox.Show(msg);
-                //return;
+                return;
             }
 
 
@@ -537,7 +559,11 @@ namespace SpacerUnion
                 ApplyNodeImage(className, node, true);
 
                 
-                UnionNET.objTreeWin.globalTree.SelectedNode = node;
+                if (select)
+                {
+                    UnionNET.objTreeWin.globalTree.SelectedNode = node;
+                }
+               
                 
                 
                 Console.WriteLine("C# OnVobInsert Глобально: " + name + " parent: " + Utils.ToHex(parent) + " className: " + className);
@@ -562,7 +588,11 @@ namespace SpacerUnion
                     ApplyNodeImage(className, node, true);
 
 
-                    UnionNET.objTreeWin.globalTree.SelectedNode = node;
+                    if (select)
+                    {
+                        UnionNET.objTreeWin.globalTree.SelectedNode = node;
+                    }
+                        
                     
                         
                 }

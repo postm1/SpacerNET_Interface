@@ -55,7 +55,7 @@ namespace SpacerUnion
 
         public static void FreeStrings()
         {
-            ConsoleEx.WriteLineGreen("Marshal list before: " + marshalList.Count);
+            //ConsoleEx.WriteLineGreen("Marshal list before: " + marshalList.Count);
             foreach (var entry in marshalList)
             {
                 Marshal.FreeHGlobal(entry.Value);
@@ -63,7 +63,7 @@ namespace SpacerUnion
 
             marshalList.Clear();
 
-            ConsoleEx.WriteLineGreen("Marshal list after: " + marshalList.Count);
+            //ConsoleEx.WriteLineGreen("Marshal list after: " + marshalList.Count);
         }
 
 
