@@ -688,9 +688,9 @@ namespace SpacerUnion
             bool insertVobItemLevel = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("vobInsertItemLevel")));
             bool vobInsertVobRotRand = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("vobInsertVobRotRand")));
             bool vobInsertHierarchy = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("vobInsertHierarchy")));
+            int turnMode = Imports.Extern_GetSetting(UnionNET.AddString("wpTurnOn"));
 
 
-            
 
             UnionNET.settingsControl.trackBarVobTransSpeed.Value = transSpeed;
             UnionNET.settingsControl.trackBarVobRotSpeed.Value = rotSpeed;
@@ -699,7 +699,9 @@ namespace SpacerUnion
             UnionNET.settingsControl.checkBoxVobInsertHierarchy.Checked = vobInsertHierarchy;
             UnionNET.settingsControl.UpdateAll();
 
-            UnionNET.settingsControl.Show();
+            UnionNET.settingsControl.SetRadioTurnMode(turnMode);
+
+           UnionNET.settingsControl.Show();
             UnionNET.FreeStrings();
         }
 

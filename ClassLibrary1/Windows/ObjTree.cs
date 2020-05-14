@@ -962,6 +962,10 @@ namespace SpacerUnion
                 IntPtr filePathPtr = UnionNET.AddString(filePath);
                 Imports.Extern_OpenVobTree(filePathPtr, true);
 
+                if (UnionNET.objTreeWin.globalTree.SelectedNode != null)
+                {
+                    UnionNET.objTreeWin.globalTree.SelectedNode.ExpandAll();
+                }
 
             }
             UnionNET.FreeStrings();

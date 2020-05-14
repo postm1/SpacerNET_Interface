@@ -490,7 +490,9 @@
             this.listBoxVisuals.Name = "listBoxVisuals";
             this.listBoxVisuals.Size = new System.Drawing.Size(284, 108);
             this.listBoxVisuals.TabIndex = 8;
+            this.listBoxVisuals.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxVisuals_MouseClick);
             this.listBoxVisuals.SelectedIndexChanged += new System.EventHandler(this.listBoxVisuals_SelectedIndexChanged);
+            this.listBoxVisuals.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxVisuals_MouseDown);
             // 
             // labelSearchVisual
             // 

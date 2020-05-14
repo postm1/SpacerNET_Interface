@@ -74,5 +74,39 @@ namespace SpacerUnion.Windows
             Imports.Extern_SetSetting(UnionNET.AddString("vobInsertHierarchy"), Convert.ToInt32(cb.Checked));
             UnionNET.FreeStrings();
         }
+
+        public void SetRadioTurnMode(int mode)
+        {
+            if (mode == 0)
+            {
+                radioButtonWPTurnNone.Checked = true;
+            }
+
+            if (mode == 1)
+            {
+                radioButtonWPTurnAgainst.Checked = true;
+            }
+
+            if (mode == 2)
+            {
+                radioButtonWPTurnOn.Checked = true;
+            }
+        }
+
+        private void radioButtonWPTurnNone_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton rb = sender as RadioButton;
+
+            int val;
+
+            if (rb.Checked)
+            {
+                int.TryParse(rb.Tag.ToString(), out val);
+
+                Imports.Extern_SetSetting(UnionNET.AddString("wpTurnOn"), val);
+                UnionNET.FreeStrings();
+            }
+            
+        }
     }
 }

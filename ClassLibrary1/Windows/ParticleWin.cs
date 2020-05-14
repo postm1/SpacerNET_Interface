@@ -975,5 +975,31 @@ namespace SpacerUnion
             CheckBox ch = sender as CheckBox;
             Imports.Extern_SetSetting(UnionNET.AddString("searchOnly3DS"), Convert.ToInt32(ch.Checked));
         }
+
+        private void listBoxVisuals_MouseClick(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void listBoxVisuals_MouseDown(object sender, MouseEventArgs e)
+        {
+            ListBox lb = sender as ListBox;
+            if (e.Button == MouseButtons.Right)
+            {
+
+                int index = lb.IndexFromPoint(e.Location);
+                {
+                    if (index == lb.SelectedIndex)
+                    {
+                        string visual = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
+                        Clipboard.SetText(visual);
+                    }
+                }
+
+
+                
+
+            }
+        }
     }
 }
