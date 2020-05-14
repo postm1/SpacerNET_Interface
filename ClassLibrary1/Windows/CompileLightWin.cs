@@ -22,6 +22,8 @@ namespace SpacerUnion
         {
             InitializeComponent();
 
+            this.KeyPreview = true;
+
             buttons[0] = radioButtonVertex;
             buttons[1] = radioButtonLow;
             buttons[2] = radioButtonMiddle;
@@ -94,6 +96,18 @@ namespace SpacerUnion
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
+        private void CompileLightWin_KeyPress(object sender, KeyPressEventArgs e)
+        {
 
+
+        }
+
+        private void CompileLightWin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                button2_Click(null, null);
+            }
+        }
     }
 }

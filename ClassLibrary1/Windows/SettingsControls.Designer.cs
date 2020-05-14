@@ -227,6 +227,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Настройки управления";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsControls_FormClosing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SettingsControls_KeyDown);
             this.groupBoxControlVob.ResumeLayout(false);
             this.groupBoxControlVob.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobTransSpeed)).EndInit();

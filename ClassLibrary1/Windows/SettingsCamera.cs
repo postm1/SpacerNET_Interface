@@ -17,6 +17,7 @@ namespace SpacerUnion
         public SettingsCamera()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
 
@@ -144,6 +145,20 @@ namespace SpacerUnion
         private void textBoxLimitFPS_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void SettingsCamera_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+
+        }
+
+        private void SettingsCamera_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                SettingsCamera_FormClosing(null, new FormClosingEventArgs(CloseReason.UserClosing, true));
+            }
         }
     }
 }

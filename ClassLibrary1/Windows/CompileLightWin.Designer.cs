@@ -192,6 +192,8 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Компиляция света";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CompileLightWin_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CompileLightWin_KeyPress);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

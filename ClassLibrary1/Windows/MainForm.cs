@@ -824,5 +824,10 @@ namespace SpacerUnion
         {
             MessageBox.Show("Spacer.NET, 2020");
         }
+
+        private void ввестиКоординатыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UnionNET.camCoordsWin.Show();
+        }
     }
 }

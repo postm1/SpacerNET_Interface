@@ -36,7 +36,7 @@ namespace SpacerUnion.Common
 
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SetCameraPos(int x, int y, int z);
+        public static extern void Extern_SetCameraPos(float x, float y, float z);
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_SaveWorld(IntPtr str, int type);

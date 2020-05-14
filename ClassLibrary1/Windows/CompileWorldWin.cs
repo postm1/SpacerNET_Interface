@@ -18,6 +18,7 @@ namespace SpacerUnion
         public CompileWorldWin()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void CompileWorldWin_FormClosing(object sender, FormClosingEventArgs e)
@@ -49,6 +50,15 @@ namespace SpacerUnion
             
 
             this.Hide();
+        }
+
+
+        private void CompileWorldWin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                button1_Click(null, null);
+            }
         }
     }
 }

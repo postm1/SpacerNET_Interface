@@ -117,6 +117,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Компиляция мира";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CompileWorldWin_FormClosing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CompileWorldWin_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

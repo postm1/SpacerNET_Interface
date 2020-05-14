@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace SpacerUnion.Windows
 {
     public partial class SettingsControls : Form
@@ -16,6 +17,7 @@ namespace SpacerUnion.Windows
         public SettingsControls()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void SettingsControls_FormClosing(object sender, FormClosingEventArgs e)
@@ -107,6 +109,14 @@ namespace SpacerUnion.Windows
                 UnionNET.FreeStrings();
             }
             
+        }
+
+        private void SettingsControls_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                SettingsControls_FormClosing(null, new FormClosingEventArgs(CloseReason.UserClosing, true));
+            }
         }
     }
 }

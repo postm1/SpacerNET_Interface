@@ -40,6 +40,8 @@
             this.groupBoxRange = new System.Windows.Forms.GroupBox();
             this.Применить = new System.Windows.Forms.Button();
             this.groupBoxInfo = new System.Windows.Forms.GroupBox();
+            this.labelLimitFPS = new System.Windows.Forms.Label();
+            this.textBoxLimitFPS = new System.Windows.Forms.TextBox();
             this.checkBoxCameraHideWins = new System.Windows.Forms.CheckBox();
             this.checkBoxDistVob = new System.Windows.Forms.CheckBox();
             this.checkBoxWaypoints = new System.Windows.Forms.CheckBox();
@@ -47,8 +49,6 @@
             this.checkBoxCamCoord = new System.Windows.Forms.CheckBox();
             this.checkBoxTris = new System.Windows.Forms.CheckBox();
             this.checkBoxFPS = new System.Windows.Forms.CheckBox();
-            this.textBoxLimitFPS = new System.Windows.Forms.TextBox();
-            this.labelLimitFPS = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRotSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobs)).BeginInit();
@@ -194,6 +194,24 @@
             this.groupBoxInfo.TabStop = false;
             this.groupBoxInfo.Text = "Информация";
             // 
+            // labelLimitFPS
+            // 
+            this.labelLimitFPS.AutoSize = true;
+            this.labelLimitFPS.Location = new System.Drawing.Point(6, 199);
+            this.labelLimitFPS.Name = "labelLimitFPS";
+            this.labelLimitFPS.Size = new System.Drawing.Size(89, 13);
+            this.labelLimitFPS.TabIndex = 8;
+            this.labelLimitFPS.Text = "Ограничить FPS";
+            // 
+            // textBoxLimitFPS
+            // 
+            this.textBoxLimitFPS.Location = new System.Drawing.Point(101, 196);
+            this.textBoxLimitFPS.Name = "textBoxLimitFPS";
+            this.textBoxLimitFPS.Size = new System.Drawing.Size(29, 20);
+            this.textBoxLimitFPS.TabIndex = 7;
+            this.textBoxLimitFPS.Text = "0";
+            this.textBoxLimitFPS.TextChanged += new System.EventHandler(this.textBoxLimitFPS_TextChanged);
+            // 
             // checkBoxCameraHideWins
             // 
             this.checkBoxCameraHideWins.AutoSize = true;
@@ -271,24 +289,6 @@
             this.checkBoxFPS.UseVisualStyleBackColor = true;
             this.checkBoxFPS.CheckedChanged += new System.EventHandler(this.checkBoxFPS_CheckedChanged);
             // 
-            // textBoxLimitFPS
-            // 
-            this.textBoxLimitFPS.Location = new System.Drawing.Point(101, 196);
-            this.textBoxLimitFPS.Name = "textBoxLimitFPS";
-            this.textBoxLimitFPS.Size = new System.Drawing.Size(29, 20);
-            this.textBoxLimitFPS.TabIndex = 7;
-            this.textBoxLimitFPS.Text = "0";
-            this.textBoxLimitFPS.TextChanged += new System.EventHandler(this.textBoxLimitFPS_TextChanged);
-            // 
-            // labelLimitFPS
-            // 
-            this.labelLimitFPS.AutoSize = true;
-            this.labelLimitFPS.Location = new System.Drawing.Point(6, 199);
-            this.labelLimitFPS.Name = "labelLimitFPS";
-            this.labelLimitFPS.Size = new System.Drawing.Size(89, 13);
-            this.labelLimitFPS.TabIndex = 8;
-            this.labelLimitFPS.Text = "Ограничить FPS";
-            // 
             // SettingsCamera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -308,6 +308,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Настройки камеры";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsCamera_FormClosing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SettingsCamera_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SettingsCamera_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTransSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRotSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobs)).EndInit();

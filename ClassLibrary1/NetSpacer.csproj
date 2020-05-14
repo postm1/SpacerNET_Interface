@@ -117,6 +117,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Windows\CameraCoords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\CameraCoords.Designer.cs">
+      <DependentUpon>CameraCoords.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\CompileWorldWin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     <EmbeddedResource Include="Resources\Lang.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\CameraCoords.resx">
+      <DependentUpon>CameraCoords.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\CompileLightWin.resx">
       <DependentUpon>CompileLightWin.cs</DependentUpon>
