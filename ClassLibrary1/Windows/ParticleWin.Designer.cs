@@ -119,6 +119,60 @@
             this.treeViewSearchClass = new System.Windows.Forms.TreeView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.listBoxCameras = new System.Windows.Forms.ListBox();
+            this.buttonCamInsert = new System.Windows.Forms.Button();
+            this.buttonCamCreateUpdate = new System.Windows.Forms.Button();
+            this.buttonCamRemove = new System.Windows.Forms.Button();
+            this.checkBoxCamPosition = new System.Windows.Forms.CheckBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBoxCamName = new System.Windows.Forms.TextBox();
+            this.textBoxCamVobCam = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBoxCamTargetVob = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.buttonCamSpline = new System.Windows.Forms.Button();
+            this.buttonCamTargetSpline = new System.Windows.Forms.Button();
+            this.buttonCamKey = new System.Windows.Forms.Button();
+            this.buttonCamPlay = new System.Windows.Forms.Button();
+            this.buttonCamStop = new System.Windows.Forms.Button();
+            this.textBoxCamTime = new System.Windows.Forms.TextBox();
+            this.labelCamTimeSec = new System.Windows.Forms.Label();
+            this.buttonCamMinus = new System.Windows.Forms.Button();
+            this.buttonCamPlus = new System.Windows.Forms.Button();
+            this.labelCamKeyCurrent = new System.Windows.Forms.Label();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button15 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button21 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.listBox4 = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -136,6 +190,11 @@
             this.groupBox8.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            this.tabPage8.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -1094,6 +1153,13 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.checkBoxCamPosition);
+            this.tabPage7.Controls.Add(this.buttonCamRemove);
+            this.tabPage7.Controls.Add(this.buttonCamCreateUpdate);
+            this.tabPage7.Controls.Add(this.buttonCamInsert);
+            this.tabPage7.Controls.Add(this.listBoxCameras);
+            this.tabPage7.Controls.Add(this.groupBox12);
+            this.tabPage7.Controls.Add(this.groupBox11);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Size = new System.Drawing.Size(561, 362);
@@ -1103,12 +1169,547 @@
             // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.panel1);
+            this.tabPage8.Controls.Add(this.textBox5);
+            this.tabPage8.Controls.Add(this.label19);
+            this.tabPage8.Controls.Add(this.checkBox4);
+            this.tabPage8.Controls.Add(this.checkBox3);
+            this.tabPage8.Controls.Add(this.textBox2);
+            this.tabPage8.Controls.Add(this.label16);
+            this.tabPage8.Controls.Add(this.button15);
+            this.tabPage8.Controls.Add(this.listBox1);
+            this.tabPage8.Controls.Add(this.button14);
+            this.tabPage8.Controls.Add(this.button13);
+            this.tabPage8.Controls.Add(this.button12);
+            this.tabPage8.Controls.Add(this.button11);
+            this.tabPage8.Controls.Add(this.button10);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Size = new System.Drawing.Size(561, 362);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Свет";
             this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.textBoxCamTargetVob);
+            this.groupBox11.Controls.Add(this.label15);
+            this.groupBox11.Controls.Add(this.textBoxCamVobCam);
+            this.groupBox11.Controls.Add(this.label14);
+            this.groupBox11.Controls.Add(this.textBoxCamName);
+            this.groupBox11.Controls.Add(this.label12);
+            this.groupBox11.Location = new System.Drawing.Point(147, 37);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(188, 232);
+            this.groupBox11.TabIndex = 0;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Камера";
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.labelCamKeyCurrent);
+            this.groupBox12.Controls.Add(this.buttonCamPlus);
+            this.groupBox12.Controls.Add(this.buttonCamMinus);
+            this.groupBox12.Controls.Add(this.textBoxCamTime);
+            this.groupBox12.Controls.Add(this.buttonCamStop);
+            this.groupBox12.Controls.Add(this.labelCamTimeSec);
+            this.groupBox12.Controls.Add(this.buttonCamPlay);
+            this.groupBox12.Controls.Add(this.buttonCamKey);
+            this.groupBox12.Controls.Add(this.buttonCamTargetSpline);
+            this.groupBox12.Controls.Add(this.buttonCamSpline);
+            this.groupBox12.Location = new System.Drawing.Point(341, 37);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(210, 232);
+            this.groupBox12.TabIndex = 1;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Ключи";
+            // 
+            // listBoxCameras
+            // 
+            this.listBoxCameras.FormattingEnabled = true;
+            this.listBoxCameras.Location = new System.Drawing.Point(5, 43);
+            this.listBoxCameras.Name = "listBoxCameras";
+            this.listBoxCameras.Size = new System.Drawing.Size(136, 225);
+            this.listBoxCameras.TabIndex = 2;
+            // 
+            // buttonCamInsert
+            // 
+            this.buttonCamInsert.Location = new System.Drawing.Point(5, 8);
+            this.buttonCamInsert.Name = "buttonCamInsert";
+            this.buttonCamInsert.Size = new System.Drawing.Size(75, 23);
+            this.buttonCamInsert.TabIndex = 3;
+            this.buttonCamInsert.Text = "Вставить";
+            this.buttonCamInsert.UseVisualStyleBackColor = true;
+            // 
+            // buttonCamCreateUpdate
+            // 
+            this.buttonCamCreateUpdate.Location = new System.Drawing.Point(5, 283);
+            this.buttonCamCreateUpdate.Name = "buttonCamCreateUpdate";
+            this.buttonCamCreateUpdate.Size = new System.Drawing.Size(136, 23);
+            this.buttonCamCreateUpdate.TabIndex = 4;
+            this.buttonCamCreateUpdate.Text = "Создать/Обновить";
+            this.buttonCamCreateUpdate.UseVisualStyleBackColor = true;
+            // 
+            // buttonCamRemove
+            // 
+            this.buttonCamRemove.Location = new System.Drawing.Point(5, 312);
+            this.buttonCamRemove.Name = "buttonCamRemove";
+            this.buttonCamRemove.Size = new System.Drawing.Size(136, 23);
+            this.buttonCamRemove.TabIndex = 5;
+            this.buttonCamRemove.Text = "Удалить";
+            this.buttonCamRemove.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxCamPosition
+            // 
+            this.checkBoxCamPosition.AutoSize = true;
+            this.checkBoxCamPosition.Checked = true;
+            this.checkBoxCamPosition.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxCamPosition.Location = new System.Drawing.Point(86, 12);
+            this.checkBoxCamPosition.Name = "checkBoxCamPosition";
+            this.checkBoxCamPosition.Size = new System.Drawing.Size(126, 17);
+            this.checkBoxCamPosition.TabIndex = 6;
+            this.checkBoxCamPosition.Text = "в текущую позицию";
+            this.checkBoxCamPosition.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 28);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(32, 13);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Имя:";
+            // 
+            // textBoxCamName
+            // 
+            this.textBoxCamName.Location = new System.Drawing.Point(9, 44);
+            this.textBoxCamName.Name = "textBoxCamName";
+            this.textBoxCamName.Size = new System.Drawing.Size(173, 20);
+            this.textBoxCamName.TabIndex = 1;
+            // 
+            // textBoxCamVobCam
+            // 
+            this.textBoxCamVobCam.Location = new System.Drawing.Point(9, 105);
+            this.textBoxCamVobCam.Name = "textBoxCamVobCam";
+            this.textBoxCamVobCam.Size = new System.Drawing.Size(173, 20);
+            this.textBoxCamVobCam.TabIndex = 3;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 89);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(72, 13);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "Воб камеры:";
+            // 
+            // textBoxCamTargetVob
+            // 
+            this.textBoxCamTargetVob.Location = new System.Drawing.Point(9, 167);
+            this.textBoxCamTargetVob.Name = "textBoxCamTargetVob";
+            this.textBoxCamTargetVob.Size = new System.Drawing.Size(173, 20);
+            this.textBoxCamTargetVob.TabIndex = 5;
+            this.textBoxCamTargetVob.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 151);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(56, 13);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "Воб цели:";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
+            // buttonCamSpline
+            // 
+            this.buttonCamSpline.Location = new System.Drawing.Point(6, 40);
+            this.buttonCamSpline.Name = "buttonCamSpline";
+            this.buttonCamSpline.Size = new System.Drawing.Size(95, 23);
+            this.buttonCamSpline.TabIndex = 7;
+            this.buttonCamSpline.Text = "Камера spline";
+            this.buttonCamSpline.UseVisualStyleBackColor = true;
+            this.buttonCamSpline.Click += new System.EventHandler(this.buttonCamSpline_Click);
+            // 
+            // buttonCamTargetSpline
+            // 
+            this.buttonCamTargetSpline.Location = new System.Drawing.Point(109, 40);
+            this.buttonCamTargetSpline.Name = "buttonCamTargetSpline";
+            this.buttonCamTargetSpline.Size = new System.Drawing.Size(95, 23);
+            this.buttonCamTargetSpline.TabIndex = 8;
+            this.buttonCamTargetSpline.Text = "Цель spline";
+            this.buttonCamTargetSpline.UseVisualStyleBackColor = true;
+            // 
+            // buttonCamKey
+            // 
+            this.buttonCamKey.Location = new System.Drawing.Point(109, 69);
+            this.buttonCamKey.Name = "buttonCamKey";
+            this.buttonCamKey.Size = new System.Drawing.Size(95, 23);
+            this.buttonCamKey.TabIndex = 9;
+            this.buttonCamKey.Text = "Ключ";
+            this.buttonCamKey.UseVisualStyleBackColor = true;
+            // 
+            // buttonCamPlay
+            // 
+            this.buttonCamPlay.Location = new System.Drawing.Point(9, 165);
+            this.buttonCamPlay.Name = "buttonCamPlay";
+            this.buttonCamPlay.Size = new System.Drawing.Size(195, 23);
+            this.buttonCamPlay.TabIndex = 10;
+            this.buttonCamPlay.Text = "Запуск";
+            this.buttonCamPlay.UseVisualStyleBackColor = true;
+            // 
+            // buttonCamStop
+            // 
+            this.buttonCamStop.Location = new System.Drawing.Point(9, 194);
+            this.buttonCamStop.Name = "buttonCamStop";
+            this.buttonCamStop.Size = new System.Drawing.Size(195, 23);
+            this.buttonCamStop.TabIndex = 11;
+            this.buttonCamStop.Text = "Стоп";
+            this.buttonCamStop.UseVisualStyleBackColor = true;
+            // 
+            // textBoxCamTime
+            // 
+            this.textBoxCamTime.Location = new System.Drawing.Point(9, 129);
+            this.textBoxCamTime.Name = "textBoxCamTime";
+            this.textBoxCamTime.Size = new System.Drawing.Size(52, 20);
+            this.textBoxCamTime.TabIndex = 7;
+            this.textBoxCamTime.Text = "5";
+            // 
+            // labelCamTimeSec
+            // 
+            this.labelCamTimeSec.AutoSize = true;
+            this.labelCamTimeSec.Location = new System.Drawing.Point(6, 111);
+            this.labelCamTimeSec.Name = "labelCamTimeSec";
+            this.labelCamTimeSec.Size = new System.Drawing.Size(139, 13);
+            this.labelCamTimeSec.TabIndex = 6;
+            this.labelCamTimeSec.Text = "Время полета в секундах:";
+            // 
+            // buttonCamMinus
+            // 
+            this.buttonCamMinus.Location = new System.Drawing.Point(6, 69);
+            this.buttonCamMinus.Name = "buttonCamMinus";
+            this.buttonCamMinus.Size = new System.Drawing.Size(24, 23);
+            this.buttonCamMinus.TabIndex = 12;
+            this.buttonCamMinus.Text = "<";
+            this.buttonCamMinus.UseVisualStyleBackColor = true;
+            // 
+            // buttonCamPlus
+            // 
+            this.buttonCamPlus.Location = new System.Drawing.Point(77, 69);
+            this.buttonCamPlus.Name = "buttonCamPlus";
+            this.buttonCamPlus.Size = new System.Drawing.Size(24, 23);
+            this.buttonCamPlus.TabIndex = 13;
+            this.buttonCamPlus.Text = ">";
+            this.buttonCamPlus.UseVisualStyleBackColor = true;
+            // 
+            // labelCamKeyCurrent
+            // 
+            this.labelCamKeyCurrent.Location = new System.Drawing.Point(29, 74);
+            this.labelCamKeyCurrent.Name = "labelCamKeyCurrent";
+            this.labelCamKeyCurrent.Size = new System.Drawing.Size(48, 13);
+            this.labelCamKeyCurrent.TabIndex = 6;
+            this.labelCamKeyCurrent.Text = "0";
+            this.labelCamKeyCurrent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(5, 14);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.TabIndex = 4;
+            this.button10.Text = "Удалить";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(86, 14);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(99, 23);
+            this.button11.TabIndex = 5;
+            this.button11.Text = "Создать новый";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(5, 217);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(180, 23);
+            this.button12.TabIndex = 6;
+            this.button12.Text = "Применить";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(5, 246);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(180, 23);
+            this.button13.TabIndex = 7;
+            this.button13.Text = "Использовать пресет >>";
+            this.button13.UseVisualStyleBackColor = true;
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(378, 77);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(132, 23);
+            this.button14.TabIndex = 8;
+            this.button14.Text = "Применить на вобе";
+            this.button14.UseVisualStyleBackColor = true;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(5, 72);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(180, 134);
+            this.listBox1.TabIndex = 9;
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(5, 43);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(180, 23);
+            this.button15.TabIndex = 10;
+            this.button15.Text = "Обновить пресет из vobLight <<";
+            this.button15.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(194, 35);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(165, 20);
+            this.textBox2.TabIndex = 12;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(191, 14);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(59, 13);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "Имя воба:";
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(378, 35);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(127, 17);
+            this.checkBox3.TabIndex = 30;
+            this.checkBox3.Text = "Показывать радиус";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(378, 58);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(138, 17);
+            this.checkBox4.TabIndex = 31;
+            this.checkBox4.Text = "Компилировать сразу";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(194, 79);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(165, 20);
+            this.textBox5.TabIndex = 33;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(191, 58);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(154, 13);
+            this.label19.TabIndex = 32;
+            this.label19.Text = "Имя пресета текущего воба:";
+            this.label19.Click += new System.EventHandler(this.label19_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.button17);
+            this.panel1.Controls.Add(this.button16);
+            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.label18);
+            this.panel1.Controls.Add(this.checkBox2);
+            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.listBox4);
+            this.panel1.Controls.Add(this.button21);
+            this.panel1.Controls.Add(this.button20);
+            this.panel1.Controls.Add(this.button19);
+            this.panel1.Controls.Add(this.button18);
+            this.panel1.Controls.Add(this.label17);
+            this.panel1.Controls.Add(this.checkBox1);
+            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.listBox2);
+            this.panel1.Controls.Add(this.radioButton2);
+            this.panel1.Controls.Add(this.radioButton1);
+            this.panel1.Location = new System.Drawing.Point(194, 106);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(316, 237);
+            this.panel1.TabIndex = 34;
+            // 
+            // button21
+            // 
+            this.button21.Location = new System.Drawing.Point(98, 141);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(47, 23);
+            this.button21.TabIndex = 39;
+            this.button21.Text = "Down";
+            this.button21.UseVisualStyleBackColor = true;
+            // 
+            // button20
+            // 
+            this.button20.Location = new System.Drawing.Point(98, 112);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(47, 23);
+            this.button20.TabIndex = 38;
+            this.button20.Text = "Up";
+            this.button20.UseVisualStyleBackColor = true;
+            // 
+            // button19
+            // 
+            this.button19.Location = new System.Drawing.Point(98, 83);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(27, 23);
+            this.button19.TabIndex = 37;
+            this.button19.Text = "-";
+            this.button19.UseVisualStyleBackColor = true;
+            // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(98, 54);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(27, 23);
+            this.button18.TabIndex = 36;
+            this.button18.Text = "+";
+            this.button18.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(62, 184);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(30, 13);
+            this.label17.TabIndex = 35;
+            this.label17.Text = "/сек";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(3, 212);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(73, 17);
+            this.checkBox1.TabIndex = 34;
+            this.checkBox1.Text = "Сгладить";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(3, 181);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(47, 20);
+            this.textBox3.TabIndex = 33;
+            this.textBox3.Text = "2";
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(3, 54);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(89, 108);
+            this.listBox2.TabIndex = 32;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(3, 30);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(101, 17);
+            this.radioButton2.TabIndex = 31;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Динамический";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(3, 7);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(89, 17);
+            this.radioButton1.TabIndex = 30;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Статический";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(265, 83);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(27, 23);
+            this.button17.TabIndex = 46;
+            this.button17.Text = "-";
+            this.button17.UseVisualStyleBackColor = true;
+            // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(265, 54);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(27, 23);
+            this.button16.TabIndex = 45;
+            this.button16.Text = "+";
+            this.button16.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "speed"});
+            this.comboBox1.Location = new System.Drawing.Point(170, 30);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(89, 21);
+            this.comboBox1.TabIndex = 44;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(229, 184);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(30, 13);
+            this.label18.TabIndex = 43;
+            this.label18.Text = "/сек";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(170, 212);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(73, 17);
+            this.checkBox2.TabIndex = 42;
+            this.checkBox2.Text = "Сгладить";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(170, 181);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(53, 20);
+            this.textBox4.TabIndex = 41;
+            this.textBox4.Text = "2";
+            // 
+            // listBox4
+            // 
+            this.listBox4.FormattingEnabled = true;
+            this.listBox4.Location = new System.Drawing.Point(170, 54);
+            this.listBox4.Name = "listBox4";
+            this.listBox4.Size = new System.Drawing.Size(89, 108);
+            this.listBox4.TabIndex = 40;
             // 
             // ParticleWin
             // 
@@ -1152,6 +1753,16 @@
             this.tabPage6.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1249,5 +1860,59 @@
         private System.Windows.Forms.GroupBox groupBox10;
         public System.Windows.Forms.CheckBox checkBoxShowPreview;
         public System.Windows.Forms.CheckBox checkBoxSearchOnly3DS;
+        private System.Windows.Forms.Button buttonCamRemove;
+        private System.Windows.Forms.Button buttonCamCreateUpdate;
+        private System.Windows.Forms.Button buttonCamInsert;
+        private System.Windows.Forms.ListBox listBoxCameras;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.CheckBox checkBoxCamPosition;
+        private System.Windows.Forms.TextBox textBoxCamTargetVob;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox textBoxCamVobCam;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBoxCamName;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button buttonCamTargetSpline;
+        private System.Windows.Forms.Button buttonCamSpline;
+        private System.Windows.Forms.TextBox textBoxCamTime;
+        private System.Windows.Forms.Button buttonCamStop;
+        private System.Windows.Forms.Label labelCamTimeSec;
+        private System.Windows.Forms.Button buttonCamPlay;
+        private System.Windows.Forms.Button buttonCamKey;
+        private System.Windows.Forms.Label labelCamKeyCurrent;
+        private System.Windows.Forms.Button buttonCamPlus;
+        private System.Windows.Forms.Button buttonCamMinus;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ListBox listBox4;
+        private System.Windows.Forms.Button button21;
+        private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }
