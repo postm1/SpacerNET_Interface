@@ -580,7 +580,7 @@ namespace SpacerUnion
 
 
             int volume = Imports.Extern_GetSetting(UnionNET.AddString("musicVolume"));
-            UnionNET.soundWin.trackBarMusicVoluem.Value = volume;
+            UnionNET.soundWin.trackBarMusicVolume.Value = volume;
 
 
             UnionNET.soundWin.UpdateAll();
@@ -828,6 +828,16 @@ namespace SpacerUnion
         private void ввестиКоординатыToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UnionNET.camCoordsWin.Show();
+        }
+
+        private void прочееToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int useDatePrefix = Imports.Extern_GetSetting(UnionNET.AddString("addDatePrefix"));
+
+            UnionNET.miscSetWin.checkBoxSetDatePrefix.Checked = Convert.ToBoolean(useDatePrefix);
+            UnionNET.miscSetWin.Show();
+
+            UnionNET.FreeStrings();
         }
     }
 }

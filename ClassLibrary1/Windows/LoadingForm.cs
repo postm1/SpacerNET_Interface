@@ -55,5 +55,10 @@ namespace SpacerUnion
             }
 
         }
+
+        private void buttonLoadingFormClose_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

@@ -31,6 +31,7 @@
             this.labelLoading = new System.Windows.Forms.Label();
             this.panelLoadingFront = new System.Windows.Forms.Panel();
             this.pictureBoxLoading = new System.Windows.Forms.PictureBox();
+            this.buttonLoadingFormClose = new System.Windows.Forms.Button();
             this.panelLoadingFront.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoading)).BeginInit();
             this.SuspendLayout();
@@ -49,11 +50,13 @@
             // panelLoadingFront
             // 
             this.panelLoadingFront.BackColor = System.Drawing.SystemColors.Window;
+            this.panelLoadingFront.Controls.Add(this.buttonLoadingFormClose);
             this.panelLoadingFront.Controls.Add(this.pictureBoxLoading);
             this.panelLoadingFront.Controls.Add(this.labelLoading);
-            this.panelLoadingFront.Location = new System.Drawing.Point(1, 1);
+            this.panelLoadingFront.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLoadingFront.Location = new System.Drawing.Point(0, 0);
             this.panelLoadingFront.Name = "panelLoadingFront";
-            this.panelLoadingFront.Size = new System.Drawing.Size(455, 339);
+            this.panelLoadingFront.Size = new System.Drawing.Size(457, 341);
             this.panelLoadingFront.TabIndex = 2;
             // 
             // pictureBoxLoading
@@ -66,6 +69,18 @@
             this.pictureBoxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBoxLoading.TabIndex = 1;
             this.pictureBoxLoading.TabStop = false;
+            // 
+            // buttonLoadingFormClose
+            // 
+            this.buttonLoadingFormClose.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonLoadingFormClose.Location = new System.Drawing.Point(191, 313);
+            this.buttonLoadingFormClose.Name = "buttonLoadingFormClose";
+            this.buttonLoadingFormClose.Size = new System.Drawing.Size(75, 23);
+            this.buttonLoadingFormClose.TabIndex = 2;
+            this.buttonLoadingFormClose.Text = "Закрыть";
+            this.buttonLoadingFormClose.UseVisualStyleBackColor = true;
+            this.buttonLoadingFormClose.Visible = false;
+            this.buttonLoadingFormClose.Click += new System.EventHandler(this.buttonLoadingFormClose_Click);
             // 
             // LoadingForm
             // 
@@ -96,5 +111,6 @@
         public System.Windows.Forms.Label labelLoading;
         private System.Windows.Forms.Panel panelLoadingFront;
         public System.Windows.Forms.PictureBox pictureBoxLoading;
+        public System.Windows.Forms.Button buttonLoadingFormClose;
     }
 }

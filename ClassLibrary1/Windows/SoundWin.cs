@@ -125,9 +125,9 @@ namespace SpacerUnion
 
         private void trackBarMusicVoluem_ValueChanged(object sender, EventArgs e)
         {
-            labelMusicVolume.Text = "Громкость " + trackBarMusicVoluem.Value + "%";
+            labelMusicVolume.Text = "Громкость " + trackBarMusicVolume.Value + "%";
 
-            Imports.Extern_SetSetting(UnionNET.AddString("musicVolume"), trackBarMusicVoluem.Value);
+            Imports.Extern_SetSetting(UnionNET.AddString("musicVolume"), trackBarMusicVolume.Value);
             UnionNET.FreeStrings();
             
         }
@@ -135,6 +135,10 @@ namespace SpacerUnion
         private void buttonMusicOn_Click(object sender, EventArgs e)
         {
             Imports.Extern_ToggleMusic(true);
+
+            Imports.Extern_SetSetting(UnionNET.AddString("musicVolume"), trackBarMusicVolume.Value);
+            
+            UnionNET.FreeStrings();
         }
 
         private void checkBoxShutMusic_CheckedChanged(object sender, EventArgs e)
@@ -144,6 +148,38 @@ namespace SpacerUnion
 
             Imports.Extern_SetSetting(UnionNET.AddString("musicZenOff"), Convert.ToInt32(cb.Checked));
             UnionNET.FreeStrings();
+        }
+
+        private void listBoxSound_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ListBox lb = sender as ListBox;
+
+            int index = lb.IndexFromPoint(e.Location);
+            {
+                if (index == lb.SelectedIndex)
+                {
+                    string name = listBoxSound.GetItemText(listBoxSound.SelectedItem);
+                    IntPtr namePtr = UnionNET.AddString(name);
+                    Extern_PlaySound(namePtr);
+                    UnionNET.FreeStrings();
+                }
+            }
+        }
+
+        private void listBoxSndResult_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ListBox lb = sender as ListBox;
+
+            int index = lb.IndexFromPoint(e.Location);
+            {
+                if (index == lb.SelectedIndex)
+                {
+                    string name = listBoxSndResult.GetItemText(listBoxSndResult.SelectedItem);
+                    IntPtr namePtr = UnionNET.AddString(name);
+                    Extern_PlaySound(namePtr);
+                    UnionNET.FreeStrings();
+                }
+            }
         }
     }
 }
