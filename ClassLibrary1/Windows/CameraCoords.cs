@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -15,6 +16,9 @@ namespace SpacerUnion.Windows
         public CameraCoords()
         {
             InitializeComponent();
+            textBoxCamVec0.AcceptsTab = true;
+            textBoxCamVec1.AcceptsTab = true;
+            textBoxCamVec2.AcceptsTab = true;
         }
 
         private void CameraCoords_FormClosing(object sender, FormClosingEventArgs e)
@@ -25,9 +29,9 @@ namespace SpacerUnion.Windows
 
         private void buttonCameraGo_Click(object sender, EventArgs e)
         {
-            float v0 = Convert.ToSingle(textBoxCamVec0.Text.Trim());
-            float v1 = Convert.ToSingle(textBoxCamVec1.Text.Trim());
-            float v2 = Convert.ToSingle(textBoxCamVec2.Text.Trim());
+            float v0 = Convert.ToSingle(textBoxCamVec0.Text.Trim().Replace(',', '.'), new CultureInfo("en-US"));
+            float v1 = Convert.ToSingle(textBoxCamVec1.Text.Trim().Replace(',', '.'), new CultureInfo("en-US"));
+            float v2 = Convert.ToSingle(textBoxCamVec2.Text.Trim().Replace(',', '.'), new CultureInfo("en-US"));
 
             Imports.Extern_SetCameraPos(v0, v1, v2);
 
@@ -40,16 +44,25 @@ namespace SpacerUnion.Windows
 
         private void textBoxCamVec0_KeyPress(object sender, KeyPressEventArgs e)
         {
+            
+            
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
         (e.KeyChar != '.'))
             {
                 e.Handled = true;
             }
 
+
+
             // only allow one decimal point
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
+            }
+
+            if (e.KeyChar == (char)0x09)
+            {
+                e.Handled = false;
             }
         }
     }
