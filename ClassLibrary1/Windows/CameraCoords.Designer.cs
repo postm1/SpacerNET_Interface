@@ -128,7 +128,7 @@
             this.buttonCameraGo.TabIndex = 12;
             this.buttonCameraGo.Text = "Перейти";
             this.buttonCameraGo.UseVisualStyleBackColor = true;
-            this.buttonCameraGo.Click += new System.EventHandler(this.buttonCameraGo_Click_1);
+            this.buttonCameraGo.Click += new System.EventHandler(this.buttonCameraGo_Click);
             // 
             // CameraCoords
             // 

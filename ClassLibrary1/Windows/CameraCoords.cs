@@ -65,10 +65,5 @@ namespace SpacerUnion.Windows
                 e.Handled = false;
             }
         }
-
-        private void buttonCameraGo_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

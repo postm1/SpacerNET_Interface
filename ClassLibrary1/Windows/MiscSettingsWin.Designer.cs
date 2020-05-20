@@ -74,6 +74,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MiscSettingsWin";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Прочие настройки";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MiscSettingsWin_FormClosing);
