@@ -118,7 +118,6 @@ namespace SpacerUnion
 
                 ApplyNodeImage(className, node);
 
-
             }
             else if (entry.parentEntry != null)
             {
@@ -145,6 +144,8 @@ namespace SpacerUnion
                     node.SelectedImageIndex = 1;
                     entry.node = node;
                     ApplyNodeImage(className, node);
+
+
                 }
                 else
                 {
@@ -157,7 +158,6 @@ namespace SpacerUnion
                     node.SelectedImageIndex = 1;
                     entry.node = node;
                     ApplyNodeImage(className, node);
-
                 }
 
             }
@@ -182,6 +182,91 @@ namespace SpacerUnion
         }
 
 
+        // Обновление родителя для сущ. воба
+        [DllExport]
+        public static void updateParentAddNode(uint ptr, uint ptrParent)
+        {
+            if (ptr == 0)
+            {
+                return;
+            }
+
+            TreeEntry entryParent = null;
+            TreeEntry entry = null;
+
+            try
+            {
+                entryParent = globalEntries
+                    .Where(x => x.Value.zCVob == ptrParent)
+                    .Select(pair => pair.Value)
+                    .FirstOrDefault();
+
+                entry = globalEntries
+                    .Where(x => x.Value.zCVob == ptr)
+                    .Select(pair => pair.Value)
+                    .FirstOrDefault();
+            }
+            catch
+            {
+                Utils.Error("C#: updateParentAddNode fail. No parent found. Addr vob: " + Utils.ToHex(ptr));
+            }
+
+            if (entryParent != null && entry != null)
+            {
+                ConsoleEx.WriteLineGreen("Обновляю родителя для воба: " + entry.name);
+                entry.parent = ptrParent;
+                entry.parentEntry = entryParent;
+                entryParent.childs.Add(entry);
+
+                TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
+
+                AddVobToNodes(entry);
+            }
+
+            
+            ConsoleEx.WriteLineGreen("C#: Всего вобов в списке: " + globalEntries.Count);
+            countNodeView = 0;
+            CalcNodesCount(UnionNET.objTreeWin.globalTree.Nodes);
+            ConsoleEx.WriteLineGreen("C#: Всего узлов TreeView: " + countNodeView);
+
+
+        }
+        [DllExport]
+        public static void UpdateParentRemoveNode(uint ptr)
+        {
+            if (ptr == 0)
+            {
+                return;
+            }
+
+            TreeEntry entry = null;
+
+            try
+            {
+                entry = globalEntries
+                    .Where(x => x.Value.zCVob == ptr)
+                    .Select(pair => pair.Value)
+                    .FirstOrDefault();
+        
+            }
+            catch
+            {
+                Utils.Error("C#: UpdateParentRemoveNode fail. No vob found in globalList. Addr: " + Utils.ToHex(ptr));
+            }
+
+            if (entry != null)
+            {
+                if (entry.node != null)
+                {
+                    entry.node.Remove();
+
+                    if (entry.parentEntry != null)
+                    {
+                        entry.parentEntry.childs.Remove(entry);
+                    }
+                }
+            }
+        }
 
 
 
@@ -456,9 +541,9 @@ namespace SpacerUnion
 
        
         [DllExport]
-        public static void OnVobInsert(IntPtr ptr, uint vob, uint parent, IntPtr classNamePtr, int isNodeBlocked, bool select)
+        public static void OnVobInsert(IntPtr ptrName, uint vob, uint parent, IntPtr classNamePtr, int isNodeBlocked, bool select)
         {
-            string name = Marshal.PtrToStringAnsi(ptr);
+            string name = Marshal.PtrToStringAnsi(ptrName);
             string className = Marshal.PtrToStringAnsi(classNamePtr);
 
             TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
