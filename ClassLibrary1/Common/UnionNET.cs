@@ -71,10 +71,10 @@ namespace SpacerUnion
 
 
         // Главная функция запуска, вызывается из Union
-        [DllExport, STAThread]
+        [DllExport]
         public static void UnionInitialize(IntPtr L)
         {
-            AutoClosingMessageBox.Show("", "", 90);
+            AutoClosingMessageBox.Show("", "", 80);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -136,6 +136,8 @@ namespace SpacerUnion
         [DllExport]
         public static void Form_EnableInterface()
         {
+            //ConsoleEx.WriteLineRed("Form_EnableInterface");
+            //Utils.Error("Form_EnableInterface");
             form.AddText(Lang.appIsReady);
 
             form.menuStripTopMain.Enabled = true;
@@ -193,7 +195,9 @@ namespace SpacerUnion
         // загружает настройки в интерфейс 
         public static void LoadSettingsToInterface()
         {
+            //ConsoleEx.WriteLineRed("LoadSettingsToInterface");
             ToolStripButton btn = form.toolStripTop.Items[7] as ToolStripButton;
+
 
             btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(AddString("showVobs")));
             btn = form.toolStripTop.Items[8] as ToolStripButton;

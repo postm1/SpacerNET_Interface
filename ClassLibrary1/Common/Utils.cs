@@ -45,7 +45,7 @@ namespace SpacerUnion
         {
             DateTime now = DateTime.Now;
 
-            msg = now.ToString("dd.MM.yyyy hh:mm:ss") + " C#: " + msg;
+            msg = now.ToString("dd.MM.yyyy HH:mm:ss") + " C#: " + msg;
             ConsoleEx.WriteLineRed(msg);
             Utils.WriteToFile(msg);
         }
@@ -54,7 +54,7 @@ namespace SpacerUnion
         {
             DateTime now = DateTime.Now;
 
-            msg = now.ToString("dd.MM.yyyy hh:mm:ss") + " C# info: " + msg;
+            msg = now.ToString("dd.MM.yyyy HH:mm:ss") + " C# info: " + msg;
             Utils.WriteToFile(msg);
         }
     }

@@ -57,8 +57,7 @@ namespace SpacerUnion
 
 
 
-        [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_PlaySound(IntPtr str);
+       
 
         private void buttonPlaySound_Click(object sender, EventArgs e)
         {
@@ -71,7 +70,7 @@ namespace SpacerUnion
 
             string name = listBox.GetItemText(listBox.SelectedItem);
             IntPtr namePtr = UnionNET.AddString(name);
-            Extern_PlaySound(namePtr);
+            Imports.Extern_PlaySound(namePtr);
             UnionNET.FreeStrings();
 
         }
@@ -113,7 +112,7 @@ namespace SpacerUnion
 
             string name = listBoxSndResult.GetItemText(listBoxSndResult.SelectedItem);
             IntPtr namePtr = UnionNET.AddString(name);
-            Extern_PlaySound(namePtr);
+            Imports.Extern_PlaySound(namePtr);
             UnionNET.FreeStrings();
 
         }
@@ -160,7 +159,7 @@ namespace SpacerUnion
                 {
                     string name = listBoxSound.GetItemText(listBoxSound.SelectedItem);
                     IntPtr namePtr = UnionNET.AddString(name);
-                    Extern_PlaySound(namePtr);
+                    Imports.Extern_PlaySound(namePtr);
                     UnionNET.FreeStrings();
                 }
             }
@@ -176,7 +175,7 @@ namespace SpacerUnion
                 {
                     string name = listBoxSndResult.GetItemText(listBoxSndResult.SelectedItem);
                     IntPtr namePtr = UnionNET.AddString(name);
-                    Extern_PlaySound(namePtr);
+                    Imports.Extern_PlaySound(namePtr);
                     UnionNET.FreeStrings();
                 }
             }
