@@ -31,6 +31,7 @@
             this.checkBoxSetDatePrefix = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnMiscSetApply = new System.Windows.Forms.Button();
+            this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +47,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxMiscExitAsk);
             this.groupBox1.Controls.Add(this.checkBoxSetDatePrefix);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -62,6 +64,16 @@
             this.btnMiscSetApply.Text = "Применить";
             this.btnMiscSetApply.UseVisualStyleBackColor = true;
             this.btnMiscSetApply.Click += new System.EventHandler(this.btnMiscSetApply_Click);
+            // 
+            // checkBoxMiscExitAsk
+            // 
+            this.checkBoxMiscExitAsk.AutoSize = true;
+            this.checkBoxMiscExitAsk.Location = new System.Drawing.Point(21, 42);
+            this.checkBoxMiscExitAsk.Name = "checkBoxMiscExitAsk";
+            this.checkBoxMiscExitAsk.Size = new System.Drawing.Size(221, 17);
+            this.checkBoxMiscExitAsk.TabIndex = 1;
+            this.checkBoxMiscExitAsk.Text = "Подтверждать выход если открыт зен";
+            this.checkBoxMiscExitAsk.UseVisualStyleBackColor = true;
             // 
             // MiscSettingsWin
             // 
@@ -90,5 +102,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         public System.Windows.Forms.CheckBox checkBoxSetDatePrefix;
         private System.Windows.Forms.Button btnMiscSetApply;
+        public System.Windows.Forms.CheckBox checkBoxMiscExitAsk;
     }
 }

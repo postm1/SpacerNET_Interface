@@ -111,7 +111,6 @@
             this.treeViewProp.TabIndex = 1;
             this.treeViewProp.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.treeViewProp_DrawNode);
             this.treeViewProp.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewProp_AfterSelect);
-            this.treeViewProp.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewProp_NodeMouseClick);
             this.treeViewProp.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewProp_NodeMouseDoubleClick);
             // 
             // panelButtons
@@ -418,8 +417,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(306, 350);
             this.dataGridView1.TabIndex = 4;
-            this.dataGridView1.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridView1_RowContextMenuStripNeeded);
-            this.dataGridView1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseUp);
             // 
             // Column1
             // 
@@ -439,7 +436,6 @@
             this.удалитьСтрокуToolStripMenuItem});
             this.contextMenuStripContainer.Name = "contextMenuStripContainer";
             this.contextMenuStripContainer.Size = new System.Drawing.Size(159, 26);
-            this.contextMenuStripContainer.Click += new System.EventHandler(this.contextMenuStripContainer_Click);
             // 
             // удалитьСтрокуToolStripMenuItem
             // 

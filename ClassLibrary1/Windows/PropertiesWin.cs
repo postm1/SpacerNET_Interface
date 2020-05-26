@@ -958,10 +958,6 @@ namespace SpacerUnion
             //(Control)(tabControl1.TabPages[1]).Enable = true;
         }
 
-        private void buttonApplyBbox_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         public static void EnableTab(TabPage page, bool enable)
         {
@@ -989,14 +985,13 @@ namespace SpacerUnion
            
         }
 
-        private void treeViewProp_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
-        {
 
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+            buttonApply.Enabled = true;
+            tabControl1.SelectTab(0);
+            DisableTabBBox();
         }
 
         private void buttonContainerApply_Click(object sender, EventArgs e)
@@ -1067,20 +1062,6 @@ namespace SpacerUnion
 
        
 
-        private void contextMenuStripContainer_Click(object sender, EventArgs e)
-        {
-            
-        }
-        
-        private void dataGridView1_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
-        {
-           
-        }
-
-        private void dataGridView1_MouseUp(object sender, MouseEventArgs e)
-        {
-       
-        }
 
         private void buttonRowDelete_Click(object sender, EventArgs e)
         {
