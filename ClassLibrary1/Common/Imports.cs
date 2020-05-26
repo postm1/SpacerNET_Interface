@@ -67,7 +67,7 @@ namespace SpacerUnion.Common
 
 
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_ApplyProps(IntPtr propStr, IntPtr propName);
+        public static extern void Extern_ApplyProps(IntPtr propStr, IntPtr propName, IntPtr ptrVisual);
         [DllImport("SpacerUnionNet.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern float Extern_GetBBox(int coord);
 

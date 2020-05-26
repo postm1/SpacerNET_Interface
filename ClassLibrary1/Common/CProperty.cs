@@ -78,6 +78,11 @@ namespace SpacerUnion
 
                 Int32.TryParse(value, out index);
 
+                if (index >= enumArray.Count || index < 0)
+                {
+                    index = 0;
+                }
+
                 //Console.WriteLine("Get Enum with index {0}. Result is {1} Value is {2}", index, enumArray[index], value);
                 result = enumArray[index];
 
@@ -197,6 +202,12 @@ namespace SpacerUnion
                 int index = 0;
 
                 Int32.TryParse(backup_value, out index);
+
+                if (index >= enumArray.Count || index < 0)
+                {
+                    index = 0;
+                }
+
 
                 ///Console.WriteLine("Get Enum with index {0}. Result is {1} Value is {2}", index, enumArray[index], backup_value);
                 result = enumArray[index];

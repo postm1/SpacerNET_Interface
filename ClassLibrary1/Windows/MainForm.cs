@@ -36,9 +36,26 @@ namespace SpacerUnion
             this.Text = "Spacer.NET: " + title;
         }
         
+        private void CloseApp()
+        {
+            if (currentWorldName != "")
+            {
+                DialogResult res = MessageBox.Show("Точно выйти?", "Подтверждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+                if (res == DialogResult.OK)
+                {
+
+                    UnionNET.CloseApplication();
+                }
+            }
+            else
+            {
+                UnionNET.CloseApplication();
+            }
+        }
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UnionNET.CloseApplication();
+            CloseApp();
         }
 
         public void ResetInterface()
@@ -263,7 +280,7 @@ namespace SpacerUnion
 
 
 
-            var match = Regex.Match(zenName, @"(^.*)_\d\d\d\d_\d\d_\d\d\s\d\d-\d\d-\d\d");
+            var match = Regex.Match(zenName, @"(^.*)_\d\d\d\d_\d\d_\d\d\s+\d\d-\d\d-\d\d");
 
             if (match.Groups.Count > 1)
             {
@@ -373,8 +390,7 @@ namespace SpacerUnion
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-            UnionNET.CloseApplication();
+            CloseApp();
             e.Cancel = true;
         }
 

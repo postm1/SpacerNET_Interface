@@ -60,6 +60,29 @@ namespace SpacerUnion
         }
 
         [DllExport]
+
+        public static void CleanPropWindow()
+        {
+            props.Clear();
+            folders.Clear();
+
+            props.Clear();
+            folders.Clear();
+            currentFolderName = "";
+            TreeView tree = UnionNET.propWin.treeViewProp;
+
+            tree.Nodes.Clear();
+            EnableTab(UnionNET.propWin.tabControl1.TabPages[2], false);
+            UnionNET.propWin.tabControl1.SelectedIndex = 0;
+
+            UnionNET.propWin.HideAllInput();
+            UnionNET.propWin.buttonApply.Enabled = false;
+            UnionNET.propWin.buttonRestore.Enabled = false;
+            UnionNET.propWin.buttonBbox.Enabled = false;
+            UnionNET.propWin.buttonFileOpen.Enabled = false;
+
+        }
+        [DllExport]
         public static void AddProps(IntPtr ptr, IntPtr ptrType)
         {
             string inputStr = Marshal.PtrToStringAnsi(ptr);
@@ -539,6 +562,7 @@ namespace SpacerUnion
 
 
             string nameValue = "";
+            string visual = "";
 
             for (int j = 0; j < words.Length; j++)
             {
@@ -560,6 +584,11 @@ namespace SpacerUnion
                     {
                         nameValue = props[i].value;
                     }
+
+                    if (props[i].Name == "visual")
+                    {
+                        visual = props[i].value;
+                    }
                 }
                 
             }
@@ -571,8 +600,9 @@ namespace SpacerUnion
 
             IntPtr ptr = UnionNET.AddString(str.ToString());
             IntPtr ptrName = UnionNET.AddString(nameValue);
+            IntPtr ptrVisual = UnionNET.AddString(visual);
 
-            Imports.Extern_ApplyProps(ptr, ptrName);
+            Imports.Extern_ApplyProps(ptr, ptrName, ptrVisual);
             UnionNET.FreeStrings();
 
         }

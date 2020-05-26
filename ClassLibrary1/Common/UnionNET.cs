@@ -241,7 +241,6 @@ namespace SpacerUnion
 
         public static void CloseApplication()
         {
-            //MessageBox.Show("CloseApplication");
             Properties.Settings.Default.TreeWinLocation = objTreeWin.Location;
             Properties.Settings.Default.PartWinLocation = partWin.Location;
             Properties.Settings.Default.PropWinLocation = propWin.Location;
