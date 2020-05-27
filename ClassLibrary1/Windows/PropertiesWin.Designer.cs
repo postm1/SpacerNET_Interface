@@ -33,6 +33,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.treeViewProp = new System.Windows.Forms.TreeView();
             this.panelButtons = new System.Windows.Forms.Panel();
+            this.textBoxVec3 = new System.Windows.Forms.TextBox();
             this.buttonFileOpen = new System.Windows.Forms.Button();
             this.textBoxVec2 = new System.Windows.Forms.TextBox();
             this.textBoxVec1 = new System.Windows.Forms.TextBox();
@@ -65,7 +66,7 @@
             this.contextMenuStripContainer = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.удалитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogFileName = new System.Windows.Forms.OpenFileDialog();
-            this.textBoxVec3 = new System.Windows.Forms.TextBox();
+            this.comboBoxPropsEnum = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panelButtons.SuspendLayout();
@@ -117,6 +118,7 @@
             // 
             this.panelButtons.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panelButtons.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelButtons.Controls.Add(this.comboBoxPropsEnum);
             this.panelButtons.Controls.Add(this.textBoxVec3);
             this.panelButtons.Controls.Add(this.buttonFileOpen);
             this.panelButtons.Controls.Add(this.textBoxVec2);
@@ -132,6 +134,15 @@
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.Size = new System.Drawing.Size(310, 106);
             this.panelButtons.TabIndex = 6;
+            // 
+            // textBoxVec3
+            // 
+            this.textBoxVec3.Location = new System.Drawing.Point(234, 20);
+            this.textBoxVec3.Name = "textBoxVec3";
+            this.textBoxVec3.Size = new System.Drawing.Size(70, 20);
+            this.textBoxVec3.TabIndex = 12;
+            this.textBoxVec3.Visible = false;
+            this.textBoxVec3.TextChanged += new System.EventHandler(this.textBoxVec3_TextChanged);
             // 
             // buttonFileOpen
             // 
@@ -444,14 +455,16 @@
             this.удалитьСтрокуToolStripMenuItem.Text = "Удалить строку";
             this.удалитьСтрокуToolStripMenuItem.Click += new System.EventHandler(this.удалитьСтрокуToolStripMenuItem_Click);
             // 
-            // textBoxVec3
+            // comboBoxPropsEnum
             // 
-            this.textBoxVec3.Location = new System.Drawing.Point(234, 20);
-            this.textBoxVec3.Name = "textBoxVec3";
-            this.textBoxVec3.Size = new System.Drawing.Size(70, 20);
-            this.textBoxVec3.TabIndex = 12;
-            this.textBoxVec3.Visible = false;
-            this.textBoxVec3.TextChanged += new System.EventHandler(this.textBoxVec3_TextChanged);
+            this.comboBoxPropsEnum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPropsEnum.FormattingEnabled = true;
+            this.comboBoxPropsEnum.Location = new System.Drawing.Point(6, 21);
+            this.comboBoxPropsEnum.Name = "comboBoxPropsEnum";
+            this.comboBoxPropsEnum.Size = new System.Drawing.Size(120, 21);
+            this.comboBoxPropsEnum.TabIndex = 13;
+            this.comboBoxPropsEnum.Visible = false;
+            this.comboBoxPropsEnum.SelectedIndexChanged += new System.EventHandler(this.comboBoxPropsEnum_SelectedIndexChanged);
             // 
             // ObjectsWindow
             // 
@@ -520,5 +533,6 @@
         private System.Windows.Forms.Button buttonFileOpen;
         private System.Windows.Forms.OpenFileDialog openFileDialogFileName;
         private System.Windows.Forms.TextBox textBoxVec3;
+        private System.Windows.Forms.ComboBox comboBoxPropsEnum;
     }
 }

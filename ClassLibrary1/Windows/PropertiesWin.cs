@@ -59,9 +59,8 @@ namespace SpacerUnion
             }
         }
 
-        [DllExport]
 
-        public static void CleanPropWindow()
+        public static void CleanProps()
         {
             props.Clear();
             folders.Clear();
@@ -80,6 +79,13 @@ namespace SpacerUnion
             UnionNET.propWin.buttonRestore.Enabled = false;
             UnionNET.propWin.buttonBbox.Enabled = false;
             UnionNET.propWin.buttonFileOpen.Enabled = false;
+        }
+
+        [DllExport]
+
+        public static void CleanPropWindow()
+        {
+            CleanProps();
 
         }
         [DllExport]
@@ -87,23 +93,13 @@ namespace SpacerUnion
         {
             string inputStr = Marshal.PtrToStringAnsi(ptr);
             string className = Marshal.PtrToStringAnsi(ptrType);
-
-            props.Clear();
-            folders.Clear();
-            currentFolderName = "";
             TreeView tree = UnionNET.propWin.treeViewProp;
 
-            tree.Nodes.Clear();
-            EnableTab(UnionNET.propWin.tabControl1.TabPages[2], false);
-            UnionNET.propWin.tabControl1.SelectedIndex = 0;
+
+            CleanProps();
 
             if (inputStr.Length == 0)
             {
-                UnionNET.propWin.HideAllInput();
-                UnionNET.propWin.buttonApply.Enabled = false;
-                UnionNET.propWin.buttonRestore.Enabled = false;
-                UnionNET.propWin.buttonBbox.Enabled = false;
-                UnionNET.propWin.buttonFileOpen.Enabled = false;
                 return;
             }
 
@@ -580,17 +576,22 @@ namespace SpacerUnion
                         words[j] = baseStr;
                     }
 
-                    if (props[i].Name == "vobName")
-                    {
-                        nameValue = props[i].value;
-                    }
 
-                    if (props[i].Name == "visual")
-                    {
-                        visual = props[i].value;
-                    }
                 }
                 
+            }
+
+            for (int i = 0; i < props.Count; i++)
+            {
+                if (props[i].Name == "vobName")
+                {
+                    nameValue = props[i].value;
+                }
+
+                if (props[i].Name == "visual")
+                {
+                    visual = props[i].value;
+                }
             }
 
             for (int j = 0; j < words.Length; j++)
@@ -625,6 +626,7 @@ namespace SpacerUnion
             textBoxVec2.Visible = false;
             textBoxVec3.Visible = false;
             buttonFileOpen.Enabled = false;
+            comboBoxPropsEnum.Visible = false;
             DisableTabBBox();
 
         }
@@ -689,6 +691,13 @@ namespace SpacerUnion
                         }
                     }
 
+                    if (prop.type == TPropEditType.PETenum)
+                    {
+                        comboBoxPropsEnum.Visible = true;
+                        comboBoxPropsEnum.Items.Clear();
+                        comboBoxPropsEnum.Items.AddRange(prop.enumArray.ToArray());
+                        comboBoxPropsEnum.SelectedIndex = prop.GetCurrentEnumIndex();
+                    }
 
                     currentFieldtype = prop.type;
 
@@ -814,6 +823,10 @@ namespace SpacerUnion
                         {
                             textBoxVec3.Text = arr[3];
                         }
+                    }
+                    else if (currentFieldtype == TPropEditType.PETenum)
+                    {
+                        comboBoxPropsEnum.SelectedIndex = prop.GetCurrentEnumIndex();
                     }
                     else
                     {
@@ -1167,6 +1180,34 @@ namespace SpacerUnion
             DisableTabBBox();
         }
 
-        
+        private void comboBoxPropsEnum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TreeNode node = UnionNET.propWin.treeViewProp.SelectedNode;
+
+            if (node != null)
+            {
+                int index = 0;
+
+                if (node.Tag != null && node.Tag.ToString() != "folder")
+                {
+                    int.TryParse(node.Tag.ToString(), out index);
+
+                    if (index >= 0)
+                    {
+
+                        CProperty prop = props[index];
+
+                        if (prop.type == TPropEditType.PETenum)
+                        {
+                            prop.value = comboBoxPropsEnum.SelectedIndex.ToString();
+                            prop.ownNode.Text = prop.Name + ": " + prop.ShowValue();
+                            buttonApply.Enabled = true;
+                            buttonRestore.Enabled = true;
+                        }
+                    }
+
+                }
+            }
+        }
     }
 }

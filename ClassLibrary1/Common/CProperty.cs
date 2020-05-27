@@ -62,6 +62,20 @@ namespace SpacerUnion
             return result;
         }
 
+        public int GetCurrentEnumIndex()
+        {
+            int index = 0;
+
+            Int32.TryParse(value, out index);
+
+            if (index >= enumArray.Count || index < 0)
+            {
+                index = 0;
+            }
+
+            return index;
+        }
+
 
         public string ShowValue()
         {

@@ -28,6 +28,7 @@ namespace SpacerUnion
         public MainForm()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         public void UpdateSpacerCaption(string title)
@@ -38,7 +39,7 @@ namespace SpacerUnion
         
         private void CloseApp()
         {
-            if (currentWorldName != "")
+            if (currentWorldName != "" && Imports.Extern_GetSetting(UnionNET.AddString("askExitZen")) == 1)
             {
                 DialogResult res = MessageBox.Show("Точно выйти?", "Подтверждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
@@ -848,12 +849,19 @@ namespace SpacerUnion
 
         private void прочееToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int useDatePrefix = Imports.Extern_GetSetting(UnionNET.AddString("addDatePrefix"));
-
-            UnionNET.miscSetWin.checkBoxSetDatePrefix.Checked = Convert.ToBoolean(useDatePrefix);
+            UnionNET.miscSetWin.LoadSettings();
             UnionNET.miscSetWin.Show();
 
             UnionNET.FreeStrings();
+        }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.S && e.Control)
+            {
+                сохранитьZENToolStripMenuItem_Click(null, null);
+                e.Handled = true;
+            }
         }
     }
 }
