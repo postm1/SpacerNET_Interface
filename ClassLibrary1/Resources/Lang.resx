@@ -129,6 +129,9 @@
   <data name="compileZen" xml:space="preserve">
     <value>Идет компиляция zen...</value>
   </data>
+  <data name="isLoading" xml:space="preserve">
+    <value>загружается...</value>
+  </data>
   <data name="loadZen" xml:space="preserve">
     <value>Идет загрузка zen...</value>
   </data>

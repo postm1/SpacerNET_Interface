@@ -97,6 +97,15 @@ namespace SpacerUnion.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на загружается....
+        /// </summary>
+        internal static string isLoading {
+            get {
+                return ResourceManager.GetString("isLoading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Идет загрузка zen....
         /// </summary>
         internal static string loadZen {

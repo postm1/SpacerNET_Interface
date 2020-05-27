@@ -1,5 +1,6 @@
 ﻿
 using SpacerUnion.Common;
+using SpacerUnion.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -88,7 +89,7 @@ namespace SpacerUnion
             string path = Marshal.PtrToStringAnsi(ptrZenName);
             string fileName = Path.GetFileName(path);
 
-            ConsoleEx.WriteLineGreen(path);
+            //ConsoleEx.WriteLineGreen(path);
 
             if (!File.Exists(path))
             {
@@ -105,8 +106,8 @@ namespace SpacerUnion
             UnionNET.form.UpdateSpacerCaption(fileName);
             UnionNET.form.ResetInterface();
 
-            UnionNET.form.AddText(fileName + " загружается...");
-            ConsoleEx.WriteLineGreen(fileName + " загружается...");
+            UnionNET.form.AddText(fileName + " " + Lang.isLoading);
+            ConsoleEx.WriteLineGreen(fileName + " " + Lang.isLoading);
 
             UnionNET.form.currentWorldName = fileName;
             Imports.Extern_LoadWorld(filePathPtr);
@@ -164,8 +165,8 @@ namespace SpacerUnion
 
                 ResetInterface();
 
-                UnionNET.form.AddText(openFileDialog1.SafeFileName + " загружается...");
-                ConsoleEx.WriteLineGreen(openFileDialog1.SafeFileName + " загружается...");
+                UnionNET.form.AddText(openFileDialog1.SafeFileName + " " + Lang.isLoading);
+                ConsoleEx.WriteLineGreen(openFileDialog1.SafeFileName + " " + Lang.isLoading);
 
                 currentWorldName = openFileDialog1.SafeFileName;
                 Imports.Extern_LoadWorld(filePathPtr);
