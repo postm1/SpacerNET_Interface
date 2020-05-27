@@ -81,7 +81,45 @@ namespace SpacerUnion
             //toolStripTop.BringToFront();
         }
 
-       
+
+        [DllExport]
+        public static void LoadZenAuto(IntPtr ptrZenName)
+        {
+            string path = Marshal.PtrToStringAnsi(ptrZenName);
+            string fileName = Path.GetFileName(path);
+
+            ConsoleEx.WriteLineGreen(path);
+
+            if (!File.Exists(path))
+            {
+                return;
+            }
+
+            IntPtr filePathPtr = UnionNET.AddString(path);
+
+
+
+            Stopwatch s = new Stopwatch();
+            s.Start();
+
+            UnionNET.form.UpdateSpacerCaption(fileName);
+            UnionNET.form.ResetInterface();
+
+            UnionNET.form.AddText(fileName + " загружается...");
+            ConsoleEx.WriteLineGreen(fileName + " загружается...");
+
+            UnionNET.form.currentWorldName = fileName;
+            Imports.Extern_LoadWorld(filePathPtr);
+
+            s.Stop();
+
+            string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
+            UnionNET.form.AddText("Загрузка ZEN выполнена за (" + timeSpend + ")");
+            ConsoleEx.WriteLineGreen("Загрузка ZEN выполнена за (" + timeSpend + ")");
+
+            UnionNET.FreeStrings();
+        }
+
 
         private void openZENToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -109,13 +147,13 @@ namespace SpacerUnion
             {
 
                 IntPtr ptrPathSave = UnionNET.AddString(Path.GetDirectoryName(openFileDialog1.FileName));
-
+                IntPtr ptrLastZenPath = UnionNET.AddString(openFileDialog1.FileName);
                 Imports.Extern_SetSettingStr(ptrPathSave, UnionNET.AddString("zenzPath"));
-
+                Imports.Extern_SetSettingStr(ptrLastZenPath, UnionNET.AddString("openLastZenPath"));
 
                 string filePath = openFileDialog1.FileName;
 
-
+                
 
                 UpdateSpacerCaption(openFileDialog1.SafeFileName);
 
@@ -181,6 +219,7 @@ namespace SpacerUnion
         {
             if (!UnionNET.compWorldWin.Visible)
             {
+                UnionNET.comLightWin.LoadSettings();
                 UnionNET.comLightWin.Show();
             }
             
@@ -245,6 +284,7 @@ namespace SpacerUnion
         }
 
 
+
         
 
         private void сохранитьZENToolStripMenuItem_Click(object sender, EventArgs e)
@@ -304,9 +344,10 @@ namespace SpacerUnion
             {
 
                 IntPtr ptrPath = UnionNET.AddString(Path.GetDirectoryName(saveFileDialog1.FileName));
+                IntPtr ptrLastZenPath = UnionNET.AddString(saveFileDialog1.FileName);
 
                 Imports.Extern_SetSettingStr(ptrPath, UnionNET.AddString("zenzPath"));
-
+                Imports.Extern_SetSettingStr(ptrLastZenPath, UnionNET.AddString("openLastZenPath"));
 
                 string filePath = saveFileDialog1.FileName;
                 string selectedFileName = Path.GetFileName(saveFileDialog1.FileName);
@@ -578,13 +619,13 @@ namespace SpacerUnion
 
         private void toolStripButtonBig_Click(object sender, EventArgs e)
         {
-            if (UnionNET.partWin.Visible)
+            if (UnionNET.objectsWin.Visible)
             {
-                UnionNET.partWin.Hide();
+                UnionNET.objectsWin.Hide();
             }
             else
             {
-                UnionNET.partWin.Show();
+                UnionNET.objectsWin.Show();
             }
         }
 

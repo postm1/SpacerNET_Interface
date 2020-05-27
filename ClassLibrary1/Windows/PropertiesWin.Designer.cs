@@ -33,6 +33,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.treeViewProp = new System.Windows.Forms.TreeView();
             this.panelButtons = new System.Windows.Forms.Panel();
+            this.comboBoxPropsEnum = new System.Windows.Forms.ComboBox();
             this.textBoxVec3 = new System.Windows.Forms.TextBox();
             this.buttonFileOpen = new System.Windows.Forms.Button();
             this.textBoxVec2 = new System.Windows.Forms.TextBox();
@@ -66,7 +67,6 @@
             this.contextMenuStripContainer = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.удалитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogFileName = new System.Windows.Forms.OpenFileDialog();
-            this.comboBoxPropsEnum = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panelButtons.SuspendLayout();
@@ -134,6 +134,17 @@
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.Size = new System.Drawing.Size(310, 106);
             this.panelButtons.TabIndex = 6;
+            // 
+            // comboBoxPropsEnum
+            // 
+            this.comboBoxPropsEnum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPropsEnum.FormattingEnabled = true;
+            this.comboBoxPropsEnum.Location = new System.Drawing.Point(6, 20);
+            this.comboBoxPropsEnum.Name = "comboBoxPropsEnum";
+            this.comboBoxPropsEnum.Size = new System.Drawing.Size(120, 21);
+            this.comboBoxPropsEnum.TabIndex = 13;
+            this.comboBoxPropsEnum.Visible = false;
+            this.comboBoxPropsEnum.SelectedIndexChanged += new System.EventHandler(this.comboBoxPropsEnum_SelectedIndexChanged);
             // 
             // textBoxVec3
             // 
@@ -454,17 +465,6 @@
             this.удалитьСтрокуToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.удалитьСтрокуToolStripMenuItem.Text = "Удалить строку";
             this.удалитьСтрокуToolStripMenuItem.Click += new System.EventHandler(this.удалитьСтрокуToolStripMenuItem_Click);
-            // 
-            // comboBoxPropsEnum
-            // 
-            this.comboBoxPropsEnum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxPropsEnum.FormattingEnabled = true;
-            this.comboBoxPropsEnum.Location = new System.Drawing.Point(6, 21);
-            this.comboBoxPropsEnum.Name = "comboBoxPropsEnum";
-            this.comboBoxPropsEnum.Size = new System.Drawing.Size(120, 21);
-            this.comboBoxPropsEnum.TabIndex = 13;
-            this.comboBoxPropsEnum.Visible = false;
-            this.comboBoxPropsEnum.SelectedIndexChanged += new System.EventHandler(this.comboBoxPropsEnum_SelectedIndexChanged);
             // 
             // ObjectsWindow
             // 

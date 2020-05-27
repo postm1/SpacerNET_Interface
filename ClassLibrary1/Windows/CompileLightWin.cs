@@ -30,8 +30,63 @@ namespace SpacerUnion
             buttons[3] = radioButtonHigh;
         }
 
+
+        public void ApplySettings()
+        {
+            for (int i = 0; i < RADIO_BUTTONS_MAX; i++)
+            {
+                if (buttons[i].Checked)
+                {
+                    IntPtr ptrType = UnionNET.AddString("lightCompileType");
+                    Imports.Extern_SetSetting(ptrType, i);
+                    break;
+                }
+            }
+
+            int value;
+
+            int.TryParse(textBoxRadius.Text.Trim(), out value);
+
+            if (checkBoxCompileRegion.Checked)
+            {
+                IntPtr lightRegPtr = UnionNET.AddString("lightCompileRegionOn");
+                Imports.Extern_SetSetting(lightRegPtr, 1);
+
+                IntPtr lightRadius = UnionNET.AddString("lightCompileRadius");
+                Imports.Extern_SetSetting(lightRadius, value);
+            }
+            else
+            {
+                IntPtr lightRegPtr = UnionNET.AddString("lightCompileRegionOn");
+                Imports.Extern_SetSetting(lightRegPtr, 0);
+            }
+
+            UnionNET.FreeStrings();
+        }
+
+        public void LoadSettings()
+        {
+            int type = Imports.Extern_GetSetting(UnionNET.AddString("lightCompileType"));
+
+            if (type > 0 && type < buttons.Length)
+            {
+                buttons[type].Checked = true;
+            }
+            
+
+            bool regionChecked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("lightCompileRegionOn")));
+            int radius = Imports.Extern_GetSetting(UnionNET.AddString("lightCompileRadius"));
+
+            
+            checkBoxCompileRegion.Checked = regionChecked;
+            
+
+            textBoxRadius.Text = radius.ToString();
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
+            ApplySettings();
             this.Hide();
         }
 
@@ -58,6 +113,8 @@ namespace SpacerUnion
             {
                 radiusCamera = Convert.ToInt32(textBoxRadius.Text.Trim());
             }
+
+            ApplySettings();
 
             this.Hide();
 

@@ -471,7 +471,7 @@ namespace SpacerUnion
             dataGridView1.Visible = true;
             dataGridView1.Rows.Clear();
 
-            UnionNET.partWin.tabControlObjects.SelectedIndex = 1;
+            UnionNET.objectsWin.tabControlObjects.SelectedIndex = 1;
 
             currentContents = prop.value;
             containsIndex = index;

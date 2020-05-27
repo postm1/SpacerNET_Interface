@@ -885,7 +885,7 @@ namespace SpacerUnion
 
             if (node.Text.Contains("zCVobWaypoint") || node.Text.Contains("zCVobSpot"))
             {
-                UnionNET.partWin.tabControlObjects.SelectedIndex = 4;
+                UnionNET.objectsWin.tabControlObjects.SelectedIndex = 4;
             }
 
             Imports.Extern_SelectVobSync(addr);

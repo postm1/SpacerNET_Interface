@@ -18,13 +18,13 @@ namespace SpacerUnion
 {
     
 
-    public partial class ParticleWin : Form
+    public partial class ObjectsWin : Form
     {
         public static List<string> listVisualsVDF = new List<string>();
         public static List<string> listVisualsWORK = new List<string>();
         public TriggerEntry triggerEntry = new TriggerEntry();
 
-        public ParticleWin()
+        public ObjectsWin()
         {
             InitializeComponent();
         }
@@ -36,7 +36,7 @@ namespace SpacerUnion
         {
             string name = Marshal.PtrToStringAnsi(ptr);
 
-            UnionNET.partWin.listBoxParticles.Items.Add(name);
+            UnionNET.objectsWin.listBoxParticles.Items.Add(name);
         }
 
         public static HashSet<string> ignoreFileNameSet = new HashSet<string>()
@@ -106,11 +106,11 @@ namespace SpacerUnion
             {
                 if (isVDF)
                 {
-                    ParticleWin.listVisualsVDF.Add(fileName.ToString());
+                    ObjectsWin.listVisualsVDF.Add(fileName.ToString());
                 }
                 else
                 {
-                    ParticleWin.listVisualsWORK.Add(fileName.ToString());
+                    ObjectsWin.listVisualsWORK.Add(fileName.ToString());
                 }
             }
 
@@ -139,17 +139,17 @@ namespace SpacerUnion
         [DllExport]
         public static void SortVisuals()
         {
-            ParticleWin.listVisualsVDF = ParticleWin.listVisualsVDF.Distinct().ToList();
-            ParticleWin.listVisualsVDF.Sort();
+            ObjectsWin.listVisualsVDF = ObjectsWin.listVisualsVDF.Distinct().ToList();
+            ObjectsWin.listVisualsVDF.Sort();
 
 
-            ParticleWin.listVisualsWORK = ParticleWin.listVisualsWORK.Distinct().ToList();
-            ParticleWin.listVisualsWORK.Sort();
+            ObjectsWin.listVisualsWORK = ObjectsWin.listVisualsWORK.Distinct().ToList();
+            ObjectsWin.listVisualsWORK.Sort();
 
 
             
             //UnionNET.partWin.labelSearchVisual.Text = "Поиск визуала. Всего: " + listVisualsVDF.Count + "/" + listVisualsWORK.Count;
-            UnionNET.partWin.labelAllModels.Text = "Всего моделей: " + listVisualsVDF.Count + "/" + listVisualsWORK.Count;
+            UnionNET.objectsWin.labelAllModels.Text = "Всего моделей: " + listVisualsVDF.Count + "/" + listVisualsWORK.Count;
         }
 
 
@@ -157,16 +157,16 @@ namespace SpacerUnion
         public static void SortPFX()
         {
             //UnionNET.partWin.listBoxParticles.Sorted = true;
-            ListBox lstBox = UnionNET.partWin.listBoxParticles;
+            ListBox lstBox = UnionNET.objectsWin.listBoxParticles;
             Utils.SortListBox(lstBox);
 
-            UnionNET.partWin.groupBox1.Text += ", всего: " + UnionNET.partWin.listBoxParticles.Items.Count;
+            UnionNET.objectsWin.groupBox1.Text += ", всего: " + UnionNET.objectsWin.listBoxParticles.Items.Count;
         }
 
         [DllExport]
         public static void AddItemToList(IntPtr ptr)
         {
-            ListBox listBox = UnionNET.partWin.listBoxItems;
+            ListBox listBox = UnionNET.objectsWin.listBoxItems;
             string name = Marshal.PtrToStringAnsi(ptr);
 
             int index = listBox.Items.Add(name);
@@ -176,9 +176,9 @@ namespace SpacerUnion
         public static void SortItems()
         {
             //UnionNET.partWin.listBoxItems.Sorted = true;
-            Utils.SortListBox(UnionNET.partWin.listBoxItems);
+            Utils.SortListBox(UnionNET.objectsWin.listBoxItems);
 
-            UnionNET.partWin.groupBox2.Text += ", всего: " + UnionNET.partWin.listBoxItems.Items.Count;
+            UnionNET.objectsWin.groupBox2.Text += ", всего: " + UnionNET.objectsWin.listBoxItems.Items.Count;
         }
 
         private void ParticleWin_FormClosing(object sender, FormClosingEventArgs e)
@@ -283,7 +283,7 @@ namespace SpacerUnion
         {
             string name = Marshal.PtrToStringAnsi(ptr);
             string baseClassName = Marshal.PtrToStringAnsi(ptrB);
-            TreeNodeCollection nodes = UnionNET.partWin.classesTreeView.Nodes;
+            TreeNodeCollection nodes = UnionNET.objectsWin.classesTreeView.Nodes;
             if (name == baseClassName)
             {
                 nodes.Add(name);
@@ -291,12 +291,12 @@ namespace SpacerUnion
             }
             FindClass(nodes, baseClassName, name);
 
-            UnionNET.partWin.comboBoxSearchClass.Items.Add(name);
-            UnionNET.partWin.comboBoxSearchClass.SelectedIndex = 0;
+            UnionNET.objectsWin.comboBoxSearchClass.Items.Add(name);
+            UnionNET.objectsWin.comboBoxSearchClass.SelectedIndex = 0;
 
-            UnionNET.partWin.classesTreeView.ExpandAll();
-            UnionNET.partWin.classesTreeView.SelectedNode = UnionNET.partWin.classesTreeView.Nodes[0];
-            UnionNET.partWin.classesTreeView.SelectedNode.EnsureVisible();
+            UnionNET.objectsWin.classesTreeView.ExpandAll();
+            UnionNET.objectsWin.classesTreeView.SelectedNode = UnionNET.objectsWin.classesTreeView.Nodes[0];
+            UnionNET.objectsWin.classesTreeView.SelectedNode.EnsureVisible();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -370,7 +370,7 @@ namespace SpacerUnion
         [DllExport]
         public static void HotKey_AddWaypoint()
         {
-            UnionNET.partWin.buttonWP.PerformClick();
+            UnionNET.objectsWin.buttonWP.PerformClick();
         }
 
         private void buttonWP_Click(object sender, EventArgs e)
@@ -588,7 +588,7 @@ namespace SpacerUnion
                 }
 
 
-                UnionNET.partWin.labelSearchVisual.Text = "Поиск визуала. Всего: " + listBoxVisuals.Items.Count;
+                UnionNET.objectsWin.labelSearchVisual.Text = "Поиск визуала. Всего: " + listBoxVisuals.Items.Count;
 
 
             }
@@ -600,7 +600,7 @@ namespace SpacerUnion
             listBoxVisuals.ClearSelected();
             textBoxVisuals.Clear();
 
-            UnionNET.partWin.labelSearchVisual.Text = "Поиск визуала.";
+            UnionNET.objectsWin.labelSearchVisual.Text = "Поиск визуала.";
 
             string visual = "";
             IntPtr visualPtr = UnionNET.AddString(visual);
@@ -692,18 +692,18 @@ namespace SpacerUnion
         public static void CleanTriggerForm()
         {
 
-            UnionNET.partWin.triggerEntry.m_kf_pos = 0;
-            UnionNET.partWin.triggerEntry.maxKey = 0;
-            UnionNET.partWin.triggerEntry.name = "";
-            UnionNET.partWin.triggerEntry.dynColl = false;
-            UnionNET.partWin.triggerEntry.statColl = false;
-            UnionNET.partWin.listBoxTargetList.Items.Clear();
-            UnionNET.partWin.listBoxActionType.Items.Clear();
-            UnionNET.partWin.triggerEntry.targetListAddr.Clear();
+            UnionNET.objectsWin.triggerEntry.m_kf_pos = 0;
+            UnionNET.objectsWin.triggerEntry.maxKey = 0;
+            UnionNET.objectsWin.triggerEntry.name = "";
+            UnionNET.objectsWin.triggerEntry.dynColl = false;
+            UnionNET.objectsWin.triggerEntry.statColl = false;
+            UnionNET.objectsWin.listBoxTargetList.Items.Clear();
+            UnionNET.objectsWin.listBoxActionType.Items.Clear();
+            UnionNET.objectsWin.triggerEntry.targetListAddr.Clear();
             
 
 
-            UnionNET.partWin.UpdateTriggerWindow();
+            UnionNET.objectsWin.UpdateTriggerWindow();
 
         }
 
@@ -719,7 +719,7 @@ namespace SpacerUnion
         [DllExport]
         public static void SelectMoversTab()
         {
-            UnionNET.partWin.tabControlObjects.SelectedIndex = 3;
+            UnionNET.objectsWin.tabControlObjects.SelectedIndex = 3;
         }
 
 
@@ -727,12 +727,12 @@ namespace SpacerUnion
         public static void AddActionTypeMover(IntPtr itemPtr)
         {
             string value = Marshal.PtrToStringAnsi(itemPtr);
-            UnionNET.partWin.listBoxActionType.Items.Add(value);
+            UnionNET.objectsWin.listBoxActionType.Items.Add(value);
 
 
-            if (UnionNET.partWin.listBoxActionType.Items.Count > 0)
+            if (UnionNET.objectsWin.listBoxActionType.Items.Count > 0)
             {
-                UnionNET.partWin.listBoxActionType.SelectedIndex = 0;
+                UnionNET.objectsWin.listBoxActionType.SelectedIndex = 0;
             }
         }
 
@@ -742,9 +742,9 @@ namespace SpacerUnion
         {
             string value = Marshal.PtrToStringAnsi(itemPtr);
 
-            UnionNET.partWin.triggerEntry.targetListAddr.Add(addr);
+            UnionNET.objectsWin.triggerEntry.targetListAddr.Add(addr);
 
-            UnionNET.partWin.listBoxTargetList.Items.Add(value);
+            UnionNET.objectsWin.listBoxTargetList.Items.Add(value);
         }
 
         [DllExport]
@@ -752,18 +752,18 @@ namespace SpacerUnion
         {
             string name = Marshal.PtrToStringAnsi(ptrName);
 
-            UnionNET.partWin.triggerEntry.m_kf_pos = keyCurrent;
-            UnionNET.partWin.triggerEntry.maxKey = keyMax;
-            UnionNET.partWin.triggerEntry.name = name;
-            UnionNET.partWin.triggerEntry.dynColl = Convert.ToBoolean(dyn);
-            UnionNET.partWin.triggerEntry.statColl = Convert.ToBoolean(stat);
-            UnionNET.partWin.listBoxTargetList.Items.Clear();
-            UnionNET.partWin.listBoxActionType.Items.Clear();
-            UnionNET.partWin.triggerEntry.targetListAddr.Clear();
+            UnionNET.objectsWin.triggerEntry.m_kf_pos = keyCurrent;
+            UnionNET.objectsWin.triggerEntry.maxKey = keyMax;
+            UnionNET.objectsWin.triggerEntry.name = name;
+            UnionNET.objectsWin.triggerEntry.dynColl = Convert.ToBoolean(dyn);
+            UnionNET.objectsWin.triggerEntry.statColl = Convert.ToBoolean(stat);
+            UnionNET.objectsWin.listBoxTargetList.Items.Clear();
+            UnionNET.objectsWin.listBoxActionType.Items.Clear();
+            UnionNET.objectsWin.triggerEntry.targetListAddr.Clear();
 
 
-            UnionNET.partWin.UpdateTriggerWindow();
-            UnionNET.partWin.EnableTriggerWindow();
+            UnionNET.objectsWin.UpdateTriggerWindow();
+            UnionNET.objectsWin.EnableTriggerWindow();
         }
 
         
@@ -1047,6 +1047,52 @@ namespace SpacerUnion
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public void LoadSettings()
+        {
+            checkBoxShowPreview.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("showModelPreview")));
+            checkBoxSearchOnly3DS.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("searchOnly3DS")));
+
+
+            checkBoxWayNet.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("addWPToNet")));
+            checkBoxWPAutoName.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("addWPAutoName")));
+            checkBoxFPGround.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("downFPToGround")));
+            checkBoxAutoNameFP.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("addFPAutoName")));
+
+            UnionNET.FreeStrings();
+        }
+
+        private void checkBoxWayNet_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+            IntPtr ptrPathSave = UnionNET.AddString("addWPToNet");
+            Imports.Extern_SetSetting(ptrPathSave, Convert.ToInt32(cb.Checked));
+            UnionNET.FreeStrings();
+        }
+
+        private void checkBoxWPAutoName_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+            IntPtr ptrPathSave = UnionNET.AddString("addWPAutoName");
+            Imports.Extern_SetSetting(ptrPathSave, Convert.ToInt32(cb.Checked));
+            UnionNET.FreeStrings();
+        }
+
+        private void checkBoxFPGround_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+            IntPtr ptrPathSave = UnionNET.AddString("downFPToGround");
+            Imports.Extern_SetSetting(ptrPathSave, Convert.ToInt32(cb.Checked));
+            UnionNET.FreeStrings();
+        }
+
+        private void checkBoxAutoNameFP_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+            IntPtr ptrPathSave = UnionNET.AddString("addFPAutoName");
+            Imports.Extern_SetSetting(ptrPathSave, Convert.ToInt32(cb.Checked));
+            UnionNET.FreeStrings();
         }
     }
 }

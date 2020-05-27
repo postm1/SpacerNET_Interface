@@ -26,7 +26,7 @@ namespace SpacerUnion
         public static InfoWin infoWin;
         public static CompileLightWin comLightWin;
         public static ObjTree objTreeWin;
-        public static ParticleWin partWin;
+        public static ObjectsWin objectsWin;
         public static SoundWin soundWin;
         public static CompileWorldWin compWorldWin;
         public static LoadingForm loadForm;
@@ -87,7 +87,7 @@ namespace SpacerUnion
             propWin = new ObjectsWindow();
             infoWin = new InfoWin();
             objTreeWin = new ObjTree();
-            partWin = new ParticleWin();
+            objectsWin = new ObjectsWin();
             soundWin = new SoundWin();
             comLightWin = new CompileLightWin();
             settingsCam = new SettingsCamera();
@@ -98,7 +98,7 @@ namespace SpacerUnion
             miscSetWin = new MiscSettingsWin();
 
             windowsList.Add(objTreeWin);
-            windowsList.Add(partWin);
+            windowsList.Add(objectsWin);
             windowsList.Add(infoWin);
             windowsList.Add(propWin);
             windowsList.Add(soundWin);
@@ -143,7 +143,7 @@ namespace SpacerUnion
             form.menuStripTopMain.Enabled = true;
             propWin.Show();
             objTreeWin.Show();
-            partWin.Show();
+            objectsWin.Show();
             vobList.Show();
             infoWin.Show();
 
@@ -155,7 +155,7 @@ namespace SpacerUnion
 
             if (Properties.Settings.Default.PartWinLocation != null)
             {
-                partWin.Location = Properties.Settings.Default.PartWinLocation;
+                objectsWin.Location = Properties.Settings.Default.PartWinLocation;
             }
 
             if (Properties.Settings.Default.VobListWinLocation != null)
@@ -213,7 +213,7 @@ namespace SpacerUnion
             btn.Checked = Convert.ToBoolean(infoWin.Visible);
 
             btn = form.toolStripTop.Items[1] as ToolStripButton;
-            btn.Checked = Convert.ToBoolean(partWin.Visible);
+            btn.Checked = Convert.ToBoolean(objectsWin.Visible);
 
             btn = form.toolStripTop.Items[2] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(soundWin.Visible);
@@ -235,9 +235,8 @@ namespace SpacerUnion
             vobList.trackBarRadius.Value = radius;
             vobList.comboBoxVobListType.SelectedIndex = 0;
 
-            partWin.checkBoxShowPreview.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(AddString("showModelPreview")));
-            partWin.checkBoxSearchOnly3DS.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(AddString("searchOnly3DS")));
 
+            objectsWin.LoadSettings();
             FreeStrings();
         }
 
@@ -246,7 +245,7 @@ namespace SpacerUnion
         public static void CloseApplication()
         {
             Properties.Settings.Default.TreeWinLocation = objTreeWin.Location;
-            Properties.Settings.Default.PartWinLocation = partWin.Location;
+            Properties.Settings.Default.PartWinLocation = objectsWin.Location;
             Properties.Settings.Default.PropWinLocation = propWin.Location;
             Properties.Settings.Default.VobListWinLocation = vobList.Location;
             Properties.Settings.Default.InfoWinLocation = infoWin.Location;
