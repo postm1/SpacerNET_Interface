@@ -109,6 +109,7 @@
             this.textBoxFP = new System.Windows.Forms.TextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.labelSearchResult = new System.Windows.Forms.Label();
             this.listBoxSearchResult = new System.Windows.Forms.ListBox();
             this.checkBoxSearchDerived = new System.Windows.Forms.CheckBox();
@@ -118,6 +119,7 @@
             this.comboBoxSearchClass = new System.Windows.Forms.ComboBox();
             this.treeViewSearchClass = new System.Windows.Forms.TreeView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.label21 = new System.Windows.Forms.Label();
             this.checkBoxCamPosition = new System.Windows.Forms.CheckBox();
             this.buttonCamRemove = new System.Windows.Forms.Button();
             this.buttonCamCreateUpdate = new System.Windows.Forms.Button();
@@ -143,6 +145,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
             this.button17 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -173,6 +176,7 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.checkBoxShowPFXPreview = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -199,6 +203,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxShowPFXPreview);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.textBoxPfxReg);
             this.groupBox1.Controls.Add(this.listBoxPfxResult);
@@ -208,7 +213,7 @@
             this.groupBox1.Controls.Add(this.buttonParticles);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(419, 313);
+            this.groupBox1.Size = new System.Drawing.Size(549, 347);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Эффекты частиц";
@@ -216,7 +221,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(197, 63);
+            this.label10.Location = new System.Drawing.Point(279, 89);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(140, 13);
             this.label10.TabIndex = 10;
@@ -226,9 +231,9 @@
             // textBoxPfxReg
             // 
             this.textBoxPfxReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxPfxReg.Location = new System.Drawing.Point(200, 81);
+            this.textBoxPfxReg.Location = new System.Drawing.Point(282, 107);
             this.textBoxPfxReg.Name = "textBoxPfxReg";
-            this.textBoxPfxReg.Size = new System.Drawing.Size(186, 22);
+            this.textBoxPfxReg.Size = new System.Drawing.Size(263, 22);
             this.textBoxPfxReg.TabIndex = 9;
             this.textBoxPfxReg.TextChanged += new System.EventHandler(this.textBoxPfxReg_TextChanged);
             this.textBoxPfxReg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPfxReg_KeyPress);
@@ -236,16 +241,17 @@
             // listBoxPfxResult
             // 
             this.listBoxPfxResult.FormattingEnabled = true;
-            this.listBoxPfxResult.Location = new System.Drawing.Point(200, 107);
+            this.listBoxPfxResult.Location = new System.Drawing.Point(282, 133);
             this.listBoxPfxResult.Name = "listBoxPfxResult";
-            this.listBoxPfxResult.Size = new System.Drawing.Size(186, 199);
+            this.listBoxPfxResult.Size = new System.Drawing.Size(263, 199);
             this.listBoxPfxResult.TabIndex = 8;
+            this.listBoxPfxResult.SelectedIndexChanged += new System.EventHandler(this.listBoxPfxResult_SelectedIndexChanged);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(201, 19);
+            this.button6.Location = new System.Drawing.Point(282, 19);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(186, 30);
+            this.button6.Size = new System.Drawing.Size(263, 30);
             this.button6.TabIndex = 7;
             this.button6.Text = "Создать PFX";
             this.button6.UseVisualStyleBackColor = true;
@@ -254,7 +260,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 63);
+            this.label9.Location = new System.Drawing.Point(7, 89);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(104, 13);
             this.label9.TabIndex = 6;
@@ -263,16 +269,17 @@
             // listBoxParticles
             // 
             this.listBoxParticles.FormattingEnabled = true;
-            this.listBoxParticles.Location = new System.Drawing.Point(8, 81);
+            this.listBoxParticles.Location = new System.Drawing.Point(9, 107);
             this.listBoxParticles.Name = "listBoxParticles";
-            this.listBoxParticles.Size = new System.Drawing.Size(186, 225);
+            this.listBoxParticles.Size = new System.Drawing.Size(263, 225);
             this.listBoxParticles.TabIndex = 1;
+            this.listBoxParticles.SelectedIndexChanged += new System.EventHandler(this.listBoxParticles_SelectedIndexChanged);
             // 
             // buttonParticles
             // 
             this.buttonParticles.Location = new System.Drawing.Point(9, 19);
             this.buttonParticles.Name = "buttonParticles";
-            this.buttonParticles.Size = new System.Drawing.Size(186, 30);
+            this.buttonParticles.Size = new System.Drawing.Size(263, 30);
             this.buttonParticles.TabIndex = 0;
             this.buttonParticles.Text = "Создать PFX";
             this.buttonParticles.UseVisualStyleBackColor = true;
@@ -1072,6 +1079,7 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.label20);
             this.groupBox7.Controls.Add(this.labelSearchResult);
             this.groupBox7.Controls.Add(this.listBoxSearchResult);
             this.groupBox7.Controls.Add(this.checkBoxSearchDerived);
@@ -1086,6 +1094,16 @@
             this.groupBox7.TabIndex = 4;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Класс воба";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label20.Location = new System.Drawing.Point(169, 163);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(239, 29);
+            this.label20.TabIndex = 10;
+            this.label20.Text = "ЕЩЕ НЕ СДЕЛАНО";
             // 
             // labelSearchResult
             // 
@@ -1157,6 +1175,7 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.label21);
             this.tabPage7.Controls.Add(this.checkBoxCamPosition);
             this.tabPage7.Controls.Add(this.buttonCamRemove);
             this.tabPage7.Controls.Add(this.buttonCamCreateUpdate);
@@ -1170,6 +1189,16 @@
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Камера";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label21.Location = new System.Drawing.Point(179, 283);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(239, 29);
+            this.label21.TabIndex = 11;
+            this.label21.Text = "ЕЩЕ НЕ СДЕЛАНО";
             // 
             // checkBoxCamPosition
             // 
@@ -1417,6 +1446,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label22);
             this.panel1.Controls.Add(this.button17);
             this.panel1.Controls.Add(this.button16);
             this.panel1.Controls.Add(this.comboBox1);
@@ -1438,6 +1468,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(316, 237);
             this.panel1.TabIndex = 34;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label22.Location = new System.Drawing.Point(53, 7);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(239, 29);
+            this.label22.TabIndex = 35;
+            this.label22.Text = "ЕЩЕ НЕ СДЕЛАНО";
             // 
             // button17
             // 
@@ -1715,6 +1755,19 @@
             this.button10.Text = "Удалить";
             this.button10.UseVisualStyleBackColor = true;
             // 
+            // checkBoxShowPFXPreview
+            // 
+            this.checkBoxShowPFXPreview.AutoSize = true;
+            this.checkBoxShowPFXPreview.Checked = true;
+            this.checkBoxShowPFXPreview.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxShowPFXPreview.Location = new System.Drawing.Point(9, 65);
+            this.checkBoxShowPFXPreview.Name = "checkBoxShowPFXPreview";
+            this.checkBoxShowPFXPreview.Size = new System.Drawing.Size(184, 17);
+            this.checkBoxShowPFXPreview.TabIndex = 18;
+            this.checkBoxShowPFXPreview.Text = "Отображать эффект на экране";
+            this.checkBoxShowPFXPreview.UseVisualStyleBackColor = true;
+            this.checkBoxShowPFXPreview.CheckedChanged += new System.EventHandler(this.checkBoxShowPFXPreview_CheckedChanged);
+            // 
             // ObjectsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1918,5 +1971,9 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        public System.Windows.Forms.CheckBox checkBoxShowPFXPreview;
     }
 }

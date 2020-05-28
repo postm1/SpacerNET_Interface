@@ -258,7 +258,7 @@ namespace SpacerUnion
             IntPtr PfxName = UnionNET.AddString(name);
 
             Imports.Extern_CreatePFX(PfxName);
-  
+            Imports.Extern_KillPFX();   
 
             UnionNET.form.Focus();
             UnionNET.FreeStrings();
@@ -519,7 +519,7 @@ namespace SpacerUnion
             IntPtr PfxName = UnionNET.AddString(name);
 
             Imports.Extern_CreatePFX(PfxName);
-
+            Imports.Extern_KillPFX();
 
             UnionNET.form.Focus();
             UnionNET.FreeStrings();
@@ -1100,5 +1100,72 @@ namespace SpacerUnion
             Imports.Extern_SetSetting(ptrPathSave, Convert.ToInt32(cb.Checked));
             UnionNET.FreeStrings();
         }
+
+        private void listBoxParticles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListBox lb = sender as ListBox;
+
+            if (lb.SelectedItem != null)
+            {
+                string visual = lb.GetItemText(lb.SelectedItem);
+
+                if (checkBoxShowPFXPreview.Checked)
+                {
+                    SendRenderPFX(visual);
+                }
+            }
+
+           
+        }
+
+        private void listBoxPfxResult_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListBox lb = sender as ListBox;
+
+            if (lb.SelectedItem != null)
+            {
+                string visual = lb.GetItemText(lb.SelectedItem);
+
+                if (checkBoxShowPFXPreview.Checked)
+                {
+                    SendRenderPFX(visual);
+                }
+            }
+        }
+
+
+        public void SendRenderPFX(string visual)
+        {
+            IntPtr visualPtr = UnionNET.AddString(visual);
+            Imports.Extern_RenderPFX(visualPtr);
+            UnionNET.FreeStrings();
+        }
+
+        private void checkBoxShowPFXPreview_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+
+            if (cb.Checked)
+            {
+                if (listBoxParticles.SelectedItem != null)
+                {
+                    string visual = listBoxParticles.GetItemText(listBoxParticles.SelectedItem);
+                    SendRenderPFX(visual);
+                }
+                else if (listBoxPfxResult.SelectedItem != null)
+                {
+                    string visual = listBoxPfxResult.GetItemText(listBoxPfxResult.SelectedItem);
+                    SendRenderPFX(visual);
+                }
+
+                
+            }
+            else
+            {
+                Imports.Extern_KillPFX();
+            }
+        }
+
+        
     }
 }
