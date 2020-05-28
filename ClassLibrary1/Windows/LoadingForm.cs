@@ -52,7 +52,7 @@ namespace SpacerUnion
 
             if (num == 2)
             {
-                pictureBoxLoading.Image = SpacerUnion.Properties.Resources.x317623_775512241;
+                pictureBoxLoading.Image = SpacerUnion.Properties.Resources.jab2;
             }
 
         }

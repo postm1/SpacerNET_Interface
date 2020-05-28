@@ -63,26 +63,6 @@ namespace SpacerUnion.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap b8e50283001faab2208a3574ce750878 {
-            get {
-                object obj = ResourceManager.GetObject("b8e50283001faab2208a3574ce750878", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap dsads {
-            get {
-                object obj = ResourceManager.GetObject("dsads", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap jab {
             get {
                 object obj = ResourceManager.GetObject("jab", resourceCulture);
@@ -93,29 +73,9 @@ namespace SpacerUnion.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Spinner_0_5s_137px {
+        internal static System.Drawing.Bitmap jab2 {
             get {
-                object obj = ResourceManager.GetObject("Spinner-0.5s-137px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap x317623_775512241 {
-            get {
-                object obj = ResourceManager.GetObject("x317623-775512241", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap реклама {
-            get {
-                object obj = ResourceManager.GetObject("реклама", resourceCulture);
+                object obj = ResourceManager.GetObject("jab2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
