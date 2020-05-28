@@ -79,6 +79,10 @@ namespace SpacerUnion
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+
+            Localizator.Init();
+            Localizator.SetLanguage((LangEnum)Properties.Settings.Default.Language);
+            
             windowsToHideList = new List<Form>();
             windowsList = new List<Form>();
 
@@ -117,6 +121,8 @@ namespace SpacerUnion
 
             form.menuStripTopMain.Enabled = false;
 
+            Localizator.UpdateInterface();
+
             form.Show();
             //form.panelMain.Show();
            // infoWin.Show();
@@ -128,8 +134,9 @@ namespace SpacerUnion
             //infoWin.Top = 600;
 
 
-            form.AddText(Lang.appIsLoading);
- 
+            form.AddText(Localizator.Get("appIsLoading"));
+
+
         }
 
         // Функция вызывается, когда загрузился движок игры, вызывается из Union
@@ -138,7 +145,7 @@ namespace SpacerUnion
         {
             //ConsoleEx.WriteLineRed("Form_EnableInterface");
             //Utils.Error("Form_EnableInterface");
-            form.AddText(Lang.appIsReady);
+            form.AddText(Localizator.Get("appIsReady"));
 
             form.menuStripTopMain.Enabled = true;
             propWin.Show();

@@ -42,7 +42,7 @@ namespace SpacerUnion
         {
             if (currentWorldName != "" && Imports.Extern_GetSetting(UnionNET.AddString("askExitZen")) == 1)
             {
-                DialogResult res = MessageBox.Show("Точно выйти?", "Подтверждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                DialogResult res = MessageBox.Show(Localizator.Get("askExit"), Localizator.Get("confirmation"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
                 if (res == DialogResult.OK)
                 {
@@ -69,6 +69,10 @@ namespace SpacerUnion
            // UnionNET.partWin.listBoxItems.Items.Clear();
         }
 
+        public void UpdateLang()
+        {
+            ToolStripMenuFile.Text = Localizator.Get("MENU_TOP_FILE");
+        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -106,8 +110,8 @@ namespace SpacerUnion
             UnionNET.form.UpdateSpacerCaption(fileName);
             UnionNET.form.ResetInterface();
 
-            UnionNET.form.AddText(fileName + " " + Lang.isLoading);
-            ConsoleEx.WriteLineGreen(fileName + " " + Lang.isLoading);
+            UnionNET.form.AddText(fileName + " " + Localizator.Get("isLoading"));
+            ConsoleEx.WriteLineGreen(fileName + " " + Localizator.Get("isLoading"));
 
             UnionNET.form.currentWorldName = fileName;
             Imports.Extern_LoadWorld(filePathPtr);
@@ -165,8 +169,8 @@ namespace SpacerUnion
 
                 ResetInterface();
 
-                UnionNET.form.AddText(openFileDialog1.SafeFileName + " " + Lang.isLoading);
-                ConsoleEx.WriteLineGreen(openFileDialog1.SafeFileName + " " + Lang.isLoading);
+                UnionNET.form.AddText(openFileDialog1.SafeFileName + " " + Localizator.Get("isLoading"));
+                ConsoleEx.WriteLineGreen(openFileDialog1.SafeFileName + " " + Localizator.Get("isLoading"));
 
                 currentWorldName = openFileDialog1.SafeFileName;
                 Imports.Extern_LoadWorld(filePathPtr);
@@ -904,6 +908,22 @@ namespace SpacerUnion
                 сохранитьZENToolStripMenuItem_Click(null, null);
                 e.Handled = true;
             }
+        }
+
+        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Language = (int)LangEnum.EN;
+            Properties.Settings.Default.Save();
+
+            Localizator.SetLanguage(LangEnum.EN);
+        }
+
+        private void русскийToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Language = (int)LangEnum.RU;
+            Properties.Settings.Default.Save();
+
+            Localizator.SetLanguage(LangEnum.RU);
         }
     }
 }

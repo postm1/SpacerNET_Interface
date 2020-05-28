@@ -1,4 +1,5 @@
-﻿using SpacerUnion.Resources;
+﻿using SpacerUnion.Common;
+using SpacerUnion.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,23 +22,23 @@ namespace SpacerUnion
         {
             if (type == 0)
             {
-                labelLoading.Text = Lang.loadZen;
+                labelLoading.Text = Localizator.Get("loadZen");
             }
 
             if (type == 1)
             {
-                labelLoading.Text = Lang.compileZen;
+                labelLoading.Text = Localizator.Get("compileZen");
             }
 
             if (type == 2)
             {
-                labelLoading.Text = Lang.compileLight;
+                labelLoading.Text = Localizator.Get("compileLight");
             }
 
 
             if (type == 3)
             {
-                labelLoading.Text = Lang.savingZen;
+                labelLoading.Text = Localizator.Get("savingZen");
             }
 
             Random rnd = new Random();
