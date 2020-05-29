@@ -63,7 +63,7 @@
             this.controlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miscToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.русскийToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.russianToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -365,7 +365,7 @@
             // languageToolStripMenuItem
             // 
             this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.русскийToolStripMenuItem1,
+            this.russianToolStrip,
             this.englishToolStripMenuItem1});
             this.languageToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
@@ -374,11 +374,11 @@
             // 
             // русскийToolStripMenuItem1
             // 
-            this.русскийToolStripMenuItem1.Image = global::SpacerUnion.Properties.Resources.s1200;
-            this.русскийToolStripMenuItem1.Name = "русскийToolStripMenuItem1";
-            this.русскийToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.русскийToolStripMenuItem1.Text = "Русский";
-            this.русскийToolStripMenuItem1.Click += new System.EventHandler(this.русскийToolStripMenuItem1_Click);
+            this.russianToolStrip.Image = global::SpacerUnion.Properties.Resources.s1200;
+            this.russianToolStrip.Name = "русскийToolStripMenuItem1";
+            this.russianToolStrip.Size = new System.Drawing.Size(152, 22);
+            this.russianToolStrip.Text = "Русский";
+            this.russianToolStrip.Click += new System.EventHandler(this.русскийToolStripMenuItem1_Click);
             // 
             // englishToolStripMenuItem1
             // 
@@ -647,7 +647,7 @@
         private System.Windows.Forms.ToolStripMenuItem ввестиКоординатыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem miscToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem русскийToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem russianToolStrip;
         private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem1;
     }
 }

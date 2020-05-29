@@ -57,6 +57,7 @@
             this.radioButtonOutdoor.TabIndex = 1;
             this.radioButtonOutdoor.Text = "Outdoor";
             this.radioButtonOutdoor.UseVisualStyleBackColor = true;
+            this.radioButtonOutdoor.CheckedChanged += new System.EventHandler(this.radioButtonOutdoor_CheckedChanged);
             // 
             // radioButtonIndoor
             // 
@@ -69,6 +70,7 @@
             this.radioButtonIndoor.TabStop = true;
             this.radioButtonIndoor.Text = "Indoor";
             this.radioButtonIndoor.UseVisualStyleBackColor = true;
+            this.radioButtonIndoor.CheckedChanged += new System.EventHandler(this.radioButtonIndoor_CheckedChanged);
             // 
             // buttonCompileCancel
             // 

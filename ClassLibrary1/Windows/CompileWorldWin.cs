@@ -14,11 +14,15 @@ namespace SpacerUnion
 {
     public partial class CompileWorldWin : Form
     {
+        RadioButton[] buttons = new RadioButton[2];
 
         public CompileWorldWin()
         {
             InitializeComponent();
             this.KeyPreview = true;
+
+            buttons[0] = radioButtonIndoor;
+            buttons[1] = radioButtonOutdoor;
         }
 
         private void CompileWorldWin_FormClosing(object sender, FormClosingEventArgs e)
@@ -59,6 +63,42 @@ namespace SpacerUnion
             {
                 button1_Click(null, null);
             }
+        }
+
+        public void ApplySettings()
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                if (buttons[i].Checked)
+                {
+                    IntPtr ptrType = UnionNET.AddString("worldCompileType");
+                    Imports.Extern_SetSetting(ptrType, i);
+                    break;
+                }
+            }
+
+     
+            UnionNET.FreeStrings();
+        }
+
+        public void LoadSettings()
+        {
+            int type = Imports.Extern_GetSetting(UnionNET.AddString("worldCompileType"));
+
+            if (type > 0 && type < buttons.Length)
+            {
+                buttons[type].Checked = true;
+            }
+        }
+
+        private void radioButtonIndoor_CheckedChanged(object sender, EventArgs e)
+        {
+            ApplySettings();
+        }
+
+        private void radioButtonOutdoor_CheckedChanged(object sender, EventArgs e)
+        {
+            ApplySettings();
         }
     }
 }
