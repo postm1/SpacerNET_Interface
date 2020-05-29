@@ -968,6 +968,13 @@ namespace SpacerUnion
                 UnionNET.FreeStrings();
                 //UnionNET.form.Focus();
             }
+
+            if (tab.SelectedIndex != 2)
+            {
+
+                Imports.Extern_KillPFX();
+                //UnionNET.form.Focus();
+            }
         }
 
         private void checkBoxSearchOnly3DS_CheckedChanged(object sender, EventArgs e)

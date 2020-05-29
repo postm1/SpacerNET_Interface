@@ -1,6 +1,5 @@
 ﻿
 using SpacerUnion.Common;
-using SpacerUnion.Resources;
 using SpacerUnion.Windows;
 using System;
 using System.Collections.Generic;

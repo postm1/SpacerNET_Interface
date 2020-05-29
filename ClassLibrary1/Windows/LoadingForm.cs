@@ -1,5 +1,4 @@
 ﻿using SpacerUnion.Common;
-using SpacerUnion.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

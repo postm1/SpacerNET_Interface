@@ -1,6 +1,5 @@
 ﻿
 using SpacerUnion.Common;
-using SpacerUnion.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -65,6 +64,7 @@ namespace SpacerUnion
             ObjTree.globalEntries.Clear();
             UnionNET.objTreeWin.globalTree.Nodes.Clear();
             UnionNET.vobList.ClearListBox();
+            ObjectsWindow.CleanProps();
            // UnionNET.partWin.listBoxParticles.Items.Clear();
            // UnionNET.partWin.listBoxItems.Items.Clear();
         }
@@ -72,6 +72,28 @@ namespace SpacerUnion
         public void UpdateLang()
         {
             ToolStripMenuFile.Text = Localizator.Get("MENU_TOP_FILE");
+            toolStripMenuItem9.Text = Localizator.Get("MENU_TOP_RESET");
+            exitToolStripMenuItem.Text = Localizator.Get("MENU_TOP_EXIT");
+            languageToolStripMenuItem.Text = Localizator.Get("MENU_TOP_LANG");
+
+
+            toolStripMenuHelp.Text = Localizator.Get("MENU_TOP_HELP");
+            toolStripMenuItemSettings.Text = Localizator.Get("MENU_TOP_SETTINGS");
+            ToolStripMenuWorld.Text = Localizator.Get("MENU_TOP_WORLD");
+            ToolStripMenuView.Text = Localizator.Get("MENU_TOP_VIEW");
+
+            openZENToolStripMenuItem.Text = Localizator.Get("MENU_TOP_OPENZEN");
+            toolStripMenuItem1.Text = Localizator.Get("MENU_TOP_MESH");
+            toolStripMenuItem8.Text = Localizator.Get("MENU_TOP_MERGE");
+            saveZenToolStripMenuItem.Text = Localizator.Get("MENU_TOP_SAVEZEN");
+            aboutToolStripMenuItem.Text = Localizator.Get("MENU_TOP_ABOUT");
+
+
+            cameraToolStripMenuItem.Text = Localizator.Get("MENU_TOP_CAMERA");
+            controlsToolStripMenuItem.Text = Localizator.Get("MENU_TOP_CONTROLS");
+            miscToolStripMenuItem.Text = Localizator.Get("MENU_TOP_MISC");
+            
+
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -107,7 +129,17 @@ namespace SpacerUnion
             Stopwatch s = new Stopwatch();
             s.Start();
 
-            UnionNET.form.UpdateSpacerCaption(fileName);
+
+            if (Imports.Extern_GetSetting(UnionNET.AddString("fullPathTitle")) != 0)
+            {
+                UnionNET.form.UpdateSpacerCaption(path);
+            }
+            else
+            {
+                UnionNET.form.UpdateSpacerCaption(fileName);
+            }
+
+           
             UnionNET.form.ResetInterface();
 
             UnionNET.form.AddText(fileName + " " + Localizator.Get("isLoading"));
@@ -119,8 +151,8 @@ namespace SpacerUnion
             s.Stop();
 
             string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-            UnionNET.form.AddText("Загрузка ZEN выполнена за (" + timeSpend + ")");
-            ConsoleEx.WriteLineGreen("Загрузка ZEN выполнена за (" + timeSpend + ")");
+            UnionNET.form.AddText(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
+            ConsoleEx.WriteLineGreen(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
 
             UnionNET.FreeStrings();
         }
@@ -147,6 +179,7 @@ namespace SpacerUnion
             }
 
             openFileDialog1.RestoreDirectory = true;
+            openFileDialog1.FileName = String.Empty;
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -159,8 +192,15 @@ namespace SpacerUnion
                 string filePath = openFileDialog1.FileName;
 
                 
-
-                UpdateSpacerCaption(openFileDialog1.SafeFileName);
+                if (Imports.Extern_GetSetting(UnionNET.AddString("fullPathTitle")) != 0)
+                {
+                    UpdateSpacerCaption(filePath);
+                }
+                else
+                {
+                    UpdateSpacerCaption(openFileDialog1.SafeFileName);
+                }
+               
 
                 IntPtr filePathPtr = UnionNET.AddString(filePath);
 
@@ -178,9 +218,9 @@ namespace SpacerUnion
                 s.Stop();
 
                 string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-                UnionNET.form.AddText("Загрузка ZEN выполнена за (" + timeSpend + ")");
-                ConsoleEx.WriteLineGreen("Загрузка ZEN выполнена за (" + timeSpend + ")");
-         
+                UnionNET.form.AddText(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
+                ConsoleEx.WriteLineGreen(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
+
             }
 
             UnionNET.FreeStrings();
@@ -357,7 +397,17 @@ namespace SpacerUnion
                 string filePath = saveFileDialog1.FileName;
                 string selectedFileName = Path.GetFileName(saveFileDialog1.FileName);
 
-                UpdateSpacerCaption(selectedFileName);
+
+                if (Imports.Extern_GetSetting(UnionNET.AddString("fullPathTitle")) != 0)
+                {
+                    UnionNET.form.UpdateSpacerCaption(filePath);
+                }
+                else
+                {
+                    UpdateSpacerCaption(selectedFileName);
+                }
+
+               
 
 
                 if (saveFileDialog1.FilterIndex == 2)
@@ -381,9 +431,9 @@ namespace SpacerUnion
                 s.Stop();
 
                 string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-                UnionNET.form.AddText("Сохранение ZEN выполнено за (" + timeSpend + ")");
-                ConsoleEx.WriteLineGreen("Сохранение ZEN выполнено за (" + timeSpend + ")");
-               
+                UnionNET.form.AddText(Localizator.Get("saveZenTime") + " (" + timeSpend + ")");
+                ConsoleEx.WriteLineGreen(Localizator.Get("saveZenTime") + " (" + timeSpend + ")");
+
             }
             UnionNET.FreeStrings();
         }
@@ -461,6 +511,7 @@ namespace SpacerUnion
             }
 
             openFileDialog1.RestoreDirectory = true;
+            openFileDialog1.FileName = String.Empty;
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -482,7 +533,7 @@ namespace SpacerUnion
 
                 ResetInterface();
 
-                UnionNET.form.AddText(openFileDialog1.SafeFileName + " загружается...");
+                UnionNET.form.AddText(openFileDialog1.SafeFileName + " " + Localizator.Get("isLoading"));
 
                 currentWorldName = openFileDialog1.SafeFileName;
 
@@ -491,9 +542,9 @@ namespace SpacerUnion
                 s.Stop();
 
                 string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-                UnionNET.form.AddText("Загрузка MESH выполнена за (" + timeSpend + ")");
+                UnionNET.form.AddText(Localizator.Get("loadMeshTime") + " (" + timeSpend + ")");
 
-              
+
             }
 
             UnionNET.FreeStrings();
@@ -541,7 +592,7 @@ namespace SpacerUnion
 
                 ResetInterface();
 
-                UnionNET.form.AddText(openFileDialog1.SafeFileName + " загружается...");
+                UnionNET.form.AddText(openFileDialog1.SafeFileName + " " + Localizator.Get("isLoading"));
 
                 currentWorldName = openFileDialog1.SafeFileName;
 
@@ -550,9 +601,11 @@ namespace SpacerUnion
                 s.Stop();
 
                 string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-                UnionNET.form.AddText("Объединение ZEN выполнено за (" + timeSpend + ")");
+                UnionNET.form.AddText(Localizator.Get("mergeZenTime") + " (" + timeSpend + ")");
 
-              
+
+
+                
             }
 
             UnionNET.FreeStrings();
@@ -561,7 +614,7 @@ namespace SpacerUnion
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
         {
 
-            DialogResult res = MessageBox.Show("Точно сбросить мир?", "Подтверждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult res = MessageBox.Show(Localizator.Get("askReset"), Localizator.Get("confirmation"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             if (res == DialogResult.OK)
             {
@@ -806,7 +859,7 @@ namespace SpacerUnion
 
             if (resultStr.Length == 0)
             {
-                MessageBox.Show("Ошибки waynet не найдены");
+                MessageBox.Show(Localizator.Get("waynetMsg"));
             }
             else
             {
@@ -910,20 +963,22 @@ namespace SpacerUnion
             }
         }
 
-        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.Language = (int)LangEnum.EN;
-            Properties.Settings.Default.Save();
-
-            Localizator.SetLanguage(LangEnum.EN);
-        }
-
-        private void русскийToolStripMenuItem_Click(object sender, EventArgs e)
+        private void русскийToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.Language = (int)LangEnum.RU;
             Properties.Settings.Default.Save();
 
             Localizator.SetLanguage(LangEnum.RU);
+            Localizator.UpdateInterface();
+        }
+
+        private void englishToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Language = (int)LangEnum.EN;
+            Properties.Settings.Default.Save();
+
+            Localizator.SetLanguage(LangEnum.EN);
+            Localizator.UpdateInterface();
         }
     }
 }

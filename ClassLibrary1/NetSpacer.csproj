@@ -109,11 +109,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Lang.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Lang.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -211,10 +206,6 @@
     <Compile Include="Common\CProperty.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Lang.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Lang.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Windows\CameraCoords.resx">
       <DependentUpon>CameraCoords.cs</DependentUpon>
     </EmbeddedResource>
@@ -286,8 +277,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\uk-flag.png" />
+    <None Include="Resources\usa.png" />
+    <None Include="Resources\s1200.png" />
     <None Include="Resources\Pictures\b8e50283001faab2208a3574ce750878.jpg" />
     <None Include="Resources\Pictures\jab.png" />
+    <None Include="Resources\i.jpg" />
+    <None Include="Resources\i %281%29.jpg" />
     <Content Include="Resources\Pictures\Letter_S_red_34876.ico" />
     <None Include="Resources\Pictures\Loading.png" />
     <None Include="Resources\Pictures\Spinner-0.5s-137px.gif" />
