@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxShowPFXPreview = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxPfxReg = new System.Windows.Forms.TextBox();
             this.listBoxPfxResult = new System.Windows.Forms.ListBox();
@@ -43,7 +44,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.listBoxResult = new System.Windows.Forms.ListBox();
+            this.listBoxResultItems = new System.Windows.Forms.ListBox();
             this.textBoxItems = new System.Windows.Forms.TextBox();
             this.listBoxItems = new System.Windows.Forms.ListBox();
             this.buttonItems = new System.Windows.Forms.Button();
@@ -176,7 +177,8 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.checkBoxShowPFXPreview = new System.Windows.Forms.CheckBox();
+            this.checkBoxItemShow = new System.Windows.Forms.CheckBox();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -199,6 +201,7 @@
             this.groupBox11.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox13.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -217,6 +220,19 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Эффекты частиц";
+            // 
+            // checkBoxShowPFXPreview
+            // 
+            this.checkBoxShowPFXPreview.AutoSize = true;
+            this.checkBoxShowPFXPreview.Checked = true;
+            this.checkBoxShowPFXPreview.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxShowPFXPreview.Location = new System.Drawing.Point(9, 65);
+            this.checkBoxShowPFXPreview.Name = "checkBoxShowPFXPreview";
+            this.checkBoxShowPFXPreview.Size = new System.Drawing.Size(184, 17);
+            this.checkBoxShowPFXPreview.TabIndex = 18;
+            this.checkBoxShowPFXPreview.Text = "Отображать эффект на экране";
+            this.checkBoxShowPFXPreview.UseVisualStyleBackColor = true;
+            this.checkBoxShowPFXPreview.CheckedChanged += new System.EventHandler(this.checkBoxShowPFXPreview_CheckedChanged);
             // 
             // label10
             // 
@@ -287,19 +303,18 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.textBoxItemCount);
-            this.groupBox2.Controls.Add(this.buttonAddContainer);
+            this.groupBox2.Controls.Add(this.groupBox13);
+            this.groupBox2.Controls.Add(this.checkBoxItemShow);
             this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.listBoxResult);
+            this.groupBox2.Controls.Add(this.listBoxResultItems);
             this.groupBox2.Controls.Add(this.textBoxItems);
             this.groupBox2.Controls.Add(this.listBoxItems);
             this.groupBox2.Controls.Add(this.buttonItems);
             this.groupBox2.Location = new System.Drawing.Point(6, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(545, 313);
+            this.groupBox2.Size = new System.Drawing.Size(545, 353);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Предметы";
@@ -307,7 +322,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(390, 63);
+            this.label11.Location = new System.Drawing.Point(6, 57);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(66, 13);
             this.label11.TabIndex = 9;
@@ -316,18 +331,18 @@
             // textBoxItemCount
             // 
             this.textBoxItemCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxItemCount.Location = new System.Drawing.Point(392, 81);
+            this.textBoxItemCount.Location = new System.Drawing.Point(9, 73);
             this.textBoxItemCount.Name = "textBoxItemCount";
-            this.textBoxItemCount.Size = new System.Drawing.Size(146, 22);
+            this.textBoxItemCount.Size = new System.Drawing.Size(63, 22);
             this.textBoxItemCount.TabIndex = 8;
             this.textBoxItemCount.Text = "1";
             this.textBoxItemCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxItemCount_KeyPress);
             // 
             // buttonAddContainer
             // 
-            this.buttonAddContainer.Location = new System.Drawing.Point(393, 19);
+            this.buttonAddContainer.Location = new System.Drawing.Point(6, 19);
             this.buttonAddContainer.Name = "buttonAddContainer";
-            this.buttonAddContainer.Size = new System.Drawing.Size(146, 30);
+            this.buttonAddContainer.Size = new System.Drawing.Size(149, 30);
             this.buttonAddContainer.TabIndex = 7;
             this.buttonAddContainer.Text = "Добавить в контейнер->";
             this.buttonAddContainer.UseVisualStyleBackColor = true;
@@ -335,9 +350,9 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(201, 19);
+            this.button5.Location = new System.Drawing.Point(192, 27);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(186, 30);
+            this.button5.Size = new System.Drawing.Size(180, 30);
             this.button5.TabIndex = 6;
             this.button5.Text = "Создать Item";
             this.button5.UseVisualStyleBackColor = true;
@@ -346,35 +361,37 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 63);
+            this.label8.Location = new System.Drawing.Point(6, 92);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(84, 13);
             this.label8.TabIndex = 5;
             this.label8.Text = "Все вещи игры";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(197, 63);
+            this.label7.Location = new System.Drawing.Point(189, 92);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(140, 13);
             this.label7.TabIndex = 4;
             this.label7.Text = "Поиск по рег. выражению";
             // 
-            // listBoxResult
+            // listBoxResultItems
             // 
-            this.listBoxResult.FormattingEnabled = true;
-            this.listBoxResult.Location = new System.Drawing.Point(200, 107);
-            this.listBoxResult.Name = "listBoxResult";
-            this.listBoxResult.Size = new System.Drawing.Size(186, 199);
-            this.listBoxResult.TabIndex = 3;
+            this.listBoxResultItems.FormattingEnabled = true;
+            this.listBoxResultItems.Location = new System.Drawing.Point(192, 138);
+            this.listBoxResultItems.Name = "listBoxResultItems";
+            this.listBoxResultItems.Size = new System.Drawing.Size(180, 212);
+            this.listBoxResultItems.TabIndex = 3;
+            this.listBoxResultItems.SelectedIndexChanged += new System.EventHandler(this.listBoxResultItems_SelectedIndexChanged);
             // 
             // textBoxItems
             // 
             this.textBoxItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxItems.Location = new System.Drawing.Point(200, 81);
+            this.textBoxItems.Location = new System.Drawing.Point(192, 112);
             this.textBoxItems.Name = "textBoxItems";
-            this.textBoxItems.Size = new System.Drawing.Size(186, 22);
+            this.textBoxItems.Size = new System.Drawing.Size(180, 22);
             this.textBoxItems.TabIndex = 2;
             this.textBoxItems.TextChanged += new System.EventHandler(this.textBoxItems_TextChanged);
             this.textBoxItems.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxItems_KeyDown);
@@ -383,16 +400,17 @@
             // listBoxItems
             // 
             this.listBoxItems.FormattingEnabled = true;
-            this.listBoxItems.Location = new System.Drawing.Point(8, 81);
+            this.listBoxItems.Location = new System.Drawing.Point(6, 112);
             this.listBoxItems.Name = "listBoxItems";
-            this.listBoxItems.Size = new System.Drawing.Size(186, 225);
+            this.listBoxItems.Size = new System.Drawing.Size(180, 238);
             this.listBoxItems.TabIndex = 1;
+            this.listBoxItems.SelectedIndexChanged += new System.EventHandler(this.listBoxItems_SelectedIndexChanged);
             // 
             // buttonItems
             // 
-            this.buttonItems.Location = new System.Drawing.Point(9, 19);
+            this.buttonItems.Location = new System.Drawing.Point(6, 27);
             this.buttonItems.Name = "buttonItems";
-            this.buttonItems.Size = new System.Drawing.Size(186, 30);
+            this.buttonItems.Size = new System.Drawing.Size(180, 30);
             this.buttonItems.TabIndex = 0;
             this.buttonItems.Text = "Создать Item";
             this.buttonItems.UseVisualStyleBackColor = true;
@@ -1755,18 +1773,30 @@
             this.button10.Text = "Удалить";
             this.button10.UseVisualStyleBackColor = true;
             // 
-            // checkBoxShowPFXPreview
+            // checkBoxItemShow
             // 
-            this.checkBoxShowPFXPreview.AutoSize = true;
-            this.checkBoxShowPFXPreview.Checked = true;
-            this.checkBoxShowPFXPreview.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxShowPFXPreview.Location = new System.Drawing.Point(9, 65);
-            this.checkBoxShowPFXPreview.Name = "checkBoxShowPFXPreview";
-            this.checkBoxShowPFXPreview.Size = new System.Drawing.Size(184, 17);
-            this.checkBoxShowPFXPreview.TabIndex = 18;
-            this.checkBoxShowPFXPreview.Text = "Отображать эффект на экране";
-            this.checkBoxShowPFXPreview.UseVisualStyleBackColor = true;
-            this.checkBoxShowPFXPreview.CheckedChanged += new System.EventHandler(this.checkBoxShowPFXPreview_CheckedChanged);
+            this.checkBoxItemShow.AutoSize = true;
+            this.checkBoxItemShow.Checked = true;
+            this.checkBoxItemShow.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxItemShow.Location = new System.Drawing.Point(9, 63);
+            this.checkBoxItemShow.Name = "checkBoxItemShow";
+            this.checkBoxItemShow.Size = new System.Drawing.Size(172, 17);
+            this.checkBoxItemShow.TabIndex = 19;
+            this.checkBoxItemShow.Text = "Отображать вещь на экране";
+            this.checkBoxItemShow.UseVisualStyleBackColor = true;
+            this.checkBoxItemShow.CheckedChanged += new System.EventHandler(this.checkBoxItemShow_CheckedChanged);
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.buttonAddContainer);
+            this.groupBox13.Controls.Add(this.textBoxItemCount);
+            this.groupBox13.Controls.Add(this.label11);
+            this.groupBox13.Location = new System.Drawing.Point(378, 8);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(161, 126);
+            this.groupBox13.TabIndex = 20;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "groupBox13";
             // 
             // ObjectsWin
             // 
@@ -1820,6 +1850,8 @@
             this.tabPage8.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1866,7 +1898,7 @@
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        public System.Windows.Forms.ListBox listBoxResult;
+        public System.Windows.Forms.ListBox listBoxResultItems;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBoxPfxReg;
@@ -1975,5 +2007,7 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         public System.Windows.Forms.CheckBox checkBoxShowPFXPreview;
+        public System.Windows.Forms.CheckBox checkBoxItemShow;
+        private System.Windows.Forms.GroupBox groupBox13;
     }
 }

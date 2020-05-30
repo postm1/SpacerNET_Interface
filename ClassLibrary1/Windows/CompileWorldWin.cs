@@ -40,17 +40,17 @@ namespace SpacerUnion
         {
             int type = radioButtonIndoor.Checked ? 0 : 1;
 
-            UnionNET.form.AddText("Мир компилируется...");
+            SpacerNET.form.AddText("Мир компилируется...");
 
             Stopwatch s = new Stopwatch();
             s.Start();
 
-            UnionNET.form.ResetInterface();
+            SpacerNET.form.ResetInterface();
 
             Imports.Extern_CompileWorld(type);
 
             string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-            UnionNET.form.AddText("Компиляция мира выполнена за (" + timeSpend + ")");
+            SpacerNET.form.AddText("Компиляция мира выполнена за (" + timeSpend + ")");
             
 
             this.Hide();
@@ -71,21 +71,21 @@ namespace SpacerUnion
             {
                 if (buttons[i].Checked)
                 {
-                    IntPtr ptrType = UnionNET.AddString("worldCompileType");
+                    IntPtr ptrType = SpacerNET.AddString("worldCompileType");
                     Imports.Extern_SetSetting(ptrType, i);
                     break;
                 }
             }
 
      
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
         public void LoadSettings()
         {
-            int type = Imports.Extern_GetSetting(UnionNET.AddString("worldCompileType"));
+            int type = Imports.Extern_GetSetting(SpacerNET.AddString("worldCompileType"));
 
-            if (type > 0 && type < buttons.Length)
+            if (type >= 0 && type < buttons.Length)
             {
                 buttons[type].Checked = true;
             }

@@ -14,7 +14,7 @@ using System.Windows.Forms;
 namespace SpacerUnion
 {
 
-    public static class UnionNET
+    public static class SpacerNET
     {
         
 
@@ -147,11 +147,38 @@ namespace SpacerUnion
             form.AddText(Localizator.Get("appIsReady"));
 
             form.menuStripTopMain.Enabled = true;
-            propWin.Show();
-            objTreeWin.Show();
-            objectsWin.Show();
-            vobList.Show();
-            infoWin.Show();
+
+
+            if (Properties.Settings.Default.InfoWinShow)
+            {
+                infoWin.Show();
+            }
+
+            if (Properties.Settings.Default.ObjectWinShow)
+            {
+                objectsWin.Show();
+            }
+
+            if (Properties.Settings.Default.PropsWinShow)
+            {
+                propWin.Show();
+            }
+
+            if (Properties.Settings.Default.SoundWinShow)
+            {
+                soundWin.Show();
+            }
+
+            if (Properties.Settings.Default.TreeWinShow)
+            {
+                objTreeWin.Show();
+            }
+
+            if (Properties.Settings.Default.VobListWinShow)
+            {
+                vobList.Show();
+            }
+
 
 
             if (Properties.Settings.Default.TreeWinLocation != null)
@@ -185,6 +212,13 @@ namespace SpacerUnion
             {
                 soundWin.Location = Properties.Settings.Default.SoundWinLocation;
             }
+
+
+
+
+
+
+
 
 
             LoadSettingsToInterface();
@@ -256,6 +290,14 @@ namespace SpacerUnion
             Properties.Settings.Default.VobListWinLocation = vobList.Location;
             Properties.Settings.Default.InfoWinLocation = infoWin.Location;
             Properties.Settings.Default.SoundWinLocation = soundWin.Location;
+
+
+            Properties.Settings.Default.InfoWinShow = infoWin.Visible;
+            Properties.Settings.Default.ObjectWinShow = objectsWin.Visible;
+            Properties.Settings.Default.PropsWinShow = propWin.Visible;
+            Properties.Settings.Default.SoundWinShow = soundWin.Visible;
+            Properties.Settings.Default.TreeWinShow = objTreeWin.Visible;
+            Properties.Settings.Default.VobListWinShow = vobList.Visible;
 
             Properties.Settings.Default.Save();
             Imports.Extern_Exit();

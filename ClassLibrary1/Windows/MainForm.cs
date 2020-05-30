@@ -39,19 +39,19 @@ namespace SpacerUnion
         
         private void CloseApp()
         {
-            if (currentWorldName != "" && Imports.Extern_GetSetting(UnionNET.AddString("askExitZen")) == 1)
+            if (currentWorldName != "" && Imports.Extern_GetSetting(SpacerNET.AddString("askExitZen")) == 1)
             {
                 DialogResult res = MessageBox.Show(Localizator.Get("askExit"), Localizator.Get("confirmation"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
                 if (res == DialogResult.OK)
                 {
 
-                    UnionNET.CloseApplication();
+                    SpacerNET.CloseApplication();
                 }
             }
             else
             {
-                UnionNET.CloseApplication();
+                SpacerNET.CloseApplication();
             }
         }
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
@@ -62,8 +62,8 @@ namespace SpacerUnion
         public void ResetInterface()
         {
             ObjTree.globalEntries.Clear();
-            UnionNET.objTreeWin.globalTree.Nodes.Clear();
-            UnionNET.vobList.ClearListBox();
+            SpacerNET.objTreeWin.globalTree.Nodes.Clear();
+            SpacerNET.vobList.ClearListBox();
             ObjectsWindow.CleanProps();
            // UnionNET.partWin.listBoxParticles.Items.Clear();
            // UnionNET.partWin.listBoxItems.Items.Clear();
@@ -122,7 +122,7 @@ namespace SpacerUnion
                 return;
             }
 
-            IntPtr filePathPtr = UnionNET.AddString(path);
+            IntPtr filePathPtr = SpacerNET.AddString(path);
 
 
 
@@ -130,31 +130,31 @@ namespace SpacerUnion
             s.Start();
 
 
-            if (Imports.Extern_GetSetting(UnionNET.AddString("fullPathTitle")) != 0)
+            if (Imports.Extern_GetSetting(SpacerNET.AddString("fullPathTitle")) != 0)
             {
-                UnionNET.form.UpdateSpacerCaption(path);
+                SpacerNET.form.UpdateSpacerCaption(path);
             }
             else
             {
-                UnionNET.form.UpdateSpacerCaption(fileName);
+                SpacerNET.form.UpdateSpacerCaption(fileName);
             }
 
            
-            UnionNET.form.ResetInterface();
+            SpacerNET.form.ResetInterface();
 
-            UnionNET.form.AddText(fileName + " " + Localizator.Get("isLoading"));
+            SpacerNET.form.AddText(fileName + " " + Localizator.Get("isLoading"));
             ConsoleEx.WriteLineGreen(fileName + " " + Localizator.Get("isLoading"));
 
-            UnionNET.form.currentWorldName = fileName;
+            SpacerNET.form.currentWorldName = fileName;
             Imports.Extern_LoadWorld(filePathPtr);
 
             s.Stop();
 
             string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-            UnionNET.form.AddText(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
+            SpacerNET.form.AddText(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
             ConsoleEx.WriteLineGreen(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
 
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
 
@@ -162,7 +162,7 @@ namespace SpacerUnion
         {
             openFileDialog1.Filter = "Zen files (*.zen)|";
 
-            IntPtr ptrPath = Imports.Extern_GetSettingStr(UnionNET.AddString("zenzPath"));
+            IntPtr ptrPath = Imports.Extern_GetSettingStr(SpacerNET.AddString("zenzPath"));
 
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
@@ -184,15 +184,15 @@ namespace SpacerUnion
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPathSave = UnionNET.AddString(Path.GetDirectoryName(openFileDialog1.FileName));
-                IntPtr ptrLastZenPath = UnionNET.AddString(openFileDialog1.FileName);
-                Imports.Extern_SetSettingStr(ptrPathSave, UnionNET.AddString("zenzPath"));
-                Imports.Extern_SetSettingStr(ptrLastZenPath, UnionNET.AddString("openLastZenPath"));
+                IntPtr ptrPathSave = SpacerNET.AddString(Path.GetDirectoryName(openFileDialog1.FileName));
+                IntPtr ptrLastZenPath = SpacerNET.AddString(openFileDialog1.FileName);
+                Imports.Extern_SetSettingStr(ptrPathSave, SpacerNET.AddString("zenzPath"));
+                Imports.Extern_SetSettingStr(ptrLastZenPath, SpacerNET.AddString("openLastZenPath"));
 
                 string filePath = openFileDialog1.FileName;
 
                 
-                if (Imports.Extern_GetSetting(UnionNET.AddString("fullPathTitle")) != 0)
+                if (Imports.Extern_GetSetting(SpacerNET.AddString("fullPathTitle")) != 0)
                 {
                     UpdateSpacerCaption(filePath);
                 }
@@ -202,14 +202,14 @@ namespace SpacerUnion
                 }
                
 
-                IntPtr filePathPtr = UnionNET.AddString(filePath);
+                IntPtr filePathPtr = SpacerNET.AddString(filePath);
 
                 Stopwatch s = new Stopwatch();
                 s.Start();
 
                 ResetInterface();
 
-                UnionNET.form.AddText(openFileDialog1.SafeFileName + " " + Localizator.Get("isLoading"));
+                SpacerNET.form.AddText(openFileDialog1.SafeFileName + " " + Localizator.Get("isLoading"));
                 ConsoleEx.WriteLineGreen(openFileDialog1.SafeFileName + " " + Localizator.Get("isLoading"));
 
                 currentWorldName = openFileDialog1.SafeFileName;
@@ -218,12 +218,12 @@ namespace SpacerUnion
                 s.Stop();
 
                 string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-                UnionNET.form.AddText(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
+                SpacerNET.form.AddText(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
                 ConsoleEx.WriteLineGreen(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
 
             }
 
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
 
         }
 
@@ -235,8 +235,8 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Extern_SetSetting(UnionNET.AddString("showVobs"), Convert.ToInt32(item.Checked));
-            UnionNET.FreeStrings();
+            Imports.Extern_SetSetting(SpacerNET.AddString("showVobs"), Convert.ToInt32(item.Checked));
+            SpacerNET.FreeStrings();
         }
 
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
@@ -245,8 +245,8 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Extern_SetSetting(UnionNET.AddString("showVobs"), Convert.ToInt32(item.Checked));
-            UnionNET.FreeStrings();
+            Imports.Extern_SetSetting(SpacerNET.AddString("showVobs"), Convert.ToInt32(item.Checked));
+            SpacerNET.FreeStrings();
         }
 
         private void toolStripMenuItem7_Click(object sender, EventArgs e)
@@ -255,17 +255,17 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Extern_SetSetting(UnionNET.AddString("showVobs"), Convert.ToInt32(item.Checked));
-            UnionNET.FreeStrings();
+            Imports.Extern_SetSetting(SpacerNET.AddString("showVobs"), Convert.ToInt32(item.Checked));
+            SpacerNET.FreeStrings();
         }
 
 
         private void здрастеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!UnionNET.compWorldWin.Visible)
+            if (!SpacerNET.compWorldWin.Visible)
             {
-                UnionNET.comLightWin.LoadSettings();
-                UnionNET.comLightWin.Show();
+                SpacerNET.comLightWin.LoadSettings();
+                SpacerNET.comLightWin.Show();
             }
             
 
@@ -273,7 +273,7 @@ namespace SpacerUnion
         public void AddText(string text)
         {
             
-            UnionNET.infoWin.AddText(text);
+            SpacerNET.infoWin.AddText(text);
             Application.DoEvents();
         }
 
@@ -284,9 +284,9 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Extern_SetSetting(UnionNET.AddString("showWaynet"), Convert.ToInt32(item.Checked));
+            Imports.Extern_SetSetting(SpacerNET.AddString("showWaynet"), Convert.ToInt32(item.Checked));
             toolStripMenuItem6.Checked = item.Checked;
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
@@ -295,9 +295,9 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Extern_SetSetting(UnionNET.AddString("showHelpVobs"), Convert.ToInt32(item.Checked));
+            Imports.Extern_SetSetting(SpacerNET.AddString("showHelpVobs"), Convert.ToInt32(item.Checked));
             toolStripMenuItem7.Checked = item.Checked;
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
@@ -306,9 +306,9 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Extern_SetSetting(UnionNET.AddString("showVobs"), Convert.ToInt32(item.Checked));
+            Imports.Extern_SetSetting(SpacerNET.AddString("showVobs"), Convert.ToInt32(item.Checked));
             toolStripMenuItem5.Checked = item.Checked;
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
 
@@ -320,12 +320,12 @@ namespace SpacerUnion
 
         private void toolStrip1_MouseEnter(object sender, EventArgs e)
         {
-            UnionNET.form.Focus();
+            SpacerNET.form.Focus();
         }
 
         private void menuStrip1_MouseEnter(object sender, EventArgs e)
         {
-            UnionNET.form.Focus();
+            SpacerNET.form.Focus();
         }
 
 
@@ -344,7 +344,7 @@ namespace SpacerUnion
 
             //saveFileDialog1.InitialDirectory = Directory.GetCurrentDirectory() + "../_WORK/DATA/Worlds/";
 
-            IntPtr ptrPathInit = Imports.Extern_GetSettingStr(UnionNET.AddString("zenzPath"));
+            IntPtr ptrPathInit = Imports.Extern_GetSettingStr(SpacerNET.AddString("zenzPath"));
             string path = Marshal.PtrToStringAnsi(ptrPathInit);
 
             if (path != "")
@@ -374,7 +374,7 @@ namespace SpacerUnion
 
             }
 
-            int addPrefx = Imports.Extern_GetSetting(UnionNET.AddString("addDatePrefix"));
+            int addPrefx = Imports.Extern_GetSetting(SpacerNET.AddString("addDatePrefix"));
 
 
             if (addPrefx != 0)
@@ -388,19 +388,19 @@ namespace SpacerUnion
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPath = UnionNET.AddString(Path.GetDirectoryName(saveFileDialog1.FileName));
-                IntPtr ptrLastZenPath = UnionNET.AddString(saveFileDialog1.FileName);
+                IntPtr ptrPath = SpacerNET.AddString(Path.GetDirectoryName(saveFileDialog1.FileName));
+                IntPtr ptrLastZenPath = SpacerNET.AddString(saveFileDialog1.FileName);
 
-                Imports.Extern_SetSettingStr(ptrPath, UnionNET.AddString("zenzPath"));
-                Imports.Extern_SetSettingStr(ptrLastZenPath, UnionNET.AddString("openLastZenPath"));
+                Imports.Extern_SetSettingStr(ptrPath, SpacerNET.AddString("zenzPath"));
+                Imports.Extern_SetSettingStr(ptrLastZenPath, SpacerNET.AddString("openLastZenPath"));
 
                 string filePath = saveFileDialog1.FileName;
                 string selectedFileName = Path.GetFileName(saveFileDialog1.FileName);
 
 
-                if (Imports.Extern_GetSetting(UnionNET.AddString("fullPathTitle")) != 0)
+                if (Imports.Extern_GetSetting(SpacerNET.AddString("fullPathTitle")) != 0)
                 {
-                    UnionNET.form.UpdateSpacerCaption(filePath);
+                    SpacerNET.form.UpdateSpacerCaption(filePath);
                 }
                 else
                 {
@@ -417,25 +417,25 @@ namespace SpacerUnion
                 
 
 
-                IntPtr filePathPtr = UnionNET.AddString(filePath);
+                IntPtr filePathPtr = SpacerNET.AddString(filePath);
 
                 Stopwatch s = new Stopwatch();
                 s.Start();
 
 
                 ConsoleEx.WriteLineGreen(selectedFileName + " сохраняется...");
-                UnionNET.form.AddText(selectedFileName + " сохраняется...");
+                SpacerNET.form.AddText(selectedFileName + " сохраняется...");
 
                 Imports.Extern_SaveWorld(filePathPtr, saveFileDialog1.FilterIndex - 1);
 
                 s.Stop();
 
                 string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-                UnionNET.form.AddText(Localizator.Get("saveZenTime") + " (" + timeSpend + ")");
+                SpacerNET.form.AddText(Localizator.Get("saveZenTime") + " (" + timeSpend + ")");
                 ConsoleEx.WriteLineGreen(Localizator.Get("saveZenTime") + " (" + timeSpend + ")");
 
             }
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
 
@@ -443,44 +443,44 @@ namespace SpacerUnion
 
         private void камераToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int transSpeed = Imports.Extern_GetSetting(UnionNET.AddString("camTransSpeed"));
-            int rotSpeed = Imports.Extern_GetSetting(UnionNET.AddString("camRotSpeed"));
+            int transSpeed = Imports.Extern_GetSetting(SpacerNET.AddString("camTransSpeed"));
+            int rotSpeed = Imports.Extern_GetSetting(SpacerNET.AddString("camRotSpeed"));
 
-            int world = Imports.Extern_GetSetting(UnionNET.AddString("rangeWorld"));
-            int vob = Imports.Extern_GetSetting(UnionNET.AddString("rangeVobs"));
-
-
-            UnionNET.settingsCam.trackBarTransSpeed.Value = transSpeed;
-            UnionNET.settingsCam.trackBarRotSpeed.Value = rotSpeed;
-
-            UnionNET.settingsCam.trackBarWorld.Value = world;
-            UnionNET.settingsCam.trackBarVobs.Value = vob;
-
-            UnionNET.settingsCam.UpdateAll();
+            int world = Imports.Extern_GetSetting(SpacerNET.AddString("rangeWorld"));
+            int vob = Imports.Extern_GetSetting(SpacerNET.AddString("rangeVobs"));
 
 
-            UnionNET.settingsCam.checkBoxFPS.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("showFps")));
-            UnionNET.settingsCam.checkBoxTris.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("showTris")));
+            SpacerNET.settingsCam.trackBarTransSpeed.Value = transSpeed;
+            SpacerNET.settingsCam.trackBarRotSpeed.Value = rotSpeed;
+
+            SpacerNET.settingsCam.trackBarWorld.Value = world;
+            SpacerNET.settingsCam.trackBarVobs.Value = vob;
+
+            SpacerNET.settingsCam.UpdateAll();
 
 
-            UnionNET.settingsCam.checkBoxCamCoord.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("showCamCoords")));
-            UnionNET.settingsCam.checkBoxVobs.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("showVobsCount")));
+            SpacerNET.settingsCam.checkBoxFPS.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("showFps")));
+            SpacerNET.settingsCam.checkBoxTris.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("showTris")));
 
 
-            UnionNET.settingsCam.checkBoxWaypoints.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("showWaypointsCount")));
-            UnionNET.settingsCam.checkBoxDistVob.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("showVobDist")));
+            SpacerNET.settingsCam.checkBoxCamCoord.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("showCamCoords")));
+            SpacerNET.settingsCam.checkBoxVobs.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("showVobsCount")));
 
 
-            UnionNET.settingsCam.checkBoxCameraHideWins.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("hideCamWindows")));
+            SpacerNET.settingsCam.checkBoxWaypoints.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("showWaypointsCount")));
+            SpacerNET.settingsCam.checkBoxDistVob.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("showVobDist")));
 
 
-            UnionNET.settingsCam.textBoxLimitFPS.Text = Imports.Extern_GetSetting(UnionNET.AddString("maxFPS")).ToString();
+            SpacerNET.settingsCam.checkBoxCameraHideWins.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("hideCamWindows")));
+
+
+            SpacerNET.settingsCam.textBoxLimitFPS.Text = Imports.Extern_GetSetting(SpacerNET.AddString("maxFPS")).ToString();
 
 
 
-            UnionNET.settingsCam.Show();
+            SpacerNET.settingsCam.Show();
 
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
 
@@ -495,7 +495,7 @@ namespace SpacerUnion
         {
             openFileDialog1.Filter = "Mesh-File (*.3ds)|*.3ds|All Files(*.*)|*.*||";
 
-            IntPtr ptrPath = Imports.Extern_GetSettingStr(UnionNET.AddString("meshPath"));
+            IntPtr ptrPath = Imports.Extern_GetSettingStr(SpacerNET.AddString("meshPath"));
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
             //MessageBox.Show(path);
@@ -516,9 +516,9 @@ namespace SpacerUnion
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPathSave = UnionNET.AddString(Path.GetDirectoryName(openFileDialog1.FileName));
+                IntPtr ptrPathSave = SpacerNET.AddString(Path.GetDirectoryName(openFileDialog1.FileName));
 
-                Imports.Extern_SetSettingStr(ptrPathSave, UnionNET.AddString("meshPath"));
+                Imports.Extern_SetSettingStr(ptrPathSave, SpacerNET.AddString("meshPath"));
 
 
                 string filePath = openFileDialog1.FileName;
@@ -526,14 +526,14 @@ namespace SpacerUnion
 
                 UpdateSpacerCaption(openFileDialog1.SafeFileName);
 
-                IntPtr filePathPtr = UnionNET.AddString(filePath);
+                IntPtr filePathPtr = SpacerNET.AddString(filePath);
 
                 Stopwatch s = new Stopwatch();
                 s.Start();
 
                 ResetInterface();
 
-                UnionNET.form.AddText(openFileDialog1.SafeFileName + " " + Localizator.Get("isLoading"));
+                SpacerNET.form.AddText(openFileDialog1.SafeFileName + " " + Localizator.Get("isLoading"));
 
                 currentWorldName = openFileDialog1.SafeFileName;
 
@@ -542,12 +542,12 @@ namespace SpacerUnion
                 s.Stop();
 
                 string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-                UnionNET.form.AddText(Localizator.Get("loadMeshTime") + " (" + timeSpend + ")");
+                SpacerNET.form.AddText(Localizator.Get("loadMeshTime") + " (" + timeSpend + ")");
 
 
             }
 
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
 
         }
 
@@ -555,7 +555,7 @@ namespace SpacerUnion
         {
             openFileDialog1.Filter = "World (*.Zen)|*.zen|All Files(*.*)|*.*||";
 
-            IntPtr ptrPath = Imports.Extern_GetSettingStr(UnionNET.AddString("vobsPath"));
+            IntPtr ptrPath = Imports.Extern_GetSettingStr(SpacerNET.AddString("vobsPath"));
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
             //MessageBox.Show(path);
@@ -575,9 +575,9 @@ namespace SpacerUnion
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPathSave = UnionNET.AddString(Path.GetDirectoryName(openFileDialog1.FileName));
+                IntPtr ptrPathSave = SpacerNET.AddString(Path.GetDirectoryName(openFileDialog1.FileName));
 
-                Imports.Extern_SetSettingStr(ptrPathSave, UnionNET.AddString("vobsPath"));
+                Imports.Extern_SetSettingStr(ptrPathSave, SpacerNET.AddString("vobsPath"));
 
 
 
@@ -585,14 +585,14 @@ namespace SpacerUnion
 
                 UpdateSpacerCaption(openFileDialog1.SafeFileName);
 
-                IntPtr filePathPtr = UnionNET.AddString(filePath);
+                IntPtr filePathPtr = SpacerNET.AddString(filePath);
 
                 Stopwatch s = new Stopwatch();
                 s.Start();
 
                 ResetInterface();
 
-                UnionNET.form.AddText(openFileDialog1.SafeFileName + " " + Localizator.Get("isLoading"));
+                SpacerNET.form.AddText(openFileDialog1.SafeFileName + " " + Localizator.Get("isLoading"));
 
                 currentWorldName = openFileDialog1.SafeFileName;
 
@@ -601,14 +601,14 @@ namespace SpacerUnion
                 s.Stop();
 
                 string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-                UnionNET.form.AddText(Localizator.Get("mergeZenTime") + " (" + timeSpend + ")");
+                SpacerNET.form.AddText(Localizator.Get("mergeZenTime") + " (" + timeSpend + ")");
 
 
 
                 
             }
 
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
@@ -630,9 +630,10 @@ namespace SpacerUnion
 
         private void компиляцияМираToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!UnionNET.comLightWin.Visible)
+            if (!SpacerNET.comLightWin.Visible)
             {
-                UnionNET.compWorldWin.Show();
+                SpacerNET.compWorldWin.LoadSettings();
+                SpacerNET.compWorldWin.Show();
             }
            
         }
@@ -665,92 +666,92 @@ namespace SpacerUnion
 
         private void toolStripButtonInfo_Click(object sender, EventArgs e)
         {
-            if (UnionNET.infoWin.Visible)
+            if (SpacerNET.infoWin.Visible)
             {
-                UnionNET.infoWin.Hide();
+                SpacerNET.infoWin.Hide();
             }
             else
             {
-                UnionNET.infoWin.Show();
+                SpacerNET.infoWin.Show();
             }
         }
 
         private void toolStripButtonBig_Click(object sender, EventArgs e)
         {
-            if (UnionNET.objectsWin.Visible)
+            if (SpacerNET.objectsWin.Visible)
             {
-                UnionNET.objectsWin.Hide();
+                SpacerNET.objectsWin.Hide();
             }
             else
             {
-                UnionNET.objectsWin.Show();
+                SpacerNET.objectsWin.Show();
             }
         }
 
         private void toolStripButtonSound_Click(object sender, EventArgs e)
         {
 
-            bool musicOff = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("musicZenOff")));
-            UnionNET.soundWin.checkBoxShutMusic.Checked = musicOff;
+            bool musicOff = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("musicZenOff")));
+            SpacerNET.soundWin.checkBoxShutMusic.Checked = musicOff;
 
 
 
-            int volume = Imports.Extern_GetSetting(UnionNET.AddString("musicVolume"));
-            UnionNET.soundWin.trackBarMusicVolume.Value = volume;
+            int volume = Imports.Extern_GetSetting(SpacerNET.AddString("musicVolume"));
+            SpacerNET.soundWin.trackBarMusicVolume.Value = volume;
 
 
-            UnionNET.soundWin.UpdateAll();
+            SpacerNET.soundWin.UpdateAll();
 
-            if (UnionNET.soundWin.Visible)
+            if (SpacerNET.soundWin.Visible)
             {
-                UnionNET.soundWin.Hide();
+                SpacerNET.soundWin.Hide();
             }
             else
             {
-                UnionNET.soundWin.Show();
+                SpacerNET.soundWin.Show();
             }
 
 
 
             if (Properties.Settings.Default.SoundWinLocation != null)
             {
-                UnionNET.soundWin.Location = Properties.Settings.Default.SoundWinLocation;
+                SpacerNET.soundWin.Location = Properties.Settings.Default.SoundWinLocation;
             }
         }
 
         private void toolStripButtonTree_Click(object sender, EventArgs e)
         {
-            if (UnionNET.objTreeWin.Visible)
+            if (SpacerNET.objTreeWin.Visible)
             {
-                UnionNET.objTreeWin.Hide();
+                SpacerNET.objTreeWin.Hide();
             }
             else
             {
-                UnionNET.objTreeWin.Show();
+                SpacerNET.objTreeWin.Show();
             }
         }
 
         private void toolStripButton8_Click_1(object sender, EventArgs e)
         {
-            if (UnionNET.propWin.Visible)
+            if (SpacerNET.propWin.Visible)
             {
-                UnionNET.propWin.Hide();
+                SpacerNET.propWin.Hide();
             }
             else
             {
-                UnionNET.propWin.Show();
+                SpacerNET.propWin.Show();
             }
         }
 
         private void toolStripButton9_Click_1(object sender, EventArgs e)
         {
-            if (UnionNET.vobList.Visible)
+            if (SpacerNET.vobList.Visible)
             {
-                UnionNET.vobList.Hide();
+                SpacerNET.vobList.Hide();
             }
             else
             {
-                UnionNET.vobList.Show();
+                SpacerNET.vobList.Show();
             }
         }
 
@@ -760,9 +761,9 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Extern_SetSetting(UnionNET.AddString("showVobs"), Convert.ToInt32(item.Checked));
+            Imports.Extern_SetSetting(SpacerNET.AddString("showVobs"), Convert.ToInt32(item.Checked));
             toolStripMenuItem5.Checked = item.Checked;
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
         private void toolStripButtonWaynet_Click(object sender, EventArgs e)
@@ -771,9 +772,9 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Extern_SetSetting(UnionNET.AddString("showWaynet"), Convert.ToInt32(item.Checked));
+            Imports.Extern_SetSetting(SpacerNET.AddString("showWaynet"), Convert.ToInt32(item.Checked));
             toolStripMenuItem6.Checked = item.Checked;
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
         private void toolStripButtonHelpVobs_Click(object sender, EventArgs e)
@@ -782,9 +783,9 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Extern_SetSetting(UnionNET.AddString("showHelpVobs"), Convert.ToInt32(item.Checked));
+            Imports.Extern_SetSetting(SpacerNET.AddString("showHelpVobs"), Convert.ToInt32(item.Checked));
             toolStripMenuItem7.Checked = item.Checked;
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
         private void toolStripButtonBBox_Click_1(object sender, EventArgs e)
@@ -793,32 +794,32 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Extern_SetSetting(UnionNET.AddString("drawBBoxGlobal"), Convert.ToInt32(item.Checked));
-            UnionNET.FreeStrings();
+            Imports.Extern_SetSetting(SpacerNET.AddString("drawBBoxGlobal"), Convert.ToInt32(item.Checked));
+            SpacerNET.FreeStrings();
         }
 
         private void управлениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int transSpeed = Imports.Extern_GetSetting(UnionNET.AddString("vobTransSpeed"));
-            int rotSpeed = Imports.Extern_GetSetting(UnionNET.AddString("vobRotSpeed"));
-            bool insertVobItemLevel = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("vobInsertItemLevel")));
-            bool vobInsertVobRotRand = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("vobInsertVobRotRand")));
-            bool vobInsertHierarchy = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("vobInsertHierarchy")));
-            int turnMode = Imports.Extern_GetSetting(UnionNET.AddString("wpTurnOn"));
+            int transSpeed = Imports.Extern_GetSetting(SpacerNET.AddString("vobTransSpeed"));
+            int rotSpeed = Imports.Extern_GetSetting(SpacerNET.AddString("vobRotSpeed"));
+            bool insertVobItemLevel = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("vobInsertItemLevel")));
+            bool vobInsertVobRotRand = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("vobInsertVobRotRand")));
+            bool vobInsertHierarchy = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("vobInsertHierarchy")));
+            int turnMode = Imports.Extern_GetSetting(SpacerNET.AddString("wpTurnOn"));
 
 
 
-            UnionNET.settingsControl.trackBarVobTransSpeed.Value = transSpeed;
-            UnionNET.settingsControl.trackBarVobRotSpeed.Value = rotSpeed;
-            UnionNET.settingsControl.checkBoxInsertVob.Checked = insertVobItemLevel;
-            UnionNET.settingsControl.checkBoxVobRotRandAngle.Checked = vobInsertVobRotRand;
-            UnionNET.settingsControl.checkBoxVobInsertHierarchy.Checked = vobInsertHierarchy;
-            UnionNET.settingsControl.UpdateAll();
+            SpacerNET.settingsControl.trackBarVobTransSpeed.Value = transSpeed;
+            SpacerNET.settingsControl.trackBarVobRotSpeed.Value = rotSpeed;
+            SpacerNET.settingsControl.checkBoxInsertVob.Checked = insertVobItemLevel;
+            SpacerNET.settingsControl.checkBoxVobRotRandAngle.Checked = vobInsertVobRotRand;
+            SpacerNET.settingsControl.checkBoxVobInsertHierarchy.Checked = vobInsertHierarchy;
+            SpacerNET.settingsControl.UpdateAll();
 
-            UnionNET.settingsControl.SetRadioTurnMode(turnMode);
+            SpacerNET.settingsControl.SetRadioTurnMode(turnMode);
 
-           UnionNET.settingsControl.Show();
-            UnionNET.FreeStrings();
+           SpacerNET.settingsControl.Show();
+            SpacerNET.FreeStrings();
         }
 
         private void toolStripButtonInvisible_Click(object sender, EventArgs e)
@@ -827,8 +828,8 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Extern_SetSetting(UnionNET.AddString("showInvisibleVobs"), Convert.ToInt32(item.Checked));
-            UnionNET.FreeStrings();
+            Imports.Extern_SetSetting(SpacerNET.AddString("showInvisibleVobs"), Convert.ToInt32(item.Checked));
+            SpacerNET.FreeStrings();
         }
 
         private void ToolStripMenuTimeMorning_Click(object sender, EventArgs e)
@@ -943,15 +944,15 @@ namespace SpacerUnion
 
         private void ввестиКоординатыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UnionNET.camCoordsWin.Show();
+            SpacerNET.camCoordsWin.Show();
         }
 
         private void прочееToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UnionNET.miscSetWin.LoadSettings();
-            UnionNET.miscSetWin.Show();
+            SpacerNET.miscSetWin.LoadSettings();
+            SpacerNET.miscSetWin.Show();
 
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)

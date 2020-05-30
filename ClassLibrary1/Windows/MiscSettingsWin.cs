@@ -20,26 +20,26 @@ namespace SpacerUnion.Windows
 
         public void LoadSettings()
         {
-            int useDatePrefix = Imports.Extern_GetSetting(UnionNET.AddString("addDatePrefix"));
-            int askExitZen = Imports.Extern_GetSetting(UnionNET.AddString("askExitZen"));
+            int useDatePrefix = Imports.Extern_GetSetting(SpacerNET.AddString("addDatePrefix"));
+            int askExitZen = Imports.Extern_GetSetting(SpacerNET.AddString("askExitZen"));
 
-            int openLastZen = Imports.Extern_GetSetting(UnionNET.AddString("openLastZen"));
-            int fullPath = Imports.Extern_GetSetting(UnionNET.AddString("fullPathTitle"));
+            int openLastZen = Imports.Extern_GetSetting(SpacerNET.AddString("openLastZen"));
+            int fullPath = Imports.Extern_GetSetting(SpacerNET.AddString("fullPathTitle"));
 
-            UnionNET.miscSetWin.checkBoxSetDatePrefix.Checked = Convert.ToBoolean(useDatePrefix);
-            UnionNET.miscSetWin.checkBoxMiscExitAsk.Checked = Convert.ToBoolean(askExitZen);
-            UnionNET.miscSetWin.checkBoxLastZenAuto.Checked = Convert.ToBoolean(openLastZen);
-            UnionNET.miscSetWin.checkBoxMiscFullPath.Checked = Convert.ToBoolean(fullPath);
+            SpacerNET.miscSetWin.checkBoxSetDatePrefix.Checked = Convert.ToBoolean(useDatePrefix);
+            SpacerNET.miscSetWin.checkBoxMiscExitAsk.Checked = Convert.ToBoolean(askExitZen);
+            SpacerNET.miscSetWin.checkBoxLastZenAuto.Checked = Convert.ToBoolean(openLastZen);
+            SpacerNET.miscSetWin.checkBoxMiscFullPath.Checked = Convert.ToBoolean(fullPath);
 
         }
 
         public void OnApplySettings()
         {
-            Imports.Extern_SetSetting(UnionNET.AddString("addDatePrefix"), Convert.ToInt32(checkBoxSetDatePrefix.Checked));
-            Imports.Extern_SetSetting(UnionNET.AddString("askExitZen"), Convert.ToInt32(checkBoxMiscExitAsk.Checked));
-            Imports.Extern_SetSetting(UnionNET.AddString("openLastZen"), Convert.ToInt32(checkBoxLastZenAuto.Checked));
-            Imports.Extern_SetSetting(UnionNET.AddString("fullPathTitle"), Convert.ToInt32(checkBoxMiscFullPath.Checked));
-            UnionNET.FreeStrings();
+            Imports.Extern_SetSetting(SpacerNET.AddString("addDatePrefix"), Convert.ToInt32(checkBoxSetDatePrefix.Checked));
+            Imports.Extern_SetSetting(SpacerNET.AddString("askExitZen"), Convert.ToInt32(checkBoxMiscExitAsk.Checked));
+            Imports.Extern_SetSetting(SpacerNET.AddString("openLastZen"), Convert.ToInt32(checkBoxLastZenAuto.Checked));
+            Imports.Extern_SetSetting(SpacerNET.AddString("fullPathTitle"), Convert.ToInt32(checkBoxMiscFullPath.Checked));
+            SpacerNET.FreeStrings();
         }
 
         private void MiscSettingsWin_FormClosing(object sender, FormClosingEventArgs e)

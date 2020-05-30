@@ -29,7 +29,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\..\..\Games\Gothic 2 Spacer\System\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -170,7 +170,7 @@
       <DependentUpon>SoundWin.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\TreeEntry.cs" />
-    <Compile Include="Common\UnionNET.cs" />
+    <Compile Include="Common\SpacerNET.cs" />
     <Compile Include="Windows\CompileLightWin.cs">
       <SubType>Form</SubType>
     </Compile>

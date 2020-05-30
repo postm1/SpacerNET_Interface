@@ -106,5 +106,77 @@ namespace SpacerUnion.Properties {
                 this["Language"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool InfoWinShow {
+            get {
+                return ((bool)(this["InfoWinShow"]));
+            }
+            set {
+                this["InfoWinShow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool TreeWinShow {
+            get {
+                return ((bool)(this["TreeWinShow"]));
+            }
+            set {
+                this["TreeWinShow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ObjectWinShow {
+            get {
+                return ((bool)(this["ObjectWinShow"]));
+            }
+            set {
+                this["ObjectWinShow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool PropsWinShow {
+            get {
+                return ((bool)(this["PropsWinShow"]));
+            }
+            set {
+                this["PropsWinShow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool VobListWinShow {
+            get {
+                return ((bool)(this["VobListWinShow"]));
+            }
+            set {
+                this["VobListWinShow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SoundWinShow {
+            get {
+                return ((bool)(this["SoundWinShow"]));
+            }
+            set {
+                this["SoundWinShow"] = value;
+            }
+        }
     }
 }

@@ -31,14 +31,14 @@ namespace SpacerUnion
         [DllExport]
         public static int GetSearchRadius()
         {
-            return UnionNET.vobList.trackBarRadius.Value;
+            return SpacerNET.vobList.trackBarRadius.Value;
         }
 
 
         [DllExport]
         public static void ClearVobList()
         {
-            UnionNET.vobList.listBoxVobs.Items.Clear();
+            SpacerNET.vobList.listBoxVobs.Items.Clear();
             vobList.Clear();
         }
 
@@ -48,7 +48,7 @@ namespace SpacerUnion
         {
             string vobName = Marshal.PtrToStringAnsi(vobNamePtr);
 
-            UnionNET.vobList.listBoxVobs.Items.Add(vobName);
+            SpacerNET.vobList.listBoxVobs.Items.Add(vobName);
             vobList.Add(vob);
         }
 
@@ -71,7 +71,7 @@ namespace SpacerUnion
 
                     try
                     {
-                        UnionNET.objTreeWin.globalTree.SelectedNode =
+                        SpacerNET.objTreeWin.globalTree.SelectedNode =
                         ObjTree.globalEntries[vobAddr].node;
                     }
                     catch
@@ -95,8 +95,8 @@ namespace SpacerUnion
         {
             labelRadius.Text = "Радиус поиска: " + trackBarRadius.Value;
 
-            Imports.Extern_SetSetting(UnionNET.AddString("vobListRadius"), trackBarRadius.Value);
-            UnionNET.FreeStrings();
+            Imports.Extern_SetSetting(SpacerNET.AddString("vobListRadius"), trackBarRadius.Value);
+            SpacerNET.FreeStrings();
 
         }
 
@@ -113,7 +113,7 @@ namespace SpacerUnion
 
                     try
                     {
-                        UnionNET.objTreeWin.globalTree.SelectedNode =
+                        SpacerNET.objTreeWin.globalTree.SelectedNode =
                         ObjTree.globalEntries[vobAddr].node;
                     }
                     catch

@@ -33,9 +33,9 @@ namespace SpacerUnion
         [DllExport]
         public static void SortSounds()
         {
-            Utils.SortListBox(UnionNET.soundWin.listBoxSound);
+            Utils.SortListBox(SpacerNET.soundWin.listBoxSound);
 
-            UnionNET.soundWin.labelAllSounds.Text = "Все звуки игры. Всего: " + UnionNET.soundWin.listBoxSound.Items.Count;
+            SpacerNET.soundWin.labelAllSounds.Text = "Все звуки игры. Всего: " + SpacerNET.soundWin.listBoxSound.Items.Count;
 
             //UnionNET.soundWin.Text += ", всего: " + UnionNET.soundWin.listBoxSound.Items.Count;
         }
@@ -45,7 +45,7 @@ namespace SpacerUnion
         {
             string name = Marshal.PtrToStringAnsi(ptr);
 
-            UnionNET.soundWin.listBoxSound.Items.Add(name);
+            SpacerNET.soundWin.listBoxSound.Items.Add(name);
         }
 
 
@@ -61,7 +61,7 @@ namespace SpacerUnion
 
         private void buttonPlaySound_Click(object sender, EventArgs e)
         {
-            ListBox listBox = UnionNET.soundWin.listBoxSound;
+            ListBox listBox = SpacerNET.soundWin.listBoxSound;
 
             if (listBox.SelectedItem == null)
             {
@@ -69,9 +69,9 @@ namespace SpacerUnion
             }
 
             string name = listBox.GetItemText(listBox.SelectedItem);
-            IntPtr namePtr = UnionNET.AddString(name);
+            IntPtr namePtr = SpacerNET.AddString(name);
             Imports.Extern_PlaySound(namePtr);
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
 
         }
 
@@ -103,7 +103,7 @@ namespace SpacerUnion
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ListBox listBox = UnionNET.soundWin.listBoxSndResult;
+            ListBox listBox = SpacerNET.soundWin.listBoxSndResult;
 
             if (listBoxSndResult.SelectedItem == null)
             {
@@ -111,9 +111,9 @@ namespace SpacerUnion
             }
 
             string name = listBoxSndResult.GetItemText(listBoxSndResult.SelectedItem);
-            IntPtr namePtr = UnionNET.AddString(name);
+            IntPtr namePtr = SpacerNET.AddString(name);
             Imports.Extern_PlaySound(namePtr);
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
 
         }
 
@@ -126,8 +126,8 @@ namespace SpacerUnion
         {
             labelMusicVolume.Text = "Громкость " + trackBarMusicVolume.Value + "%";
 
-            Imports.Extern_SetSetting(UnionNET.AddString("musicVolume"), trackBarMusicVolume.Value);
-            UnionNET.FreeStrings();
+            Imports.Extern_SetSetting(SpacerNET.AddString("musicVolume"), trackBarMusicVolume.Value);
+            SpacerNET.FreeStrings();
             
         }
 
@@ -135,9 +135,9 @@ namespace SpacerUnion
         {
             Imports.Extern_ToggleMusic(true);
 
-            Imports.Extern_SetSetting(UnionNET.AddString("musicVolume"), trackBarMusicVolume.Value);
+            Imports.Extern_SetSetting(SpacerNET.AddString("musicVolume"), trackBarMusicVolume.Value);
             
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
         private void checkBoxShutMusic_CheckedChanged(object sender, EventArgs e)
@@ -145,8 +145,8 @@ namespace SpacerUnion
 
             CheckBox cb = sender as CheckBox;
 
-            Imports.Extern_SetSetting(UnionNET.AddString("musicZenOff"), Convert.ToInt32(cb.Checked));
-            UnionNET.FreeStrings();
+            Imports.Extern_SetSetting(SpacerNET.AddString("musicZenOff"), Convert.ToInt32(cb.Checked));
+            SpacerNET.FreeStrings();
         }
 
         private void listBoxSound_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -158,9 +158,9 @@ namespace SpacerUnion
                 if (index == lb.SelectedIndex)
                 {
                     string name = listBoxSound.GetItemText(listBoxSound.SelectedItem);
-                    IntPtr namePtr = UnionNET.AddString(name);
+                    IntPtr namePtr = SpacerNET.AddString(name);
                     Imports.Extern_PlaySound(namePtr);
-                    UnionNET.FreeStrings();
+                    SpacerNET.FreeStrings();
                 }
             }
         }
@@ -174,9 +174,9 @@ namespace SpacerUnion
                 if (index == lb.SelectedIndex)
                 {
                     string name = listBoxSndResult.GetItemText(listBoxSndResult.SelectedItem);
-                    IntPtr namePtr = UnionNET.AddString(name);
+                    IntPtr namePtr = SpacerNET.AddString(name);
                     Imports.Extern_PlaySound(namePtr);
-                    UnionNET.FreeStrings();
+                    SpacerNET.FreeStrings();
                 }
             }
         }

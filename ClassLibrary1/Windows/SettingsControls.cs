@@ -37,15 +37,15 @@ namespace SpacerUnion.Windows
         private void trackBarVobTransSpeed_ValueChanged(object sender, EventArgs e)
         {
             labelVobTrans.Text = "Скорость перемещения: " + trackBarVobTransSpeed.Value;
-            Imports.Extern_SetSetting(UnionNET.AddString("vobTransSpeed"), trackBarVobTransSpeed.Value);
-            UnionNET.FreeStrings();
+            Imports.Extern_SetSetting(SpacerNET.AddString("vobTransSpeed"), trackBarVobTransSpeed.Value);
+            SpacerNET.FreeStrings();
         }
 
         private void trackBarVobRotSpeed_ValueChanged(object sender, EventArgs e)
         {
             labelVobRot.Text = "Скорость вращения: " + trackBarVobRotSpeed.Value;
-            Imports.Extern_SetSetting(UnionNET.AddString("vobRotSpeed"), trackBarVobRotSpeed.Value);
-            UnionNET.FreeStrings();
+            Imports.Extern_SetSetting(SpacerNET.AddString("vobRotSpeed"), trackBarVobRotSpeed.Value);
+            SpacerNET.FreeStrings();
         }
 
         private void buttonVobControlApply_Click(object sender, EventArgs e)
@@ -57,24 +57,24 @@ namespace SpacerUnion.Windows
         {
             CheckBox cb = sender as CheckBox;
 
-            Imports.Extern_SetSetting(UnionNET.AddString("vobInsertItemLevel"), Convert.ToInt32(cb.Checked));
-            UnionNET.FreeStrings();
+            Imports.Extern_SetSetting(SpacerNET.AddString("vobInsertItemLevel"), Convert.ToInt32(cb.Checked));
+            SpacerNET.FreeStrings();
         }
 
         private void checkBoxVobRotRandAngle_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
 
-            Imports.Extern_SetSetting(UnionNET.AddString("vobInsertVobRotRand"), Convert.ToInt32(cb.Checked));
-            UnionNET.FreeStrings();
+            Imports.Extern_SetSetting(SpacerNET.AddString("vobInsertVobRotRand"), Convert.ToInt32(cb.Checked));
+            SpacerNET.FreeStrings();
         }
 
         private void checkBoxVobInsertHierarchy_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
 
-            Imports.Extern_SetSetting(UnionNET.AddString("vobInsertHierarchy"), Convert.ToInt32(cb.Checked));
-            UnionNET.FreeStrings();
+            Imports.Extern_SetSetting(SpacerNET.AddString("vobInsertHierarchy"), Convert.ToInt32(cb.Checked));
+            SpacerNET.FreeStrings();
         }
 
         public void SetRadioTurnMode(int mode)
@@ -105,8 +105,8 @@ namespace SpacerUnion.Windows
             {
                 int.TryParse(rb.Tag.ToString(), out val);
 
-                Imports.Extern_SetSetting(UnionNET.AddString("wpTurnOn"), val);
-                UnionNET.FreeStrings();
+                Imports.Extern_SetSetting(SpacerNET.AddString("wpTurnOn"), val);
+                SpacerNET.FreeStrings();
             }
             
         }

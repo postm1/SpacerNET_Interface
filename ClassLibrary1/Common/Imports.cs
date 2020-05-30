@@ -179,7 +179,14 @@ namespace SpacerUnion.Common
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_KillPFX();
-        
+
+
+        [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_KillPreviewItem();
+
+        [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_RenderItem(IntPtr visual);
+
 
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]

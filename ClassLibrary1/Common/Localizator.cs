@@ -36,7 +36,7 @@ namespace SpacerUnion.Common
 
         public static void UpdateInterface()
         {
-            UnionNET.form.UpdateLang();
+            SpacerNET.form.UpdateLang();
         }
 
 

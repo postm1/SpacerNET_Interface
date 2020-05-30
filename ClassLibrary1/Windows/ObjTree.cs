@@ -40,7 +40,7 @@ namespace SpacerUnion
   
         public static int CreateAndGetFolder(string className)
         {
-            TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
+            TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
 
             int classNameFoundPos = -1;
 
@@ -100,7 +100,7 @@ namespace SpacerUnion
 
         public static void AddVobToNodes(TreeEntry entry)
         {
-            TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
+            TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
 
             string className = entry.className;
 
@@ -177,7 +177,7 @@ namespace SpacerUnion
         [DllExport]
         public static void ClearAllEntries()
         {
-            UnionNET.objTreeWin.globalTree.Nodes.Clear();
+            SpacerNET.objTreeWin.globalTree.Nodes.Clear();
             ObjTree.globalEntries.Clear();
         }
 
@@ -218,7 +218,7 @@ namespace SpacerUnion
                 entry.parentEntry = entryParent;
                 entryParent.childs.Add(entry);
 
-                TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
+                TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
 
                 AddVobToNodes(entry);
             }
@@ -226,7 +226,7 @@ namespace SpacerUnion
             
             ConsoleEx.WriteLineGreen("C#: Всего вобов в списке: " + globalEntries.Count);
             countNodeView = 0;
-            CalcNodesCount(UnionNET.objTreeWin.globalTree.Nodes);
+            CalcNodesCount(SpacerNET.objTreeWin.globalTree.Nodes);
             ConsoleEx.WriteLineGreen("C#: Всего узлов TreeView: " + countNodeView);
 
 
@@ -306,7 +306,7 @@ namespace SpacerUnion
                 {
                     entry.name = name;
                     entry.node.Text = name;
-                    UnionNET.objTreeWin.globalTree.SelectedNode = entry.node;
+                    SpacerNET.objTreeWin.globalTree.SelectedNode = entry.node;
                 }
             }
 
@@ -332,8 +332,8 @@ namespace SpacerUnion
             {
                 if (entry.node != null)
                 {
-                    UnionNET.objTreeWin.globalTree.SelectedNode = entry.node;
-                    UnionNET.objTreeWin.globalTree.SelectedNode.ExpandAll();
+                    SpacerNET.objTreeWin.globalTree.SelectedNode = entry.node;
+                    SpacerNET.objTreeWin.globalTree.SelectedNode.ExpandAll();
                 }
             }
         }
@@ -363,7 +363,7 @@ namespace SpacerUnion
             {
                 if (entry.node != null)
                 {
-                    UnionNET.objTreeWin.globalTree.SelectedNode = entry.node;
+                    SpacerNET.objTreeWin.globalTree.SelectedNode = entry.node;
                 }
                 else
                 {
@@ -441,7 +441,7 @@ namespace SpacerUnion
             ConsoleEx.WriteLineGreen("C#: Начало очистки вейпоинтов: Кол-во вобов в списке " + globalEntries.Count);
 
 
-            TreeNode node = UnionNET.objTreeWin.globalTree.SelectedNode;
+            TreeNode node = SpacerNET.objTreeWin.globalTree.SelectedNode;
 
             // Если есть выделенный объект и это вейпоинт, то снимает выделение, потому что Node будет удален, иначе вылет
             if (node != null)
@@ -454,7 +454,7 @@ namespace SpacerUnion
 
                     if (globalEntries[addr].className == "zCVobWaypoint")
                     {
-                        UnionNET.objTreeWin.globalTree.SelectedNode = null;
+                        SpacerNET.objTreeWin.globalTree.SelectedNode = null;
                     }
                 }
             }
@@ -488,7 +488,7 @@ namespace SpacerUnion
         [DllExport]
         public static void OnVobRemove(uint vob)
         {
-            TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
+            TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
 
             Console.WriteLine("=============================");
             Console.WriteLine("C#: OnVobRemove: " + Utils.ToHex(vob));
@@ -529,11 +529,11 @@ namespace SpacerUnion
                 }
             }
 
-            UnionNET.vobList.ClearListBox();
+            SpacerNET.vobList.ClearListBox();
 
             ConsoleEx.WriteLineGreen("C#: Всего вобов в списке: " + globalEntries.Count);
             countNodeView = 0;
-            CalcNodesCount(UnionNET.objTreeWin.globalTree.Nodes);
+            CalcNodesCount(SpacerNET.objTreeWin.globalTree.Nodes);
             ConsoleEx.WriteLineGreen("C#: Всего узлов TreeView: " + countNodeView);
             
             Console.WriteLine("=============================");
@@ -546,7 +546,7 @@ namespace SpacerUnion
             string name = Marshal.PtrToStringAnsi(ptrName);
             string className = Marshal.PtrToStringAnsi(classNamePtr);
 
-            TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
+            TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
 
             Console.WriteLine("");
             Console.WriteLine("=======================================");
@@ -586,7 +586,7 @@ namespace SpacerUnion
 
 
                 countNodeView = 0;
-                CalcNodesCount(UnionNET.objTreeWin.globalTree.Nodes);
+                CalcNodesCount(SpacerNET.objTreeWin.globalTree.Nodes);
 
 
                 msg += "\nNodes Count: " + countNodeView.ToString();
@@ -646,7 +646,7 @@ namespace SpacerUnion
                 
                 if (select)
                 {
-                    UnionNET.objTreeWin.globalTree.SelectedNode = node;
+                    SpacerNET.objTreeWin.globalTree.SelectedNode = node;
                 }
                
                 
@@ -675,7 +675,7 @@ namespace SpacerUnion
 
                     if (select)
                     {
-                        UnionNET.objTreeWin.globalTree.SelectedNode = node;
+                        SpacerNET.objTreeWin.globalTree.SelectedNode = node;
                     }
                         
                     
@@ -700,7 +700,7 @@ namespace SpacerUnion
 
             ConsoleEx.WriteLineGreen("C#: Всего вобов в списке: " + globalEntries.Count);
             countNodeView = 0;
-            CalcNodesCount(UnionNET.objTreeWin.globalTree.Nodes);
+            CalcNodesCount(SpacerNET.objTreeWin.globalTree.Nodes);
             ConsoleEx.WriteLineGreen("C#: Всего узлов TreeView: " + countNodeView);
             Console.WriteLine("=======================================");
             Console.WriteLine("");
@@ -712,7 +712,7 @@ namespace SpacerUnion
         {
             noParentCount = 0;
 
-            UnionNET.objTreeWin.globalTree.Visible = false;
+            SpacerNET.objTreeWin.globalTree.Visible = false;
 
             //globalEntries = globalEntries.OrderBy(x => x.Value.name).ToDictionary(x => x.Key, x => x.Value);
 
@@ -722,7 +722,7 @@ namespace SpacerUnion
             }
 
             ConsoleEx.WriteLineGreen("C#: Дерево заполнено. Всего записей: " + globalEntries.Count);
-            UnionNET.objTreeWin.globalTree.Visible = true;
+            SpacerNET.objTreeWin.globalTree.Visible = true;
             Application.DoEvents();
 
         }
@@ -735,7 +735,7 @@ namespace SpacerUnion
             string className = Marshal.PtrToStringAnsi(classNamePtr);
 
 
-            TreeNodeCollection nodes = UnionNET.objTreeWin.globalTree.Nodes;
+            TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
 
             TreeEntry entry = new TreeEntry();
 
@@ -832,7 +832,7 @@ namespace SpacerUnion
             Console.WriteLine("C#: OnSelectDoubleClick node: vob " + Utils.ToHex(addr));
 
             Imports.Extern_SelectVob(addr);
-            UnionNET.form.Focus();
+            SpacerNET.form.Focus();
         }
 
         private void globalTree_AfterSelect(object sender, TreeViewEventArgs e)
@@ -885,17 +885,17 @@ namespace SpacerUnion
 
             if (node.Text.Contains("zCVobWaypoint") || node.Text.Contains("zCVobSpot"))
             {
-                UnionNET.objectsWin.tabControlObjects.SelectedIndex = 4;
+                SpacerNET.objectsWin.tabControlObjects.SelectedIndex = 4;
             }
 
             Imports.Extern_SelectVobSync(addr);
 
-            UnionNET.form.Focus();
+            SpacerNET.form.Focus();
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (UnionNET.objTreeWin.globalTree.SelectedNode == null)
+            if (SpacerNET.objTreeWin.globalTree.SelectedNode == null)
             {
                 return;
             }
@@ -911,10 +911,10 @@ namespace SpacerUnion
 
 
             saveFileDialogVobTree.Filter = "Zen file (*.zen)|";
-            IntPtr ptrPath = Imports.Extern_GetSettingStr(UnionNET.AddString("treeVobPath"));
+            IntPtr ptrPath = Imports.Extern_GetSettingStr(SpacerNET.AddString("treeVobPath"));
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
-            string fileName = UnionNET.objTreeWin.globalTree.SelectedNode.Text;
+            string fileName = SpacerNET.objTreeWin.globalTree.SelectedNode.Text;
 
             //MessageBox.Show(path);
 
@@ -936,19 +936,19 @@ namespace SpacerUnion
             if (saveFileDialogVobTree.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPathSave = UnionNET.AddString(Path.GetDirectoryName(saveFileDialogVobTree.FileName));
+                IntPtr ptrPathSave = SpacerNET.AddString(Path.GetDirectoryName(saveFileDialogVobTree.FileName));
 
 
-                Imports.Extern_SetSettingStr(ptrPathSave, UnionNET.AddString("treeVobPath"));
+                Imports.Extern_SetSettingStr(ptrPathSave, SpacerNET.AddString("treeVobPath"));
 
 
 
 
                 string filePath = saveFileDialogVobTree.FileName;
-                IntPtr filePathPtr = UnionNET.AddString(filePath);
+                IntPtr filePathPtr = SpacerNET.AddString(filePath);
                 Imports.Extern_SaveVobTree(filePathPtr);
             }
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -969,10 +969,10 @@ namespace SpacerUnion
 
 
             openFileDialogVobTree.Filter = "Zen file (*.zen)|";
-            IntPtr ptrPath = Imports.Extern_GetSettingStr(UnionNET.AddString("treeVobPath"));
+            IntPtr ptrPath = Imports.Extern_GetSettingStr(SpacerNET.AddString("treeVobPath"));
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
-            string fileName = UnionNET.objTreeWin.globalTree.SelectedNode.Text;
+            string fileName = SpacerNET.objTreeWin.globalTree.SelectedNode.Text;
 
             //MessageBox.Show(path);
 
@@ -993,19 +993,19 @@ namespace SpacerUnion
             if (openFileDialogVobTree.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPathSave = UnionNET.AddString(Path.GetDirectoryName(openFileDialogVobTree.FileName));
+                IntPtr ptrPathSave = SpacerNET.AddString(Path.GetDirectoryName(openFileDialogVobTree.FileName));
 
-                Imports.Extern_SetSettingStr(ptrPathSave, UnionNET.AddString("treeVobPath"));
+                Imports.Extern_SetSettingStr(ptrPathSave, SpacerNET.AddString("treeVobPath"));
 
 
 
                 string filePath = openFileDialogVobTree.FileName;
-                IntPtr filePathPtr = UnionNET.AddString(filePath);
+                IntPtr filePathPtr = SpacerNET.AddString(filePath);
                 Imports.Extern_OpenVobTree(filePathPtr, false);
 
             }
 
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
         private void вставитьVobTreeГлобальноToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1013,10 +1013,10 @@ namespace SpacerUnion
 
 
             openFileDialogVobTree.Filter = "Zen file (*.zen)|";
-            IntPtr ptrPath = Imports.Extern_GetSettingStr(UnionNET.AddString("treeVobPath"));
+            IntPtr ptrPath = Imports.Extern_GetSettingStr(SpacerNET.AddString("treeVobPath"));
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
-            string fileName = UnionNET.objTreeWin.globalTree.SelectedNode.Text;
+            string fileName = SpacerNET.objTreeWin.globalTree.SelectedNode.Text;
 
             //MessageBox.Show(path);
 
@@ -1037,23 +1037,23 @@ namespace SpacerUnion
             if (openFileDialogVobTree.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPathSave = UnionNET.AddString(Path.GetDirectoryName(openFileDialogVobTree.FileName));
+                IntPtr ptrPathSave = SpacerNET.AddString(Path.GetDirectoryName(openFileDialogVobTree.FileName));
 
-                Imports.Extern_SetSettingStr(ptrPathSave, UnionNET.AddString("treeVobPath"));
+                Imports.Extern_SetSettingStr(ptrPathSave, SpacerNET.AddString("treeVobPath"));
 
 
 
                 string filePath = openFileDialogVobTree.FileName;
-                IntPtr filePathPtr = UnionNET.AddString(filePath);
+                IntPtr filePathPtr = SpacerNET.AddString(filePath);
                 Imports.Extern_OpenVobTree(filePathPtr, true);
 
-                if (UnionNET.objTreeWin.globalTree.SelectedNode != null)
+                if (SpacerNET.objTreeWin.globalTree.SelectedNode != null)
                 {
-                    UnionNET.objTreeWin.globalTree.SelectedNode.ExpandAll();
+                    SpacerNET.objTreeWin.globalTree.SelectedNode.ExpandAll();
                 }
 
             }
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
         private void удалитьВобToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1072,7 +1072,7 @@ namespace SpacerUnion
                 return;
             }
 
-            UnionNET.vobList.ClearListBox();
+            SpacerNET.vobList.ClearListBox();
             uint vob = 0;
 
             uint.TryParse(tag, out vob);

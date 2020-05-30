@@ -36,7 +36,7 @@ namespace SpacerUnion
         {
             string name = Marshal.PtrToStringAnsi(ptr);
 
-            UnionNET.objectsWin.listBoxParticles.Items.Add(name);
+            SpacerNET.objectsWin.listBoxParticles.Items.Add(name);
         }
 
         public static HashSet<string> ignoreFileNameSet = new HashSet<string>()
@@ -149,7 +149,7 @@ namespace SpacerUnion
 
             
             //UnionNET.partWin.labelSearchVisual.Text = "Поиск визуала. Всего: " + listVisualsVDF.Count + "/" + listVisualsWORK.Count;
-            UnionNET.objectsWin.labelAllModels.Text = "Всего моделей: " + listVisualsVDF.Count + "/" + listVisualsWORK.Count;
+            SpacerNET.objectsWin.labelAllModels.Text = "Всего моделей: " + listVisualsVDF.Count + "/" + listVisualsWORK.Count;
         }
 
 
@@ -157,16 +157,16 @@ namespace SpacerUnion
         public static void SortPFX()
         {
             //UnionNET.partWin.listBoxParticles.Sorted = true;
-            ListBox lstBox = UnionNET.objectsWin.listBoxParticles;
+            ListBox lstBox = SpacerNET.objectsWin.listBoxParticles;
             Utils.SortListBox(lstBox);
 
-            UnionNET.objectsWin.groupBox1.Text += ", всего: " + UnionNET.objectsWin.listBoxParticles.Items.Count;
+            SpacerNET.objectsWin.groupBox1.Text += ", всего: " + SpacerNET.objectsWin.listBoxParticles.Items.Count;
         }
 
         [DllExport]
         public static void AddItemToList(IntPtr ptr)
         {
-            ListBox listBox = UnionNET.objectsWin.listBoxItems;
+            ListBox listBox = SpacerNET.objectsWin.listBoxItems;
             string name = Marshal.PtrToStringAnsi(ptr);
 
             int index = listBox.Items.Add(name);
@@ -176,9 +176,9 @@ namespace SpacerUnion
         public static void SortItems()
         {
             //UnionNET.partWin.listBoxItems.Sorted = true;
-            Utils.SortListBox(UnionNET.objectsWin.listBoxItems);
+            Utils.SortListBox(SpacerNET.objectsWin.listBoxItems);
 
-            UnionNET.objectsWin.groupBox2.Text += ", всего: " + UnionNET.objectsWin.listBoxItems.Items.Count;
+            SpacerNET.objectsWin.groupBox2.Text += ", всего: " + SpacerNET.objectsWin.listBoxItems.Items.Count;
         }
 
         private void ParticleWin_FormClosing(object sender, FormClosingEventArgs e)
@@ -201,15 +201,16 @@ namespace SpacerUnion
             //Console.WriteLine("Create item: " + name);
 
 
-            UnionNET.infoWin.AddText("Создаю Item " + name);
+            SpacerNET.infoWin.AddText("Создаю Item " + name);
 
-            IntPtr item_name = UnionNET.AddString(name);
+            Imports.Extern_KillPreviewItem();
+            IntPtr item_name = SpacerNET.AddString(name);
 
             Imports.Extern_CreateItem(item_name);
 
-            UnionNET.form.Focus();
+            SpacerNET.form.Focus();
 
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
 
         }
 
@@ -219,7 +220,7 @@ namespace SpacerUnion
             {
                 string strToFind = textBoxItems.Text.Trim().ToUpper();
 
-                listBoxResult.Items.Clear();
+                listBoxResultItems.Items.Clear();
 
 
                 for (int i = 0; i < listBoxItems.Items.Count; i++)
@@ -228,7 +229,7 @@ namespace SpacerUnion
 
                     if (Regex.IsMatch(value, @strToFind))
                     {
-                        listBoxResult.Items.Add(value);
+                        listBoxResultItems.Items.Add(value);
                     }
                 }
             }
@@ -253,15 +254,15 @@ namespace SpacerUnion
             string name = listBoxParticles.GetItemText(listBoxParticles.SelectedItem);
 
 
-            UnionNET.infoWin.AddText("Создаю PFX " + name);
+            SpacerNET.infoWin.AddText("Создаю PFX " + name);
 
-            IntPtr PfxName = UnionNET.AddString(name);
+            IntPtr PfxName = SpacerNET.AddString(name);
 
             Imports.Extern_CreatePFX(PfxName);
             Imports.Extern_KillPFX();   
 
-            UnionNET.form.Focus();
-            UnionNET.FreeStrings();
+            SpacerNET.form.Focus();
+            SpacerNET.FreeStrings();
         }
 
         public static void FindClass(TreeNodeCollection nodes, string baseClass, string name)
@@ -283,7 +284,7 @@ namespace SpacerUnion
         {
             string name = Marshal.PtrToStringAnsi(ptr);
             string baseClassName = Marshal.PtrToStringAnsi(ptrB);
-            TreeNodeCollection nodes = UnionNET.objectsWin.classesTreeView.Nodes;
+            TreeNodeCollection nodes = SpacerNET.objectsWin.classesTreeView.Nodes;
             if (name == baseClassName)
             {
                 nodes.Add(name);
@@ -291,12 +292,12 @@ namespace SpacerUnion
             }
             FindClass(nodes, baseClassName, name);
 
-            UnionNET.objectsWin.comboBoxSearchClass.Items.Add(name);
-            UnionNET.objectsWin.comboBoxSearchClass.SelectedIndex = 0;
+            SpacerNET.objectsWin.comboBoxSearchClass.Items.Add(name);
+            SpacerNET.objectsWin.comboBoxSearchClass.SelectedIndex = 0;
 
-            UnionNET.objectsWin.classesTreeView.ExpandAll();
-            UnionNET.objectsWin.classesTreeView.SelectedNode = UnionNET.objectsWin.classesTreeView.Nodes[0];
-            UnionNET.objectsWin.classesTreeView.SelectedNode.EnsureVisible();
+            SpacerNET.objectsWin.classesTreeView.ExpandAll();
+            SpacerNET.objectsWin.classesTreeView.SelectedNode = SpacerNET.objectsWin.classesTreeView.Nodes[0];
+            SpacerNET.objectsWin.classesTreeView.SelectedNode.EnsureVisible();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -328,13 +329,13 @@ namespace SpacerUnion
 
             textBoxVobName.Text = "";
 
-            IntPtr ptrName = UnionNET.AddString(name);
-            IntPtr ptrVobName = UnionNET.AddString(vobName);
-            IntPtr ptrVisual= UnionNET.AddString(visualVob);
+            IntPtr ptrName = SpacerNET.AddString(name);
+            IntPtr ptrVobName = SpacerNET.AddString(vobName);
+            IntPtr ptrVisual= SpacerNET.AddString(visualVob);
 
             Imports.Extern_CreateNewVobVisual(ptrName, ptrVobName, ptrVisual, isDyn, isStat);
 
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
 
         }
 
@@ -370,7 +371,7 @@ namespace SpacerUnion
         [DllExport]
         public static void HotKey_AddWaypoint()
         {
-            UnionNET.objectsWin.buttonWP.PerformClick();
+            SpacerNET.objectsWin.buttonWP.PerformClick();
         }
 
         private void buttonWP_Click(object sender, EventArgs e)
@@ -392,27 +393,27 @@ namespace SpacerUnion
                 return;
             }
 
-            IntPtr ptrVobNameCheck = UnionNET.AddString(vobName);
+            IntPtr ptrVobNameCheck = SpacerNET.AddString(vobName);
 
             bool nameFound = Imports.Extern_VobNameExist(ptrVobNameCheck, true);
 
             if (nameFound && !autoGenerate)
             {
                 MessageBox.Show("Такое имя уже существует");
-                UnionNET.FreeStrings();
+                SpacerNET.FreeStrings();
                 return;
             }
 
 
             Console.WriteLine("C#: OnCreateVob: ClassDef: " + name);
 
-            IntPtr ptrName = UnionNET.AddString(name);
-            IntPtr ptrVobName = UnionNET.AddString(vobName);
+            IntPtr ptrName = SpacerNET.AddString(name);
+            IntPtr ptrVobName = SpacerNET.AddString(vobName);
 
             Imports.Extern_CreateWaypoint(ptrName, ptrVobName, addToNet, autoGenerate);
 
-            UnionNET.form.Focus();
-            UnionNET.FreeStrings();
+            SpacerNET.form.Focus();
+            SpacerNET.FreeStrings();
             /*
             if (vobName.Contains("_"))
             {
@@ -442,23 +443,23 @@ namespace SpacerUnion
             }
 
 
-            IntPtr ptrVobNameCheck = UnionNET.AddString(vobName);
+            IntPtr ptrVobNameCheck = SpacerNET.AddString(vobName);
 
             bool nameFound = Imports.Extern_VobNameExist(ptrVobNameCheck, false);
             if (nameFound)
             {
-                UnionNET.FreeStrings();
+                SpacerNET.FreeStrings();
                 MessageBox.Show("Такое имя уже существует");
                 return;
             }
 
             Console.WriteLine("C#: OnCreateVob: ClassDef: " + name);
 
-            IntPtr ptrName = UnionNET.AddString(name);
-            IntPtr ptrVobName = UnionNET.AddString(vobName);
+            IntPtr ptrName = SpacerNET.AddString(name);
+            IntPtr ptrVobName = SpacerNET.AddString(vobName);
 
             Imports.Extern_CreateFreePoint(ptrName, ptrVobName, autoName, ground);
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
 
 
         }
@@ -475,24 +476,24 @@ namespace SpacerUnion
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (listBoxResult.SelectedItem == null)
+            if (listBoxResultItems.SelectedItem == null)
             {
                 return;
             }
-            string name = listBoxResult.GetItemText(listBoxResult.SelectedItem);
+            string name = listBoxResultItems.GetItemText(listBoxResultItems.SelectedItem);
 
             //Console.WriteLine("Create item: " + name);
 
 
-            UnionNET.infoWin.AddText("Создаю Item " + name);
+            SpacerNET.infoWin.AddText("Создаю Item " + name);
 
-            IntPtr item_name = UnionNET.AddString(name);
-
+            IntPtr item_name = SpacerNET.AddString(name);
+            Imports.Extern_KillPreviewItem();
             Imports.Extern_CreateItem(item_name);
 
 
-            UnionNET.form.Focus();
-            UnionNET.FreeStrings();
+            SpacerNET.form.Focus();
+            SpacerNET.FreeStrings();
         }
 
         private void label10_Click(object sender, EventArgs e)
@@ -514,15 +515,15 @@ namespace SpacerUnion
             string name = listBoxParticles.GetItemText(listBoxPfxResult.SelectedItem);
 
 
-            UnionNET.infoWin.AddText("Создаю PFX " + name);
+            SpacerNET.infoWin.AddText("Создаю PFX " + name);
 
-            IntPtr PfxName = UnionNET.AddString(name);
+            IntPtr PfxName = SpacerNET.AddString(name);
 
             Imports.Extern_CreatePFX(PfxName);
             Imports.Extern_KillPFX();
 
-            UnionNET.form.Focus();
-            UnionNET.FreeStrings();
+            SpacerNET.form.Focus();
+            SpacerNET.FreeStrings();
         }
 
         private void textBoxPfxReg_KeyPress(object sender, KeyPressEventArgs e)
@@ -588,7 +589,7 @@ namespace SpacerUnion
                 }
 
 
-                UnionNET.objectsWin.labelSearchVisual.Text = "Поиск визуала. Всего: " + listBoxVisuals.Items.Count;
+                SpacerNET.objectsWin.labelSearchVisual.Text = "Поиск визуала. Всего: " + listBoxVisuals.Items.Count;
 
 
             }
@@ -600,13 +601,13 @@ namespace SpacerUnion
             listBoxVisuals.ClearSelected();
             textBoxVisuals.Clear();
 
-            UnionNET.objectsWin.labelSearchVisual.Text = "Поиск визуала.";
+            SpacerNET.objectsWin.labelSearchVisual.Text = "Поиск визуала.";
 
             string visual = "";
-            IntPtr visualPtr = UnionNET.AddString(visual);
+            IntPtr visualPtr = SpacerNET.AddString(visual);
 
             Imports.Extern_RenderSelectedVob(visualPtr);
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
 
         }
 
@@ -692,18 +693,18 @@ namespace SpacerUnion
         public static void CleanTriggerForm()
         {
 
-            UnionNET.objectsWin.triggerEntry.m_kf_pos = 0;
-            UnionNET.objectsWin.triggerEntry.maxKey = 0;
-            UnionNET.objectsWin.triggerEntry.name = "";
-            UnionNET.objectsWin.triggerEntry.dynColl = false;
-            UnionNET.objectsWin.triggerEntry.statColl = false;
-            UnionNET.objectsWin.listBoxTargetList.Items.Clear();
-            UnionNET.objectsWin.listBoxActionType.Items.Clear();
-            UnionNET.objectsWin.triggerEntry.targetListAddr.Clear();
+            SpacerNET.objectsWin.triggerEntry.m_kf_pos = 0;
+            SpacerNET.objectsWin.triggerEntry.maxKey = 0;
+            SpacerNET.objectsWin.triggerEntry.name = "";
+            SpacerNET.objectsWin.triggerEntry.dynColl = false;
+            SpacerNET.objectsWin.triggerEntry.statColl = false;
+            SpacerNET.objectsWin.listBoxTargetList.Items.Clear();
+            SpacerNET.objectsWin.listBoxActionType.Items.Clear();
+            SpacerNET.objectsWin.triggerEntry.targetListAddr.Clear();
             
 
 
-            UnionNET.objectsWin.UpdateTriggerWindow();
+            SpacerNET.objectsWin.UpdateTriggerWindow();
 
         }
 
@@ -719,7 +720,7 @@ namespace SpacerUnion
         [DllExport]
         public static void SelectMoversTab()
         {
-            UnionNET.objectsWin.tabControlObjects.SelectedIndex = 3;
+            SpacerNET.objectsWin.tabControlObjects.SelectedIndex = 3;
         }
 
 
@@ -727,12 +728,12 @@ namespace SpacerUnion
         public static void AddActionTypeMover(IntPtr itemPtr)
         {
             string value = Marshal.PtrToStringAnsi(itemPtr);
-            UnionNET.objectsWin.listBoxActionType.Items.Add(value);
+            SpacerNET.objectsWin.listBoxActionType.Items.Add(value);
 
 
-            if (UnionNET.objectsWin.listBoxActionType.Items.Count > 0)
+            if (SpacerNET.objectsWin.listBoxActionType.Items.Count > 0)
             {
-                UnionNET.objectsWin.listBoxActionType.SelectedIndex = 0;
+                SpacerNET.objectsWin.listBoxActionType.SelectedIndex = 0;
             }
         }
 
@@ -742,9 +743,9 @@ namespace SpacerUnion
         {
             string value = Marshal.PtrToStringAnsi(itemPtr);
 
-            UnionNET.objectsWin.triggerEntry.targetListAddr.Add(addr);
+            SpacerNET.objectsWin.triggerEntry.targetListAddr.Add(addr);
 
-            UnionNET.objectsWin.listBoxTargetList.Items.Add(value);
+            SpacerNET.objectsWin.listBoxTargetList.Items.Add(value);
         }
 
         [DllExport]
@@ -752,18 +753,18 @@ namespace SpacerUnion
         {
             string name = Marshal.PtrToStringAnsi(ptrName);
 
-            UnionNET.objectsWin.triggerEntry.m_kf_pos = keyCurrent;
-            UnionNET.objectsWin.triggerEntry.maxKey = keyMax;
-            UnionNET.objectsWin.triggerEntry.name = name;
-            UnionNET.objectsWin.triggerEntry.dynColl = Convert.ToBoolean(dyn);
-            UnionNET.objectsWin.triggerEntry.statColl = Convert.ToBoolean(stat);
-            UnionNET.objectsWin.listBoxTargetList.Items.Clear();
-            UnionNET.objectsWin.listBoxActionType.Items.Clear();
-            UnionNET.objectsWin.triggerEntry.targetListAddr.Clear();
+            SpacerNET.objectsWin.triggerEntry.m_kf_pos = keyCurrent;
+            SpacerNET.objectsWin.triggerEntry.maxKey = keyMax;
+            SpacerNET.objectsWin.triggerEntry.name = name;
+            SpacerNET.objectsWin.triggerEntry.dynColl = Convert.ToBoolean(dyn);
+            SpacerNET.objectsWin.triggerEntry.statColl = Convert.ToBoolean(stat);
+            SpacerNET.objectsWin.listBoxTargetList.Items.Clear();
+            SpacerNET.objectsWin.listBoxActionType.Items.Clear();
+            SpacerNET.objectsWin.triggerEntry.targetListAddr.Clear();
 
 
-            UnionNET.objectsWin.UpdateTriggerWindow();
-            UnionNET.objectsWin.EnableTriggerWindow();
+            SpacerNET.objectsWin.UpdateTriggerWindow();
+            SpacerNET.objectsWin.EnableTriggerWindow();
         }
 
         
@@ -831,7 +832,7 @@ namespace SpacerUnion
 
                 try
                 {
-                    UnionNET.objTreeWin.globalTree.SelectedNode =
+                    SpacerNET.objTreeWin.globalTree.SelectedNode =
                     ObjTree.globalEntries[addr].node;
                 }
                 catch
@@ -863,9 +864,9 @@ namespace SpacerUnion
                 count = "1";
             }
 
-            if (listBoxResult.SelectedItem != null)
+            if (listBoxResultItems.SelectedItem != null)
             {
-                name = listBoxResult.GetItemText(listBoxResult.SelectedItem).Trim();
+                name = listBoxResultItems.GetItemText(listBoxResultItems.SelectedItem).Trim();
 
 
             }
@@ -876,11 +877,11 @@ namespace SpacerUnion
 
             if (name != String.Empty)
             {
-                if (UnionNET.propWin.tabControl1.SelectedIndex == 2 && UnionNET.propWin.dataGridView1.Visible
-                    && UnionNET.propWin.buttonContainerApply.Enabled
+                if (SpacerNET.propWin.tabControl1.SelectedIndex == 2 && SpacerNET.propWin.dataGridView1.Visible
+                    && SpacerNET.propWin.buttonContainerApply.Enabled
                     )
                 {
-                    UnionNET.propWin.dataGridView1.Rows.Add(name, count);
+                    SpacerNET.propWin.dataGridView1.Rows.Add(name, count);
                 }
             }
         }
@@ -906,14 +907,14 @@ namespace SpacerUnion
             if (listBoxVisuals.SelectedItem != null && checkBoxShowPreview.Checked)
             {
                 string visual = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
-                IntPtr visualPtr = UnionNET.AddString(visual);
+                IntPtr visualPtr = SpacerNET.AddString(visual);
 
                 Imports.Extern_RenderSelectedVob(visualPtr);
 
 
 
-                UnionNET.form.Focus();
-                UnionNET.FreeStrings();
+                SpacerNET.form.Focus();
+                SpacerNET.FreeStrings();
             }
             
         }
@@ -923,34 +924,34 @@ namespace SpacerUnion
             CheckBox ch = sender as CheckBox;
 
 
-            Imports.Extern_SetSetting(UnionNET.AddString("showModelPreview"), Convert.ToInt32(ch.Checked));
+            Imports.Extern_SetSetting(SpacerNET.AddString("showModelPreview"), Convert.ToInt32(ch.Checked));
 
 
             if (!ch.Checked)
             {
                 string visual = "";
-                IntPtr visualPtr = UnionNET.AddString(visual);
+                IntPtr visualPtr = SpacerNET.AddString(visual);
 
                 Imports.Extern_RenderSelectedVob(visualPtr);
 
-                UnionNET.form.Focus();
+                SpacerNET.form.Focus();
             }
             else
             {
                 if (listBoxVisuals.SelectedItem != null)
                 {
                     string visual = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
-                    IntPtr visualPtr = UnionNET.AddString(visual);
+                    IntPtr visualPtr = SpacerNET.AddString(visual);
 
                     Imports.Extern_RenderSelectedVob(visualPtr);
 
               
 
-                    UnionNET.form.Focus();
+                    SpacerNET.form.Focus();
                 }
                 
             }
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
         private void tabControlObjects_SelectedIndexChanged(object sender, EventArgs e)
@@ -960,14 +961,23 @@ namespace SpacerUnion
             if (tab.SelectedIndex != 0)
             {
                 string visual = "";
-                IntPtr visualPtr = UnionNET.AddString(visual);
+                IntPtr visualPtr = SpacerNET.AddString(visual);
 
                 Imports.Extern_RenderSelectedVob(visualPtr);
 
 
-                UnionNET.FreeStrings();
+                SpacerNET.FreeStrings();
                 //UnionNET.form.Focus();
             }
+
+
+            if (tab.SelectedIndex != 1)
+            {
+
+                Imports.Extern_KillPreviewItem();
+                //UnionNET.form.Focus();
+            }
+
 
             if (tab.SelectedIndex != 2)
             {
@@ -980,7 +990,7 @@ namespace SpacerUnion
         private void checkBoxSearchOnly3DS_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox ch = sender as CheckBox;
-            Imports.Extern_SetSetting(UnionNET.AddString("searchOnly3DS"), Convert.ToInt32(ch.Checked));
+            Imports.Extern_SetSetting(SpacerNET.AddString("searchOnly3DS"), Convert.ToInt32(ch.Checked));
         }
 
         private void listBoxVisuals_MouseClick(object sender, MouseEventArgs e)
@@ -1005,7 +1015,7 @@ namespace SpacerUnion
 
                         Imports.Extern_PrintGreen(stringVisualPtr);
 
-                        UnionNET.FreeStrings();
+                        SpacerNET.FreeStrings();
                     }
                 }
 
@@ -1064,48 +1074,48 @@ namespace SpacerUnion
 
         public void LoadSettings()
         {
-            checkBoxShowPreview.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("showModelPreview")));
-            checkBoxSearchOnly3DS.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("searchOnly3DS")));
+            checkBoxShowPreview.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("showModelPreview")));
+            checkBoxSearchOnly3DS.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("searchOnly3DS")));
 
 
-            checkBoxWayNet.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("addWPToNet")));
-            checkBoxWPAutoName.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("addWPAutoName")));
-            checkBoxFPGround.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("downFPToGround")));
-            checkBoxAutoNameFP.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("addFPAutoName")));
+            checkBoxWayNet.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("addWPToNet")));
+            checkBoxWPAutoName.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("addWPAutoName")));
+            checkBoxFPGround.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("downFPToGround")));
+            checkBoxAutoNameFP.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("addFPAutoName")));
 
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
         private void checkBoxWayNet_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-            IntPtr ptrPathSave = UnionNET.AddString("addWPToNet");
+            IntPtr ptrPathSave = SpacerNET.AddString("addWPToNet");
             Imports.Extern_SetSetting(ptrPathSave, Convert.ToInt32(cb.Checked));
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
         private void checkBoxWPAutoName_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-            IntPtr ptrPathSave = UnionNET.AddString("addWPAutoName");
+            IntPtr ptrPathSave = SpacerNET.AddString("addWPAutoName");
             Imports.Extern_SetSetting(ptrPathSave, Convert.ToInt32(cb.Checked));
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
         private void checkBoxFPGround_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-            IntPtr ptrPathSave = UnionNET.AddString("downFPToGround");
+            IntPtr ptrPathSave = SpacerNET.AddString("downFPToGround");
             Imports.Extern_SetSetting(ptrPathSave, Convert.ToInt32(cb.Checked));
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
         private void checkBoxAutoNameFP_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-            IntPtr ptrPathSave = UnionNET.AddString("addFPAutoName");
+            IntPtr ptrPathSave = SpacerNET.AddString("addFPAutoName");
             Imports.Extern_SetSetting(ptrPathSave, Convert.ToInt32(cb.Checked));
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
         private void listBoxParticles_SelectedIndexChanged(object sender, EventArgs e)
@@ -1143,9 +1153,9 @@ namespace SpacerUnion
 
         public void SendRenderPFX(string visual)
         {
-            IntPtr visualPtr = UnionNET.AddString(visual);
+            IntPtr visualPtr = SpacerNET.AddString(visual);
             Imports.Extern_RenderPFX(visualPtr);
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
         private void checkBoxShowPFXPreview_CheckedChanged(object sender, EventArgs e)
@@ -1173,6 +1183,72 @@ namespace SpacerUnion
             }
         }
 
-        
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void SendRenderItems(string visual)
+        {
+            IntPtr visualPtr = SpacerNET.AddString(visual);
+            Imports.Extern_RenderItem(visualPtr);
+            SpacerNET.FreeStrings();
+        }
+
+
+        private void checkBoxItemShow_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+
+            if (cb.Checked)
+            {
+                if (listBoxItems.SelectedItem != null)
+                {
+                    string visual = listBoxItems.GetItemText(listBoxItems.SelectedItem);
+                    SendRenderItems(visual);
+                }
+                else if (listBoxResultItems.SelectedItem != null)
+                {
+                    string visual = listBoxResultItems.GetItemText(listBoxResultItems.SelectedItem);
+                    SendRenderItems(visual);
+                }
+
+
+            }
+            else
+            {
+                Imports.Extern_KillPreviewItem();
+            }
+        }
+
+        private void listBoxItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListBox lb = sender as ListBox;
+
+            if (lb.SelectedItem != null)
+            {
+                string visual = lb.GetItemText(lb.SelectedItem);
+
+                if (checkBoxItemShow.Checked)
+                {
+                    SendRenderItems(visual);
+                }
+            }
+        }
+
+        private void listBoxResultItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListBox lb = sender as ListBox;
+
+            if (lb.SelectedItem != null)
+            {
+                string visual = lb.GetItemText(lb.SelectedItem);
+
+                if (checkBoxItemShow.Checked)
+                {
+                    SendRenderItems(visual);
+                }
+            }
+        }
     }
 }

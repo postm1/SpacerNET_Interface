@@ -68,17 +68,17 @@ namespace SpacerUnion
             props.Clear();
             folders.Clear();
             currentFolderName = "";
-            TreeView tree = UnionNET.propWin.treeViewProp;
+            TreeView tree = SpacerNET.propWin.treeViewProp;
 
             tree.Nodes.Clear();
-            EnableTab(UnionNET.propWin.tabControl1.TabPages[2], false);
-            UnionNET.propWin.tabControl1.SelectedIndex = 0;
+            EnableTab(SpacerNET.propWin.tabControl1.TabPages[2], false);
+            SpacerNET.propWin.tabControl1.SelectedIndex = 0;
 
-            UnionNET.propWin.HideAllInput();
-            UnionNET.propWin.buttonApply.Enabled = false;
-            UnionNET.propWin.buttonRestore.Enabled = false;
-            UnionNET.propWin.buttonBbox.Enabled = false;
-            UnionNET.propWin.buttonFileOpen.Enabled = false;
+            SpacerNET.propWin.HideAllInput();
+            SpacerNET.propWin.buttonApply.Enabled = false;
+            SpacerNET.propWin.buttonRestore.Enabled = false;
+            SpacerNET.propWin.buttonBbox.Enabled = false;
+            SpacerNET.propWin.buttonFileOpen.Enabled = false;
         }
 
         [DllExport]
@@ -93,7 +93,7 @@ namespace SpacerUnion
         {
             string inputStr = Marshal.PtrToStringAnsi(ptr);
             string className = Marshal.PtrToStringAnsi(ptrType);
-            TreeView tree = UnionNET.propWin.treeViewProp;
+            TreeView tree = SpacerNET.propWin.treeViewProp;
 
 
             CleanProps();
@@ -103,7 +103,7 @@ namespace SpacerUnion
                 return;
             }
 
-            UnionNET.propWin.panelButtons.Enabled = false;
+            SpacerNET.propWin.panelButtons.Enabled = false;
 
             TreeNode firstNode = tree.Nodes.Add(className + ": zCVob");
             firstNode.Tag = "folder";
@@ -211,7 +211,7 @@ namespace SpacerUnion
 
                     ConsoleEx.WriteLineRed("Looking for the sound...");
 
-                    ListBox listBox = UnionNET.soundWin.listBoxSound;
+                    ListBox listBox = SpacerNET.soundWin.listBoxSound;
 
                     for (int k = 0; k < listBox.Items.Count; k++)
                     {
@@ -268,7 +268,7 @@ namespace SpacerUnion
 
             showFirst = null;
             vobHasContainer = false;
-            UnionNET.propWin.buttonOpenContainer.Enabled = false;
+            SpacerNET.propWin.buttonOpenContainer.Enabled = false;
 
             for (int i = 0; i < props.Count; i++)
             {
@@ -278,7 +278,7 @@ namespace SpacerUnion
                 if (props[i].Name == "contains")
                 {
                     vobHasContainer = true;
-                    UnionNET.propWin.buttonOpenContainer.Enabled = true;
+                    SpacerNET.propWin.buttonOpenContainer.Enabled = true;
                 }
 
 
@@ -358,7 +358,7 @@ namespace SpacerUnion
 
         private void ObjectsWindow_Shown(object sender, EventArgs e)
         {
-            this.treeViewProp.ImageList = UnionNET.objTreeWin.imageList1;
+            this.treeViewProp.ImageList = SpacerNET.objTreeWin.imageList1;
         }
 
         private void treeViewProp_DrawNode(object sender, DrawTreeNodeEventArgs e)
@@ -459,7 +459,7 @@ namespace SpacerUnion
                     {
                         prop = props[i];
                         index = i;
-                        UnionNET.propWin.treeViewProp.SelectedNode = prop.ownNode;
+                        SpacerNET.propWin.treeViewProp.SelectedNode = prop.ownNode;
                         break;
                     }
                 }
@@ -471,7 +471,7 @@ namespace SpacerUnion
             dataGridView1.Visible = true;
             dataGridView1.Rows.Clear();
 
-            UnionNET.objectsWin.tabControlObjects.SelectedIndex = 1;
+            SpacerNET.objectsWin.tabControlObjects.SelectedIndex = 1;
 
             currentContents = prop.value;
             containsIndex = index;
@@ -527,12 +527,12 @@ namespace SpacerUnion
                     if (prop.Name == "vobName")
                     {
                         string newName = prop.value;
-                        IntPtr newNamePtr = UnionNET.AddString(newName);
+                        IntPtr newNamePtr = SpacerNET.AddString(newName);
 
                         if (Imports.Extern_CheckUniqueNameExist(newNamePtr))
                         {
                             MessageBox.Show("Такое имя уже существует!");
-                            UnionNET.FreeStrings();
+                            SpacerNET.FreeStrings();
                             return;
                         }
                     }
@@ -599,12 +599,12 @@ namespace SpacerUnion
                 str.Append(words[j] + "\n");
             }
 
-            IntPtr ptr = UnionNET.AddString(str.ToString());
-            IntPtr ptrName = UnionNET.AddString(nameValue);
-            IntPtr ptrVisual = UnionNET.AddString(visual);
+            IntPtr ptr = SpacerNET.AddString(str.ToString());
+            IntPtr ptrName = SpacerNET.AddString(nameValue);
+            IntPtr ptrVisual = SpacerNET.AddString(visual);
 
             Imports.Extern_ApplyProps(ptr, ptrName, ptrVisual);
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
 
         }
 
@@ -715,7 +715,7 @@ namespace SpacerUnion
                 }
             }
 
-            UnionNET.propWin.panelButtons.Enabled = true;
+            SpacerNET.propWin.panelButtons.Enabled = true;
         }
 
         private void textBoxString_KeyDown(object sender, KeyEventArgs e)
@@ -987,7 +987,7 @@ namespace SpacerUnion
 
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
-            if (UnionNET.propWin.treeViewProp.SelectedNode != null)
+            if (SpacerNET.propWin.treeViewProp.SelectedNode != null)
             {
                 EnableTab(tabControl1.TabPages[1], true);
 
@@ -1097,7 +1097,7 @@ namespace SpacerUnion
         {
             openFileDialogFileName.Filter = "All files (*.)|";
 
-            IntPtr ptrPath = Imports.Extern_GetSettingStr(UnionNET.AddString("vobResPath"));
+            IntPtr ptrPath = Imports.Extern_GetSettingStr(SpacerNET.AddString("vobResPath"));
 
             string path = Marshal.PtrToStringAnsi(ptrPath);
 
@@ -1118,14 +1118,14 @@ namespace SpacerUnion
             if (openFileDialogFileName.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPathSave = UnionNET.AddString(Path.GetDirectoryName(openFileDialogFileName.FileName));
+                IntPtr ptrPathSave = SpacerNET.AddString(Path.GetDirectoryName(openFileDialogFileName.FileName));
 
-                Imports.Extern_SetSettingStr(ptrPathSave, UnionNET.AddString("vobResPath"));
+                Imports.Extern_SetSettingStr(ptrPathSave, SpacerNET.AddString("vobResPath"));
 
                 string fileName = openFileDialogFileName.SafeFileName;
 
 
-                TreeNode node = UnionNET.propWin.treeViewProp.SelectedNode;
+                TreeNode node = SpacerNET.propWin.treeViewProp.SelectedNode;
 
                 if (node != null)
                 {
@@ -1155,7 +1155,7 @@ namespace SpacerUnion
                 }
             }
 
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
 
         }
 
@@ -1182,7 +1182,7 @@ namespace SpacerUnion
 
         private void comboBoxPropsEnum_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TreeNode node = UnionNET.propWin.treeViewProp.SelectedNode;
+            TreeNode node = SpacerNET.propWin.treeViewProp.SelectedNode;
 
             if (node != null)
             {

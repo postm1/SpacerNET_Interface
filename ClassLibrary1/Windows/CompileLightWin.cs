@@ -37,7 +37,7 @@ namespace SpacerUnion
             {
                 if (buttons[i].Checked)
                 {
-                    IntPtr ptrType = UnionNET.AddString("lightCompileType");
+                    IntPtr ptrType = SpacerNET.AddString("lightCompileType");
                     Imports.Extern_SetSetting(ptrType, i);
                     break;
                 }
@@ -49,33 +49,33 @@ namespace SpacerUnion
 
             if (checkBoxCompileRegion.Checked)
             {
-                IntPtr lightRegPtr = UnionNET.AddString("lightCompileRegionOn");
+                IntPtr lightRegPtr = SpacerNET.AddString("lightCompileRegionOn");
                 Imports.Extern_SetSetting(lightRegPtr, 1);
 
-                IntPtr lightRadius = UnionNET.AddString("lightCompileRadius");
+                IntPtr lightRadius = SpacerNET.AddString("lightCompileRadius");
                 Imports.Extern_SetSetting(lightRadius, value);
             }
             else
             {
-                IntPtr lightRegPtr = UnionNET.AddString("lightCompileRegionOn");
+                IntPtr lightRegPtr = SpacerNET.AddString("lightCompileRegionOn");
                 Imports.Extern_SetSetting(lightRegPtr, 0);
             }
 
-            UnionNET.FreeStrings();
+            SpacerNET.FreeStrings();
         }
 
         public void LoadSettings()
         {
-            int type = Imports.Extern_GetSetting(UnionNET.AddString("lightCompileType"));
+            int type = Imports.Extern_GetSetting(SpacerNET.AddString("lightCompileType"));
 
-            if (type > 0 && type < buttons.Length)
+            if (type >= 0 && type < buttons.Length)
             {
                 buttons[type].Checked = true;
             }
             
 
-            bool regionChecked = Convert.ToBoolean(Imports.Extern_GetSetting(UnionNET.AddString("lightCompileRegionOn")));
-            int radius = Imports.Extern_GetSetting(UnionNET.AddString("lightCompileRadius"));
+            bool regionChecked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("lightCompileRegionOn")));
+            int radius = Imports.Extern_GetSetting(SpacerNET.AddString("lightCompileRadius"));
 
             
             checkBoxCompileRegion.Checked = regionChecked;
@@ -97,10 +97,10 @@ namespace SpacerUnion
         {
             switch (type)
             {
-                case 0: UnionNET.form.AddText("Компиляция (только вершины)"); break;
-                case 1: UnionNET.form.AddText("Компиляция (низкое)"); break;
-                case 2: UnionNET.form.AddText("Компиляция (среднее)"); break;
-                case 3: UnionNET.form.AddText("Компиляция (высокое)"); break;
+                case 0: SpacerNET.form.AddText("Компиляция (только вершины)"); break;
+                case 1: SpacerNET.form.AddText("Компиляция (низкое)"); break;
+                case 2: SpacerNET.form.AddText("Компиляция (среднее)"); break;
+                case 3: SpacerNET.form.AddText("Компиляция (высокое)"); break;
             }
 
         }
@@ -120,7 +120,7 @@ namespace SpacerUnion
 
             Stopwatch s = new Stopwatch();
             s.Start();
-            UnionNET.form.AddText("Компиляция света...");
+            SpacerNET.form.AddText("Компиляция света...");
 
        
 
@@ -136,7 +136,7 @@ namespace SpacerUnion
             s.Stop();
 
             string timeSpend = string.Format("{0:HH:mm:ss}", new DateTime(s.Elapsed.Ticks));
-            UnionNET.form.AddText("Компиляция света выполнена за (" + timeSpend + ")");
+            SpacerNET.form.AddText("Компиляция света выполнена за (" + timeSpend + ")");
 
         }
 
