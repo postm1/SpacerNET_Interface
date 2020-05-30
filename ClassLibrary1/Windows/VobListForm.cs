@@ -115,13 +115,15 @@ namespace SpacerUnion
                     {
                         SpacerNET.objTreeWin.globalTree.SelectedNode =
                         ObjTree.globalEntries[vobAddr].node;
+
+                        Imports.Extern_SelectVobSync(vobAddr);
                     }
                     catch
                     {
                         ConsoleEx.WriteLineGreen("C#: vobListSelect. Can't find vob with addr: " + Utils.ToHex(vobAddr));
                     }
 
-                    Imports.Extern_SelectVobSync(vobAddr);
+                   
                 }
 
             }

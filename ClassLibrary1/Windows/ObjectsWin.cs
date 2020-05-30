@@ -699,11 +699,12 @@ namespace SpacerUnion
             SpacerNET.objectsWin.triggerEntry.dynColl = false;
             SpacerNET.objectsWin.triggerEntry.statColl = false;
             SpacerNET.objectsWin.listBoxTargetList.Items.Clear();
+            SpacerNET.objectsWin.listBoxSources.Items.Clear();
             SpacerNET.objectsWin.listBoxActionType.Items.Clear();
             SpacerNET.objectsWin.triggerEntry.targetListAddr.Clear();
+            SpacerNET.objectsWin.triggerEntry.sourcesListAddr.Clear();
+
             
-
-
             SpacerNET.objectsWin.UpdateTriggerWindow();
 
         }
@@ -749,6 +750,16 @@ namespace SpacerUnion
         }
 
         [DllExport]
+        public static void AddSourcesToList(IntPtr itemPtr, uint addr)
+        {
+            string value = Marshal.PtrToStringAnsi(itemPtr);
+            SpacerNET.objectsWin.triggerEntry.sourcesListAddr.Add(addr);
+            SpacerNET.objectsWin.listBoxSources.Items.Add(value);
+
+            //ConsoleEx.WriteLineGreen("Add Source List: " + value);
+        }
+
+        [DllExport]
         public static void CreateTriggerForm(int keyCurrent, int keyMax, IntPtr ptrName, int dyn, int stat)
         {
             string name = Marshal.PtrToStringAnsi(ptrName);
@@ -761,13 +772,20 @@ namespace SpacerUnion
             SpacerNET.objectsWin.listBoxTargetList.Items.Clear();
             SpacerNET.objectsWin.listBoxActionType.Items.Clear();
             SpacerNET.objectsWin.triggerEntry.targetListAddr.Clear();
-
+            SpacerNET.objectsWin.listBoxSources.Items.Clear();
+            SpacerNET.objectsWin.triggerEntry.sourcesListAddr.Clear();
 
             SpacerNET.objectsWin.UpdateTriggerWindow();
             SpacerNET.objectsWin.EnableTriggerWindow();
         }
 
-        
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            listBoxSources.Items.Clear();
+            SpacerNET.objectsWin.triggerEntry.sourcesListAddr.Clear();
+            Imports.Extern_CollectTriggerSources();
+        }
 
         private void buttonRemoveKey_Click(object sender, EventArgs e)
         {
@@ -820,6 +838,29 @@ namespace SpacerUnion
         private void ParticleWin_Shown(object sender, EventArgs e)
         {
             //listBoxActionType.SelectedIndex = 0;
+        }
+
+        private void listBoxSources_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int index = listBoxSources.IndexFromPoint(e.Location);
+
+            if (index != System.Windows.Forms.ListBox.NoMatches)
+            {
+                uint addr = triggerEntry.sourcesListAddr[index];
+
+                try
+                {
+                    SpacerNET.objTreeWin.globalTree.SelectedNode =
+                    ObjTree.globalEntries[addr].node;
+                }
+                catch
+                {
+                    Utils.Error("C#: triggetSourcesList. Can't find vob with addr: " + Utils.ToHex(addr));
+                }
+
+                Imports.Extern_SelectVob(addr);
+            }
+
         }
 
         private void listBoxTargetList_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -1250,5 +1291,7 @@ namespace SpacerUnion
                 }
             }
         }
+
+       
     }
 }

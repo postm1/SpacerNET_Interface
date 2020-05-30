@@ -262,13 +262,10 @@ namespace SpacerUnion
 
         private void здрастеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!SpacerNET.compWorldWin.Visible)
-            {
-                SpacerNET.comLightWin.LoadSettings();
-                SpacerNET.comLightWin.Show();
-            }
             
-
+           SpacerNET.comLightWin.LoadSettings();
+           SpacerNET.comLightWin.Show();
+          
         }
         public void AddText(string text)
         {
@@ -630,11 +627,9 @@ namespace SpacerUnion
 
         private void компиляцияМираToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!SpacerNET.comLightWin.Visible)
-            {
-                SpacerNET.compWorldWin.LoadSettings();
-                SpacerNET.compWorldWin.Show();
-            }
+            
+             SpacerNET.compWorldWin.LoadSettings();
+             SpacerNET.compWorldWin.Show();
            
         }
 

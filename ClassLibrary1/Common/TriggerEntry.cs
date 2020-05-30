@@ -25,11 +25,15 @@ namespace SpacerUnion
         // Адреса вобов-triggerTarget
         public List<uint> targetListAddr;
 
+        // Адреса вобов-triggerTarget
+        public List<uint> sourcesListAddr;
+
 
         public TriggerEntry()
         {
             this.enabled = false;
             this.targetListAddr = new List<uint>();
+            this.sourcesListAddr = new List<uint>();
         }
 
     }

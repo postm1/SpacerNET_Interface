@@ -166,5 +166,12 @@ namespace SpacerUnion
                 button2_Click(null, null);
             }
         }
+
+        private void CompileLightWin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ApplySettings();
+            this.Hide();
+            e.Cancel = true;
+        }
     }
 }
