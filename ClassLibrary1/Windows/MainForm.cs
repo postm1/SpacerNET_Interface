@@ -89,10 +89,44 @@ namespace SpacerUnion
             aboutToolStripMenuItem.Text = Localizator.Get("MENU_TOP_ABOUT");
 
 
-            cameraToolStripMenuItem.Text = Localizator.Get("MENU_TOP_CAMERA");
+            cameraToolStripMenuItem.Text = Localizator.Get("MENU_TOP_CAM");
             controlsToolStripMenuItem.Text = Localizator.Get("MENU_TOP_CONTROLS");
             miscToolStripMenuItem.Text = Localizator.Get("MENU_TOP_MISC");
-            
+
+
+            граттToolStripMenuItem.Text = Localizator.Get("MENU_TOP_VIEW_SHOW");
+
+            toolStripMenuItem5.Text = Localizator.Get("MENU_TOP_VIEW_VOBS");
+            toolStripMenuItem6.Text = Localizator.Get("MENU_TOP_VIEW_WAYNET");
+            toolStripMenuItem7.Text = Localizator.Get("MENU_TOP_VIEW_HELPER");
+
+
+            compileLightToolStrip.Text = Localizator.Get("MENU_TOP_COMPILE_LIGHT");
+            compileWorldToolStrip.Text = Localizator.Get("MENU_TOP_COMPILE_WORLD");
+            cameraCoordsToolStrip.Text = Localizator.Get("MENU_TOP_CAM");
+            прыгнутьНа000КоординатыToolStripMenuItem.Text = Localizator.Get("MENU_TOP_CAM_ZERO");
+            ввестиКоординатыToolStripMenuItem.Text = Localizator.Get("MENU_TOP_CAM_COORDS");
+            dayTimeToolStrip.Text = Localizator.Get("MENU_TOP_DAYTIME");
+            ToolStripMenuTimeMorning.Text = Localizator.Get("MENU_TOP_MORN");
+            ToolStripMenuTimeDay.Text = Localizator.Get("MENU_TOP_NOON");
+            ToolStripMenuTimeEvening.Text = Localizator.Get("MENU_TOP_AFTERNOON");
+            ToolStripMenuTimeNight.Text = Localizator.Get("MENU_TOP_NIGHT");
+            анализWaynetToolStripMenuItem.Text = Localizator.Get("MENU_TOP_ANALYSE_WAYNET");
+            playHeroToolStrip.Text = Localizator.Get("MENU_TOP_PLAY_THE_GAME");
+
+
+            toolStripButtonInfo.Text = Localizator.Get("MENU_TOP_HOVER_WININFO");
+            toolStripButtonBig.Text = Localizator.Get("MENU_TOP_HOVER_WINOBJ");
+            toolStripButtonSound.Text = Localizator.Get("MENU_TOP_HOVER_WINSOUND");
+            toolStripButtonTree.Text = Localizator.Get("MENU_TOP_HOVER_WINTREE");
+            toolStripButton8.Text = Localizator.Get("MENU_TOP_HOVER_WINPROPS");
+            toolStripButton9.Text = Localizator.Get("MENU_TOP_HOVER_WINVOBLIST");
+
+            toolStripButtonVobs.Text = Localizator.Get("MENU_TOP_VIEW_VOBS");
+            toolStripButtonWaynet.Text = Localizator.Get("MENU_TOP_VIEW_WAYNET");
+            toolStripButtonHelpVobs.Text = Localizator.Get("MENU_TOP_VIEW_HELPER");
+            toolStripButtonBBox.Text = Localizator.Get("MENU_TOP_VIEW_BBOX");
+            toolStripButtonInvisible.Text = Localizator.Get("MENU_TOP_VIEW_INVIS");
 
         }
 

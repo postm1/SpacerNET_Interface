@@ -90,7 +90,31 @@ namespace SpacerUnion
             this.Hide();
         }
 
-        
+
+        public void UpdateLang()
+        {
+            this.Text = Localizator.Get("WIN_COMPLIGHT_TEXT");
+            groupBoxQuality.Text = Localizator.Get("WIN_COMPLIGHT_QUALITY");
+            buttonCompileLight.Text = Localizator.Get("WIN_COMPLIGHT_COMPILEBUTTON");
+
+
+            buttonCompileLightClose.Text = Localizator.Get("WIN_COMPLIGHT_CLOSEBUTTON");
+            groupBoxRegion.Text = Localizator.Get("WIN_COMPLIGHT_REGION");
+            radioButtonVertex.Text = Localizator.Get("WIN_COMPLIGHT_QUALITY0");
+            radioButtonLow.Text = Localizator.Get("WIN_COMPLIGHT_QUALITY1");
+            radioButtonMiddle.Text = Localizator.Get("WIN_COMPLIGHT_QUALITY2");
+            radioButtonHigh.Text = Localizator.Get("WIN_COMPLIGHT_QUALITY3");
+
+
+            checkBoxCompileRegion.Text = Localizator.Get("WIN_COMPLIGHT_COMPILECHECKBOX");
+            labelMeters.Text = Localizator.Get("WIN_COMPLIGHT_METERS");
+            labelAroundCamera.Text = Localizator.Get("WIN_COMPLIGHT_AROUNDCAM");
+
+
+            
+
+
+        }
 
 
         public void PrintLightInfo(int type)
@@ -120,9 +144,9 @@ namespace SpacerUnion
 
             Stopwatch s = new Stopwatch();
             s.Start();
-            SpacerNET.form.AddText("Компиляция света...");
+            SpacerNET.form.AddText(Localizator.Get("compileLight"));
 
-       
+            
 
             for (int i = 0; i < RADIO_BUTTONS_MAX; i++)
             {

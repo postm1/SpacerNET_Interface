@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxQuality = new System.Windows.Forms.GroupBox();
             this.radioButtonHigh = new System.Windows.Forms.RadioButton();
             this.radioButtonMiddle = new System.Windows.Forms.RadioButton();
             this.radioButtonLow = new System.Windows.Forms.RadioButton();
             this.radioButtonVertex = new System.Windows.Forms.RadioButton();
             this.buttonCompileLight = new System.Windows.Forms.Button();
             this.buttonCompileLightClose = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.groupBoxRegion = new System.Windows.Forms.GroupBox();
+            this.labelMeters = new System.Windows.Forms.Label();
             this.textBoxRadius = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelAroundCamera = new System.Windows.Forms.Label();
             this.checkBoxCompileRegion = new System.Windows.Forms.CheckBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBoxQuality.SuspendLayout();
+            this.groupBoxRegion.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // groupBoxQuality
             // 
-            this.groupBox1.Controls.Add(this.radioButtonHigh);
-            this.groupBox1.Controls.Add(this.radioButtonMiddle);
-            this.groupBox1.Controls.Add(this.radioButtonLow);
-            this.groupBox1.Controls.Add(this.radioButtonVertex);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(177, 200);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Качество";
+            this.groupBoxQuality.Controls.Add(this.radioButtonHigh);
+            this.groupBoxQuality.Controls.Add(this.radioButtonMiddle);
+            this.groupBoxQuality.Controls.Add(this.radioButtonLow);
+            this.groupBoxQuality.Controls.Add(this.radioButtonVertex);
+            this.groupBoxQuality.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxQuality.Name = "groupBoxQuality";
+            this.groupBoxQuality.Size = new System.Drawing.Size(177, 200);
+            this.groupBoxQuality.TabIndex = 0;
+            this.groupBoxQuality.TabStop = false;
+            this.groupBoxQuality.Text = "Качество";
             // 
             // radioButtonHigh
             // 
@@ -122,27 +122,27 @@
             this.buttonCompileLightClose.UseVisualStyleBackColor = true;
             this.buttonCompileLightClose.Click += new System.EventHandler(this.button2_Click);
             // 
-            // groupBox2
+            // groupBoxRegion
             // 
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.textBoxRadius);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.checkBoxCompileRegion);
-            this.groupBox2.Location = new System.Drawing.Point(218, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(194, 109);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Регион";
+            this.groupBoxRegion.Controls.Add(this.labelMeters);
+            this.groupBoxRegion.Controls.Add(this.textBoxRadius);
+            this.groupBoxRegion.Controls.Add(this.labelAroundCamera);
+            this.groupBoxRegion.Controls.Add(this.checkBoxCompileRegion);
+            this.groupBoxRegion.Location = new System.Drawing.Point(218, 12);
+            this.groupBoxRegion.Name = "groupBoxRegion";
+            this.groupBoxRegion.Size = new System.Drawing.Size(194, 109);
+            this.groupBoxRegion.TabIndex = 3;
+            this.groupBoxRegion.TabStop = false;
+            this.groupBoxRegion.Text = "Регион";
             // 
-            // label2
+            // labelMeters
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(91, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "метров";
+            this.labelMeters.AutoSize = true;
+            this.labelMeters.Location = new System.Drawing.Point(91, 48);
+            this.labelMeters.Name = "labelMeters";
+            this.labelMeters.Size = new System.Drawing.Size(44, 13);
+            this.labelMeters.TabIndex = 3;
+            this.labelMeters.Text = "метров";
             // 
             // textBoxRadius
             // 
@@ -154,14 +154,14 @@
             this.textBoxRadius.Text = "2000";
             this.textBoxRadius.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
-            // label1
+            // labelAroundCamera
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 74);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "вокруг камеры";
+            this.labelAroundCamera.AutoSize = true;
+            this.labelAroundCamera.Location = new System.Drawing.Point(15, 74);
+            this.labelAroundCamera.Name = "labelAroundCamera";
+            this.labelAroundCamera.Size = new System.Drawing.Size(84, 13);
+            this.labelAroundCamera.TabIndex = 1;
+            this.labelAroundCamera.Text = "вокруг камеры";
             // 
             // checkBoxCompileRegion
             // 
@@ -179,10 +179,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(424, 223);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBoxRegion);
             this.Controls.Add(this.buttonCompileLightClose);
             this.Controls.Add(this.buttonCompileLight);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxQuality);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -195,27 +195,27 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CompileLightWin_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CompileLightWin_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CompileLightWin_KeyPress);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBoxQuality.ResumeLayout(false);
+            this.groupBoxQuality.PerformLayout();
+            this.groupBoxRegion.ResumeLayout(false);
+            this.groupBoxRegion.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxQuality;
         private System.Windows.Forms.RadioButton radioButtonHigh;
         private System.Windows.Forms.RadioButton radioButtonMiddle;
         private System.Windows.Forms.RadioButton radioButtonLow;
         private System.Windows.Forms.RadioButton radioButtonVertex;
         private System.Windows.Forms.Button buttonCompileLight;
         private System.Windows.Forms.Button buttonCompileLightClose;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBoxRegion;
+        private System.Windows.Forms.Label labelMeters;
         private System.Windows.Forms.TextBox textBoxRadius;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelAroundCamera;
         private System.Windows.Forms.CheckBox checkBoxCompileRegion;
     }
 }

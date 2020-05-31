@@ -46,18 +46,18 @@
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuWorld = new System.Windows.Forms.ToolStripMenuItem();
-            this.здрастеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.компиляцияМираToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.камераToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.compileLightToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.compileWorldToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.cameraCoordsToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.прыгнутьНа000КоординатыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ввестиКоординатыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.времяСутокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dayTimeToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuTimeMorning = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuTimeDay = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuTimeEvening = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuTimeNight = new System.Windows.Forms.ToolStripMenuItem();
             this.анализWaynetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.игратьЗаГерояToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.playHeroToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.cameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -198,7 +198,7 @@
             this.toolStripMenuItem6,
             this.toolStripMenuItem7});
             this.граттToolStripMenuItem.Name = "граттToolStripMenuItem";
-            this.граттToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.граттToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.граттToolStripMenuItem.Text = "Показать";
             // 
             // toolStripMenuItem5
@@ -229,39 +229,39 @@
             // ToolStripMenuWorld
             // 
             this.ToolStripMenuWorld.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.здрастеToolStripMenuItem,
-            this.компиляцияМираToolStripMenuItem,
-            this.камераToolStripMenuItem1,
-            this.времяСутокToolStripMenuItem,
+            this.compileLightToolStrip,
+            this.compileWorldToolStrip,
+            this.cameraCoordsToolStrip,
+            this.dayTimeToolStrip,
             this.анализWaynetToolStripMenuItem,
-            this.игратьЗаГерояToolStripMenuItem});
+            this.playHeroToolStrip});
             this.ToolStripMenuWorld.ForeColor = System.Drawing.Color.Black;
             this.ToolStripMenuWorld.Name = "ToolStripMenuWorld";
             this.ToolStripMenuWorld.Size = new System.Drawing.Size(44, 20);
             this.ToolStripMenuWorld.Text = "Мир";
             // 
-            // здрастеToolStripMenuItem
+            // compileLightToolStrip
             // 
-            this.здрастеToolStripMenuItem.Name = "здрастеToolStripMenuItem";
-            this.здрастеToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.здрастеToolStripMenuItem.Text = "Компиляция света";
-            this.здрастеToolStripMenuItem.Click += new System.EventHandler(this.здрастеToolStripMenuItem_Click);
+            this.compileLightToolStrip.Name = "compileLightToolStrip";
+            this.compileLightToolStrip.Size = new System.Drawing.Size(176, 22);
+            this.compileLightToolStrip.Text = "Компиляция света";
+            this.compileLightToolStrip.Click += new System.EventHandler(this.здрастеToolStripMenuItem_Click);
             // 
-            // компиляцияМираToolStripMenuItem
+            // compileWorldToolStrip
             // 
-            this.компиляцияМираToolStripMenuItem.Name = "компиляцияМираToolStripMenuItem";
-            this.компиляцияМираToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.компиляцияМираToolStripMenuItem.Text = "Компиляция мира";
-            this.компиляцияМираToolStripMenuItem.Click += new System.EventHandler(this.компиляцияМираToolStripMenuItem_Click);
+            this.compileWorldToolStrip.Name = "compileWorldToolStrip";
+            this.compileWorldToolStrip.Size = new System.Drawing.Size(176, 22);
+            this.compileWorldToolStrip.Text = "Компиляция мира";
+            this.compileWorldToolStrip.Click += new System.EventHandler(this.компиляцияМираToolStripMenuItem_Click);
             // 
-            // камераToolStripMenuItem1
+            // cameraCoordsToolStrip
             // 
-            this.камераToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cameraCoordsToolStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.прыгнутьНа000КоординатыToolStripMenuItem,
             this.ввестиКоординатыToolStripMenuItem});
-            this.камераToolStripMenuItem1.Name = "камераToolStripMenuItem1";
-            this.камераToolStripMenuItem1.Size = new System.Drawing.Size(176, 22);
-            this.камераToolStripMenuItem1.Text = "Камера";
+            this.cameraCoordsToolStrip.Name = "cameraCoordsToolStrip";
+            this.cameraCoordsToolStrip.Size = new System.Drawing.Size(176, 22);
+            this.cameraCoordsToolStrip.Text = "Камера";
             // 
             // прыгнутьНа000КоординатыToolStripMenuItem
             // 
@@ -277,16 +277,16 @@
             this.ввестиКоординатыToolStripMenuItem.Text = "Ввести координаты";
             this.ввестиКоординатыToolStripMenuItem.Click += new System.EventHandler(this.ввестиКоординатыToolStripMenuItem_Click);
             // 
-            // времяСутокToolStripMenuItem
+            // dayTimeToolStrip
             // 
-            this.времяСутокToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dayTimeToolStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuTimeMorning,
             this.ToolStripMenuTimeDay,
             this.ToolStripMenuTimeEvening,
             this.ToolStripMenuTimeNight});
-            this.времяСутокToolStripMenuItem.Name = "времяСутокToolStripMenuItem";
-            this.времяСутокToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.времяСутокToolStripMenuItem.Text = "Время суток";
+            this.dayTimeToolStrip.Name = "dayTimeToolStrip";
+            this.dayTimeToolStrip.Size = new System.Drawing.Size(176, 22);
+            this.dayTimeToolStrip.Text = "Время суток";
             // 
             // ToolStripMenuTimeMorning
             // 
@@ -323,12 +323,12 @@
             this.анализWaynetToolStripMenuItem.Text = "Анализ Waynet";
             this.анализWaynetToolStripMenuItem.Click += new System.EventHandler(this.анализWaynetToolStripMenuItem_Click);
             // 
-            // игратьЗаГерояToolStripMenuItem
+            // playHeroToolStrip
             // 
-            this.игратьЗаГерояToolStripMenuItem.Name = "игратьЗаГерояToolStripMenuItem";
-            this.игратьЗаГерояToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.игратьЗаГерояToolStripMenuItem.Text = "Играть за героя";
-            this.игратьЗаГерояToolStripMenuItem.Click += new System.EventHandler(this.игратьЗаГерояToolStripMenuItem_Click);
+            this.playHeroToolStrip.Name = "playHeroToolStrip";
+            this.playHeroToolStrip.Size = new System.Drawing.Size(176, 22);
+            this.playHeroToolStrip.Text = "Играть за героя";
+            this.playHeroToolStrip.Click += new System.EventHandler(this.игратьЗаГерояToolStripMenuItem_Click);
             // 
             // toolStripMenuItemSettings
             // 
@@ -344,21 +344,21 @@
             // cameraToolStripMenuItem
             // 
             this.cameraToolStripMenuItem.Name = "cameraToolStripMenuItem";
-            this.cameraToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cameraToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.cameraToolStripMenuItem.Text = "Камера";
             this.cameraToolStripMenuItem.Click += new System.EventHandler(this.камераToolStripMenuItem_Click);
             // 
             // controlsToolStripMenuItem
             // 
             this.controlsToolStripMenuItem.Name = "controlsToolStripMenuItem";
-            this.controlsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.controlsToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.controlsToolStripMenuItem.Text = "Управление";
             this.controlsToolStripMenuItem.Click += new System.EventHandler(this.управлениеToolStripMenuItem_Click);
             // 
             // miscToolStripMenuItem
             // 
             this.miscToolStripMenuItem.Name = "miscToolStripMenuItem";
-            this.miscToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.miscToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.miscToolStripMenuItem.Text = "Прочее";
             this.miscToolStripMenuItem.Click += new System.EventHandler(this.прочееToolStripMenuItem_Click);
             // 
@@ -372,11 +372,11 @@
             this.languageToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.languageToolStripMenuItem.Text = "Язык";
             // 
-            // русскийToolStripMenuItem1
+            // russianToolStrip
             // 
             this.russianToolStrip.Image = global::SpacerUnion.Properties.Resources.s1200;
-            this.russianToolStrip.Name = "русскийToolStripMenuItem1";
-            this.russianToolStrip.Size = new System.Drawing.Size(152, 22);
+            this.russianToolStrip.Name = "russianToolStrip";
+            this.russianToolStrip.Size = new System.Drawing.Size(119, 22);
             this.russianToolStrip.Text = "Русский";
             this.russianToolStrip.Click += new System.EventHandler(this.русскийToolStripMenuItem1_Click);
             // 
@@ -384,7 +384,7 @@
             // 
             this.englishToolStripMenuItem1.Image = global::SpacerUnion.Properties.Resources.uk_flag;
             this.englishToolStripMenuItem1.Name = "englishToolStripMenuItem1";
-            this.englishToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.englishToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
             this.englishToolStripMenuItem1.Text = "English";
             this.englishToolStripMenuItem1.Click += new System.EventHandler(this.englishToolStripMenuItem1_Click);
             // 
@@ -400,7 +400,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.aboutToolStripMenuItem.Text = "О программе";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
@@ -599,7 +599,7 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuWorld;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem граттToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem здрастеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem compileLightToolStrip;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSettings;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuHelp;
         private System.Windows.Forms.ToolStripMenuItem openZENToolStripMenuItem;
@@ -613,13 +613,13 @@
         private System.Windows.Forms.ToolStripMenuItem cameraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
-        private System.Windows.Forms.ToolStripMenuItem компиляцияМираToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem compileWorldToolStrip;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem controlsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem камераToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem cameraCoordsToolStrip;
         private System.Windows.Forms.ToolStripMenuItem прыгнутьНа000КоординатыToolStripMenuItem;
         private System.Windows.Forms.Panel panelMain;
         public System.Windows.Forms.ToolStrip toolStripTop;
@@ -636,13 +636,13 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonBBox;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton toolStripButtonInvisible;
-        private System.Windows.Forms.ToolStripMenuItem времяСутокToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dayTimeToolStrip;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuTimeMorning;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuTimeDay;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuTimeEvening;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuTimeNight;
         private System.Windows.Forms.ToolStripMenuItem анализWaynetToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem игратьЗаГерояToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem playHeroToolStrip;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ввестиКоординатыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem miscToolStripMenuItem;
