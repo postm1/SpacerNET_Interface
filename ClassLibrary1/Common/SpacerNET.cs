@@ -33,6 +33,7 @@ namespace SpacerUnion
         public static SettingsControls settingsControl;
         public static CameraCoords camCoordsWin;
         public static MiscSettingsWin miscSetWin;
+        public static KeysForm keysWin;
 
         // Список скрытых окон
         static List<Form> windowsToHideList = null;
@@ -99,6 +100,7 @@ namespace SpacerUnion
             loadForm = new LoadingForm();
             camCoordsWin = new CameraCoords();
             miscSetWin = new MiscSettingsWin();
+            keysWin = new KeysForm();
 
             windowsList.Add(objTreeWin);
             windowsList.Add(objectsWin);
@@ -113,8 +115,8 @@ namespace SpacerUnion
             windowsList.Add(settingsControl);
             windowsList.Add(camCoordsWin);
             windowsList.Add(miscSetWin);
+            windowsList.Add(keysWin);
             
-
             // каждому окну из списка задаем владельца: главную форму
             windowsList.ForEach(x => x.Owner = form);
 
@@ -392,6 +394,14 @@ namespace SpacerUnion
             }
 
             Application.DoEvents();
+
+        }
+
+
+        [DllExport]
+        public static void AcceptKey(int key)
+        {
+            ConsoleEx.WriteLineRed("Gothic key: " + key);
 
         }
 

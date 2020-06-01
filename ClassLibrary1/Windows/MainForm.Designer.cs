@@ -84,6 +84,7 @@
             this.toolStripButtonBBox = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonInvisible = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.сочетанияКлавишToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -335,7 +336,8 @@
             this.toolStripMenuItemSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cameraToolStripMenuItem,
             this.controlsToolStripMenuItem,
-            this.miscToolStripMenuItem});
+            this.miscToolStripMenuItem,
+            this.сочетанияКлавишToolStripMenuItem});
             this.toolStripMenuItemSettings.ForeColor = System.Drawing.Color.Black;
             this.toolStripMenuItemSettings.Name = "toolStripMenuItemSettings";
             this.toolStripMenuItemSettings.Size = new System.Drawing.Size(79, 20);
@@ -344,21 +346,21 @@
             // cameraToolStripMenuItem
             // 
             this.cameraToolStripMenuItem.Name = "cameraToolStripMenuItem";
-            this.cameraToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.cameraToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.cameraToolStripMenuItem.Text = "Камера";
             this.cameraToolStripMenuItem.Click += new System.EventHandler(this.камераToolStripMenuItem_Click);
             // 
             // controlsToolStripMenuItem
             // 
             this.controlsToolStripMenuItem.Name = "controlsToolStripMenuItem";
-            this.controlsToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.controlsToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.controlsToolStripMenuItem.Text = "Управление";
             this.controlsToolStripMenuItem.Click += new System.EventHandler(this.управлениеToolStripMenuItem_Click);
             // 
             // miscToolStripMenuItem
             // 
             this.miscToolStripMenuItem.Name = "miscToolStripMenuItem";
-            this.miscToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.miscToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.miscToolStripMenuItem.Text = "Прочее";
             this.miscToolStripMenuItem.Click += new System.EventHandler(this.прочееToolStripMenuItem_Click);
             // 
@@ -563,6 +565,13 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // сочетанияКлавишToolStripMenuItem
+            // 
+            this.сочетанияКлавишToolStripMenuItem.Name = "сочетанияКлавишToolStripMenuItem";
+            this.сочетанияКлавишToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.сочетанияКлавишToolStripMenuItem.Text = "Сочетания клавиш";
+            this.сочетанияКлавишToolStripMenuItem.Click += new System.EventHandler(this.сочетанияКлавишToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -649,5 +658,6 @@
         private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem russianToolStrip;
         private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem сочетанияКлавишToolStripMenuItem;
     }
 }

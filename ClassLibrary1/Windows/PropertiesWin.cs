@@ -1209,5 +1209,10 @@ namespace SpacerUnion
                 }
             }
         }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+     
+        }
     }
 }

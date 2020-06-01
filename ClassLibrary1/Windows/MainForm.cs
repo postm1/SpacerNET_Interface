@@ -1010,5 +1010,10 @@ namespace SpacerUnion
             Localizator.SetLanguage(LangEnum.EN);
             Localizator.UpdateInterface();
         }
+
+        private void сочетанияКлавишToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SpacerNET.keysWin.Show();
+        }
     }
 }

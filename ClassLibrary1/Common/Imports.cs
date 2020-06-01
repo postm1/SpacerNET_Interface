@@ -212,5 +212,13 @@ namespace SpacerUnion.Common
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_CollectTriggerSources();
 
+
+
+        [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SendNewKeyPreset(IntPtr key, IntPtr str);
+
+
+        [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr Extern_GetIniKey(IntPtr key);
     }
 }
