@@ -64,7 +64,7 @@
             this.dataGridKeys.RowHeadersVisible = false;
             this.dataGridKeys.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridKeys.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridKeys.Size = new System.Drawing.Size(455, 502);
+            this.dataGridKeys.Size = new System.Drawing.Size(503, 502);
             this.dataGridKeys.TabIndex = 5;
             this.dataGridKeys.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridKeys_CellClick);
             this.dataGridKeys.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridKeys_KeyDown);
@@ -88,13 +88,13 @@
             this.Column2.HeaderText = "Сочетание";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 200;
+            this.Column2.Width = 190;
             // 
             // KeysForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 555);
+            this.ClientSize = new System.Drawing.Size(527, 555);
             this.Controls.Add(this.dataGridKeys);
             this.Controls.Add(this.buttonClose);
             this.DoubleBuffered = true;

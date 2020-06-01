@@ -102,6 +102,9 @@
   <ItemGroup>
     <Compile Include="Common\AutoClosingMessageBox.cs" />
     <Compile Include="Common\Imports.cs" />
+    <Compile Include="Common\KeyFormInit.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Common\Localizator.cs" />
     <Compile Include="Common\TriggerEntry.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
