@@ -38,16 +38,18 @@
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(202, 520);
+            this.buttonClose.Location = new System.Drawing.Point(245, 520);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(75, 23);
+            this.buttonClose.Size = new System.Drawing.Size(101, 23);
             this.buttonClose.TabIndex = 0;
-            this.buttonClose.Text = "Закрыть";
+            this.buttonClose.Text = "Применить";
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // dataGridKeys
             // 
+            this.dataGridKeys.AllowUserToAddRows = false;
+            this.dataGridKeys.AllowUserToDeleteRows = false;
             this.dataGridKeys.AllowUserToResizeColumns = false;
             this.dataGridKeys.AllowUserToResizeRows = false;
             this.dataGridKeys.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -64,9 +66,8 @@
             this.dataGridKeys.RowHeadersVisible = false;
             this.dataGridKeys.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridKeys.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridKeys.Size = new System.Drawing.Size(503, 502);
+            this.dataGridKeys.Size = new System.Drawing.Size(580, 502);
             this.dataGridKeys.TabIndex = 5;
-            this.dataGridKeys.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridKeys_CellClick);
             this.dataGridKeys.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridKeys_KeyDown);
             // 
             // Column3
@@ -81,7 +82,7 @@
             this.Column1.HeaderText = "Описание";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 250;
+            this.Column1.Width = 350;
             // 
             // Column2
             // 
@@ -94,7 +95,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(527, 555);
+            this.ClientSize = new System.Drawing.Size(605, 555);
             this.Controls.Add(this.dataGridKeys);
             this.Controls.Add(this.buttonClose);
             this.DoubleBuffered = true;

@@ -13,65 +13,13 @@ namespace SpacerUnion.Windows
 {
     public partial class KeysForm : Form
     {
+        KeyEntry currentKeyEntry = new KeyEntry();
+
         public KeysForm()
         {
             InitializeComponent();
         }
 
-
-        public int key;
-        public bool shift;
-        public bool control;
-        public bool alt;
-        public char name;
-
-
-        private void dataGridKeys_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if ((Control.ModifierKeys & Keys.Shift) != 0)
-            {
-
-            }
-        }
-
-
-
-        public string ShowKeys()
-        {
-            StringBuilder str = new StringBuilder();
-
-            if (shift) str.Append("LSHIFT + ");
-            if (control) str.Append("LCTRL + ");
-            if (alt) str.Append("LALT + ");
-
-            str.Append(FixChars(key));
-         
-
-            return str.ToString();
-        }
-
-        public string GetSendString()
-        {
-            StringBuilder str = new StringBuilder();
-
-            if (control) str.Append("1"); else str.Append("0");
-            if (alt) str.Append("1"); else str.Append("0");
-            if (shift) str.Append("1"); else str.Append("0");
-
-            str.Append("0");
-
-            if (keysGothic.ContainsKey(key))
-            {
-                str.Append(keysGothic[key].ToString());
-            }
-            else
-            {
-                str.Append("0");
-            }
-            
-
-            return str.ToString();
-        }
 
         private void dataGridKeys_KeyDown(object sender, KeyEventArgs e)
         {
@@ -81,28 +29,20 @@ namespace SpacerUnion.Windows
                 return;
             }
 
-            key = e.KeyValue;
-            shift = e.Shift;
-            control = e.Control;
-            alt = e.Alt;
+            currentKeyEntry.SetData(e.Alt, e.Shift, e.Control, e.KeyValue);
 
-            name = (char)e.KeyData;
 
             if (dataGridKeys.CurrentCell != null && (dataGridKeys.CurrentCell.ColumnIndex == 2))
             {
-                dataGridKeys.CurrentCell.Value = ShowKeys();
+                dataGridKeys.CurrentCell.Value = currentKeyEntry.GetKeysAsString();
             }
-
-            string keyString = GetSendString();
-            string keyRow = dataGridKeys.CurrentRow.Cells[0].Value.ToString();
-
 
 
             if (dataGridKeys.CurrentRow.Cells[0].Value != null)
             {
-                ConsoleEx.WriteLineRed("C# key: " + e.KeyValue);
-
-                Imports.Extern_SendNewKeyPreset(Marshal.StringToHGlobalAnsi(keyRow), Marshal.StringToHGlobalAnsi(keyString));
+                //ConsoleEx.WriteLineRed("C# Pressed in dataGridView: " + e.KeyValue);
+                currentKeyEntry.PackToUnion();
+                Imports.Extern_SendNewKeyPreset(SpacerNET.AddString(dataGridKeys.CurrentRow.Cells[0].Value.ToString()), currentKeyEntry.union_key, currentKeyEntry.mod);
 
                 SpacerNET.FreeStrings();
             }
@@ -112,49 +52,11 @@ namespace SpacerUnion.Windows
             e.SuppressKeyPress = false;
         }
 
-        private string SolveString(string input)
+
+        
+
+        public void Fill_Table()
         {
-            StringBuilder str = new StringBuilder();
-
-            int index = input.IndexOf('_');
-
-            string mod = input.Substring(0, index);
-            string key = input.Substring(index + 1, input.Length - index - 1);
-
-
-            ConsoleEx.WriteLineRed(String.Format("mod {0}, key {1}", mod, key));
-
-            int modVal = Convert.ToInt32(mod);
-
-            if ((modVal & (int)KeyMod.LControl) != 0)
-            {
-                str.Append("LCTRL + ");
-            }
-
-            if ((modVal & (int)KeyMod.Alt) != 0)
-            {
-                str.Append("LALT + ");
-            }
-
-            if ((modVal & (int)KeyMod.LShift) != 0)
-            {
-                str.Append("LSHIFT + ");
-            }
-
-            int num = Convert.ToInt32(key);
-
-            char val = (char)keysGothic.Where(x => x.Value == num).Select(pair => pair.Key).FirstOrDefault();
-
-            str.Append(FixChars(val));
-
-
-            return str.ToString();
-
-        }
-
-        private void KeysForm_Shown(object sender, EventArgs e)
-        {
-
             InitRows();
 
 
@@ -172,17 +74,24 @@ namespace SpacerUnion.Windows
 
                         if (gotString.Length > 0)
                         {
-                            ConsoleEx.WriteLineRed("gotString: " + gotString);
-                            entry.Cells[2].Value = SolveString(gotString);
+                            //ConsoleEx.WriteLineRed("gotString: " + gotString);
+                            entry.Cells[2].Value = currentKeyEntry.SolveString(gotString);
                         }
 
                     }
                 }
-                
-                
+
+
             }
 
             SpacerNET.FreeStrings();
+        }
+
+        private void KeysForm_Shown(object sender, EventArgs e)
+        {
+            Fill_Table();
+
+           
 
         }
 

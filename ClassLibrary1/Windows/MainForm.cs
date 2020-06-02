@@ -986,11 +986,13 @@ namespace SpacerUnion
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
+            /*
             if (e.KeyCode == Keys.S && e.Control)
             {
                 сохранитьZENToolStripMenuItem_Click(null, null);
                 e.Handled = true;
             }
+            */
         }
 
         private void русскийToolStripMenuItem1_Click(object sender, EventArgs e)

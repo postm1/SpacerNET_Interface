@@ -215,7 +215,7 @@ namespace SpacerUnion.Common
 
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SendNewKeyPreset(IntPtr key, IntPtr str);
+        public static extern void Extern_SendNewKeyPreset(IntPtr type, int key, int mod);
 
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
