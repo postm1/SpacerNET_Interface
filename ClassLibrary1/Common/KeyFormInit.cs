@@ -40,6 +40,10 @@ namespace SpacerUnion.Windows
             {112, 59}, {113, 60},{114, 61},{115, 62},{116, 63},
             {117, 64},{118, 65},{119, 66},{120, 67},{121, 68},
             {122, 87},{123, 88},
+
+            //NUM
+            {96, 82}, {97, 0x4F},{98, 0x50},{99, 0x51},{100, 0x4B},
+            {101, 0x4C},{102, 0x4D},{103, 0x47},{104, 0x48},{105, 0x49},
         };
 
         enum KeyMod
@@ -86,10 +90,10 @@ namespace SpacerUnion.Windows
 
 
                 if (val >= 112 && val <= 123) s = "F" + (val-111).ToString();
+                if (val >= 96 && val <= 105) s = "NUMPAD" + (val - 96).ToString();
 
 
-                
-                ConsoleEx.WriteLineGreen("Char to Fix: " + val + " " + (char)val + " " + s);
+                //ConsoleEx.WriteLineGreen("Char to Fix: " + val + " " + (char)val + " " + s);
 
                 return s;
             }
@@ -241,6 +245,19 @@ namespace SpacerUnion.Windows
             dataGridKeys.Rows.Add(row);
 
 
+
+            row = new string[] { "VOB_FLOOR", "Прижать воб к полу", "" };
+            dataGridKeys.Rows.Add(row);
+
+            
+
+            row = new string[] { "VOB_RESET_AXIS", "Сбросить направление воба по осям", "" };
+            dataGridKeys.Rows.Add(row);
+
+            row = new string[] { "VOB_DELETE", "Удалить воб", "" };
+            dataGridKeys.Rows.Add(row);
+
+
             row = new string[] { "VOB_TRANSLATE", "Инструмент перемещение", "" };
             dataGridKeys.Rows.Add(row);
 
@@ -250,19 +267,11 @@ namespace SpacerUnion.Windows
             row = new string[] { "WP_TOGGLE", "Переключить соединение между вейпоинтами", "" };
             dataGridKeys.Rows.Add(row);
 
+
             row = new string[] { "VOB_DISABLE_SELECT", "Снять выделение с воба", "" };
             dataGridKeys.Rows.Add(row);
 
             row = new string[] { "VOB_NEAR_CAM", "Переместить воб перед камерой", "" };
-            dataGridKeys.Rows.Add(row);
-
-            row = new string[] { "VOB_FLOOR", "Прижать воб к полу", "" };
-            dataGridKeys.Rows.Add(row);
-
-            row = new string[] { "VOB_DELETE", "Удалить воб", "" };
-            dataGridKeys.Rows.Add(row);
-
-            row = new string[] { "VOB_RESET_AXIS", "Сбросить направление воба по осям", "" };
             dataGridKeys.Rows.Add(row);
 
 

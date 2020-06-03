@@ -899,7 +899,7 @@ namespace SpacerUnion
 
         private void игратьЗаГерояToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Еще не работает");
         }
 
         public static Image CaptureScreens(params Screen[] screens)

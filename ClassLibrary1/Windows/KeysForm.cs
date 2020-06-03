@@ -70,7 +70,7 @@ namespace SpacerUnion.Windows
 
                     if (currentKey.Length > 0)
                     {
-                        string gotString = Marshal.PtrToStringAnsi(Imports.Extern_GetIniKey(Marshal.StringToHGlobalAnsi(currentKey)));
+                        string gotString = Marshal.PtrToStringAnsi(Imports.Extern_GetIniKey(SpacerNET.AddString(currentKey)));
 
                         if (gotString.Length > 0)
                         {

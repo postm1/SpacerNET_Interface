@@ -1052,7 +1052,7 @@ namespace SpacerUnion
                         string visual = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
                         Clipboard.SetText(visual);
 
-                        IntPtr stringVisualPtr = Marshal.StringToHGlobalAnsi("Скопировано в буфер: " + visual);
+                        IntPtr stringVisualPtr = SpacerNET.AddString("Скопировано в буфер: " + visual);
 
                         Imports.Extern_PrintGreen(stringVisualPtr);
 

@@ -91,6 +91,7 @@
             // comboBoxVobListType
             // 
             this.comboBoxVobListType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxVobListType.Enabled = false;
             this.comboBoxVobListType.FormattingEnabled = true;
             this.comboBoxVobListType.Items.AddRange(new object[] {
             "Все вобы",
