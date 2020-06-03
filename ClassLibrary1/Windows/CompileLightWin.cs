@@ -130,6 +130,19 @@ namespace SpacerUnion
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            if (!Imports.Extern_IsWorldLoaded())
+            {
+                MessageBox.Show("Мир не загружен!");
+                return;
+            }
+
+            if (!Imports.Extern_IsWorldCompiled())
+            {
+                MessageBox.Show("Мир не скомпилирован!");
+                return;
+            }
+
+            
 
             int radiusCamera = 0;
 

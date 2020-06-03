@@ -38,6 +38,14 @@ namespace SpacerUnion
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+            if (Imports.Extern_IsWorldCompiled())
+            {
+                MessageBox.Show("Мир уже скомпилирован!");
+                return;
+            }
+
+
             int type = radioButtonIndoor.Checked ? 0 : 1;
 
             SpacerNET.form.AddText("Мир компилируется...");
@@ -51,8 +59,9 @@ namespace SpacerUnion
 
             string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
             SpacerNET.form.AddText("Компиляция мира выполнена за (" + timeSpend + ")");
-            
 
+
+            SpacerNET.form.AddText("Не забудьте удалить лишний zCVobLevelCompo");
             this.Hide();
         }
 
