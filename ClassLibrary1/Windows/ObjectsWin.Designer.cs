@@ -329,7 +329,7 @@
             this.groupBox13.Size = new System.Drawing.Size(161, 126);
             this.groupBox13.TabIndex = 20;
             this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "groupBox13";
+            this.groupBox13.Text = "Редактор сундука";
             // 
             // buttonAddContainer
             // 
