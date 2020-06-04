@@ -37,14 +37,16 @@ namespace SpacerUnion.Windows
         private void trackBarVobTransSpeed_ValueChanged(object sender, EventArgs e)
         {
             labelVobTrans.Text = "Скорость перемещения: " + trackBarVobTransSpeed.Value;
-            Imports.Extern_SetSetting(SpacerNET.AddString("vobTransSpeed"), trackBarVobTransSpeed.Value);
+            Imports.Stack_PushString("vobTransSpeed");
+            Imports.Extern_SetSetting(trackBarVobTransSpeed.Value);
             SpacerNET.FreeStrings();
         }
 
         private void trackBarVobRotSpeed_ValueChanged(object sender, EventArgs e)
         {
             labelVobRot.Text = "Скорость вращения: " + trackBarVobRotSpeed.Value;
-            Imports.Extern_SetSetting(SpacerNET.AddString("vobRotSpeed"), trackBarVobRotSpeed.Value);
+            Imports.Stack_PushString("vobRotSpeed");
+            Imports.Extern_SetSetting(trackBarVobRotSpeed.Value);
             SpacerNET.FreeStrings();
         }
 
@@ -56,24 +58,24 @@ namespace SpacerUnion.Windows
         private void checkBoxInsertVob_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-
-            Imports.Extern_SetSetting(SpacerNET.AddString("vobInsertItemLevel"), Convert.ToInt32(cb.Checked));
+            Imports.Stack_PushString("vobInsertItemLevel");
+            Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
             SpacerNET.FreeStrings();
         }
 
         private void checkBoxVobRotRandAngle_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-
-            Imports.Extern_SetSetting(SpacerNET.AddString("vobInsertVobRotRand"), Convert.ToInt32(cb.Checked));
+            Imports.Stack_PushString("vobInsertVobRotRand");
+            Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
             SpacerNET.FreeStrings();
         }
 
         private void checkBoxVobInsertHierarchy_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-
-            Imports.Extern_SetSetting(SpacerNET.AddString("vobInsertHierarchy"), Convert.ToInt32(cb.Checked));
+            Imports.Stack_PushString("vobInsertHierarchy");
+            Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
             SpacerNET.FreeStrings();
         }
 
@@ -104,8 +106,8 @@ namespace SpacerUnion.Windows
             if (rb.Checked)
             {
                 int.TryParse(rb.Tag.ToString(), out val);
-
-                Imports.Extern_SetSetting(SpacerNET.AddString("wpTurnOn"), val);
+                Imports.Stack_PushString("wpTurnOn");
+                Imports.Extern_SetSetting(val);
                 SpacerNET.FreeStrings();
             }
             

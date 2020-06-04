@@ -29,17 +29,21 @@ namespace SpacerUnion
         {
             InitializeComponent();
             this.KeyPreview = true;
+            UpdateSpacerCaption("");
         }
 
         public void UpdateSpacerCaption(string title)
         {
             currentWorldName = title;
-            this.Text = "Spacer.NET: " + title;
+            this.Text = "Spacer.NET (Beta): " + title;
         }
         
         private void CloseApp()
         {
-            if (currentWorldName != "" && Imports.Extern_GetSetting(SpacerNET.AddString("askExitZen")) == 1)
+            Imports.Stack_PushString("askExitZen");
+
+
+            if (currentWorldName != "" && Imports.Extern_GetSetting() == 1)
             {
                 DialogResult res = MessageBox.Show(Localizator.Get("askExit"), Localizator.Get("confirmation"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
@@ -156,15 +160,15 @@ namespace SpacerUnion
                 return;
             }
 
-            IntPtr filePathPtr = SpacerNET.AddString(path);
-
 
 
             Stopwatch s = new Stopwatch();
             s.Start();
 
 
-            if (Imports.Extern_GetSetting(SpacerNET.AddString("fullPathTitle")) != 0)
+            Imports.Stack_PushString("fullPathTitle");
+
+            if (Imports.Extern_GetSetting() != 0)
             {
                 SpacerNET.form.UpdateSpacerCaption(path);
             }
@@ -180,7 +184,9 @@ namespace SpacerUnion
             ConsoleEx.WriteLineGreen(fileName + " " + Localizator.Get("isLoading"));
 
             SpacerNET.form.currentWorldName = fileName;
-            Imports.Extern_LoadWorld(filePathPtr);
+
+            Imports.Stack_PushString(path);
+            Imports.Extern_LoadWorld();
 
             s.Stop();
 
@@ -196,11 +202,11 @@ namespace SpacerUnion
         {
             openFileDialog1.Filter = "Zen files (*.zen)|";
 
-            IntPtr ptrPath = Imports.Extern_GetSettingStr(SpacerNET.AddString("zenzPath"));
+            Imports.Stack_PushString("zenzPath");
+            Imports.Extern_GetSettingStr();
+            string path = Imports.Stack_PeekString();
 
-            string path = Marshal.PtrToStringAnsi(ptrPath);
-
-            //MessageBox.Show(path);
+            ConsoleEx.WriteLineRed(path);
 
             if (path != "")
             {
@@ -225,8 +231,10 @@ namespace SpacerUnion
 
                 string filePath = openFileDialog1.FileName;
 
-                
-                if (Imports.Extern_GetSetting(SpacerNET.AddString("fullPathTitle")) != 0)
+
+                Imports.Stack_PushString("fullPathTitle");
+
+                if (Imports.Extern_GetSetting() != 0)
                 {
                     UpdateSpacerCaption(filePath);
                 }
@@ -235,8 +243,6 @@ namespace SpacerUnion
                     UpdateSpacerCaption(openFileDialog1.SafeFileName);
                 }
                
-
-                IntPtr filePathPtr = SpacerNET.AddString(filePath);
 
                 Stopwatch s = new Stopwatch();
                 s.Start();
@@ -247,7 +253,10 @@ namespace SpacerUnion
                 ConsoleEx.WriteLineGreen(openFileDialog1.SafeFileName + " " + Localizator.Get("isLoading"));
 
                 currentWorldName = openFileDialog1.SafeFileName;
-                Imports.Extern_LoadWorld(filePathPtr);
+
+                Imports.Stack_PushString(filePath);
+                Imports.Extern_LoadWorld();
+
 
                 s.Stop();
 
@@ -269,7 +278,8 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Extern_SetSetting(SpacerNET.AddString("showVobs"), Convert.ToInt32(item.Checked));
+            Imports.Stack_PushString("showVobs");
+            Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
             SpacerNET.FreeStrings();
         }
 
@@ -279,7 +289,8 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Extern_SetSetting(SpacerNET.AddString("showVobs"), Convert.ToInt32(item.Checked));
+            Imports.Stack_PushString("showVobs");
+            Imports.Extern_SetSetting( Convert.ToInt32(item.Checked));
             SpacerNET.FreeStrings();
         }
 
@@ -289,7 +300,8 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Extern_SetSetting(SpacerNET.AddString("showVobs"), Convert.ToInt32(item.Checked));
+            Imports.Stack_PushString("showVobs");
+            Imports.Extern_SetSetting( Convert.ToInt32(item.Checked));
             SpacerNET.FreeStrings();
         }
 
@@ -315,7 +327,8 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Extern_SetSetting(SpacerNET.AddString("showWaynet"), Convert.ToInt32(item.Checked));
+            Imports.Stack_PushString("showWaynet");
+            Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
             toolStripMenuItem6.Checked = item.Checked;
             SpacerNET.FreeStrings();
         }
@@ -326,7 +339,8 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Extern_SetSetting(SpacerNET.AddString("showHelpVobs"), Convert.ToInt32(item.Checked));
+            Imports.Stack_PushString("showHelpVobs");
+            Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
             toolStripMenuItem7.Checked = item.Checked;
             SpacerNET.FreeStrings();
         }
@@ -336,8 +350,8 @@ namespace SpacerUnion
             ToolStripButton item = sender as ToolStripButton;
 
             item.Checked = !item.Checked;
-
-            Imports.Extern_SetSetting(SpacerNET.AddString("showVobs"), Convert.ToInt32(item.Checked));
+            Imports.Stack_PushString("showVobs");
+            Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
             toolStripMenuItem5.Checked = item.Checked;
             SpacerNET.FreeStrings();
         }
@@ -375,8 +389,10 @@ namespace SpacerUnion
 
             //saveFileDialog1.InitialDirectory = Directory.GetCurrentDirectory() + "../_WORK/DATA/Worlds/";
 
-            IntPtr ptrPathInit = Imports.Extern_GetSettingStr(SpacerNET.AddString("zenzPath"));
-            string path = Marshal.PtrToStringAnsi(ptrPathInit);
+
+            Imports.Stack_PushString("zenzPath");
+            Imports.Extern_GetSettingStr();
+            string path = Imports.Stack_PeekString();
 
             if (path != "")
             {
@@ -405,7 +421,9 @@ namespace SpacerUnion
 
             }
 
-            int addPrefx = Imports.Extern_GetSetting(SpacerNET.AddString("addDatePrefix"));
+            Imports.Stack_PushString("addDatePrefix");
+
+            int addPrefx = Imports.Extern_GetSetting();
 
 
             if (addPrefx != 0)
@@ -429,7 +447,9 @@ namespace SpacerUnion
                 string selectedFileName = Path.GetFileName(saveFileDialog1.FileName);
 
 
-                if (Imports.Extern_GetSetting(SpacerNET.AddString("fullPathTitle")) != 0)
+                Imports.Stack_PushString("fullPathTitle");
+
+                if (Imports.Extern_GetSetting() != 0)
                 {
                     SpacerNET.form.UpdateSpacerCaption(filePath);
                 }
@@ -457,7 +477,9 @@ namespace SpacerUnion
                 ConsoleEx.WriteLineGreen(selectedFileName + " сохраняется...");
                 SpacerNET.form.AddText(selectedFileName + " сохраняется...");
 
-                Imports.Extern_SaveWorld(filePathPtr, saveFileDialog1.FilterIndex - 1);
+                Imports.Stack_PushString(filePath);
+
+                Imports.Extern_SaveWorld( saveFileDialog1.FilterIndex - 1);
 
                 s.Stop();
 
@@ -474,11 +496,17 @@ namespace SpacerUnion
 
         private void камераToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int transSpeed = Imports.Extern_GetSetting(SpacerNET.AddString("camTransSpeed"));
-            int rotSpeed = Imports.Extern_GetSetting(SpacerNET.AddString("camRotSpeed"));
 
-            int world = Imports.Extern_GetSetting(SpacerNET.AddString("rangeWorld"));
-            int vob = Imports.Extern_GetSetting(SpacerNET.AddString("rangeVobs"));
+            Imports.Stack_PushString("rangeVobs");
+            Imports.Stack_PushString("rangeWorld");
+            Imports.Stack_PushString("camRotSpeed");
+            Imports.Stack_PushString("camTransSpeed");
+
+            int transSpeed = Imports.Extern_GetSetting();
+            int rotSpeed = Imports.Extern_GetSetting();
+
+            int world = Imports.Extern_GetSetting();
+            int vob = Imports.Extern_GetSetting();
 
 
             SpacerNET.settingsCam.trackBarTransSpeed.Value = transSpeed;
@@ -490,22 +518,32 @@ namespace SpacerUnion
             SpacerNET.settingsCam.UpdateAll();
 
 
-            SpacerNET.settingsCam.checkBoxFPS.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("showFps")));
-            SpacerNET.settingsCam.checkBoxTris.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("showTris")));
+
+            Imports.Stack_PushString("maxFPS");
+            Imports.Stack_PushString("hideCamWindows");
+            Imports.Stack_PushString("showVobDist");
+            Imports.Stack_PushString("showWaypointsCount");
+            Imports.Stack_PushString("showVobsCount");
+            Imports.Stack_PushString("showCamCoords");
+            Imports.Stack_PushString("showTris");
+            Imports.Stack_PushString("showFps");
+
+            SpacerNET.settingsCam.checkBoxFPS.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+            SpacerNET.settingsCam.checkBoxTris.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
 
-            SpacerNET.settingsCam.checkBoxCamCoord.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("showCamCoords")));
-            SpacerNET.settingsCam.checkBoxVobs.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("showVobsCount")));
+            SpacerNET.settingsCam.checkBoxCamCoord.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+            SpacerNET.settingsCam.checkBoxVobs.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
 
-            SpacerNET.settingsCam.checkBoxWaypoints.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("showWaypointsCount")));
-            SpacerNET.settingsCam.checkBoxDistVob.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("showVobDist")));
+            SpacerNET.settingsCam.checkBoxWaypoints.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+            SpacerNET.settingsCam.checkBoxDistVob.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
 
-            SpacerNET.settingsCam.checkBoxCameraHideWins.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("hideCamWindows")));
+            SpacerNET.settingsCam.checkBoxCameraHideWins.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
 
-            SpacerNET.settingsCam.textBoxLimitFPS.Text = Imports.Extern_GetSetting(SpacerNET.AddString("maxFPS")).ToString();
+            SpacerNET.settingsCam.textBoxLimitFPS.Text = Imports.Extern_GetSetting().ToString();
 
 
 
@@ -526,9 +564,11 @@ namespace SpacerUnion
         {
             openFileDialog1.Filter = "Mesh-File (*.3ds)|*.3ds|All Files(*.*)|*.*||";
 
-            IntPtr ptrPath = Imports.Extern_GetSettingStr(SpacerNET.AddString("meshPath"));
-            string path = Marshal.PtrToStringAnsi(ptrPath);
 
+
+            Imports.Stack_PushString("meshPath");
+            Imports.Extern_GetSettingStr();
+            string path = Imports.Stack_PeekString();
             //MessageBox.Show(path);
 
             if (path != "")
@@ -568,7 +608,8 @@ namespace SpacerUnion
 
                 currentWorldName = openFileDialog1.SafeFileName;
 
-                Imports.Extern_LoadMesh(filePathPtr);
+                Imports.Stack_PushString(filePath);
+                Imports.Extern_LoadMesh();
 
                 s.Stop();
 
@@ -586,8 +627,11 @@ namespace SpacerUnion
         {
             openFileDialog1.Filter = "World (*.Zen)|*.zen|All Files(*.*)|*.*||";
 
-            IntPtr ptrPath = Imports.Extern_GetSettingStr(SpacerNET.AddString("vobsPath"));
-            string path = Marshal.PtrToStringAnsi(ptrPath);
+
+
+            Imports.Stack_PushString("vobsPath");
+            Imports.Extern_GetSettingStr();
+            string path = Imports.Stack_PeekString();
 
             //MessageBox.Show(path);
 
@@ -616,7 +660,6 @@ namespace SpacerUnion
 
                 UpdateSpacerCaption(openFileDialog1.SafeFileName);
 
-                IntPtr filePathPtr = SpacerNET.AddString(filePath);
 
                 Stopwatch s = new Stopwatch();
                 s.Start();
@@ -627,7 +670,8 @@ namespace SpacerUnion
 
                 currentWorldName = openFileDialog1.SafeFileName;
 
-                Imports.Extern_MergeZen(filePathPtr);
+                Imports.Stack_PushString(filePath);
+                Imports.Extern_MergeZen();
 
                 s.Stop();
 
@@ -670,7 +714,11 @@ namespace SpacerUnion
 
         private void прыгнутьНа000КоординатыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Imports.Extern_SetCameraPos(0, 0, 0);
+            Imports.Stack_PushFloat(0);
+            Imports.Stack_PushFloat(0);
+            Imports.Stack_PushFloat(0);
+
+            Imports.Extern_SetCameraPos();
         }
 
         private void вобыВФайлToolStripMenuItem_Click(object sender, EventArgs e)
@@ -720,12 +768,15 @@ namespace SpacerUnion
         private void toolStripButtonSound_Click(object sender, EventArgs e)
         {
 
-            bool musicOff = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("musicZenOff")));
+            Imports.Stack_PushString("musicVolume");
+            Imports.Stack_PushString("musicZenOff");
+
+            bool musicOff = Convert.ToBoolean(Imports.Extern_GetSetting());
             SpacerNET.soundWin.checkBoxShutMusic.Checked = musicOff;
 
 
 
-            int volume = Imports.Extern_GetSetting(SpacerNET.AddString("musicVolume"));
+            int volume = Imports.Extern_GetSetting();
             SpacerNET.soundWin.trackBarMusicVolume.Value = volume;
 
 
@@ -790,7 +841,8 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Extern_SetSetting(SpacerNET.AddString("showVobs"), Convert.ToInt32(item.Checked));
+            Imports.Stack_PushString("showVobs");
+            Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
             toolStripMenuItem5.Checked = item.Checked;
             SpacerNET.FreeStrings();
         }
@@ -801,7 +853,8 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Extern_SetSetting(SpacerNET.AddString("showWaynet"), Convert.ToInt32(item.Checked));
+            Imports.Stack_PushString("showWaynet");
+            Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
             toolStripMenuItem6.Checked = item.Checked;
             SpacerNET.FreeStrings();
         }
@@ -811,8 +864,8 @@ namespace SpacerUnion
             ToolStripButton item = sender as ToolStripButton;
 
             item.Checked = !item.Checked;
-
-            Imports.Extern_SetSetting(SpacerNET.AddString("showHelpVobs"), Convert.ToInt32(item.Checked));
+            Imports.Stack_PushString("showHelpVobs");
+            Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
             toolStripMenuItem7.Checked = item.Checked;
             SpacerNET.FreeStrings();
         }
@@ -822,19 +875,27 @@ namespace SpacerUnion
             ToolStripButton item = sender as ToolStripButton;
 
             item.Checked = !item.Checked;
-
-            Imports.Extern_SetSetting(SpacerNET.AddString("drawBBoxGlobal"), Convert.ToInt32(item.Checked));
+            Imports.Stack_PushString("drawBBoxGlobal");
+            Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
             SpacerNET.FreeStrings();
         }
 
         private void управлениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int transSpeed = Imports.Extern_GetSetting(SpacerNET.AddString("vobTransSpeed"));
-            int rotSpeed = Imports.Extern_GetSetting(SpacerNET.AddString("vobRotSpeed"));
-            bool insertVobItemLevel = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("vobInsertItemLevel")));
-            bool vobInsertVobRotRand = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("vobInsertVobRotRand")));
-            bool vobInsertHierarchy = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("vobInsertHierarchy")));
-            int turnMode = Imports.Extern_GetSetting(SpacerNET.AddString("wpTurnOn"));
+
+            Imports.Stack_PushString("wpTurnOn");
+            Imports.Stack_PushString("vobInsertHierarchy");
+            Imports.Stack_PushString("vobInsertVobRotRand");
+            Imports.Stack_PushString("vobInsertItemLevel");
+            Imports.Stack_PushString("vobRotSpeed");
+            Imports.Stack_PushString("vobTransSpeed");
+
+            int transSpeed = Imports.Extern_GetSetting();
+            int rotSpeed = Imports.Extern_GetSetting();
+            bool insertVobItemLevel = Convert.ToBoolean(Imports.Extern_GetSetting());
+            bool vobInsertVobRotRand = Convert.ToBoolean(Imports.Extern_GetSetting());
+            bool vobInsertHierarchy = Convert.ToBoolean(Imports.Extern_GetSetting());
+            int turnMode = Imports.Extern_GetSetting();
 
 
 
@@ -847,8 +908,7 @@ namespace SpacerUnion
 
             SpacerNET.settingsControl.SetRadioTurnMode(turnMode);
 
-           SpacerNET.settingsControl.Show();
-            SpacerNET.FreeStrings();
+            SpacerNET.settingsControl.Show();
         }
 
         private void toolStripButtonInvisible_Click(object sender, EventArgs e)
@@ -857,7 +917,8 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Extern_SetSetting(SpacerNET.AddString("showInvisibleVobs"), Convert.ToInt32(item.Checked));
+            Imports.Stack_PushString("showInvisibleVobs");
+            Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
             SpacerNET.FreeStrings();
         }
 
@@ -883,9 +944,9 @@ namespace SpacerUnion
 
         private void анализWaynetToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            IntPtr result = Imports.Extern_AnalyseWaynet();
+            Imports.Extern_AnalyseWaynet();
 
-            string resultStr = Marshal.PtrToStringAnsi(result);
+            string resultStr = Imports.Stack_PeekString();
 
             if (resultStr.Length == 0)
             {
@@ -968,7 +1029,7 @@ namespace SpacerUnion
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Spacer.NET, 2020");
+            MessageBox.Show("Spacer.NET by Liker, 2020");
         }
 
         private void ввестиКоординатыToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1016,6 +1077,11 @@ namespace SpacerUnion
         private void сочетанияКлавишToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SpacerNET.keysWin.Show();
+        }
+
+        private void тестToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

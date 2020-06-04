@@ -204,9 +204,10 @@ namespace SpacerUnion
             SpacerNET.infoWin.AddText("Создаю Item " + name);
 
             Imports.Extern_KillPreviewItem();
-            IntPtr item_name = SpacerNET.AddString(name);
 
-            Imports.Extern_CreateItem(item_name);
+       
+            Imports.Stack_PushString(name);
+            Imports.Extern_CreateItem();
 
             SpacerNET.form.Focus();
 
@@ -256,13 +257,12 @@ namespace SpacerUnion
 
             SpacerNET.infoWin.AddText("Создаю PFX " + name);
 
-            IntPtr PfxName = SpacerNET.AddString(name);
 
-            Imports.Extern_CreatePFX(PfxName);
+            Imports.Stack_PushString(name);
+            Imports.Extern_CreatePFX();
             Imports.Extern_KillPFX();   
 
             SpacerNET.form.Focus();
-            SpacerNET.FreeStrings();
         }
 
         public static void FindClass(TreeNodeCollection nodes, string baseClass, string name)
@@ -333,7 +333,10 @@ namespace SpacerUnion
             IntPtr ptrVobName = SpacerNET.AddString(vobName);
             IntPtr ptrVisual= SpacerNET.AddString(visualVob);
 
-            Imports.Extern_CreateNewVobVisual(ptrName, ptrVobName, ptrVisual, isDyn, isStat);
+            Imports.Stack_PushString(visualVob);
+            Imports.Stack_PushString(vobName);
+            Imports.Stack_PushString(name);
+            Imports.Extern_CreateNewVobVisual(isDyn, isStat);
 
             SpacerNET.FreeStrings();
 
@@ -393,9 +396,9 @@ namespace SpacerUnion
                 return;
             }
 
-            IntPtr ptrVobNameCheck = SpacerNET.AddString(vobName);
 
-            bool nameFound = Imports.Extern_VobNameExist(ptrVobNameCheck, true);
+            Imports.Stack_PushString(vobName);
+            bool nameFound = Imports.Extern_VobNameExist(true);
 
             if (nameFound && !autoGenerate)
             {
@@ -407,13 +410,13 @@ namespace SpacerUnion
 
             Console.WriteLine("C#: OnCreateVob: ClassDef: " + name);
 
-            IntPtr ptrName = SpacerNET.AddString(name);
-            IntPtr ptrVobName = SpacerNET.AddString(vobName);
 
-            Imports.Extern_CreateWaypoint(ptrName, ptrVobName, addToNet, autoGenerate);
+            Imports.Stack_PushString(vobName);
+            Imports.Stack_PushString(name);
+
+            Imports.Extern_CreateWaypoint(addToNet, autoGenerate);
 
             SpacerNET.form.Focus();
-            SpacerNET.FreeStrings();
             /*
             if (vobName.Contains("_"))
             {
@@ -442,10 +445,9 @@ namespace SpacerUnion
                 return;
             }
 
+            Imports.Stack_PushString(vobName);
 
-            IntPtr ptrVobNameCheck = SpacerNET.AddString(vobName);
-
-            bool nameFound = Imports.Extern_VobNameExist(ptrVobNameCheck, false);
+            bool nameFound = Imports.Extern_VobNameExist(false);
             if (nameFound)
             {
                 SpacerNET.FreeStrings();
@@ -455,11 +457,11 @@ namespace SpacerUnion
 
             Console.WriteLine("C#: OnCreateVob: ClassDef: " + name);
 
-            IntPtr ptrName = SpacerNET.AddString(name);
-            IntPtr ptrVobName = SpacerNET.AddString(vobName);
 
-            Imports.Extern_CreateFreePoint(ptrName, ptrVobName, autoName, ground);
-            SpacerNET.FreeStrings();
+            Imports.Stack_PushString(vobName);
+            Imports.Stack_PushString(name);
+
+            Imports.Extern_CreateFreePoint(autoName, ground);
 
 
         }
@@ -486,14 +488,11 @@ namespace SpacerUnion
 
 
             SpacerNET.infoWin.AddText("Создаю Item " + name);
-
-            IntPtr item_name = SpacerNET.AddString(name);
             Imports.Extern_KillPreviewItem();
-            Imports.Extern_CreateItem(item_name);
+            Imports.Stack_PushString(name);
 
 
             SpacerNET.form.Focus();
-            SpacerNET.FreeStrings();
         }
 
         private void label10_Click(object sender, EventArgs e)
@@ -517,13 +516,11 @@ namespace SpacerUnion
 
             SpacerNET.infoWin.AddText("Создаю PFX " + name);
 
-            IntPtr PfxName = SpacerNET.AddString(name);
-
-            Imports.Extern_CreatePFX(PfxName);
+            Imports.Stack_PushString(name);
+            Imports.Extern_CreatePFX();
             Imports.Extern_KillPFX();
 
             SpacerNET.form.Focus();
-            SpacerNET.FreeStrings();
         }
 
         private void textBoxPfxReg_KeyPress(object sender, KeyPressEventArgs e)
@@ -604,9 +601,10 @@ namespace SpacerUnion
             SpacerNET.objectsWin.labelSearchVisual.Text = "Поиск визуала.";
 
             string visual = "";
-            IntPtr visualPtr = SpacerNET.AddString(visual);
+ 
 
-            Imports.Extern_RenderSelectedVob(visualPtr);
+            Imports.Stack_PushString(visual);
+            Imports.Extern_RenderSelectedVob();
             SpacerNET.FreeStrings();
 
         }
@@ -948,14 +946,15 @@ namespace SpacerUnion
             if (listBoxVisuals.SelectedItem != null && checkBoxShowPreview.Checked)
             {
                 string visual = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
-                IntPtr visualPtr = SpacerNET.AddString(visual);
+   
 
-                Imports.Extern_RenderSelectedVob(visualPtr);
+
+                Imports.Stack_PushString(visual);
+                Imports.Extern_RenderSelectedVob();
 
 
 
                 SpacerNET.form.Focus();
-                SpacerNET.FreeStrings();
             }
             
         }
@@ -965,15 +964,17 @@ namespace SpacerUnion
             CheckBox ch = sender as CheckBox;
 
 
-            Imports.Extern_SetSetting(SpacerNET.AddString("showModelPreview"), Convert.ToInt32(ch.Checked));
+            Imports.Stack_PushString("showModelPreview");
+            Imports.Extern_SetSetting(Convert.ToInt32(ch.Checked));
 
 
             if (!ch.Checked)
             {
                 string visual = "";
-                IntPtr visualPtr = SpacerNET.AddString(visual);
+  
 
-                Imports.Extern_RenderSelectedVob(visualPtr);
+                Imports.Stack_PushString(visual);
+                Imports.Extern_RenderSelectedVob();
 
                 SpacerNET.form.Focus();
             }
@@ -982,9 +983,9 @@ namespace SpacerUnion
                 if (listBoxVisuals.SelectedItem != null)
                 {
                     string visual = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
-                    IntPtr visualPtr = SpacerNET.AddString(visual);
 
-                    Imports.Extern_RenderSelectedVob(visualPtr);
+                    Imports.Stack_PushString(visual);
+                    Imports.Extern_RenderSelectedVob();
 
               
 
@@ -992,7 +993,6 @@ namespace SpacerUnion
                 }
                 
             }
-            SpacerNET.FreeStrings();
         }
 
         private void tabControlObjects_SelectedIndexChanged(object sender, EventArgs e)
@@ -1002,12 +1002,10 @@ namespace SpacerUnion
             if (tab.SelectedIndex != 0)
             {
                 string visual = "";
-                IntPtr visualPtr = SpacerNET.AddString(visual);
 
-                Imports.Extern_RenderSelectedVob(visualPtr);
+                Imports.Stack_PushString(visual);
+                Imports.Extern_RenderSelectedVob();
 
-
-                SpacerNET.FreeStrings();
                 //UnionNET.form.Focus();
             }
 
@@ -1031,7 +1029,9 @@ namespace SpacerUnion
         private void checkBoxSearchOnly3DS_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox ch = sender as CheckBox;
-            Imports.Extern_SetSetting(SpacerNET.AddString("searchOnly3DS"), Convert.ToInt32(ch.Checked));
+            Imports.Stack_PushString("searchOnly3DS");
+
+            Imports.Extern_SetSetting(Convert.ToInt32(ch.Checked));
         }
 
         private void listBoxVisuals_MouseClick(object sender, MouseEventArgs e)
@@ -1052,9 +1052,9 @@ namespace SpacerUnion
                         string visual = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
                         Clipboard.SetText(visual);
 
-                        IntPtr stringVisualPtr = SpacerNET.AddString("Скопировано в буфер: " + visual);
+                        Imports.Stack_PushString(SpacerNET.AddString("Скопировано в буфер: " + visual));
 
-                        Imports.Extern_PrintGreen(stringVisualPtr);
+                        Imports.Extern_PrintGreen();
 
                         SpacerNET.FreeStrings();
                     }
@@ -1115,14 +1115,24 @@ namespace SpacerUnion
 
         public void LoadSettings()
         {
-            checkBoxShowPreview.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("showModelPreview")));
-            checkBoxSearchOnly3DS.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("searchOnly3DS")));
 
 
-            checkBoxWayNet.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("addWPToNet")));
-            checkBoxWPAutoName.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("addWPAutoName")));
-            checkBoxFPGround.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("downFPToGround")));
-            checkBoxAutoNameFP.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("addFPAutoName")));
+            Imports.Stack_PushString("addFPAutoName");
+            Imports.Stack_PushString("downFPToGround");
+            Imports.Stack_PushString("addWPAutoName");
+            Imports.Stack_PushString("addWPToNet");
+            Imports.Stack_PushString("searchOnly3DS");
+            Imports.Stack_PushString("showModelPreview");
+
+
+            checkBoxShowPreview.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+            checkBoxSearchOnly3DS.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+
+            checkBoxWayNet.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+            checkBoxWPAutoName.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+            checkBoxFPGround.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+            checkBoxAutoNameFP.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
             SpacerNET.FreeStrings();
         }
@@ -1130,33 +1140,30 @@ namespace SpacerUnion
         private void checkBoxWayNet_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-            IntPtr ptrPathSave = SpacerNET.AddString("addWPToNet");
-            Imports.Extern_SetSetting(ptrPathSave, Convert.ToInt32(cb.Checked));
-            SpacerNET.FreeStrings();
+            Imports.Stack_PushString("addWPToNet");
+            Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
         }
 
         private void checkBoxWPAutoName_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-            IntPtr ptrPathSave = SpacerNET.AddString("addWPAutoName");
-            Imports.Extern_SetSetting(ptrPathSave, Convert.ToInt32(cb.Checked));
-            SpacerNET.FreeStrings();
+            Imports.Stack_PushString("addWPAutoName");
+            Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
         }
 
         private void checkBoxFPGround_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-            IntPtr ptrPathSave = SpacerNET.AddString("downFPToGround");
-            Imports.Extern_SetSetting(ptrPathSave, Convert.ToInt32(cb.Checked));
-            SpacerNET.FreeStrings();
+  
+            Imports.Stack_PushString("downFPToGround");
+            Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
         }
 
         private void checkBoxAutoNameFP_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-            IntPtr ptrPathSave = SpacerNET.AddString("addFPAutoName");
-            Imports.Extern_SetSetting(ptrPathSave, Convert.ToInt32(cb.Checked));
-            SpacerNET.FreeStrings();
+            Imports.Stack_PushString("addFPAutoName");
+            Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
         }
 
         private void listBoxParticles_SelectedIndexChanged(object sender, EventArgs e)
@@ -1194,9 +1201,8 @@ namespace SpacerUnion
 
         public void SendRenderPFX(string visual)
         {
-            IntPtr visualPtr = SpacerNET.AddString(visual);
-            Imports.Extern_RenderPFX(visualPtr);
-            SpacerNET.FreeStrings();
+            Imports.Stack_PushString(visual);
+            Imports.Extern_RenderPFX();
         }
 
         private void checkBoxShowPFXPreview_CheckedChanged(object sender, EventArgs e)
@@ -1231,9 +1237,8 @@ namespace SpacerUnion
 
         public void SendRenderItems(string visual)
         {
-            IntPtr visualPtr = SpacerNET.AddString(visual);
-            Imports.Extern_RenderItem(visualPtr);
-            SpacerNET.FreeStrings();
+            Imports.Stack_PushString(visual);
+            Imports.Extern_RenderItem();
         }
 
 

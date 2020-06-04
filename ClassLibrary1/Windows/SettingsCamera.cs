@@ -37,8 +37,8 @@ namespace SpacerUnion
 
             int.TryParse(textBoxLimitFPS.Text.Trim(), out value);
 
-
-            Imports.Extern_SetSetting(SpacerNET.AddString("maxFPS"), value);
+            Imports.Stack_PushString("maxFPS");
+            Imports.Extern_SetSetting(value);
             SpacerNET.FreeStrings();
         }
         
@@ -54,28 +54,32 @@ namespace SpacerUnion
         private void trackBarTransSpeed_ValueChanged(object sender, EventArgs e)
         {
             labelTrans.Text = "Скорость полета: " + trackBarTransSpeed.Value;
-            Imports.Extern_SetSetting(SpacerNET.AddString("camTransSpeed"), trackBarTransSpeed.Value);
+            Imports.Stack_PushString("camTransSpeed");
+            Imports.Extern_SetSetting(trackBarTransSpeed.Value);
             SpacerNET.FreeStrings();
         }
 
         private void trackBarRotSpeed_ValueChanged(object sender, EventArgs e)
         {
             labelRot.Text = "Скорость поворота: " + trackBarRotSpeed.Value;
-            Imports.Extern_SetSetting(SpacerNET.AddString("camRotSpeed"), trackBarRotSpeed.Value);
+            Imports.Stack_PushString("camRotSpeed");
+            Imports.Extern_SetSetting(trackBarRotSpeed.Value);
             SpacerNET.FreeStrings();
         }
 
         private void trackBarWorld_ValueChanged(object sender, EventArgs e)
         {
             labelWorld.Text = "Мир: " + trackBarWorld.Value;
-            Imports.Extern_SetSetting(SpacerNET.AddString("rangeWorld"), trackBarWorld.Value);
+            Imports.Stack_PushString("rangeWorld");
+            Imports.Extern_SetSetting(trackBarWorld.Value);
             SpacerNET.FreeStrings();
         }
 
         private void trackBarVobs_ValueChanged(object sender, EventArgs e)
         {
             labelVobs.Text = "Вобы: " + trackBarVobs.Value;
-            Imports.Extern_SetSetting(SpacerNET.AddString("rangeVobs"), trackBarVobs.Value);
+            Imports.Stack_PushString("rangeVobs");
+            Imports.Extern_SetSetting(trackBarVobs.Value);
             SpacerNET.FreeStrings();
         }
 
@@ -89,56 +93,56 @@ namespace SpacerUnion
         private void checkBoxFPS_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-
-            Imports.Extern_SetSetting(SpacerNET.AddString("showFps"), Convert.ToInt32(cb.Checked));
+            Imports.Stack_PushString("showFps");
+            Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
             SpacerNET.FreeStrings();
         }
 
         private void checkBoxTris_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-
-            Imports.Extern_SetSetting(SpacerNET.AddString("showTris"), Convert.ToInt32(cb.Checked));
+            Imports.Stack_PushString("showTris");
+            Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
             SpacerNET.FreeStrings();
         }
 
         private void checkBoxCamCoord_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-
-            Imports.Extern_SetSetting(SpacerNET.AddString("showCamCoords"), Convert.ToInt32(cb.Checked));
+            Imports.Stack_PushString("showCamCoords");
+            Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
             SpacerNET.FreeStrings();
         }
 
         private void checkBoxVobs_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-
-            Imports.Extern_SetSetting(SpacerNET.AddString("showVobsCount"), Convert.ToInt32(cb.Checked));
+            Imports.Stack_PushString("showVobsCount");
+            Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
             SpacerNET.FreeStrings();
         }
 
         private void checkBoxWaypoints_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-
-            Imports.Extern_SetSetting(SpacerNET.AddString("showWaypointsCount"), Convert.ToInt32(cb.Checked));
+            Imports.Stack_PushString("showWaypointsCount");
+            Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
             SpacerNET.FreeStrings();
         }
 
         private void checkBoxDistVob_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-
-            Imports.Extern_SetSetting(SpacerNET.AddString("showVobDist"), Convert.ToInt32(cb.Checked));
+            Imports.Stack_PushString("showVobDist");
+            Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
             SpacerNET.FreeStrings();
         }
 
         private void checkBoxCameraHideWins_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-
-            Imports.Extern_SetSetting(SpacerNET.AddString("hideCamWindows"), Convert.ToInt32(cb.Checked));
+            Imports.Stack_PushString("hideCamWindows");
+            Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
             SpacerNET.FreeStrings();
         }
 

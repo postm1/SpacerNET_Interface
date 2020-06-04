@@ -157,6 +157,7 @@ namespace SpacerUnion.Windows
             {
                 StringBuilder str = new StringBuilder();
 
+
                 int index = input.IndexOf('_');
 
                 string mod = input.Substring(0, index);

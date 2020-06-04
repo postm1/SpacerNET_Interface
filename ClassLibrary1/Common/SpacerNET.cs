@@ -48,6 +48,7 @@ namespace SpacerUnion
         {
             if (!marshalList.ContainsKey(s))
             {
+                ConsoleEx.WriteLineGreen("AddString: " + s);
                 IntPtr ptr = Marshal.StringToHGlobalAnsi(s);
                 marshalList.Add(s, ptr);
             }
@@ -241,15 +242,24 @@ namespace SpacerUnion
             ToolStripButton btn = form.toolStripTop.Items[7] as ToolStripButton;
 
 
-            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(AddString("showVobs")));
+
+            Imports.Stack_PushString("vobListRadius");
+            Imports.Stack_PushString("showInvisibleVobs");
+            Imports.Stack_PushString("drawBBoxGlobal");
+            Imports.Stack_PushString("showHelpVobs");
+            Imports.Stack_PushString("showWaynet");
+            Imports.Stack_PushString("showVobs");
+
+
+            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
             btn = form.toolStripTop.Items[8] as ToolStripButton;
-            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(AddString("showWaynet")));
+            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
             btn = form.toolStripTop.Items[9] as ToolStripButton;
-            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(AddString("showHelpVobs")));
+            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
             btn = form.toolStripTop.Items[10] as ToolStripButton;
-            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(AddString("drawBBoxGlobal")));
+            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
             btn = form.toolStripTop.Items[11] as ToolStripButton;
-            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting(AddString("showInvisibleVobs")));
+            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
             btn = form.toolStripTop.Items[0] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(infoWin.Visible);
@@ -273,13 +283,12 @@ namespace SpacerUnion
 
            
 
-            int radius = Imports.Extern_GetSetting(AddString("vobListRadius"));
+            int radius = Imports.Extern_GetSetting();
             vobList.trackBarRadius.Value = radius;
             vobList.comboBoxVobListType.SelectedIndex = 0;
 
 
             objectsWin.LoadSettings();
-            FreeStrings();
         }
 
 

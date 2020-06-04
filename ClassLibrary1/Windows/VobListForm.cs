@@ -95,7 +95,9 @@ namespace SpacerUnion
         {
             labelRadius.Text = "Радиус поиска: " + trackBarRadius.Value;
 
-            Imports.Extern_SetSetting(SpacerNET.AddString("vobListRadius"), trackBarRadius.Value);
+            Imports.Stack_PushString("vobListRadius");
+
+            Imports.Extern_SetSetting(trackBarRadius.Value);
             SpacerNET.FreeStrings();
 
         }

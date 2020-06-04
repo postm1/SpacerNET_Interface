@@ -911,8 +911,12 @@ namespace SpacerUnion
 
 
             saveFileDialogVobTree.Filter = "Zen file (*.zen)|";
-            IntPtr ptrPath = Imports.Extern_GetSettingStr(SpacerNET.AddString("treeVobPath"));
-            string path = Marshal.PtrToStringAnsi(ptrPath);
+
+
+
+            Imports.Stack_PushString("treeVobPath");
+            Imports.Extern_GetSettingStr();
+            string path = Imports.Stack_PeekString();
 
             string fileName = SpacerNET.objTreeWin.globalTree.SelectedNode.Text;
 
@@ -945,8 +949,8 @@ namespace SpacerUnion
 
 
                 string filePath = saveFileDialogVobTree.FileName;
-                IntPtr filePathPtr = SpacerNET.AddString(filePath);
-                Imports.Extern_SaveVobTree(filePathPtr);
+                Imports.Stack_PushString(filePath);
+                Imports.Extern_SaveVobTree();
             }
             SpacerNET.FreeStrings();
         }
@@ -969,8 +973,12 @@ namespace SpacerUnion
 
 
             openFileDialogVobTree.Filter = "Zen file (*.zen)|";
-            IntPtr ptrPath = Imports.Extern_GetSettingStr(SpacerNET.AddString("treeVobPath"));
-            string path = Marshal.PtrToStringAnsi(ptrPath);
+    
+
+
+            Imports.Stack_PushString("treeVobPath");
+            Imports.Extern_GetSettingStr();
+            string path = Imports.Stack_PeekString();
 
             string fileName = SpacerNET.objTreeWin.globalTree.SelectedNode.Text;
 
@@ -1000,8 +1008,8 @@ namespace SpacerUnion
 
 
                 string filePath = openFileDialogVobTree.FileName;
-                IntPtr filePathPtr = SpacerNET.AddString(filePath);
-                Imports.Extern_OpenVobTree(filePathPtr, false);
+                Imports.Stack_PushString(filePath);
+                Imports.Extern_OpenVobTree(false);
 
             }
 
@@ -1013,8 +1021,12 @@ namespace SpacerUnion
 
 
             openFileDialogVobTree.Filter = "Zen file (*.zen)|";
-            IntPtr ptrPath = Imports.Extern_GetSettingStr(SpacerNET.AddString("treeVobPath"));
-            string path = Marshal.PtrToStringAnsi(ptrPath);
+
+
+
+            Imports.Stack_PushString("treeVobPath");
+            Imports.Extern_GetSettingStr();
+            string path = Imports.Stack_PeekString();
 
             string fileName = SpacerNET.objTreeWin.globalTree.SelectedNode.Text;
 
@@ -1044,8 +1056,8 @@ namespace SpacerUnion
 
 
                 string filePath = openFileDialogVobTree.FileName;
-                IntPtr filePathPtr = SpacerNET.AddString(filePath);
-                Imports.Extern_OpenVobTree(filePathPtr, true);
+                Imports.Stack_PushString(filePath);
+                Imports.Extern_OpenVobTree(true);
 
                 if (SpacerNET.objTreeWin.globalTree.SelectedNode != null)
                 {

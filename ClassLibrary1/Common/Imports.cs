@@ -7,7 +7,7 @@ using System.Text;
 namespace SpacerUnion.Common
 {
     // Функции импорта из Юниона
-    public class Imports
+    public partial class Imports
     {
         public const string UNION_DLL_NAME = "$SpacerUnionNet.dll$";
         
@@ -19,16 +19,16 @@ namespace SpacerUnion.Common
         public static extern void Extern_Exit();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_OpenVobTree(IntPtr str, bool globalInsert);
+        public static extern void Extern_OpenVobTree(bool globalInsert);
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_LoadWorld(IntPtr str);
+        public static extern void Extern_LoadWorld();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_LoadMesh(IntPtr str);
+        public static extern void Extern_LoadMesh();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_MergeZen(IntPtr str);
+        public static extern void Extern_MergeZen();
 
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
@@ -36,24 +36,24 @@ namespace SpacerUnion.Common
 
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SetCameraPos(float x, float y, float z);
+        public static extern void Extern_SetCameraPos();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SaveWorld(IntPtr str, int type);
+        public static extern void Extern_SaveWorld(int type);
 
 
         #region Функции настроек
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int Extern_GetSetting(IntPtr namePtr);
+        public static extern int Extern_GetSetting();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SetSetting(IntPtr namePtr, int value);
+        public static extern void Extern_SetSetting(int value);
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_SetSettingStr(IntPtr namePtr, IntPtr value);
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr Extern_GetSettingStr(IntPtr namePtr);
+        public static extern void Extern_GetSettingStr();
         #endregion
 
 
@@ -66,10 +66,10 @@ namespace SpacerUnion.Common
         public static extern IntPtr Extern_CompileWorld(int type);
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_PlaySound(IntPtr str);
+        public static extern void Extern_PlaySound();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_ApplyProps(IntPtr propStr, IntPtr propName, IntPtr ptrVisual);
+        public static extern void Extern_ApplyProps();
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern float Extern_GetBBox(int coord);
 
@@ -77,7 +77,7 @@ namespace SpacerUnion.Common
         public static extern float Extern_SetBBox(int x, int y, int z);
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SaveVobTree(IntPtr str);
+        public static extern void Extern_SaveVobTree();
 
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
@@ -96,30 +96,30 @@ namespace SpacerUnion.Common
         private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_CreateItem(IntPtr name);
+        public static extern void Extern_CreateItem();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_CreatePFX(IntPtr name);
-
-
-        [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern bool Extern_VobNameExist(IntPtr name, bool isWaypoint);
-
+        public static extern void Extern_CreatePFX();
 
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_CreateNewVob(IntPtr name, IntPtr vobName, int dyn, int stat);
+        public static extern bool Extern_VobNameExist(bool isWaypoint);
+
+
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_CreateWaypoint(IntPtr name, IntPtr vobName, bool addToWaynet, bool autoGenerate);
+        public static extern void Extern_CreateNewVobVisual(int dyn, int stat);
+
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_CreateFreePoint(IntPtr name, IntPtr vobName, bool autoGenerate, bool ground);
+        public static extern void Extern_CreateWaypoint(bool addToWaynet, bool autoGenerate);
+
+        [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_CreateFreePoint(bool autoGenerate, bool ground);
         
 
 
-        [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_CreateNewVobVisual(IntPtr name, IntPtr vobName, IntPtr visual, int dyn, int stat);
+        
 
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
@@ -164,18 +164,18 @@ namespace SpacerUnion.Common
 
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern bool Extern_CheckUniqueNameExist(IntPtr vobName);
+        public static extern bool Extern_CheckUniqueNameExist();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr Extern_AnalyseWaynet();
-
-
-        [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_RenderSelectedVob(IntPtr visual);
+        public static extern void Extern_AnalyseWaynet();
 
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_RenderPFX(IntPtr visual);
+        public static extern void Extern_RenderSelectedVob();
+
+
+        [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_RenderPFX();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_KillPFX();
@@ -185,7 +185,7 @@ namespace SpacerUnion.Common
         public static extern void Extern_KillPreviewItem();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_RenderItem(IntPtr visual);
+        public static extern void Extern_RenderItem();
 
 
 
@@ -200,10 +200,10 @@ namespace SpacerUnion.Common
 
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_PrintRed(IntPtr str);
+        public static extern void Extern_PrintRed();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_PrintGreen(IntPtr str);
+        public static extern void Extern_PrintGreen();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_PlayHero();
@@ -215,11 +215,11 @@ namespace SpacerUnion.Common
 
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SendNewKeyPreset(IntPtr type, int key, int mod);
+        public static extern void Extern_SendNewKeyPreset(int key, int mod);
 
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr Extern_GetIniKey(IntPtr key);
+        public static extern void Extern_GetIniKey();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern bool Extern_IsWorldLoaded();

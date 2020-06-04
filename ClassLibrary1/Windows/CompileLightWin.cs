@@ -37,8 +37,8 @@ namespace SpacerUnion
             {
                 if (buttons[i].Checked)
                 {
-                    IntPtr ptrType = SpacerNET.AddString("lightCompileType");
-                    Imports.Extern_SetSetting(ptrType, i);
+                    Imports.Stack_PushString("lightCompileType");
+                    Imports.Extern_SetSetting(i);
                     break;
                 }
             }
@@ -49,16 +49,16 @@ namespace SpacerUnion
 
             if (checkBoxCompileRegion.Checked)
             {
-                IntPtr lightRegPtr = SpacerNET.AddString("lightCompileRegionOn");
-                Imports.Extern_SetSetting(lightRegPtr, 1);
+                Imports.Stack_PushString("lightCompileRegionOn");
+                Imports.Extern_SetSetting(1);
 
-                IntPtr lightRadius = SpacerNET.AddString("lightCompileRadius");
-                Imports.Extern_SetSetting(lightRadius, value);
+                Imports.Stack_PushString("lightCompileRadius");
+                Imports.Extern_SetSetting(value);
             }
             else
             {
-                IntPtr lightRegPtr = SpacerNET.AddString("lightCompileRegionOn");
-                Imports.Extern_SetSetting(lightRegPtr, 0);
+                Imports.Stack_PushString("lightCompileRegionOn");
+                Imports.Extern_SetSetting(0);
             }
 
             SpacerNET.FreeStrings();
@@ -66,16 +66,23 @@ namespace SpacerUnion
 
         public void LoadSettings()
         {
-            int type = Imports.Extern_GetSetting(SpacerNET.AddString("lightCompileType"));
+            Imports.Stack_PushString("lightCompileType");
+
+            int type = Imports.Extern_GetSetting();
 
             if (type >= 0 && type < buttons.Length)
             {
                 buttons[type].Checked = true;
             }
-            
 
-            bool regionChecked = Convert.ToBoolean(Imports.Extern_GetSetting(SpacerNET.AddString("lightCompileRegionOn")));
-            int radius = Imports.Extern_GetSetting(SpacerNET.AddString("lightCompileRadius"));
+
+            Imports.Stack_PushString("lightCompileRegionOn");
+
+            bool regionChecked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("lightCompileRadius");
+
+            int radius = Imports.Extern_GetSetting();
 
             
             checkBoxCompileRegion.Checked = regionChecked;

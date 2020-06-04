@@ -20,11 +20,16 @@ namespace SpacerUnion.Windows
 
         public void LoadSettings()
         {
-            int useDatePrefix = Imports.Extern_GetSetting(SpacerNET.AddString("addDatePrefix"));
-            int askExitZen = Imports.Extern_GetSetting(SpacerNET.AddString("askExitZen"));
+            Imports.Stack_PushString("fullPathTitle");
+            Imports.Stack_PushString("openLastZen");
+            Imports.Stack_PushString("askExitZen");
+            Imports.Stack_PushString("addDatePrefix");
 
-            int openLastZen = Imports.Extern_GetSetting(SpacerNET.AddString("openLastZen"));
-            int fullPath = Imports.Extern_GetSetting(SpacerNET.AddString("fullPathTitle"));
+            int useDatePrefix = Imports.Extern_GetSetting();
+            int askExitZen = Imports.Extern_GetSetting();
+
+            int openLastZen = Imports.Extern_GetSetting();
+            int fullPath = Imports.Extern_GetSetting();
 
             SpacerNET.miscSetWin.checkBoxSetDatePrefix.Checked = Convert.ToBoolean(useDatePrefix);
             SpacerNET.miscSetWin.checkBoxMiscExitAsk.Checked = Convert.ToBoolean(askExitZen);
@@ -35,10 +40,15 @@ namespace SpacerUnion.Windows
 
         public void OnApplySettings()
         {
-            Imports.Extern_SetSetting(SpacerNET.AddString("addDatePrefix"), Convert.ToInt32(checkBoxSetDatePrefix.Checked));
-            Imports.Extern_SetSetting(SpacerNET.AddString("askExitZen"), Convert.ToInt32(checkBoxMiscExitAsk.Checked));
-            Imports.Extern_SetSetting(SpacerNET.AddString("openLastZen"), Convert.ToInt32(checkBoxLastZenAuto.Checked));
-            Imports.Extern_SetSetting(SpacerNET.AddString("fullPathTitle"), Convert.ToInt32(checkBoxMiscFullPath.Checked));
+            Imports.Stack_PushString("fullPathTitle");
+            Imports.Stack_PushString("openLastZen");
+            Imports.Stack_PushString("askExitZen");
+            Imports.Stack_PushString("addDatePrefix");
+
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxSetDatePrefix.Checked));
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxMiscExitAsk.Checked));
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxLastZenAuto.Checked));
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxMiscFullPath.Checked));
             SpacerNET.FreeStrings();
         }
 

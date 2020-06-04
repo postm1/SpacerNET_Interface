@@ -527,9 +527,10 @@ namespace SpacerUnion
                     if (prop.Name == "vobName")
                     {
                         string newName = prop.value;
-                        IntPtr newNamePtr = SpacerNET.AddString(newName);
 
-                        if (Imports.Extern_CheckUniqueNameExist(newNamePtr))
+                        Imports.Stack_PushString(newName);
+
+                        if (Imports.Extern_CheckUniqueNameExist())
                         {
                             MessageBox.Show("Такое имя уже существует!");
                             SpacerNET.FreeStrings();
@@ -599,12 +600,12 @@ namespace SpacerUnion
                 str.Append(words[j] + "\n");
             }
 
-            IntPtr ptr = SpacerNET.AddString(str.ToString());
-            IntPtr ptrName = SpacerNET.AddString(nameValue);
-            IntPtr ptrVisual = SpacerNET.AddString(visual);
 
-            Imports.Extern_ApplyProps(ptr, ptrName, ptrVisual);
-            SpacerNET.FreeStrings();
+            Imports.Stack_PushString(visual);
+            Imports.Stack_PushString(nameValue);
+            Imports.Stack_PushString(str.ToString());
+
+            Imports.Extern_ApplyProps();
 
         }
 
@@ -1097,9 +1098,10 @@ namespace SpacerUnion
         {
             openFileDialogFileName.Filter = "All files (*.)|";
 
-            IntPtr ptrPath = Imports.Extern_GetSettingStr(SpacerNET.AddString("vobResPath"));
 
-            string path = Marshal.PtrToStringAnsi(ptrPath);
+            Imports.Stack_PushString("vobResPath");
+            Imports.Extern_GetSettingStr();
+            string path = Imports.Stack_PeekString();
 
             //MessageBox.Show(path);
 

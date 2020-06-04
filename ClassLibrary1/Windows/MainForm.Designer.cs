@@ -62,6 +62,7 @@
             this.cameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miscToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сочетанияКлавишToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.russianToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,7 +85,7 @@
             this.toolStripButtonBBox = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonInvisible = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.сочетанияКлавишToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.тестToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -337,7 +338,8 @@
             this.cameraToolStripMenuItem,
             this.controlsToolStripMenuItem,
             this.miscToolStripMenuItem,
-            this.сочетанияКлавишToolStripMenuItem});
+            this.сочетанияКлавишToolStripMenuItem,
+            this.тестToolStripMenuItem});
             this.toolStripMenuItemSettings.ForeColor = System.Drawing.Color.Black;
             this.toolStripMenuItemSettings.Name = "toolStripMenuItemSettings";
             this.toolStripMenuItemSettings.Size = new System.Drawing.Size(79, 20);
@@ -363,6 +365,13 @@
             this.miscToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.miscToolStripMenuItem.Text = "Прочее";
             this.miscToolStripMenuItem.Click += new System.EventHandler(this.прочееToolStripMenuItem_Click);
+            // 
+            // сочетанияКлавишToolStripMenuItem
+            // 
+            this.сочетанияКлавишToolStripMenuItem.Name = "сочетанияКлавишToolStripMenuItem";
+            this.сочетанияКлавишToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.сочетанияКлавишToolStripMenuItem.Text = "Сочетания клавиш";
+            this.сочетанияКлавишToolStripMenuItem.Click += new System.EventHandler(this.сочетанияКлавишToolStripMenuItem_Click);
             // 
             // languageToolStripMenuItem
             // 
@@ -565,12 +574,12 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // сочетанияКлавишToolStripMenuItem
+            // тестToolStripMenuItem
             // 
-            this.сочетанияКлавишToolStripMenuItem.Name = "сочетанияКлавишToolStripMenuItem";
-            this.сочетанияКлавишToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.сочетанияКлавишToolStripMenuItem.Text = "Сочетания клавиш";
-            this.сочетанияКлавишToolStripMenuItem.Click += new System.EventHandler(this.сочетанияКлавишToolStripMenuItem_Click);
+            this.тестToolStripMenuItem.Name = "тестToolStripMenuItem";
+            this.тестToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.тестToolStripMenuItem.Text = "Тест";
+            this.тестToolStripMenuItem.Click += new System.EventHandler(this.тестToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -659,5 +668,6 @@
         private System.Windows.Forms.ToolStripMenuItem russianToolStrip;
         private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem сочетанияКлавишToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem тестToolStripMenuItem;
     }
 }

@@ -40,11 +40,10 @@ namespace SpacerUnion.Windows
 
             if (dataGridKeys.CurrentRow.Cells[0].Value != null)
             {
-                //ConsoleEx.WriteLineRed("C# Pressed in dataGridView: " + e.KeyValue);
                 currentKeyEntry.PackToUnion();
-                Imports.Extern_SendNewKeyPreset(SpacerNET.AddString(dataGridKeys.CurrentRow.Cells[0].Value.ToString()), currentKeyEntry.union_key, currentKeyEntry.mod);
 
-                SpacerNET.FreeStrings();
+                Imports.Stack_PushString(dataGridKeys.CurrentRow.Cells[0].Value.ToString());
+                Imports.Extern_SendNewKeyPreset(currentKeyEntry.union_key, currentKeyEntry.mod);
             }
            
 
@@ -70,7 +69,9 @@ namespace SpacerUnion.Windows
 
                     if (currentKey.Length > 0)
                     {
-                        string gotString = Marshal.PtrToStringAnsi(Imports.Extern_GetIniKey(SpacerNET.AddString(currentKey)));
+                        Imports.Stack_PushString(currentKey);
+                        Imports.Extern_GetIniKey();
+                        string gotString = Imports.Stack_PeekString();
 
                         if (gotString.Length > 0)
                         {
@@ -83,16 +84,11 @@ namespace SpacerUnion.Windows
 
 
             }
-
-            SpacerNET.FreeStrings();
         }
 
         private void KeysForm_Shown(object sender, EventArgs e)
         {
             Fill_Table();
-
-           
-
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

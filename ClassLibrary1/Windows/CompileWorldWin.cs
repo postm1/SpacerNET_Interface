@@ -80,8 +80,8 @@ namespace SpacerUnion
             {
                 if (buttons[i].Checked)
                 {
-                    IntPtr ptrType = SpacerNET.AddString("worldCompileType");
-                    Imports.Extern_SetSetting(ptrType, i);
+                    Imports.Stack_PushString("worldCompileType");
+                    Imports.Extern_SetSetting(i);
                     break;
                 }
             }
@@ -92,7 +92,8 @@ namespace SpacerUnion
 
         public void LoadSettings()
         {
-            int type = Imports.Extern_GetSetting(SpacerNET.AddString("worldCompileType"));
+            Imports.Stack_PushString("worldCompileType");
+            int type = Imports.Extern_GetSetting();
 
             if (type >= 0 && type < buttons.Length)
             {

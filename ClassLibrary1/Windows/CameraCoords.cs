@@ -33,7 +33,10 @@ namespace SpacerUnion.Windows
             float v1 = Convert.ToSingle(textBoxCamVec1.Text.Trim().Replace(',', '.'), new CultureInfo("en-US"));
             float v2 = Convert.ToSingle(textBoxCamVec2.Text.Trim().Replace(',', '.'), new CultureInfo("en-US"));
 
-            Imports.Extern_SetCameraPos(v0, v1, v2);
+            Imports.Stack_PushFloat(v2);
+            Imports.Stack_PushFloat(v1);
+            Imports.Stack_PushFloat(v0);
+            Imports.Extern_SetCameraPos();
 
             if (checkBoxCloseCamWin.Checked)
             {

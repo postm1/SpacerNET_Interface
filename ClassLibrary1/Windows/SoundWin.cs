@@ -69,9 +69,8 @@ namespace SpacerUnion
             }
 
             string name = listBox.GetItemText(listBox.SelectedItem);
-            IntPtr namePtr = SpacerNET.AddString(name);
-            Imports.Extern_PlaySound(namePtr);
-            SpacerNET.FreeStrings();
+            Imports.Stack_PushString(name);
+            Imports.Extern_PlaySound();
 
         }
 
@@ -111,9 +110,8 @@ namespace SpacerUnion
             }
 
             string name = listBoxSndResult.GetItemText(listBoxSndResult.SelectedItem);
-            IntPtr namePtr = SpacerNET.AddString(name);
-            Imports.Extern_PlaySound(namePtr);
-            SpacerNET.FreeStrings();
+            Imports.Stack_PushString(name);
+            Imports.Extern_PlaySound();
 
         }
 
@@ -126,27 +124,25 @@ namespace SpacerUnion
         {
             labelMusicVolume.Text = "Громкость " + trackBarMusicVolume.Value + "%";
 
-            Imports.Extern_SetSetting(SpacerNET.AddString("musicVolume"), trackBarMusicVolume.Value);
-            SpacerNET.FreeStrings();
+            Imports.Stack_PushString("musicVolume");
+            Imports.Extern_SetSetting(trackBarMusicVolume.Value);
             
         }
 
         private void buttonMusicOn_Click(object sender, EventArgs e)
         {
             Imports.Extern_ToggleMusic(true);
-
-            Imports.Extern_SetSetting(SpacerNET.AddString("musicVolume"), trackBarMusicVolume.Value);
+            Imports.Stack_PushString("musicVolume");
+            Imports.Extern_SetSetting(trackBarMusicVolume.Value);
             
-            SpacerNET.FreeStrings();
         }
 
         private void checkBoxShutMusic_CheckedChanged(object sender, EventArgs e)
         {
 
             CheckBox cb = sender as CheckBox;
-
-            Imports.Extern_SetSetting(SpacerNET.AddString("musicZenOff"), Convert.ToInt32(cb.Checked));
-            SpacerNET.FreeStrings();
+            Imports.Stack_PushString("musicZenOff");
+            Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
         }
 
         private void listBoxSound_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -158,9 +154,8 @@ namespace SpacerUnion
                 if (index == lb.SelectedIndex)
                 {
                     string name = listBoxSound.GetItemText(listBoxSound.SelectedItem);
-                    IntPtr namePtr = SpacerNET.AddString(name);
-                    Imports.Extern_PlaySound(namePtr);
-                    SpacerNET.FreeStrings();
+                    Imports.Stack_PushString(name);
+                    Imports.Extern_PlaySound();
                 }
             }
         }
@@ -174,9 +169,8 @@ namespace SpacerUnion
                 if (index == lb.SelectedIndex)
                 {
                     string name = listBoxSndResult.GetItemText(listBoxSndResult.SelectedItem);
-                    IntPtr namePtr = SpacerNET.AddString(name);
-                    Imports.Extern_PlaySound(namePtr);
-                    SpacerNET.FreeStrings();
+                    Imports.Stack_PushString(name);
+                    Imports.Extern_PlaySound();
                 }
             }
         }
