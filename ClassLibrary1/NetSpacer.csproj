@@ -245,6 +245,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\PropertiesWin.resx">
       <DependentUpon>PropertiesWin.cs</DependentUpon>
@@ -297,6 +298,9 @@
     <None Include="Resources\Pictures\jab.png" />
     <None Include="Resources\i.jpg" />
     <None Include="Resources\i %281%29.jpg" />
+    <None Include="Resources\flag-of-germany-flag-of-finland-flag-of-latvia-flag-of-iceland-flag-thumbnail.jpg" />
+    <None Include="Resources\440px-Flag_of_Germany.svg.png" />
+    <None Include="Resources\cl_pols.png" />
     <Content Include="Resources\Pictures\Letter_S_red_34876.ico" />
     <None Include="Resources\Pictures\Loading.png" />
     <None Include="Resources\Pictures\Spinner-0.5s-137px.gif" />

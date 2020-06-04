@@ -119,6 +119,9 @@ namespace SpacerUnion
             playHeroToolStrip.Text = Localizator.Get("MENU_TOP_PLAY_THE_GAME");
 
 
+            keyBindsToolStripMenuItem.Text = Localizator.Get("MENU_TOP_KEYSBINDS");
+
+
             toolStripButtonInfo.Text = Localizator.Get("MENU_TOP_HOVER_WININFO");
             toolStripButtonBig.Text = Localizator.Get("MENU_TOP_HOVER_WINOBJ");
             toolStripButtonSound.Text = Localizator.Get("MENU_TOP_HOVER_WINSOUND");
@@ -129,8 +132,12 @@ namespace SpacerUnion
             toolStripButtonVobs.Text = Localizator.Get("MENU_TOP_VIEW_VOBS");
             toolStripButtonWaynet.Text = Localizator.Get("MENU_TOP_VIEW_WAYNET");
             toolStripButtonHelpVobs.Text = Localizator.Get("MENU_TOP_VIEW_HELPER");
+            
             toolStripButtonBBox.Text = Localizator.Get("MENU_TOP_VIEW_BBOX");
             toolStripButtonInvisible.Text = Localizator.Get("MENU_TOP_VIEW_INVIS");
+
+
+
 
         }
 
@@ -1094,6 +1101,24 @@ namespace SpacerUnion
         private void тестToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void deutscheToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Language = (int)LangEnum.DE;
+            Properties.Settings.Default.Save();
+
+            Localizator.SetLanguage(LangEnum.DE);
+            Localizator.UpdateInterface();
+        }
+
+        private void polskiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Language = (int)LangEnum.PL;
+            Properties.Settings.Default.Save();
+
+            Localizator.SetLanguage(LangEnum.PL);
+            Localizator.UpdateInterface();
         }
     }
 }

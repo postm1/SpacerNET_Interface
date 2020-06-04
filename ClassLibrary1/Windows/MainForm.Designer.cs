@@ -62,10 +62,12 @@
             this.cameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miscToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сочетанияКлавишToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.keyBindsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.russianToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.deutscheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.polskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -337,7 +339,7 @@
             this.cameraToolStripMenuItem,
             this.controlsToolStripMenuItem,
             this.miscToolStripMenuItem,
-            this.сочетанияКлавишToolStripMenuItem});
+            this.keyBindsToolStripMenuItem});
             this.toolStripMenuItemSettings.ForeColor = System.Drawing.Color.Black;
             this.toolStripMenuItemSettings.Name = "toolStripMenuItemSettings";
             this.toolStripMenuItemSettings.Size = new System.Drawing.Size(79, 20);
@@ -364,18 +366,20 @@
             this.miscToolStripMenuItem.Text = "Прочее";
             this.miscToolStripMenuItem.Click += new System.EventHandler(this.прочееToolStripMenuItem_Click);
             // 
-            // сочетанияКлавишToolStripMenuItem
+            // keyBindsToolStripMenuItem
             // 
-            this.сочетанияКлавишToolStripMenuItem.Name = "сочетанияКлавишToolStripMenuItem";
-            this.сочетанияКлавишToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.сочетанияКлавишToolStripMenuItem.Text = "Сочетания клавиш";
-            this.сочетанияКлавишToolStripMenuItem.Click += new System.EventHandler(this.сочетанияКлавишToolStripMenuItem_Click);
+            this.keyBindsToolStripMenuItem.Name = "keyBindsToolStripMenuItem";
+            this.keyBindsToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.keyBindsToolStripMenuItem.Text = "Сочетания клавиш";
+            this.keyBindsToolStripMenuItem.Click += new System.EventHandler(this.сочетанияКлавишToolStripMenuItem_Click);
             // 
             // languageToolStripMenuItem
             // 
             this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.russianToolStrip,
-            this.englishToolStripMenuItem1});
+            this.englishToolStripMenuItem1,
+            this.deutscheToolStripMenuItem,
+            this.polskiToolStripMenuItem});
             this.languageToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
             this.languageToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
@@ -385,7 +389,7 @@
             // 
             this.russianToolStrip.Image = global::SpacerUnion.Properties.Resources.s1200;
             this.russianToolStrip.Name = "russianToolStrip";
-            this.russianToolStrip.Size = new System.Drawing.Size(119, 22);
+            this.russianToolStrip.Size = new System.Drawing.Size(123, 22);
             this.russianToolStrip.Text = "Русский";
             this.russianToolStrip.Click += new System.EventHandler(this.русскийToolStripMenuItem1_Click);
             // 
@@ -393,9 +397,25 @@
             // 
             this.englishToolStripMenuItem1.Image = global::SpacerUnion.Properties.Resources.uk_flag;
             this.englishToolStripMenuItem1.Name = "englishToolStripMenuItem1";
-            this.englishToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
+            this.englishToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
             this.englishToolStripMenuItem1.Text = "English";
             this.englishToolStripMenuItem1.Click += new System.EventHandler(this.englishToolStripMenuItem1_Click);
+            // 
+            // deutscheToolStripMenuItem
+            // 
+            this.deutscheToolStripMenuItem.Image = global::SpacerUnion.Properties.Resources._440px_Flag_of_Germany_svg;
+            this.deutscheToolStripMenuItem.Name = "deutscheToolStripMenuItem";
+            this.deutscheToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.deutscheToolStripMenuItem.Text = "Deutsche";
+            this.deutscheToolStripMenuItem.Click += new System.EventHandler(this.deutscheToolStripMenuItem_Click);
+            // 
+            // polskiToolStripMenuItem
+            // 
+            this.polskiToolStripMenuItem.Image = global::SpacerUnion.Properties.Resources.cl_pols;
+            this.polskiToolStripMenuItem.Name = "polskiToolStripMenuItem";
+            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.polskiToolStripMenuItem.Text = "Polski";
+            this.polskiToolStripMenuItem.Click += new System.EventHandler(this.polskiToolStripMenuItem_Click);
             // 
             // toolStripMenuHelp
             // 
@@ -554,7 +574,6 @@
             this.toolStripButtonBBox.Name = "toolStripButtonBBox";
             this.toolStripButtonBBox.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonBBox.Text = "Показывать все Bbox";
-            this.toolStripButtonBBox.ToolTipText = "Показывать все Bbox";
             this.toolStripButtonBBox.Click += new System.EventHandler(this.toolStripButtonBBox_Click_1);
             // 
             // toolStripButtonInvisible
@@ -658,6 +677,8 @@
         private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem russianToolStrip;
         private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem сочетанияКлавишToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem keyBindsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deutscheToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem polskiToolStripMenuItem;
     }
 }

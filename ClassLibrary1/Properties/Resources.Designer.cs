@@ -63,6 +63,26 @@ namespace SpacerUnion.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _440px_Flag_of_Germany_svg {
+            get {
+                object obj = ResourceManager.GetObject("440px-Flag_of_Germany.svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cl_pols {
+            get {
+                object obj = ResourceManager.GetObject("cl_pols", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap jab {
             get {
                 object obj = ResourceManager.GetObject("jab", resourceCulture);
