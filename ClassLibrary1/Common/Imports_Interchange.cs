@@ -35,7 +35,7 @@ namespace SpacerUnion.Common
 
         public static void Stack_PushString(string v)
         {
-            Console.Write("## ");
+            //Console.Write("## ");
             IntPtr ptr = StringToPtrA(v);
             Stack_PushString(ptr);
             Marshal.FreeHGlobal(ptr);
@@ -65,7 +65,7 @@ namespace SpacerUnion.Common
 
         public static string Stack_PeekString()
         {
-            Console.Write("## ");
+            //Console.Write("## ");
             IntPtr ptr = Stack_PeekString_S();
             string v = PtrAToString(ptr);
             Stack_Pop();

@@ -44,9 +44,9 @@ namespace SpacerUnion
 
 
         [DllExport]
-        public static void AddToVobList(uint vob, IntPtr vobNamePtr)
+        public static void AddToVobList(uint vob)
         {
-            string vobName = Marshal.PtrToStringAnsi(vobNamePtr);
+            string vobName = Imports.Stack_PeekString();
 
             SpacerNET.vobList.listBoxVobs.Items.Add(vobName);
             vobList.Add(vob);
@@ -98,7 +98,7 @@ namespace SpacerUnion
             Imports.Stack_PushString("vobListRadius");
 
             Imports.Extern_SetSetting(trackBarRadius.Value);
-            SpacerNET.FreeStrings();
+            
 
         }
 

@@ -87,7 +87,7 @@ namespace SpacerUnion
             }
 
      
-            SpacerNET.FreeStrings();
+            
         }
 
         public void LoadSettings()

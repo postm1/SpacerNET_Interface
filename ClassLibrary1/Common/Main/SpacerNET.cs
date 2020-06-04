@@ -16,7 +16,6 @@ namespace SpacerUnion
 
     public static class SpacerNET
     {
-        
 
         // Окна приложения
         public static MainForm form;
@@ -38,43 +37,15 @@ namespace SpacerUnion
         // Список скрытых окон
         static List<Form> windowsToHideList = null;
 
-        // Список окон
+        // Список всех окон
         static List<Form> windowsList = null;
-
-
-        private static Dictionary<string, IntPtr> marshalList = new Dictionary<string, IntPtr>();
-
-        public static IntPtr AddString(string s)
-        {
-            if (!marshalList.ContainsKey(s))
-            {
-                ConsoleEx.WriteLineGreen("AddString: " + s);
-                IntPtr ptr = Marshal.StringToHGlobalAnsi(s);
-                marshalList.Add(s, ptr);
-            }
-            
-            return marshalList[s];
-        }
-
-        public static void FreeStrings()
-        {
-            //ConsoleEx.WriteLineGreen("Marshal list before: " + marshalList.Count);
-            foreach (var entry in marshalList)
-            {
-                Marshal.FreeHGlobal(entry.Value);
-            }
-
-            marshalList.Clear();
-
-            //ConsoleEx.WriteLineGreen("Marshal list after: " + marshalList.Count);
-        }
-
 
 
         // Главная функция запуска, вызывается из Union
         [DllExport]
-        public static void UnionInitialize(IntPtr L)
+        public static void UnionInitialize()
         {
+            // автоматически закрываемый MessageBox, без него не запустится
             AutoClosingMessageBox.Show("", "", 80);
 
             Application.EnableVisualStyles();
@@ -126,22 +97,16 @@ namespace SpacerUnion
             Localizator.UpdateInterface();
 
             form.Show();
-            //form.panelMain.Show();
-           // infoWin.Show();
 
             form.Left = 0;
             form.Top = 0;
-
-            //infoWin.Left = 950;
-            //infoWin.Top = 600;
-
 
             form.AddText(Localizator.Get("appIsLoading"));
 
 
         }
 
-        // Функция вызывается, когда загрузился движок игры, вызывается из Union
+        // Функция вызывается, когда загрузился движок игры (Game_Init), вызывается из Union
         [DllExport]
         public static void Form_EnableInterface()
         {

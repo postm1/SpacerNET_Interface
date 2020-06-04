@@ -39,7 +39,7 @@ namespace SpacerUnion
 
             Imports.Stack_PushString("maxFPS");
             Imports.Extern_SetSetting(value);
-            SpacerNET.FreeStrings();
+            
         }
         
         public void UpdateAll()
@@ -56,7 +56,7 @@ namespace SpacerUnion
             labelTrans.Text = "Скорость полета: " + trackBarTransSpeed.Value;
             Imports.Stack_PushString("camTransSpeed");
             Imports.Extern_SetSetting(trackBarTransSpeed.Value);
-            SpacerNET.FreeStrings();
+            
         }
 
         private void trackBarRotSpeed_ValueChanged(object sender, EventArgs e)
@@ -64,7 +64,7 @@ namespace SpacerUnion
             labelRot.Text = "Скорость поворота: " + trackBarRotSpeed.Value;
             Imports.Stack_PushString("camRotSpeed");
             Imports.Extern_SetSetting(trackBarRotSpeed.Value);
-            SpacerNET.FreeStrings();
+            
         }
 
         private void trackBarWorld_ValueChanged(object sender, EventArgs e)
@@ -72,7 +72,7 @@ namespace SpacerUnion
             labelWorld.Text = "Мир: " + trackBarWorld.Value;
             Imports.Stack_PushString("rangeWorld");
             Imports.Extern_SetSetting(trackBarWorld.Value);
-            SpacerNET.FreeStrings();
+            
         }
 
         private void trackBarVobs_ValueChanged(object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace SpacerUnion
             labelVobs.Text = "Вобы: " + trackBarVobs.Value;
             Imports.Stack_PushString("rangeVobs");
             Imports.Extern_SetSetting(trackBarVobs.Value);
-            SpacerNET.FreeStrings();
+            
         }
 
         private void Применить_Click(object sender, EventArgs e)
@@ -95,7 +95,7 @@ namespace SpacerUnion
             CheckBox cb = sender as CheckBox;
             Imports.Stack_PushString("showFps");
             Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
-            SpacerNET.FreeStrings();
+            
         }
 
         private void checkBoxTris_CheckedChanged(object sender, EventArgs e)
@@ -103,7 +103,7 @@ namespace SpacerUnion
             CheckBox cb = sender as CheckBox;
             Imports.Stack_PushString("showTris");
             Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
-            SpacerNET.FreeStrings();
+            
         }
 
         private void checkBoxCamCoord_CheckedChanged(object sender, EventArgs e)
@@ -111,7 +111,7 @@ namespace SpacerUnion
             CheckBox cb = sender as CheckBox;
             Imports.Stack_PushString("showCamCoords");
             Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
-            SpacerNET.FreeStrings();
+            
         }
 
         private void checkBoxVobs_CheckedChanged(object sender, EventArgs e)
@@ -119,7 +119,7 @@ namespace SpacerUnion
             CheckBox cb = sender as CheckBox;
             Imports.Stack_PushString("showVobsCount");
             Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
-            SpacerNET.FreeStrings();
+            
         }
 
         private void checkBoxWaypoints_CheckedChanged(object sender, EventArgs e)
@@ -127,7 +127,7 @@ namespace SpacerUnion
             CheckBox cb = sender as CheckBox;
             Imports.Stack_PushString("showWaypointsCount");
             Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
-            SpacerNET.FreeStrings();
+            
         }
 
         private void checkBoxDistVob_CheckedChanged(object sender, EventArgs e)
@@ -135,7 +135,7 @@ namespace SpacerUnion
             CheckBox cb = sender as CheckBox;
             Imports.Stack_PushString("showVobDist");
             Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
-            SpacerNET.FreeStrings();
+            
         }
 
         private void checkBoxCameraHideWins_CheckedChanged(object sender, EventArgs e)
@@ -143,7 +143,7 @@ namespace SpacerUnion
             CheckBox cb = sender as CheckBox;
             Imports.Stack_PushString("hideCamWindows");
             Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
-            SpacerNET.FreeStrings();
+            
         }
 
         private void textBoxLimitFPS_TextChanged(object sender, EventArgs e)

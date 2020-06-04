@@ -61,7 +61,7 @@ namespace SpacerUnion
                 Imports.Extern_SetSetting(0);
             }
 
-            SpacerNET.FreeStrings();
+            
         }
 
         public void LoadSettings()

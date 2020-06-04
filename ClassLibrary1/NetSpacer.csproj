@@ -180,7 +180,7 @@
       <DependentUpon>SoundWin.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\TreeEntry.cs" />
-    <Compile Include="Common\SpacerNET.cs" />
+    <Compile Include="Common\Main\SpacerNET.cs" />
     <Compile Include="Windows\CompileLightWin.cs">
       <SubType>Form</SubType>
     </Compile>

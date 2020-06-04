@@ -89,10 +89,10 @@ namespace SpacerUnion
 
         }
         [DllExport]
-        public static void AddProps(IntPtr ptr, IntPtr ptrType)
+        public static void AddProps()
         {
-            string inputStr = Marshal.PtrToStringAnsi(ptr);
-            string className = Marshal.PtrToStringAnsi(ptrType);
+            string inputStr = Imports.Stack_PeekString();
+            string className = Imports.Stack_PeekString();
             TreeView tree = SpacerNET.propWin.treeViewProp;
 
 
@@ -533,7 +533,7 @@ namespace SpacerUnion
                         if (Imports.Extern_CheckUniqueNameExist())
                         {
                             MessageBox.Show("Такое имя уже существует!");
-                            SpacerNET.FreeStrings();
+                            
                             return;
                         }
                     }
@@ -1120,11 +1120,16 @@ namespace SpacerUnion
             if (openFileDialogFileName.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPathSave = SpacerNET.AddString(Path.GetDirectoryName(openFileDialogFileName.FileName));
 
-                Imports.Extern_SetSettingStr(ptrPathSave, SpacerNET.AddString("vobResPath"));
+                Imports.Stack_PushString(Path.GetDirectoryName(openFileDialogFileName.FileName));
+                Imports.Stack_PushString("vobResPath");
+                Imports.Extern_SetSettingStr();
+
+
 
                 string fileName = openFileDialogFileName.SafeFileName;
+
+
 
 
                 TreeNode node = SpacerNET.propWin.treeViewProp.SelectedNode;
@@ -1157,7 +1162,7 @@ namespace SpacerUnion
                 }
             }
 
-            SpacerNET.FreeStrings();
+            
 
         }
 

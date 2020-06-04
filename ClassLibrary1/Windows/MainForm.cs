@@ -148,9 +148,9 @@ namespace SpacerUnion
 
 
         [DllExport]
-        public static void LoadZenAuto(IntPtr ptrZenName)
+        public static void LoadZenAuto()
         {
-            string path = Marshal.PtrToStringAnsi(ptrZenName);
+            string path = Imports.Stack_PeekString();
             string fileName = Path.GetFileName(path);
 
             //ConsoleEx.WriteLineGreen(path);
@@ -194,7 +194,7 @@ namespace SpacerUnion
             SpacerNET.form.AddText(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
             ConsoleEx.WriteLineGreen(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
 
-            SpacerNET.FreeStrings();
+            
         }
 
 
@@ -224,10 +224,15 @@ namespace SpacerUnion
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPathSave = SpacerNET.AddString(Path.GetDirectoryName(openFileDialog1.FileName));
-                IntPtr ptrLastZenPath = SpacerNET.AddString(openFileDialog1.FileName);
-                Imports.Extern_SetSettingStr(ptrPathSave, SpacerNET.AddString("zenzPath"));
-                Imports.Extern_SetSettingStr(ptrLastZenPath, SpacerNET.AddString("openLastZenPath"));
+
+                Imports.Stack_PushString(Path.GetDirectoryName(openFileDialog1.FileName));
+                Imports.Stack_PushString("zenzPath");
+                Imports.Extern_SetSettingStr();
+
+
+                Imports.Stack_PushString(openFileDialog1.FileName);
+                Imports.Stack_PushString("openLastZenPath");
+                Imports.Extern_SetSettingStr();
 
                 string filePath = openFileDialog1.FileName;
 
@@ -266,7 +271,7 @@ namespace SpacerUnion
 
             }
 
-            SpacerNET.FreeStrings();
+            
 
         }
 
@@ -280,7 +285,7 @@ namespace SpacerUnion
 
             Imports.Stack_PushString("showVobs");
             Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
-            SpacerNET.FreeStrings();
+            
         }
 
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
@@ -291,7 +296,7 @@ namespace SpacerUnion
 
             Imports.Stack_PushString("showVobs");
             Imports.Extern_SetSetting( Convert.ToInt32(item.Checked));
-            SpacerNET.FreeStrings();
+            
         }
 
         private void toolStripMenuItem7_Click(object sender, EventArgs e)
@@ -302,7 +307,7 @@ namespace SpacerUnion
 
             Imports.Stack_PushString("showVobs");
             Imports.Extern_SetSetting( Convert.ToInt32(item.Checked));
-            SpacerNET.FreeStrings();
+            
         }
 
 
@@ -330,7 +335,7 @@ namespace SpacerUnion
             Imports.Stack_PushString("showWaynet");
             Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
             toolStripMenuItem6.Checked = item.Checked;
-            SpacerNET.FreeStrings();
+            
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
@@ -342,7 +347,7 @@ namespace SpacerUnion
             Imports.Stack_PushString("showHelpVobs");
             Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
             toolStripMenuItem7.Checked = item.Checked;
-            SpacerNET.FreeStrings();
+            
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
@@ -353,7 +358,7 @@ namespace SpacerUnion
             Imports.Stack_PushString("showVobs");
             Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
             toolStripMenuItem5.Checked = item.Checked;
-            SpacerNET.FreeStrings();
+            
         }
 
 
@@ -437,11 +442,20 @@ namespace SpacerUnion
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPath = SpacerNET.AddString(Path.GetDirectoryName(saveFileDialog1.FileName));
-                IntPtr ptrLastZenPath = SpacerNET.AddString(saveFileDialog1.FileName);
 
-                Imports.Extern_SetSettingStr(ptrPath, SpacerNET.AddString("zenzPath"));
-                Imports.Extern_SetSettingStr(ptrLastZenPath, SpacerNET.AddString("openLastZenPath"));
+
+
+                Imports.Stack_PushString(Path.GetDirectoryName(saveFileDialog1.FileName));
+                Imports.Stack_PushString("zenzPath");
+                Imports.Extern_SetSettingStr();
+
+
+                Imports.Stack_PushString(saveFileDialog1.FileName);
+                Imports.Stack_PushString("openLastZenPath");
+                Imports.Extern_SetSettingStr();
+
+
+
 
                 string filePath = saveFileDialog1.FileName;
                 string selectedFileName = Path.GetFileName(saveFileDialog1.FileName);
@@ -466,10 +480,6 @@ namespace SpacerUnion
                     //filePath = filePath.Replace(".zen", "") + "_vobs.zen";
                 }
                 
-
-
-                IntPtr filePathPtr = SpacerNET.AddString(filePath);
-
                 Stopwatch s = new Stopwatch();
                 s.Start();
 
@@ -488,7 +498,7 @@ namespace SpacerUnion
                 ConsoleEx.WriteLineGreen(Localizator.Get("saveZenTime") + " (" + timeSpend + ")");
 
             }
-            SpacerNET.FreeStrings();
+            
         }
 
 
@@ -549,7 +559,7 @@ namespace SpacerUnion
 
             SpacerNET.settingsCam.Show();
 
-            SpacerNET.FreeStrings();
+            
         }
 
 
@@ -587,9 +597,11 @@ namespace SpacerUnion
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPathSave = SpacerNET.AddString(Path.GetDirectoryName(openFileDialog1.FileName));
 
-                Imports.Extern_SetSettingStr(ptrPathSave, SpacerNET.AddString("meshPath"));
+
+                Imports.Stack_PushString(Path.GetDirectoryName(openFileDialog1.FileName));
+                Imports.Stack_PushString("meshPath");
+                Imports.Extern_SetSettingStr();
 
 
                 string filePath = openFileDialog1.FileName;
@@ -597,7 +609,6 @@ namespace SpacerUnion
 
                 UpdateSpacerCaption(openFileDialog1.SafeFileName);
 
-                IntPtr filePathPtr = SpacerNET.AddString(filePath);
 
                 Stopwatch s = new Stopwatch();
                 s.Start();
@@ -619,7 +630,7 @@ namespace SpacerUnion
 
             }
 
-            SpacerNET.FreeStrings();
+            
 
         }
 
@@ -650,10 +661,11 @@ namespace SpacerUnion
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPathSave = SpacerNET.AddString(Path.GetDirectoryName(openFileDialog1.FileName));
 
-                Imports.Extern_SetSettingStr(ptrPathSave, SpacerNET.AddString("vobsPath"));
 
+                Imports.Stack_PushString((Path.GetDirectoryName(openFileDialog1.FileName)));
+                Imports.Stack_PushString("vobsPath");
+                Imports.Extern_SetSettingStr();
 
 
                 string filePath = openFileDialog1.FileName;
@@ -683,7 +695,7 @@ namespace SpacerUnion
                 
             }
 
-            SpacerNET.FreeStrings();
+            
         }
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
@@ -844,7 +856,7 @@ namespace SpacerUnion
             Imports.Stack_PushString("showVobs");
             Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
             toolStripMenuItem5.Checked = item.Checked;
-            SpacerNET.FreeStrings();
+            
         }
 
         private void toolStripButtonWaynet_Click(object sender, EventArgs e)
@@ -856,7 +868,7 @@ namespace SpacerUnion
             Imports.Stack_PushString("showWaynet");
             Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
             toolStripMenuItem6.Checked = item.Checked;
-            SpacerNET.FreeStrings();
+            
         }
 
         private void toolStripButtonHelpVobs_Click(object sender, EventArgs e)
@@ -867,7 +879,7 @@ namespace SpacerUnion
             Imports.Stack_PushString("showHelpVobs");
             Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
             toolStripMenuItem7.Checked = item.Checked;
-            SpacerNET.FreeStrings();
+            
         }
 
         private void toolStripButtonBBox_Click_1(object sender, EventArgs e)
@@ -877,7 +889,7 @@ namespace SpacerUnion
             item.Checked = !item.Checked;
             Imports.Stack_PushString("drawBBoxGlobal");
             Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
-            SpacerNET.FreeStrings();
+            
         }
 
         private void управлениеToolStripMenuItem_Click(object sender, EventArgs e)
@@ -919,7 +931,7 @@ namespace SpacerUnion
 
             Imports.Stack_PushString("showInvisibleVobs");
             Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
-            SpacerNET.FreeStrings();
+            
         }
 
         private void ToolStripMenuTimeMorning_Click(object sender, EventArgs e)
@@ -1042,7 +1054,7 @@ namespace SpacerUnion
             SpacerNET.miscSetWin.LoadSettings();
             SpacerNET.miscSetWin.Show();
 
-            SpacerNET.FreeStrings();
+            
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)

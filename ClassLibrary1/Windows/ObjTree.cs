@@ -271,7 +271,7 @@ namespace SpacerUnion
 
 
         [DllExport]
-        public static void UpdateVobName(uint ptr, IntPtr namePtr)
+        public static void UpdateVobName(uint ptr)
         {
             if (ptr == 0)
             {
@@ -281,7 +281,7 @@ namespace SpacerUnion
             Stopwatch s = new Stopwatch();
             s.Start();
 
-            string name = Marshal.PtrToStringAnsi(namePtr);
+            string name = Imports.Stack_PeekString();
 
             TreeEntry entry = null;
 
@@ -541,10 +541,10 @@ namespace SpacerUnion
 
        
         [DllExport]
-        public static void OnVobInsert(IntPtr ptrName, uint vob, uint parent, IntPtr classNamePtr, int isNodeBlocked, bool select)
+        public static void OnVobInsert(uint vob, uint parent, int isNodeBlocked, bool select)
         {
-            string name = Marshal.PtrToStringAnsi(ptrName);
-            string className = Marshal.PtrToStringAnsi(classNamePtr);
+            string name = Imports.Stack_PeekString();
+            string className = Imports.Stack_PeekString();
 
             TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
 
@@ -728,11 +728,11 @@ namespace SpacerUnion
         }
 
         [DllExport]
-        public static void AddGlobalEntry(IntPtr ptr, uint vob, uint parent, IntPtr classNamePtr)
+        public static void AddGlobalEntry(uint vob, uint parent)
         {
 
-            string name = Marshal.PtrToStringAnsi(ptr);
-            string className = Marshal.PtrToStringAnsi(classNamePtr);
+            string name = Imports.Stack_PeekString();
+            string className = Imports.Stack_PeekString();
 
 
             TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
@@ -940,19 +940,18 @@ namespace SpacerUnion
             if (saveFileDialogVobTree.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPathSave = SpacerNET.AddString(Path.GetDirectoryName(saveFileDialogVobTree.FileName));
 
 
-                Imports.Extern_SetSettingStr(ptrPathSave, SpacerNET.AddString("treeVobPath"));
-
-
+                Imports.Stack_PushString(Path.GetDirectoryName(saveFileDialogVobTree.FileName));
+                Imports.Stack_PushString("treeVobPath");
+                Imports.Extern_SetSettingStr();
 
 
                 string filePath = saveFileDialogVobTree.FileName;
                 Imports.Stack_PushString(filePath);
                 Imports.Extern_SaveVobTree();
             }
-            SpacerNET.FreeStrings();
+            
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -1001,10 +1000,10 @@ namespace SpacerUnion
             if (openFileDialogVobTree.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPathSave = SpacerNET.AddString(Path.GetDirectoryName(openFileDialogVobTree.FileName));
 
-                Imports.Extern_SetSettingStr(ptrPathSave, SpacerNET.AddString("treeVobPath"));
-
+                Imports.Stack_PushString(Path.GetDirectoryName(openFileDialogVobTree.FileName));
+                Imports.Stack_PushString("treeVobPath");
+                Imports.Extern_SetSettingStr();
 
 
                 string filePath = openFileDialogVobTree.FileName;
@@ -1013,7 +1012,7 @@ namespace SpacerUnion
 
             }
 
-            SpacerNET.FreeStrings();
+            
         }
 
         private void вставитьVobTreeГлобальноToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1049,10 +1048,10 @@ namespace SpacerUnion
             if (openFileDialogVobTree.ShowDialog() == DialogResult.OK)
             {
 
-                IntPtr ptrPathSave = SpacerNET.AddString(Path.GetDirectoryName(openFileDialogVobTree.FileName));
 
-                Imports.Extern_SetSettingStr(ptrPathSave, SpacerNET.AddString("treeVobPath"));
-
+                Imports.Stack_PushString(Path.GetDirectoryName(openFileDialogVobTree.FileName));
+                Imports.Stack_PushString("treeVobPath");
+                Imports.Extern_SetSettingStr();
 
 
                 string filePath = openFileDialogVobTree.FileName;
@@ -1065,7 +1064,7 @@ namespace SpacerUnion
                 }
 
             }
-            SpacerNET.FreeStrings();
+            
         }
 
         private void удалитьВобToolStripMenuItem_Click(object sender, EventArgs e)

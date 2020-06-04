@@ -32,9 +32,9 @@ namespace SpacerUnion
 
 
         [DllExport]
-        public static void AddPacticleToList(IntPtr ptr)
+        public static void AddPacticleToList()
         {
-            string name = Marshal.PtrToStringAnsi(ptr);
+            string name = Imports.Stack_PeekString();
 
             SpacerNET.objectsWin.listBoxParticles.Items.Add(name);
         }
@@ -118,18 +118,18 @@ namespace SpacerUnion
         }
 
         [DllExport]
-        public static void AddVisualToListVDF(IntPtr ptr)
+        public static void AddVisualToListVDF()
         {
-            string name = Marshal.PtrToStringAnsi(ptr);
+            string name = Imports.Stack_PeekString();
 
             AddVisualsFiles(Path.GetFileName(name).ToUpper());
  
         }
 
         [DllExport]
-        public static void AddVisualToListWORK(IntPtr ptr)
+        public static void AddVisualToListWORK()
         {
-            string name = Marshal.PtrToStringAnsi(ptr);
+            string name = Imports.Stack_PeekString();
 
             AddVisualsFiles(Path.GetFileName(name).ToUpper(), false);
         }
@@ -164,10 +164,10 @@ namespace SpacerUnion
         }
 
         [DllExport]
-        public static void AddItemToList(IntPtr ptr)
+        public static void AddItemToList()
         {
             ListBox listBox = SpacerNET.objectsWin.listBoxItems;
-            string name = Marshal.PtrToStringAnsi(ptr);
+            string name = Imports.Stack_PeekString();
 
             int index = listBox.Items.Add(name);
         }
@@ -211,7 +211,7 @@ namespace SpacerUnion
 
             SpacerNET.form.Focus();
 
-            SpacerNET.FreeStrings();
+            
 
         }
 
@@ -280,10 +280,10 @@ namespace SpacerUnion
         }
 
         [DllExport]
-        public static void AddClassNode(IntPtr ptr, int depth, IntPtr ptrB)
+        public static void AddClassNode(int depth)
         {
-            string name = Marshal.PtrToStringAnsi(ptr);
-            string baseClassName = Marshal.PtrToStringAnsi(ptrB);
+            string name = Imports.Stack_PeekString();
+            string baseClassName = Imports.Stack_PeekString();
             TreeNodeCollection nodes = SpacerNET.objectsWin.classesTreeView.Nodes;
             if (name == baseClassName)
             {
@@ -329,16 +329,13 @@ namespace SpacerUnion
 
             textBoxVobName.Text = "";
 
-            IntPtr ptrName = SpacerNET.AddString(name);
-            IntPtr ptrVobName = SpacerNET.AddString(vobName);
-            IntPtr ptrVisual= SpacerNET.AddString(visualVob);
 
             Imports.Stack_PushString(visualVob);
             Imports.Stack_PushString(vobName);
             Imports.Stack_PushString(name);
             Imports.Extern_CreateNewVobVisual(isDyn, isStat);
 
-            SpacerNET.FreeStrings();
+            
 
         }
 
@@ -403,7 +400,7 @@ namespace SpacerUnion
             if (nameFound && !autoGenerate)
             {
                 MessageBox.Show("Такое имя уже существует");
-                SpacerNET.FreeStrings();
+                
                 return;
             }
 
@@ -450,7 +447,7 @@ namespace SpacerUnion
             bool nameFound = Imports.Extern_VobNameExist(false);
             if (nameFound)
             {
-                SpacerNET.FreeStrings();
+                
                 MessageBox.Show("Такое имя уже существует");
                 return;
             }
@@ -605,7 +602,7 @@ namespace SpacerUnion
 
             Imports.Stack_PushString(visual);
             Imports.Extern_RenderSelectedVob();
-            SpacerNET.FreeStrings();
+            
 
         }
 
@@ -724,9 +721,9 @@ namespace SpacerUnion
 
 
         [DllExport]
-        public static void AddActionTypeMover(IntPtr itemPtr)
+        public static void AddActionTypeMover()
         {
-            string value = Marshal.PtrToStringAnsi(itemPtr);
+            string value = Imports.Stack_PeekString();
             SpacerNET.objectsWin.listBoxActionType.Items.Add(value);
 
 
@@ -738,9 +735,9 @@ namespace SpacerUnion
 
 
         [DllExport]
-        public static void AddTargetToList(IntPtr itemPtr, uint addr)
+        public static void AddTargetToList(uint addr)
         {
-            string value = Marshal.PtrToStringAnsi(itemPtr);
+            string value = Imports.Stack_PeekString();
 
             SpacerNET.objectsWin.triggerEntry.targetListAddr.Add(addr);
 
@@ -748,9 +745,9 @@ namespace SpacerUnion
         }
 
         [DllExport]
-        public static void AddSourcesToList(IntPtr itemPtr, uint addr)
+        public static void AddSourcesToList(uint addr)
         {
-            string value = Marshal.PtrToStringAnsi(itemPtr);
+            string value = Imports.Stack_PeekString();
             SpacerNET.objectsWin.triggerEntry.sourcesListAddr.Add(addr);
             SpacerNET.objectsWin.listBoxSources.Items.Add(value);
 
@@ -758,9 +755,9 @@ namespace SpacerUnion
         }
 
         [DllExport]
-        public static void CreateTriggerForm(int keyCurrent, int keyMax, IntPtr ptrName, int dyn, int stat)
+        public static void CreateTriggerForm(int keyCurrent, int keyMax, int dyn, int stat)
         {
-            string name = Marshal.PtrToStringAnsi(ptrName);
+            string name = Imports.Stack_PeekString();
 
             SpacerNET.objectsWin.triggerEntry.m_kf_pos = keyCurrent;
             SpacerNET.objectsWin.triggerEntry.maxKey = keyMax;
@@ -1052,11 +1049,11 @@ namespace SpacerUnion
                         string visual = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
                         Clipboard.SetText(visual);
 
-                        Imports.Stack_PushString(SpacerNET.AddString("Скопировано в буфер: " + visual));
+                        Imports.Stack_PushString("Скопировано в буфер: " + visual);
 
                         Imports.Extern_PrintGreen();
 
-                        SpacerNET.FreeStrings();
+                        
                     }
                 }
 
@@ -1134,7 +1131,7 @@ namespace SpacerUnion
             checkBoxFPGround.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
             checkBoxAutoNameFP.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
-            SpacerNET.FreeStrings();
+            
         }
 
         private void checkBoxWayNet_CheckedChanged(object sender, EventArgs e)

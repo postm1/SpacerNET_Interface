@@ -49,7 +49,7 @@ namespace SpacerUnion.Windows
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxMiscExitAsk.Checked));
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxLastZenAuto.Checked));
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxMiscFullPath.Checked));
-            SpacerNET.FreeStrings();
+            
         }
 
         private void MiscSettingsWin_FormClosing(object sender, FormClosingEventArgs e)

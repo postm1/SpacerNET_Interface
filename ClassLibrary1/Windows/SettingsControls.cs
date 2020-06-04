@@ -39,7 +39,7 @@ namespace SpacerUnion.Windows
             labelVobTrans.Text = "Скорость перемещения: " + trackBarVobTransSpeed.Value;
             Imports.Stack_PushString("vobTransSpeed");
             Imports.Extern_SetSetting(trackBarVobTransSpeed.Value);
-            SpacerNET.FreeStrings();
+            
         }
 
         private void trackBarVobRotSpeed_ValueChanged(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace SpacerUnion.Windows
             labelVobRot.Text = "Скорость вращения: " + trackBarVobRotSpeed.Value;
             Imports.Stack_PushString("vobRotSpeed");
             Imports.Extern_SetSetting(trackBarVobRotSpeed.Value);
-            SpacerNET.FreeStrings();
+            
         }
 
         private void buttonVobControlApply_Click(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace SpacerUnion.Windows
             CheckBox cb = sender as CheckBox;
             Imports.Stack_PushString("vobInsertItemLevel");
             Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
-            SpacerNET.FreeStrings();
+            
         }
 
         private void checkBoxVobRotRandAngle_CheckedChanged(object sender, EventArgs e)
@@ -68,7 +68,7 @@ namespace SpacerUnion.Windows
             CheckBox cb = sender as CheckBox;
             Imports.Stack_PushString("vobInsertVobRotRand");
             Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
-            SpacerNET.FreeStrings();
+            
         }
 
         private void checkBoxVobInsertHierarchy_CheckedChanged(object sender, EventArgs e)
@@ -76,7 +76,7 @@ namespace SpacerUnion.Windows
             CheckBox cb = sender as CheckBox;
             Imports.Stack_PushString("vobInsertHierarchy");
             Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
-            SpacerNET.FreeStrings();
+            
         }
 
         public void SetRadioTurnMode(int mode)
@@ -108,7 +108,7 @@ namespace SpacerUnion.Windows
                 int.TryParse(rb.Tag.ToString(), out val);
                 Imports.Stack_PushString("wpTurnOn");
                 Imports.Extern_SetSetting(val);
-                SpacerNET.FreeStrings();
+                
             }
             
         }

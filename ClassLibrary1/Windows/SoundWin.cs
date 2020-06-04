@@ -41,9 +41,9 @@ namespace SpacerUnion
         }
 
         [DllExport]
-        public static void AddSoundToList(IntPtr ptr)
+        public static void AddSoundToList()
         {
-            string name = Marshal.PtrToStringAnsi(ptr);
+            string name = Imports.Stack_PeekString();
 
             SpacerNET.soundWin.listBoxSound.Items.Add(name);
         }
