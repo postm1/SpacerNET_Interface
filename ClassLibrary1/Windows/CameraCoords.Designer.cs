@@ -103,6 +103,7 @@
             this.textBoxCamVec2.Size = new System.Drawing.Size(87, 20);
             this.textBoxCamVec2.TabIndex = 10;
             this.textBoxCamVec2.Text = "100";
+            this.textBoxCamVec2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamVec0_KeyPress_1);
             // 
             // textBoxCamVec1
             // 
@@ -111,6 +112,7 @@
             this.textBoxCamVec1.Size = new System.Drawing.Size(87, 20);
             this.textBoxCamVec1.TabIndex = 9;
             this.textBoxCamVec1.Text = "100";
+            this.textBoxCamVec1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamVec0_KeyPress_1);
             // 
             // textBoxCamVec0
             // 
@@ -119,6 +121,7 @@
             this.textBoxCamVec0.Size = new System.Drawing.Size(87, 20);
             this.textBoxCamVec0.TabIndex = 8;
             this.textBoxCamVec0.Text = "100";
+            this.textBoxCamVec0.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamVec0_KeyPress_1);
             // 
             // buttonCameraGo
             // 

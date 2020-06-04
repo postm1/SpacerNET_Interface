@@ -58,6 +58,8 @@ namespace SpacerUnion.Common
         {
             SpacerNET.form.UpdateLang();
             SpacerNET.comLightWin.UpdateLang();
+            SpacerNET.compWorldWin.UpdateLang();
+            SpacerNET.camCoordsWin.UpdateLang();
         }
 
         [DllExport]
@@ -142,8 +144,8 @@ namespace SpacerUnion.Common
             words.Add("MENU_TOP_NIGHT", new List<string> { "Ночь (00:00)", "Night (00:00)", "", ""});
             words.Add("MENU_TOP_ANALYSE_WAYNET", new List<string> { "Анализ WayNet", "Analyze Waynet", "", ""});
             words.Add("MENU_TOP_PLAY_THE_GAME", new List<string> { "Играть за героя", "Play the hero", "", ""});
+            words.Add("MENU_TOP_KEYSBINDS", new List<string> { "Сочетания клавиш", "Keys bindings", "", "" });
 
-            
             words.Add("MENU_TOP_HOVER_WININFO", new List<string> { "Окно информации", "Information window", "", ""});
             words.Add("MENU_TOP_HOVER_WINOBJ", new List<string> { "Окно объектов", "Objects window", "", ""});
             words.Add("MENU_TOP_HOVER_WINSOUND", new List<string> { "Окно звуков", "Sounds window", "", ""});
@@ -157,7 +159,7 @@ namespace SpacerUnion.Common
             words.Add("WIN_COMPLIGHT_QUALITY", new List<string> { "Качество", "Quality", "", ""});
             words.Add("WIN_COMPLIGHT_COMPILEBUTTON", new List<string> { "Компилировать", "Compile", "", ""});
 
-
+            words.Add("WIN_CANCEL_BUTTON", new List<string> { "Отмена", "Cancel", "", "" });
             words.Add("WIN_COMPLIGHT_CLOSEBUTTON", new List<string> { "Закрыть", "Close", "", ""});
             words.Add("WIN_COMPLIGHT_REGION", new List<string> { "Регион", "Region", "", ""});
             words.Add("WIN_COMPLIGHT_QUALITY0", new List<string> { "Только вершины", "Vertexes only", "", ""});
@@ -170,9 +172,14 @@ namespace SpacerUnion.Common
 
             words.Add("WIN_COMPLIGHT_METERS", new List<string> { "метров", "meters", "", ""});
             words.Add("WIN_COMPLIGHT_AROUNDCAM", new List<string> { "вокруг камеры", "around the camera", "", ""});
-            words.Add("MENU_TOP_KEYSBINDS", new List<string> { "Сочетания клавиш", "Keys bindings", "", "" });
 
 
+            words.Add("WIN_COMPWORLD_TEXT", new List<string> { "Компиляция мира", "World compilation", "", "" });
+            words.Add("WIN_COMPWORLD_LOCTYPE", new List<string> { "Тип локации", "World type", "", "" });
+
+            words.Add("WIN_CAM_TEXT", new List<string> { "Камера", "Camera", "", "" });
+            words.Add("WIN_CAM_CLOSEWIN", new List<string> { "Закрывать окно при переходе", "Close the window after the jump", "", "" });
+            words.Add("WIN_CAM_GO", new List<string> { "Перейти", "Jump", "", "" });
 
             // UNION STRING
             words.Add("UNION_VOB_INSERTED", new List<string> { "Воб вставлен", "The vob inserted", "", "" });

@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxTypeLoc = new System.Windows.Forms.GroupBox();
             this.radioButtonOutdoor = new System.Windows.Forms.RadioButton();
             this.radioButtonIndoor = new System.Windows.Forms.RadioButton();
             this.buttonCompileCancel = new System.Windows.Forms.Button();
             this.buttonCompileWorld = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxTypeLoc.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // groupBoxTypeLoc
             // 
-            this.groupBox1.Controls.Add(this.radioButtonOutdoor);
-            this.groupBox1.Controls.Add(this.radioButtonIndoor);
-            this.groupBox1.Location = new System.Drawing.Point(174, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(158, 67);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Тип локации";
+            this.groupBoxTypeLoc.Controls.Add(this.radioButtonOutdoor);
+            this.groupBoxTypeLoc.Controls.Add(this.radioButtonIndoor);
+            this.groupBoxTypeLoc.Location = new System.Drawing.Point(174, 12);
+            this.groupBoxTypeLoc.Name = "groupBoxTypeLoc";
+            this.groupBoxTypeLoc.Size = new System.Drawing.Size(158, 67);
+            this.groupBoxTypeLoc.TabIndex = 0;
+            this.groupBoxTypeLoc.TabStop = false;
+            this.groupBoxTypeLoc.Text = "Тип локации";
             // 
             // radioButtonOutdoor
             // 
@@ -108,7 +108,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.buttonCompileWorld);
             this.Controls.Add(this.buttonCompileCancel);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxTypeLoc);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -120,15 +120,15 @@
             this.Text = "Компиляция мира";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CompileWorldWin_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CompileWorldWin_KeyDown);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxTypeLoc.ResumeLayout(false);
+            this.groupBoxTypeLoc.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxTypeLoc;
         private System.Windows.Forms.RadioButton radioButtonOutdoor;
         private System.Windows.Forms.RadioButton radioButtonIndoor;
         private System.Windows.Forms.Button buttonCompileCancel;

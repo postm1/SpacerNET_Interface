@@ -21,6 +21,15 @@ namespace SpacerUnion.Windows
             textBoxCamVec2.AcceptsTab = true;
         }
 
+        public void UpdateLang()
+        {
+            this.Text = Localizator.Get("WIN_CAM_TEXT");
+            checkBoxCloseCamWin.Text = Localizator.Get("WIN_CAM_CLOSEWIN");
+            buttonCameraGo.Text = Localizator.Get("WIN_CAM_GO");
+            
+        }
+
+
         private void CameraCoords_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Hide();
@@ -66,6 +75,21 @@ namespace SpacerUnion.Windows
             if (e.KeyChar == (char)0x09)
             {
                 e.Handled = false;
+            }
+        }
+
+        private void textBoxCamVec0_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+         (e.KeyChar != '.') && (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
             }
         }
     }

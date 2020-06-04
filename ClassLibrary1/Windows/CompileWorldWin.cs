@@ -36,6 +36,14 @@ namespace SpacerUnion
             this.Hide();
         }
 
+        public void UpdateLang()
+        {
+            this.Text = Localizator.Get("WIN_COMPWORLD_TEXT");
+            buttonCompileCancel.Text = Localizator.Get("WIN_CANCEL_BUTTON");
+            buttonCompileWorld.Text = Localizator.Get("WIN_COMPLIGHT_COMPILEBUTTON");
+            groupBoxTypeLoc.Text = Localizator.Get("WIN_COMPWORLD_LOCTYPE");
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
 

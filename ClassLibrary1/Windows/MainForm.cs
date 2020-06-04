@@ -722,6 +722,8 @@ namespace SpacerUnion
             
         }
 
+    
+
         private void компиляцияМираToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
