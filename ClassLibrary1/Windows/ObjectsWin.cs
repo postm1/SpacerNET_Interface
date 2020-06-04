@@ -479,6 +479,7 @@ namespace SpacerUnion
             {
                 return;
             }
+
             string name = listBoxResultItems.GetItemText(listBoxResultItems.SelectedItem);
 
             //Console.WriteLine("Create item: " + name);
@@ -487,7 +488,7 @@ namespace SpacerUnion
             SpacerNET.infoWin.AddText("Создаю Item " + name);
             Imports.Extern_KillPreviewItem();
             Imports.Stack_PushString(name);
-
+            Imports.Extern_CreateItem();
 
             SpacerNET.form.Focus();
         }
