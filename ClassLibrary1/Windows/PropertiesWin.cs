@@ -68,6 +68,7 @@ namespace SpacerUnion
             props.Clear();
             folders.Clear();
             currentFolderName = "";
+            vobHasContainer = false;
             TreeView tree = SpacerNET.propWin.treeViewProp;
 
             tree.Nodes.Clear();
@@ -88,6 +89,18 @@ namespace SpacerUnion
             CleanProps();
 
         }
+
+        [DllExport]
+        public static void PropsOpenContainer()
+        {
+            if (vobHasContainer && props.Count > 0)
+            {
+                SpacerNET.propWin.OpenVobContainer();
+            }
+
+        }
+
+        
         [DllExport]
         public static void AddProps()
         {

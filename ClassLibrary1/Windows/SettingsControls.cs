@@ -37,6 +37,7 @@ namespace SpacerUnion.Windows
         private void trackBarVobTransSpeed_ValueChanged(object sender, EventArgs e)
         {
             labelVobTrans.Text = "Скорость перемещения: " + trackBarVobTransSpeed.Value;
+            textBoxVobTrans.Text = trackBarVobTransSpeed.Value.ToString();
             Imports.Stack_PushString("vobTransSpeed");
             Imports.Extern_SetSetting(trackBarVobTransSpeed.Value);
             
@@ -45,6 +46,7 @@ namespace SpacerUnion.Windows
         private void trackBarVobRotSpeed_ValueChanged(object sender, EventArgs e)
         {
             labelVobRot.Text = "Скорость вращения: " + trackBarVobRotSpeed.Value;
+            textBoxVobRot.Text = trackBarVobRotSpeed.Value.ToString();
             Imports.Stack_PushString("vobRotSpeed");
             Imports.Extern_SetSetting(trackBarVobRotSpeed.Value);
             
@@ -119,6 +121,67 @@ namespace SpacerUnion.Windows
             {
                 SettingsControls_FormClosing(null, new FormClosingEventArgs(CloseReason.UserClosing, true));
             }
+        }
+
+        private void textBoxVobTrans_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+         (e.KeyChar != '.') && (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxVobTrans_TextChanged(object sender, EventArgs e)
+        {
+            string text = textBoxVobTrans.Text.Trim();
+
+            if (text.Length == 0)
+            {
+                return;
+            }
+
+            int value = Convert.ToInt32(text);
+
+            if (value > trackBarVobTransSpeed.Maximum)
+            {
+                value = trackBarVobTransSpeed.Maximum;
+            }
+            if (value < trackBarVobTransSpeed.Minimum)
+            {
+                value = trackBarVobTransSpeed.Minimum;
+            }
+
+            trackBarVobTransSpeed.Value = value;
+        }
+
+        private void textBoxVobRot_TextChanged(object sender, EventArgs e)
+        {
+            string text = textBoxVobRot.Text.Trim();
+
+            if (text.Length == 0)
+            {
+                return;
+            }
+
+            int value = Convert.ToInt32(text);
+
+            if (value > trackBarVobRotSpeed.Maximum)
+            {
+                value = trackBarVobRotSpeed.Maximum;
+            }
+            if (value < trackBarVobRotSpeed.Minimum)
+            {
+                value = trackBarVobRotSpeed.Minimum;
+            }
+
+            trackBarVobRotSpeed.Value = value;
         }
     }
 }

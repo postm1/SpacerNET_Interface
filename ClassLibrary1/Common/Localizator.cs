@@ -121,7 +121,7 @@ namespace SpacerUnion.Common
             
             words.Add("MENU_TOP_VIEW_SHOW", new List<string> { "Показать", "Show", "", ""});
             words.Add("MENU_TOP_VIEW_VOBS", new List<string> { "Вобы", "Vobs", "", ""});
-            words.Add("MENU_TOP_VIEW_WAYNET", new List<string> { "Сетка WayNet", "Waynet", "", ""});
+            words.Add("MENU_TOP_VIEW_WAYNET", new List<string> { "Сетка Waynet", "Waynet", "", ""});
             words.Add("MENU_TOP_VIEW_HELPER", new List<string> { "Help-вобы", "Help vobs", "", ""});
 
             words.Add("MENU_TOP_VIEW_BBOX", new List<string> { "Показать все BBox", "Show all the BBoxes", "", ""});
@@ -189,7 +189,7 @@ namespace SpacerUnion.Common
             words.Add("PARENT_CHANGE_OK", new List<string> { "Родитель для воба изменен!", "The parent has been changed", "", "" });
 
             words.Add("VOB_COPY_OK", new List<string> { "Воб скопирован", "Vob was copied", "", "" });
-            words.Add("VOB_CUT", new List<string> { "Воб вырезан", "Vob was cut", "", "" });
+            words.Add("VOB_CUT_OK", new List<string> { "Воб вырезан", "Vob was cut", "", "" });
             words.Add("VOB_NEAR_CAMERA", new List<string> { "Воб вставлен перед камерой", "Vob inserted in front of the camera", "", "" });
 
 
@@ -207,7 +207,7 @@ namespace SpacerUnion.Common
 
             words.Add("UNION_EDITOR", new List<string> { "Редактор для ZenGin", "Editor for ZenGin", "", "" });
             words.Add("UNION_TEAM", new List<string> { "Команда разработки: Liker & Haart & Saturas & Gratt", "Dev team: Liker & Haart & Saturas & Gratt", "", "" });
-            words.Add("UNION_DATE_COMPILE", new List<string> { "Дата компиляции: ", "Compilation date", "", "" });
+            words.Add("UNION_DATE_COMPILE", new List<string> { "Дата компиляции: ", "Compilation date: ", "", "" });
 
 
             words.Add("UNION_RESOLUTION", new List<string> { "Разрешение рендера: ", "Render resolution", "", "" });

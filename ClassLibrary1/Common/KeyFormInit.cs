@@ -323,6 +323,10 @@ namespace SpacerUnion.Windows
             row = new string[] { "WIN_HIDEALL", "Скрыть все окна", "" };
             dataGridKeys.Rows.Add(row);
 
+
+            row = new string[] { "OPEN_CONTAINER", "Открыть содержимое контейнера oCMobContainer", "" };
+            dataGridKeys.Rows.Add(row);
+
         }
     }
 

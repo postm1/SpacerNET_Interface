@@ -154,6 +154,7 @@
             this.Controls.Add(this.buttonCollapse);
             this.Controls.Add(this.globalTree);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ObjTree";

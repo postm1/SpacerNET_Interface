@@ -42,6 +42,8 @@
             this.checkBoxVobInsertHierarchy = new System.Windows.Forms.CheckBox();
             this.checkBoxVobRotRandAngle = new System.Windows.Forms.CheckBox();
             this.checkBoxInsertVob = new System.Windows.Forms.CheckBox();
+            this.textBoxVobTrans = new System.Windows.Forms.TextBox();
+            this.textBoxVobRot = new System.Windows.Forms.TextBox();
             this.groupBoxControlVob.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobRotSpeed)).BeginInit();
@@ -50,6 +52,8 @@
             // 
             // groupBoxControlVob
             // 
+            this.groupBoxControlVob.Controls.Add(this.textBoxVobRot);
+            this.groupBoxControlVob.Controls.Add(this.textBoxVobTrans);
             this.groupBoxControlVob.Controls.Add(this.labelVobTrans);
             this.groupBoxControlVob.Controls.Add(this.labelVobRot);
             this.groupBoxControlVob.Controls.Add(this.trackBarVobTransSpeed);
@@ -85,7 +89,7 @@
             this.trackBarVobTransSpeed.Maximum = 50000;
             this.trackBarVobTransSpeed.Minimum = 1;
             this.trackBarVobTransSpeed.Name = "trackBarVobTransSpeed";
-            this.trackBarVobTransSpeed.Size = new System.Drawing.Size(235, 45);
+            this.trackBarVobTransSpeed.Size = new System.Drawing.Size(224, 45);
             this.trackBarVobTransSpeed.TabIndex = 0;
             this.trackBarVobTransSpeed.TickFrequency = 500;
             this.trackBarVobTransSpeed.Value = 10000;
@@ -97,7 +101,7 @@
             this.trackBarVobRotSpeed.Maximum = 200;
             this.trackBarVobRotSpeed.Minimum = 1;
             this.trackBarVobRotSpeed.Name = "trackBarVobRotSpeed";
-            this.trackBarVobRotSpeed.Size = new System.Drawing.Size(234, 45);
+            this.trackBarVobRotSpeed.Size = new System.Drawing.Size(223, 45);
             this.trackBarVobRotSpeed.TabIndex = 3;
             this.trackBarVobRotSpeed.Value = 32;
             this.trackBarVobRotSpeed.ValueChanged += new System.EventHandler(this.trackBarVobRotSpeed_ValueChanged);
@@ -211,6 +215,24 @@
             this.checkBoxInsertVob.UseVisualStyleBackColor = true;
             this.checkBoxInsertVob.CheckedChanged += new System.EventHandler(this.checkBoxInsertVob_CheckedChanged);
             // 
+            // textBoxVobTrans
+            // 
+            this.textBoxVobTrans.Location = new System.Drawing.Point(231, 35);
+            this.textBoxVobTrans.Name = "textBoxVobTrans";
+            this.textBoxVobTrans.Size = new System.Drawing.Size(61, 20);
+            this.textBoxVobTrans.TabIndex = 4;
+            this.textBoxVobTrans.TextChanged += new System.EventHandler(this.textBoxVobTrans_TextChanged);
+            this.textBoxVobTrans.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVobTrans_KeyPress);
+            // 
+            // textBoxVobRot
+            // 
+            this.textBoxVobRot.Location = new System.Drawing.Point(231, 88);
+            this.textBoxVobRot.Name = "textBoxVobRot";
+            this.textBoxVobRot.Size = new System.Drawing.Size(61, 20);
+            this.textBoxVobRot.TabIndex = 5;
+            this.textBoxVobRot.TextChanged += new System.EventHandler(this.textBoxVobRot_TextChanged);
+            this.textBoxVobRot.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVobTrans_KeyPress);
+            // 
             // SettingsControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,5 +276,7 @@
         private System.Windows.Forms.RadioButton radioButtonWPTurnNone;
         private System.Windows.Forms.RadioButton radioButtonWPTurnAgainst;
         private System.Windows.Forms.RadioButton radioButtonWPTurnOn;
+        private System.Windows.Forms.TextBox textBoxVobRot;
+        private System.Windows.Forms.TextBox textBoxVobTrans;
     }
 }

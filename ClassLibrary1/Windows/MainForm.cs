@@ -764,30 +764,38 @@ namespace SpacerUnion
 
         private void toolStripButtonInfo_Click(object sender, EventArgs e)
         {
+            ToolStripButton btn = sender as ToolStripButton;
+
             if (SpacerNET.infoWin.Visible)
             {
                 SpacerNET.infoWin.Hide();
+                btn.Checked = false;
             }
             else
             {
                 SpacerNET.infoWin.Show();
+                btn.Checked = true;
             }
         }
 
         private void toolStripButtonBig_Click(object sender, EventArgs e)
         {
+            ToolStripButton btn = sender as ToolStripButton;
             if (SpacerNET.objectsWin.Visible)
             {
+                btn.Checked = false;
                 SpacerNET.objectsWin.Hide();
             }
             else
             {
+                btn.Checked = true;
                 SpacerNET.objectsWin.Show();
             }
         }
 
         private void toolStripButtonSound_Click(object sender, EventArgs e)
         {
+            ToolStripButton btn = sender as ToolStripButton;
 
             Imports.Stack_PushString("musicVolume");
             Imports.Stack_PushString("musicZenOff");
@@ -805,10 +813,12 @@ namespace SpacerUnion
 
             if (SpacerNET.soundWin.Visible)
             {
+                btn.Checked = false;
                 SpacerNET.soundWin.Hide();
             }
             else
             {
+                btn.Checked = true;
                 SpacerNET.soundWin.Show();
             }
 
@@ -822,36 +832,48 @@ namespace SpacerUnion
 
         private void toolStripButtonTree_Click(object sender, EventArgs e)
         {
+            ToolStripButton btn = sender as ToolStripButton;
+
             if (SpacerNET.objTreeWin.Visible)
             {
+                btn.Checked = false;
                 SpacerNET.objTreeWin.Hide();
             }
             else
             {
+                btn.Checked = true;
                 SpacerNET.objTreeWin.Show();
             }
         }
 
         private void toolStripButton8_Click_1(object sender, EventArgs e)
         {
+            ToolStripButton btn = sender as ToolStripButton;
+
             if (SpacerNET.propWin.Visible)
             {
+                btn.Checked = false;
                 SpacerNET.propWin.Hide();
             }
             else
             {
+                btn.Checked = true;
                 SpacerNET.propWin.Show();
             }
         }
 
         private void toolStripButton9_Click_1(object sender, EventArgs e)
         {
+            ToolStripButton btn = sender as ToolStripButton;
+
             if (SpacerNET.vobList.Visible)
             {
+                btn.Checked = false;
                 SpacerNET.vobList.Hide();
             }
             else
             {
+                btn.Checked = true;
                 SpacerNET.vobList.Show();
             }
         }
@@ -1121,6 +1143,11 @@ namespace SpacerUnion
 
             Localizator.SetLanguage(LangEnum.PL);
             Localizator.UpdateInterface();
+        }
+
+        private void toolStripButtonInfo_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

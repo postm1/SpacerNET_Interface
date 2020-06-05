@@ -49,6 +49,10 @@
             this.checkBoxCamCoord = new System.Windows.Forms.CheckBox();
             this.checkBoxTris = new System.Windows.Forms.CheckBox();
             this.checkBoxFPS = new System.Windows.Forms.CheckBox();
+            this.textBoxCamTrans = new System.Windows.Forms.TextBox();
+            this.textBoxCamRot = new System.Windows.Forms.TextBox();
+            this.textBoxWorldRange = new System.Windows.Forms.TextBox();
+            this.textBoxVobsRange = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRotSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobs)).BeginInit();
@@ -64,7 +68,7 @@
             this.trackBarTransSpeed.Maximum = 100;
             this.trackBarTransSpeed.Minimum = 1;
             this.trackBarTransSpeed.Name = "trackBarTransSpeed";
-            this.trackBarTransSpeed.Size = new System.Drawing.Size(235, 45);
+            this.trackBarTransSpeed.Size = new System.Drawing.Size(237, 45);
             this.trackBarTransSpeed.TabIndex = 0;
             this.trackBarTransSpeed.Value = 1;
             this.trackBarTransSpeed.ValueChanged += new System.EventHandler(this.trackBarTransSpeed_ValueChanged);
@@ -93,7 +97,7 @@
             this.trackBarRotSpeed.Maximum = 100;
             this.trackBarRotSpeed.Minimum = 1;
             this.trackBarRotSpeed.Name = "trackBarRotSpeed";
-            this.trackBarRotSpeed.Size = new System.Drawing.Size(235, 45);
+            this.trackBarRotSpeed.Size = new System.Drawing.Size(236, 45);
             this.trackBarRotSpeed.TabIndex = 3;
             this.trackBarRotSpeed.Value = 1;
             this.trackBarRotSpeed.ValueChanged += new System.EventHandler(this.trackBarRotSpeed_ValueChanged);
@@ -113,7 +117,7 @@
             this.trackBarVobs.Maximum = 20000;
             this.trackBarVobs.Minimum = 100;
             this.trackBarVobs.Name = "trackBarVobs";
-            this.trackBarVobs.Size = new System.Drawing.Size(235, 45);
+            this.trackBarVobs.Size = new System.Drawing.Size(229, 45);
             this.trackBarVobs.TabIndex = 5;
             this.trackBarVobs.TickFrequency = 10;
             this.trackBarVobs.Value = 1000;
@@ -134,7 +138,7 @@
             this.trackBarWorld.Maximum = 20000;
             this.trackBarWorld.Minimum = 100;
             this.trackBarWorld.Name = "trackBarWorld";
-            this.trackBarWorld.Size = new System.Drawing.Size(235, 45);
+            this.trackBarWorld.Size = new System.Drawing.Size(229, 45);
             this.trackBarWorld.TabIndex = 7;
             this.trackBarWorld.TickFrequency = 10;
             this.trackBarWorld.Value = 1000;
@@ -142,6 +146,8 @@
             // 
             // groupBoxCam
             // 
+            this.groupBoxCam.Controls.Add(this.textBoxCamRot);
+            this.groupBoxCam.Controls.Add(this.textBoxCamTrans);
             this.groupBoxCam.Controls.Add(this.labelTrans);
             this.groupBoxCam.Controls.Add(this.labelRot);
             this.groupBoxCam.Controls.Add(this.trackBarTransSpeed);
@@ -155,6 +161,8 @@
             // 
             // groupBoxRange
             // 
+            this.groupBoxRange.Controls.Add(this.textBoxVobsRange);
+            this.groupBoxRange.Controls.Add(this.textBoxWorldRange);
             this.groupBoxRange.Controls.Add(this.labelVobs);
             this.groupBoxRange.Controls.Add(this.trackBarWorld);
             this.groupBoxRange.Controls.Add(this.labelWorld);
@@ -197,7 +205,7 @@
             // labelLimitFPS
             // 
             this.labelLimitFPS.AutoSize = true;
-            this.labelLimitFPS.Location = new System.Drawing.Point(6, 199);
+            this.labelLimitFPS.Location = new System.Drawing.Point(7, 240);
             this.labelLimitFPS.Name = "labelLimitFPS";
             this.labelLimitFPS.Size = new System.Drawing.Size(89, 13);
             this.labelLimitFPS.TabIndex = 8;
@@ -205,7 +213,7 @@
             // 
             // textBoxLimitFPS
             // 
-            this.textBoxLimitFPS.Location = new System.Drawing.Point(101, 196);
+            this.textBoxLimitFPS.Location = new System.Drawing.Point(102, 237);
             this.textBoxLimitFPS.Name = "textBoxLimitFPS";
             this.textBoxLimitFPS.Size = new System.Drawing.Size(29, 20);
             this.textBoxLimitFPS.TabIndex = 7;
@@ -289,6 +297,42 @@
             this.checkBoxFPS.UseVisualStyleBackColor = true;
             this.checkBoxFPS.CheckedChanged += new System.EventHandler(this.checkBoxFPS_CheckedChanged);
             // 
+            // textBoxCamTrans
+            // 
+            this.textBoxCamTrans.Location = new System.Drawing.Point(244, 35);
+            this.textBoxCamTrans.Name = "textBoxCamTrans";
+            this.textBoxCamTrans.Size = new System.Drawing.Size(48, 20);
+            this.textBoxCamTrans.TabIndex = 4;
+            this.textBoxCamTrans.TextChanged += new System.EventHandler(this.textBoxCamTrans_TextChanged);
+            this.textBoxCamTrans.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamTrans_KeyPress);
+            // 
+            // textBoxCamRot
+            // 
+            this.textBoxCamRot.Location = new System.Drawing.Point(244, 88);
+            this.textBoxCamRot.Name = "textBoxCamRot";
+            this.textBoxCamRot.Size = new System.Drawing.Size(48, 20);
+            this.textBoxCamRot.TabIndex = 5;
+            this.textBoxCamRot.TextChanged += new System.EventHandler(this.textBoxCamRot_TextChanged);
+            this.textBoxCamRot.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamTrans_KeyPress);
+            // 
+            // textBoxWorldRange
+            // 
+            this.textBoxWorldRange.Location = new System.Drawing.Point(244, 38);
+            this.textBoxWorldRange.Name = "textBoxWorldRange";
+            this.textBoxWorldRange.Size = new System.Drawing.Size(48, 20);
+            this.textBoxWorldRange.TabIndex = 6;
+            this.textBoxWorldRange.TextChanged += new System.EventHandler(this.textBoxWorldRange_TextChanged);
+            this.textBoxWorldRange.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamTrans_KeyPress);
+            // 
+            // textBoxVobsRange
+            // 
+            this.textBoxVobsRange.Location = new System.Drawing.Point(244, 92);
+            this.textBoxVobsRange.Name = "textBoxVobsRange";
+            this.textBoxVobsRange.Size = new System.Drawing.Size(48, 20);
+            this.textBoxVobsRange.TabIndex = 8;
+            this.textBoxVobsRange.TextChanged += new System.EventHandler(this.textBoxVobsRange_TextChanged);
+            this.textBoxVobsRange.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamTrans_KeyPress);
+            // 
             // SettingsCamera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,5 +390,9 @@
         public System.Windows.Forms.CheckBox checkBoxCameraHideWins;
         private System.Windows.Forms.Label labelLimitFPS;
         public System.Windows.Forms.TextBox textBoxLimitFPS;
+        private System.Windows.Forms.TextBox textBoxCamRot;
+        private System.Windows.Forms.TextBox textBoxCamTrans;
+        private System.Windows.Forms.TextBox textBoxVobsRange;
+        private System.Windows.Forms.TextBox textBoxWorldRange;
     }
 }
