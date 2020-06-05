@@ -24,6 +24,16 @@ namespace SpacerUnion
 
         public Form renderTarget = null;
         public string currentWorldName = "";
+
+        public enum ToggleMenuType
+        {
+            ToggleVobs = 0,
+            ToggleWaynet,
+            ToggleHelpers,
+            ToggleBbox,
+            ToggleInvis
+        }
+
        
         public MainForm()
         {
@@ -152,6 +162,8 @@ namespace SpacerUnion
             renderTarget.Show();
             //toolStripTop.BringToFront();
         }
+
+       
 
 
         [DllExport]
@@ -878,6 +890,24 @@ namespace SpacerUnion
             }
         }
 
+
+        [DllExport]
+        public static void Menu_Toggle(int type)
+        {
+            ToggleMenuType toggleType = (ToggleMenuType)type;
+
+            switch (toggleType)
+            {
+                case ToggleMenuType.ToggleVobs: SpacerNET.form.toolStripButtonVobs_Click(SpacerNET.form.toolStripButtonVobs, null);  break;
+                case ToggleMenuType.ToggleWaynet: SpacerNET.form.toolStripButtonWaynet_Click(SpacerNET.form.toolStripButtonWaynet, null); break;
+                case ToggleMenuType.ToggleHelpers: SpacerNET.form.toolStripButtonHelpVobs_Click(SpacerNET.form.toolStripButtonHelpVobs, null); break;
+                case ToggleMenuType.ToggleBbox: SpacerNET.form.toolStripButtonBBox_Click_1(SpacerNET.form.toolStripButtonBBox, null); break;
+                case ToggleMenuType.ToggleInvis: SpacerNET.form.toolStripButtonInvisible_Click(SpacerNET.form.toolStripButtonInvisible, null); break;
+            }
+
+        }
+
+
         private void toolStripButtonVobs_Click(object sender, EventArgs e)
         {
             ToolStripButton item = sender as ToolStripButton;
@@ -1003,7 +1033,7 @@ namespace SpacerUnion
 
         private void игратьЗаГерояToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Еще не работает");
+            MessageBox.Show("Not working yet...");
         }
 
         public static Image CaptureScreens(params Screen[] screens)

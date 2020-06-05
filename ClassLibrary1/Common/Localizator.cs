@@ -256,8 +256,8 @@ namespace SpacerUnion.Common
             words.Add("WIN_INFO_TITLE", new List<string> { "Окно информации", "Information window", "", "" });
             words.Add("WIN_INFO_CLEAR", new List<string> { "Очистить", "Clear", "", "" });
             words.Add("IS_SAVING", new List<string> { "сохраняется...", "is saving...", "", "" });
-
-
+            words.Add("WIN_CAM_GETFROMBUFFER", new List<string> { "Взять из буфера", "Get from clipboard", "", "" });
+            
 
             words.Add("BTN_APPLY", new List<string> { "Применить", "Apply", "", "" });
             words.Add("WIN_MISC_SET", new List<string> { "Прочие настройки", "Misc settings", "", "" });
@@ -361,6 +361,11 @@ namespace SpacerUnion.Common
 
 
 
+            words.Add("TOGGLE_BBOX", new List<string> { "Показать/Скрыть все BBox", "Show/Hide all the BBoxes", "", "" });
+            words.Add("TOGGLE_INVIS", new List<string> { "Показать/Скрыть невидимые вобы", "Show/Hide invisible vobs", "", "" });
+            words.Add("TOGGLE_VOBS", new List<string> { "Показать/Скрыть все вобы", "Show/Hide all vobs", "", "" });
+            words.Add("TOGGLE_WAYNET", new List<string> { "Показать/Скрыть Waynet", "Show/Hide Waynet", "", "" });
+            words.Add("TOGGLE_HELPERS", new List<string> { "Показать/Скрыть help-вобы", "Show/Hide help vobs", "", "" });
 
 
         }

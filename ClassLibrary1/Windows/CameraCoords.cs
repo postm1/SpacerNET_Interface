@@ -26,7 +26,7 @@ namespace SpacerUnion.Windows
             this.Text = Localizator.Get("WIN_CAM_TEXT");
             checkBoxCloseCamWin.Text = Localizator.Get("WIN_CAM_CLOSEWIN");
             buttonCameraGo.Text = Localizator.Get("WIN_CAM_GO");
-            
+            buttonGetFrom.Text = Localizator.Get("WIN_CAM_GETFROMBUFFER");
         }
 
 
@@ -90,6 +90,39 @@ namespace SpacerUnion.Windows
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void CameraCoords_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+        }
+
+        private void CameraCoords_KeyDown(object sender, KeyEventArgs e)
+        {
+        }
+
+        private void buttonGetFrom_Click(object sender, EventArgs e)
+        {
+            string text = Clipboard.GetText();
+
+            string[] arr = text.Split(' ');
+
+            if (arr.Length == 3 && !text.Contains(','))
+            {
+                textBoxCamVec0.Text = arr[0].Trim();
+                textBoxCamVec1.Text = arr[1].Trim();
+                textBoxCamVec2.Text = arr[2].Trim();
+            }
+            else
+            {
+                string[] arrComma = text.Split(',');
+                if (arrComma.Length == 3)
+                {
+                    textBoxCamVec0.Text = arrComma[0].Trim();
+                    textBoxCamVec1.Text = arrComma[1].Trim();
+                    textBoxCamVec2.Text = arrComma[2].Trim();
+                }
             }
         }
     }

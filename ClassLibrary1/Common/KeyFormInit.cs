@@ -117,7 +117,7 @@ namespace SpacerUnion.Windows
                 }
                 else
                 {
-                    ConsoleEx.WriteLineRed("Нет клавиши для кода: " + key);
+                    ConsoleEx.WriteLineRed("C# not key found: " + key);
                     union_key = 1;
                 }
 
@@ -326,6 +326,18 @@ namespace SpacerUnion.Windows
 
 
             row = new string[] { "OPEN_CONTAINER", Localizator.Get("OPEN_CONTAINER"), "" };
+            dataGridKeys.Rows.Add(row);
+
+
+            row = new string[] { "TOGGLE_VOBS", Localizator.Get("TOGGLE_VOBS"), "" };
+            dataGridKeys.Rows.Add(row);
+            row = new string[] { "TOGGLE_WAYNET", Localizator.Get("TOGGLE_WAYNET"), "" };
+            dataGridKeys.Rows.Add(row);
+            row = new string[] { "TOGGLE_HELPERS", Localizator.Get("TOGGLE_HELPERS"), "" };
+            dataGridKeys.Rows.Add(row);
+            row = new string[] { "TOGGLE_BBOX", Localizator.Get("TOGGLE_BBOX"), "" };
+            dataGridKeys.Rows.Add(row);
+            row = new string[] { "TOGGLE_INVIS", Localizator.Get("TOGGLE_INVIS"), "" };
             dataGridKeys.Rows.Add(row);
 
         }
