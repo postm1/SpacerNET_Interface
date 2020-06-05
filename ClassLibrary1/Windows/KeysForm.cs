@@ -19,6 +19,15 @@ namespace SpacerUnion.Windows
         {
             InitializeComponent();
         }
+        
+        public void UpdateLang()
+        {
+            this.Text = Localizator.Get("WIN_KEYSBIND_TEXT");
+            dataGridKeys.Columns[1].HeaderText = Localizator.Get("WIN_KEYSBIND_DESC");
+            dataGridKeys.Columns[2].HeaderText = Localizator.Get("WIN_KEYSBIND_BINDS");
+
+            buttonClose.Text = Localizator.Get("BTN_APPLY");
+        }
 
 
         private void dataGridKeys_KeyDown(object sender, KeyEventArgs e)

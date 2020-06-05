@@ -21,6 +21,29 @@ namespace SpacerUnion
         }
 
 
+        public void UpdateLang()
+        {
+            this.Text = Localizator.Get("WIN_CONTROLCAM_TEXT");
+            btnSetCamApply.Text = Localizator.Get("BTN_APPLY");
+
+            groupBoxCam.Text = Localizator.Get("groupBoxCam");
+            labelTrans.Text = Localizator.Get("labelTrans");
+            labelRot.Text = Localizator.Get("labelRot");
+            groupBoxRange.Text = Localizator.Get("groupBoxRange");
+            labelWorld.Text = Localizator.Get("labelWorld");
+            labelVobs.Text = Localizator.Get("labelVobs");
+            labelLimitFPS.Text = Localizator.Get("labelLimitFPS");
+            groupBoxInfo.Text = Localizator.Get("groupBoxInfo");
+            checkBoxFPS.Text = Localizator.Get("checkBoxFPS");
+            checkBoxTris.Text = Localizator.Get("checkBoxTris");
+            checkBoxCamCoord.Text = Localizator.Get("checkBoxCamCoord");
+            checkBoxVobs.Text = Localizator.Get("checkBoxVobs");
+            checkBoxWaypoints.Text = Localizator.Get("checkBoxWaypoints");
+            checkBoxDistVob.Text = Localizator.Get("checkBoxDistVob");
+            checkBoxCameraHideWins.Text = Localizator.Get("checkBoxCameraHideWins");
+
+        }
+
 
         private void SettingsCamera_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -53,7 +76,7 @@ namespace SpacerUnion
 
         private void trackBarTransSpeed_ValueChanged(object sender, EventArgs e)
         {
-            labelTrans.Text = "Скорость полета: " + trackBarTransSpeed.Value;
+            labelTrans.Text = Localizator.Get("labelTrans") + ": " + trackBarTransSpeed.Value;
             textBoxCamTrans.Text = trackBarTransSpeed.Value.ToString();
             Imports.Stack_PushString("camTransSpeed");
             Imports.Extern_SetSetting(trackBarTransSpeed.Value);
@@ -62,7 +85,7 @@ namespace SpacerUnion
 
         private void trackBarRotSpeed_ValueChanged(object sender, EventArgs e)
         {
-            labelRot.Text = "Скорость поворота: " + trackBarRotSpeed.Value;
+            labelRot.Text = Localizator.Get("labelRot") + ": " + trackBarRotSpeed.Value;
             textBoxCamRot.Text = trackBarRotSpeed.Value.ToString();
             Imports.Stack_PushString("camRotSpeed");
             Imports.Extern_SetSetting(trackBarRotSpeed.Value);
@@ -71,7 +94,7 @@ namespace SpacerUnion
 
         private void trackBarWorld_ValueChanged(object sender, EventArgs e)
         {
-            labelWorld.Text = "Мир: " + trackBarWorld.Value;
+            labelWorld.Text = Localizator.Get("labelWorld") + ": " + trackBarWorld.Value;
             textBoxWorldRange.Text = trackBarWorld.Value.ToString();
             Imports.Stack_PushString("rangeWorld");
             Imports.Extern_SetSetting(trackBarWorld.Value);
@@ -80,7 +103,7 @@ namespace SpacerUnion
 
         private void trackBarVobs_ValueChanged(object sender, EventArgs e)
         {
-            labelVobs.Text = "Вобы: " + trackBarVobs.Value;
+            labelVobs.Text = Localizator.Get("labelVobs") + ": " + trackBarVobs.Value;
             textBoxVobsRange.Text = trackBarVobs.Value.ToString();
             Imports.Stack_PushString("rangeVobs");
             Imports.Extern_SetSetting(trackBarVobs.Value);

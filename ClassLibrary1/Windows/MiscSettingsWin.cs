@@ -18,6 +18,16 @@ namespace SpacerUnion.Windows
             this.KeyPreview = true;
         }
 
+        public void UpdateLang()
+        {
+            this.Text = Localizator.Get("WIN_MISC_SET");
+            checkBoxSetDatePrefix.Text = Localizator.Get("checkBoxSetDatePrefix");
+            checkBoxMiscExitAsk.Text = Localizator.Get("checkBoxMiscExitAsk");
+            checkBoxLastZenAuto.Text = Localizator.Get("checkBoxLastZenAuto");
+            checkBoxMiscFullPath.Text = Localizator.Get("checkBoxMiscFullPath");
+            btnMiscSetApply.Text = Localizator.Get("BTN_APPLY");
+        }
+
         public void LoadSettings()
         {
             Imports.Stack_PushString("fullPathTitle");

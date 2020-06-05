@@ -49,14 +49,15 @@ namespace SpacerUnion
 
             if (Imports.Extern_IsWorldCompiled())
             {
-                MessageBox.Show("Мир уже скомпилирован!");
+               
+                MessageBox.Show(Localizator.Get("WIN_COMPWORLD_ALREADY_COMP"));
                 return;
             }
 
 
             int type = radioButtonIndoor.Checked ? 0 : 1;
 
-            SpacerNET.form.AddText("Мир компилируется...");
+            SpacerNET.form.AddText(Localizator.Get("WIN_COMPWORLD_COMPILING"));
 
             Stopwatch s = new Stopwatch();
             s.Start();
@@ -66,10 +67,10 @@ namespace SpacerUnion
             Imports.Extern_CompileWorld(type);
 
             string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-            SpacerNET.form.AddText("Компиляция мира выполнена за (" + timeSpend + ")");
+            SpacerNET.form.AddText(Localizator.Get("WIN_COMPWORLD_TIME") + " (" + timeSpend + ")");
 
 
-            SpacerNET.form.AddText("Не забудьте удалить лишний zCVobLevelCompo");
+            SpacerNET.form.AddText(Localizator.Get("WIN_COMPWORLD_LEVELCOMPO"));
             this.Hide();
         }
 

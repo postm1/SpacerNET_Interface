@@ -128,10 +128,10 @@ namespace SpacerUnion
         {
             switch (type)
             {
-                case 0: SpacerNET.form.AddText("Компиляция (только вершины)"); break;
-                case 1: SpacerNET.form.AddText("Компиляция (низкое)"); break;
-                case 2: SpacerNET.form.AddText("Компиляция (среднее)"); break;
-                case 3: SpacerNET.form.AddText("Компиляция (высокое)"); break;
+                case 0: SpacerNET.form.AddText(Localizator.Get("WIN_COMPLIGHT_QUALITY0_COMP")); break;
+                case 1: SpacerNET.form.AddText(Localizator.Get("WIN_COMPLIGHT_QUALITY1_COMP")); break;
+                case 2: SpacerNET.form.AddText(Localizator.Get("WIN_COMPLIGHT_QUALITY2_COMP")); break;
+                case 3: SpacerNET.form.AddText(Localizator.Get("WIN_COMPLIGHT_QUALITY3_COMP")); break;
             }
 
         }
@@ -139,13 +139,13 @@ namespace SpacerUnion
         {
             if (!Imports.Extern_IsWorldLoaded())
             {
-                MessageBox.Show("Мир не загружен!");
+                MessageBox.Show(Localizator.Get("WIN_COMPLIGHT_NOWORLD"));
                 return;
             }
 
             if (!Imports.Extern_IsWorldCompiled())
             {
-                MessageBox.Show("Мир не скомпилирован!");
+                MessageBox.Show(Localizator.Get("WIN_COMPLIGHT_NOWORLDCOMPILED"));
                 return;
             }
 
@@ -180,7 +180,7 @@ namespace SpacerUnion
             s.Stop();
 
             string timeSpend = string.Format("{0:HH:mm:ss}", new DateTime(s.Elapsed.Ticks));
-            SpacerNET.form.AddText("Компиляция света выполнена за (" + timeSpend + ")");
+            SpacerNET.form.AddText(Localizator.Get("WIN_COMPLIGHT_TIME") + " (" + timeSpend + ")");
 
         }
 

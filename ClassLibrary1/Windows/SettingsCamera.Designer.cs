@@ -37,8 +37,12 @@
             this.labelVobs = new System.Windows.Forms.Label();
             this.trackBarWorld = new System.Windows.Forms.TrackBar();
             this.groupBoxCam = new System.Windows.Forms.GroupBox();
+            this.textBoxCamRot = new System.Windows.Forms.TextBox();
+            this.textBoxCamTrans = new System.Windows.Forms.TextBox();
             this.groupBoxRange = new System.Windows.Forms.GroupBox();
-            this.Применить = new System.Windows.Forms.Button();
+            this.textBoxVobsRange = new System.Windows.Forms.TextBox();
+            this.textBoxWorldRange = new System.Windows.Forms.TextBox();
+            this.btnSetCamApply = new System.Windows.Forms.Button();
             this.groupBoxInfo = new System.Windows.Forms.GroupBox();
             this.labelLimitFPS = new System.Windows.Forms.Label();
             this.textBoxLimitFPS = new System.Windows.Forms.TextBox();
@@ -49,10 +53,6 @@
             this.checkBoxCamCoord = new System.Windows.Forms.CheckBox();
             this.checkBoxTris = new System.Windows.Forms.CheckBox();
             this.checkBoxFPS = new System.Windows.Forms.CheckBox();
-            this.textBoxCamTrans = new System.Windows.Forms.TextBox();
-            this.textBoxCamRot = new System.Windows.Forms.TextBox();
-            this.textBoxWorldRange = new System.Windows.Forms.TextBox();
-            this.textBoxVobsRange = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRotSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobs)).BeginInit();
@@ -159,6 +159,24 @@
             this.groupBoxCam.TabStop = false;
             this.groupBoxCam.Text = "Камера";
             // 
+            // textBoxCamRot
+            // 
+            this.textBoxCamRot.Location = new System.Drawing.Point(244, 88);
+            this.textBoxCamRot.Name = "textBoxCamRot";
+            this.textBoxCamRot.Size = new System.Drawing.Size(48, 20);
+            this.textBoxCamRot.TabIndex = 5;
+            this.textBoxCamRot.TextChanged += new System.EventHandler(this.textBoxCamRot_TextChanged);
+            this.textBoxCamRot.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamTrans_KeyPress);
+            // 
+            // textBoxCamTrans
+            // 
+            this.textBoxCamTrans.Location = new System.Drawing.Point(244, 35);
+            this.textBoxCamTrans.Name = "textBoxCamTrans";
+            this.textBoxCamTrans.Size = new System.Drawing.Size(48, 20);
+            this.textBoxCamTrans.TabIndex = 4;
+            this.textBoxCamTrans.TextChanged += new System.EventHandler(this.textBoxCamTrans_TextChanged);
+            this.textBoxCamTrans.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamTrans_KeyPress);
+            // 
             // groupBoxRange
             // 
             this.groupBoxRange.Controls.Add(this.textBoxVobsRange);
@@ -174,15 +192,33 @@
             this.groupBoxRange.TabStop = false;
             this.groupBoxRange.Text = "Прорисовка";
             // 
-            // Применить
+            // textBoxVobsRange
             // 
-            this.Применить.Location = new System.Drawing.Point(259, 317);
-            this.Применить.Name = "Применить";
-            this.Применить.Size = new System.Drawing.Size(115, 23);
-            this.Применить.TabIndex = 10;
-            this.Применить.Text = "Применить";
-            this.Применить.UseVisualStyleBackColor = true;
-            this.Применить.Click += new System.EventHandler(this.Применить_Click);
+            this.textBoxVobsRange.Location = new System.Drawing.Point(244, 92);
+            this.textBoxVobsRange.Name = "textBoxVobsRange";
+            this.textBoxVobsRange.Size = new System.Drawing.Size(48, 20);
+            this.textBoxVobsRange.TabIndex = 8;
+            this.textBoxVobsRange.TextChanged += new System.EventHandler(this.textBoxVobsRange_TextChanged);
+            this.textBoxVobsRange.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamTrans_KeyPress);
+            // 
+            // textBoxWorldRange
+            // 
+            this.textBoxWorldRange.Location = new System.Drawing.Point(244, 38);
+            this.textBoxWorldRange.Name = "textBoxWorldRange";
+            this.textBoxWorldRange.Size = new System.Drawing.Size(48, 20);
+            this.textBoxWorldRange.TabIndex = 6;
+            this.textBoxWorldRange.TextChanged += new System.EventHandler(this.textBoxWorldRange_TextChanged);
+            this.textBoxWorldRange.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamTrans_KeyPress);
+            // 
+            // btnSetCamApply
+            // 
+            this.btnSetCamApply.Location = new System.Drawing.Point(259, 317);
+            this.btnSetCamApply.Name = "btnSetCamApply";
+            this.btnSetCamApply.Size = new System.Drawing.Size(115, 23);
+            this.btnSetCamApply.TabIndex = 10;
+            this.btnSetCamApply.Text = "Применить";
+            this.btnSetCamApply.UseVisualStyleBackColor = true;
+            this.btnSetCamApply.Click += new System.EventHandler(this.Применить_Click);
             // 
             // groupBoxInfo
             // 
@@ -297,49 +333,13 @@
             this.checkBoxFPS.UseVisualStyleBackColor = true;
             this.checkBoxFPS.CheckedChanged += new System.EventHandler(this.checkBoxFPS_CheckedChanged);
             // 
-            // textBoxCamTrans
-            // 
-            this.textBoxCamTrans.Location = new System.Drawing.Point(244, 35);
-            this.textBoxCamTrans.Name = "textBoxCamTrans";
-            this.textBoxCamTrans.Size = new System.Drawing.Size(48, 20);
-            this.textBoxCamTrans.TabIndex = 4;
-            this.textBoxCamTrans.TextChanged += new System.EventHandler(this.textBoxCamTrans_TextChanged);
-            this.textBoxCamTrans.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamTrans_KeyPress);
-            // 
-            // textBoxCamRot
-            // 
-            this.textBoxCamRot.Location = new System.Drawing.Point(244, 88);
-            this.textBoxCamRot.Name = "textBoxCamRot";
-            this.textBoxCamRot.Size = new System.Drawing.Size(48, 20);
-            this.textBoxCamRot.TabIndex = 5;
-            this.textBoxCamRot.TextChanged += new System.EventHandler(this.textBoxCamRot_TextChanged);
-            this.textBoxCamRot.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamTrans_KeyPress);
-            // 
-            // textBoxWorldRange
-            // 
-            this.textBoxWorldRange.Location = new System.Drawing.Point(244, 38);
-            this.textBoxWorldRange.Name = "textBoxWorldRange";
-            this.textBoxWorldRange.Size = new System.Drawing.Size(48, 20);
-            this.textBoxWorldRange.TabIndex = 6;
-            this.textBoxWorldRange.TextChanged += new System.EventHandler(this.textBoxWorldRange_TextChanged);
-            this.textBoxWorldRange.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamTrans_KeyPress);
-            // 
-            // textBoxVobsRange
-            // 
-            this.textBoxVobsRange.Location = new System.Drawing.Point(244, 92);
-            this.textBoxVobsRange.Name = "textBoxVobsRange";
-            this.textBoxVobsRange.Size = new System.Drawing.Size(48, 20);
-            this.textBoxVobsRange.TabIndex = 8;
-            this.textBoxVobsRange.TextChanged += new System.EventHandler(this.textBoxVobsRange_TextChanged);
-            this.textBoxVobsRange.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamTrans_KeyPress);
-            // 
             // SettingsCamera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(625, 353);
             this.Controls.Add(this.groupBoxInfo);
-            this.Controls.Add(this.Применить);
+            this.Controls.Add(this.btnSetCamApply);
             this.Controls.Add(this.groupBoxRange);
             this.Controls.Add(this.groupBoxCam);
             this.DoubleBuffered = true;
@@ -379,7 +379,7 @@
         public System.Windows.Forms.TrackBar trackBarRotSpeed;
         public System.Windows.Forms.TrackBar trackBarVobs;
         public System.Windows.Forms.TrackBar trackBarWorld;
-        private System.Windows.Forms.Button Применить;
+        private System.Windows.Forms.Button btnSetCamApply;
         private System.Windows.Forms.GroupBox groupBoxInfo;
         public System.Windows.Forms.CheckBox checkBoxTris;
         public System.Windows.Forms.CheckBox checkBoxFPS;

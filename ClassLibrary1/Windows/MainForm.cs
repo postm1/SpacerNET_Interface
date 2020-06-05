@@ -491,8 +491,8 @@ namespace SpacerUnion
                 s.Start();
 
 
-                ConsoleEx.WriteLineGreen(selectedFileName + " сохраняется...");
-                SpacerNET.form.AddText(selectedFileName + " сохраняется...");
+               // ConsoleEx.WriteLineGreen(selectedFileName + " " + Localizator.Get("IS_SAVING"));
+                SpacerNET.form.AddText(selectedFileName + " " + Localizator.Get("IS_SAVING"));
 
                 Imports.Stack_PushString(filePath);
 

@@ -60,6 +60,11 @@ namespace SpacerUnion.Common
             SpacerNET.comLightWin.UpdateLang();
             SpacerNET.compWorldWin.UpdateLang();
             SpacerNET.camCoordsWin.UpdateLang();
+            SpacerNET.infoWin.UpdateLang();
+            SpacerNET.miscSetWin.UpdateLang();
+            SpacerNET.settingsControl.UpdateLang();
+            SpacerNET.settingsCam.UpdateLang();
+            SpacerNET.keysWin.UpdateLang();
         }
 
         [DllExport]
@@ -193,7 +198,7 @@ namespace SpacerUnion.Common
             words.Add("VOB_NEAR_CAMERA", new List<string> { "Воб вставлен перед камерой", "Vob inserted in front of the camera", "", "" });
 
 
-            words.Add("TOOL_TRANS", new List<string> { "Выбран инструмент перемещение", "Tool: translation", "", "" });
+            words.Add("TOOL_TRANS", new List<string> { "Выбран инструмент перемещение", "Tool: moving", "", "" });
             words.Add("TOOL_ROT", new List<string> { "Выбран инструмент вращение", "Tool: rotation", "", "" });
             words.Add("TOOL_UNSELECT", new List<string> { "Выделение воба снято", "Vob selection cancel", "", "" });
             words.Add("TOOL_FLOOR", new List<string> { "Прижимание воба к полу", "Try to floor the vob", "", "" });
@@ -232,10 +237,136 @@ namespace SpacerUnion.Common
             words.Add("UNION_VOB_COUNT", new List<string> { "Кол-во вобов: ", "Vobs amount: ", "", "" });
             words.Add("UNION_WP_COUNT", new List<string> { "Кол-во вейпоинтов: ", "Waypoint amount: ", "", "" });
             words.Add("UNION_DIST", new List<string> { "Дистанция: ", "Distance: ", "", "" });
+
+
+            //NEW
+
+            words.Add("WIN_COMPLIGHT_NOWORLD", new List<string> { "Мир не загружен!", "World is not loaded!", "", "" });
+            words.Add("WIN_COMPLIGHT_NOWORLDCOMPILED", new List<string> { "Мир не скомпилирован!", "World is not compiled!", "", "" });
+            words.Add("WIN_COMPLIGHT_TIME", new List<string> { "Компиляция света выполнена за", "Light compilaton time", "", "" });
+            words.Add("WIN_COMPLIGHT_QUALITY0_COMP", new List<string> { "Компиляция (только вершины)", "Compilation (Vertexes only)", "", "" });
+            words.Add("WIN_COMPLIGHT_QUALITY1_COMP", new List<string> { "Компиляция Lightmaps (низкое)", "Compilation Lightmaps (low)", "", "" });
+            words.Add("WIN_COMPLIGHT_QUALITY2_COMP", new List<string> { "Компиляция Lightmaps (среднее)", "Compilation Lightmaps (medium)", "", "" });
+            words.Add("WIN_COMPLIGHT_QUALITY3_COMP", new List<string> { "Компиляция Lightmaps (высокое)", "Compilation Lightmaps (high)", "", "" });
+            words.Add("WIN_COMPWORLD_ALREADY_COMP", new List<string> { "Мир уже скомпилирован!", "World is already compiled!", "", "" });
+            words.Add("WIN_COMPWORLD_COMPILING", new List<string> { "Мир компилируется...", "World is being compiled!", "", "" });
+            words.Add("WIN_COMPWORLD_TIME", new List<string> { "Компиляция мира выполнена за", "World compiling time", "", "" });
+            words.Add("WIN_COMPWORLD_LEVELCOMPO", new List<string> { "Не забудьте удалить лишний zCVobLevelCompo!", "Don't forget to remove the spare zCVobLevelCompo", "", "" });
+
+            words.Add("WIN_INFO_TITLE", new List<string> { "Окно информации", "Information window", "", "" });
+            words.Add("WIN_INFO_CLEAR", new List<string> { "Очистить", "Clear", "", "" });
+            words.Add("IS_SAVING", new List<string> { "сохраняется...", "is saving...", "", "" });
+
+
+
+            words.Add("BTN_APPLY", new List<string> { "Применить", "Apply", "", "" });
+            words.Add("WIN_MISC_SET", new List<string> { "Прочие настройки", "Misc settings", "", "" });
+            words.Add("checkBoxSetDatePrefix", new List<string> { "Добавлять префикс даты при сохранении зена", "Add DATE prefix to file when saving ZEN", "", "" });
+            words.Add("checkBoxMiscExitAsk", new List<string> { "Подтверждать выход если открыт зен", "Confirm exit if ZEN is opened", "", "" });
+            words.Add("checkBoxLastZenAuto", new List<string> { "Открывать последний ZEN автоматически", "Open last ZEN auto", "", "" });
+            words.Add("checkBoxMiscFullPath", new List<string> { "Писать полный путь до ZEN в главном окне", "Show full path to ZEN file in main window", "", "" });
+
+
+
+            
+
+            words.Add("WIN_CONTROLSET_TEXT", new List<string> { "Настройки управления", "Controls setttings", "", "" });
+            words.Add("WIN_CONTROLSET_TRANSSPEED", new List<string> { "Скорость перемещения: ", "Moving speed: ", "", "" });
+            words.Add("WIN_CONTROLSET_ROTSPEED", new List<string> { "Скорость вращения: ", "Rotation speed: ", "", "" });
+
+            words.Add("WIN_CONTROLSET_GROUP0", new List<string> { "Управление вобом", "Vob control", "", "" });
+            words.Add("WIN_CONTROLSET_GROUP1", new List<string> { "Вставка воба", "Vob insertion", "", "" });
+            words.Add("checkBoxInsertVob", new List<string> { "Вставлять воб на той же высоте", "Insert vob on the source height", "", "" });
+            words.Add("checkBoxVobRotRandAngle", new List<string> { "Поворачивать воб на случайный угол", "Turn vob on a random angle", "", "" });
+            words.Add("checkBoxVobInsertHierarchy", new List<string> { "Учитывать иерархию при копировании", "Use hierarchy when copying", "", "" });
+            words.Add("labelRotWpFP", new List<string> { "Разворачивать WP/FP при вставке:", "Turn WP/FP when inserting:", "", "" });
+            words.Add("radioButtonWPTurnNone", new List<string> { "Нет", "None ", "None", "" });
+            words.Add("radioButtonWPTurnAgainst", new List<string> { "От камеры", "From the camera", "", "" });
+            words.Add("radioButtonWPTurnOn", new List<string> { "На камеру", "At the camera", "", "" });
+
+
+
+            words.Add("WIN_CONTROLCAM_TEXT", new List<string> { "Настройки камеры", "Camera settings", "", "" });
+            words.Add("groupBoxCam", new List<string> { "Камера", "Camera", "", "" });
+            words.Add("labelTrans", new List<string> { "Скорость полета", "Moving speed", "", "" });
+            words.Add("labelRot", new List<string> { "Скорость повотора", "Rotation speed", "", "" });
+
+            words.Add("groupBoxRange", new List<string> { "Прорисовка", "Rendering range", "", "" });
+            words.Add("labelWorld", new List<string> { "Мир", "World", "", "" });
+            words.Add("labelVobs", new List<string> { "Вобы", "Vobs", "", "" });
+            words.Add("labelLimitFPS", new List<string> { "Ограничить FPS", "Limit FPS", "", "" });
+
+            words.Add("groupBoxInfo", new List<string> { "Информация", "Information", "", "" });
+            words.Add("checkBoxFPS", new List<string> { "Показывать FSP", "Show FPS", "", "" });
+            words.Add("checkBoxTris", new List<string> { "Показывать кол-во рисуемых треугольников", "Show rendered triangles", "", "" });
+            words.Add("checkBoxCamCoord", new List<string> { "Показывать координаты камеры", "Show camera coordinates", "", "" });
+
+            words.Add("checkBoxVobs", new List<string> { "Показывать кол-во вобов", "Show vobs count", "", "" });
+            words.Add("checkBoxWaypoints", new List<string> { "Показывать кол-во вейпоинтов", "Show waypoints count", "", "" });
+            words.Add("checkBoxDistVob", new List<string> { "Показывать расстояние до выбранного воба", "Show distance to selected vob", "", "" });
+            words.Add("checkBoxCameraHideWins", new List<string> { "Скрывать окна при полете камеры", "Hide windows when moving camera", "", "" });
+
+
+            words.Add("WIN_KEYSBIND_TEXT", new List<string> { "Сочетания клавиш", "Keys binding", "", "" });
+            words.Add("WIN_KEYSBIND_DESC", new List<string> { "Описание", "Description", "", "" });
+            words.Add("WIN_KEYSBIND_BINDS", new List<string> { "Сочетание", "Bind", "", "" });
+
+
+
+            words.Add("WIN_KEYSBIND_KEY_SPACE", new List<string> { "Пробел", "Space", "", "" });
+            words.Add("WIN_KEYSBIND_KEY_ARROW_LEFT", new List<string> { "Стрелка влево", "Arrow left", "", "" });
+            words.Add("WIN_KEYSBIND_KEY_ARROW_UP", new List<string> { "Стрелка вверх", "Arrow up", "", "" });
+            words.Add("WIN_KEYSBIND_KEY_ARROW_RIGHT", new List<string> { "Стрелвка вправо", "Arrow right", "", "" });
+            words.Add("WIN_KEYSBIND_KEY_ARROW_DOWN", new List<string> { "Стрелка вниз", "Arrow down", "", "" });
+
+
+            words.Add("CAMERA_TRANS_FORWARD", new List<string> { "Камера (вперед)", "Camera (forward)", "", "" });
+            words.Add("CAMERA_TRANS_BACKWARD", new List<string> { "Камера (назад)", "Camera (backward)", "", "" });
+            words.Add("CAMERA_TRANS_RIGHT", new List<string> { "Камера (вправо)", "Camera (right)", "", "" });
+            words.Add("CAMERA_TRANS_LEFT", new List<string> { "Камера (влево)", "Camera (left)", "", "" });
+            words.Add("CAMERA_TRANS_UP", new List<string> { "Камера (вверх)", "Camera (up)", "", "" });
+            words.Add("CAMERA_TRANS_DOWN", new List<string> { "Камера (вниз)", "Camera (down)", "", "" });
+            words.Add("CAM_SPEED_X10", new List<string> { "Увеличить скорость полета камеры в 10 раз", "Increase camera moving speed x10", "", "" });
+            words.Add("CAM_SPEED_MINUS_10", new List<string> { "Уменьшить скорость полета камеры в 10 раз", "Decrease camera moving speed x10", "", "" });
+            words.Add("VOB_COPY", new List<string> { "Скопировать воб", "Copy vob", "", "" });
+            words.Add("VOB_INSERT", new List<string> { "Вставить воб", "Insert vob", "", "" });
+            words.Add("VOB_CUT", new List<string> { "Вырезать воб (смена родителя)", "Cut vob (parent change)", "", "" });
+            words.Add("VOB_FLOOR", new List<string> { "Прижать воб к полу", "Floor the vob", "", "" });
+            words.Add("VOB_RESET_AXIS", new List<string> { "Сбросить направление воба по осям", "Reset axes of the vob", "", "" });
+            words.Add("VOB_DELETE", new List<string> { "Удалить воб", "Remove vob", "", "" });
+            words.Add("VOB_TRANSLATE", new List<string> { "Инструмент перемещение", "Tool moving", "", "" });
+            words.Add("VOB_ROTATE", new List<string> { "Инструмент вращение", "Tool rotating", "", "" });
+            words.Add("WP_TOGGLE", new List<string> { "Переключить соединение между вейпоинтами", "Toggle connection between waypoints", "", "" });
+            words.Add("VOB_DISABLE_SELECT", new List<string> { "Снять выделение с воба", "Unselect the vob", "", "" });
+            words.Add("VOB_NEAR_CAM", new List<string> { "Переместить воб перед камерой", "Move vob in front of the camera", "", "" });
+            words.Add("VOB_TRANS_FORWARD", new List<string> { "Перемещение воба (вперед)", "Moving vob (forward)", "", "" });
+            words.Add("VOB_TRANS_BACKWARD", new List<string> { "Перемещение воба (назад)", "Moving vob (back)", "", "" });
+            words.Add("VOB_TRANS_LEFT", new List<string> { "Перемещение воба (влево)", "Moving vob (left)", "", "" });
+            words.Add("VOB_TRANS_RIGHT", new List<string> { "Перемещение воба (вправо)", "Moving vob (right)", "", "" });
+            words.Add("VOB_TRANS_UP", new List<string> { "Перемещение воба (вверх)", "Moving vob (up)", "", "" });
+            words.Add("VOB_TRANS_DOWN", new List<string> { "Перемещение воба (вниз)", "Moving vob (down)", "", "" });
+
+            words.Add("VOB_SPEED_X10", new List<string> { "Увеличить скорость перемещения/вращения воба в 10 раз", "Increase vob moving/rotating speed x10", "", "" });
+            words.Add("VOB_SPEED_MINUS_10", new List<string> { "Уменьшить скорость перемещения/вращения воба в 10 раз", "Decrease vob moving/rotating speed x10", "", "" });
+            words.Add("VOB_ROT_VERT_RIGHT", new List<string> { "Вращение воба вокруг верт. оси (по часовой стрелке)", "Rotating vob around vertical axis (clockwise)", "", "" });
+            words.Add("VOB_ROT_VERT_LEFT", new List<string> { "Вращение воба вокруг верт. оси (против часовой стрелки)", "Rotating vob around vertical axis (counterclock-wise)", "", "" });
+            words.Add("VOB_ROT_FORWARD", new List<string> { "Вращение воба от себя", "Vob rotating from the camera", "", "" });
+            words.Add("VOB_ROT_BACK", new List<string> { "Вращение воба на себя", "Vob rotating at the camera", "", "" });
+            words.Add("VOB_ROT_RIGHT", new List<string> { "Вращение воба вправо", "Vob rotating to the right", "", "" });
+            words.Add("VOB_ROT_LEFT", new List<string> { "Вращение воба влево", "Vob rotating to the left", "", "" });
+            words.Add("VOBLIST_COLLECT", new List<string> { "Собрать вобы в окно Контейнер вобов", "Collect vobes in Vob-List window", "", "" });
+            words.Add("WP_CREATEFAST", new List<string> { "Создать вейпоинт по кнопке", "Create waypoint", "", "" });
+            words.Add("WIN_HIDEALL", new List<string> { "Скрыть все окна", "Hide all windows", "", "" });
+            words.Add("OPEN_CONTAINER", new List<string> { "Открыть содержимое контейнера oCMobContainer", "Open oCMobContainer container", "", "" });
+
+
+
+
+
         }
 
 
-       
+
 
 
 

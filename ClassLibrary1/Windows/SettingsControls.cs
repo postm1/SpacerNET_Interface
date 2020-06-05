@@ -20,6 +20,23 @@ namespace SpacerUnion.Windows
             this.KeyPreview = true;
         }
 
+        public void UpdateLang()
+        {
+            this.Text = Localizator.Get("WIN_CONTROLSET_TEXT");
+            groupBoxControlVob.Text = Localizator.Get("WIN_CONTROLSET_GROUP0");
+            groupBoxSet.Text = Localizator.Get("WIN_CONTROLSET_GROUP1");
+            checkBoxInsertVob.Text = Localizator.Get("checkBoxInsertVob");
+            checkBoxVobRotRandAngle.Text = Localizator.Get("checkBoxVobRotRandAngle");
+            checkBoxVobInsertHierarchy.Text = Localizator.Get("checkBoxVobInsertHierarchy");
+
+            labelRotWpFP.Text = Localizator.Get("labelRotWpFP");
+            radioButtonWPTurnNone.Text = Localizator.Get("radioButtonWPTurnNone");
+            radioButtonWPTurnAgainst.Text = Localizator.Get("radioButtonWPTurnAgainst");
+            radioButtonWPTurnOn.Text = Localizator.Get("radioButtonWPTurnOn");
+
+            buttonVobControlApply.Text = Localizator.Get("BTN_APPLY");
+        }
+
         private void SettingsControls_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Hide();
@@ -36,7 +53,7 @@ namespace SpacerUnion.Windows
 
         private void trackBarVobTransSpeed_ValueChanged(object sender, EventArgs e)
         {
-            labelVobTrans.Text = "Скорость перемещения: " + trackBarVobTransSpeed.Value;
+            labelVobTrans.Text = Localizator.Get("WIN_CONTROLSET_TRANSSPEED") + trackBarVobTransSpeed.Value;
             textBoxVobTrans.Text = trackBarVobTransSpeed.Value.ToString();
             Imports.Stack_PushString("vobTransSpeed");
             Imports.Extern_SetSetting(trackBarVobTransSpeed.Value);
@@ -45,7 +62,7 @@ namespace SpacerUnion.Windows
 
         private void trackBarVobRotSpeed_ValueChanged(object sender, EventArgs e)
         {
-            labelVobRot.Text = "Скорость вращения: " + trackBarVobRotSpeed.Value;
+            labelVobRot.Text = Localizator.Get("WIN_CONTROLSET_ROTSPEED") + trackBarVobRotSpeed.Value;
             textBoxVobRot.Text = trackBarVobRotSpeed.Value.ToString();
             Imports.Stack_PushString("vobRotSpeed");
             Imports.Extern_SetSetting(trackBarVobRotSpeed.Value);

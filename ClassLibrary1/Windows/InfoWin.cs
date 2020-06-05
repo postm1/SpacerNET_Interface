@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpacerUnion.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,12 @@ namespace SpacerUnion
         public InfoWin()
         {
             InitializeComponent();
+        }
+
+        public void UpdateLang()
+        {
+            this.Text = Localizator.Get("WIN_INFO_TITLE");
+            buttonInfoClear.Text = Localizator.Get("WIN_INFO_CLEAR");
         }
         
         public void AddText(string str)

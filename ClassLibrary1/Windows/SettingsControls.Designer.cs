@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             this.groupBoxControlVob = new System.Windows.Forms.GroupBox();
+            this.textBoxVobRot = new System.Windows.Forms.TextBox();
+            this.textBoxVobTrans = new System.Windows.Forms.TextBox();
             this.labelVobTrans = new System.Windows.Forms.Label();
             this.labelVobRot = new System.Windows.Forms.Label();
             this.trackBarVobTransSpeed = new System.Windows.Forms.TrackBar();
             this.trackBarVobRotSpeed = new System.Windows.Forms.TrackBar();
             this.buttonVobControlApply = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.groupBoxSet = new System.Windows.Forms.GroupBox();
+            this.labelRotWpFP = new System.Windows.Forms.Label();
             this.radioButtonWPTurnNone = new System.Windows.Forms.RadioButton();
             this.radioButtonWPTurnAgainst = new System.Windows.Forms.RadioButton();
             this.radioButtonWPTurnOn = new System.Windows.Forms.RadioButton();
             this.checkBoxVobInsertHierarchy = new System.Windows.Forms.CheckBox();
             this.checkBoxVobRotRandAngle = new System.Windows.Forms.CheckBox();
             this.checkBoxInsertVob = new System.Windows.Forms.CheckBox();
-            this.textBoxVobTrans = new System.Windows.Forms.TextBox();
-            this.textBoxVobRot = new System.Windows.Forms.TextBox();
             this.groupBoxControlVob.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobRotSpeed)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxSet.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxControlVob
@@ -64,6 +64,24 @@
             this.groupBoxControlVob.TabIndex = 9;
             this.groupBoxControlVob.TabStop = false;
             this.groupBoxControlVob.Text = "Управление вобом";
+            // 
+            // textBoxVobRot
+            // 
+            this.textBoxVobRot.Location = new System.Drawing.Point(231, 88);
+            this.textBoxVobRot.Name = "textBoxVobRot";
+            this.textBoxVobRot.Size = new System.Drawing.Size(61, 20);
+            this.textBoxVobRot.TabIndex = 5;
+            this.textBoxVobRot.TextChanged += new System.EventHandler(this.textBoxVobRot_TextChanged);
+            this.textBoxVobRot.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVobTrans_KeyPress);
+            // 
+            // textBoxVobTrans
+            // 
+            this.textBoxVobTrans.Location = new System.Drawing.Point(231, 35);
+            this.textBoxVobTrans.Name = "textBoxVobTrans";
+            this.textBoxVobTrans.Size = new System.Drawing.Size(61, 20);
+            this.textBoxVobTrans.TabIndex = 4;
+            this.textBoxVobTrans.TextChanged += new System.EventHandler(this.textBoxVobTrans_TextChanged);
+            this.textBoxVobTrans.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVobTrans_KeyPress);
             // 
             // labelVobTrans
             // 
@@ -116,30 +134,30 @@
             this.buttonVobControlApply.UseVisualStyleBackColor = true;
             this.buttonVobControlApply.Click += new System.EventHandler(this.buttonVobControlApply_Click);
             // 
-            // groupBox1
+            // groupBoxSet
             // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.radioButtonWPTurnNone);
-            this.groupBox1.Controls.Add(this.radioButtonWPTurnAgainst);
-            this.groupBox1.Controls.Add(this.radioButtonWPTurnOn);
-            this.groupBox1.Controls.Add(this.checkBoxVobInsertHierarchy);
-            this.groupBox1.Controls.Add(this.checkBoxVobRotRandAngle);
-            this.groupBox1.Controls.Add(this.checkBoxInsertVob);
-            this.groupBox1.Location = new System.Drawing.Point(13, 168);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(298, 253);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Вставка воба";
+            this.groupBoxSet.Controls.Add(this.labelRotWpFP);
+            this.groupBoxSet.Controls.Add(this.radioButtonWPTurnNone);
+            this.groupBoxSet.Controls.Add(this.radioButtonWPTurnAgainst);
+            this.groupBoxSet.Controls.Add(this.radioButtonWPTurnOn);
+            this.groupBoxSet.Controls.Add(this.checkBoxVobInsertHierarchy);
+            this.groupBoxSet.Controls.Add(this.checkBoxVobRotRandAngle);
+            this.groupBoxSet.Controls.Add(this.checkBoxInsertVob);
+            this.groupBoxSet.Location = new System.Drawing.Point(13, 168);
+            this.groupBoxSet.Name = "groupBoxSet";
+            this.groupBoxSet.Size = new System.Drawing.Size(298, 253);
+            this.groupBoxSet.TabIndex = 10;
+            this.groupBoxSet.TabStop = false;
+            this.groupBoxSet.Text = "Вставка воба";
             // 
-            // label1
+            // labelRotWpFP
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 113);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Разворачивать WP/FP при вставке";
+            this.labelRotWpFP.AutoSize = true;
+            this.labelRotWpFP.Location = new System.Drawing.Point(6, 113);
+            this.labelRotWpFP.Name = "labelRotWpFP";
+            this.labelRotWpFP.Size = new System.Drawing.Size(188, 13);
+            this.labelRotWpFP.TabIndex = 6;
+            this.labelRotWpFP.Text = "Разворачивать WP/FP при вставке";
             // 
             // radioButtonWPTurnNone
             // 
@@ -215,30 +233,12 @@
             this.checkBoxInsertVob.UseVisualStyleBackColor = true;
             this.checkBoxInsertVob.CheckedChanged += new System.EventHandler(this.checkBoxInsertVob_CheckedChanged);
             // 
-            // textBoxVobTrans
-            // 
-            this.textBoxVobTrans.Location = new System.Drawing.Point(231, 35);
-            this.textBoxVobTrans.Name = "textBoxVobTrans";
-            this.textBoxVobTrans.Size = new System.Drawing.Size(61, 20);
-            this.textBoxVobTrans.TabIndex = 4;
-            this.textBoxVobTrans.TextChanged += new System.EventHandler(this.textBoxVobTrans_TextChanged);
-            this.textBoxVobTrans.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVobTrans_KeyPress);
-            // 
-            // textBoxVobRot
-            // 
-            this.textBoxVobRot.Location = new System.Drawing.Point(231, 88);
-            this.textBoxVobRot.Name = "textBoxVobRot";
-            this.textBoxVobRot.Size = new System.Drawing.Size(61, 20);
-            this.textBoxVobRot.TabIndex = 5;
-            this.textBoxVobRot.TextChanged += new System.EventHandler(this.textBoxVobRot_TextChanged);
-            this.textBoxVobRot.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVobTrans_KeyPress);
-            // 
             // SettingsControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(331, 526);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxSet);
             this.Controls.Add(this.buttonVobControlApply);
             this.Controls.Add(this.groupBoxControlVob);
             this.MaximizeBox = false;
@@ -254,8 +254,8 @@
             this.groupBoxControlVob.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobTransSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobRotSpeed)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxSet.ResumeLayout(false);
+            this.groupBoxSet.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -268,11 +268,11 @@
         public System.Windows.Forms.TrackBar trackBarVobTransSpeed;
         public System.Windows.Forms.TrackBar trackBarVobRotSpeed;
         private System.Windows.Forms.Button buttonVobControlApply;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxSet;
         public System.Windows.Forms.CheckBox checkBoxInsertVob;
         public System.Windows.Forms.CheckBox checkBoxVobRotRandAngle;
         public System.Windows.Forms.CheckBox checkBoxVobInsertHierarchy;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelRotWpFP;
         private System.Windows.Forms.RadioButton radioButtonWPTurnNone;
         private System.Windows.Forms.RadioButton radioButtonWPTurnAgainst;
         private System.Windows.Forms.RadioButton radioButtonWPTurnOn;

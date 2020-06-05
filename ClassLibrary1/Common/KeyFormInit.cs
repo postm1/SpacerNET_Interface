@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpacerUnion.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -78,11 +79,11 @@ namespace SpacerUnion.Windows
             {
                 string s = ((char)val).ToString();
 
-                if ((char)val == ' ') s = "Пробел";
-                if (val == 37) s = "Стрелка влево";
-                if (val == 38) s = "Стрелка вверх";
-                if (val == 39) s = "Стрелка вправо";
-                if (val == 40) s = "Стрелка вниз";
+                if ((char)val == ' ') s = Localizator.Get("WIN_KEYSBIND_KEY_SPACE");
+                if (val == 37) s = Localizator.Get("WIN_KEYSBIND_KEY_ARROW_LEFT");
+                if (val == 38) s = Localizator.Get("WIN_KEYSBIND_KEY_ARROW_UP");
+                if (val == 39) s = Localizator.Get("WIN_KEYSBIND_KEY_ARROW_RIGHT");
+                if (val == 40) s = Localizator.Get("WIN_KEYSBIND_KEY_ARROW_DOWN");
                 if (val == 16) s = "LSHIFT";
                 if (val == 17) s = "LCTRL";
                 if (val == 18) s = "LALT";
@@ -210,121 +211,121 @@ namespace SpacerUnion.Windows
         {
             string[] row;
 
-            row = new string[] { "CAMERA_TRANS_FORWARD", "Камера (вперед)", "" };
+            row = new string[] { "CAMERA_TRANS_FORWARD", Localizator.Get("CAMERA_TRANS_FORWARD"), "" };
             dataGridKeys.Rows.Add(row);
 
-            row = new string[] { "CAMERA_TRANS_BACKWARD", "Камера (назад)", "" };
+            row = new string[] { "CAMERA_TRANS_BACKWARD", Localizator.Get("CAMERA_TRANS_BACKWARD"), "" };
             dataGridKeys.Rows.Add(row);
 
-            row = new string[] { "CAMERA_TRANS_RIGHT", "Камера (вправо)", "" };
+            row = new string[] { "CAMERA_TRANS_RIGHT", Localizator.Get("CAMERA_TRANS_RIGHT"), "" };
             dataGridKeys.Rows.Add(row);
 
-            row = new string[] { "CAMERA_TRANS_LEFT", "Камера (влево)", "" };
+            row = new string[] { "CAMERA_TRANS_LEFT", Localizator.Get("CAMERA_TRANS_LEFT"), "" };
             dataGridKeys.Rows.Add(row);
 
-            row = new string[] { "CAMERA_TRANS_UP", "Камера (вверх)", "" };
+            row = new string[] { "CAMERA_TRANS_UP", Localizator.Get("CAMERA_TRANS_UP"), "" };
             dataGridKeys.Rows.Add(row);
 
-            row = new string[] { "CAMERA_TRANS_DOWN", "Камера (вниз)", "" };
+            row = new string[] { "CAMERA_TRANS_DOWN", Localizator.Get("CAMERA_TRANS_DOWN"), "" };
             dataGridKeys.Rows.Add(row);
 
-            row = new string[] { "CAM_SPEED_X10", "Увеличить скорость полета камеры в 10 раз", "" };
-            dataGridKeys.Rows.Add(row);
-
-
-            row = new string[] { "CAM_SPEED_MINUS_10", "Уменьшить скорость полета камеры в 10 раз", "" };
+            row = new string[] { "CAM_SPEED_X10", Localizator.Get("CAM_SPEED_X10"), "" };
             dataGridKeys.Rows.Add(row);
 
 
-            row = new string[] { "VOB_COPY", "Скопировать воб", "" };
-            dataGridKeys.Rows.Add(row);
-
-            row = new string[] { "VOB_INSERT", "Вставить воб", "" };
-            dataGridKeys.Rows.Add(row);
-
-            row = new string[] { "VOB_CUT", "Вырезать воб (смена родителя)", "" };
+            row = new string[] { "CAM_SPEED_MINUS_10", Localizator.Get("CAM_SPEED_MINUS_10"), "" };
             dataGridKeys.Rows.Add(row);
 
 
-
-            row = new string[] { "VOB_FLOOR", "Прижать воб к полу", "" };
+            row = new string[] { "VOB_COPY", Localizator.Get("VOB_COPY"), "" };
             dataGridKeys.Rows.Add(row);
 
-            
-
-            row = new string[] { "VOB_RESET_AXIS", "Сбросить направление воба по осям", "" };
+            row = new string[] { "VOB_INSERT", Localizator.Get("VOB_INSERT"), "" };
             dataGridKeys.Rows.Add(row);
 
-            row = new string[] { "VOB_DELETE", "Удалить воб", "" };
-            dataGridKeys.Rows.Add(row);
-
-
-            row = new string[] { "VOB_TRANSLATE", "Инструмент перемещение", "" };
-            dataGridKeys.Rows.Add(row);
-
-            row = new string[] { "VOB_ROTATE", "Инструмент вращение", "" };
-            dataGridKeys.Rows.Add(row);
-
-            row = new string[] { "WP_TOGGLE", "Переключить соединение между вейпоинтами", "" };
-            dataGridKeys.Rows.Add(row);
-
-
-            row = new string[] { "VOB_DISABLE_SELECT", "Снять выделение с воба", "" };
-            dataGridKeys.Rows.Add(row);
-
-            row = new string[] { "VOB_NEAR_CAM", "Переместить воб перед камерой", "" };
-            dataGridKeys.Rows.Add(row);
-
-
-            row = new string[] { "VOB_TRANS_FORWARD", "Перемещение воба (вперед)", "" };
-            dataGridKeys.Rows.Add(row);
-            row = new string[] { "VOB_TRANS_BACKWARD", "Перемещение воба (назад)", "" };
-            dataGridKeys.Rows.Add(row);
-            row = new string[] { "VOB_TRANS_LEFT", "Перемещение воба (влево)", "" };
-            dataGridKeys.Rows.Add(row);
-            row = new string[] { "VOB_TRANS_RIGHT", "Перемещение воба (вправо)", "" };
-            dataGridKeys.Rows.Add(row);
-
-            row = new string[] { "VOB_TRANS_UP", "Перемещение воба (вверх)", "" };
-            dataGridKeys.Rows.Add(row);
-            row = new string[] { "VOB_TRANS_DOWN", "Перемещение воба (вниз)", "" };
-            dataGridKeys.Rows.Add(row);
-
-            row = new string[] { "VOB_SPEED_X10", "Увеличить скорость перемещения/вращения воба в 10 раз", "" };
-            dataGridKeys.Rows.Add(row);
-
-
-            row = new string[] { "VOB_SPEED_MINUS_10", "Уменьшить скорость перемещения/вращения воба в 10 раз", "" };
-            dataGridKeys.Rows.Add(row);
-
-
-            row = new string[] { "VOB_ROT_VERT_RIGHT", "Вращение воба вокруг верт. оси (по часовой стрелке)", "" };
-            dataGridKeys.Rows.Add(row);
-
-            row = new string[] { "VOB_ROT_VERT_LEFT", "Вращение воба вокруг верт. оси (против часовой стрелки)", "" };
-            dataGridKeys.Rows.Add(row);
-
-
-            row = new string[] { "VOB_ROT_FORWARD", "Вращение воба от себя", "" };
-            dataGridKeys.Rows.Add(row);
-            row = new string[] { "VOB_ROT_BACK", "Вращение воба на себя", "" };
-            dataGridKeys.Rows.Add(row);
-            row = new string[] { "VOB_ROT_RIGHT", "Вращение воба вправо", "" };
-            dataGridKeys.Rows.Add(row);
-            row = new string[] { "VOB_ROT_LEFT", "Вращение воба влево", "" };
+            row = new string[] { "VOB_CUT", Localizator.Get("VOB_CUT"), "" };
             dataGridKeys.Rows.Add(row);
 
 
 
-            row = new string[] { "VOBLIST_COLLECT", "Собрать вобы в окно Контейнер вобов", "" };
-            dataGridKeys.Rows.Add(row);
-            row = new string[] { "WP_CREATEFAST", "Создать вейпоинт по кнопке", "" };
-            dataGridKeys.Rows.Add(row);
-            row = new string[] { "WIN_HIDEALL", "Скрыть все окна", "" };
+            row = new string[] { "VOB_FLOOR", Localizator.Get("VOB_FLOOR"), "" };
             dataGridKeys.Rows.Add(row);
 
 
-            row = new string[] { "OPEN_CONTAINER", "Открыть содержимое контейнера oCMobContainer", "" };
+
+            row = new string[] { "VOB_RESET_AXIS", Localizator.Get("VOB_RESET_AXIS"), "" };
+            dataGridKeys.Rows.Add(row);
+
+            row = new string[] { "VOB_DELETE", Localizator.Get("VOB_DELETE"), "" };
+            dataGridKeys.Rows.Add(row);
+
+
+            row = new string[] { "VOB_TRANSLATE", Localizator.Get("VOB_TRANSLATE"), "" };
+            dataGridKeys.Rows.Add(row);
+
+            row = new string[] { "VOB_ROTATE", Localizator.Get("VOB_ROTATE"), "" };
+            dataGridKeys.Rows.Add(row);
+
+            row = new string[] { "WP_TOGGLE", Localizator.Get("WP_TOGGLE"), "" };
+            dataGridKeys.Rows.Add(row);
+
+
+            row = new string[] { "VOB_DISABLE_SELECT", Localizator.Get("VOB_DISABLE_SELECT"), "" };
+            dataGridKeys.Rows.Add(row);
+
+            row = new string[] { "VOB_NEAR_CAM", Localizator.Get("VOB_NEAR_CAM"), "" };
+            dataGridKeys.Rows.Add(row);
+
+
+            row = new string[] { "VOB_TRANS_FORWARD", Localizator.Get("VOB_TRANS_FORWARD"), "" };
+            dataGridKeys.Rows.Add(row);
+            row = new string[] { "VOB_TRANS_BACKWARD", Localizator.Get("VOB_TRANS_BACKWARD"), "" };
+            dataGridKeys.Rows.Add(row);
+            row = new string[] { "VOB_TRANS_LEFT", Localizator.Get("VOB_TRANS_LEFT"), "" };
+            dataGridKeys.Rows.Add(row);
+            row = new string[] { "VOB_TRANS_RIGHT", Localizator.Get("VOB_TRANS_RIGHT"), "" };
+            dataGridKeys.Rows.Add(row);
+
+            row = new string[] { "VOB_TRANS_UP", Localizator.Get("VOB_TRANS_UP"), "" };
+            dataGridKeys.Rows.Add(row);
+            row = new string[] { "VOB_TRANS_DOWN", Localizator.Get("VOB_TRANS_DOWN"), "" };
+            dataGridKeys.Rows.Add(row);
+
+            row = new string[] { "VOB_SPEED_X10", Localizator.Get("VOB_SPEED_X10"), "" };
+            dataGridKeys.Rows.Add(row);
+
+
+            row = new string[] { "VOB_SPEED_MINUS_10", Localizator.Get("VOB_SPEED_MINUS_10"), "" };
+            dataGridKeys.Rows.Add(row);
+
+
+            row = new string[] { "VOB_ROT_VERT_RIGHT", Localizator.Get("VOB_ROT_VERT_RIGHT"), "" };
+            dataGridKeys.Rows.Add(row);
+
+            row = new string[] { "VOB_ROT_VERT_LEFT", Localizator.Get("VOB_ROT_VERT_LEFT"), "" };
+            dataGridKeys.Rows.Add(row);
+
+
+            row = new string[] { "VOB_ROT_FORWARD", Localizator.Get("VOB_ROT_FORWARD"), "" };
+            dataGridKeys.Rows.Add(row);
+            row = new string[] { "VOB_ROT_BACK", Localizator.Get("VOB_ROT_BACK"), "" };
+            dataGridKeys.Rows.Add(row);
+            row = new string[] { "VOB_ROT_RIGHT", Localizator.Get("VOB_ROT_RIGHT"), "" };
+            dataGridKeys.Rows.Add(row);
+            row = new string[] { "VOB_ROT_LEFT", Localizator.Get("VOB_ROT_LEFT"), "" };
+            dataGridKeys.Rows.Add(row);
+
+
+
+            row = new string[] { "VOBLIST_COLLECT", Localizator.Get("VOBLIST_COLLECT"), "" };
+            dataGridKeys.Rows.Add(row);
+            row = new string[] { "WP_CREATEFAST", Localizator.Get("WP_CREATEFAST"), "" };
+            dataGridKeys.Rows.Add(row);
+            row = new string[] { "WIN_HIDEALL", Localizator.Get("WIN_HIDEALL"), "" };
+            dataGridKeys.Rows.Add(row);
+
+
+            row = new string[] { "OPEN_CONTAINER", Localizator.Get("OPEN_CONTAINER"), "" };
             dataGridKeys.Rows.Add(row);
 
         }
