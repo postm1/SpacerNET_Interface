@@ -30,6 +30,89 @@ namespace SpacerUnion
         }
 
 
+        public void UpdateLang()
+        {
+            this.Text = Localizator.Get("WIN_OBJ_TITLE");
+            tabControlObjects.TabPages[0].Text = Localizator.Get("WIN_OBJ_TAB0");
+            tabControlObjects.TabPages[1].Text = Localizator.Get("WIN_OBJ_TAB1");
+            tabControlObjects.TabPages[2].Text = Localizator.Get("WIN_OBJ_TAB2");
+            tabControlObjects.TabPages[3].Text = Localizator.Get("WIN_OBJ_TAB3");
+            tabControlObjects.TabPages[4].Text = Localizator.Get("WIN_OBJ_TAB4");
+            tabControlObjects.TabPages[5].Text = Localizator.Get("WIN_OBJ_TAB5");
+            tabControlObjects.TabPages[6].Text = Localizator.Get("WIN_OBJ_TAB6");
+            tabControlObjects.TabPages[7].Text = Localizator.Get("WIN_OBJ_TAB7");
+
+            groupBoxObjAllClasses.Text = Localizator.Get("groupBoxObjAllClasses");
+            groupBoxObjPropVobs.Text = Localizator.Get("groupBoxObjPropVobs");
+            labelObjAllClassesNameVob.Text = Localizator.Get("labelObjAllClassesNameVob");
+            buttonAllClassesCreateVob.Text = Localizator.Get("buttonAllClassesCreateVob");
+            checkBoxDynStat.Text = Localizator.Get("checkBoxDynStat");
+            checkBoxStaStat.Text = Localizator.Get("checkBoxStaStat");
+            labelAllModels.Text = Localizator.Get("WIN_OBJ_ALLMODELS");
+            labelSearchVisual.Text = Localizator.Get("WIN_OBJ_ALLMODELS");
+            checkBoxShowPreview.Text = Localizator.Get("checkBoxShowPreview");
+            checkBoxSearchOnly3DS.Text = Localizator.Get("checkBoxSearchOnly3DS");
+            buttonAllClassesClear.Text = Localizator.Get("buttonAllClassesClear");
+
+            groupBoxObjItems.Text = Localizator.Get("groupBoxObjItems");
+            buttonItemsCreate.Text = Localizator.Get("buttonItemsCreate");
+            buttonItemsCreateReg.Text = Localizator.Get("buttonItemsCreate");
+            buttonAddContainer.Text = Localizator.Get("buttonAddContainer");
+            groupBoxItemsCont.Text = Localizator.Get("groupBoxItemsCont");
+            checkBoxItemShow.Text = Localizator.Get("checkBoxItemShow");
+            labelItemsEditContCount.Text = Localizator.Get("labelItemsEditContCount");
+            labelItemsAllItems.Text = Localizator.Get("labelItemsAllItems");
+            labelItemsFindReg.Text = Localizator.Get("labelItemsFindReg");
+
+            groupBoxPFX.Text = Localizator.Get("groupBoxPFX");
+            buttonParticles.Text = Localizator.Get("buttonParticles");
+            buttonCreatePFXReg.Text = Localizator.Get("buttonParticles");
+            checkBoxShowPFXPreview.Text = Localizator.Get("checkBoxShowPFXPreview");
+            labelAllPfx.Text = Localizator.Get("labelAllPfx");
+            labelSearchRegPFx.Text = Localizator.Get("labelItemsFindReg");
+
+
+
+            groupBoxTriggersVob.Text = Localizator.Get("groupBoxTriggersVob");
+            groupBoxTriggersKeys.Text = Localizator.Get("groupBoxTriggersKeys");
+            buttonSendTrigger.Text = Localizator.Get("buttonSendTrigger");
+            buttonTriggerCollectSources.Text = Localizator.Get("buttonTriggerCollectSources");
+            buttonNewKey.Text = Localizator.Get("buttonNewKey");
+            buttonRemoveKey.Text = Localizator.Get("buttonRemoveKey");
+            labelTriggerName.Text = Localizator.Get("labelTriggerName");
+            labelTriggerCollision.Text = Localizator.Get("labelTriggerCollision");
+            checkBoxDyn.Text = Localizator.Get("checkBoxDyn");
+            checkBoxStat.Text = Localizator.Get("checkBoxStat");
+            radioButtonOverwrite.Text = Localizator.Get("radioButtonOverwrite");
+            labelTriggerInsert.Text = Localizator.Get("labelTriggerInsert");
+            radioButtonAfter.Text = Localizator.Get("radioButtonAfter");
+            radioButtonBefore.Text = Localizator.Get("radioButtonBefore");
+            labelTriggerTargets.Text = Localizator.Get("labelTriggerTargets");
+            labelTriggersSources.Text = Localizator.Get("labelTriggersSources");
+
+
+
+            groupBoxWPFP.Text = Localizator.Get("groupBoxWPFP");
+            labelNameWPMandatory.Text = Localizator.Get("labelNameWPMandatory");
+            labelFreepointMandatory.Text = Localizator.Get("labelFreepointMandatory");
+            checkBoxWayNet.Text = Localizator.Get("checkBoxWayNet");
+            checkBoxWPAutoName.Text = Localizator.Get("checkBoxWPAutoName");
+            checkBoxFPGround.Text = Localizator.Get("checkBoxFPGround");
+            checkBoxAutoNameFP.Text = Localizator.Get("checkBoxAutoNameFP");
+            buttonWPCreate.Text = Localizator.Get("buttonWPCreate");
+            buttonConnectWp.Text = Localizator.Get("buttonConnectWp");
+            buttonDisconnectWP.Text = Localizator.Get("buttonDisconnectWP");
+            buttonFPCreate.Text = Localizator.Get("buttonFPCreate");
+
+
+
+            labelNotReady0.Text = Localizator.Get("TEST_NOT_READY");
+            labelNotReady1.Text = Localizator.Get("TEST_NOT_READY");
+            labelNotReady2.Text = Localizator.Get("TEST_NOT_READY");
+
+            
+        }
+
 
         [DllExport]
         public static void AddPacticleToList()
@@ -149,7 +232,7 @@ namespace SpacerUnion
 
             
             //UnionNET.partWin.labelSearchVisual.Text = "Поиск визуала. Всего: " + listVisualsVDF.Count + "/" + listVisualsWORK.Count;
-            SpacerNET.objectsWin.labelAllModels.Text = "Всего моделей: " + listVisualsVDF.Count + "/" + listVisualsWORK.Count;
+            SpacerNET.objectsWin.labelAllModels.Text = Localizator.Get("WIN_OBJ_ALLMODELS") + ": " + listVisualsVDF.Count + "/" + listVisualsWORK.Count;
         }
 
 
@@ -160,7 +243,8 @@ namespace SpacerUnion
             ListBox lstBox = SpacerNET.objectsWin.listBoxParticles;
             Utils.SortListBox(lstBox);
 
-            SpacerNET.objectsWin.groupBox1.Text += ", всего: " + SpacerNET.objectsWin.listBoxParticles.Items.Count;
+            SpacerNET.objectsWin.groupBoxPFX.Text += ", " + Localizator.Get("WIN_OBJ_ALL") 
+                + ": " + SpacerNET.objectsWin.listBoxParticles.Items.Count;
         }
 
         [DllExport]
@@ -178,7 +262,8 @@ namespace SpacerUnion
             //UnionNET.partWin.listBoxItems.Sorted = true;
             Utils.SortListBox(SpacerNET.objectsWin.listBoxItems);
 
-            SpacerNET.objectsWin.groupBox2.Text += ", всего: " + SpacerNET.objectsWin.listBoxItems.Items.Count;
+            SpacerNET.objectsWin.groupBoxObjItems.Text += ", " + Localizator.Get("WIN_OBJ_ALL") 
+                + ": " + SpacerNET.objectsWin.listBoxItems.Items.Count;
         }
 
         private void ParticleWin_FormClosing(object sender, FormClosingEventArgs e)
@@ -201,7 +286,7 @@ namespace SpacerUnion
             //Console.WriteLine("Create item: " + name);
 
 
-            SpacerNET.infoWin.AddText("Создаю Item " + name);
+            //SpacerNET.infoWin.AddText("Создаю Item " + name);
 
             Imports.Extern_KillPreviewItem();
 
@@ -255,7 +340,7 @@ namespace SpacerUnion
             string name = listBoxParticles.GetItemText(listBoxParticles.SelectedItem);
 
 
-            SpacerNET.infoWin.AddText("Создаю PFX " + name);
+            //SpacerNET.infoWin.AddText("Создаю PFX " + name);
 
 
             Imports.Stack_PushString(name);
@@ -323,7 +408,7 @@ namespace SpacerUnion
 
             if (name == "oCItem" || name == "zCVobWaypoint" || name == "zCVobSpot")
             {
-                MessageBox.Show("Данный тип воба создается в отдельной вкладке справа!");
+                MessageBox.Show(Localizator.Get("WIN_OBJ_TYPE_CANTHERE"));
                 return;
             }
 
@@ -371,7 +456,7 @@ namespace SpacerUnion
         [DllExport]
         public static void HotKey_AddWaypoint()
         {
-            SpacerNET.objectsWin.buttonWP.PerformClick();
+            SpacerNET.objectsWin.buttonWPCreate.PerformClick();
         }
 
         private void buttonWP_Click(object sender, EventArgs e)
@@ -383,23 +468,23 @@ namespace SpacerUnion
 
             if (vobName.Length == 0)
             {
-                MessageBox.Show("Нельзя ввести пустое имя!");
+                MessageBox.Show(Localizator.Get("WIN_OBJ_NO_EMPTY_NAME"));
                 return;
             }
 
             if (vobName.All(char.IsDigit))
             {
-                MessageBox.Show("Имя вейпоинта не может состоять только из цифр!");
+                MessageBox.Show(Localizator.Get("WIN_OBJ_NO_WAYPOINT_NUMBERSONLY"));
                 return;
             }
-
+            
 
             Imports.Stack_PushString(vobName);
             bool nameFound = Imports.Extern_VobNameExist(true);
 
             if (nameFound && !autoGenerate)
             {
-                MessageBox.Show("Такое имя уже существует");
+                MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
                 
                 return;
             }
@@ -438,7 +523,7 @@ namespace SpacerUnion
 
             if (vobName.Length == 0)
             {
-                MessageBox.Show("Нельзя ввести пустое имя!");
+                MessageBox.Show(Localizator.Get("WIN_OBJ_NO_EMPTY_NAME"));
                 return;
             }
 
@@ -448,7 +533,7 @@ namespace SpacerUnion
             if (nameFound)
             {
                 
-                MessageBox.Show("Такое имя уже существует");
+                MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
                 return;
             }
 
@@ -485,7 +570,7 @@ namespace SpacerUnion
             //Console.WriteLine("Create item: " + name);
 
 
-            SpacerNET.infoWin.AddText("Создаю Item " + name);
+            //SpacerNET.infoWin.AddText("Создаю Item " + name);
             Imports.Extern_KillPreviewItem();
             Imports.Stack_PushString(name);
             Imports.Extern_CreateItem();
@@ -512,7 +597,7 @@ namespace SpacerUnion
             string name = listBoxParticles.GetItemText(listBoxPfxResult.SelectedItem);
 
 
-            SpacerNET.infoWin.AddText("Создаю PFX " + name);
+            //SpacerNET.infoWin.AddText("Создаю PFX " + name);
 
             Imports.Stack_PushString(name);
             Imports.Extern_CreatePFX();
@@ -584,7 +669,7 @@ namespace SpacerUnion
                 }
 
 
-                SpacerNET.objectsWin.labelSearchVisual.Text = "Поиск визуала. Всего: " + listBoxVisuals.Items.Count;
+                SpacerNET.objectsWin.labelSearchVisual.Text = Localizator.Get("WIN_OBJ_SEARCHVISUAL_ALL") + ": " + listBoxVisuals.Items.Count;
 
 
             }
@@ -596,7 +681,7 @@ namespace SpacerUnion
             listBoxVisuals.ClearSelected();
             textBoxVisuals.Clear();
 
-            SpacerNET.objectsWin.labelSearchVisual.Text = "Поиск визуала.";
+            SpacerNET.objectsWin.labelSearchVisual.Text = Localizator.Get("WIN_OBJ_ALLMODELS");
 
             string visual = "";
  
@@ -643,7 +728,6 @@ namespace SpacerUnion
             {
                 triggerEntry.m_kf_pos--;
 
-
                 Imports.Extern_SetToKeyPos(triggerEntry.m_kf_pos);
                 labelCurrentKey.Text = triggerEntry.m_kf_pos.ToString();
             }
@@ -665,7 +749,7 @@ namespace SpacerUnion
         }
 
 
-        public void UpdateTriggerWindow()
+        public void UpdateTriggerWindow(bool block=true)
         {
             labelTriggerName.Text = triggerEntry.name;
             labelCurrentKey.Text = triggerEntry.m_kf_pos.ToString();
@@ -677,10 +761,14 @@ namespace SpacerUnion
                 //listBoxActionType.SelectedIndex = 0;
             }
 
-            buttonRemoveKey.Enabled = false;
-            buttonNewKey.Enabled = false;
-            buttonKeyMinus.Enabled = false;
-            buttonKeyPlus.Enabled = false;
+            if (block)
+            {
+                buttonRemoveKey.Enabled = false;
+                buttonNewKey.Enabled = false;
+                buttonKeyMinus.Enabled = false;
+                buttonKeyPlus.Enabled = false;
+            }
+           
 
 
         }
@@ -789,7 +877,7 @@ namespace SpacerUnion
 
             triggerEntry.m_kf_pos = Imports.Extern_GetCurrentKey();
             triggerEntry.maxKey = Imports.Extern_GetMaxKey();
-            UpdateTriggerWindow();
+            UpdateTriggerWindow(false);
         }
 
         private void buttonNewKey_Click(object sender, EventArgs e)
@@ -819,14 +907,14 @@ namespace SpacerUnion
             triggerEntry.maxKey = Imports.Extern_GetMaxKey();
 
             //ConsoleEx.WriteLineRed("CurrentKey: " + triggerEntry.m_kf_pos + "/" + triggerEntry.maxKey);
-            UpdateTriggerWindow();
+            UpdateTriggerWindow(false);
         }
 
         private void buttonSend_Click(object sender, EventArgs e)
         {
             string name = listBoxActionType.GetItemText(listBoxActionType.SelectedItem);
 
-            ConsoleEx.WriteLineRed("Send trigger: action " + name);
+            //ConsoleEx.WriteLineRed("Send trigger: action " + name);
             Imports.Extern_SendTrigger(triggerEntry.currentActionIndex);
             triggerEntry.m_kf_pos = Imports.Extern_GetCurrentKey();
         }
@@ -1050,7 +1138,7 @@ namespace SpacerUnion
                         string visual = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
                         Clipboard.SetText(visual);
 
-                        Imports.Stack_PushString("Скопировано в буфер: " + visual);
+                        Imports.Stack_PushString(Localizator.Get("COPYBUFFER")  + ": " + visual);
 
                         Imports.Extern_PrintGreen();
 

@@ -71,6 +71,7 @@ namespace SpacerUnion.Common
             SpacerNET.vobList.UpdateLang();
             SpacerNET.soundWin.UpdateLang();
             SpacerNET.propWin.UpdateLang();
+            SpacerNET.objectsWin.UpdateLang();
         }
 
         [DllExport]
@@ -114,58 +115,41 @@ namespace SpacerUnion.Common
             words.Add("MENU_TOP_SETTINGS", new List<string> { "Настройки", "Settings", "", ""});
             words.Add("MENU_TOP_WORLD", new List<string> { "Мир", "World", "", ""});
             words.Add("MENU_TOP_VIEW", new List<string> { "Вид", "View", "", ""});
-
             words.Add("MENU_TOP_OPENZEN", new List<string> { "Открыть ZEN...", "Open ZEN...", "", ""});
             words.Add("MENU_TOP_MESH", new List<string> { "Открыть MESH...", "Open MESH...", "", ""});
             words.Add("MENU_TOP_MERGE", new List<string> { "Объединить ZEN...", "Merge ZEN...", "", ""});
             words.Add("MENU_TOP_SAVEZEN", new List<string> { "Сохранить ZEN...", "Save ZEN...", "", ""});
             words.Add("MENU_TOP_ABOUT", new List<string> { "О программе", "About", "", ""});
-
             words.Add("MENU_TOP_CAM", new List<string> { "Камера", "Camera", "", ""});
             words.Add("MENU_TOP_CONTROLS", new List<string> { "Управление", "Controls", "", ""});
             words.Add("MENU_TOP_MISC", new List<string> { "Прочее", "Misc", "", ""});
-
-            
             words.Add("MENU_TOP_VIEW_SHOW", new List<string> { "Показать", "Show", "", ""});
             words.Add("MENU_TOP_VIEW_VOBS", new List<string> { "Вобы", "Vobs", "", ""});
             words.Add("MENU_TOP_VIEW_WAYNET", new List<string> { "Сетка Waynet", "Waynet", "", ""});
             words.Add("MENU_TOP_VIEW_HELPER", new List<string> { "Help-вобы", "Help vobs", "", ""});
-
             words.Add("MENU_TOP_VIEW_BBOX", new List<string> { "Показать все BBox", "Show all the BBoxes", "", ""});
             words.Add("MENU_TOP_VIEW_INVIS", new List<string> { "Показать невидимые вобы", "Show invisible vobs", "", ""});
-
-            
             words.Add("MENU_TOP_COMPILE_LIGHT", new List<string> { "Компиляция света", "Compile light", "", ""});
             words.Add("MENU_TOP_COMPILE_WORLD", new List<string> { "Компиляция мира", "Compile world", "", ""});
-
-
             words.Add("MENU_TOP_CAM_ZERO", new List<string> { "Прыгнуть на 000 координаты", "Jump to 000 coordinates", "", ""});
-            
             words.Add("MENU_TOP_CAM_COORDS", new List<string> { "Ввести координаты", "Enter coordinates", "", ""});
             words.Add("MENU_TOP_DAYTIME", new List<string> { "Время суток", "Day time", "", ""});
             words.Add("MENU_TOP_MORN", new List<string> { "Утро (07:00)", "Morning (07:00)", "", ""});
-            
-            
             words.Add("MENU_TOP_NOON", new List<string> { "Обед (12:00)", "Midday (12:00)", "", ""});
             words.Add("MENU_TOP_AFTERNOON", new List<string> { "Вечер (17:00)", "Evening (17:00)", "", ""});
             words.Add("MENU_TOP_NIGHT", new List<string> { "Ночь (00:00)", "Night (00:00)", "", ""});
             words.Add("MENU_TOP_ANALYSE_WAYNET", new List<string> { "Анализ WayNet", "Analyze Waynet", "", ""});
             words.Add("MENU_TOP_PLAY_THE_GAME", new List<string> { "Играть за героя", "Play the hero", "", ""});
             words.Add("MENU_TOP_KEYSBINDS", new List<string> { "Сочетания клавиш", "Keys bindings", "", "" });
-
             words.Add("MENU_TOP_HOVER_WININFO", new List<string> { "Окно информации", "Information window", "", ""});
             words.Add("MENU_TOP_HOVER_WINOBJ", new List<string> { "Окно объектов", "Objects window", "", ""});
             words.Add("MENU_TOP_HOVER_WINSOUND", new List<string> { "Окно звуков", "Sounds window", "", ""});
             words.Add("MENU_TOP_HOVER_WINTREE", new List<string> { "Окно списка вобов", "All-vobs window", "", ""});
             words.Add("MENU_TOP_HOVER_WINPROPS", new List<string> { "Окно свойств", "Properties window", "", ""});
             words.Add("MENU_TOP_HOVER_WINVOBLIST", new List<string> { "Окно воб-лист", "VobList window", "", ""});
-
-
-
             words.Add("WIN_COMPLIGHT_TEXT", new List<string> { "Компиляция света", "Light compilation", "", ""});
             words.Add("WIN_COMPLIGHT_QUALITY", new List<string> { "Качество", "Quality", "", ""});
             words.Add("WIN_COMPLIGHT_COMPILEBUTTON", new List<string> { "Компилировать", "Compile", "", ""});
-
             words.Add("WIN_CANCEL_BUTTON", new List<string> { "Отмена", "Cancel", "", "" });
             words.Add("WIN_COMPLIGHT_CLOSEBUTTON", new List<string> { "Закрыть", "Close", "", ""});
             words.Add("WIN_COMPLIGHT_REGION", new List<string> { "Регион", "Region", "", ""});
@@ -173,76 +157,53 @@ namespace SpacerUnion.Common
             words.Add("WIN_COMPLIGHT_QUALITY1", new List<string> { "Lightmaps (низкое)", "Lightmaps (low)", "", ""});
             words.Add("WIN_COMPLIGHT_QUALITY2", new List<string> { "Lightmaps (среднее)", "Lightmaps (medium)", "", ""});
             words.Add("WIN_COMPLIGHT_QUALITY3", new List<string> { "Lightmaps (высокое)", "Lightmaps (high)", "", ""});
-
             words.Add("WIN_COMPLIGHT_COMPILECHECKBOX", new List<string> { "Компилировать регион", "Compile region", "", ""});
-
-
             words.Add("WIN_COMPLIGHT_METERS", new List<string> { "метров", "meters", "", ""});
             words.Add("WIN_COMPLIGHT_AROUNDCAM", new List<string> { "вокруг камеры", "around the camera", "", ""});
-
-
             words.Add("WIN_COMPWORLD_TEXT", new List<string> { "Компиляция мира", "World compilation", "", "" });
             words.Add("WIN_COMPWORLD_LOCTYPE", new List<string> { "Тип локации", "World type", "", "" });
-
             words.Add("WIN_CAM_TEXT", new List<string> { "Камера", "Camera", "", "" });
             words.Add("WIN_CAM_CLOSEWIN", new List<string> { "Закрывать окно при переходе", "Close the window after the jump", "", "" });
             words.Add("WIN_CAM_GO", new List<string> { "Перейти", "Jump", "", "" });
-
             // UNION STRING
             words.Add("UNION_VOB_INSERTED", new List<string> { "Воб вставлен", "The vob inserted", "", "" });
             words.Add("UNION_VOB_AXIS_RESET", new List<string> { "Направление воба сброшено", "Vob axes were reset", "", "" });
             words.Add("CANT_APPLY_PARENT", new List<string> { "Данный тип воба перенести в родителя нельзя!", "Can't insert this vob type into a parent vob!", "", "" });
             words.Add("PARENT_ERROR_OCITEM", new List<string> { "oCItem не может быть родителем!", "oCItem can't be a parent!", "", "" });
             words.Add("PARENT_CHANGE_OK", new List<string> { "Родитель для воба изменен!", "The parent has been changed", "", "" });
-
             words.Add("VOB_COPY_OK", new List<string> { "Воб скопирован", "Vob was copied", "", "" });
             words.Add("VOB_CUT_OK", new List<string> { "Воб вырезан", "Vob was cut", "", "" });
             words.Add("VOB_NEAR_CAMERA", new List<string> { "Воб вставлен перед камерой", "Vob inserted in front of the camera", "", "" });
-
-
             words.Add("TOOL_TRANS", new List<string> { "Выбран инструмент перемещение", "Tool: moving", "", "" });
             words.Add("TOOL_ROT", new List<string> { "Выбран инструмент вращение", "Tool: rotation", "", "" });
             words.Add("TOOL_UNSELECT", new List<string> { "Выделение воба снято", "Vob selection cancel", "", "" });
             words.Add("TOOL_FLOOR", new List<string> { "Прижимание воба к полу", "Try to floor the vob", "", "" });
-
             words.Add("UNION_LIGHT_RAD_INC", new List<string> { "Радиус освещения увеличен", "Light radius increased", "", "" });
             words.Add("UNION_LIGHT_RAD_DEC", new List<string> { "Радиус освещения уменьшен", "Light radius decreased", "", "" });
-
             words.Add("UNION_LIGHT_RAD_ZERO", new List<string> { "Радиус освещения сброшен в 0", "Light radius set to 0", "", "" });
             words.Add("UNION_MESH_LOADED", new List<string> { "Меш загружен", "Mesh is loaded", "", "" });
             words.Add("UNION_MESH_READY", new List<string> { "Меш и вобы объединены. Скомпилируйте мир", "Mesh and vobs were merged. Compile the world", "", "" });
-
             words.Add("UNION_EDITOR", new List<string> { "Редактор для ZenGin", "Editor for ZenGin", "", "" });
             words.Add("UNION_TEAM", new List<string> { "Команда разработки: Liker & Haart & Saturas & Gratt", "Dev team: Liker & Haart & Saturas & Gratt", "", "" });
             words.Add("UNION_DATE_COMPILE", new List<string> { "Дата компиляции: ", "Compilation date: ", "", "" });
-
-
             words.Add("UNION_RESOLUTION", new List<string> { "Разрешение рендера: ", "Render resolution", "", "" });
             words.Add("UNION_NOWORLD", new List<string> { "Мир не загружен", "World is not loaded", "", "" });
             words.Add("UNION_CANT_ABSTRACT", new List<string> { "Не могу создать объект абстрактного класса!", "Can't create a vob of an abstract class", "", "" });
-
             words.Add("ENTER_NAME", new List<string> { "Введите имя воба!", "Enter the name!", "", "" });
             words.Add("CANT_DELETE_LEVELCOMPO", new List<string> { "Не могу удалить zCVobLevelCompo!", "Can't remove zCVobLevelCompo!", "", "" });
-
-
             words.Add("CANT_DELETE_CAM", new List<string> { "Не могу удалить основную камеру!", "Can't remove the camera!", "", "" });
             words.Add("UNION_NO_WAYPOINT", new List<string> { "Вейпоинт не выбран!", "No waypoint selected!", "", "" });
             words.Add("UNION_NO_WAYPOINT_TEMPLATE", new List<string> { "Шаблон имени вейпоинта пуст!", "Waypoint name template is empty!", "", "" });
             words.Add("UNION_WP_INSERT", new List<string> { "Вейпоинт вставлен: ", "Waypoint inserted: ", "", "" });
             words.Add("UNION_WORLD_ONCOMPILE", new List<string> { "Мир скомпилирован. Не забудьте удалить лишний zCVobLevelCompo", "World has been compiled. Don't forget to remove the spare zCVobLevelCompo", "", "" });
             words.Add("UNION_VOBTREE_SAVE", new List<string> { "VobTree сохранен!", "VobTree saved!", "", "" });
-
-
             words.Add("UNION_VOBTREE_INSERT", new List<string> { "VobTree вставлен!", "VobTree inserted!", "", "" });
             words.Add("UNION_SHOW_TRIS", new List<string> { "Кол-во треугольников: ", "Tris amount: ", "", "" });
             words.Add("UNION_CAM_POS", new List<string> { "Позиция камеры: (", "Camera pos: ", "", "" });
             words.Add("UNION_VOB_COUNT", new List<string> { "Кол-во вобов: ", "Vobs amount: ", "", "" });
             words.Add("UNION_WP_COUNT", new List<string> { "Кол-во вейпоинтов: ", "Waypoint amount: ", "", "" });
             words.Add("UNION_DIST", new List<string> { "Дистанция: ", "Distance: ", "", "" });
-
-
             //NEW
-
             words.Add("WIN_COMPLIGHT_NOWORLD", new List<string> { "Мир не загружен!", "World is not loaded!", "", "" });
             words.Add("WIN_COMPLIGHT_NOWORLDCOMPILED", new List<string> { "Мир не скомпилирован!", "World is not compiled!", "", "" });
             words.Add("WIN_COMPLIGHT_TIME", new List<string> { "Компиляция света выполнена за", "Light compilaton time", "", "" });
@@ -254,28 +215,19 @@ namespace SpacerUnion.Common
             words.Add("WIN_COMPWORLD_COMPILING", new List<string> { "Мир компилируется...", "World is being compiled!", "", "" });
             words.Add("WIN_COMPWORLD_TIME", new List<string> { "Компиляция мира выполнена за", "World compiling time", "", "" });
             words.Add("WIN_COMPWORLD_LEVELCOMPO", new List<string> { "Не забудьте удалить лишний zCVobLevelCompo!", "Don't forget to remove the spare zCVobLevelCompo", "", "" });
-
             words.Add("WIN_INFO_TITLE", new List<string> { "Окно информации", "Information window", "", "" });
             words.Add("WIN_INFO_CLEAR", new List<string> { "Очистить", "Clear", "", "" });
             words.Add("IS_SAVING", new List<string> { "сохраняется...", "is saving...", "", "" });
             words.Add("WIN_CAM_GETFROMBUFFER", new List<string> { "Взять из буфера", "Get from clipboard", "", "" });
-            
-
             words.Add("BTN_APPLY", new List<string> { "Применить", "Apply", "", "" });
             words.Add("WIN_MISC_SET", new List<string> { "Прочие настройки", "Misc settings", "", "" });
             words.Add("checkBoxSetDatePrefix", new List<string> { "Добавлять префикс даты при сохранении зена", "Add DATE prefix to file when saving ZEN", "", "" });
             words.Add("checkBoxMiscExitAsk", new List<string> { "Подтверждать выход если открыт зен", "Confirm exit if ZEN is opened", "", "" });
             words.Add("checkBoxLastZenAuto", new List<string> { "Открывать последний ZEN автоматически", "Open last ZEN auto", "", "" });
             words.Add("checkBoxMiscFullPath", new List<string> { "Писать полный путь до ZEN в главном окне", "Show full path to ZEN file in main window", "", "" });
-
-
-
-            
-
             words.Add("WIN_CONTROLSET_TEXT", new List<string> { "Настройки управления", "Controls setttings", "", "" });
             words.Add("WIN_CONTROLSET_TRANSSPEED", new List<string> { "Скорость перемещения: ", "Moving speed: ", "", "" });
             words.Add("WIN_CONTROLSET_ROTSPEED", new List<string> { "Скорость вращения: ", "Rotation speed: ", "", "" });
-
             words.Add("WIN_CONTROLSET_GROUP0", new List<string> { "Управление вобом", "Vob control", "", "" });
             words.Add("WIN_CONTROLSET_GROUP1", new List<string> { "Вставка воба", "Vob insertion", "", "" });
             words.Add("checkBoxInsertVob", new List<string> { "Вставлять воб на той же высоте", "Insert vob on the source height", "", "" });
@@ -285,43 +237,30 @@ namespace SpacerUnion.Common
             words.Add("radioButtonWPTurnNone", new List<string> { "Нет", "None ", "None", "" });
             words.Add("radioButtonWPTurnAgainst", new List<string> { "От камеры", "From the camera", "", "" });
             words.Add("radioButtonWPTurnOn", new List<string> { "На камеру", "At the camera", "", "" });
-
-
-
             words.Add("WIN_CONTROLCAM_TEXT", new List<string> { "Настройки камеры", "Camera settings", "", "" });
             words.Add("groupBoxCam", new List<string> { "Камера", "Camera", "", "" });
             words.Add("labelTrans", new List<string> { "Скорость полета", "Moving speed", "", "" });
             words.Add("labelRot", new List<string> { "Скорость повотора", "Rotation speed", "", "" });
-
             words.Add("groupBoxRange", new List<string> { "Прорисовка", "Rendering range", "", "" });
             words.Add("labelWorld", new List<string> { "Мир", "World", "", "" });
             words.Add("labelVobs", new List<string> { "Вобы", "Vobs", "", "" });
             words.Add("labelLimitFPS", new List<string> { "Ограничить FPS", "Limit FPS", "", "" });
-
             words.Add("groupBoxInfo", new List<string> { "Информация", "Information", "", "" });
             words.Add("checkBoxFPS", new List<string> { "Показывать FSP", "Show FPS", "", "" });
             words.Add("checkBoxTris", new List<string> { "Показывать кол-во рисуемых треугольников", "Show rendered triangles", "", "" });
             words.Add("checkBoxCamCoord", new List<string> { "Показывать координаты камеры", "Show camera coordinates", "", "" });
-
             words.Add("checkBoxVobs", new List<string> { "Показывать кол-во вобов", "Show vobs count", "", "" });
             words.Add("checkBoxWaypoints", new List<string> { "Показывать кол-во вейпоинтов", "Show waypoints count", "", "" });
             words.Add("checkBoxDistVob", new List<string> { "Показывать расстояние до выбранного воба", "Show distance to selected vob", "", "" });
             words.Add("checkBoxCameraHideWins", new List<string> { "Скрывать окна при полете камеры", "Hide windows when moving camera", "", "" });
-
-
             words.Add("WIN_KEYSBIND_TEXT", new List<string> { "Сочетания клавиш", "Keys binding", "", "" });
             words.Add("WIN_KEYSBIND_DESC", new List<string> { "Описание", "Description", "", "" });
             words.Add("WIN_KEYSBIND_BINDS", new List<string> { "Сочетание", "Bind", "", "" });
-
-
-
             words.Add("WIN_KEYSBIND_KEY_SPACE", new List<string> { "Пробел", "Space", "", "" });
             words.Add("WIN_KEYSBIND_KEY_ARROW_LEFT", new List<string> { "Стрелка влево", "Arrow left", "", "" });
             words.Add("WIN_KEYSBIND_KEY_ARROW_UP", new List<string> { "Стрелка вверх", "Arrow up", "", "" });
             words.Add("WIN_KEYSBIND_KEY_ARROW_RIGHT", new List<string> { "Стрелвка вправо", "Arrow right", "", "" });
             words.Add("WIN_KEYSBIND_KEY_ARROW_DOWN", new List<string> { "Стрелка вниз", "Arrow down", "", "" });
-
-
             words.Add("CAMERA_TRANS_FORWARD", new List<string> { "Камера (вперед)", "Camera (forward)", "", "" });
             words.Add("CAMERA_TRANS_BACKWARD", new List<string> { "Камера (назад)", "Camera (backward)", "", "" });
             words.Add("CAMERA_TRANS_RIGHT", new List<string> { "Камера (вправо)", "Camera (right)", "", "" });
@@ -347,7 +286,6 @@ namespace SpacerUnion.Common
             words.Add("VOB_TRANS_RIGHT", new List<string> { "Перемещение воба (вправо)", "Moving vob (right)", "", "" });
             words.Add("VOB_TRANS_UP", new List<string> { "Перемещение воба (вверх)", "Moving vob (up)", "", "" });
             words.Add("VOB_TRANS_DOWN", new List<string> { "Перемещение воба (вниз)", "Moving vob (down)", "", "" });
-
             words.Add("VOB_SPEED_X10", new List<string> { "Увеличить скорость перемещения/вращения воба в 10 раз", "Increase vob moving/rotating speed x10", "", "" });
             words.Add("VOB_SPEED_MINUS_10", new List<string> { "Уменьшить скорость перемещения/вращения воба в 10 раз", "Decrease vob moving/rotating speed x10", "", "" });
             words.Add("VOB_ROT_VERT_RIGHT", new List<string> { "Вращение воба вокруг верт. оси (по часовой стрелке)", "Rotating vob around vertical axis (clockwise)", "", "" });
@@ -360,34 +298,22 @@ namespace SpacerUnion.Common
             words.Add("WP_CREATEFAST", new List<string> { "Создать вейпоинт по кнопке", "Create waypoint", "", "" });
             words.Add("WIN_HIDEALL", new List<string> { "Скрыть все окна", "Hide all windows", "", "" });
             words.Add("OPEN_CONTAINER", new List<string> { "Открыть содержимое контейнера oCMobContainer", "Open oCMobContainer container", "", "" });
-
-
-
             words.Add("TOGGLE_BBOX", new List<string> { "Показать/Скрыть все BBox", "Show/Hide all the BBoxes", "", "" });
             words.Add("TOGGLE_INVIS", new List<string> { "Показать/Скрыть невидимые вобы", "Show/Hide invisible vobs", "", "" });
             words.Add("TOGGLE_VOBS", new List<string> { "Показать/Скрыть все вобы", "Show/Hide all vobs", "", "" });
             words.Add("TOGGLE_WAYNET", new List<string> { "Показать/Скрыть Waynet", "Show/Hide Waynet", "", "" });
             words.Add("TOGGLE_HELPERS", new List<string> { "Показать/Скрыть help-вобы", "Show/Hide help vobs", "", "" });
-
-
             words.Add("WIN_TREE_TITLE", new List<string> { "Список объектов", "Objects list window", "", "" });
             words.Add("buttonCollapse", new List<string> { "Свернуть все", "Collapse all", "", "" });
             words.Add("buttonExpand", new List<string> { "Развернуть все", "Expand all", "", "" });
             words.Add("buttonTreeSort", new List<string> { "Сортировать", "Sort", "", "" });
-
-
             words.Add("CONTEXTMENU_TREE_INSERT_VOBTREE_PARENT", new List<string> { "Вставить VobTree в выделенный воб", "Insert VobTree into the vob", "", "" });
             words.Add("CONTEXTMENU_TREE_INSERT_VOBTREE_GLOBAL", new List<string> { "Вставить VobTree глобально", "Insert VobTree globally", "", "" });
             words.Add("CONTEXTMENU_TREE_SAVE_VOBTREE", new List<string> { "Сохранить выделенный воб в VobTree", "Save vob as VobTree", "", "" });
             words.Add("CONTEXTMENU_TREE_REMOVE_VOB", new List<string> { "Удалить воб", "Remove the vob", "", "" });
-
-
             words.Add("WIN_VOBLIST_TITLE", new List<string> { "Контейнер вобов", "VobList window", "", "" });
             words.Add("labelVobType", new List<string> { "Тип воба", "Vob type", "", "" });
             words.Add("labelRadius", new List<string> { "Радиус поиска", "Search radius", "", "" });
-
-
-
             words.Add("WIN_SOUND_TITLE", new List<string> { "Звуки и музыка", "Sounds and music window", "", "" });
             words.Add("groupBoxSound", new List<string> { "Звуки", "Sounds", "", "" });
             words.Add("groupBoxMusic", new List<string> { "Музыка", "Music", "", "" });
@@ -399,12 +325,8 @@ namespace SpacerUnion.Common
             words.Add("checkBoxShutMusic", new List<string> { "Отключать музыку при загрузке", "Shut music after world loaded", "", "" });
             words.Add("labelMusicVolume", new List<string> { "Громкость", "Volume", "", "" });
             words.Add("buttonStopAllSounds", new List<string> { "Заглушить все звуки", "Turn off all sounds", "", "" });
-
-
             words.Add("NAME_ALREADY_EXISTS", new List<string> { "Такое имя уже существует!", "Turn off all sounds", "", "" });
             words.Add("Label_Backup", new List<string> { "Старое значение", "Turn off all sounds", "", "" });
-
-
             words.Add("WIN_PROPS_TITLE", new List<string> { "Окно свойств", "Properties window", "", "" });
             words.Add("buttonApplyOnVob", new List<string> { "Применить на вобе", "Apply on the vob", "", "" });
             words.Add("buttonFileOpen", new List<string> { "Файл", "File", "", "" });
@@ -413,42 +335,81 @@ namespace SpacerUnion.Common
             words.Add("tabControlProps_0", new List<string> { "Редактирование", "Edit", "", "" });
             words.Add("tabControlProps_1", new List<string> { "BBox", "Bbox", "", "" });
             words.Add("tabControlProps_2", new List<string> { "Контейнер", "Container", "", "" });
-
-
             words.Add("groupBoxEditBbox", new List<string> { "Редактирование BBox", "Editing BBox", "", "" });
-
-            
             words.Add("NO_ITEM_NAME", new List<string> { "Имя вещи не может быть пустым! Строка: ", "Item name is empty! Row: ", "", "" });
             words.Add("NO_ITEM_COUNT", new List<string> { "Кол-во итемов не может быть пустым! Строка: ", "Item count is empty! Row: ", "", "" });
             words.Add("ITEM_BAD_COUNT", new List<string> { "Некорректное число итемов. Строка: ", "Bad item count value! Row: ", "", "" });
-
-            
             words.Add("groupBoxContainer", new List<string> { "Редактирование BBox", "Editing BBox", "", "" });
             words.Add("buttonClearItems", new List<string> { "Очистить все", "Clear all", "", "" });
             words.Add("buttonRowDelete", new List<string> { "Удалить текущую", "Remove current", "", "" });
-
             words.Add("ITEMS_COLUMN_INSTANCE", new List<string> { "Инстанция", "Instance", "", "" });
             words.Add("ITEMS_COLUMN_COUNT", new List<string> { "Кол-во", "Count", "", "" });
-
-
-            /*
-            this.Text = Localizator.Get("WIN_SOUND_TITLE");
-            groupBoxSound.Text = Localizator.Get("groupBoxSound");
-            groupBoxMusic.Text = Localizator.Get("groupBoxMusic");
-            buttonPlaySound.Text = Localizator.Get("buttonPlaySound");
-            buttonPlaySoundRegex.Text = Localizator.Get("buttonPlaySound");
-            labelAllSounds.Text = Localizator.Get("labelAllSounds");
-            labelSndList.Text = Localizator.Get("labelSndList");
-            buttonOffMusic.Text = Localizator.Get("buttonOffMusic");
-            buttonMusicOn.Text = Localizator.Get("buttonMusicOn");
-            checkBoxShutMusic.Text = Localizator.Get("checkBoxShutMusic");
-
-            labelMusicVolume.Text = Localizator.Get("labelMusicVolume");
-            checkBoxShutMusic.Text = Localizator.Get("checkBoxShutMusic");
-            groupBoxSoundsMisc.Text = Localizator.Get("groupBoxSound");
-            buttonStopAllSounds.Text = Localizator.Get("buttonStopAllSounds");
-            */
-
+            words.Add("WIN_OBJ_TITLE", new List<string> { "Окно объектов", "Objects window", "", "" });
+            words.Add("WIN_OBJ_TAB0", new List<string> { "Все классы", "All classes", "", "" });
+            words.Add("WIN_OBJ_TAB1", new List<string> { "Вещи", "Items", "", "" });
+            words.Add("WIN_OBJ_TAB2", new List<string> { "Эффекты", "Particles", "", "" });
+            words.Add("WIN_OBJ_TAB3", new List<string> { "Триггеры", "Triggers", "", "" });
+            words.Add("WIN_OBJ_TAB4", new List<string> { "WP/FP", "WP/FP", "", "" });
+            words.Add("WIN_OBJ_TAB5", new List<string> { "Поиск", "Search", "", "" });
+            words.Add("WIN_OBJ_TAB6", new List<string> { "Камера", "Camera", "", "" });
+            words.Add("WIN_OBJ_TAB7", new List<string> { "Свет", "Light", "", "" });
+            words.Add("WIN_OBJ_ALLMODELS", new List<string> { "Поиск визуала", "Visual search", "", "" });
+            words.Add("WIN_OBJ_ALL", new List<string> { "всего", "count", "", "" });
+            words.Add("WIN_OBJ_TYPE_CANTHERE", new List<string> { "Данный тип воба создается в отдельной вкладке справа!", "This vob type can be created in a special tab!", "", "" });
+            words.Add("WIN_OBJ_NO_EMPTY_NAME", new List<string> { "Нельзя ввести пустое имя!", "You can't enter an empty name!", "", "" });
+            words.Add("WIN_OBJ_NO_WAYPOINT_NUMBERSONLY", new List<string> { "Имя вейпоинта не может состоять только из цифр!", "Waypoint can't have only numbers in its name!", "", "" });
+            words.Add("WIN_OBJ_SEARCHVISUAL", new List<string> { "всего", "count", "", "" });
+            words.Add("WIN_OBJ_SEARCHVISUAL_ALL", new List<string> { "Поиск визуала. Всего", "Visual search. Count", "", "" });
+            words.Add("COPYBUFFER", new List<string> { "Скопировано в буфер", "Copied to clipboard", "", "" });
+            words.Add("groupBoxObjAllClasses", new List<string> { "Все классы вобов", "All vobs classes", "", "" });
+            words.Add("groupBoxObjPropVobs", new List<string> { "Свойства воба", "Vob properties", "", "" });
+            words.Add("labelObjAllClassesNameVob", new List<string> { "Имя воба", "Vob name", "", "" });
+            words.Add("buttonAllClassesCreateVob", new List<string> { "Создать Vob", "Create Vob", "", "" });
+            words.Add("checkBoxDynStat", new List<string> { "Динамич. коллизия", "Dynamic collision", "", "" });
+            words.Add("checkBoxStaStat", new List<string> { "Стат. коллизия", "Static collision", "", "" });
+            words.Add("checkBoxShowPreview", new List<string> { "Показывать модель", "Show model preview", "", "" });
+            words.Add("checkBoxSearchOnly3DS", new List<string> { "Искать только 3DS", "Search only 3DS", "", "" });
+            words.Add("buttonAllClassesClear", new List<string> { "Очистить", "Clear", "", "" });
+            words.Add("groupBoxObjItems", new List<string> { "Предметы", "Items", "", "" });
+            words.Add("TEST_NOT_READY", new List<string> { "ЕЩЕ НЕ СДЕЛАНО", "NOT READY YET", "", "" });
+            words.Add("buttonItemsCreate", new List<string> { "Создать Item", "Creaate Item", "", "" });
+            words.Add("buttonAddContainer", new List<string> { "Добавить в контейнер->", "Add to container->", "", "" });
+            words.Add("groupBoxItemsCont", new List<string> { "Редактор сундука", "Edit the container", "", "" });
+            words.Add("checkBoxItemShow", new List<string> { "Отображать вещь на экране", "Show model preview", "", "" });
+            words.Add("labelItemsEditContCount", new List<string> { "Количество", "Count", "", "" });
+            words.Add("labelItemsAllItems", new List<string> { "Все вещи игры", "All game items", "", "" });
+            words.Add("labelItemsFindReg", new List<string> { "Поиск по рег. выражению", "Search using regex", "", "" });
+            words.Add("groupBoxPFX", new List<string> { "Эффекты частиц", "Particles", "", "" });
+            words.Add("buttonParticles", new List<string> { "Создать PFX", "Create PFX", "", "" });
+            words.Add("checkBoxShowPFXPreview", new List<string> { "Отображать эффект на экране", "Show PFX preview", "", "" });
+            words.Add("labelAllPfx", new List<string> { "Все эффекты игры", "All game PFXes", "", "" });
+            words.Add("groupBoxTriggersVob", new List<string> { "Выбранный воб", "Selected vob", "", "" });
+            words.Add("groupBoxTriggersKeys", new List<string> { "Ключи", "Keys", "", "" });
+            words.Add("buttonSendTrigger", new List<string> { "Запустить >>>", "Run >>>", "", "" });
+            words.Add("buttonTriggerCollectSources", new List<string> { "Собрать", "Collect", "", "" });
+            words.Add("buttonNewKey", new List<string> { "Новый ключ", "New key", "", "" });
+            words.Add("buttonRemoveKey", new List<string> { "Удалить ключ", "Remove key", "", "" });
+            words.Add("labelTriggerName", new List<string> { "Триггер", "Trigger", "", "" });
+            words.Add("labelTriggerCollision", new List<string> { "Коллизия", "Collision", "", "" });
+            words.Add("checkBoxDyn", new List<string> { "динамич.", "dynamic", "", "" });
+            words.Add("checkBoxStat", new List<string> { "статич.", "static", "", "" });
+            words.Add("radioButtonOverwrite", new List<string> { "Перезаписать", "Overwrite", "", "" });
+            words.Add("labelTriggerInsert", new List<string> { "Вставить", "Insert key", "", "" });
+            words.Add("radioButtonAfter", new List<string> { "После", "After", "", "" });
+            words.Add("radioButtonBefore", new List<string> { "До", "Before", "", "" });
+            words.Add("labelTriggerTargets", new List<string> { "Цели (targets)", "Targets", "", "" });
+            words.Add("labelTriggersSources", new List<string> { "Источники (sources)", "Sources", "", "" });
+            words.Add("groupBoxWPFP", new List<string> { "Мировые точки", "World points", "", "" });
+            words.Add("labelNameWPMandatory", new List<string> { "Имя Waypoint (обязательно)", "Waypoint name (mandatory)", "", "" });
+            words.Add("labelFreepointMandatory", new List<string> { "Имя Freepoint (обязательно)", "Freepoint name (mandatory)", "", "" });
+            words.Add("checkBoxWayNet", new List<string> { "Сразу соединять в сеть", "Connect to waynet at once", "", "" });
+            words.Add("checkBoxWPAutoName", new List<string> { "Автогенерация имени", "Auto-generated name", "", "" });
+            words.Add("checkBoxFPGround", new List<string> { "Прижимать к земле", "Floor the freepoint", "", "" });
+            words.Add("checkBoxAutoNameFP", new List<string> { "Автогенерация имени", "Auto-generated name", "", "" });
+            words.Add("buttonWPCreate", new List<string> { "Создать Waypoint", "Create Waypoint", "", "" });
+            words.Add("buttonConnectWp", new List<string> { "Соединить WP", "Connect waypoints", "", "" });
+            words.Add("buttonDisconnectWP", new List<string> { "Разъединить WP", "Disconnect waypoints", "", "" });
+            words.Add("buttonFPCreate", new List<string> { "Создать Freepoint", "Create Freepoint", "", "" });
 
 
         }
