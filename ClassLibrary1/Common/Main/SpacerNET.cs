@@ -51,9 +51,10 @@ namespace SpacerUnion
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-
             Localizator.Init();
             Localizator.SetLanguage((LangEnum)Properties.Settings.Default.Language);
+           
+            
             
             windowsToHideList = new List<Form>();
             windowsList = new List<Form>();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Windows;
 
 namespace SpacerUnion.Common
 {
@@ -24,6 +25,7 @@ namespace SpacerUnion.Common
             return Marshal.StringToHGlobalAnsi(str);
         }
 
+
         public static IntPtr StringToPtrW(string str)
         {
             return Marshal.StringToHGlobalUni(str);
@@ -33,11 +35,24 @@ namespace SpacerUnion.Common
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Stack_PushString(IntPtr v);
 
-        public static void Stack_PushString(string v)
+
+        [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Stack_PushStringWide(IntPtr v);
+
+
+
+        public static void Stack_PushString(string source)
         {
-            //Console.Write("## ");
-            IntPtr ptr = StringToPtrA(v);
+  
+            IntPtr ptr = StringToPtrA(source);
             Stack_PushString(ptr);
+            Marshal.FreeHGlobal(ptr);
+        }
+
+        public static void Stack_PushStringWide(string source)
+        {
+            IntPtr ptr = StringToPtrW(source);
+            Stack_PushStringWide(ptr);
             Marshal.FreeHGlobal(ptr);
         }
 

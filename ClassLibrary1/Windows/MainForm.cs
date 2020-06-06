@@ -1179,5 +1179,10 @@ namespace SpacerUnion
         {
 
         }
+
+        private void тестToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Imports.Stack_PushStringWide("Okno właściwości");
+        }
     }
 }
