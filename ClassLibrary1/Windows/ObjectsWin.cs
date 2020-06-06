@@ -914,11 +914,11 @@ namespace SpacerUnion
 
             if (name != String.Empty)
             {
-                if (SpacerNET.propWin.tabControl1.SelectedIndex == 2 && SpacerNET.propWin.dataGridView1.Visible
+                if (SpacerNET.propWin.tabControlProps.SelectedIndex == 2 && SpacerNET.propWin.dataGridViewItems.Visible
                     && SpacerNET.propWin.buttonContainerApply.Enabled
                     )
                 {
-                    SpacerNET.propWin.dataGridView1.Rows.Add(name, count);
+                    SpacerNET.propWin.dataGridViewItems.Rows.Add(name, count);
                 }
             }
         }

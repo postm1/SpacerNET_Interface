@@ -35,6 +35,19 @@ namespace SpacerUnion
 
         }
 
+        public void UpdateLang()
+        {
+            this.Text = Localizator.Get("WIN_TREE_TITLE");
+            buttonCollapse.Text = Localizator.Get("buttonCollapse");
+            buttonExpand.Text = Localizator.Get("buttonExpand");
+            buttonTreeSort.Text = Localizator.Get("buttonTreeSort");
+
+            contextMenuStripTree.Items[0].Text = Localizator.Get("CONTEXTMENU_TREE_INSERT_VOBTREE_PARENT");
+            contextMenuStripTree.Items[1].Text = Localizator.Get("CONTEXTMENU_TREE_INSERT_VOBTREE_GLOBAL");
+            contextMenuStripTree.Items[2].Text = Localizator.Get("CONTEXTMENU_TREE_SAVE_VOBTREE");
+            contextMenuStripTree.Items[3].Text = Localizator.Get("CONTEXTMENU_TREE_REMOVE_VOB");
+        }
+
         
 
   

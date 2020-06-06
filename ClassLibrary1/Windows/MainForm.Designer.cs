@@ -387,7 +387,7 @@
             // 
             // russianToolStrip
             // 
-            this.russianToolStrip.Image = global::SpacerUnion.Properties.Resources.s1200;
+            this.russianToolStrip.Image = global::SpacerUnion.Properties.Resources.Flag_Russia;
             this.russianToolStrip.Name = "russianToolStrip";
             this.russianToolStrip.Size = new System.Drawing.Size(123, 22);
             this.russianToolStrip.Text = "Русский";
@@ -395,7 +395,7 @@
             // 
             // englishToolStripMenuItem1
             // 
-            this.englishToolStripMenuItem1.Image = global::SpacerUnion.Properties.Resources.uk_flag;
+            this.englishToolStripMenuItem1.Image = global::SpacerUnion.Properties.Resources.Flag_Eng;
             this.englishToolStripMenuItem1.Name = "englishToolStripMenuItem1";
             this.englishToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
             this.englishToolStripMenuItem1.Text = "English";
@@ -403,7 +403,7 @@
             // 
             // deutscheToolStripMenuItem
             // 
-            this.deutscheToolStripMenuItem.Image = global::SpacerUnion.Properties.Resources._440px_Flag_of_Germany_svg;
+            this.deutscheToolStripMenuItem.Image = global::SpacerUnion.Properties.Resources.Flag_Germany;
             this.deutscheToolStripMenuItem.Name = "deutscheToolStripMenuItem";
             this.deutscheToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.deutscheToolStripMenuItem.Text = "Deutsche";
@@ -411,7 +411,7 @@
             // 
             // polskiToolStripMenuItem
             // 
-            this.polskiToolStripMenuItem.Image = global::SpacerUnion.Properties.Resources.cl_pols;
+            this.polskiToolStripMenuItem.Image = global::SpacerUnion.Properties.Resources.Flag_Poland;
             this.polskiToolStripMenuItem.Name = "polskiToolStripMenuItem";
             this.polskiToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.polskiToolStripMenuItem.Text = "Polski";

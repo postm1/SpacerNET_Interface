@@ -27,6 +27,12 @@ namespace SpacerUnion
             InitializeComponent();
         }
 
+        public void UpdateLang()
+        {
+            this.Text = Localizator.Get("WIN_VOBLIST_TITLE");
+            labelVobType.Text = Localizator.Get("labelVobType");
+            labelRadius.Text = Localizator.Get("labelRadius");
+        }
 
         [DllExport]
         public static int GetSearchRadius()
@@ -93,7 +99,7 @@ namespace SpacerUnion
         }
         private void trackBarRadius_ValueChanged(object sender, EventArgs e)
         {
-            labelRadius.Text = "Радиус поиска: " + trackBarRadius.Value;
+            labelRadius.Text = Localizator.Get("labelRadius") + ": " + trackBarRadius.Value;
 
             Imports.Stack_PushString("vobListRadius");
 

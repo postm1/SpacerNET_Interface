@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControlProps = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.treeViewProp = new System.Windows.Forms.TreeView();
             this.panelButtons = new System.Windows.Forms.Panel();
@@ -40,13 +40,13 @@
             this.textBoxVec1 = new System.Windows.Forms.TextBox();
             this.textBoxVec0 = new System.Windows.Forms.TextBox();
             this.buttonOpenContainer = new System.Windows.Forms.Button();
-            this.buttonRestore = new System.Windows.Forms.Button();
+            this.buttonRestoreVobProp = new System.Windows.Forms.Button();
             this.textBoxString = new System.Windows.Forms.TextBox();
             this.buttonBbox = new System.Windows.Forms.Button();
             this.Label_Backup = new System.Windows.Forms.Label();
-            this.buttonApply = new System.Windows.Forms.Button();
+            this.buttonApplyOnVob = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBoxEditBbox = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxBbox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,40 +56,40 @@
             this.buttonApplyBbox = new System.Windows.Forms.Button();
             this.textBoxBbox0 = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxContainer = new System.Windows.Forms.GroupBox();
             this.buttonRowDelete = new System.Windows.Forms.Button();
             this.buttonClearItems = new System.Windows.Forms.Button();
             this.buttonContainerCancel = new System.Windows.Forms.Button();
             this.buttonContainerApply = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewItems = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStripContainer = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.удалитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogFileName = new System.Windows.Forms.OpenFileDialog();
-            this.tabControl1.SuspendLayout();
+            this.tabControlProps.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBoxEditBbox.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBoxContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItems)).BeginInit();
             this.contextMenuStripContainer.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabControlProps
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(330, 490);
-            this.tabControl1.TabIndex = 0;
-            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
+            this.tabControlProps.Controls.Add(this.tabPage1);
+            this.tabControlProps.Controls.Add(this.tabPage2);
+            this.tabControlProps.Controls.Add(this.tabPage3);
+            this.tabControlProps.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlProps.Location = new System.Drawing.Point(0, 0);
+            this.tabControlProps.Name = "tabControlProps";
+            this.tabControlProps.SelectedIndex = 0;
+            this.tabControlProps.Size = new System.Drawing.Size(330, 490);
+            this.tabControlProps.TabIndex = 0;
+            this.tabControlProps.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // tabPage1
             // 
@@ -125,11 +125,11 @@
             this.panelButtons.Controls.Add(this.textBoxVec1);
             this.panelButtons.Controls.Add(this.textBoxVec0);
             this.panelButtons.Controls.Add(this.buttonOpenContainer);
-            this.panelButtons.Controls.Add(this.buttonRestore);
+            this.panelButtons.Controls.Add(this.buttonRestoreVobProp);
             this.panelButtons.Controls.Add(this.textBoxString);
             this.panelButtons.Controls.Add(this.buttonBbox);
             this.panelButtons.Controls.Add(this.Label_Backup);
-            this.panelButtons.Controls.Add(this.buttonApply);
+            this.panelButtons.Controls.Add(this.buttonApplyOnVob);
             this.panelButtons.Location = new System.Drawing.Point(9, 352);
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.Size = new System.Drawing.Size(310, 106);
@@ -206,16 +206,16 @@
             this.buttonOpenContainer.UseVisualStyleBackColor = true;
             this.buttonOpenContainer.Click += new System.EventHandler(this.buttonOpenContainer_Click);
             // 
-            // buttonRestore
+            // buttonRestoreVobProp
             // 
-            this.buttonRestore.Enabled = false;
-            this.buttonRestore.Location = new System.Drawing.Point(6, 75);
-            this.buttonRestore.Name = "buttonRestore";
-            this.buttonRestore.Size = new System.Drawing.Size(120, 23);
-            this.buttonRestore.TabIndex = 6;
-            this.buttonRestore.Text = "Восстановить";
-            this.buttonRestore.UseVisualStyleBackColor = true;
-            this.buttonRestore.Click += new System.EventHandler(this.buttonRestore_Click);
+            this.buttonRestoreVobProp.Enabled = false;
+            this.buttonRestoreVobProp.Location = new System.Drawing.Point(6, 75);
+            this.buttonRestoreVobProp.Name = "buttonRestoreVobProp";
+            this.buttonRestoreVobProp.Size = new System.Drawing.Size(120, 23);
+            this.buttonRestoreVobProp.TabIndex = 6;
+            this.buttonRestoreVobProp.Text = "Восстановить";
+            this.buttonRestoreVobProp.UseVisualStyleBackColor = true;
+            this.buttonRestoreVobProp.Click += new System.EventHandler(this.buttonRestore_Click);
             // 
             // textBoxString
             // 
@@ -248,20 +248,20 @@
             this.Label_Backup.Text = "Старое значение:";
             this.Label_Backup.Visible = false;
             // 
-            // buttonApply
+            // buttonApplyOnVob
             // 
-            this.buttonApply.Enabled = false;
-            this.buttonApply.Location = new System.Drawing.Point(6, 46);
-            this.buttonApply.Name = "buttonApply";
-            this.buttonApply.Size = new System.Drawing.Size(120, 23);
-            this.buttonApply.TabIndex = 2;
-            this.buttonApply.Text = "Применить на вобе";
-            this.buttonApply.UseVisualStyleBackColor = true;
-            this.buttonApply.Click += new System.EventHandler(this.buttonApply_Click);
+            this.buttonApplyOnVob.Enabled = false;
+            this.buttonApplyOnVob.Location = new System.Drawing.Point(6, 46);
+            this.buttonApplyOnVob.Name = "buttonApplyOnVob";
+            this.buttonApplyOnVob.Size = new System.Drawing.Size(120, 23);
+            this.buttonApplyOnVob.TabIndex = 2;
+            this.buttonApplyOnVob.Text = "Применить на вобе";
+            this.buttonApplyOnVob.UseVisualStyleBackColor = true;
+            this.buttonApplyOnVob.Click += new System.EventHandler(this.buttonApply_Click);
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Controls.Add(this.groupBoxEditBbox);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Size = new System.Drawing.Size(322, 464);
@@ -269,22 +269,22 @@
             this.tabPage2.Text = "BBox";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // groupBoxEditBbox
             // 
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.textBoxBbox2);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.buttonResetBbox);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.textBoxBbox1);
-            this.groupBox2.Controls.Add(this.buttonApplyBbox);
-            this.groupBox2.Controls.Add(this.textBoxBbox0);
-            this.groupBox2.Location = new System.Drawing.Point(8, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(306, 208);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Редактирование BBox";
+            this.groupBoxEditBbox.Controls.Add(this.label3);
+            this.groupBoxEditBbox.Controls.Add(this.textBoxBbox2);
+            this.groupBoxEditBbox.Controls.Add(this.label2);
+            this.groupBoxEditBbox.Controls.Add(this.buttonResetBbox);
+            this.groupBoxEditBbox.Controls.Add(this.label1);
+            this.groupBoxEditBbox.Controls.Add(this.textBoxBbox1);
+            this.groupBoxEditBbox.Controls.Add(this.buttonApplyBbox);
+            this.groupBoxEditBbox.Controls.Add(this.textBoxBbox0);
+            this.groupBoxEditBbox.Location = new System.Drawing.Point(8, 12);
+            this.groupBoxEditBbox.Name = "groupBoxEditBbox";
+            this.groupBoxEditBbox.Size = new System.Drawing.Size(306, 208);
+            this.groupBoxEditBbox.TabIndex = 9;
+            this.groupBoxEditBbox.TabStop = false;
+            this.groupBoxEditBbox.Text = "Редактирование BBox";
             // 
             // label3
             // 
@@ -359,8 +359,8 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.groupBox1);
-            this.tabPage3.Controls.Add(this.dataGridView1);
+            this.tabPage3.Controls.Add(this.groupBoxContainer);
+            this.tabPage3.Controls.Add(this.dataGridViewItems);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(322, 464);
@@ -368,18 +368,18 @@
             this.tabPage3.Text = "Контейнер";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // groupBoxContainer
             // 
-            this.groupBox1.Controls.Add(this.buttonRowDelete);
-            this.groupBox1.Controls.Add(this.buttonClearItems);
-            this.groupBox1.Controls.Add(this.buttonContainerCancel);
-            this.groupBox1.Controls.Add(this.buttonContainerApply);
-            this.groupBox1.Location = new System.Drawing.Point(8, 374);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(306, 82);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Управление";
+            this.groupBoxContainer.Controls.Add(this.buttonRowDelete);
+            this.groupBoxContainer.Controls.Add(this.buttonClearItems);
+            this.groupBoxContainer.Controls.Add(this.buttonContainerCancel);
+            this.groupBoxContainer.Controls.Add(this.buttonContainerApply);
+            this.groupBoxContainer.Location = new System.Drawing.Point(8, 374);
+            this.groupBoxContainer.Name = "groupBoxContainer";
+            this.groupBoxContainer.Size = new System.Drawing.Size(306, 82);
+            this.groupBoxContainer.TabIndex = 6;
+            this.groupBoxContainer.TabStop = false;
+            this.groupBoxContainer.Text = "Управление";
             // 
             // buttonRowDelete
             // 
@@ -421,25 +421,25 @@
             this.buttonContainerApply.UseVisualStyleBackColor = true;
             this.buttonContainerApply.Click += new System.EventHandler(this.buttonContainerApply_Click);
             // 
-            // dataGridView1
+            // dataGridViewItems
             // 
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewItems.AllowUserToResizeColumns = false;
+            this.dataGridViewItems.AllowUserToResizeRows = false;
+            this.dataGridViewItems.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridViewItems.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridViewItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridViewItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            this.dataGridView1.Location = new System.Drawing.Point(8, 18);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(306, 350);
-            this.dataGridView1.TabIndex = 4;
-            this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
+            this.dataGridViewItems.Location = new System.Drawing.Point(8, 18);
+            this.dataGridViewItems.Name = "dataGridViewItems";
+            this.dataGridViewItems.RowHeadersVisible = false;
+            this.dataGridViewItems.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridViewItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewItems.Size = new System.Drawing.Size(306, 350);
+            this.dataGridViewItems.TabIndex = 4;
+            this.dataGridViewItems.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
             // Column1
             // 
@@ -472,7 +472,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(330, 490);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControlProps);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -480,18 +480,19 @@
             this.Name = "ObjectsWindow";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.Text = "Окно свойств";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ObjectsWindow_FormClosing);
             this.Shown += new System.EventHandler(this.ObjectsWindow_Shown);
-            this.tabControl1.ResumeLayout(false);
+            this.tabControlProps.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panelButtons.ResumeLayout(false);
             this.panelButtons.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBoxEditBbox.ResumeLayout(false);
+            this.groupBoxEditBbox.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBoxContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItems)).EndInit();
             this.contextMenuStripContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -501,12 +502,12 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TreeView treeViewProp;
         private System.Windows.Forms.Button buttonBbox;
-        private System.Windows.Forms.Button buttonApply;
+        private System.Windows.Forms.Button buttonApplyOnVob;
         private System.Windows.Forms.TextBox textBoxString;
         private System.Windows.Forms.Label Label_Backup;
         private System.Windows.Forms.Panel panelButtons;
         private System.Windows.Forms.Button buttonOpenContainer;
-        private System.Windows.Forms.Button buttonRestore;
+        private System.Windows.Forms.Button buttonRestoreVobProp;
         private System.Windows.Forms.TextBox textBoxVec2;
         private System.Windows.Forms.TextBox textBoxVec1;
         private System.Windows.Forms.TextBox textBoxVec0;
@@ -514,14 +515,14 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button buttonContainerCancel;
         private System.Windows.Forms.Button buttonClearItems;
-        private System.Windows.Forms.GroupBox groupBox1;
-        public System.Windows.Forms.TabControl tabControl1;
-        public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox groupBoxContainer;
+        public System.Windows.Forms.TabControl tabControlProps;
+        public System.Windows.Forms.DataGridView dataGridViewItems;
         public System.Windows.Forms.Button buttonContainerApply;
         public System.Windows.Forms.ContextMenuStrip contextMenuStripContainer;
         private System.Windows.Forms.ToolStripMenuItem удалитьСтрокуToolStripMenuItem;
         private System.Windows.Forms.Button buttonRowDelete;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBoxEditBbox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxBbox2;
         private System.Windows.Forms.Label label2;

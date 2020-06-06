@@ -65,6 +65,12 @@ namespace SpacerUnion.Common
             SpacerNET.settingsControl.UpdateLang();
             SpacerNET.settingsCam.UpdateLang();
             SpacerNET.keysWin.UpdateLang();
+
+            SpacerNET.objTreeWin.UpdateLang();
+
+            SpacerNET.vobList.UpdateLang();
+            SpacerNET.soundWin.UpdateLang();
+            SpacerNET.propWin.UpdateLang();
         }
 
         [DllExport]
@@ -96,14 +102,10 @@ namespace SpacerUnion.Common
             words.Add("compileLight", new List<string> { "Идет компиляция света...", "Compiling light...", "", ""});
             words.Add("savingZen", new List<string> { "Идет сохранение ZEN...", "Saving ZEN...", "", ""});
             words.Add("waynetMsg", new List<string> { "Ошибки WayNet не найдены.", "No Waynet errors found.", "", ""});
-
             words.Add("loadZenTime", new List<string> { "Загрузка ZEN выполнена за", "Loading ZEN time...", "", ""});
             words.Add("saveZenTime", new List<string> { "Сохранение ZEN выполнено за", "Saving ZEN time...", "", ""});
             words.Add("loadMeshTime", new List<string> { "Загрузка MESH выполнена за", "Loading MESH time...", "", ""});
             words.Add("mergeZenTime", new List<string> { "Объединение ZEN выполнено за", "Merging ZEN time...", "", ""});
-
-
-
             words.Add("MENU_TOP_FILE", new List<string> { "Файл", "File", "", ""});
             words.Add("MENU_TOP_RESET", new List<string> { "Сбросить мир", "Reset world", "", ""});
             words.Add("MENU_TOP_EXIT", new List<string> { "Выход", "Exit", "", ""});
@@ -366,6 +368,87 @@ namespace SpacerUnion.Common
             words.Add("TOGGLE_VOBS", new List<string> { "Показать/Скрыть все вобы", "Show/Hide all vobs", "", "" });
             words.Add("TOGGLE_WAYNET", new List<string> { "Показать/Скрыть Waynet", "Show/Hide Waynet", "", "" });
             words.Add("TOGGLE_HELPERS", new List<string> { "Показать/Скрыть help-вобы", "Show/Hide help vobs", "", "" });
+
+
+            words.Add("WIN_TREE_TITLE", new List<string> { "Список объектов", "Objects list window", "", "" });
+            words.Add("buttonCollapse", new List<string> { "Свернуть все", "Collapse all", "", "" });
+            words.Add("buttonExpand", new List<string> { "Развернуть все", "Expand all", "", "" });
+            words.Add("buttonTreeSort", new List<string> { "Сортировать", "Sort", "", "" });
+
+
+            words.Add("CONTEXTMENU_TREE_INSERT_VOBTREE_PARENT", new List<string> { "Вставить VobTree в выделенный воб", "Insert VobTree into the vob", "", "" });
+            words.Add("CONTEXTMENU_TREE_INSERT_VOBTREE_GLOBAL", new List<string> { "Вставить VobTree глобально", "Insert VobTree globally", "", "" });
+            words.Add("CONTEXTMENU_TREE_SAVE_VOBTREE", new List<string> { "Сохранить выделенный воб в VobTree", "Save vob as VobTree", "", "" });
+            words.Add("CONTEXTMENU_TREE_REMOVE_VOB", new List<string> { "Удалить воб", "Remove the vob", "", "" });
+
+
+            words.Add("WIN_VOBLIST_TITLE", new List<string> { "Контейнер вобов", "VobList window", "", "" });
+            words.Add("labelVobType", new List<string> { "Тип воба", "Vob type", "", "" });
+            words.Add("labelRadius", new List<string> { "Радиус поиска", "Search radius", "", "" });
+
+
+
+            words.Add("WIN_SOUND_TITLE", new List<string> { "Звуки и музыка", "Sounds and music window", "", "" });
+            words.Add("groupBoxSound", new List<string> { "Звуки", "Sounds", "", "" });
+            words.Add("groupBoxMusic", new List<string> { "Музыка", "Music", "", "" });
+            words.Add("buttonPlaySound", new List<string> { "Воспроизвести", "Play", "", "" });
+            words.Add("labelAllSounds", new List<string> { "Все звуки. Кол-во:", "All sound. Count:", "", "" });
+            words.Add("labelSndList", new List<string> { "Поиск по рег. выражению", "Search using regex", "", "" });
+            words.Add("buttonOffMusic", new List<string> { "Отключить музыку", "Turn off music", "", "" });
+            words.Add("buttonMusicOn", new List<string> { "Включить музыку", "Turn on music", "", "" });
+            words.Add("checkBoxShutMusic", new List<string> { "Отключать музыку при загрузке", "Shut music after world loaded", "", "" });
+            words.Add("labelMusicVolume", new List<string> { "Громкость", "Volume", "", "" });
+            words.Add("buttonStopAllSounds", new List<string> { "Заглушить все звуки", "Turn off all sounds", "", "" });
+
+
+            words.Add("NAME_ALREADY_EXISTS", new List<string> { "Такое имя уже существует!", "Turn off all sounds", "", "" });
+            words.Add("Label_Backup", new List<string> { "Старое значение", "Turn off all sounds", "", "" });
+
+
+            words.Add("WIN_PROPS_TITLE", new List<string> { "Окно свойств", "Properties window", "", "" });
+            words.Add("buttonApplyOnVob", new List<string> { "Применить на вобе", "Apply on the vob", "", "" });
+            words.Add("buttonFileOpen", new List<string> { "Файл", "File", "", "" });
+            words.Add("buttonRestoreVobProp", new List<string> { "Восстановить", "Restore", "", "" });
+            words.Add("buttonOpenContainer", new List<string> { "Контейнер", "Container", "", "" });
+            words.Add("tabControlProps_0", new List<string> { "Редактирование", "Edit", "", "" });
+            words.Add("tabControlProps_1", new List<string> { "BBox", "Bbox", "", "" });
+            words.Add("tabControlProps_2", new List<string> { "Контейнер", "Container", "", "" });
+
+
+            words.Add("groupBoxEditBbox", new List<string> { "Редактирование BBox", "Editing BBox", "", "" });
+
+            
+            words.Add("NO_ITEM_NAME", new List<string> { "Имя вещи не может быть пустым! Строка: ", "Item name is empty! Row: ", "", "" });
+            words.Add("NO_ITEM_COUNT", new List<string> { "Кол-во итемов не может быть пустым! Строка: ", "Item count is empty! Row: ", "", "" });
+            words.Add("ITEM_BAD_COUNT", new List<string> { "Некорректное число итемов. Строка: ", "Bad item count value! Row: ", "", "" });
+
+            
+            words.Add("groupBoxContainer", new List<string> { "Редактирование BBox", "Editing BBox", "", "" });
+            words.Add("buttonClearItems", new List<string> { "Очистить все", "Clear all", "", "" });
+            words.Add("buttonRowDelete", new List<string> { "Удалить текущую", "Remove current", "", "" });
+
+            words.Add("ITEMS_COLUMN_INSTANCE", new List<string> { "Инстанция", "Instance", "", "" });
+            words.Add("ITEMS_COLUMN_COUNT", new List<string> { "Кол-во", "Count", "", "" });
+
+
+            /*
+            this.Text = Localizator.Get("WIN_SOUND_TITLE");
+            groupBoxSound.Text = Localizator.Get("groupBoxSound");
+            groupBoxMusic.Text = Localizator.Get("groupBoxMusic");
+            buttonPlaySound.Text = Localizator.Get("buttonPlaySound");
+            buttonPlaySoundRegex.Text = Localizator.Get("buttonPlaySound");
+            labelAllSounds.Text = Localizator.Get("labelAllSounds");
+            labelSndList.Text = Localizator.Get("labelSndList");
+            buttonOffMusic.Text = Localizator.Get("buttonOffMusic");
+            buttonMusicOn.Text = Localizator.Get("buttonMusicOn");
+            checkBoxShutMusic.Text = Localizator.Get("checkBoxShutMusic");
+
+            labelMusicVolume.Text = Localizator.Get("labelMusicVolume");
+            checkBoxShutMusic.Text = Localizator.Get("checkBoxShutMusic");
+            groupBoxSoundsMisc.Text = Localizator.Get("groupBoxSound");
+            buttonStopAllSounds.Text = Localizator.Get("buttonStopAllSounds");
+            */
+
 
 
         }

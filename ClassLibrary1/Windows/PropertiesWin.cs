@@ -46,6 +46,34 @@ namespace SpacerUnion
 
         }
 
+        public void UpdateLang()
+        {
+            this.Text = Localizator.Get("WIN_PROPS_TITLE");
+            Label_Backup.Text = Localizator.Get("Label_Backup");
+            buttonApplyOnVob.Text = Localizator.Get("buttonApplyOnVob");
+            buttonFileOpen.Text = Localizator.Get("buttonFileOpen");
+            buttonRestoreVobProp.Text = Localizator.Get("buttonRestoreVobProp");
+            buttonOpenContainer.Text = Localizator.Get("buttonOpenContainer");
+            tabControlProps.TabPages[0].Text = Localizator.Get("tabControlProps_0");
+            tabControlProps.TabPages[1].Text = Localizator.Get("tabControlProps_1");
+            tabControlProps.TabPages[2].Text = Localizator.Get("tabControlProps_2");
+
+
+            groupBoxEditBbox.Text = Localizator.Get("groupBoxEditBbox");
+            buttonResetBbox.Text = Localizator.Get("WIN_CANCEL_BUTTON");
+            buttonApplyBbox.Text = Localizator.Get("BTN_APPLY");
+
+            groupBoxContainer.Text = Localizator.Get("groupBoxContainer");
+            buttonClearItems.Text = Localizator.Get("buttonClearItems");
+            buttonRowDelete.Text = Localizator.Get("buttonRowDelete");
+            buttonContainerCancel.Text = Localizator.Get("WIN_CANCEL_BUTTON");
+            buttonContainerApply.Text = Localizator.Get("BTN_APPLY");
+
+
+            dataGridViewItems.Columns[0].HeaderText = Localizator.Get("ITEMS_COLUMN_INSTANCE");
+            dataGridViewItems.Columns[1].HeaderText = Localizator.Get("ITEMS_COLUMN_COUNT");
+        }
+
         public static void ChangeProp(string propName, string value)
         {
             for (int i = 0; i < props.Count; i++)
@@ -72,12 +100,12 @@ namespace SpacerUnion
             TreeView tree = SpacerNET.propWin.treeViewProp;
 
             tree.Nodes.Clear();
-            EnableTab(SpacerNET.propWin.tabControl1.TabPages[2], false);
-            SpacerNET.propWin.tabControl1.SelectedIndex = 0;
+            EnableTab(SpacerNET.propWin.tabControlProps.TabPages[2], false);
+            SpacerNET.propWin.tabControlProps.SelectedIndex = 0;
 
             SpacerNET.propWin.HideAllInput();
-            SpacerNET.propWin.buttonApply.Enabled = false;
-            SpacerNET.propWin.buttonRestore.Enabled = false;
+            SpacerNET.propWin.buttonApplyOnVob.Enabled = false;
+            SpacerNET.propWin.buttonRestoreVobProp.Enabled = false;
             SpacerNET.propWin.buttonBbox.Enabled = false;
             SpacerNET.propWin.buttonFileOpen.Enabled = false;
         }
@@ -222,7 +250,7 @@ namespace SpacerUnion
                 {
                     string value = prop.value;
 
-                    ConsoleEx.WriteLineRed("Looking for the sound...");
+                    //ConsoleEx.WriteLineRed("Looking for the sound...");
 
                     ListBox listBox = SpacerNET.soundWin.listBoxSound;
 
@@ -428,7 +456,7 @@ namespace SpacerUnion
                     node.Text = prop.Name + ": " + prop.ShowValue();
 
                     changed = true;
-                    buttonApply.Enabled = true;
+                    buttonApplyOnVob.Enabled = true;
                 }
 
                 if (prop.type == TPropEditType.PETenum)
@@ -448,8 +476,8 @@ namespace SpacerUnion
 
                     node.Text = prop.Name + ": " + prop.ShowValue();
                     changed = true;
-                    buttonApply.Enabled = true;
-                    buttonRestore.Enabled = true;
+                    buttonApplyOnVob.Enabled = true;
+                    buttonRestoreVobProp.Enabled = true;
                 }
 
                 if (prop.Name == "contains")
@@ -478,11 +506,11 @@ namespace SpacerUnion
                 }
             }
 
-            EnableTab(tabControl1.TabPages[2], true);
-            tabControl1.SelectedIndex = 2;
+            EnableTab(tabControlProps.TabPages[2], true);
+            tabControlProps.SelectedIndex = 2;
 
-            dataGridView1.Visible = true;
-            dataGridView1.Rows.Clear();
+            dataGridViewItems.Visible = true;
+            dataGridViewItems.Rows.Clear();
 
             SpacerNET.objectsWin.tabControlObjects.SelectedIndex = 1;
 
@@ -505,11 +533,11 @@ namespace SpacerUnion
 
                 if (arr.Length == 1)
                 {
-                    dataGridView1.Rows.Add(arr[0].Trim(), "1");
+                    dataGridViewItems.Rows.Add(arr[0].Trim(), "1");
                 }
                 else
                 {
-                    dataGridView1.Rows.Add(arr[0].Trim(), arr[1].Trim());
+                    dataGridViewItems.Rows.Add(arr[0].Trim(), arr[1].Trim());
                 }
 
             }
@@ -545,7 +573,7 @@ namespace SpacerUnion
 
                         if (Imports.Extern_CheckUniqueNameExist())
                         {
-                            MessageBox.Show("Такое имя уже существует!");
+                            MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
                             
                             return;
                         }
@@ -559,7 +587,7 @@ namespace SpacerUnion
 
             // блокируем кнопку Применить
             changed = false;
-            buttonApply.Enabled = false;
+            buttonApplyOnVob.Enabled = false;
 
 
             StringBuilder str = new StringBuilder();
@@ -627,8 +655,8 @@ namespace SpacerUnion
             textBoxBbox0.Text = "";
             textBoxBbox1.Text = "";
             textBoxBbox2.Text = "";
-            EnableTab(tabControl1.TabPages[1], false);
-            EnableTab(tabControl1.TabPages[2], false);
+            EnableTab(tabControlProps.TabPages[1], false);
+            EnableTab(tabControlProps.TabPages[2], false);
         }
 
         public void HideAllInput()
@@ -715,7 +743,7 @@ namespace SpacerUnion
 
                     currentFieldtype = prop.type;
 
-                    Label_Backup.Text = "Старое значение: " + prop.ShowBackupValue();
+                    Label_Backup.Text = Localizator.Get("Label_Backup") + ": " + prop.ShowBackupValue();
 
                     if (isItemSelected)
                     {
@@ -723,7 +751,7 @@ namespace SpacerUnion
                     }
 
                     Label_Backup.Visible = true;
-                    buttonRestore.Enabled = true;
+                    buttonRestoreVobProp.Enabled = true;
                     buttonBbox.Enabled = true;
                     
                 }
@@ -792,8 +820,8 @@ namespace SpacerUnion
 
                     prop.value = textBox.Text.Trim();
                     node.Text = prop.Name + ": " + prop.ShowValue();
-                    buttonApply.Enabled = true;
-                    buttonRestore.Enabled = true;
+                    buttonApplyOnVob.Enabled = true;
+                    buttonRestoreVobProp.Enabled = true;
                 }
             }
             else
@@ -849,8 +877,8 @@ namespace SpacerUnion
                    
 
                     changed = true;
-                    buttonApply.Enabled = true;
-                    buttonRestore.Enabled = true;
+                    buttonApplyOnVob.Enabled = true;
+                    buttonRestoreVobProp.Enabled = true;
                 }
             }
             else
@@ -890,8 +918,8 @@ namespace SpacerUnion
                     node.Text = prop.Name + ": " + prop.ShowValue();
 
                     changed = true;
-                    buttonApply.Enabled = true;
-                    buttonRestore.Enabled = true;
+                    buttonApplyOnVob.Enabled = true;
+                    buttonRestoreVobProp.Enabled = true;
 
 
                 }
@@ -947,7 +975,7 @@ namespace SpacerUnion
                 return;
             }
 
-            tabControl1.SelectTab(0);
+            tabControlProps.SelectTab(0);
             DisableTabBBox();
         }
 
@@ -973,9 +1001,9 @@ namespace SpacerUnion
         private void button2_Click(object sender, EventArgs e)
         {
 
-            EnableTab(tabControl1.TabPages[1], true);
+            EnableTab(tabControlProps.TabPages[1], true);
 
-            tabControl1.SelectTab(1);
+            tabControlProps.SelectTab(1);
 
             textBoxBbox0.Text = Imports.Extern_GetBBox(0).ToString().Replace(',', '.');
             textBoxBbox1.Text = Imports.Extern_GetBBox(1).ToString().Replace(',', '.');
@@ -1003,7 +1031,7 @@ namespace SpacerUnion
         {
             if (SpacerNET.propWin.treeViewProp.SelectedNode != null)
             {
-                EnableTab(tabControl1.TabPages[1], true);
+                EnableTab(tabControlProps.TabPages[1], true);
 
                 textBoxBbox0.Text = Imports.Extern_GetBBox(0).ToString().Replace(',', '.');
                 textBoxBbox1.Text = Imports.Extern_GetBBox(1).ToString().Replace(',', '.');
@@ -1016,8 +1044,8 @@ namespace SpacerUnion
 
         private void button3_Click(object sender, EventArgs e)
         {
-            buttonApply.Enabled = true;
-            tabControl1.SelectTab(0);
+            buttonApplyOnVob.Enabled = true;
+            tabControlProps.SelectTab(0);
             DisableTabBBox();
         }
 
@@ -1027,7 +1055,7 @@ namespace SpacerUnion
 
             int index = 1;
 
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach (DataGridViewRow row in dataGridViewItems.Rows)
             {
                 if (row.Cells[0].Value == null && row.Cells[1].Value == null)
                 {
@@ -1036,19 +1064,19 @@ namespace SpacerUnion
 
                 if (row.Cells[0].Value == null || row.Cells[0].Value.ToString().Trim().Length == 0)
                 {
-                    MessageBox.Show("Имя вещи не может быть пустым! Строка: " + index);
+                    MessageBox.Show(Localizator.Get("NO_ITEM_NAME") + index);
                     return;
                 }
 
                 if (row.Cells[1].Value == null || row.Cells[1].Value.ToString().Trim().Length == 0)
                 {
-                    MessageBox.Show("Кол-во итемов не может быть пустым! Строка: " + index);
+                    MessageBox.Show(Localizator.Get("NO_ITEM_COUNT") + index);
                     return;
                 }
 
                 if (!Regex.IsMatch(row.Cells[1].Value.ToString().Trim(), @"^\d+$"))
                 {
-                    MessageBox.Show("Некорректное число итемов. Строка: " + index);
+                    MessageBox.Show(Localizator.Get("ITEM_BAD_COUNT") + index);
                     return;
                 }
 
@@ -1071,14 +1099,14 @@ namespace SpacerUnion
             props[containsIndex].ownNode.Text = props[containsIndex].Name + ": " + props[containsIndex].ShowValue();
 
 
-            buttonApply.Enabled = true;
-            tabControl1.SelectTab(0);
+            buttonApplyOnVob.Enabled = true;
+            tabControlProps.SelectTab(0);
             DisableTabBBox();
         }
 
         private void buttonClearItems_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
+            dataGridViewItems.Rows.Clear();
         }
 
         private void удалитьСтрокуToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1092,9 +1120,9 @@ namespace SpacerUnion
 
         private void buttonRowDelete_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentCell != null && dataGridView1.CurrentCell.RowIndex != dataGridView1.Rows.Count-1)
+            if (dataGridViewItems.CurrentCell != null && dataGridViewItems.CurrentCell.RowIndex != dataGridViewItems.Rows.Count-1)
             {
-                dataGridView1.Rows.RemoveAt(dataGridView1.CurrentCell.RowIndex);
+                dataGridViewItems.Rows.RemoveAt(dataGridViewItems.CurrentCell.RowIndex);
             }
             
         }
@@ -1166,8 +1194,8 @@ namespace SpacerUnion
                                 prop.ownNode.Text = prop.Name + ": " + prop.ShowValue();
                                 textBoxString.Text = prop.value;
 
-                                buttonApply.Enabled = true;
-                                buttonRestore.Enabled = true;
+                                buttonApplyOnVob.Enabled = true;
+                                buttonRestoreVobProp.Enabled = true;
                             }
                         }
 
@@ -1181,8 +1209,8 @@ namespace SpacerUnion
 
         private void buttonResetBbox_Click_1(object sender, EventArgs e)
         {
-            dataGridView1.Visible = false;
-            tabControl1.SelectTab(0);
+            dataGridViewItems.Visible = false;
+            tabControlProps.SelectTab(0);
             DisableTabBBox();
         }
 
@@ -1196,7 +1224,7 @@ namespace SpacerUnion
 
             Imports.Extern_SetBBox(x, y, z);
 
-            tabControl1.SelectTab(0);
+            tabControlProps.SelectTab(0);
             DisableTabBBox();
         }
 
@@ -1221,8 +1249,8 @@ namespace SpacerUnion
                         {
                             prop.value = comboBoxPropsEnum.SelectedIndex.ToString();
                             prop.ownNode.Text = prop.Name + ": " + prop.ShowValue();
-                            buttonApply.Enabled = true;
-                            buttonRestore.Enabled = true;
+                            buttonApplyOnVob.Enabled = true;
+                            buttonRestoreVobProp.Enabled = true;
                         }
                     }
 

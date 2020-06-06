@@ -44,10 +44,10 @@
             // 
             this.listBoxVobs.ContextMenuStrip = this.contextMenuStrip1;
             this.listBoxVobs.FormattingEnabled = true;
-            this.listBoxVobs.Location = new System.Drawing.Point(6, 85);
+            this.listBoxVobs.Location = new System.Drawing.Point(6, 59);
             this.listBoxVobs.Name = "listBoxVobs";
             this.listBoxVobs.ScrollAlwaysVisible = true;
-            this.listBoxVobs.Size = new System.Drawing.Size(291, 238);
+            this.listBoxVobs.Size = new System.Drawing.Size(291, 264);
             this.listBoxVobs.TabIndex = 0;
             this.listBoxVobs.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxVobs_MouseClick);
             this.listBoxVobs.SelectedIndexChanged += new System.EventHandler(this.listBoxVobs_SelectedIndexChanged);
@@ -69,7 +69,7 @@
             // 
             // trackBarRadius
             // 
-            this.trackBarRadius.Location = new System.Drawing.Point(116, 34);
+            this.trackBarRadius.Location = new System.Drawing.Point(116, 7);
             this.trackBarRadius.Maximum = 800;
             this.trackBarRadius.Minimum = 10;
             this.trackBarRadius.Name = "trackBarRadius";
@@ -82,7 +82,7 @@
             // labelRadius
             // 
             this.labelRadius.AutoSize = true;
-            this.labelRadius.Location = new System.Drawing.Point(3, 34);
+            this.labelRadius.Location = new System.Drawing.Point(3, 9);
             this.labelRadius.Name = "labelRadius";
             this.labelRadius.Size = new System.Drawing.Size(106, 13);
             this.labelRadius.TabIndex = 4;
@@ -97,19 +97,21 @@
             "Все вобы",
             "Итемы",
             "Только zCVob"});
-            this.comboBoxVobListType.Location = new System.Drawing.Point(116, 7);
+            this.comboBoxVobListType.Location = new System.Drawing.Point(15, 38);
             this.comboBoxVobListType.Name = "comboBoxVobListType";
-            this.comboBoxVobListType.Size = new System.Drawing.Size(179, 21);
+            this.comboBoxVobListType.Size = new System.Drawing.Size(62, 21);
             this.comboBoxVobListType.TabIndex = 5;
+            this.comboBoxVobListType.Visible = false;
             // 
             // labelVobType
             // 
             this.labelVobType.AutoSize = true;
-            this.labelVobType.Location = new System.Drawing.Point(53, 10);
+            this.labelVobType.Location = new System.Drawing.Point(12, 22);
             this.labelVobType.Name = "labelVobType";
             this.labelVobType.Size = new System.Drawing.Size(56, 13);
             this.labelVobType.TabIndex = 6;
             this.labelVobType.Text = "Тип воба:";
+            this.labelVobType.Visible = false;
             // 
             // VobListForm
             // 

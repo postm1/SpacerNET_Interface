@@ -36,18 +36,18 @@
             this.textBoxSnd = new System.Windows.Forms.TextBox();
             this.labelSndList = new System.Windows.Forms.Label();
             this.labelAllSounds = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBoxSound = new System.Windows.Forms.GroupBox();
+            this.groupBoxMusic = new System.Windows.Forms.GroupBox();
             this.checkBoxShutMusic = new System.Windows.Forms.CheckBox();
             this.buttonMusicOn = new System.Windows.Forms.Button();
             this.labelMusicVolume = new System.Windows.Forms.Label();
             this.trackBarMusicVolume = new System.Windows.Forms.TrackBar();
             this.buttonOffMusic = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBoxSoundsMisc = new System.Windows.Forms.GroupBox();
+            this.groupBoxSound.SuspendLayout();
+            this.groupBoxMusic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarMusicVolume)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            this.groupBoxSoundsMisc.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonPlaySound
@@ -124,35 +124,35 @@
             this.labelAllSounds.TabIndex = 7;
             this.labelAllSounds.Text = "Все звуки игры";
             // 
-            // groupBox1
+            // groupBoxSound
             // 
-            this.groupBox1.Controls.Add(this.buttonPlaySound);
-            this.groupBox1.Controls.Add(this.labelAllSounds);
-            this.groupBox1.Controls.Add(this.buttonPlaySoundRegex);
-            this.groupBox1.Controls.Add(this.labelSndList);
-            this.groupBox1.Controls.Add(this.listBoxSound);
-            this.groupBox1.Controls.Add(this.textBoxSnd);
-            this.groupBox1.Controls.Add(this.listBoxSndResult);
-            this.groupBox1.Location = new System.Drawing.Point(3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(383, 290);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Звуки";
+            this.groupBoxSound.Controls.Add(this.buttonPlaySound);
+            this.groupBoxSound.Controls.Add(this.labelAllSounds);
+            this.groupBoxSound.Controls.Add(this.buttonPlaySoundRegex);
+            this.groupBoxSound.Controls.Add(this.labelSndList);
+            this.groupBoxSound.Controls.Add(this.listBoxSound);
+            this.groupBoxSound.Controls.Add(this.textBoxSnd);
+            this.groupBoxSound.Controls.Add(this.listBoxSndResult);
+            this.groupBoxSound.Location = new System.Drawing.Point(3, 2);
+            this.groupBoxSound.Name = "groupBoxSound";
+            this.groupBoxSound.Size = new System.Drawing.Size(383, 290);
+            this.groupBoxSound.TabIndex = 8;
+            this.groupBoxSound.TabStop = false;
+            this.groupBoxSound.Text = "Звуки";
             // 
-            // groupBox2
+            // groupBoxMusic
             // 
-            this.groupBox2.Controls.Add(this.checkBoxShutMusic);
-            this.groupBox2.Controls.Add(this.buttonMusicOn);
-            this.groupBox2.Controls.Add(this.labelMusicVolume);
-            this.groupBox2.Controls.Add(this.trackBarMusicVolume);
-            this.groupBox2.Controls.Add(this.buttonOffMusic);
-            this.groupBox2.Location = new System.Drawing.Point(392, 2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(216, 180);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Музыка";
+            this.groupBoxMusic.Controls.Add(this.checkBoxShutMusic);
+            this.groupBoxMusic.Controls.Add(this.buttonMusicOn);
+            this.groupBoxMusic.Controls.Add(this.labelMusicVolume);
+            this.groupBoxMusic.Controls.Add(this.trackBarMusicVolume);
+            this.groupBoxMusic.Controls.Add(this.buttonOffMusic);
+            this.groupBoxMusic.Location = new System.Drawing.Point(392, 2);
+            this.groupBoxMusic.Name = "groupBoxMusic";
+            this.groupBoxMusic.Size = new System.Drawing.Size(216, 180);
+            this.groupBoxMusic.TabIndex = 9;
+            this.groupBoxMusic.TabStop = false;
+            this.groupBoxMusic.Text = "Музыка";
             // 
             // checkBoxShutMusic
             // 
@@ -184,11 +184,11 @@
             this.labelMusicVolume.TabIndex = 10;
             this.labelMusicVolume.Text = "Громкость";
             // 
-            // trackBarMusicVoluem
+            // trackBarMusicVolume
             // 
             this.trackBarMusicVolume.Location = new System.Drawing.Point(87, 131);
             this.trackBarMusicVolume.Maximum = 100;
-            this.trackBarMusicVolume.Name = "trackBarMusicVoluem";
+            this.trackBarMusicVolume.Name = "trackBarMusicVolume";
             this.trackBarMusicVolume.Size = new System.Drawing.Size(111, 45);
             this.trackBarMusicVolume.TabIndex = 9;
             this.trackBarMusicVolume.ValueChanged += new System.EventHandler(this.trackBarMusicVoluem_ValueChanged);
@@ -203,24 +203,24 @@
             this.buttonOffMusic.UseVisualStyleBackColor = true;
             this.buttonOffMusic.Click += new System.EventHandler(this.buttonOffMusic_Click);
             // 
-            // groupBox3
+            // groupBoxSoundsMisc
             // 
-            this.groupBox3.Controls.Add(this.buttonStopAllSounds);
-            this.groupBox3.Location = new System.Drawing.Point(392, 192);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(216, 100);
-            this.groupBox3.TabIndex = 10;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Звуки";
+            this.groupBoxSoundsMisc.Controls.Add(this.buttonStopAllSounds);
+            this.groupBoxSoundsMisc.Location = new System.Drawing.Point(392, 192);
+            this.groupBoxSoundsMisc.Name = "groupBoxSoundsMisc";
+            this.groupBoxSoundsMisc.Size = new System.Drawing.Size(216, 100);
+            this.groupBoxSoundsMisc.TabIndex = 10;
+            this.groupBoxSoundsMisc.TabStop = false;
+            this.groupBoxSoundsMisc.Text = "Звуки";
             // 
             // SoundWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(612, 297);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxSoundsMisc);
+            this.Controls.Add(this.groupBoxMusic);
+            this.Controls.Add(this.groupBoxSound);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -230,12 +230,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Звуки и музыка";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SoundWin_FormClosing);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBoxSound.ResumeLayout(false);
+            this.groupBoxSound.PerformLayout();
+            this.groupBoxMusic.ResumeLayout(false);
+            this.groupBoxMusic.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarMusicVolume)).EndInit();
-            this.groupBox3.ResumeLayout(false);
+            this.groupBoxSoundsMisc.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -249,14 +249,14 @@
         private System.Windows.Forms.TextBox textBoxSnd;
         private System.Windows.Forms.Label labelSndList;
         private System.Windows.Forms.Label labelAllSounds;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxSound;
         public System.Windows.Forms.ListBox listBoxSound;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBoxMusic;
         private System.Windows.Forms.Button buttonOffMusic;
         private System.Windows.Forms.Label labelMusicVolume;
         public System.Windows.Forms.TrackBar trackBarMusicVolume;
         private System.Windows.Forms.Button buttonMusicOn;
         public System.Windows.Forms.CheckBox checkBoxShutMusic;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBoxSoundsMisc;
     }
 }

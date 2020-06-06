@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ObjTree));
             this.globalTree = new System.Windows.Forms.TreeView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStripTree = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.вставитьVobTreeГлобальноToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,12 +42,12 @@
             this.openFileDialogVobTree = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogVobTree = new System.Windows.Forms.SaveFileDialog();
             this.buttonTreeSort = new System.Windows.Forms.Button();
-            this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStripTree.SuspendLayout();
             this.SuspendLayout();
             // 
             // globalTree
             // 
-            this.globalTree.ContextMenuStrip = this.contextMenuStrip1;
+            this.globalTree.ContextMenuStrip = this.contextMenuStripTree;
             this.globalTree.HideSelection = false;
             this.globalTree.HotTracking = true;
             this.globalTree.ImageIndex = 0;
@@ -62,15 +62,15 @@
             this.globalTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.globalTree_NodeMouseClick_1);
             this.globalTree.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.globalTree_NodeMouseDoubleClick);
             // 
-            // contextMenuStrip1
+            // contextMenuStripTree
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMenuStripTree.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem2,
             this.вставитьVobTreeГлобальноToolStripMenuItem,
             this.toolStripMenuItem1,
             this.удалитьВобToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(283, 92);
+            this.contextMenuStripTree.Name = "contextMenuStrip1";
+            this.contextMenuStripTree.Size = new System.Drawing.Size(283, 114);
             // 
             // toolStripMenuItem2
             // 
@@ -165,7 +165,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ObjTree_FormClosing);
             this.Load += new System.EventHandler(this.ObjTree_Load);
             this.Shown += new System.EventHandler(this.ObjTree_Shown);
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStripTree.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -176,7 +176,7 @@
         public System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button buttonCollapse;
         private System.Windows.Forms.Button buttonExpand;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripTree;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.OpenFileDialog openFileDialogVobTree;
         private System.Windows.Forms.SaveFileDialog saveFileDialogVobTree;

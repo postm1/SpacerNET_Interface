@@ -63,9 +63,9 @@ namespace SpacerUnion.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _440px_Flag_of_Germany_svg {
+        internal static System.Drawing.Bitmap Flag_Eng {
             get {
-                object obj = ResourceManager.GetObject("440px-Flag_of_Germany.svg", resourceCulture);
+                object obj = ResourceManager.GetObject("Flag_Eng", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,29 @@ namespace SpacerUnion.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cl_pols {
+        internal static System.Drawing.Bitmap Flag_Germany {
             get {
-                object obj = ResourceManager.GetObject("cl_pols", resourceCulture);
+                object obj = ResourceManager.GetObject("Flag_Germany", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Flag_Poland {
+            get {
+                object obj = ResourceManager.GetObject("Flag_Poland", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Flag_Russia {
+            get {
+                object obj = ResourceManager.GetObject("Flag_Russia", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,26 +116,6 @@ namespace SpacerUnion.Properties {
         internal static System.Drawing.Bitmap jab2 {
             get {
                 object obj = ResourceManager.GetObject("jab2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap s1200 {
-            get {
-                object obj = ResourceManager.GetObject("s1200", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap uk_flag {
-            get {
-                object obj = ResourceManager.GetObject("uk_flag", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

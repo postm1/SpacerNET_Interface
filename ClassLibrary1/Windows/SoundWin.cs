@@ -22,6 +22,26 @@ namespace SpacerUnion
             InitializeComponent();
         }
 
+        public void UpdateLang()
+        {
+            this.Text = Localizator.Get("WIN_SOUND_TITLE");
+            groupBoxSound.Text = Localizator.Get("groupBoxSound");
+            groupBoxMusic.Text = Localizator.Get("groupBoxMusic");
+            buttonPlaySound.Text = Localizator.Get("buttonPlaySound");
+            buttonPlaySoundRegex.Text = Localizator.Get("buttonPlaySound");
+            labelAllSounds.Text = Localizator.Get("labelAllSounds");
+            labelSndList.Text = Localizator.Get("labelSndList");
+            buttonOffMusic.Text = Localizator.Get("buttonOffMusic");
+            buttonMusicOn.Text = Localizator.Get("buttonMusicOn");
+            checkBoxShutMusic.Text = Localizator.Get("checkBoxShutMusic");
+            labelMusicVolume.Text = Localizator.Get("labelMusicVolume");
+            checkBoxShutMusic.Text = Localizator.Get("checkBoxShutMusic");
+            groupBoxSoundsMisc.Text = Localizator.Get("groupBoxSound");
+            buttonStopAllSounds.Text = Localizator.Get("buttonStopAllSounds");
+
+
+        }
+
 
         public void UpdateAll()
         {
@@ -35,7 +55,7 @@ namespace SpacerUnion
         {
             Utils.SortListBox(SpacerNET.soundWin.listBoxSound);
 
-            SpacerNET.soundWin.labelAllSounds.Text = "Все звуки игры. Всего: " + SpacerNET.soundWin.listBoxSound.Items.Count;
+            SpacerNET.soundWin.labelAllSounds.Text = Localizator.Get("labelAllSounds") + ": " + SpacerNET.soundWin.listBoxSound.Items.Count;
 
             //UnionNET.soundWin.Text += ", всего: " + UnionNET.soundWin.listBoxSound.Items.Count;
         }
@@ -122,7 +142,7 @@ namespace SpacerUnion
 
         private void trackBarMusicVoluem_ValueChanged(object sender, EventArgs e)
         {
-            labelMusicVolume.Text = "Громкость " + trackBarMusicVolume.Value + "%";
+            labelMusicVolume.Text = Localizator.Get("labelMusicVolume") + " " + trackBarMusicVolume.Value + "%";
 
             Imports.Stack_PushString("musicVolume");
             Imports.Extern_SetSetting(trackBarMusicVolume.Value);
