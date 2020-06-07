@@ -254,6 +254,7 @@ namespace SpacerUnion
             vobList.comboBoxVobListType.SelectedIndex = 0;
 
 
+            form.ResetInterface();
             objectsWin.LoadSettings();
         }
 

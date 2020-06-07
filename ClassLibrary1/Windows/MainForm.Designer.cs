@@ -36,7 +36,7 @@
             this.openZENToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemMerge = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.saveZenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,7 +87,6 @@
             this.toolStripButtonBBox = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonInvisible = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.тестToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -120,7 +119,7 @@
             this.openZENToolStripMenuItem,
             this.toolStripMenuItem1,
             this.toolStripSeparator5,
-            this.toolStripMenuItem8,
+            this.toolStripMenuItemMerge,
             this.toolStripSeparator6,
             this.saveZenToolStripMenuItem,
             this.exitToolStripMenuItem});
@@ -160,12 +159,12 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(172, 6);
             // 
-            // toolStripMenuItem8
+            // toolStripMenuItemMerge
             // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(175, 22);
-            this.toolStripMenuItem8.Text = "Объединить ZEN...";
-            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
+            this.toolStripMenuItemMerge.Name = "toolStripMenuItemMerge";
+            this.toolStripMenuItemMerge.Size = new System.Drawing.Size(175, 22);
+            this.toolStripMenuItemMerge.Text = "Объединить ZEN...";
+            this.toolStripMenuItemMerge.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
             // toolStripSeparator6
             // 
@@ -421,8 +420,7 @@
             // toolStripMenuHelp
             // 
             this.toolStripMenuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem,
-            this.тестToolStripMenuItem});
+            this.aboutToolStripMenuItem});
             this.toolStripMenuHelp.ForeColor = System.Drawing.Color.Black;
             this.toolStripMenuHelp.Name = "toolStripMenuHelp";
             this.toolStripMenuHelp.Size = new System.Drawing.Size(68, 20);
@@ -431,7 +429,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.aboutToolStripMenuItem.Text = "О программе";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
@@ -594,13 +592,6 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // тестToolStripMenuItem
-            // 
-            this.тестToolStripMenuItem.Name = "тестToolStripMenuItem";
-            this.тестToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.тестToolStripMenuItem.Text = "Тест";
-            this.тестToolStripMenuItem.Click += new System.EventHandler(this.тестToolStripMenuItem_Click_1);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -637,7 +628,6 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuWorld;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem граттToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem compileLightToolStrip;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSettings;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuHelp;
         private System.Windows.Forms.ToolStripMenuItem openZENToolStripMenuItem;
@@ -646,12 +636,9 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
-        private System.Windows.Forms.ToolStripMenuItem saveZenToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem cameraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
-        private System.Windows.Forms.ToolStripMenuItem compileWorldToolStrip;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
@@ -690,6 +677,9 @@
         private System.Windows.Forms.ToolStripMenuItem keyBindsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deutscheToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem polskiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem тестToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMerge;
+        public System.Windows.Forms.ToolStripMenuItem compileLightToolStrip;
+        public System.Windows.Forms.ToolStripMenuItem compileWorldToolStrip;
+        public System.Windows.Forms.ToolStripMenuItem saveZenToolStripMenuItem;
     }
 }

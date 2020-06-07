@@ -79,8 +79,14 @@ namespace SpacerUnion
             SpacerNET.objTreeWin.globalTree.Nodes.Clear();
             SpacerNET.vobList.ClearListBox();
             ObjectsWindow.CleanProps();
-           // UnionNET.partWin.listBoxParticles.Items.Clear();
-           // UnionNET.partWin.listBoxItems.Items.Clear();
+            toolStripMenuItemMerge.Enabled = false;
+            saveZenToolStripMenuItem.Enabled = false;
+            compileLightToolStrip.Enabled = false;
+            compileWorldToolStrip.Enabled = false;
+
+            
+            // UnionNET.partWin.listBoxParticles.Items.Clear();
+            // UnionNET.partWin.listBoxItems.Items.Clear();
         }
 
         public void UpdateLang()
@@ -98,7 +104,7 @@ namespace SpacerUnion
 
             openZENToolStripMenuItem.Text = Localizator.Get("MENU_TOP_OPENZEN");
             toolStripMenuItem1.Text = Localizator.Get("MENU_TOP_MESH");
-            toolStripMenuItem8.Text = Localizator.Get("MENU_TOP_MERGE");
+            toolStripMenuItemMerge.Text = Localizator.Get("MENU_TOP_MERGE");
             saveZenToolStripMenuItem.Text = Localizator.Get("MENU_TOP_SAVEZEN");
             aboutToolStripMenuItem.Text = Localizator.Get("MENU_TOP_ABOUT");
 
@@ -212,8 +218,9 @@ namespace SpacerUnion
             string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
             SpacerNET.form.AddText(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
             ConsoleEx.WriteLineGreen(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
+            SpacerNET.form.toolStripMenuItemMerge.Enabled = false;
+            SpacerNET.form.saveZenToolStripMenuItem.Enabled = true;
 
-            
         }
 
 
@@ -288,6 +295,9 @@ namespace SpacerUnion
                 SpacerNET.form.AddText(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
                 ConsoleEx.WriteLineGreen(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
 
+                toolStripMenuItemMerge.Enabled = false;
+                SpacerNET.form.compileLightToolStrip.Enabled = true;
+                SpacerNET.form.saveZenToolStripMenuItem.Enabled = true;
             }
 
             
@@ -646,6 +656,8 @@ namespace SpacerUnion
                 string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
                 SpacerNET.form.AddText(Localizator.Get("loadMeshTime") + " (" + timeSpend + ")");
 
+                SpacerNET.form.toolStripMenuItemMerge.Enabled = true;
+                SpacerNET.form.compileWorldToolStrip.Enabled = true;
 
             }
 
@@ -717,8 +729,9 @@ namespace SpacerUnion
                 SpacerNET.form.AddText(Localizator.Get("mergeZenTime") + " (" + timeSpend + ")");
 
 
+                toolStripMenuItemMerge.Enabled = true;
+                compileWorldToolStrip.Enabled = true;
 
-                
             }
 
             
@@ -1187,9 +1200,6 @@ namespace SpacerUnion
 
         }
 
-        private void тестToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            Imports.Stack_PushStringWide("Okno właściwości");
-        }
+
     }
 }

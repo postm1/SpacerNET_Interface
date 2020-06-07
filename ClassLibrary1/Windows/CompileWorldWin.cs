@@ -70,7 +70,11 @@ namespace SpacerUnion
             SpacerNET.form.AddText(Localizator.Get("WIN_COMPWORLD_TIME") + " (" + timeSpend + ")");
 
 
-            SpacerNET.form.AddText(Localizator.Get("WIN_COMPWORLD_LEVELCOMPO"));
+           // SpacerNET.form.AddText(Localizator.Get("WIN_COMPWORLD_LEVELCOMPO"));
+
+            SpacerNET.form.toolStripMenuItemMerge.Enabled = false;
+            SpacerNET.form.compileLightToolStrip.Enabled = true;
+            SpacerNET.form.saveZenToolStripMenuItem.Enabled = true;
             this.Hide();
         }
 

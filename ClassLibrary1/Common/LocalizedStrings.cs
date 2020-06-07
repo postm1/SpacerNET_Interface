@@ -155,7 +155,7 @@ namespace SpacerUnion.Common
             words.Add("UNION_NO_WAYPOINT", new List<string> { "Вейпоинт не выбран!", "No waypoint selected!", "", @"Nie wybrano Waypoint'a!" });
             words.Add("UNION_NO_WAYPOINT_TEMPLATE", new List<string> { "Шаблон имени вейпоинта пуст!", "Waypoint name template is empty!", "", "Nazwa szablonu Waypointów jest pusta!" });
             words.Add("UNION_WP_INSERT", new List<string> { "Вейпоинт вставлен: ", "Waypoint inserted: ", "", "Dodano Waypoint: " });
-            words.Add("UNION_WORLD_ONCOMPILE", new List<string> { "Мир скомпилирован. Не забудьте удалить лишний zCVobLevelCompo", "World has been compiled. Don't forget to remove the spare zCVobLevelCompo", "", "Świat został skompilowany. Nie zapomnij usunąć zapasowego zCVobLevelCompo." });
+            words.Add("UNION_WORLD_ONCOMPILE", new List<string> { "Мир скомпилирован.", "World has been compiled.", "", "Świat został skompilowany." });
             words.Add("UNION_VOBTREE_SAVE", new List<string> { "VobTree сохранен!", "VobTree saved!", "", "Drzewko vobów zostało zapisane!" });
             words.Add("UNION_VOBTREE_INSERT", new List<string> { "VobTree вставлен!", "VobTree inserted!", "", "Dodano drzewko vobów!" });
             words.Add("UNION_SHOW_TRIS", new List<string> { "Кол-во треугольников: ", "Tris amount: ", "", "Ilość tri: " });
@@ -294,7 +294,7 @@ namespace SpacerUnion.Common
             words.Add("buttonOpenContainer", new List<string> { "Контейнер", "Container", "", "Kontener" });
             words.Add("tabControlProps_0", new List<string> { "Редактирование", "Edit", "", "Edytuj" });
             words.Add("tabControlProps_1", new List<string> { "BBox", "Bbox", "", "BBox" });
-            words.Add("tabControlProps_2", new List<string> { "Контейнер", "Container", "", "" });
+            words.Add("tabControlProps_2", new List<string> { "Контейнер", "Container", "", "Kontener" });
             words.Add("groupBoxEditBbox", new List<string> { "Редактирование BBox", "Editing BBox", "", @"Edytuj BBox'y" });
             words.Add("NO_ITEM_NAME", new List<string> { "Имя вещи не может быть пустым! Строка: ", "Item name is empty! Row: ", "", "Nazwa przedmiotu jest pusta! Rząd: " });
             words.Add("NO_ITEM_COUNT", new List<string> { "Кол-во итемов не может быть пустым! Строка: ", "Item count is empty! Row: ", "", "Ilość przedmiotów jest pusta! Rząd: " });
