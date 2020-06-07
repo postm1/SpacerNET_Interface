@@ -27,6 +27,7 @@ namespace SpacerUnion.Common
         public static void SetLanguage(LangEnum lang)
         {
             curLang = lang;
+            Imports.Extern_ClearLangStrings();
         }
 
         public static int GetCodePage()

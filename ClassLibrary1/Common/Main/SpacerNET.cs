@@ -376,7 +376,7 @@ namespace SpacerUnion
         [DllExport]
         public static void AcceptKey(int key)
         {
-            //ConsoleEx.WriteLineRed("Gothic key: " + key);
+            ConsoleEx.WriteLineRed("Gothic key: " + key);
 
         }
 
