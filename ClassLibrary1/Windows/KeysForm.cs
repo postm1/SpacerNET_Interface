@@ -27,6 +27,11 @@ namespace SpacerUnion.Windows
             dataGridKeys.Columns[2].HeaderText = Localizator.Get("WIN_KEYSBIND_BINDS");
 
             buttonClose.Text = Localizator.Get("BTN_APPLY");
+
+
+            dataGridKeys.Rows.Clear();
+
+            Fill_Table();
         }
 
 

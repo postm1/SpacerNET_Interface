@@ -118,32 +118,32 @@ namespace SpacerUnion
             form.menuStripTopMain.Enabled = true;
 
 
-            if (Properties.Settings.Default.InfoWinShow)
+            if (Properties.Settings.Default.InfoWinShow || Properties.Settings.Default.InfoWinShowNext)
             {
                 infoWin.Show();
             }
 
-            if (Properties.Settings.Default.ObjectWinShow)
+            if (Properties.Settings.Default.ObjectWinShow || Properties.Settings.Default.ObjWinShowNext)
             {
                 objectsWin.Show();
             }
 
-            if (Properties.Settings.Default.PropsWinShow)
+            if (Properties.Settings.Default.PropsWinShow || Properties.Settings.Default.PropWinShowNext)
             {
                 propWin.Show();
             }
 
-            if (Properties.Settings.Default.SoundWinShow)
+            if (Properties.Settings.Default.SoundWinShow || Properties.Settings.Default.SoundWinShowNext)
             {
                 soundWin.Show();
             }
 
-            if (Properties.Settings.Default.TreeWinShow)
+            if (Properties.Settings.Default.TreeWinShow || Properties.Settings.Default.TreeWinShowNext)
             {
                 objTreeWin.Show();
             }
 
-            if (Properties.Settings.Default.VobListWinShow)
+            if (Properties.Settings.Default.VobListWinShow || Properties.Settings.Default.VobListWinShowNext)
             {
                 vobList.Show();
             }
@@ -276,7 +276,21 @@ namespace SpacerUnion
             Properties.Settings.Default.TreeWinShow = objTreeWin.Visible;
             Properties.Settings.Default.VobListWinShow = vobList.Visible;
 
+
+            Properties.Settings.Default.ObjWinShowNext = !objectsWin.Visible && windowsToHideList.Contains(objectsWin);
+            Properties.Settings.Default.VobListWinShowNext = !vobList.Visible && windowsToHideList.Contains(vobList);
+            Properties.Settings.Default.TreeWinShowNext = !objTreeWin.Visible && windowsToHideList.Contains(objTreeWin);
+            Properties.Settings.Default.SoundWinShowNext = !soundWin.Visible && windowsToHideList.Contains(soundWin);
+            Properties.Settings.Default.PropWinShowNext = !propWin.Visible && windowsToHideList.Contains(propWin);
+            Properties.Settings.Default.InfoWinShowNext = !infoWin.Visible && windowsToHideList.Contains(infoWin);
+
+
+
+
             Properties.Settings.Default.Save();
+
+
+
             Imports.Extern_Exit();
         }
 
@@ -376,7 +390,7 @@ namespace SpacerUnion
         [DllExport]
         public static void AcceptKey(int key)
         {
-            ConsoleEx.WriteLineRed("Gothic key: " + key);
+            //ConsoleEx.WriteLineRed("Gothic key: " + key);
 
         }
 

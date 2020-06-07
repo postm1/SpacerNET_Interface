@@ -655,6 +655,13 @@ namespace SpacerUnion
 
         private void toolStripMenuItem8_Click(object sender, EventArgs e)
         {
+
+            if (Imports.Extern_IsWorldCompiled())
+            {
+                MessageBox.Show(Localizator.Get("WIN_COMPWORLD_ALREADY_COMP"));
+                return;
+            }
+
             openFileDialog1.Filter = "World (*.Zen)|*.zen|All Files(*.*)|*.*||";
 
 
