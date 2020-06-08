@@ -404,7 +404,7 @@ namespace SpacerUnion
                 visualVob = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
             }
 
-            Console.WriteLine("C#: OnCreateVob: ClassDef: " + name);
+            ConsoleEx.WriteLineGreen("C#: OnCreateVob: ClassDef: " + name);
 
             if (name == "oCItem" || name == "zCVobWaypoint" || name == "zCVobSpot")
             {
@@ -490,7 +490,7 @@ namespace SpacerUnion
             }
 
 
-            Console.WriteLine("C#: OnCreateVob: ClassDef: " + name);
+            ConsoleEx.WriteLineGreen("C#: OnCreateVob: ClassDef: " + name);
 
 
             Imports.Stack_PushString(vobName);
@@ -537,7 +537,7 @@ namespace SpacerUnion
                 return;
             }
 
-            Console.WriteLine("C#: OnCreateVob: ClassDef: " + name);
+            ConsoleEx.WriteLineGreen("C#: OnCreateVob: ClassDef: " + name);
 
 
             Imports.Stack_PushString(vobName);

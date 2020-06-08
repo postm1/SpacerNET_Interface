@@ -400,12 +400,12 @@ namespace SpacerUnion
 
             if (entry.node != null)
             {
-                Console.WriteLine("C#: Remove node: " + entry.node.Text + " Parent: " + Utils.ToHex(entry.parent));
+                ConsoleEx.WriteLineGreen("C#: Remove node: " + entry.node.Text + " Parent: " + Utils.ToHex(entry.parent));
                 entry.node.Remove();
             }
             else
             {
-                Console.WriteLine("C#: Remove node failure. Node is null");
+                ConsoleEx.WriteLineGreen("C#: Remove node failure. Node is null");
             }
 
             entry.childs.Clear();
@@ -562,8 +562,7 @@ namespace SpacerUnion
             TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
 
             Console.WriteLine("");
-            Console.WriteLine("=======================================");
-            Console.WriteLine("C#: OnVobInsert: " + name);
+            ConsoleEx.WriteLineGreen("C#: OnVobInsert: " + name);
             int classNameFoundPos = -1;
 
             classNameFoundPos = CreateAndGetFolder(className);
@@ -711,12 +710,10 @@ namespace SpacerUnion
             }
 
 
-            ConsoleEx.WriteLineGreen("C#: Всего вобов в списке: " + globalEntries.Count);
+            ConsoleEx.WriteLineGreen("C#: Vobs count: " + globalEntries.Count);
             countNodeView = 0;
             CalcNodesCount(SpacerNET.objTreeWin.globalTree.Nodes);
-            ConsoleEx.WriteLineGreen("C#: Всего узлов TreeView: " + countNodeView);
-            Console.WriteLine("=======================================");
-            Console.WriteLine("");
+            ConsoleEx.WriteLineGreen("C#: TreeView Nodes count: " + countNodeView);
         }
 
 
@@ -734,7 +731,7 @@ namespace SpacerUnion
                 AddVobToNodes(entry.Value);
             }
 
-            ConsoleEx.WriteLineGreen("C#: Дерево заполнено. Всего записей: " + globalEntries.Count);
+            ConsoleEx.WriteLineGreen("C#: Tree is ready. GlobalEntries count: " + globalEntries.Count);
             SpacerNET.objTreeWin.globalTree.Visible = true;
             Application.DoEvents();
 

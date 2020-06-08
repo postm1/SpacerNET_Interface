@@ -99,8 +99,23 @@ namespace SpacerUnion
 
             form.Show();
 
-            form.Left = 0;
-            form.Top = 0;
+
+            if (Properties.Settings.Default.MainWindowPos != null)
+            {
+                form.Location = Properties.Settings.Default.MainWindowPos;
+            }
+
+
+            if (Properties.Settings.Default.MainWindowSize != null)
+            {
+                form.Size = Properties.Settings.Default.MainWindowSize;
+            }
+
+            if (Properties.Settings.Default.MainWindowMaxState)
+            {
+                form.WindowState = FormWindowState.Maximized;
+            }
+           
 
             form.AddText(Localizator.Get("appIsLoading"));
 
@@ -286,7 +301,9 @@ namespace SpacerUnion
             Properties.Settings.Default.InfoWinShowNext = !infoWin.Visible && windowsToHideList.Contains(infoWin);
 
 
-
+            Properties.Settings.Default.MainWindowPos = form.Location;
+            Properties.Settings.Default.MainWindowSize = form.Size;
+            Properties.Settings.Default.MainWindowMaxState = form.WindowState == FormWindowState.Maximized;
 
             Properties.Settings.Default.Save();
 

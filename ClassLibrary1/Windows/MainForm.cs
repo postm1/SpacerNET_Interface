@@ -92,7 +92,7 @@ namespace SpacerUnion
         public void UpdateLang()
         {
             ToolStripMenuFile.Text = Localizator.Get("MENU_TOP_FILE");
-            toolStripMenuItem9.Text = Localizator.Get("MENU_TOP_RESET");
+            toolStripMenuResetWorld.Text = Localizator.Get("MENU_TOP_RESET");
             exitToolStripMenuItem.Text = Localizator.Get("MENU_TOP_EXIT");
             languageToolStripMenuItem.Text = Localizator.Get("MENU_TOP_LANG");
 
@@ -103,7 +103,7 @@ namespace SpacerUnion
             ToolStripMenuView.Text = Localizator.Get("MENU_TOP_VIEW");
 
             openZENToolStripMenuItem.Text = Localizator.Get("MENU_TOP_OPENZEN");
-            toolStripMenuItem1.Text = Localizator.Get("MENU_TOP_MESH");
+            toolStripMenuOpenZEN.Text = Localizator.Get("MENU_TOP_MESH");
             toolStripMenuItemMerge.Text = Localizator.Get("MENU_TOP_MERGE");
             saveZenToolStripMenuItem.Text = Localizator.Get("MENU_TOP_SAVEZEN");
             aboutToolStripMenuItem.Text = Localizator.Get("MENU_TOP_ABOUT");
@@ -131,7 +131,7 @@ namespace SpacerUnion
             ToolStripMenuTimeDay.Text = Localizator.Get("MENU_TOP_NOON");
             ToolStripMenuTimeEvening.Text = Localizator.Get("MENU_TOP_AFTERNOON");
             ToolStripMenuTimeNight.Text = Localizator.Get("MENU_TOP_NIGHT");
-            анализWaynetToolStripMenuItem.Text = Localizator.Get("MENU_TOP_ANALYSE_WAYNET");
+            analyseWaynetToolStripMenuItem.Text = Localizator.Get("MENU_TOP_ANALYSE_WAYNET");
             playHeroToolStrip.Text = Localizator.Get("MENU_TOP_PLAY_THE_GAME");
 
 
@@ -232,7 +232,7 @@ namespace SpacerUnion
             Imports.Extern_GetSettingStr();
             string path = Imports.Stack_PeekString();
 
-            ConsoleEx.WriteLineRed(path);
+            //ConsoleEx.WriteLineRed(path);
 
             if (path != "")
             {

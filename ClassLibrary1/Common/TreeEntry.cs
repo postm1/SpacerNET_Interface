@@ -32,15 +32,12 @@ namespace SpacerUnion
         // список ссылок на своих детей
         public List<TreeEntry> childs;
 
-
-        public int levelCompoChildrenCount;
        
         public TreeEntry()
         {
             parentEntry = null;
             childs = new List<TreeEntry>();
             toDelete = false;
-            levelCompoChildrenCount = 0;
         }
 
     }
