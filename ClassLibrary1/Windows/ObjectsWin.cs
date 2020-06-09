@@ -1383,6 +1383,19 @@ namespace SpacerUnion
             }
         }
 
-       
+        private void labelTriggerTargets_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelTriggersSources_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBoxSources_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

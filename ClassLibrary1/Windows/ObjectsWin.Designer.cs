@@ -314,7 +314,7 @@
             this.groupBoxObjItems.Controls.Add(this.buttonItemsCreate);
             this.groupBoxObjItems.Location = new System.Drawing.Point(6, 6);
             this.groupBoxObjItems.Name = "groupBoxObjItems";
-            this.groupBoxObjItems.Size = new System.Drawing.Size(545, 353);
+            this.groupBoxObjItems.Size = new System.Drawing.Size(552, 353);
             this.groupBoxObjItems.TabIndex = 2;
             this.groupBoxObjItems.TabStop = false;
             this.groupBoxObjItems.Text = "Предметы";
@@ -326,16 +326,16 @@
             this.groupBoxItemsCont.Controls.Add(this.labelItemsEditContCount);
             this.groupBoxItemsCont.Location = new System.Drawing.Point(378, 8);
             this.groupBoxItemsCont.Name = "groupBoxItemsCont";
-            this.groupBoxItemsCont.Size = new System.Drawing.Size(161, 126);
+            this.groupBoxItemsCont.Size = new System.Drawing.Size(171, 126);
             this.groupBoxItemsCont.TabIndex = 20;
             this.groupBoxItemsCont.TabStop = false;
             this.groupBoxItemsCont.Text = "Редактор сундука";
             // 
             // buttonAddContainer
             // 
-            this.buttonAddContainer.Location = new System.Drawing.Point(6, 19);
+            this.buttonAddContainer.Location = new System.Drawing.Point(3, 19);
             this.buttonAddContainer.Name = "buttonAddContainer";
-            this.buttonAddContainer.Size = new System.Drawing.Size(149, 30);
+            this.buttonAddContainer.Size = new System.Drawing.Size(165, 30);
             this.buttonAddContainer.TabIndex = 7;
             this.buttonAddContainer.Text = "Добавить в контейнер->";
             this.buttonAddContainer.UseVisualStyleBackColor = true;
@@ -344,7 +344,7 @@
             // textBoxItemCount
             // 
             this.textBoxItemCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxItemCount.Location = new System.Drawing.Point(9, 73);
+            this.textBoxItemCount.Location = new System.Drawing.Point(6, 73);
             this.textBoxItemCount.Name = "textBoxItemCount";
             this.textBoxItemCount.Size = new System.Drawing.Size(63, 22);
             this.textBoxItemCount.TabIndex = 8;
@@ -354,7 +354,7 @@
             // labelItemsEditContCount
             // 
             this.labelItemsEditContCount.AutoSize = true;
-            this.labelItemsEditContCount.Location = new System.Drawing.Point(6, 57);
+            this.labelItemsEditContCount.Location = new System.Drawing.Point(3, 57);
             this.labelItemsEditContCount.Name = "labelItemsEditContCount";
             this.labelItemsEditContCount.Size = new System.Drawing.Size(66, 13);
             this.labelItemsEditContCount.TabIndex = 9;
@@ -699,7 +699,7 @@
             // 
             // buttonTriggerCollectSources
             // 
-            this.buttonTriggerCollectSources.Location = new System.Drawing.Point(453, 100);
+            this.buttonTriggerCollectSources.Location = new System.Drawing.Point(453, 160);
             this.buttonTriggerCollectSources.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTriggerCollectSources.Name = "buttonTriggerCollectSources";
             this.buttonTriggerCollectSources.Size = new System.Drawing.Size(98, 22);
@@ -711,19 +711,21 @@
             // labelTriggersSources
             // 
             this.labelTriggersSources.AutoSize = true;
-            this.labelTriggersSources.Location = new System.Drawing.Point(336, 109);
+            this.labelTriggersSources.Location = new System.Drawing.Point(334, 166);
             this.labelTriggersSources.Name = "labelTriggersSources";
             this.labelTriggersSources.Size = new System.Drawing.Size(107, 13);
             this.labelTriggersSources.TabIndex = 6;
             this.labelTriggersSources.Text = "Источники (sources)";
+            this.labelTriggersSources.Click += new System.EventHandler(this.labelTriggersSources_Click);
             // 
             // listBoxSources
             // 
             this.listBoxSources.FormattingEnabled = true;
-            this.listBoxSources.Location = new System.Drawing.Point(339, 125);
+            this.listBoxSources.Location = new System.Drawing.Point(336, 185);
             this.listBoxSources.Name = "listBoxSources";
-            this.listBoxSources.Size = new System.Drawing.Size(212, 134);
+            this.listBoxSources.Size = new System.Drawing.Size(215, 134);
             this.listBoxSources.TabIndex = 5;
+            this.listBoxSources.SelectedIndexChanged += new System.EventHandler(this.listBoxSources_SelectedIndexChanged);
             this.listBoxSources.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxSources_MouseDoubleClick);
             // 
             // groupBoxTriggersKeys
@@ -739,7 +741,7 @@
             this.groupBoxTriggersKeys.Controls.Add(this.buttonKeyMinus);
             this.groupBoxTriggersKeys.Location = new System.Drawing.Point(236, 3);
             this.groupBoxTriggersKeys.Name = "groupBoxTriggersKeys";
-            this.groupBoxTriggersKeys.Size = new System.Drawing.Size(315, 73);
+            this.groupBoxTriggersKeys.Size = new System.Drawing.Size(315, 137);
             this.groupBoxTriggersKeys.TabIndex = 3;
             this.groupBoxTriggersKeys.TabStop = false;
             this.groupBoxTriggersKeys.Text = "Ключи";
@@ -747,7 +749,7 @@
             // labelTriggerInsert
             // 
             this.labelTriggerInsert.AutoSize = true;
-            this.labelTriggerInsert.Location = new System.Drawing.Point(111, 48);
+            this.labelTriggerInsert.Location = new System.Drawing.Point(6, 49);
             this.labelTriggerInsert.Name = "labelTriggerInsert";
             this.labelTriggerInsert.Size = new System.Drawing.Size(57, 13);
             this.labelTriggerInsert.TabIndex = 8;
@@ -756,7 +758,7 @@
             // radioButtonBefore
             // 
             this.radioButtonBefore.AutoSize = true;
-            this.radioButtonBefore.Location = new System.Drawing.Point(235, 46);
+            this.radioButtonBefore.Location = new System.Drawing.Point(9, 111);
             this.radioButtonBefore.Name = "radioButtonBefore";
             this.radioButtonBefore.Size = new System.Drawing.Size(37, 17);
             this.radioButtonBefore.TabIndex = 7;
@@ -767,7 +769,7 @@
             // 
             this.radioButtonAfter.AutoSize = true;
             this.radioButtonAfter.Checked = true;
-            this.radioButtonAfter.Location = new System.Drawing.Point(174, 46);
+            this.radioButtonAfter.Location = new System.Drawing.Point(9, 90);
             this.radioButtonAfter.Name = "radioButtonAfter";
             this.radioButtonAfter.Size = new System.Drawing.Size(55, 17);
             this.radioButtonAfter.TabIndex = 6;
@@ -778,7 +780,7 @@
             // radioButtonOverwrite
             // 
             this.radioButtonOverwrite.AutoSize = true;
-            this.radioButtonOverwrite.Location = new System.Drawing.Point(6, 46);
+            this.radioButtonOverwrite.Location = new System.Drawing.Point(9, 68);
             this.radioButtonOverwrite.Name = "radioButtonOverwrite";
             this.radioButtonOverwrite.Size = new System.Drawing.Size(98, 17);
             this.radioButtonOverwrite.TabIndex = 5;
@@ -837,16 +839,17 @@
             // labelTriggerTargets
             // 
             this.labelTriggerTargets.AutoSize = true;
-            this.labelTriggerTargets.Location = new System.Drawing.Point(126, 109);
+            this.labelTriggerTargets.Location = new System.Drawing.Point(123, 166);
             this.labelTriggerTargets.Name = "labelTriggerTargets";
             this.labelTriggerTargets.Size = new System.Drawing.Size(74, 13);
             this.labelTriggerTargets.TabIndex = 4;
             this.labelTriggerTargets.Text = "Цели (targets)";
+            this.labelTriggerTargets.Click += new System.EventHandler(this.labelTriggerTargets_Click);
             // 
             // listBoxTargetList
             // 
             this.listBoxTargetList.FormattingEnabled = true;
-            this.listBoxTargetList.Location = new System.Drawing.Point(127, 125);
+            this.listBoxTargetList.Location = new System.Drawing.Point(124, 185);
             this.listBoxTargetList.Name = "listBoxTargetList";
             this.listBoxTargetList.Size = new System.Drawing.Size(206, 134);
             this.listBoxTargetList.TabIndex = 3;
@@ -856,9 +859,9 @@
             // 
             // buttonSendTrigger
             // 
-            this.buttonSendTrigger.Location = new System.Drawing.Point(3, 86);
+            this.buttonSendTrigger.Location = new System.Drawing.Point(0, 156);
             this.buttonSendTrigger.Name = "buttonSendTrigger";
-            this.buttonSendTrigger.Size = new System.Drawing.Size(101, 23);
+            this.buttonSendTrigger.Size = new System.Drawing.Size(120, 23);
             this.buttonSendTrigger.TabIndex = 2;
             this.buttonSendTrigger.Text = "Запустить >>>";
             this.buttonSendTrigger.UseVisualStyleBackColor = true;
@@ -868,7 +871,7 @@
             // 
             this.listBoxActionType.DisplayMember = "TRIGGER";
             this.listBoxActionType.FormattingEnabled = true;
-            this.listBoxActionType.Location = new System.Drawing.Point(3, 125);
+            this.listBoxActionType.Location = new System.Drawing.Point(0, 185);
             this.listBoxActionType.Name = "listBoxActionType";
             this.listBoxActionType.Size = new System.Drawing.Size(120, 134);
             this.listBoxActionType.TabIndex = 1;
@@ -883,7 +886,7 @@
             this.groupBoxTriggersVob.Controls.Add(this.checkBoxDyn);
             this.groupBoxTriggersVob.Location = new System.Drawing.Point(3, 3);
             this.groupBoxTriggersVob.Name = "groupBoxTriggersVob";
-            this.groupBoxTriggersVob.Size = new System.Drawing.Size(227, 73);
+            this.groupBoxTriggersVob.Size = new System.Drawing.Size(227, 137);
             this.groupBoxTriggersVob.TabIndex = 0;
             this.groupBoxTriggersVob.TabStop = false;
             this.groupBoxTriggersVob.Text = "Выбранный воб";
@@ -900,7 +903,7 @@
             // labelTriggerCollision
             // 
             this.labelTriggerCollision.AutoSize = true;
-            this.labelTriggerCollision.Location = new System.Drawing.Point(6, 50);
+            this.labelTriggerCollision.Location = new System.Drawing.Point(7, 68);
             this.labelTriggerCollision.Name = "labelTriggerCollision";
             this.labelTriggerCollision.Size = new System.Drawing.Size(59, 13);
             this.labelTriggerCollision.TabIndex = 2;
@@ -909,7 +912,7 @@
             // checkBoxStat
             // 
             this.checkBoxStat.AutoSize = true;
-            this.checkBoxStat.Location = new System.Drawing.Point(149, 50);
+            this.checkBoxStat.Location = new System.Drawing.Point(10, 111);
             this.checkBoxStat.Name = "checkBoxStat";
             this.checkBoxStat.Size = new System.Drawing.Size(62, 17);
             this.checkBoxStat.TabIndex = 1;
@@ -920,7 +923,7 @@
             // checkBoxDyn
             // 
             this.checkBoxDyn.AutoSize = true;
-            this.checkBoxDyn.Location = new System.Drawing.Point(71, 50);
+            this.checkBoxDyn.Location = new System.Drawing.Point(10, 88);
             this.checkBoxDyn.Name = "checkBoxDyn";
             this.checkBoxDyn.Size = new System.Drawing.Size(72, 17);
             this.checkBoxDyn.TabIndex = 0;

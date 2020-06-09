@@ -98,6 +98,8 @@ namespace SpacerUnion.Common
             string key = Imports.Stack_PeekString();
             string value = Get(key);
 
+
+            //ConsoleEx.WriteLineGreen("Send string: " + value);
             Imports.Stack_PushStringWide(value);
 
             return GetCodePage();
