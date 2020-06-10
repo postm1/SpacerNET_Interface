@@ -41,7 +41,7 @@
             this.saveZenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuView = new System.Windows.Forms.ToolStripMenuItem();
-            this.граттToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
@@ -188,35 +188,35 @@
             // ToolStripMenuView
             // 
             this.ToolStripMenuView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.граттToolStripMenuItem});
+            this.showToolStripMenuItem});
             this.ToolStripMenuView.ForeColor = System.Drawing.Color.Black;
             this.ToolStripMenuView.Name = "ToolStripMenuView";
             this.ToolStripMenuView.Size = new System.Drawing.Size(39, 20);
             this.ToolStripMenuView.Text = "Вид";
             // 
-            // граттToolStripMenuItem
+            // showToolStripMenuItem
             // 
-            this.граттToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem5,
             this.toolStripMenuItem6,
             this.toolStripMenuItem7});
-            this.граттToolStripMenuItem.Name = "граттToolStripMenuItem";
-            this.граттToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.граттToolStripMenuItem.Text = "Показать";
+            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.showToolStripMenuItem.Text = "Показать";
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Checked = true;
             this.toolStripMenuItem5.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem5.Text = "Вобы";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem6.Text = "Сетку Waynet";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
             // 
@@ -225,7 +225,7 @@
             this.toolStripMenuItem7.Checked = true;
             this.toolStripMenuItem7.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem7.Text = "Help-вобы";
             this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
             // 
@@ -626,7 +626,7 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuView;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuWorld;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem граттToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSettings;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuHelp;
         private System.Windows.Forms.ToolStripMenuItem openZENToolStripMenuItem;

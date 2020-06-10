@@ -114,7 +114,7 @@ namespace SpacerUnion
             miscToolStripMenuItem.Text = Localizator.Get("MENU_TOP_MISC");
 
 
-            граттToolStripMenuItem.Text = Localizator.Get("MENU_TOP_VIEW_SHOW");
+            showToolStripMenuItem.Text = Localizator.Get("MENU_TOP_VIEW_SHOW");
 
             toolStripMenuItem5.Text = Localizator.Get("MENU_TOP_VIEW_VOBS");
             toolStripMenuItem6.Text = Localizator.Get("MENU_TOP_VIEW_WAYNET");
