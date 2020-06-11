@@ -121,19 +121,19 @@
   <data name="jab" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pictures\jab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="jab2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pictures\Loading.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Flag_Eng" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\uk-flag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Flag_Germany" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\440px-Flag_of_Germany.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Flag_Russia" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\s1200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="jab2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pictures\Loading.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Flag_Germany" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\440px-Flag_of_Germany.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Flag_Poland" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cl_pols.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\1920px-Flag_of_Poland.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

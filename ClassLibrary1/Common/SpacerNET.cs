@@ -40,6 +40,8 @@ namespace SpacerUnion
         // Список всех окон
         static List<Form> windowsList = null;
 
+        public static bool isInit = false;
+
 
         // Главная функция запуска, вызывается из Union
         [DllExport]
@@ -271,6 +273,9 @@ namespace SpacerUnion
 
             form.ResetInterface();
             objectsWin.LoadSettings();
+            keysWin.LoadKeys();
+
+            isInit = true;
         }
 
 

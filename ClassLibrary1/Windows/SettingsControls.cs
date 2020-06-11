@@ -35,6 +35,11 @@ namespace SpacerUnion.Windows
             radioButtonWPTurnOn.Text = Localizator.Get("radioButtonWPTurnOn");
 
             buttonVobControlApply.Text = Localizator.Get("BTN_APPLY");
+
+            if (SpacerNET.isInit)
+            {
+                UpdateAll();
+            }
         }
 
         private void SettingsControls_FormClosing(object sender, FormClosingEventArgs e)

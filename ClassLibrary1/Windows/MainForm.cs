@@ -21,10 +21,12 @@ namespace SpacerUnion
    
     public partial class MainForm : Form
     {
+        public const string SPACER_VERSION = "0.4";
 
         public Form renderTarget = null;
         public string currentWorldName = "";
 
+        
         public enum ToggleMenuType
         {
             ToggleVobs = 0,
@@ -42,10 +44,19 @@ namespace SpacerUnion
             UpdateSpacerCaption("");
         }
 
+
+        [DllExport]
+        public static void GetSpacerVersion()
+        {
+            Imports.Stack_PushString(SPACER_VERSION);
+
+        }
+
+
         public void UpdateSpacerCaption(string title)
         {
             currentWorldName = title;
-            this.Text = "Spacer.NET (Beta): " + title;
+            this.Text = "Spacer.NET " + SPACER_VERSION + " (Beta): " + title;
         }
         
         private void CloseApp()
@@ -83,8 +94,11 @@ namespace SpacerUnion
             saveZenToolStripMenuItem.Enabled = false;
             compileLightToolStrip.Enabled = false;
             compileWorldToolStrip.Enabled = false;
-
-            
+            analyseWaynetToolStripMenuItem.Enabled = false;
+            playHeroToolStrip.Enabled = false;
+            cameraCoordsToolStrip.Enabled = false;
+            dayTimeToolStrip.Enabled = false;
+            toolStripMenuResetWorld.Enabled = false;
             // UnionNET.partWin.listBoxParticles.Items.Clear();
             // UnionNET.partWin.listBoxItems.Items.Clear();
         }
@@ -220,7 +234,11 @@ namespace SpacerUnion
             ConsoleEx.WriteLineGreen(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
             SpacerNET.form.toolStripMenuItemMerge.Enabled = false;
             SpacerNET.form.saveZenToolStripMenuItem.Enabled = true;
-
+            SpacerNET.form.analyseWaynetToolStripMenuItem.Enabled = true;
+            SpacerNET.form.playHeroToolStrip.Enabled = true;
+            SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
+            SpacerNET.form.dayTimeToolStrip.Enabled = true;
+            SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
         }
 
 
@@ -298,6 +316,11 @@ namespace SpacerUnion
                 toolStripMenuItemMerge.Enabled = false;
                 SpacerNET.form.compileLightToolStrip.Enabled = true;
                 SpacerNET.form.saveZenToolStripMenuItem.Enabled = true;
+                SpacerNET.form.analyseWaynetToolStripMenuItem.Enabled = true;
+                SpacerNET.form.playHeroToolStrip.Enabled = true;
+                SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
+                SpacerNET.form.dayTimeToolStrip.Enabled = true;
+                SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
             }
 
             
@@ -540,7 +563,9 @@ namespace SpacerUnion
             Imports.Stack_PushString("rangeWorld");
             Imports.Stack_PushString("camRotSpeed");
             Imports.Stack_PushString("camTransSpeed");
+            Imports.Stack_PushString("slerpRot");
 
+            int slerpRot = Imports.Extern_GetSetting();
             int transSpeed = Imports.Extern_GetSetting();
             int rotSpeed = Imports.Extern_GetSetting();
 
@@ -548,6 +573,7 @@ namespace SpacerUnion
             int vob = Imports.Extern_GetSetting();
 
 
+            SpacerNET.settingsCam.trackBarCamSlerp.Value = slerpRot;
             SpacerNET.settingsCam.trackBarTransSpeed.Value = transSpeed;
             SpacerNET.settingsCam.trackBarRotSpeed.Value = rotSpeed;
 
@@ -658,6 +684,8 @@ namespace SpacerUnion
 
                 SpacerNET.form.toolStripMenuItemMerge.Enabled = true;
                 SpacerNET.form.compileWorldToolStrip.Enabled = true;
+                SpacerNET.form.dayTimeToolStrip.Enabled = true;
+                SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
 
             }
 
@@ -731,7 +759,7 @@ namespace SpacerUnion
 
                 toolStripMenuItemMerge.Enabled = true;
                 compileWorldToolStrip.Enabled = true;
-
+                toolStripMenuResetWorld.Enabled = true;
             }
 
             
@@ -1122,7 +1150,7 @@ namespace SpacerUnion
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Spacer.NET by Liker, 2020");
+            MessageBox.Show("Spacer.NET " + SPACER_VERSION + " by Liker, 2020");
         }
 
         private void ввестиКоординатыToolStripMenuItem_Click(object sender, EventArgs e)

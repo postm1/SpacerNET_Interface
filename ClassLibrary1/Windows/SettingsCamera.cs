@@ -42,6 +42,11 @@ namespace SpacerUnion
             checkBoxDistVob.Text = Localizator.Get("checkBoxDistVob");
             checkBoxCameraHideWins.Text = Localizator.Get("checkBoxCameraHideWins");
 
+            if (SpacerNET.isInit)
+            {
+                UpdateAll();
+            }
+
         }
 
 
@@ -71,7 +76,7 @@ namespace SpacerUnion
             trackBarRotSpeed_ValueChanged(null, EventArgs.Empty);
             trackBarWorld_ValueChanged(null, EventArgs.Empty);
             trackBarVobs_ValueChanged(null, EventArgs.Empty);
-
+            trackBarCamSlerp_ValueChanged(null, EventArgs.Empty);
         }
 
         private void trackBarTransSpeed_ValueChanged(object sender, EventArgs e)
@@ -302,6 +307,38 @@ namespace SpacerUnion
             }
 
             trackBarVobs.Value = value;
+        }
+
+        private void trackBarCamSlerp_ValueChanged(object sender, EventArgs e)
+        {
+            labelCamSetSlerp.Text = Localizator.Get("labelCamSetSlerp") + ": " + trackBarCamSlerp.Value;
+            textBoxCamSlerp.Text = trackBarCamSlerp.Value.ToString();
+            Imports.Stack_PushString("slerpRot");
+            Imports.Extern_SetSetting(trackBarCamSlerp.Value);
+        }
+
+        private void textBoxCamSlerp_TextChanged(object sender, EventArgs e)
+        {
+            string text = textBoxCamSlerp.Text.Trim();
+
+            if (text.Length == 0)
+            {
+                return;
+            }
+
+
+            int value = Convert.ToInt32(text);
+
+            if (value > trackBarCamSlerp.Maximum)
+            {
+                value = trackBarCamSlerp.Maximum;
+            }
+            if (value < trackBarCamSlerp.Minimum)
+            {
+                value = trackBarCamSlerp.Minimum;
+            }
+
+            trackBarCamSlerp.Value = value;
         }
     }
 }

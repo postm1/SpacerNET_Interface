@@ -75,6 +75,12 @@ namespace SpacerUnion
             SpacerNET.form.toolStripMenuItemMerge.Enabled = false;
             SpacerNET.form.compileLightToolStrip.Enabled = true;
             SpacerNET.form.saveZenToolStripMenuItem.Enabled = true;
+            SpacerNET.form.analyseWaynetToolStripMenuItem.Enabled = true;
+            SpacerNET.form.playHeroToolStrip.Enabled = true;
+            SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
+            SpacerNET.form.dayTimeToolStrip.Enabled = true;
+            SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
+
             this.Hide();
         }
 

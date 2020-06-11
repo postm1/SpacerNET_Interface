@@ -217,10 +217,12 @@ namespace SpacerUnion.Windows
             row = new string[] { "CAMERA_TRANS_BACKWARD", Localizator.Get("CAMERA_TRANS_BACKWARD"), "" };
             dataGridKeys.Rows.Add(row);
 
-            row = new string[] { "CAMERA_TRANS_RIGHT", Localizator.Get("CAMERA_TRANS_RIGHT"), "" };
-            dataGridKeys.Rows.Add(row);
+            
 
             row = new string[] { "CAMERA_TRANS_LEFT", Localizator.Get("CAMERA_TRANS_LEFT"), "" };
+            dataGridKeys.Rows.Add(row);
+
+            row = new string[] { "CAMERA_TRANS_RIGHT", Localizator.Get("CAMERA_TRANS_RIGHT"), "" };
             dataGridKeys.Rows.Add(row);
 
             row = new string[] { "CAMERA_TRANS_UP", Localizator.Get("CAMERA_TRANS_UP"), "" };
@@ -299,21 +301,28 @@ namespace SpacerUnion.Windows
             dataGridKeys.Rows.Add(row);
 
 
-            row = new string[] { "VOB_ROT_VERT_RIGHT", Localizator.Get("VOB_ROT_VERT_RIGHT"), "" };
-            dataGridKeys.Rows.Add(row);
 
             row = new string[] { "VOB_ROT_VERT_LEFT", Localizator.Get("VOB_ROT_VERT_LEFT"), "" };
             dataGridKeys.Rows.Add(row);
+
+
+            row = new string[] { "VOB_ROT_VERT_RIGHT", Localizator.Get("VOB_ROT_VERT_RIGHT"), "" };
+            dataGridKeys.Rows.Add(row);
+
+            
 
 
             row = new string[] { "VOB_ROT_FORWARD", Localizator.Get("VOB_ROT_FORWARD"), "" };
             dataGridKeys.Rows.Add(row);
             row = new string[] { "VOB_ROT_BACK", Localizator.Get("VOB_ROT_BACK"), "" };
             dataGridKeys.Rows.Add(row);
-            row = new string[] { "VOB_ROT_RIGHT", Localizator.Get("VOB_ROT_RIGHT"), "" };
-            dataGridKeys.Rows.Add(row);
+
             row = new string[] { "VOB_ROT_LEFT", Localizator.Get("VOB_ROT_LEFT"), "" };
             dataGridKeys.Rows.Add(row);
+
+            row = new string[] { "VOB_ROT_RIGHT", Localizator.Get("VOB_ROT_RIGHT"), "" };
+            dataGridKeys.Rows.Add(row);
+            
 
 
 

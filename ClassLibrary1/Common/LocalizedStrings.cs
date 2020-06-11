@@ -9,7 +9,7 @@ namespace SpacerUnion.Common
     {
         public static void Init()
         {
-            curLang = LangEnum.RU;
+            curLang = LangEnum.EN;
 
             //For special symbols use @ before string like @"someString"
             /*
@@ -43,7 +43,7 @@ namespace SpacerUnion.Common
             words.Add("MENU_TOP_EXIT", new List<string> { "Выход", "Exit", "Verlassen", "Zakończ" });
             words.Add("MENU_TOP_LANG", new List<string> { "Язык", "Language", "Sprache", "Język" });
             words.Add("MENU_TOP_HELP", new List<string> { "Помощь", "Help", "Hilfe", "Pomoc" });
-            words.Add("MENU_TOP_SETTINGS", new List<string> { "Настройки", "Settings", "Einstellungen", "Opcje" });
+            words.Add("MENU_TOP_SETTINGS", new List<string> { "Настройки", "Settings", "Einstellungen", "Ustawienia" });
             words.Add("MENU_TOP_WORLD", new List<string> { "Мир", "World", "Welt", "Świat" });
             words.Add("MENU_TOP_VIEW", new List<string> { "Вид", "View", "Ansicht", "Widok" });
 
@@ -61,10 +61,10 @@ namespace SpacerUnion.Common
             words.Add("MENU_TOP_VIEW_SHOW", new List<string> { "Показать", "Show", "Zeugen", "Pokaż" });
             words.Add("MENU_TOP_VIEW_VOBS", new List<string> { "Вобы", "Vobs", "Vobs", "Voby" });
             words.Add("MENU_TOP_VIEW_WAYNET", new List<string> { "Сетка Waynet", "Waynet", "Wegpunkte", "Waynet" });
-            words.Add("MENU_TOP_VIEW_HELPER", new List<string> { "Help-вобы", "Help vobs", "Hilfs-Vobs", "Pomocnicze Voby" });
+            words.Add("MENU_TOP_VIEW_HELPER", new List<string> { "Help-вобы", "Help vobs", "Hilfs-Vobs", "Pomocnicze voby" });
 
             words.Add("MENU_TOP_VIEW_BBOX", new List<string> { "Показать все BBox", "Show all the BBoxes", "Alle BBoxen anzeigen", "Pokaż wszystkie BBoxy" });
-            words.Add("MENU_TOP_VIEW_INVIS", new List<string> { "Показать невидимые вобы", "Show invisible vobs", "Unsichtbare Vobs anzeigen", "Pokaż niewidzialne Voby" });
+            words.Add("MENU_TOP_VIEW_INVIS", new List<string> { "Показать невидимые вобы", "Show invisible vobs", "Unsichtbare Vobs anzeigen", "Pokaż niewidzialne voby" });
 
 
             words.Add("MENU_TOP_COMPILE_LIGHT", new List<string> { "Компиляция света", "Compile light", "Licht kompilieren", "Kompiluj światło" });
@@ -80,10 +80,10 @@ namespace SpacerUnion.Common
 
             words.Add("MENU_TOP_NOON", new List<string> { "Обед (12:00)", "Midday (12:00)", "Mittag (12:00)", "Południe (12:00)" });
             words.Add("MENU_TOP_AFTERNOON", new List<string> { "Вечер (17:00)", "Evening (17:00)", "Abend (17:00)", "Wieczór (17:00)" });
-            words.Add("MENU_TOP_NIGHT", new List<string> { "Ночь (00:00)", "Night (00:00)", "Nacht (00:00)", "Noc(00:00)" });
+            words.Add("MENU_TOP_NIGHT", new List<string> { "Ночь (00:00)", "Night (00:00)", "Nacht (00:00)", "Noc (00:00)" });
             words.Add("MENU_TOP_ANALYSE_WAYNET", new List<string> { "Анализ WayNet", "Analyze Waynet", "Wegpunkte analysieren", "Analizuj Waynet" });
             words.Add("MENU_TOP_PLAY_THE_GAME", new List<string> { "Играть за героя", "Play the hero", "Helden spielen", "Zagraj bohaterem" });
-            words.Add("MENU_TOP_KEYSBINDS", new List<string> { "Сочетания клавиш", "Keys bindings", "Tastaturbelegung", "Przypisania klawisze" });
+            words.Add("MENU_TOP_KEYSBINDS", new List<string> { "Сочетания клавиш", "Keys bindings", "Tastaturbelegung", "Przypisanie klawiszy" });
 
             words.Add("MENU_TOP_HOVER_WININFO", new List<string> { "Окно информации", "Information window", "Infofenster", "Okno informacji" });
             words.Add("MENU_TOP_HOVER_WINOBJ", new List<string> { "Окно объектов", "Objects window", "Objektfenster", "Okno obiektów" });
@@ -145,8 +145,8 @@ namespace SpacerUnion.Common
             words.Add("UNION_MESH_READY", new List<string> { "Меш и вобы объединены. Скомпилируйте мир", "Mesh and vobs were merged. Compile the world", "Mesh und Vobs verbunden. Bitte Welt kompilieren!", "Mesh i voby zostały połączone. Skompiluj świat." });
             words.Add("UNION_EDITOR", new List<string> { "Редактор для ZenGin", "Editor for ZenGin", "Editor für ZenGin", "Edytor dla ZenGine" });
             words.Add("UNION_TEAM", new List<string> { "Команда разработки: Liker & Haart & Saturas & Gratt", "Dev team: Liker & Haart & Saturas & Gratt", "Entwicklerteam: Liker & Haart & Saturas & Gratt", "Deweloperzy: Liker & Haart & Saturas & Gratt" });
-            words.Add("UNION_DATE_COMPILE", new List<string> { "Дата компиляции: ", "Compilation date: ", "Datum der Kompilation:", "Data kompilacji: " });
-            words.Add("UNION_RESOLUTION", new List<string> { "Разрешение рендера: ", "Render resolution: ", "Rendererauflösung", "Rozdzielczość renderowania: " });
+            words.Add("UNION_DATE_COMPILE", new List<string> { "Дата компиляции: ", "Compilation date: ", "Datum der Kompilation: ", "Data kompilacji: " });
+            words.Add("UNION_RESOLUTION", new List<string> { "Разрешение рендера: ", "Render resolution: ", "Rendererauflösung: ", "Rozdzielczość renderowania: " });
             words.Add("UNION_NOWORLD", new List<string> { "Мир не загружен", "World is not loaded", "Welt wurde nicht geladen", "Świat nie został wczytany." });
             words.Add("UNION_CANT_ABSTRACT", new List<string> { "Не могу создать объект абстрактного класса!", "Can't create a vob of an abstract class", "Die Vob der abstrakten Klasse kann nicht erstellt werden!", "Nie można utworzyć voba klasy abstrakcyjnej" });
             words.Add("ENTER_NAME", new List<string> { "Введите имя воба!", "Enter the name!", "Name eingeben!", "Podaj nazwę!" });
@@ -158,11 +158,11 @@ namespace SpacerUnion.Common
             words.Add("UNION_WORLD_ONCOMPILE", new List<string> { "Мир скомпилирован.", "World has been compiled.", "Welt wurde kompiliert.", "Świat został skompilowany." });
             words.Add("UNION_VOBTREE_SAVE", new List<string> { "VobTree сохранен!", "VobTree saved!", "VobTree gespeichert!", "Drzewko vobów zostało zapisane!" });
             words.Add("UNION_VOBTREE_INSERT", new List<string> { "VobTree вставлен!", "VobTree inserted!", "VobTree eingefügt!", "Dodano drzewko vobów!" });
-            words.Add("UNION_SHOW_TRIS", new List<string> { "Кол-во треугольников: ", "Tris amount: ", "Anzahl Dreiecke:", "Ilość tri: " });
+            words.Add("UNION_SHOW_TRIS", new List<string> { "Кол-во треугольников: ", "Tris amount: ", "Anzahl Dreiecke: ", "Ilość tri: " });
             words.Add("UNION_CAM_POS", new List<string> { "Позиция камеры: ", "Camera pos: ", "Kameraposition: ", "Pozycja kamery: " });
-            words.Add("UNION_VOB_COUNT", new List<string> { "Кол-во вобов: ", "Vobs amount: ", "Anzahl der Vobs:", "Ilość vobów: " });
-            words.Add("UNION_WP_COUNT", new List<string> { "Кол-во вейпоинтов: ", "Waypoint amount: ", "Anzahl der Wegpunkte:", "Ilość Waypointów: " });
-            words.Add("UNION_DIST", new List<string> { "Дистанция: ", "Distance: ", "Entfernung:", "Dystans: " });
+            words.Add("UNION_VOB_COUNT", new List<string> { "Кол-во вобов: ", "Vobs amount: ", "Anzahl der Vobs: ", "Ilość vobów: " });
+            words.Add("UNION_WP_COUNT", new List<string> { "Кол-во вейпоинтов: ", "Waypoint amount: ", "Anzahl der Wegpunkte: ", "Ilość Waypointów: " });
+            words.Add("UNION_DIST", new List<string> { "Дистанция: ", "Distance: ", "Entfernung: ", "Dystans: " });
             //NEW
             words.Add("WIN_COMPLIGHT_NOWORLD", new List<string> { "Мир не загружен!", "World is not loaded!", "Welt ist nicht geladen!", "Świat nie jest załadowany!" });
             words.Add("WIN_COMPLIGHT_NOWORLDCOMPILED", new List<string> { "Мир не скомпилирован!", "World is not compiled!", "Welt ist nicht kompiliert!", "Świat nie jest skompilowany!" });
@@ -182,18 +182,18 @@ namespace SpacerUnion.Common
             words.Add("BTN_APPLY", new List<string> { "Применить", "Apply", "Anwenden", "Zapisz" });
             words.Add("WIN_MISC_SET", new List<string> { "Прочие настройки", "Misc settings", "Verschiedene Einstellungen", "Inne ustawienia" });
             words.Add("checkBoxSetDatePrefix", new List<string> { "Добавлять префикс даты при сохранении зена", "Add DATE prefix to file when saving ZEN", "Füge Datum Präfix zu Datei hinzu wenn die ZEN gespeichert wird", "Dodaj prefix daty do nazwy zapisanego pliku" });
-            words.Add("checkBoxMiscExitAsk", new List<string> { "Подтверждать выход если открыт зен", "Confirm exit if ZEN is opened", "Falls ZEN geöffnet ist, dann bestätige den Abbruch", "Potwierdź wyjście gdzy ZEN jest otwarty." });
+            words.Add("checkBoxMiscExitAsk", new List<string> { "Подтверждать выход если открыт зен", "Confirm exit if ZEN is opened", "Falls ZEN geöffnet ist, dann bestätige den Abbruch", "Potwierdź wyjście, gdy ZEN jest otwarty" });
             words.Add("checkBoxLastZenAuto", new List<string> { "Открывать последний ZEN автоматически", "Open last ZEN auto", "Letzte ZEN automatisch öffnen", "Otwórz automatycznie ostatni świat." });
             words.Add("checkBoxMiscFullPath", new List<string> { "Писать полный путь до ZEN в главном окне", "Show full path to ZEN file in main window", "Zeige den vollständigen Pfad zur ZEN Datei im Hauptmenü an.", "Pokaż pełną ścieżkę do świata w głównym oknie" });
             words.Add("WIN_CONTROLSET_TEXT", new List<string> { "Настройки управления", "Controls setttings", "Steuerungseinstellungen", "Ustawienia sterowania" });
-            words.Add("WIN_CONTROLSET_TRANSSPEED", new List<string> { "Скорость перемещения: ", "Moving speed: ", "Bewegungsgeschwindigkeit", "Szybkość poruszania: " });
-            words.Add("WIN_CONTROLSET_ROTSPEED", new List<string> { "Скорость вращения: ", "Rotation speed: ", "Rotationsgeschiwndigkeit", "Szybkość rotacji: " });
-            words.Add("WIN_CONTROLSET_GROUP0", new List<string> { "Управление вобом", "Vob control", "VoB Kontrolle", "Kontrola Voba" });
+            words.Add("WIN_CONTROLSET_TRANSSPEED", new List<string> { "Скорость перемещения: ", "Moving speed: ", "Bewegungsgeschwindigkeit: ", "Szybkość poruszania: " });
+            words.Add("WIN_CONTROLSET_ROTSPEED", new List<string> { "Скорость вращения: ", "Rotation speed: ", "Rotationsgeschiwndigkeit: ", "Szybkość rotacji: " });
+            words.Add("WIN_CONTROLSET_GROUP0", new List<string> { "Управление вобом", "Vob control", "Vob Kontrolle", "Kontrola Voba" });
             words.Add("WIN_CONTROLSET_GROUP1", new List<string> { "Вставка воба", "Vob insertion", "VoB Einfügung", "Wstawianie Voba" });
             words.Add("checkBoxInsertVob", new List<string> { "Вставлять воб на той же высоте", "Insert vob on the source height", "Füge VoB an der Höhe der Quelle ein", "Wstaw Voba na wysokości kamery" });
             words.Add("checkBoxVobRotRandAngle", new List<string> { "Поворачивать воб на случайный угол", "Turn vob on a random angle", "Versetze den VoB in einen zufälligen Winkel", "Obróć voba pod dowolnym kątem" });
             words.Add("checkBoxVobInsertHierarchy", new List<string> { "Учитывать иерархию при копировании", "Use hierarchy when copying", "Nutze die Hierachie beim Kopieren", "Użyj hierarchi podczas kopiowania" });
-            words.Add("labelRotWpFP", new List<string> { "Разворачивать WP/FP при вставке:", "Turn WP/FP when inserting:", "Aktivere WP/FP beim Einfügen", "Obróć WP/FP podczas dodawania:" });
+            words.Add("labelRotWpFP", new List<string> { "Разворачивать WP/FP при вставке", "Turn WP/FP when inserting", "Aktivere WP/FP beim Einfügen", "Obróć WP/FP podczas dodawania" });
             words.Add("radioButtonWPTurnNone", new List<string> { "Нет", "None ", "None", "Brak" });
             words.Add("radioButtonWPTurnAgainst", new List<string> { "От камеры", "From the camera", "Von der Kameraperspektive", "Z kamery" });
             words.Add("radioButtonWPTurnOn", new List<string> { "На камеру", "At the camera", "Bei der Kamera", "Do kamery" });
@@ -277,7 +277,7 @@ namespace SpacerUnion.Common
             words.Add("WIN_SOUND_TITLE", new List<string> { "Звуки и музыка", "Sounds and music window", "Sound und Musik Fenster", "Okno dźwięku i muzyki" });
             words.Add("groupBoxSound", new List<string> { "Звуки", "Sounds", "Sounds", "Dźwięki" });
             words.Add("groupBoxMusic", new List<string> { "Музыка", "Music", "Musik", "Muzyka" });
-            words.Add("buttonPlaySound", new List<string> { "Воспроизвести", "Play", "Abspielen", "Zagraj" });
+            words.Add("buttonPlaySound", new List<string> { "Воспроизвести", "Play", "Abspielen", "Odtwórz" });
             words.Add("labelAllSounds", new List<string> { "Все звуки. Кол-во:", "All sound. Count:", "Alle sound. Anzahl:", "Wszystkie dźwięki. Ilość:" });
             words.Add("labelSndList", new List<string> { "Поиск по рег. выражению", "Search using regex", "Suche mit regex", "Wyszukaj za pomocą wyrażenia regularnego" });
             words.Add("buttonOffMusic", new List<string> { "Отключить музыку", "Turn off music", "Musik abschalten", "Wyłącz muzykę" });
@@ -370,6 +370,11 @@ namespace SpacerUnion.Common
             words.Add("buttonConnectWp", new List<string> { "Соединить WP", "Connect waypoints", "Wegpunkte verbinden", "Połącz Waypointy" });
             words.Add("buttonDisconnectWP", new List<string> { "Разъединить WP", "Disconnect waypoints", "Wegpunkte trennen", "Rozłącz Waypointy" });
             words.Add("buttonFPCreate", new List<string> { "Создать Freepoint", "Create Freepoint", "Freipunkt erschaffen", "Utwórz Freepoint" });
+
+            //NEW
+            words.Add("labelCamSetSlerp", new List<string> { "Плавность поворота камеры", "Camera rotation smoothing", "", "" });
+            words.Add("keysResetDefault", new List<string> { "Сбросить по-умолчанию", "Reset default", "", "" });
+
 
         }
     }

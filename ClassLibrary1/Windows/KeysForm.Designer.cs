@@ -33,12 +33,13 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonKeysResetDefault = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridKeys)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(245, 520);
+            this.buttonClose.Location = new System.Drawing.Point(258, 520);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(101, 23);
             this.buttonClose.TabIndex = 0;
@@ -91,11 +92,22 @@
             this.Column2.ReadOnly = true;
             this.Column2.Width = 190;
             // 
+            // buttonKeysResetDefault
+            // 
+            this.buttonKeysResetDefault.Location = new System.Drawing.Point(12, 520);
+            this.buttonKeysResetDefault.Name = "buttonKeysResetDefault";
+            this.buttonKeysResetDefault.Size = new System.Drawing.Size(170, 23);
+            this.buttonKeysResetDefault.TabIndex = 6;
+            this.buttonKeysResetDefault.Text = "Сбросить по-умолчанию";
+            this.buttonKeysResetDefault.UseVisualStyleBackColor = true;
+            this.buttonKeysResetDefault.Click += new System.EventHandler(this.buttonKeysResetDefault_Click);
+            // 
             // KeysForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 555);
+            this.Controls.Add(this.buttonKeysResetDefault);
             this.Controls.Add(this.dataGridKeys);
             this.Controls.Add(this.buttonClose);
             this.DoubleBuffered = true;
@@ -122,5 +134,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.Button buttonKeysResetDefault;
     }
 }

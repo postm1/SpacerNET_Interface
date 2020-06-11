@@ -27,8 +27,17 @@ namespace SpacerUnion.Windows
             dataGridKeys.Columns[2].HeaderText = Localizator.Get("WIN_KEYSBIND_BINDS");
 
             buttonClose.Text = Localizator.Get("BTN_APPLY");
+            buttonKeysResetDefault.Text = Localizator.Get("keysResetDefault");
 
+            if (SpacerNET.isInit)
+            {
+                LoadKeys();
+            }
+           
+        }
 
+        public void LoadKeys()
+        {
             dataGridKeys.Rows.Clear();
 
             Fill_Table();
@@ -114,6 +123,17 @@ namespace SpacerUnion.Windows
         {
             this.Hide();
             e.Cancel = true;
+        }
+
+        private void buttonKeysResetDefault_Click(object sender, EventArgs e)
+        {
+
+            Imports.Extern_ResetKeysDefault();
+
+            dataGridKeys.Rows.Clear();
+
+            Fill_Table();
+
         }
     }
 }
