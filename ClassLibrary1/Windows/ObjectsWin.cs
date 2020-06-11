@@ -23,6 +23,7 @@ namespace SpacerUnion
         public static List<string> listVisualsVDF = new List<string>();
         public static List<string> listVisualsWORK = new List<string>();
         public TriggerEntry triggerEntry = new TriggerEntry();
+        public CameraKeyEntry camEntry = new CameraKeyEntry();
 
         public ObjectsWin()
         {
@@ -1396,6 +1397,26 @@ namespace SpacerUnion
         private void listBoxSources_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonCamPlus_Click(object sender, EventArgs e)
+        {
+            if (camEntry.currentKey < camEntry.maxKey)
+            {
+                camEntry.currentKey += 1;
+                labelCamKeyCurrent.Text = camEntry.currentKey.ToString();
+            }
+           
+
+        }
+
+        private void buttonCamMinus_Click(object sender, EventArgs e)
+        {
+            if (camEntry.currentKey > 0)
+            {
+                camEntry.currentKey -= 1;
+                labelCamKeyCurrent.Text = camEntry.currentKey.ToString();
+            }
         }
     }
 }

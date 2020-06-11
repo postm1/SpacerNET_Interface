@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\AutoClosingMessageBox.cs" />
+    <Compile Include="Common\CameraKeyEntry.cs" />
     <Compile Include="Common\Imports.cs" />
     <Compile Include="Common\Imports_Interchange.cs" />
     <Compile Include="Common\KeyFormInit.cs">

@@ -1331,6 +1331,7 @@
             this.buttonCamPlus.TabIndex = 13;
             this.buttonCamPlus.Text = ">";
             this.buttonCamPlus.UseVisualStyleBackColor = true;
+            this.buttonCamPlus.Click += new System.EventHandler(this.buttonCamPlus_Click);
             // 
             // buttonCamMinus
             // 
@@ -1340,6 +1341,7 @@
             this.buttonCamMinus.TabIndex = 12;
             this.buttonCamMinus.Text = "<";
             this.buttonCamMinus.UseVisualStyleBackColor = true;
+            this.buttonCamMinus.Click += new System.EventHandler(this.buttonCamMinus_Click);
             // 
             // textBoxCamTime
             // 
@@ -1382,7 +1384,7 @@
             this.buttonCamKey.Name = "buttonCamKey";
             this.buttonCamKey.Size = new System.Drawing.Size(95, 23);
             this.buttonCamKey.TabIndex = 9;
-            this.buttonCamKey.Text = "Ключ";
+            this.buttonCamKey.Text = "Перейти к ключу";
             this.buttonCamKey.UseVisualStyleBackColor = true;
             // 
             // buttonCamTargetSpline

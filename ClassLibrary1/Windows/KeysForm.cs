@@ -127,12 +127,18 @@ namespace SpacerUnion.Windows
 
         private void buttonKeysResetDefault_Click(object sender, EventArgs e)
         {
+            DialogResult res = MessageBox.Show(Localizator.Get("confirmText"), Localizator.Get("confirmation"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (res == DialogResult.OK)
+            {
+                Imports.Extern_ResetKeysDefault();
 
-            Imports.Extern_ResetKeysDefault();
+                dataGridKeys.Rows.Clear();
 
-            dataGridKeys.Rows.Clear();
+                Fill_Table();
+            }
 
-            Fill_Table();
+
+            
 
         }
     }

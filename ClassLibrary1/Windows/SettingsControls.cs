@@ -36,10 +36,8 @@ namespace SpacerUnion.Windows
 
             buttonVobControlApply.Text = Localizator.Get("BTN_APPLY");
 
-            if (SpacerNET.isInit)
-            {
-                UpdateAll();
-            }
+            labelVobTrans.Text = Localizator.Get("WIN_CONTROLSET_TRANSSPEED") + trackBarVobTransSpeed.Value;
+            labelVobRot.Text = Localizator.Get("WIN_CONTROLSET_ROTSPEED") + trackBarVobRotSpeed.Value;
         }
 
         private void SettingsControls_FormClosing(object sender, FormClosingEventArgs e)

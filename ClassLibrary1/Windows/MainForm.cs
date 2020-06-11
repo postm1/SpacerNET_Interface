@@ -21,7 +21,7 @@ namespace SpacerUnion
    
     public partial class MainForm : Form
     {
-        public const string SPACER_VERSION = "0.4";
+        public const string SPACER_VERSION = "0.05";
 
         public Form renderTarget = null;
         public string currentWorldName = "";
@@ -465,7 +465,7 @@ namespace SpacerUnion
 
             //Console.WriteLine(openFileDialog1.InitialDirectory);
 
-            string zenName = currentWorldName.Replace(".zen", "").Replace(".ZEN", "");
+            string zenName = Path.GetFileName(currentWorldName.Replace(".zen", "").Replace(".ZEN", ""));
             string time = DateTime.Now.ToString("yyyy_MM_dd HH-mm-ss");
 
 
@@ -559,56 +559,13 @@ namespace SpacerUnion
         private void камераToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            Imports.Stack_PushString("rangeVobs");
-            Imports.Stack_PushString("rangeWorld");
-            Imports.Stack_PushString("camRotSpeed");
-            Imports.Stack_PushString("camTransSpeed");
-            Imports.Stack_PushString("slerpRot");
-
-            int slerpRot = Imports.Extern_GetSetting();
-            int transSpeed = Imports.Extern_GetSetting();
-            int rotSpeed = Imports.Extern_GetSetting();
-
-            int world = Imports.Extern_GetSetting();
-            int vob = Imports.Extern_GetSetting();
-
-
-            SpacerNET.settingsCam.trackBarCamSlerp.Value = slerpRot;
-            SpacerNET.settingsCam.trackBarTransSpeed.Value = transSpeed;
-            SpacerNET.settingsCam.trackBarRotSpeed.Value = rotSpeed;
-
-            SpacerNET.settingsCam.trackBarWorld.Value = world;
-            SpacerNET.settingsCam.trackBarVobs.Value = vob;
+         
 
             SpacerNET.settingsCam.UpdateAll();
 
 
 
-            Imports.Stack_PushString("maxFPS");
-            Imports.Stack_PushString("hideCamWindows");
-            Imports.Stack_PushString("showVobDist");
-            Imports.Stack_PushString("showWaypointsCount");
-            Imports.Stack_PushString("showVobsCount");
-            Imports.Stack_PushString("showCamCoords");
-            Imports.Stack_PushString("showTris");
-            Imports.Stack_PushString("showFps");
-
-            SpacerNET.settingsCam.checkBoxFPS.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
-            SpacerNET.settingsCam.checkBoxTris.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
-
-
-            SpacerNET.settingsCam.checkBoxCamCoord.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
-            SpacerNET.settingsCam.checkBoxVobs.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
-
-
-            SpacerNET.settingsCam.checkBoxWaypoints.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
-            SpacerNET.settingsCam.checkBoxDistVob.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
-
-
-            SpacerNET.settingsCam.checkBoxCameraHideWins.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
-
-
-            SpacerNET.settingsCam.textBoxLimitFPS.Text = Imports.Extern_GetSetting().ToString();
+            
 
 
 
@@ -1150,7 +1107,7 @@ namespace SpacerUnion
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Spacer.NET " + SPACER_VERSION + " by Liker, 2020");
+            MessageBox.Show("Spacer.NET (version " + SPACER_VERSION + ") by Liker, 2020", Localizator.Get("MENU_TOP_ABOUT"));
         }
 
         private void ввестиКоординатыToolStripMenuItem_Click(object sender, EventArgs e)

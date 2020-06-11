@@ -327,9 +327,9 @@ namespace SpacerUnion
         
 
         [DllExport]
-        public static int IsAppActive()
+        public static int IsAppActive(IntPtr handle)
         {
-            var handle = Imports.GetForegroundWindow();
+            //var handle = Imports.GetForegroundWindow();
 
             for (int i = 0; i < windowsList.Count; i++)
             {

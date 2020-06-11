@@ -41,12 +41,10 @@ namespace SpacerUnion
             checkBoxWaypoints.Text = Localizator.Get("checkBoxWaypoints");
             checkBoxDistVob.Text = Localizator.Get("checkBoxDistVob");
             checkBoxCameraHideWins.Text = Localizator.Get("checkBoxCameraHideWins");
+            labelCamSetSlerp.Text = Localizator.Get("labelCamSetSlerp");
 
-            if (SpacerNET.isInit)
-            {
-                UpdateAll();
-            }
 
+            
         }
 
 
@@ -72,6 +70,56 @@ namespace SpacerUnion
         
         public void UpdateAll()
         {
+
+            Imports.Stack_PushString("rangeVobs");
+            Imports.Stack_PushString("rangeWorld");
+            Imports.Stack_PushString("camRotSpeed");
+            Imports.Stack_PushString("camTransSpeed");
+            Imports.Stack_PushString("slerpRot");
+
+            int slerpRot = Imports.Extern_GetSetting();
+            int transSpeed = Imports.Extern_GetSetting();
+            int rotSpeed = Imports.Extern_GetSetting();
+
+            int world = Imports.Extern_GetSetting();
+            int vob = Imports.Extern_GetSetting();
+
+
+            trackBarCamSlerp.Value = slerpRot;
+            trackBarTransSpeed.Value = transSpeed;
+            trackBarRotSpeed.Value = rotSpeed;
+
+            trackBarWorld.Value = world;
+            trackBarVobs.Value = vob;
+
+            Imports.Stack_PushString("maxFPS");
+            Imports.Stack_PushString("hideCamWindows");
+            Imports.Stack_PushString("showVobDist");
+            Imports.Stack_PushString("showWaypointsCount");
+            Imports.Stack_PushString("showVobsCount");
+            Imports.Stack_PushString("showCamCoords");
+            Imports.Stack_PushString("showTris");
+            Imports.Stack_PushString("showFps");
+
+           checkBoxFPS.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+           checkBoxTris.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+
+           checkBoxCamCoord.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+           checkBoxVobs.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+
+           checkBoxWaypoints.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+           checkBoxDistVob.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+
+           checkBoxCameraHideWins.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+
+           textBoxLimitFPS.Text = Imports.Extern_GetSetting().ToString();
+
+
+
             trackBarTransSpeed_ValueChanged(null, EventArgs.Empty);
             trackBarRotSpeed_ValueChanged(null, EventArgs.Empty);
             trackBarWorld_ValueChanged(null, EventArgs.Empty);

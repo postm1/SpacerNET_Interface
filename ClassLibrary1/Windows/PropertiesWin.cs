@@ -1262,5 +1262,16 @@ namespace SpacerUnion
         {
      
         }
+
+        private void tabControlProps_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControlProps.SelectedIndex == 2)
+            {
+                if (vobHasContainer)
+                {
+                    OpenVobContainer();
+                }
+            }
+        }
     }
 }

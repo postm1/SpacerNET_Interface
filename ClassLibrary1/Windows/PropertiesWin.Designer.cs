@@ -89,6 +89,7 @@
             this.tabControlProps.SelectedIndex = 0;
             this.tabControlProps.Size = new System.Drawing.Size(330, 490);
             this.tabControlProps.TabIndex = 0;
+            this.tabControlProps.SelectedIndexChanged += new System.EventHandler(this.tabControlProps_SelectedIndexChanged);
             this.tabControlProps.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // tabPage1
