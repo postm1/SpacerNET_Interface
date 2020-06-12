@@ -30,17 +30,17 @@
         {
             this.checkBoxSetDatePrefix = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxMiscFullPath = new System.Windows.Forms.CheckBox();
             this.checkBoxLastZenAuto = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
             this.btnMiscSetApply = new System.Windows.Forms.Button();
-            this.checkBoxMiscFullPath = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // checkBoxSetDatePrefix
             // 
             this.checkBoxSetDatePrefix.AutoSize = true;
-            this.checkBoxSetDatePrefix.Location = new System.Drawing.Point(21, 19);
+            this.checkBoxSetDatePrefix.Location = new System.Drawing.Point(13, 19);
             this.checkBoxSetDatePrefix.Name = "checkBoxSetDatePrefix";
             this.checkBoxSetDatePrefix.Size = new System.Drawing.Size(267, 17);
             this.checkBoxSetDatePrefix.TabIndex = 0;
@@ -55,14 +55,25 @@
             this.groupBox1.Controls.Add(this.checkBoxSetDatePrefix);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(301, 193);
+            this.groupBox1.Size = new System.Drawing.Size(354, 152);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // checkBoxMiscFullPath
+            // 
+            this.checkBoxMiscFullPath.AutoSize = true;
+            this.checkBoxMiscFullPath.Location = new System.Drawing.Point(13, 88);
+            this.checkBoxMiscFullPath.Name = "checkBoxMiscFullPath";
+            this.checkBoxMiscFullPath.Size = new System.Drawing.Size(205, 17);
+            this.checkBoxMiscFullPath.TabIndex = 3;
+            this.checkBoxMiscFullPath.Text = "Писать полный путь до ZEN в окне";
+            this.checkBoxMiscFullPath.UseVisualStyleBackColor = true;
+            this.checkBoxMiscFullPath.CheckedChanged += new System.EventHandler(this.checkBoxMiscFullPath_CheckedChanged);
             // 
             // checkBoxLastZenAuto
             // 
             this.checkBoxLastZenAuto.AutoSize = true;
-            this.checkBoxLastZenAuto.Location = new System.Drawing.Point(21, 65);
+            this.checkBoxLastZenAuto.Location = new System.Drawing.Point(13, 65);
             this.checkBoxLastZenAuto.Name = "checkBoxLastZenAuto";
             this.checkBoxLastZenAuto.Size = new System.Drawing.Size(244, 17);
             this.checkBoxLastZenAuto.TabIndex = 2;
@@ -72,7 +83,7 @@
             // checkBoxMiscExitAsk
             // 
             this.checkBoxMiscExitAsk.AutoSize = true;
-            this.checkBoxMiscExitAsk.Location = new System.Drawing.Point(21, 42);
+            this.checkBoxMiscExitAsk.Location = new System.Drawing.Point(13, 42);
             this.checkBoxMiscExitAsk.Name = "checkBoxMiscExitAsk";
             this.checkBoxMiscExitAsk.Size = new System.Drawing.Size(221, 17);
             this.checkBoxMiscExitAsk.TabIndex = 1;
@@ -81,7 +92,7 @@
             // 
             // btnMiscSetApply
             // 
-            this.btnMiscSetApply.Location = new System.Drawing.Point(104, 211);
+            this.btnMiscSetApply.Location = new System.Drawing.Point(131, 170);
             this.btnMiscSetApply.Name = "btnMiscSetApply";
             this.btnMiscSetApply.Size = new System.Drawing.Size(115, 23);
             this.btnMiscSetApply.TabIndex = 11;
@@ -89,22 +100,11 @@
             this.btnMiscSetApply.UseVisualStyleBackColor = true;
             this.btnMiscSetApply.Click += new System.EventHandler(this.btnMiscSetApply_Click);
             // 
-            // checkBoxMiscFullPath
-            // 
-            this.checkBoxMiscFullPath.AutoSize = true;
-            this.checkBoxMiscFullPath.Location = new System.Drawing.Point(21, 88);
-            this.checkBoxMiscFullPath.Name = "checkBoxMiscFullPath";
-            this.checkBoxMiscFullPath.Size = new System.Drawing.Size(205, 17);
-            this.checkBoxMiscFullPath.TabIndex = 3;
-            this.checkBoxMiscFullPath.Text = "Писать полный путь до ZEN в окне";
-            this.checkBoxMiscFullPath.UseVisualStyleBackColor = true;
-            this.checkBoxMiscFullPath.CheckedChanged += new System.EventHandler(this.checkBoxMiscFullPath_CheckedChanged);
-            // 
             // MiscSettingsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 246);
+            this.ClientSize = new System.Drawing.Size(378, 205);
             this.Controls.Add(this.btnMiscSetApply);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

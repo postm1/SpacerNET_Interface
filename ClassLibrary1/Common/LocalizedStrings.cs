@@ -372,10 +372,11 @@ namespace SpacerUnion.Common
             words.Add("buttonFPCreate", new List<string> { "Создать Freepoint", "Create Freepoint", "Freipunkt erschaffen", "Utwórz Freepoint" });
 
             //NEW
-            words.Add("labelCamSetSlerp", new List<string> { "Плавность поворота камеры", "Camera rotation smoothing", "", "" });
-            words.Add("keysResetDefault", new List<string> { "Сбросить по-умолчанию", "Reset default", "", "" });
-            words.Add("confirmText", new List<string> { "Вы уверены?", "Are you sure?", "", "" });
-            
+            words.Add("labelCamSetSlerp", new List<string> { "Плавность поворота камеры", "Camera rotation smoothing", "Kameraroation glätten", "Wygładzenie rotacji kamery" });
+            words.Add("keysResetDefault", new List<string> { "Сбросить по-умолчанию", "Reset default", "Einstellung zurückstellen", "Przywróć domyślne" });
+            words.Add("confirmText", new List<string> { "Вы уверены?", "Are you sure?", "Bist du dir sicher ?", "Jesteś pewny?" });
+
+
         }
     }
 }
