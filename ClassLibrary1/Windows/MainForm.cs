@@ -21,7 +21,7 @@ namespace SpacerUnion
    
     public partial class MainForm : Form
     {
-        public const string SPACER_VERSION = "0.05";
+        public const string SPACER_VERSION = "0.07";
 
         public Form renderTarget = null;
         public string currentWorldName = "";
@@ -244,7 +244,7 @@ namespace SpacerUnion
 
         private void openZENToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Zen files (*.zen)|";
+            openFileDialog1.Filter = "ZEN files (*.zen)|*.zen";
 
             Imports.Stack_PushString("zenzPath");
             Imports.Extern_GetSettingStr();
@@ -314,6 +314,27 @@ namespace SpacerUnion
                 ConsoleEx.WriteLineGreen(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
 
                 toolStripMenuItemMerge.Enabled = false;
+
+                /*
+                if (!Imports.Extern_IsWorldCompiled())
+                {
+                    SpacerNET.form.toolStripMenuItemMerge.Enabled = true;
+                    SpacerNET.form.compileWorldToolStrip.Enabled = true;
+                    SpacerNET.form.dayTimeToolStrip.Enabled = true;
+                    SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
+                }
+                else
+                {
+                    SpacerNET.form.compileLightToolStrip.Enabled = true;
+                    SpacerNET.form.saveZenToolStripMenuItem.Enabled = true;
+                    SpacerNET.form.analyseWaynetToolStripMenuItem.Enabled = true;
+                    SpacerNET.form.playHeroToolStrip.Enabled = true;
+                    SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
+                    SpacerNET.form.dayTimeToolStrip.Enabled = true;
+                    SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
+                }
+                */
+
                 SpacerNET.form.compileLightToolStrip.Enabled = true;
                 SpacerNET.form.saveZenToolStripMenuItem.Enabled = true;
                 SpacerNET.form.analyseWaynetToolStripMenuItem.Enabled = true;
@@ -321,6 +342,7 @@ namespace SpacerUnion
                 SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
                 SpacerNET.form.dayTimeToolStrip.Enabled = true;
                 SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
+
             }
 
             
@@ -730,7 +752,7 @@ namespace SpacerUnion
             if (res == DialogResult.OK)
             {
                 currentWorldName = "";
-
+                UpdateSpacerCaption(currentWorldName);
                 ResetInterface();
                 Imports.Extern_ResetWorld();
             }

@@ -31,7 +31,7 @@ namespace SpacerUnion
         {
             this.Text = Localizator.Get("WIN_VOBLIST_TITLE");
             labelVobType.Text = Localizator.Get("labelVobType");
-            labelRadius.Text = Localizator.Get("labelRadius");
+            labelRadius.Text = Localizator.Get("labelRadius") + ": " + trackBarRadius.Value;
         }
 
         [DllExport]

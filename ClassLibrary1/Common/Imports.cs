@@ -9,7 +9,7 @@ namespace SpacerUnion.Common
     // Функции импорта из Юниона
     public partial class Imports
     {
-        public const string UNION_DLL_NAME = "$SpacerUnionNet.dll$";
+        public const string UNION_DLL_NAME = "SpacerUnionNet.dll";
         
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern IntPtr GetForegroundWindow();

@@ -111,7 +111,7 @@ namespace SpacerUnion.Windows
 
         private void KeysForm_Shown(object sender, EventArgs e)
         {
-            Fill_Table();
+           // Fill_Table();
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

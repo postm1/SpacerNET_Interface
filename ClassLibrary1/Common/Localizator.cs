@@ -22,10 +22,15 @@ namespace SpacerUnion.Common
 
         private static LangEnum curLang;
 
-  
+        private static bool dontUpdateNext = false;
+
 
         public static void SetLanguage(LangEnum lang)
         {
+            if (curLang == lang)
+            {
+                dontUpdateNext = true;
+            }
             curLang = lang;
             Imports.Extern_ClearLangStrings();
         }
@@ -74,6 +79,12 @@ namespace SpacerUnion.Common
 
         public static void UpdateInterface()
         {
+            if (dontUpdateNext)
+            {
+                dontUpdateNext = false;
+                return;
+            }
+
             SpacerNET.form.UpdateLang();
             SpacerNET.comLightWin.UpdateLang();
             SpacerNET.compWorldWin.UpdateLang();
