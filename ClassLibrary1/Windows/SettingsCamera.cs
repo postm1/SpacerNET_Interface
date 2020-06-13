@@ -76,7 +76,10 @@ namespace SpacerUnion
             Imports.Stack_PushString("camRotSpeed");
             Imports.Stack_PushString("camTransSpeed");
             Imports.Stack_PushString("slerpRot");
+            Imports.Stack_PushString("previewSpeed");   
 
+
+            int speedPreview = Imports.Extern_GetSetting();
             int slerpRot = Imports.Extern_GetSetting();
             int transSpeed = Imports.Extern_GetSetting();
             int rotSpeed = Imports.Extern_GetSetting();
@@ -85,12 +88,14 @@ namespace SpacerUnion
             int vob = Imports.Extern_GetSetting();
 
 
+
             trackBarCamSlerp.Value = slerpRot;
             trackBarTransSpeed.Value = transSpeed;
             trackBarRotSpeed.Value = rotSpeed;
 
             trackBarWorld.Value = world;
             trackBarVobs.Value = vob;
+            trackBarSpeedPreview.Value = speedPreview;
 
             Imports.Stack_PushString("maxFPS");
             Imports.Stack_PushString("hideCamWindows");
@@ -125,6 +130,7 @@ namespace SpacerUnion
             trackBarWorld_ValueChanged(null, EventArgs.Empty);
             trackBarVobs_ValueChanged(null, EventArgs.Empty);
             trackBarCamSlerp_ValueChanged(null, EventArgs.Empty);
+            trackBarSpeedPreview_ValueChanged(null, EventArgs.Empty);
         }
 
         private void trackBarTransSpeed_ValueChanged(object sender, EventArgs e)
@@ -387,6 +393,13 @@ namespace SpacerUnion
             }
 
             trackBarCamSlerp.Value = value;
+        }
+
+        private void trackBarSpeedPreview_ValueChanged(object sender, EventArgs e)
+        {
+            labelSpeedPreview.Text = Localizator.Get("labelSpeedPreview") + ": " + trackBarSpeedPreview.Value;
+            Imports.Stack_PushString("previewSpeed");
+            Imports.Extern_SetSetting(trackBarSpeedPreview.Value);
         }
     }
 }

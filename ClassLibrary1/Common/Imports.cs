@@ -32,6 +32,9 @@ namespace SpacerUnion.Common
         public static extern void Extern_LoadMesh();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_MergeMesh();
+
+        [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_MergeZen();
 
 

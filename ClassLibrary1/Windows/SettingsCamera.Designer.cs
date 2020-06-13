@@ -37,7 +37,10 @@
             this.labelVobs = new System.Windows.Forms.Label();
             this.trackBarWorld = new System.Windows.Forms.TrackBar();
             this.groupBoxCam = new System.Windows.Forms.GroupBox();
+            this.textBoxCamSlerp = new System.Windows.Forms.TextBox();
+            this.labelCamSetSlerp = new System.Windows.Forms.Label();
             this.textBoxCamRot = new System.Windows.Forms.TextBox();
+            this.trackBarCamSlerp = new System.Windows.Forms.TrackBar();
             this.textBoxCamTrans = new System.Windows.Forms.TextBox();
             this.groupBoxRange = new System.Windows.Forms.GroupBox();
             this.textBoxVobsRange = new System.Windows.Forms.TextBox();
@@ -53,17 +56,19 @@
             this.checkBoxCamCoord = new System.Windows.Forms.CheckBox();
             this.checkBoxTris = new System.Windows.Forms.CheckBox();
             this.checkBoxFPS = new System.Windows.Forms.CheckBox();
-            this.trackBarCamSlerp = new System.Windows.Forms.TrackBar();
-            this.labelCamSetSlerp = new System.Windows.Forms.Label();
-            this.textBoxCamSlerp = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.trackBarSpeedPreview = new System.Windows.Forms.TrackBar();
+            this.labelSpeedPreview = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRotSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarWorld)).BeginInit();
             this.groupBoxCam.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarCamSlerp)).BeginInit();
             this.groupBoxRange.SuspendLayout();
             this.groupBoxInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarCamSlerp)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeedPreview)).BeginInit();
             this.SuspendLayout();
             // 
             // trackBarTransSpeed
@@ -166,6 +171,23 @@
             this.groupBoxCam.TabStop = false;
             this.groupBoxCam.Text = "Камера";
             // 
+            // textBoxCamSlerp
+            // 
+            this.textBoxCamSlerp.Location = new System.Drawing.Point(244, 143);
+            this.textBoxCamSlerp.Name = "textBoxCamSlerp";
+            this.textBoxCamSlerp.Size = new System.Drawing.Size(48, 20);
+            this.textBoxCamSlerp.TabIndex = 10;
+            this.textBoxCamSlerp.TextChanged += new System.EventHandler(this.textBoxCamSlerp_TextChanged);
+            // 
+            // labelCamSetSlerp
+            // 
+            this.labelCamSetSlerp.AutoSize = true;
+            this.labelCamSetSlerp.Location = new System.Drawing.Point(6, 124);
+            this.labelCamSetSlerp.Name = "labelCamSetSlerp";
+            this.labelCamSetSlerp.Size = new System.Drawing.Size(155, 13);
+            this.labelCamSetSlerp.TabIndex = 9;
+            this.labelCamSetSlerp.Text = "Плавность поворота камеры";
+            // 
             // textBoxCamRot
             // 
             this.textBoxCamRot.Location = new System.Drawing.Point(244, 88);
@@ -174,6 +196,16 @@
             this.textBoxCamRot.TabIndex = 5;
             this.textBoxCamRot.TextChanged += new System.EventHandler(this.textBoxCamRot_TextChanged);
             this.textBoxCamRot.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamTrans_KeyPress);
+            // 
+            // trackBarCamSlerp
+            // 
+            this.trackBarCamSlerp.Location = new System.Drawing.Point(2, 143);
+            this.trackBarCamSlerp.Maximum = 90;
+            this.trackBarCamSlerp.Name = "trackBarCamSlerp";
+            this.trackBarCamSlerp.Size = new System.Drawing.Size(229, 45);
+            this.trackBarCamSlerp.TabIndex = 9;
+            this.trackBarCamSlerp.TickFrequency = 10;
+            this.trackBarCamSlerp.ValueChanged += new System.EventHandler(this.trackBarCamSlerp_ValueChanged);
             // 
             // textBoxCamTrans
             // 
@@ -229,6 +261,7 @@
             // 
             // groupBoxInfo
             // 
+            this.groupBoxInfo.Controls.Add(this.groupBox1);
             this.groupBoxInfo.Controls.Add(this.labelLimitFPS);
             this.groupBoxInfo.Controls.Add(this.textBoxLimitFPS);
             this.groupBoxInfo.Controls.Add(this.checkBoxCameraHideWins);
@@ -340,32 +373,35 @@
             this.checkBoxFPS.UseVisualStyleBackColor = true;
             this.checkBoxFPS.CheckedChanged += new System.EventHandler(this.checkBoxFPS_CheckedChanged);
             // 
-            // trackBarCamSlerp
+            // groupBox1
             // 
-            this.trackBarCamSlerp.Location = new System.Drawing.Point(2, 143);
-            this.trackBarCamSlerp.Maximum = 90;
-            this.trackBarCamSlerp.Name = "trackBarCamSlerp";
-            this.trackBarCamSlerp.Size = new System.Drawing.Size(229, 45);
-            this.trackBarCamSlerp.TabIndex = 9;
-            this.trackBarCamSlerp.TickFrequency = 10;
-            this.trackBarCamSlerp.ValueChanged += new System.EventHandler(this.trackBarCamSlerp_ValueChanged);
+            this.groupBox1.Controls.Add(this.trackBarSpeedPreview);
+            this.groupBox1.Controls.Add(this.labelSpeedPreview);
+            this.groupBox1.Location = new System.Drawing.Point(10, 219);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(284, 138);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
             // 
-            // labelCamSetSlerp
+            // trackBarSpeedPreview
             // 
-            this.labelCamSetSlerp.AutoSize = true;
-            this.labelCamSetSlerp.Location = new System.Drawing.Point(6, 124);
-            this.labelCamSetSlerp.Name = "labelCamSetSlerp";
-            this.labelCamSetSlerp.Size = new System.Drawing.Size(155, 13);
-            this.labelCamSetSlerp.TabIndex = 9;
-            this.labelCamSetSlerp.Text = "Плавность поворота камеры";
+            this.trackBarSpeedPreview.Location = new System.Drawing.Point(6, 38);
+            this.trackBarSpeedPreview.Maximum = 100;
+            this.trackBarSpeedPreview.Name = "trackBarSpeedPreview";
+            this.trackBarSpeedPreview.Size = new System.Drawing.Size(261, 45);
+            this.trackBarSpeedPreview.TabIndex = 7;
+            this.trackBarSpeedPreview.TickFrequency = 10;
+            this.trackBarSpeedPreview.Value = 10;
+            this.trackBarSpeedPreview.ValueChanged += new System.EventHandler(this.trackBarSpeedPreview_ValueChanged);
             // 
-            // textBoxCamSlerp
+            // labelSpeedPreview
             // 
-            this.textBoxCamSlerp.Location = new System.Drawing.Point(244, 143);
-            this.textBoxCamSlerp.Name = "textBoxCamSlerp";
-            this.textBoxCamSlerp.Size = new System.Drawing.Size(48, 20);
-            this.textBoxCamSlerp.TabIndex = 10;
-            this.textBoxCamSlerp.TextChanged += new System.EventHandler(this.textBoxCamSlerp_TextChanged);
+            this.labelSpeedPreview.AutoSize = true;
+            this.labelSpeedPreview.Location = new System.Drawing.Point(9, 19);
+            this.labelSpeedPreview.Name = "labelSpeedPreview";
+            this.labelSpeedPreview.Size = new System.Drawing.Size(191, 13);
+            this.labelSpeedPreview.TabIndex = 4;
+            this.labelSpeedPreview.Text = "Скорость вращение превью-модели";
             // 
             // SettingsCamera
             // 
@@ -394,11 +430,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBarWorld)).EndInit();
             this.groupBoxCam.ResumeLayout(false);
             this.groupBoxCam.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarCamSlerp)).EndInit();
             this.groupBoxRange.ResumeLayout(false);
             this.groupBoxRange.PerformLayout();
             this.groupBoxInfo.ResumeLayout(false);
             this.groupBoxInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarCamSlerp)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeedPreview)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -432,5 +471,8 @@
         private System.Windows.Forms.Label labelCamSetSlerp;
         public System.Windows.Forms.TrackBar trackBarCamSlerp;
         private System.Windows.Forms.TextBox textBoxCamSlerp;
+        private System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.TrackBar trackBarSpeedPreview;
+        private System.Windows.Forms.Label labelSpeedPreview;
     }
 }

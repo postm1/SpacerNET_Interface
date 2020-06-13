@@ -12,6 +12,8 @@ namespace SpacerUnion
 {
     public partial class LoadingForm : Form
     {
+        private const int MAX_PICTURES = 2;
+
         public LoadingForm()
         {
             InitializeComponent();
@@ -42,7 +44,7 @@ namespace SpacerUnion
 
             Random rnd = new Random();
 
-            int num = rnd.Next(1, 3);
+            int num = rnd.Next(1, MAX_PICTURES + 1);
 
             if (num == 1)
             {

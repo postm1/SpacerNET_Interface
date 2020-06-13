@@ -87,6 +87,7 @@
             this.toolStripButtonBBox = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonInvisible = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemMergeMesh = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -120,6 +121,7 @@
             this.toolStripMenuOpenZEN,
             this.toolStripSeparator5,
             this.toolStripMenuItemMerge,
+            this.toolStripMenuItemMergeMesh,
             this.toolStripSeparator6,
             this.saveZenToolStripMenuItem,
             this.exitToolStripMenuItem});
@@ -132,57 +134,58 @@
             // 
             this.toolStripMenuResetWorld.Enabled = false;
             this.toolStripMenuResetWorld.Name = "toolStripMenuResetWorld";
-            this.toolStripMenuResetWorld.Size = new System.Drawing.Size(175, 22);
+            this.toolStripMenuResetWorld.Size = new System.Drawing.Size(185, 22);
             this.toolStripMenuResetWorld.Text = "Сбросить мир";
             this.toolStripMenuResetWorld.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(172, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(182, 6);
             // 
             // openZENToolStripMenuItem
             // 
             this.openZENToolStripMenuItem.Name = "openZENToolStripMenuItem";
-            this.openZENToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.openZENToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.openZENToolStripMenuItem.Text = "Открыть ZEN...";
             this.openZENToolStripMenuItem.Click += new System.EventHandler(this.openZENToolStripMenuItem_Click);
             // 
             // toolStripMenuOpenZEN
             // 
             this.toolStripMenuOpenZEN.Name = "toolStripMenuOpenZEN";
-            this.toolStripMenuOpenZEN.Size = new System.Drawing.Size(175, 22);
+            this.toolStripMenuOpenZEN.Size = new System.Drawing.Size(185, 22);
             this.toolStripMenuOpenZEN.Text = "Открыть MESH...";
             this.toolStripMenuOpenZEN.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(172, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(182, 6);
             // 
             // toolStripMenuItemMerge
             // 
             this.toolStripMenuItemMerge.Name = "toolStripMenuItemMerge";
-            this.toolStripMenuItemMerge.Size = new System.Drawing.Size(175, 22);
+            this.toolStripMenuItemMerge.Size = new System.Drawing.Size(185, 22);
             this.toolStripMenuItemMerge.Text = "Объединить ZEN...";
             this.toolStripMenuItemMerge.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(172, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(182, 6);
+            this.toolStripSeparator6.Click += new System.EventHandler(this.toolStripSeparator6_Click);
             // 
             // saveZenToolStripMenuItem
             // 
             this.saveZenToolStripMenuItem.Name = "saveZenToolStripMenuItem";
-            this.saveZenToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.saveZenToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.saveZenToolStripMenuItem.Text = "Сохранить ZEN";
             this.saveZenToolStripMenuItem.Click += new System.EventHandler(this.сохранитьZENToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.exitToolStripMenuItem.Text = "Выход";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -416,7 +419,7 @@
             // 
             this.polskiToolStripMenuItem.Image = global::SpacerUnion.Properties.Resources.Flag_Poland;
             this.polskiToolStripMenuItem.Name = "polskiToolStripMenuItem";
-            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.polskiToolStripMenuItem.Text = "Polski";
             this.polskiToolStripMenuItem.Click += new System.EventHandler(this.polskiToolStripMenuItem_Click);
             // 
@@ -595,6 +598,14 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // toolStripMenuItemMergeMesh
+            // 
+            this.toolStripMenuItemMergeMesh.Enabled = false;
+            this.toolStripMenuItemMergeMesh.Name = "toolStripMenuItemMergeMesh";
+            this.toolStripMenuItemMergeMesh.Size = new System.Drawing.Size(185, 22);
+            this.toolStripMenuItemMergeMesh.Text = "Объединить MESH...";
+            this.toolStripMenuItemMergeMesh.Click += new System.EventHandler(this.toolStripMenuItemMergeMesh_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -683,5 +694,6 @@
         public System.Windows.Forms.ToolStripMenuItem analyseWaynetToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem playHeroToolStrip;
         public System.Windows.Forms.ToolStripMenuItem toolStripMenuResetWorld;
+        public System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMergeMesh;
     }
 }

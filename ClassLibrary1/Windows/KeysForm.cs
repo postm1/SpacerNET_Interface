@@ -55,22 +55,27 @@ namespace SpacerUnion.Windows
             currentKeyEntry.SetData(e.Alt, e.Shift, e.Control, e.KeyValue);
 
 
-            if (dataGridKeys.CurrentCell != null && (dataGridKeys.CurrentCell.ColumnIndex == 2))
+            if (keysGothic.ContainsKey(e.KeyValue) && dataGridKeys.CurrentRow != null)
             {
-                dataGridKeys.CurrentCell.Value = currentKeyEntry.GetKeysAsString();
+
+                dataGridKeys.CurrentRow.Cells[2].Value = currentKeyEntry.GetKeysAsString();
+
+                if (dataGridKeys.CurrentRow.Cells[0].Value != null)
+                {
+                    
+                    currentKeyEntry.PackToUnion();
+                    Imports.Stack_PushString(dataGridKeys.CurrentRow.Cells[0].Value.ToString());
+                    Imports.Extern_SendNewKeyPreset(currentKeyEntry.union_key, currentKeyEntry.mod);
+                }
             }
-
-
-            if (dataGridKeys.CurrentRow.Cells[0].Value != null)
+            else
             {
-                currentKeyEntry.PackToUnion();
-
-                Imports.Stack_PushString(dataGridKeys.CurrentRow.Cells[0].Value.ToString());
-                Imports.Extern_SendNewKeyPreset(currentKeyEntry.union_key, currentKeyEntry.mod);
+                ConsoleEx.WriteLineRed("No key found: " + e.KeyValue);
             }
+            
            
 
-            e.Handled = true;
+            e.Handled = false;
             e.SuppressKeyPress = false;
         }
 

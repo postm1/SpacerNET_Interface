@@ -45,6 +45,21 @@ namespace SpacerUnion.Windows
             //NUM
             {96, 82}, {97, 0x4F},{98, 0x50},{99, 0x51},{100, 0x4B},
             {101, 0x4C},{102, 0x4D},{103, 0x47},{104, 0x48},{105, 0x49},
+
+            // modifiest shift/ctrl/alt/
+            {16, 1}, {17, 1}, {18, 1 },
+
+            // - = [ ]
+            {189, 12}, {187, 13}, {219, 26 }, {221, 27 },
+
+            // ~ ; ' \
+            {192, 41}, {186, 39}, {222, 40 }, {220, 43 },
+
+            // < > ?
+            {188, 51}, {190, 52}, {191, 53},
+
+            //NUMPAD - + / *
+            {109, 74}, {107, 78 }, {111, 181}, {106, 55},
         };
 
         enum KeyMod
@@ -89,6 +104,25 @@ namespace SpacerUnion.Windows
                 if (val == 18) s = "LALT";
                 if (val == 46) s = "DELETE";
 
+                if (val == 189) s = "-";
+                if (val == 187) s = "=";
+                if (val == 219) s = "[";
+                if (val == 221) s = "]";
+
+                if (val == 192) s = "~";
+                if (val == 186) s = ";";
+                if (val == 222) s = "'";
+                if (val == 220) s = "\\";
+
+                if (val == 188) s = "<";
+                if (val == 190) s = ">";
+                if (val == 191) s = "/";
+
+                if (val == 109) s = "NUMPAD -";
+                if (val == 107) s = "NUMPAD +";
+                if (val == 111) s = "NUMPAD /";
+                if (val == 106) s = "NUMPAD *";
+
 
                 if (val >= 112 && val <= 123) s = "F" + (val-111).ToString();
                 if (val >= 96 && val <= 105) s = "NUMPAD" + (val - 96).ToString();
@@ -117,14 +151,13 @@ namespace SpacerUnion.Windows
                 }
                 else
                 {
-                    ConsoleEx.WriteLineRed("C# not key found: " + key);
+                    ConsoleEx.WriteLineRed("not key found: " + key);
                     union_key = 1;
                 }
 
                 if (control) mod |= (int)KeyMod.LControl;
                 if (shift) mod |= (int)KeyMod.LShift;
                 if (alt) mod |= (int)KeyMod.Alt;
-
             }
 
             public bool IsModKey(int key)
@@ -347,6 +380,15 @@ namespace SpacerUnion.Windows
             row = new string[] { "TOGGLE_BBOX", Localizator.Get("TOGGLE_BBOX"), "" };
             dataGridKeys.Rows.Add(row);
             row = new string[] { "TOGGLE_INVIS", Localizator.Get("TOGGLE_INVIS"), "" };
+            dataGridKeys.Rows.Add(row);
+
+
+
+            row = new string[] { "LIGHT_RAD_INC", Localizator.Get("LIGHT_RAD_INC"), "" };
+            dataGridKeys.Rows.Add(row);
+            row = new string[] { "LIGHT_RAD_DEC", Localizator.Get("LIGHT_RAD_DEC"), "" };
+            dataGridKeys.Rows.Add(row);
+            row = new string[] { "LIGHT_RAD_ZERO", Localizator.Get("LIGHT_RAD_ZERO"), "" };
             dataGridKeys.Rows.Add(row);
 
         }

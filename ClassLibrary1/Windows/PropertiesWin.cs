@@ -826,7 +826,7 @@ namespace SpacerUnion
             }
             else
             {
-                Console.WriteLine("C#: Textbox change with null node");
+                ConsoleEx.WriteLineGreen("Textbox change with null node");
             }
         }
 
@@ -883,7 +883,7 @@ namespace SpacerUnion
             }
             else
             {
-                Console.WriteLine("C#: Restore with null node");
+                ConsoleEx.WriteLineGreen("Restore with null node");
             }
         }
 
@@ -926,7 +926,7 @@ namespace SpacerUnion
             }
             else
             {
-                Console.WriteLine("C#: Textbox change with null node");
+                ConsoleEx.WriteLineGreen("Textbox change with null node");
             }
         }
 

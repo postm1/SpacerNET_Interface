@@ -80,7 +80,7 @@ namespace SpacerUnion
             SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
             SpacerNET.form.dayTimeToolStrip.Enabled = true;
             SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
-
+            SpacerNET.form.toolStripMenuItemMergeMesh.Enabled = false;
             this.Hide();
         }
 

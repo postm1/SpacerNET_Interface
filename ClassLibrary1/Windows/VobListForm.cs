@@ -82,7 +82,7 @@ namespace SpacerUnion
                     }
                     catch
                     {
-                        ConsoleEx.WriteLineGreen("C#: vobListSelect. Can't find vob with addr: " + Utils.ToHex(vobAddr));
+                        ConsoleEx.WriteLineGreen("vobListSelect. Can't find vob with addr: " + Utils.ToHex(vobAddr));
                     }
 
                     Imports.Extern_SelectVob(vobAddr);
@@ -128,7 +128,7 @@ namespace SpacerUnion
                     }
                     catch
                     {
-                        ConsoleEx.WriteLineGreen("C#: vobListSelect. Can't find vob with addr: " + Utils.ToHex(vobAddr));
+                        ConsoleEx.WriteLineGreen("vobListSelect. Can't find vob with addr: " + Utils.ToHex(vobAddr));
                     }
 
                    

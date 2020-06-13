@@ -132,7 +132,7 @@ namespace SpacerUnion.Common
             words.Add("VOB_NEAR_CAMERA", new List<string> { "Воб вставлен перед камерой", "Vob inserted in front of the camera", "Vob vor der Kamera eingefügt", "Vob został stworzony na przeciwko kamery" });
 
 
-            words.Add("TOOL_TRANS", new List<string> { "Выбран инструмент перемещение", "Tool: translation", "Werkzeug: verschieben", "Narzędzie: Przemieszczanie" });
+            words.Add("TOOL_TRANS", new List<string> { "Выбран инструмент перемещение", "Tool: moving", "Werkzeug: verschieben", "Narzędzie: Przemieszczanie" });
             words.Add("TOOL_ROT", new List<string> { "Выбран инструмент вращение", "Tool: rotation", "Werkzeug: rotieren", "Narzędzie: Rotacja" });
             words.Add("TOOL_UNSELECT", new List<string> { "Выделение воба снято", "Vob selection cancel", "Vobauswahl aufgehoben", "Wybranie voba zostało anulowane" });
             words.Add("TOOL_FLOOR", new List<string> { "Прижимание воба к полу", "Try to floor the vob", "Vob am Boden fixieren", "Spróbuj postawić Voba na podłodze" });
@@ -206,7 +206,7 @@ namespace SpacerUnion.Common
             words.Add("labelVobs", new List<string> { "Вобы", "Vobs", "Vobs", "Obiekty" });
             words.Add("labelLimitFPS", new List<string> { "Ограничить FPS", "Limit FPS", "FPS Limit", "Limit FPS" });
             words.Add("groupBoxInfo", new List<string> { "Информация", "Information", "Information", "Informacje" });
-            words.Add("checkBoxFPS", new List<string> { "Показывать FSP", "Show FPS", "Zeige FPS", "Pokaż FPS" });
+            words.Add("checkBoxFPS", new List<string> { "Показывать FPS", "Show FPS", "Zeige FPS", "Pokaż FPS" });
             words.Add("checkBoxTris", new List<string> { "Показывать кол-во рисуемых треугольников", "Show rendered triangles", "Zeige die gerenderten Dreiecke", "Pokaż ilość renderowanych trójkątów" });
             words.Add("checkBoxCamCoord", new List<string> { "Показывать координаты камеры", "Show camera coordinates", "Zeige die Kamera Koordinaten", "Pokaż koordynaty kamery" });
             words.Add("checkBoxVobs", new List<string> { "Показывать кол-во вобов", "Show vobs count", "Zeige die Vobs Anzahl", "Pokaż ilość vobów" });
@@ -375,6 +375,17 @@ namespace SpacerUnion.Common
             words.Add("labelCamSetSlerp", new List<string> { "Плавность поворота камеры", "Camera rotation smoothing", "Kameraroation glätten", "Wygładzenie rotacji kamery" });
             words.Add("keysResetDefault", new List<string> { "Сбросить по-умолчанию", "Reset default", "Einstellung zurückstellen", "Przywróć domyślne" });
             words.Add("confirmText", new List<string> { "Вы уверены?", "Are you sure?", "Bist du dir sicher ?", "Jesteś pewny?" });
+            words.Add("MENU_TOP_MERGEMESH", new List<string> { "Объединить MESH...", "Merge MESH...", "MESH zusammenfügen...", "Połącz MESH..." });
+
+            words.Add("LIGHT_RAD_INC", new List<string> { "Увеличить радиус освещения", "Increase light radius", "Lichtradius erhöhen", "" });
+            words.Add("LIGHT_RAD_DEC", new List<string> { "Уменьшить радиус освещения", "Decrease light radius", "Lichtradius verringern", "" });
+            words.Add("LIGHT_RAD_ZERO", new List<string> { "Сбросить радиус освещения", "Reset light radius to 0", "", "Lichtradius auf 0 setzen" });
+            words.Add("checkBoxSelectMoveInsert", new List<string> { "Включать инструмент перемещение при вставке воба", "Select Moving tool after inserting a vob", "Bewegungswerkzeug auswählen, nachdem vob eingefügt worden ist", "" });
+
+            words.Add("labelSpeedPreview", new List<string> { "Скорость вращения превью-модели", "Model preview rotation speed", "Modelvorschau Rotationsgeschwindigkeit", "" });
+            
+            words.Add("loadMeshTimeAll", new List<string> { "Общее время загрузки всех мешей", "Total time of merging all the meshes", "", "" });
+
 
 
         }

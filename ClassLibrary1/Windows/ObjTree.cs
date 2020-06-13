@@ -221,7 +221,7 @@ namespace SpacerUnion
             }
             catch
             {
-                Utils.Error("C#: updateParentAddNode fail. No parent found. Addr vob: " + Utils.ToHex(ptr));
+                Utils.Error("updateParentAddNode fail. No parent found. Addr vob: " + Utils.ToHex(ptr));
             }
 
             if (entryParent != null && entry != null)
@@ -237,10 +237,10 @@ namespace SpacerUnion
             }
 
             
-            ConsoleEx.WriteLineGreen("C#: Всего вобов в списке: " + globalEntries.Count);
+            //ConsoleEx.WriteLineGreen("Всего вобов в списке: " + globalEntries.Count);
             countNodeView = 0;
             CalcNodesCount(SpacerNET.objTreeWin.globalTree.Nodes);
-            ConsoleEx.WriteLineGreen("C#: Всего узлов TreeView: " + countNodeView);
+           // ConsoleEx.WriteLineGreen("C#: Всего узлов TreeView: " + countNodeView);
 
 
         }
@@ -307,7 +307,7 @@ namespace SpacerUnion
             }
             catch
             {
-                ConsoleEx.WriteLineRed("C#: UpdateName fail. No vob found in globalList. Addr: " + Utils.ToHex(ptr));
+                ConsoleEx.WriteLineRed("UpdateName fail. No vob found in globalList. Addr: " + Utils.ToHex(ptr));
 
                 Utils.WriteToFile(String.Format("UpdateName: No vob found in globalList addr: {0}, name {1}", Utils.ToHex(ptr), name));
             }
@@ -324,7 +324,7 @@ namespace SpacerUnion
             }
 
 
-            Console.WriteLine("C#: UpdateName for vob: " + Utils.ToHex(ptr));
+            ConsoleEx.WriteLineGreen("UpdateName for vob: " + Utils.ToHex(ptr));
 
 
         }
@@ -369,7 +369,7 @@ namespace SpacerUnion
                     .FirstOrDefault();
 
 
-            Console.WriteLine("C#: OnSelectVob: " + Utils.ToHex(ptr));
+            ConsoleEx.WriteLineGreen("OnSelectVob: " + Utils.ToHex(ptr));
 
 
             if (entry != null)
@@ -400,12 +400,12 @@ namespace SpacerUnion
 
             if (entry.node != null)
             {
-                ConsoleEx.WriteLineGreen("C#: Remove node: " + entry.node.Text + " Parent: " + Utils.ToHex(entry.parent));
+                ConsoleEx.WriteLineGreen("Remove node: " + entry.node.Text + " Parent: " + Utils.ToHex(entry.parent));
                 entry.node.Remove();
             }
             else
             {
-                ConsoleEx.WriteLineGreen("C#: Remove node failure. Node is null");
+                ConsoleEx.WriteLineGreen("Remove node failure. Node is null");
             }
 
             entry.childs.Clear();
@@ -434,7 +434,7 @@ namespace SpacerUnion
         [DllExport]
         public static void ReloadWaypoint()
         {
-            ConsoleEx.WriteLineGreen("C#: Перестраиваю список вейпоинтов в интерфейсе: Кол-во вобов в списке " + globalEntries.Count);
+            //ConsoleEx.WriteLineGreen("C#: Перестраиваю список вейпоинтов в интерфейсе: Кол-во вобов в списке " + globalEntries.Count);
 
             foreach (var entry in tempEntries)
             {
@@ -444,14 +444,14 @@ namespace SpacerUnion
             IsWaypointReload = false;
             tempEntries.Clear();
 
-            ConsoleEx.WriteLineGreen("C#: Дерево вейпоинтов обновлено заполнено. Всего записей: " + globalEntries.Count);
+            //ConsoleEx.WriteLineGreen("C#: Дерево вейпоинтов обновлено заполнено. Всего записей: " + globalEntries.Count);
         }
         
         [DllExport]
         public static void ClearWaypoints()
         {
 
-            ConsoleEx.WriteLineGreen("C#: Начало очистки вейпоинтов: Кол-во вобов в списке " + globalEntries.Count);
+            //ConsoleEx.WriteLineGreen("C#: Начало очистки вейпоинтов: Кол-во вобов в списке " + globalEntries.Count);
 
 
             TreeNode node = SpacerNET.objTreeWin.globalTree.SelectedNode;
@@ -494,7 +494,7 @@ namespace SpacerUnion
 
             IsWaypointReload = true;
             tempEntries.Clear();
-            ConsoleEx.WriteLineGreen("C#: Очистил вейпоины: Кол-во вобов в списке " + globalEntries.Count);
+           // ConsoleEx.WriteLineGreen("Clean waypoints. All vobs count: " + globalEntries.Count);
 
         }
 
@@ -503,9 +503,8 @@ namespace SpacerUnion
         {
             TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
 
-            Console.WriteLine("=============================");
-            Console.WriteLine("C#: OnVobRemove: " + Utils.ToHex(vob));
-            ConsoleEx.WriteLineGreen("C#: Всего вобов в списке: " + globalEntries.Count);
+            ConsoleEx.WriteLineGreen("OnVobRemove: " + Utils.ToHex(vob));
+            ConsoleEx.WriteLineGreen("All vobs count: " + globalEntries.Count);
 
             if (vob == 0)
             {
@@ -533,21 +532,21 @@ namespace SpacerUnion
 
                 if (globalEntries.ContainsKey(vob))
                 {
-                    Utils.Error("C#: WTF? I have removed the vob with such key: " + Utils.ToHex(vob) + " " + entry.name);
+                    Utils.Error("WTF? I have removed the vob with such key: " + Utils.ToHex(vob) + " " + entry.name);
                 }
 
                 if (entries.Count > 1)
                 {
-                    Utils.Error("C#: Warning! I found more than 1 entries with same Vob addr! Count: " + entries.Count);
+                    Utils.Error("Warning! I found more than 1 entries with same Vob addr! Count: " + entries.Count);
                 }
             }
 
             SpacerNET.vobList.ClearListBox();
 
-            ConsoleEx.WriteLineGreen("C#: Всего вобов в списке: " + globalEntries.Count);
+            ConsoleEx.WriteLineGreen("All vobs count: " + globalEntries.Count);
             countNodeView = 0;
             CalcNodesCount(SpacerNET.objTreeWin.globalTree.Nodes);
-            ConsoleEx.WriteLineGreen("C#: Всего узлов TreeView: " + countNodeView);
+            ConsoleEx.WriteLineGreen("All TreeView nodes count: " + countNodeView);
             
             Console.WriteLine("=============================");
         }
@@ -562,7 +561,7 @@ namespace SpacerUnion
             TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
 
             Console.WriteLine("");
-            ConsoleEx.WriteLineGreen("C#: OnVobInsert: " + name);
+            ConsoleEx.WriteLineGreen("OnVobInsert: " + name);
             int classNameFoundPos = -1;
 
             classNameFoundPos = CreateAndGetFolder(className);
@@ -663,7 +662,7 @@ namespace SpacerUnion
                
                 
                 
-                Console.WriteLine("C# OnVobInsert Глобально: " + name + " parent: " + Utils.ToHex(parent) + " className: " + className);
+                Console.WriteLine("OnVobInsert globally: " + name + " parent: " + Utils.ToHex(parent) + " className: " + className);
             }
             else if (entry.parentEntry != null)
             {
@@ -696,7 +695,7 @@ namespace SpacerUnion
                 else
                 {
 
-                    string msg = "C# OnVobInsert: parent node is null. Vob  "
+                    string msg = "OnVobInsert: parent node is null. Vob  "
                     + entry.parentEntry.name;
 
 
@@ -706,14 +705,14 @@ namespace SpacerUnion
             }
             else
             {
-                Utils.Error("C# OnVobInsert: parent entry is null");
+                Utils.Error("OnVobInsert: parent entry is null");
             }
 
 
-            ConsoleEx.WriteLineGreen("C#: Vobs count: " + globalEntries.Count);
+            ConsoleEx.WriteLineGreen("Vobs count: " + globalEntries.Count);
             countNodeView = 0;
             CalcNodesCount(SpacerNET.objTreeWin.globalTree.Nodes);
-            ConsoleEx.WriteLineGreen("C#: TreeView Nodes count: " + countNodeView);
+            ConsoleEx.WriteLineGreen("TreeView Nodes count: " + countNodeView);
         }
 
 
@@ -731,7 +730,7 @@ namespace SpacerUnion
                 AddVobToNodes(entry.Value);
             }
 
-            ConsoleEx.WriteLineGreen("C#: Tree is ready. GlobalEntries count: " + globalEntries.Count);
+            ConsoleEx.WriteLineGreen("Tree is ready. GlobalEntries count: " + globalEntries.Count);
             SpacerNET.objTreeWin.globalTree.Visible = true;
             Application.DoEvents();
 
@@ -839,7 +838,7 @@ namespace SpacerUnion
 
             uint addr = Convert.ToUInt32(node.Tag);
 
-            Console.WriteLine("C#: OnSelectDoubleClick node: vob " + Utils.ToHex(addr));
+            ConsoleEx.WriteLineGreen("OnSelectDoubleClick node: vob " + Utils.ToHex(addr));
 
             Imports.Extern_SelectVob(addr);
             SpacerNET.form.Focus();
@@ -851,7 +850,7 @@ namespace SpacerUnion
 
             if (nextAfterEventBlocked)
             {
-                Console.WriteLine("C#: AfterSelect event was aborted.");
+                ConsoleEx.WriteLineGreen("AfterSelect event was aborted.");
                 nextAfterEventBlocked = false;
 
                 if (lastSelectedNode != null)
@@ -891,7 +890,7 @@ namespace SpacerUnion
 
             uint addr = Convert.ToUInt32(node.Tag);
 
-            Console.WriteLine("C#: AfterSelect node: vob " + Utils.ToHex(addr));
+            ConsoleEx.WriteLineGreen("AfterSelect node: vob " + Utils.ToHex(addr));
 
             if (node.Text.Contains("zCVobWaypoint") || node.Text.Contains("zCVobSpot"))
             {

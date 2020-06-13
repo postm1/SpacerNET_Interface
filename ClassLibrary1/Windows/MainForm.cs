@@ -25,7 +25,7 @@ namespace SpacerUnion
 
         public Form renderTarget = null;
         public string currentWorldName = "";
-
+        public bool meshOpenFirst = false;
         
         public enum ToggleMenuType
         {
@@ -99,6 +99,7 @@ namespace SpacerUnion
             cameraCoordsToolStrip.Enabled = false;
             dayTimeToolStrip.Enabled = false;
             toolStripMenuResetWorld.Enabled = false;
+            toolStripMenuItemMergeMesh.Enabled = false;
             // UnionNET.partWin.listBoxParticles.Items.Clear();
             // UnionNET.partWin.listBoxItems.Items.Clear();
         }
@@ -119,6 +120,7 @@ namespace SpacerUnion
             openZENToolStripMenuItem.Text = Localizator.Get("MENU_TOP_OPENZEN");
             toolStripMenuOpenZEN.Text = Localizator.Get("MENU_TOP_MESH");
             toolStripMenuItemMerge.Text = Localizator.Get("MENU_TOP_MERGE");
+            toolStripMenuItemMergeMesh.Text = Localizator.Get("MENU_TOP_MERGEMESH");
             saveZenToolStripMenuItem.Text = Localizator.Get("MENU_TOP_SAVEZEN");
             aboutToolStripMenuItem.Text = Localizator.Get("MENU_TOP_ABOUT");
 
@@ -511,7 +513,7 @@ namespace SpacerUnion
             }
            
 
-            saveFileDialog1.FileName = zenName;
+            saveFileDialog1.FileName = zenName.ToUpper();
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -665,7 +667,8 @@ namespace SpacerUnion
                 SpacerNET.form.compileWorldToolStrip.Enabled = true;
                 SpacerNET.form.dayTimeToolStrip.Enabled = true;
                 SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
-
+                SpacerNET.form.toolStripMenuItemMergeMesh.Enabled = true;
+                meshOpenFirst = true;
             }
 
             
@@ -983,12 +986,14 @@ namespace SpacerUnion
         private void управлениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+            Imports.Stack_PushString("selectMoveWhenVobInsert");
             Imports.Stack_PushString("wpTurnOn");
             Imports.Stack_PushString("vobInsertHierarchy");
             Imports.Stack_PushString("vobInsertVobRotRand");
             Imports.Stack_PushString("vobInsertItemLevel");
             Imports.Stack_PushString("vobRotSpeed");
             Imports.Stack_PushString("vobTransSpeed");
+            
 
             int transSpeed = Imports.Extern_GetSetting();
             int rotSpeed = Imports.Extern_GetSetting();
@@ -996,7 +1001,7 @@ namespace SpacerUnion
             bool vobInsertVobRotRand = Convert.ToBoolean(Imports.Extern_GetSetting());
             bool vobInsertHierarchy = Convert.ToBoolean(Imports.Extern_GetSetting());
             int turnMode = Imports.Extern_GetSetting();
-
+            bool selectMove = Convert.ToBoolean(Imports.Extern_GetSetting());
 
 
             SpacerNET.settingsControl.trackBarVobTransSpeed.Value = transSpeed;
@@ -1004,6 +1009,7 @@ namespace SpacerUnion
             SpacerNET.settingsControl.checkBoxInsertVob.Checked = insertVobItemLevel;
             SpacerNET.settingsControl.checkBoxVobRotRandAngle.Checked = vobInsertVobRotRand;
             SpacerNET.settingsControl.checkBoxVobInsertHierarchy.Checked = vobInsertHierarchy;
+            SpacerNET.settingsControl.checkBoxSelectMoveInsert.Checked = selectMove;
             SpacerNET.settingsControl.UpdateAll();
 
             SpacerNET.settingsControl.SetRadioTurnMode(turnMode);
@@ -1207,6 +1213,80 @@ namespace SpacerUnion
 
         }
 
+        private void toolStripSeparator6_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void toolStripMenuItemMergeMesh_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "Mesh-File (*.3ds)|*.3ds|All Files(*.*)|*.*||";
+
+            Imports.Stack_PushString("meshPath");
+            Imports.Extern_GetSettingStr();
+            string path = Imports.Stack_PeekString();
+
+            if (path != "")
+            {
+                openFileDialog1.InitialDirectory = System.IO.Path.GetDirectoryName(@path + @"/");
+            }
+            else
+            {
+                openFileDialog1.InitialDirectory = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/";
+            }
+
+            openFileDialog1.RestoreDirectory = true;
+            openFileDialog1.FileName = String.Empty;
+            openFileDialog1.Multiselect = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+
+                Imports.Stack_PushString(Path.GetDirectoryName(openFileDialog1.FileName));
+                Imports.Stack_PushString("meshPath");
+                Imports.Extern_SetSettingStr();
+
+
+                Stopwatch sAll = new Stopwatch();
+                sAll.Start();
+
+                foreach (string filePath in openFileDialog1.FileNames)
+                {
+
+
+
+                    Stopwatch s = new Stopwatch();
+                    s.Start();
+
+                    string fileNameCurrent = Path.GetFileName(filePath).ToUpper();
+
+                    if (!fileNameCurrent.EndsWith(".3DS"))
+                    {
+                        continue;
+                    }
+
+                    SpacerNET.form.AddText(fileNameCurrent + " " + Localizator.Get("isLoading"));
+
+                    currentWorldName = fileNameCurrent;
+
+                    Imports.Stack_PushString(filePath);
+                    Imports.Extern_MergeMesh();
+
+                    s.Stop();
+
+                    string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
+                    SpacerNET.form.AddText(Localizator.Get("loadMeshTime") + " (" + timeSpend + ")");
+                }
+
+                sAll.Stop();
+
+                string timeSpendAll = string.Format("{0:HH:mm:ss.fff}", new DateTime(sAll.Elapsed.Ticks));
+                SpacerNET.form.AddText("==============");
+                SpacerNET.form.AddText(Localizator.Get("loadMeshTimeAll") + " (" + timeSpendAll + ")");
+
+            }
+
+            openFileDialog1.Multiselect = false;
+        }
     }
 }

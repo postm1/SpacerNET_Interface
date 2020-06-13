@@ -405,7 +405,7 @@ namespace SpacerUnion
                 visualVob = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
             }
 
-            ConsoleEx.WriteLineGreen("C#: OnCreateVob: ClassDef: " + name);
+            ConsoleEx.WriteLineGreen("OnCreateVob: ClassDef: " + name);
 
             if (name == "oCItem" || name == "zCVobWaypoint" || name == "zCVobSpot")
             {
@@ -491,7 +491,7 @@ namespace SpacerUnion
             }
 
 
-            ConsoleEx.WriteLineGreen("C#: OnCreateVob: ClassDef: " + name);
+            ConsoleEx.WriteLineGreen("OnCreateVob: ClassDef: " + name);
 
 
             Imports.Stack_PushString(vobName);
@@ -538,7 +538,7 @@ namespace SpacerUnion
                 return;
             }
 
-            ConsoleEx.WriteLineGreen("C#: OnCreateVob: ClassDef: " + name);
+            ConsoleEx.WriteLineGreen("OnCreateVob: ClassDef: " + name);
 
 
             Imports.Stack_PushString(vobName);
@@ -940,7 +940,7 @@ namespace SpacerUnion
                 }
                 catch
                 {
-                    Utils.Error("C#: triggetSourcesList. Can't find vob with addr: " + Utils.ToHex(addr));
+                    Utils.Error("triggetSourcesList. Can't find vob with addr: " + Utils.ToHex(addr));
                 }
 
                 Imports.Extern_SelectVob(addr);
@@ -963,7 +963,7 @@ namespace SpacerUnion
                 }
                 catch
                 {
-                    ConsoleEx.WriteLineGreen("C#: triggetTargetList. Can't find vob with addr: " + Utils.ToHex(addr));
+                    ConsoleEx.WriteLineGreen("triggetTargetList. Can't find vob with addr: " + Utils.ToHex(addr));
                 }
 
                 Imports.Extern_SelectVob(addr);

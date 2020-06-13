@@ -293,6 +293,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\v-ozhidanii-otveta_63203298_orig_.jpeg" />
     <None Include="Resources\uk-flag.png" />
     <None Include="Resources\usa.png" />
     <None Include="Resources\s1200.png" />

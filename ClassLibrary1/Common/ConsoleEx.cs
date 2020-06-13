@@ -8,11 +8,13 @@ namespace SpacerUnion
     // Класс для управления цветом текста консоли
     public static class ConsoleEx
     {
+        private const string PREFIX = "C#: ";
+
         public static void WriteLineRed(String message)
         {
             var oldColor = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(message);
+            Console.WriteLine(PREFIX + message);
             Console.ForegroundColor = oldColor;
         }
 
@@ -20,7 +22,7 @@ namespace SpacerUnion
         {
             var oldColor = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(message);
+            Console.WriteLine(PREFIX + message);
             Console.ForegroundColor = oldColor;
         }
 
@@ -28,7 +30,7 @@ namespace SpacerUnion
         {
             var oldColor = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(message);
+            Console.WriteLine(PREFIX + message);
             Console.ForegroundColor = oldColor;
         }
     }
