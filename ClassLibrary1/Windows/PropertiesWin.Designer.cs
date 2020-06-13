@@ -437,7 +437,7 @@
             this.dataGridViewItems.Name = "dataGridViewItems";
             this.dataGridViewItems.RowHeadersVisible = false;
             this.dataGridViewItems.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridViewItems.Size = new System.Drawing.Size(306, 350);
             this.dataGridViewItems.TabIndex = 4;
             this.dataGridViewItems.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
