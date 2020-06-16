@@ -353,7 +353,7 @@ namespace SpacerUnion.Common
             words.Add("labelTriggerCollision", new List<string> { "Коллизия", "Collision", "Kollision", "Kolizja" });
             words.Add("checkBoxDyn", new List<string> { "динамическая", "dynamic", "dynamisch", "dynamiczna" });
             words.Add("checkBoxStat", new List<string> { "статическая", "static", "statisch", "statyczna" });
-            words.Add("radioButtonOverwrite", new List<string> { "Перезаписать", "Overwrite", "Überschreiben", "Przepisz" });
+            words.Add("radioButtonOverwrite", new List<string> { "Перезаписать", "Overwrite", "Überschreiben", "Nadpisz" });
             words.Add("labelTriggerInsert", new List<string> { "Вставить", "Insert key", "Taste einfügen", "Dodaj klawisz" });
             words.Add("radioButtonAfter", new List<string> { "После", "After", "Danach", "Przed" });
             words.Add("radioButtonBefore", new List<string> { "До", "Before", "Davor", "Po" });
@@ -382,11 +382,11 @@ namespace SpacerUnion.Common
             words.Add("LIGHT_RAD_ZERO", new List<string> { "Сбросить радиус освещения", "Reset light radius to 0", "Lichtradius auf 0 setzen", "Zresetuj promień światła do wartości 0" });
             words.Add("checkBoxSelectMoveInsert", new List<string> { "Включать инструмент перемещение при вставке воба", "Select Moving tool after inserting a vob", "Bewegungswerkzeug auswählen, nachdem vob eingefügt worden ist", "Wybierz narzędzie przemieszczania przed dodaniem voba" });
 
-            words.Add("labelSpeedPreview", new List<string> { "Скорость вращения превью-модели", "Model preview rotation speed", "Modelvorschau Rotationsgeschwindigkeit", "Prędkość rotacji podglądu" });
+            words.Add("labelSpeedPreview", new List<string> { "Скорость вращения превью-модели", "Model preview rotation speed", "Rotationsgeschwindigkeit der Modelvorschau", "Prędkość rotacji podglądu" });
             
-            words.Add("loadMeshTimeAll", new List<string> { "Общее время загрузки всех мешей", "Total time of merging all the meshes", "", @"Czałkowicy czas łączenia wszystkich mesh'y" });
+            words.Add("loadMeshTimeAll", new List<string> { "Общее время объединения всех мешей", "Total time of merging all the meshes", "Gesamtzeit um alle Meshes zu vereinen", @"Czałkowicy czas łączenia wszystkich mesh'y" });
 
-
+            words.Add("WORK_PATH_ERROR", new List<string> { "Вы пытаетесь загрузить файл, который не находится в папке _WORK/DATA/. Поместите файл внутрь игры!", "You are trying to load a file which is not in _WORK/DATA/. Place this file inside the game folder!", "Du versuchst eine Datei zu laden, welche nicht im _WORK/DATA/ Ordner ist. Ziehe die Datei zuerst in den Spieleordner!", "Próbujesz wczytać plik, który nie znajduje się w _WORK/DATA/. Umieść go w folderze gry!" });
 
         }
     }

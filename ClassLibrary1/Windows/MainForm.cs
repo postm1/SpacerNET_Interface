@@ -21,7 +21,7 @@ namespace SpacerUnion
    
     public partial class MainForm : Form
     {
-        public const string SPACER_VERSION = "0.07";
+        public const string SPACER_VERSION = "0.08";
 
         public Form renderTarget = null;
         public string currentWorldName = "";
@@ -244,43 +244,46 @@ namespace SpacerUnion
         }
 
 
+
+
         private void openZENToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "ZEN files (*.zen)|*.zen";
+            openFileDialog.Filter = Constants.FILE_FILTER_OPEN_ZEN;
 
             Imports.Stack_PushString("zenzPath");
             Imports.Extern_GetSettingStr();
-            string path = Imports.Stack_PeekString();
+            string path = Utils.FixPath(Imports.Stack_PeekString());
 
             //ConsoleEx.WriteLineRed(path);
 
-            if (path != "")
+
+            openFileDialog.InitialDirectory = Utils.GetInitialDirectory(path);
+
+
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.FileName = String.Empty;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                //MessageBox.Show(path);
-                openFileDialog1.InitialDirectory = System.IO.Path.GetDirectoryName(@path + @"/");
-            }
-            else
-            {
-                openFileDialog1.InitialDirectory = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/Worlds/";
-            }
+                string filePath = openFileDialog.FileName;
 
-            openFileDialog1.RestoreDirectory = true;
-            openFileDialog1.FileName = String.Empty;
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
+                if (!Utils.IsPathWorkFolder(filePath))
+                {
+                    MessageBox.Show(Localizator.Get("WORK_PATH_ERROR"));
+                    return;
+                }
 
 
-                Imports.Stack_PushString(Path.GetDirectoryName(openFileDialog1.FileName));
+                Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(openFileDialog.FileName))));
                 Imports.Stack_PushString("zenzPath");
                 Imports.Extern_SetSettingStr();
 
 
-                Imports.Stack_PushString(openFileDialog1.FileName);
+                Imports.Stack_PushString(Utils.FixPath(openFileDialog.FileName));
                 Imports.Stack_PushString("openLastZenPath");
                 Imports.Extern_SetSettingStr();
 
-                string filePath = openFileDialog1.FileName;
+               
 
 
                 Imports.Stack_PushString("fullPathTitle");
@@ -291,7 +294,7 @@ namespace SpacerUnion
                 }
                 else
                 {
-                    UpdateSpacerCaption(openFileDialog1.SafeFileName);
+                    UpdateSpacerCaption(openFileDialog.SafeFileName);
                 }
                
 
@@ -300,10 +303,10 @@ namespace SpacerUnion
 
                 ResetInterface();
 
-                SpacerNET.form.AddText(openFileDialog1.SafeFileName + " " + Localizator.Get("isLoading"));
-                ConsoleEx.WriteLineGreen(openFileDialog1.SafeFileName + " " + Localizator.Get("isLoading"));
+                SpacerNET.form.AddText(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"));
+                ConsoleEx.WriteLineGreen(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"));
 
-                currentWorldName = openFileDialog1.SafeFileName;
+                currentWorldName = openFileDialog.SafeFileName;
 
                 Imports.Stack_PushString(filePath);
                 Imports.Extern_LoadWorld();
@@ -466,75 +469,45 @@ namespace SpacerUnion
                 return;
             }
 
-            saveFileDialog1.Filter = "Compiled ZEN (ascii)|*.zen|Uncompiled ZEN (ascii)|*.zen|Compiled ZEN (binary safe)|*.zen";
+            saveFileDialog.Filter = Constants.FILE_FILTER_SAVE_ZEN;
 
             //saveFileDialog1.InitialDirectory = Directory.GetCurrentDirectory() + "../_WORK/DATA/Worlds/";
 
 
             Imports.Stack_PushString("zenzPath");
             Imports.Extern_GetSettingStr();
-            string path = Imports.Stack_PeekString();
+            string path = Utils.FixPath(Imports.Stack_PeekString());
 
-            if (path != "")
-            {
-                //MessageBox.Show(path);
-                saveFileDialog1.InitialDirectory = System.IO.Path.GetDirectoryName(@path + @"/");
-            }
-            else
-            {
-                saveFileDialog1.InitialDirectory = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/";
-            }
-
-            saveFileDialog1.RestoreDirectory = true;
+            saveFileDialog.InitialDirectory = Utils.GetInitialDirectory(path);
+            saveFileDialog.RestoreDirectory = true;
 
             //Console.WriteLine(openFileDialog1.InitialDirectory);
 
-            string zenName = Path.GetFileName(currentWorldName.Replace(".zen", "").Replace(".ZEN", ""));
-            string time = DateTime.Now.ToString("yyyy_MM_dd HH-mm-ss");
+            string zenName = Utils.GetZenName(currentWorldName);
+
+
+            //Path.GetFileName(currentWorldName.Replace(".zen", "").Replace(".ZEN", ""));
+            
 
 
 
-            var match = Regex.Match(zenName, @"(^.*)_\d\d\d\d_\d\d_\d\d\s+\d\d-\d\d-\d\d");
+            //zenName = Utils.CorrectZenName(zenName);
+            saveFileDialog.FileName = zenName;
 
-            if (match.Groups.Count > 1)
-            {
-                zenName = match.Groups[1].Value;
-
-            }
-
-            Imports.Stack_PushString("addDatePrefix");
-
-            int addPrefx = Imports.Extern_GetSetting();
-
-
-            if (addPrefx != 0)
-            {
-                zenName = zenName.Replace(".zen", "").Replace(".ZEN", "") + "_" + time + ".ZEN";
-            }
-           
-
-            saveFileDialog1.FileName = zenName.ToUpper();
-
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
 
-
-
-
-                Imports.Stack_PushString(Path.GetDirectoryName(saveFileDialog1.FileName));
+                Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(saveFileDialog.FileName))));
                 Imports.Stack_PushString("zenzPath");
                 Imports.Extern_SetSettingStr();
 
 
-                Imports.Stack_PushString(saveFileDialog1.FileName);
+                Imports.Stack_PushString(Utils.FixPath((saveFileDialog.FileName)));
                 Imports.Stack_PushString("openLastZenPath");
                 Imports.Extern_SetSettingStr();
 
-
-
-
-                string filePath = saveFileDialog1.FileName;
-                string selectedFileName = Path.GetFileName(saveFileDialog1.FileName);
+                string filePath = saveFileDialog.FileName;
+                string selectedFileName = Path.GetFileName(saveFileDialog.FileName);
 
 
                 Imports.Stack_PushString("fullPathTitle");
@@ -551,7 +524,7 @@ namespace SpacerUnion
                
 
 
-                if (saveFileDialog1.FilterIndex == 2)
+                if (saveFileDialog.FilterIndex == 2)
                 {
                     //filePath = filePath.Replace(".zen", "") + "_vobs.zen";
                 }
@@ -565,7 +538,7 @@ namespace SpacerUnion
 
                 Imports.Stack_PushString(filePath);
 
-                Imports.Extern_SaveWorld( saveFileDialog1.FilterIndex - 1);
+                Imports.Extern_SaveWorld( saveFileDialog.FilterIndex - 1);
 
                 s.Stop();
 
@@ -582,20 +555,8 @@ namespace SpacerUnion
 
         private void камераToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-         
-
             SpacerNET.settingsCam.UpdateAll();
-
-
-
-            
-
-
-
             SpacerNET.settingsCam.Show();
-
-            
         }
 
 
@@ -608,42 +569,42 @@ namespace SpacerUnion
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Mesh-File (*.3ds)|*.3ds|All Files(*.*)|*.*||";
+            openFileDialog.Filter = Constants.FILE_FILTER_OPEN_MESH;
 
 
 
             Imports.Stack_PushString("meshPath");
             Imports.Extern_GetSettingStr();
-            string path = Imports.Stack_PeekString();
+            string path = Utils.FixPath(Imports.Stack_PeekString());
             //MessageBox.Show(path);
 
-            if (path != "")
-            {
-                //MessageBox.Show(path);
-                openFileDialog1.InitialDirectory = System.IO.Path.GetDirectoryName(@path + @"/");
-            }
-            else
-            {
-                openFileDialog1.InitialDirectory = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/";
-            }
+            openFileDialog.InitialDirectory = Utils.GetInitialDirectory(path);
 
-            openFileDialog1.RestoreDirectory = true;
-            openFileDialog1.FileName = String.Empty;
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.FileName = String.Empty;
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
 
+                string filePath = openFileDialog.FileName;
+
+                if (!Utils.IsPathWorkFolder(filePath))
+                {
+                    MessageBox.Show(Localizator.Get("WORK_PATH_ERROR"));
+                    return;
+                }
 
 
-                Imports.Stack_PushString(Path.GetDirectoryName(openFileDialog1.FileName));
+                string meshPathSave = Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(openFileDialog.FileName)));
+
+
+                Imports.Stack_PushString(meshPathSave);
                 Imports.Stack_PushString("meshPath");
                 Imports.Extern_SetSettingStr();
 
 
-                string filePath = openFileDialog1.FileName;
 
-
-                UpdateSpacerCaption(openFileDialog1.SafeFileName);
+                UpdateSpacerCaption(openFileDialog.SafeFileName);
 
 
                 Stopwatch s = new Stopwatch();
@@ -651,9 +612,9 @@ namespace SpacerUnion
 
                 ResetInterface();
 
-                SpacerNET.form.AddText(openFileDialog1.SafeFileName + " " + Localizator.Get("isLoading"));
+                SpacerNET.form.AddText(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"));
 
-                currentWorldName = openFileDialog1.SafeFileName;
+                currentWorldName = openFileDialog.SafeFileName;
 
                 Imports.Stack_PushString(filePath);
                 Imports.Extern_LoadMesh();
@@ -684,41 +645,39 @@ namespace SpacerUnion
                 return;
             }
 
-            openFileDialog1.Filter = "World (*.Zen)|*.zen|All Files(*.*)|*.*||";
+            openFileDialog.Filter = Constants.FILE_FILTER_MERGE_VOBS;
 
 
 
             Imports.Stack_PushString("vobsPath");
             Imports.Extern_GetSettingStr();
-            string path = Imports.Stack_PeekString();
+            string path = Utils.FixPath(Imports.Stack_PeekString());
 
             //MessageBox.Show(path);
 
-            if (path != "")
+            openFileDialog.InitialDirectory = Utils.GetInitialDirectory(path);
+            openFileDialog.RestoreDirectory = true;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                //MessageBox.Show(path);
-                openFileDialog1.InitialDirectory = System.IO.Path.GetDirectoryName(@path + @"/");
-            }
-            else
-            {
-                openFileDialog1.InitialDirectory = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/Worlds/";
-            }
+                string filePath = openFileDialog.FileName;
 
-            openFileDialog1.RestoreDirectory = true;
+                if (!Utils.IsPathWorkFolder(filePath))
+                {
+                    MessageBox.Show(Localizator.Get("WORK_PATH_ERROR"));
+                    return;
+                }
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
+                string vobsPathSave = Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(openFileDialog.FileName)));
 
-
-
-                Imports.Stack_PushString((Path.GetDirectoryName(openFileDialog1.FileName)));
+                Imports.Stack_PushString(vobsPathSave);
                 Imports.Stack_PushString("vobsPath");
                 Imports.Extern_SetSettingStr();
 
 
-                string filePath = openFileDialog1.FileName;
+               
 
-                UpdateSpacerCaption(openFileDialog1.SafeFileName);
+                UpdateSpacerCaption(openFileDialog.SafeFileName);
 
 
                 Stopwatch s = new Stopwatch();
@@ -726,9 +685,9 @@ namespace SpacerUnion
 
                 ResetInterface();
 
-                SpacerNET.form.AddText(openFileDialog1.SafeFileName + " " + Localizator.Get("isLoading"));
+                SpacerNET.form.AddText(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"));
 
-                currentWorldName = openFileDialog1.SafeFileName;
+                currentWorldName = openFileDialog.SafeFileName;
 
                 Imports.Stack_PushString(filePath);
                 Imports.Extern_MergeZen();
@@ -784,25 +743,7 @@ namespace SpacerUnion
             Imports.Extern_SetCameraPos();
         }
 
-        private void вобыВФайлToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var entries = ObjTree.globalEntries;
 
-
-            foreach (var entry in entries)
-            {
-                Utils.InfoFile(String.Format("Name: {0}, Addr: {1}, Parent: {2}, Class: {3}",
-                    entry.Value.name, entry.Value.zCVob, entry.Value.parent, entry.Value.className));
-
-                
-                for (int i = 0; i < entry.Value.childs.Count; i++)
-                {
-                    Utils.InfoFile(String.Format("\tName: {0}, Addr: {1}, Parent: {2}, Class: {3}",
-                   entry.Value.childs[i].name, entry.Value.childs[i].zCVob, entry.Value.childs[i].parent, entry.Value.childs[i].className));
-                }
-                
-            }
-        }
 
         private void toolStripButtonInfo_Click(object sender, EventArgs e)
         {
@@ -1220,29 +1161,34 @@ namespace SpacerUnion
 
         private void toolStripMenuItemMergeMesh_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Mesh-File (*.3ds)|*.3ds|All Files(*.*)|*.*||";
+            openFileDialog.Filter = Constants.FILE_FILTER_OPEN_MESH;
 
             Imports.Stack_PushString("meshPath");
             Imports.Extern_GetSettingStr();
-            string path = Imports.Stack_PeekString();
+            string path = Utils.FixPath(Imports.Stack_PeekString());
 
-            if (path != "")
-            {
-                openFileDialog1.InitialDirectory = System.IO.Path.GetDirectoryName(@path + @"/");
-            }
-            else
-            {
-                openFileDialog1.InitialDirectory = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/";
-            }
+            openFileDialog.InitialDirectory = Utils.GetInitialDirectory(path);
 
-            openFileDialog1.RestoreDirectory = true;
-            openFileDialog1.FileName = String.Empty;
-            openFileDialog1.Multiselect = true;
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.FileName = String.Empty;
+            openFileDialog.Multiselect = true;
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
 
-                Imports.Stack_PushString(Path.GetDirectoryName(openFileDialog1.FileName));
+
+                string filePathCheck = openFileDialog.FileName;
+
+                if (!Utils.IsPathWorkFolder(filePathCheck))
+                {
+                    MessageBox.Show(Localizator.Get("WORK_PATH_ERROR"));
+                    return;
+                }
+
+
+
+
+                Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(openFileDialog.FileName))));
                 Imports.Stack_PushString("meshPath");
                 Imports.Extern_SetSettingStr();
 
@@ -1250,7 +1196,7 @@ namespace SpacerUnion
                 Stopwatch sAll = new Stopwatch();
                 sAll.Start();
 
-                foreach (string filePath in openFileDialog1.FileNames)
+                foreach (string filePath in openFileDialog.FileNames)
                 {
 
 
@@ -1284,9 +1230,12 @@ namespace SpacerUnion
                 SpacerNET.form.AddText("==============");
                 SpacerNET.form.AddText(Localizator.Get("loadMeshTimeAll") + " (" + timeSpendAll + ")");
 
+                Imports.Stack_PushString("CS_IAI_ME_ME");
+                Imports.Extern_PlaySound();
+
             }
 
-            openFileDialog1.Multiselect = false;
+            openFileDialog.Multiselect = false;
         }
     }
 }

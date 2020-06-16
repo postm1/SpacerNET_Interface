@@ -351,32 +351,90 @@ namespace SpacerUnion
             SpacerNET.form.Focus();
         }
 
-        public static void FindClass(TreeNodeCollection nodes, string baseClass, string name)
+        public static void FindClass(TreeNodeCollection nodes, string name, ZenGinClass entry)
         {
+            if (entry.parentName == String.Empty)
+            {
+                TreeNode newNode = nodes.Add(name + entry.postFix);
+                newNode.Tag = entry;
+                return;
+            }
+
             for (int i = 0; i < nodes.Count; i++)
             {
-                if (nodes[i].Text == baseClass)
+                ZenGinClass objNode = nodes[i].Tag as ZenGinClass;
+
+                if (objNode != null)
                 {
-                    nodes[i].Nodes.Add(name);
-                    return;
+                    if (objNode.name == entry.parentName)
+                    {
+                        TreeNode newNode = nodes[i].Nodes.Add(name + entry.postFix);
+                        newNode.Tag = entry;
+                    }
                 }
 
-                FindClass(nodes[i].Nodes, baseClass, name);
+                FindClass(nodes[i].Nodes, entry.name, entry);
             }
+            
+        }
+
+        public class ZenGinClass
+        {
+            public string name;
+            public string parentName;
+            public string postFix;
+            public TreeNode node;
+        };
+
+
+        static Dictionary<string, ZenGinClass> classesList = new Dictionary<string, ZenGinClass>();
+
+        [DllExport]
+        public static void FillClassNodes()
+        {
+            TreeNodeCollection nodes = SpacerNET.objectsWin.classesTreeView.Nodes;
+
+            foreach (var entry in classesList)
+            {
+                FindClass(nodes, entry.Key, entry.Value);
+            }
+
+            SpacerNET.objectsWin.classesTreeView.ExpandAll();
+            SpacerNET.objectsWin.classesTreeView.SelectedNode = SpacerNET.objectsWin.classesTreeView.Nodes[0];
+            SpacerNET.objectsWin.classesTreeView.SelectedNode.EnsureVisible();
+
         }
 
         [DllExport]
-        public static void AddClassNode(int depth)
+        public static void AddClassNode()
         {
+            string postFixName = Imports.Stack_PeekString();
             string name = Imports.Stack_PeekString();
             string baseClassName = Imports.Stack_PeekString();
-            TreeNodeCollection nodes = SpacerNET.objectsWin.classesTreeView.Nodes;
+            
+
+
+            classesList.Add(name, new ZenGinClass()
+            {
+                name = name,
+                parentName = baseClassName,
+                postFix = postFixName
+            }
+            );
+
+           // ConsoleEx.WriteLineGreen(String.Format("prefixName: {0}, name: {1}, baseClassName: {2}", postFixName, name, baseClassName));
+
+            return;
+            /*
+
             if (name == baseClassName)
             {
-                nodes.Add(name);
+                TreeNode node = nodes.Add(prefixName);
+                node.Tag = name.ToString();
                 return;
             }
-            FindClass(nodes, baseClassName, name);
+
+            FindClass(nodes, prefixName, name);
 
             SpacerNET.objectsWin.comboBoxSearchClass.Items.Add(name);
             SpacerNET.objectsWin.comboBoxSearchClass.SelectedIndex = 0;
@@ -384,6 +442,7 @@ namespace SpacerUnion
             SpacerNET.objectsWin.classesTreeView.ExpandAll();
             SpacerNET.objectsWin.classesTreeView.SelectedNode = SpacerNET.objectsWin.classesTreeView.Nodes[0];
             SpacerNET.objectsWin.classesTreeView.SelectedNode.EnsureVisible();
+            */
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -393,7 +452,15 @@ namespace SpacerUnion
                 return;
             }
 
-            string name = classesTreeView.SelectedNode.Text;
+            ZenGinClass entry = classesTreeView.SelectedNode.Tag as ZenGinClass;
+
+            if (entry == null)
+            {
+                return;
+            }
+
+
+            string name = entry.name;
             string vobName = textBoxVobName.Text.Trim();
             string visualVob = "";
             int isDyn = Convert.ToInt32(checkBoxDynStat.Checked);

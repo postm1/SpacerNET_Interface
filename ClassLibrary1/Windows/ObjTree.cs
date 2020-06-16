@@ -25,14 +25,12 @@ namespace SpacerUnion
         public static Dictionary<uint, TreeEntry> globalEntries = new Dictionary<uint, TreeEntry>();
         public static Dictionary<uint, TreeEntry> tempEntries = new Dictionary<uint, TreeEntry>();
         static bool nextAfterEventBlocked = false;
-        static bool nextAfterEventBlockedSelect = false;
         static TreeNode lastSelectedNode = null;
         static bool IsWaypointReload = false;
 
         public ObjTree()
         {
             InitializeComponent();
-
         }
 
         public void UpdateLang()
@@ -542,6 +540,7 @@ namespace SpacerUnion
             }
 
             SpacerNET.vobList.ClearListBox();
+            ObjectsWindow.CleanProps();
 
             ConsoleEx.WriteLineGreen("All vobs count: " + globalEntries.Count);
             countNodeView = 0;
@@ -549,6 +548,8 @@ namespace SpacerUnion
             ConsoleEx.WriteLineGreen("All TreeView nodes count: " + countNodeView);
             
             Console.WriteLine("=============================");
+
+
         }
 
        
@@ -659,6 +660,10 @@ namespace SpacerUnion
                 {
                     SpacerNET.objTreeWin.globalTree.SelectedNode = node;
                 }
+                else
+                {
+                    //ConsoleEx.WriteLineRed("No select");
+                }
                
                 
                 
@@ -688,9 +693,13 @@ namespace SpacerUnion
                     {
                         SpacerNET.objTreeWin.globalTree.SelectedNode = node;
                     }
-                        
-                    
-                        
+                    else
+                    {
+                        //ConsoleEx.WriteLineRed("No select");
+                    }
+
+
+
                 }
                 else
                 {
@@ -919,7 +928,7 @@ namespace SpacerUnion
             }
 
 
-            saveFileDialogVobTree.Filter = "Zen file (*.zen)|";
+            saveFileDialogVobTree.Filter = Constants.FILE_FILTER_OPEN_ZEN;
 
 
 
@@ -931,15 +940,9 @@ namespace SpacerUnion
 
             //MessageBox.Show(path);
 
-            if (path != "")
-            {
-                //MessageBox.Show(path);
-                saveFileDialogVobTree.InitialDirectory = System.IO.Path.GetDirectoryName(@path + @"/");
-            }
-            else
-            {
-                saveFileDialogVobTree.InitialDirectory = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/Worlds/";
-            }
+
+            saveFileDialogVobTree.InitialDirectory = Utils.GetInitialDirectory(path);
+
 
             saveFileDialogVobTree.RestoreDirectory = true;
             saveFileDialogVobTree.FileName = fileName + ".ZEN";
@@ -951,7 +954,7 @@ namespace SpacerUnion
 
 
 
-                Imports.Stack_PushString(Path.GetDirectoryName(saveFileDialogVobTree.FileName));
+                Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(saveFileDialogVobTree.FileName))));
                 Imports.Stack_PushString("treeVobPath");
                 Imports.Extern_SetSettingStr();
 
@@ -980,7 +983,7 @@ namespace SpacerUnion
             }
 
 
-            openFileDialogVobTree.Filter = "Zen file (*.zen)|";
+            openFileDialogVobTree.Filter = Constants.FILE_FILTER_OPEN_ZEN;
     
 
 
@@ -992,15 +995,7 @@ namespace SpacerUnion
 
             //MessageBox.Show(path);
 
-            if (path != "")
-            {
-                //MessageBox.Show(path);
-                openFileDialogVobTree.InitialDirectory = System.IO.Path.GetDirectoryName(@path + @"/");
-            }
-            else
-            {
-                openFileDialogVobTree.InitialDirectory = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/Worlds/";
-            }
+            openFileDialogVobTree.InitialDirectory = Utils.GetInitialDirectory(path);
 
             openFileDialogVobTree.RestoreDirectory = true;
 
@@ -1010,7 +1005,7 @@ namespace SpacerUnion
             {
 
 
-                Imports.Stack_PushString(Path.GetDirectoryName(openFileDialogVobTree.FileName));
+                Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(openFileDialogVobTree.FileName))));
                 Imports.Stack_PushString("treeVobPath");
                 Imports.Extern_SetSettingStr();
 
@@ -1028,7 +1023,7 @@ namespace SpacerUnion
         {
 
 
-            openFileDialogVobTree.Filter = "Zen file (*.zen)|";
+            openFileDialogVobTree.Filter = Constants.FILE_FILTER_OPEN_ZEN;
 
 
 
@@ -1040,15 +1035,7 @@ namespace SpacerUnion
 
             //MessageBox.Show(path);
 
-            if (path != "")
-            {
-                //MessageBox.Show(path);
-                openFileDialogVobTree.InitialDirectory = System.IO.Path.GetDirectoryName(@path + @"/");
-            }
-            else
-            {
-                openFileDialogVobTree.InitialDirectory = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/Worlds/";
-            }
+            openFileDialogVobTree.InitialDirectory = Utils.GetInitialDirectory(path);
 
             openFileDialogVobTree.RestoreDirectory = true;
 
@@ -1058,7 +1045,7 @@ namespace SpacerUnion
             {
 
 
-                Imports.Stack_PushString(Path.GetDirectoryName(openFileDialogVobTree.FileName));
+                Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(openFileDialogVobTree.FileName))));
                 Imports.Stack_PushString("treeVobPath");
                 Imports.Extern_SetSettingStr();
 

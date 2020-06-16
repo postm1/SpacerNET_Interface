@@ -1,12 +1,25 @@
-﻿using System;
+﻿using SpacerUnion.Common;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace SpacerUnion
 {
+    public class Constants
+    {
+        public const string FILE_FILTER_OPEN_ZEN = "ZEN files (*.zen)|*.zen";
+        public const string FILE_FILTER_OPEN_MESH = "Mesh-File (*.3ds)|*.3ds|All Files(*.*)|*.*||";
+        public const string FILE_FILTER_MERGE_VOBS = "World(*.zen)|*.zen|All Files(*.*)|*.*||";
+        public const string FILE_FILTER_SAVE_ZEN = "Compiled ZEN (ascii)|*.zen|Uncompiled ZEN (ascii)|*.zen|Compiled ZEN (binary safe)|*.zen";
+        public const string FILE_FILTER_ALL = "All files (*.)|";
+
+    }
+
     // Класс различных функций
     public class Utils
     {
@@ -50,12 +63,101 @@ namespace SpacerUnion
             Utils.WriteToFile(msg);
         }
 
-        public static void InfoFile(string msg)
-        {
-            DateTime now = DateTime.Now;
 
-            msg = now.ToString("dd.MM.yyyy HH:mm:ss") + " C# info: " + msg;
-            Utils.WriteToFile(msg);
+        public static bool IsPathWorkFolder(string path)
+        {
+            bool result = false;
+
+            path = path.Replace('\\', '/');
+
+            Regex reg = new Regex("(_work/data/.*)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+
+            MatchCollection matches = reg.Matches(path);
+            if (matches.Count != 0)
+            {
+                //ConsoleEx.WriteLineRed("Real file part: " + matches[0].Groups[0].Value);
+               // ConsoleEx.WriteLineRed("StartupPath: " + Application.StartupPath);
+
+                string filePath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\")).Replace('\\', '/');
+                //ConsoleEx.WriteLineRed("First combine: " + filePath);
+
+                filePath = filePath + matches[0].Groups[0].Value;
+
+                //ConsoleEx.WriteLineRed("Last combine: " +  filePath);
+                //ConsoleEx.WriteLineRed("path: " + path);
+                result = filePath.ToUpper() == path.ToUpper();
+
+            }
+
+            return result;  
+        }
+
+        // задает начальный путь для открытия/сохранения файлов
+        public static string GetInitialDirectory(string path)
+        {
+            string result = String.Empty;
+
+            if (path != "")
+            {
+                //MessageBox.Show(path);
+                result = Path.GetDirectoryName(@path + @"/");
+            }
+            else
+            {
+                result = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/";
+            }
+
+            return result;
+        }
+
+        // удаляет ёбаные \\ из пути, иначе COptios считает some\newFolder = \n и пиздец
+        public static string FixPath(string path)
+        {
+            string fixedPath = path.Trim().Replace('\\', '/');
+            return fixedPath;
+        }
+
+
+        public static string GetZenName(string zenName)
+        {
+            string time = DateTime.Now.ToString("yyyy_MM_dd HH-mm-ss");
+
+            Imports.Stack_PushString("addDatePrefix");
+
+            int addPrefx = Imports.Extern_GetSetting();
+
+
+            zenName = zenName.ToUpper();
+
+            if (zenName.Contains(".3DS"))
+            {
+                zenName = zenName.Replace(".3DS", "");
+            }
+
+            if (zenName.Contains(".ZEN"))
+            {
+                zenName = zenName.Replace(".ZEN", "");
+            }
+
+            ConsoleEx.WriteLineRed("First get: " + zenName);
+
+            var match = Regex.Match(zenName, @"(^.*)_\d\d\d\d_\d\d_\d\d\s+\d\d-\d\d-\d\d.*");
+
+            if (match.Groups.Count > 1)
+            {
+                zenName = match.Groups[1].Value;
+            }
+
+            if (addPrefx != 0)
+            {
+                zenName = zenName + "_" + time + ".ZEN";
+            }
+
+            
+
+            
+
+            return zenName;
         }
     }
 

@@ -1137,42 +1137,25 @@ namespace SpacerUnion
 
         private void buttonFileOpen_Click(object sender, EventArgs e)
         {
-            openFileDialogFileName.Filter = "All files (*.)|";
+            openFileDialogFileName.Filter = Constants.FILE_FILTER_ALL;
 
 
             Imports.Stack_PushString("vobResPath");
             Imports.Extern_GetSettingStr();
-            string path = Imports.Stack_PeekString();
+            string path = Utils.FixPath(Imports.Stack_PeekString());
 
             //MessageBox.Show(path);
-
-            if (path != "")
-            {
-                //MessageBox.Show(path);
-                openFileDialogFileName.InitialDirectory = System.IO.Path.GetDirectoryName(@path + @"/");
-            }
-            else
-            {
-                openFileDialogFileName.InitialDirectory = @Directory.GetCurrentDirectory() + @"../_WORK/DATA/";
-            }
+            openFileDialogFileName.InitialDirectory = Utils.GetInitialDirectory(path);
 
             openFileDialogFileName.RestoreDirectory = true;
 
             if (openFileDialogFileName.ShowDialog() == DialogResult.OK)
             {
-
-
                 Imports.Stack_PushString(Path.GetDirectoryName(openFileDialogFileName.FileName));
                 Imports.Stack_PushString("vobResPath");
                 Imports.Extern_SetSettingStr();
 
-
-
                 string fileName = openFileDialogFileName.SafeFileName;
-
-
-
-
                 TreeNode node = SpacerNET.propWin.treeViewProp.SelectedNode;
 
                 if (node != null)
