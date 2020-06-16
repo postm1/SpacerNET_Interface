@@ -9,7 +9,7 @@ namespace SpacerUnion.Common
     {
         public static void Init()
         {
-            curLang = LangEnum.EN;
+           
 
             //For special symbols use @ before string like @"someString"
             /*
@@ -284,9 +284,7 @@ namespace SpacerUnion.Common
             words.Add("buttonMusicOn", new List<string> { "Включить музыку", "Turn on music", "Musik anschalten", "Włącz muzykę" });
             words.Add("checkBoxShutMusic", new List<string> { "Отключать музыку при загрузке", "Shut music after world loaded", "Musik schließen nachdem die Welt geladen worden ist", "Utnij muzykę po wczytaniu świata" });
             words.Add("labelMusicVolume", new List<string> { "Громкость", "Volume", "Volumen", "Głośność" });
-            words.Add("buttonStopAllSounds", new List<string> { "Заглушить все звуки", "Turn off all sounds", "Alle Sounds abschalten", "Wyłącz wszystkie dźwięki" });
-            words.Add("NAME_ALREADY_EXISTS", new List<string> { "Такое имя уже существует!", "Turn off all sounds", "Alle Sounds abschalten", "Wyłącz wszystkie dźwięki" });
-            words.Add("Label_Backup", new List<string> { "Старое значение", "Turn off all sounds", "Alle Sounds abschalten", "Wyłącz wszystkie dźwięki" });
+            
             words.Add("WIN_PROPS_TITLE", new List<string> { "Окно свойств", "Properties window", "Eigenschaftenfenster", "Okno właściwości" });
             words.Add("buttonApplyOnVob", new List<string> { "Применить на вобе", "Apply on the vob", "Auf den vob anwenden", "Zastosuj dla voba" });
             words.Add("buttonFileOpen", new List<string> { "Файл", "File", "Datei", "Plik" });
@@ -387,6 +385,27 @@ namespace SpacerUnion.Common
             words.Add("loadMeshTimeAll", new List<string> { "Общее время объединения всех мешей", "Total time of merging all the meshes", "Gesamtzeit um alle Meshes zu vereinen", @"Czałkowicy czas łączenia wszystkich mesh'y" });
 
             words.Add("WORK_PATH_ERROR", new List<string> { "Вы пытаетесь загрузить файл, который не находится в папке _WORK/DATA/. Поместите файл внутрь игры!", "You are trying to load a file which is not in _WORK/DATA/. Place this file inside the game folder!", "Du versuchst eine Datei zu laden, welche nicht im _WORK/DATA/ Ordner ist. Ziehe die Datei zuerst in den Spieleordner!", "Próbujesz wczytać plik, który nie znajduje się w _WORK/DATA/. Umieść go w folderze gry!" });
+            words.Add("buttonStopAllSounds", new List<string> { "Заглушить все звуки", "Turn off all sounds", "Alle Sounds abschalten", "Wyłącz wszystkie dźwięki" });
+            //
+
+            words.Add("vobs_found_amount", new List<string> { "Найдено", "Found", "", "" });
+            words.Add("all_vobs_classes", new List<string> { "Все классы вобов", "Vob classes", "", "" });
+            words.Add("search_derived", new List<string> { "Искать в дочерних классах", "Search in derived classes", "", "" });
+            words.Add("search_use_regex", new List<string> { "Использовать рег. выражение", "Use regular expression", "", "" });
+            words.Add("search_button_vobs", new List<string> { "Искать", "Search", "", "" });
+            words.Add("BTN_RESET", new List<string> { "Сбросить", "Reset", "", "" });
+            
+            words.Add("NAME_ALREADY_EXISTS", new List<string> { "Такое имя уже существует!", "This name already exists!", "", "" });
+            words.Add("Label_Backup", new List<string> { "Старое значение", "Old value", "", "" });
+            words.Add("SET_ANY_FIELD_SEARCH", new List<string> { "Выберите хотя бы одно поле!", "Select one field at least!", "", "" });
+
+            words.Add("VOB_SEARCH_START", new List<string> { "Поиск вобов начался...", "Looking for vobs...", "", "" });
+            words.Add("VOB_SEARCH_STOP", new List<string> { "Поиск вобов закончен за", "Searching vobs finished. Time spent", "", "" });
+
+
+            
+
+
 
         }
     }

@@ -111,16 +111,21 @@
             this.buttonFPCreate = new System.Windows.Forms.Button();
             this.textBoxFP = new System.Windows.Forms.TextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.labelNotReady0 = new System.Windows.Forms.Label();
+            this.groupBoxSearchClasses = new System.Windows.Forms.GroupBox();
+            this.checkBoxSearchUseRegex = new System.Windows.Forms.CheckBox();
+            this.textBoxVecSearch3 = new System.Windows.Forms.TextBox();
+            this.textBoxVecSearch2 = new System.Windows.Forms.TextBox();
+            this.textBoxVecSearch1 = new System.Windows.Forms.TextBox();
+            this.textBoxVecSearch0 = new System.Windows.Forms.TextBox();
             this.labelSearchResult = new System.Windows.Forms.Label();
             this.listBoxSearchResult = new System.Windows.Forms.ListBox();
             this.checkBoxSearchDerived = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.textBoxSearchVobs = new System.Windows.Forms.TextBox();
+            this.buttonSearchVobsDo = new System.Windows.Forms.Button();
+            this.buttonSearchVobsReset = new System.Windows.Forms.Button();
             this.comboBoxSearchClass = new System.Windows.Forms.ComboBox();
             this.treeViewSearchClass = new System.Windows.Forms.TreeView();
+            this.comboBoxPropsEnumSearch = new System.Windows.Forms.ComboBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.labelNotReady1 = new System.Windows.Forms.Label();
             this.checkBoxCamPosition = new System.Windows.Forms.CheckBox();
@@ -196,7 +201,7 @@
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.tabPage6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
+            this.groupBoxSearchClasses.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.groupBox11.SuspendLayout();
@@ -1117,7 +1122,7 @@
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.groupBox7);
+            this.tabPage6.Controls.Add(this.groupBoxSearchClasses);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Size = new System.Drawing.Size(561, 362);
@@ -1125,54 +1130,105 @@
             this.tabPage6.Text = "Поиск";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // groupBox7
+            // groupBoxSearchClasses
             // 
-            this.groupBox7.Controls.Add(this.labelNotReady0);
-            this.groupBox7.Controls.Add(this.labelSearchResult);
-            this.groupBox7.Controls.Add(this.listBoxSearchResult);
-            this.groupBox7.Controls.Add(this.checkBoxSearchDerived);
-            this.groupBox7.Controls.Add(this.textBox1);
-            this.groupBox7.Controls.Add(this.button9);
-            this.groupBox7.Controls.Add(this.button8);
-            this.groupBox7.Controls.Add(this.comboBoxSearchClass);
-            this.groupBox7.Controls.Add(this.treeViewSearchClass);
-            this.groupBox7.Location = new System.Drawing.Point(5, 3);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(546, 350);
-            this.groupBox7.TabIndex = 4;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Класс воба";
+            this.groupBoxSearchClasses.Controls.Add(this.checkBoxSearchUseRegex);
+            this.groupBoxSearchClasses.Controls.Add(this.textBoxVecSearch3);
+            this.groupBoxSearchClasses.Controls.Add(this.textBoxVecSearch2);
+            this.groupBoxSearchClasses.Controls.Add(this.labelSearchResult);
+            this.groupBoxSearchClasses.Controls.Add(this.listBoxSearchResult);
+            this.groupBoxSearchClasses.Controls.Add(this.checkBoxSearchDerived);
+            this.groupBoxSearchClasses.Controls.Add(this.buttonSearchVobsDo);
+            this.groupBoxSearchClasses.Controls.Add(this.buttonSearchVobsReset);
+            this.groupBoxSearchClasses.Controls.Add(this.comboBoxSearchClass);
+            this.groupBoxSearchClasses.Controls.Add(this.treeViewSearchClass);
+            this.groupBoxSearchClasses.Controls.Add(this.comboBoxPropsEnumSearch);
+            this.groupBoxSearchClasses.Controls.Add(this.textBoxVecSearch1);
+            this.groupBoxSearchClasses.Controls.Add(this.textBoxVecSearch0);
+            this.groupBoxSearchClasses.Controls.Add(this.textBoxSearchVobs);
+            this.groupBoxSearchClasses.Location = new System.Drawing.Point(5, 3);
+            this.groupBoxSearchClasses.Name = "groupBoxSearchClasses";
+            this.groupBoxSearchClasses.Size = new System.Drawing.Size(553, 350);
+            this.groupBoxSearchClasses.TabIndex = 4;
+            this.groupBoxSearchClasses.TabStop = false;
+            this.groupBoxSearchClasses.Text = "Класс воба";
             // 
-            // labelNotReady0
+            // checkBoxSearchUseRegex
             // 
-            this.labelNotReady0.AutoSize = true;
-            this.labelNotReady0.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelNotReady0.Location = new System.Drawing.Point(169, 163);
-            this.labelNotReady0.Name = "labelNotReady0";
-            this.labelNotReady0.Size = new System.Drawing.Size(239, 29);
-            this.labelNotReady0.TabIndex = 10;
-            this.labelNotReady0.Text = "ЕЩЕ НЕ СДЕЛАНО";
+            this.checkBoxSearchUseRegex.AutoSize = true;
+            this.checkBoxSearchUseRegex.Checked = true;
+            this.checkBoxSearchUseRegex.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxSearchUseRegex.Location = new System.Drawing.Point(243, 45);
+            this.checkBoxSearchUseRegex.Name = "checkBoxSearchUseRegex";
+            this.checkBoxSearchUseRegex.Size = new System.Drawing.Size(183, 17);
+            this.checkBoxSearchUseRegex.TabIndex = 16;
+            this.checkBoxSearchUseRegex.Text = "Использовать рег. выражение";
+            this.checkBoxSearchUseRegex.UseVisualStyleBackColor = true;
+            // 
+            // textBoxVecSearch3
+            // 
+            this.textBoxVecSearch3.Location = new System.Drawing.Point(471, 74);
+            this.textBoxVecSearch3.Name = "textBoxVecSearch3";
+            this.textBoxVecSearch3.Size = new System.Drawing.Size(70, 20);
+            this.textBoxVecSearch3.TabIndex = 14;
+            this.textBoxVecSearch3.Visible = false;
+            this.textBoxVecSearch3.TextChanged += new System.EventHandler(this.textBoxVecSearch0_TextChanged);
+            this.textBoxVecSearch3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVecSearch0_KeyPress);
+            // 
+            // textBoxVecSearch2
+            // 
+            this.textBoxVecSearch2.Location = new System.Drawing.Point(395, 74);
+            this.textBoxVecSearch2.Name = "textBoxVecSearch2";
+            this.textBoxVecSearch2.Size = new System.Drawing.Size(70, 20);
+            this.textBoxVecSearch2.TabIndex = 13;
+            this.textBoxVecSearch2.Visible = false;
+            this.textBoxVecSearch2.TextChanged += new System.EventHandler(this.textBoxVecSearch0_TextChanged);
+            this.textBoxVecSearch2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVecSearch0_KeyPress);
+            // 
+            // textBoxVecSearch1
+            // 
+            this.textBoxVecSearch1.Location = new System.Drawing.Point(319, 74);
+            this.textBoxVecSearch1.Name = "textBoxVecSearch1";
+            this.textBoxVecSearch1.Size = new System.Drawing.Size(70, 20);
+            this.textBoxVecSearch1.TabIndex = 12;
+            this.textBoxVecSearch1.Visible = false;
+            this.textBoxVecSearch1.TextChanged += new System.EventHandler(this.textBoxVecSearch0_TextChanged);
+            this.textBoxVecSearch1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVecSearch0_KeyPress);
+            // 
+            // textBoxVecSearch0
+            // 
+            this.textBoxVecSearch0.Location = new System.Drawing.Point(243, 74);
+            this.textBoxVecSearch0.Name = "textBoxVecSearch0";
+            this.textBoxVecSearch0.Size = new System.Drawing.Size(70, 20);
+            this.textBoxVecSearch0.TabIndex = 11;
+            this.textBoxVecSearch0.Visible = false;
+            this.textBoxVecSearch0.TextChanged += new System.EventHandler(this.textBoxVecSearch0_TextChanged);
+            this.textBoxVecSearch0.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVecSearch0_KeyPress);
             // 
             // labelSearchResult
             // 
             this.labelSearchResult.AutoSize = true;
-            this.labelSearchResult.Location = new System.Drawing.Point(243, 77);
+            this.labelSearchResult.Location = new System.Drawing.Point(243, 135);
             this.labelSearchResult.Name = "labelSearchResult";
-            this.labelSearchResult.Size = new System.Drawing.Size(62, 13);
+            this.labelSearchResult.Size = new System.Drawing.Size(54, 13);
             this.labelSearchResult.TabIndex = 9;
-            this.labelSearchResult.Text = "Результат:";
+            this.labelSearchResult.Text = "Найдено:";
             // 
             // listBoxSearchResult
             // 
             this.listBoxSearchResult.FormattingEnabled = true;
-            this.listBoxSearchResult.Location = new System.Drawing.Point(243, 102);
+            this.listBoxSearchResult.Location = new System.Drawing.Point(243, 154);
             this.listBoxSearchResult.Name = "listBoxSearchResult";
-            this.listBoxSearchResult.Size = new System.Drawing.Size(297, 238);
+            this.listBoxSearchResult.Size = new System.Drawing.Size(304, 186);
             this.listBoxSearchResult.TabIndex = 8;
+            this.listBoxSearchResult.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxSearchResult_MouseClick);
+            this.listBoxSearchResult.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxSearchResult_MouseDoubleClick);
             // 
             // checkBoxSearchDerived
             // 
             this.checkBoxSearchDerived.AutoSize = true;
+            this.checkBoxSearchDerived.Checked = true;
+            this.checkBoxSearchDerived.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxSearchDerived.Location = new System.Drawing.Point(243, 22);
             this.checkBoxSearchDerived.Name = "checkBoxSearchDerived";
             this.checkBoxSearchDerived.Size = new System.Drawing.Size(165, 17);
@@ -1180,38 +1236,44 @@
             this.checkBoxSearchDerived.Text = "Искать в дочерних классах";
             this.checkBoxSearchDerived.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // textBoxSearchVobs
             // 
-            this.textBox1.Location = new System.Drawing.Point(243, 50);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(165, 20);
-            this.textBox1.TabIndex = 6;
+            this.textBoxSearchVobs.Location = new System.Drawing.Point(243, 74);
+            this.textBoxSearchVobs.Name = "textBoxSearchVobs";
+            this.textBoxSearchVobs.Size = new System.Drawing.Size(300, 20);
+            this.textBoxSearchVobs.TabIndex = 6;
+            this.textBoxSearchVobs.TextChanged += new System.EventHandler(this.textBoxSearchVobs_TextChanged);
+            this.textBoxSearchVobs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSearchVobs_KeyPress);
             // 
-            // button9
+            // buttonSearchVobsDo
             // 
-            this.button9.Location = new System.Drawing.Point(414, 48);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 5;
-            this.button9.Text = "Искать";
-            this.button9.UseVisualStyleBackColor = true;
+            this.buttonSearchVobsDo.Location = new System.Drawing.Point(243, 100);
+            this.buttonSearchVobsDo.Name = "buttonSearchVobsDo";
+            this.buttonSearchVobsDo.Size = new System.Drawing.Size(148, 23);
+            this.buttonSearchVobsDo.TabIndex = 5;
+            this.buttonSearchVobsDo.Text = "Искать";
+            this.buttonSearchVobsDo.UseVisualStyleBackColor = true;
+            this.buttonSearchVobsDo.Click += new System.EventHandler(this.button9_Click);
             // 
-            // button8
+            // buttonSearchVobsReset
             // 
-            this.button8.Location = new System.Drawing.Point(414, 19);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 4;
-            this.button8.Text = "Сбросить";
-            this.button8.UseVisualStyleBackColor = true;
+            this.buttonSearchVobsReset.Location = new System.Drawing.Point(395, 100);
+            this.buttonSearchVobsReset.Name = "buttonSearchVobsReset";
+            this.buttonSearchVobsReset.Size = new System.Drawing.Size(148, 23);
+            this.buttonSearchVobsReset.TabIndex = 4;
+            this.buttonSearchVobsReset.Text = "Сбросить";
+            this.buttonSearchVobsReset.UseVisualStyleBackColor = true;
+            this.buttonSearchVobsReset.Click += new System.EventHandler(this.button8_Click);
             // 
             // comboBoxSearchClass
             // 
+            this.comboBoxSearchClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSearchClass.FormattingEnabled = true;
             this.comboBoxSearchClass.Location = new System.Drawing.Point(6, 19);
             this.comboBoxSearchClass.Name = "comboBoxSearchClass";
             this.comboBoxSearchClass.Size = new System.Drawing.Size(231, 21);
             this.comboBoxSearchClass.TabIndex = 3;
+            this.comboBoxSearchClass.SelectedIndexChanged += new System.EventHandler(this.comboBoxSearchClass_SelectedIndexChanged);
             // 
             // treeViewSearchClass
             // 
@@ -1220,6 +1282,19 @@
             this.treeViewSearchClass.Name = "treeViewSearchClass";
             this.treeViewSearchClass.Size = new System.Drawing.Size(231, 294);
             this.treeViewSearchClass.TabIndex = 2;
+            this.treeViewSearchClass.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewSearchClass_AfterSelect);
+            this.treeViewSearchClass.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewSearchClass_NodeMouseDoubleClick);
+            // 
+            // comboBoxPropsEnumSearch
+            // 
+            this.comboBoxPropsEnumSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPropsEnumSearch.FormattingEnabled = true;
+            this.comboBoxPropsEnumSearch.Location = new System.Drawing.Point(244, 73);
+            this.comboBoxPropsEnumSearch.Name = "comboBoxPropsEnumSearch";
+            this.comboBoxPropsEnumSearch.Size = new System.Drawing.Size(110, 21);
+            this.comboBoxPropsEnumSearch.TabIndex = 15;
+            this.comboBoxPropsEnumSearch.Visible = false;
+            this.comboBoxPropsEnumSearch.SelectedIndexChanged += new System.EventHandler(this.comboBoxPropsEnumSearch_SelectedIndexChanged);
             // 
             // tabPage7
             // 
@@ -1847,8 +1922,8 @@
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.tabPage6.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
+            this.groupBoxSearchClasses.ResumeLayout(false);
+            this.groupBoxSearchClasses.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             this.groupBox12.ResumeLayout(false);
@@ -1921,10 +1996,10 @@
         private System.Windows.Forms.Button buttonAllClassesClear;
         public System.Windows.Forms.TabControl tabControlObjects;
         private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.GroupBox groupBoxSearchClasses;
+        private System.Windows.Forms.TextBox textBoxSearchVobs;
+        private System.Windows.Forms.Button buttonSearchVobsDo;
+        private System.Windows.Forms.Button buttonSearchVobsReset;
         private System.Windows.Forms.TreeView treeViewSearchClass;
         private System.Windows.Forms.Label labelTriggerInsert;
         private System.Windows.Forms.RadioButton radioButtonBefore;
@@ -2010,11 +2085,16 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label labelNotReady0;
         private System.Windows.Forms.Label labelNotReady1;
         private System.Windows.Forms.Label labelNotReady2;
         public System.Windows.Forms.CheckBox checkBoxShowPFXPreview;
         public System.Windows.Forms.CheckBox checkBoxItemShow;
         private System.Windows.Forms.GroupBox groupBoxItemsCont;
+        private System.Windows.Forms.TextBox textBoxVecSearch0;
+        private System.Windows.Forms.TextBox textBoxVecSearch3;
+        private System.Windows.Forms.TextBox textBoxVecSearch2;
+        private System.Windows.Forms.TextBox textBoxVecSearch1;
+        private System.Windows.Forms.ComboBox comboBoxPropsEnumSearch;
+        private System.Windows.Forms.CheckBox checkBoxSearchUseRegex;
     }
 }

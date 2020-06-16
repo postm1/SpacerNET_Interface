@@ -33,11 +33,7 @@ namespace SpacerUnion
         static bool vobHasContainer = false;
         
 
-        class FolderEntry
-        {
-            public string parent;
-            public TreeNode node;
-        }
+        
 
 
         public ObjectsWindow()
@@ -93,8 +89,6 @@ namespace SpacerUnion
             props.Clear();
             folders.Clear();
 
-            props.Clear();
-            folders.Clear();
             currentFolderName = "";
             vobHasContainer = false;
             TreeView tree = SpacerNET.propWin.treeViewProp;
@@ -160,7 +154,7 @@ namespace SpacerUnion
                 isItemSelected = false;
             }
 
-            CProperty.originalStr = inputStr;
+            CProperty.originalStrPropsWindow = inputStr;
 
             string[] words = inputStr.Replace("\t", "").Split('\n');
 
@@ -400,6 +394,7 @@ namespace SpacerUnion
         private void ObjectsWindow_Shown(object sender, EventArgs e)
         {
             this.treeViewProp.ImageList = SpacerNET.objTreeWin.imageList1;
+           
         }
 
         private void treeViewProp_DrawNode(object sender, DrawTreeNodeEventArgs e)
@@ -512,7 +507,7 @@ namespace SpacerUnion
             dataGridViewItems.Visible = true;
             dataGridViewItems.Rows.Clear();
 
-            SpacerNET.objectsWin.tabControlObjects.SelectedIndex = 1;
+            ObjectsWin.ChangeTab(1);
 
             currentContents = prop.value;
             containsIndex = index;
@@ -594,7 +589,7 @@ namespace SpacerUnion
 
            
 
-            string[] words = CProperty.originalStr.Replace("\t", "").Split('\n');
+            string[] words = CProperty.originalStrPropsWindow.Replace("\t", "").Split('\n');
 
             //Console.WriteLine("Original: {0}", CProperty.originalStr);
 

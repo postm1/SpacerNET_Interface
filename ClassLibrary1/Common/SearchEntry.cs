@@ -5,5 +5,9 @@ using System.Text;
 
 namespace SpacerUnion.Common
 {
-  
+    public class SearchEntry
+    {
+        public uint cur_vob;
+
+    }
 }

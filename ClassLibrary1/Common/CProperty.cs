@@ -33,7 +33,10 @@ namespace SpacerUnion
         public List<string> enumArray = new List<string>();
         public TreeNode node;
         public TreeNode ownNode;
-        public static string originalStr;
+        public static string originalStrPropsWindow;
+        public static string originalStrSearchWindow;
+
+        public bool selectedForSearch;
 
         public CProperty()
         {
@@ -42,6 +45,7 @@ namespace SpacerUnion
             backup_value = "";
             oldValueInit = false;
             value = "";
+            selectedForSearch = false;
         }
 
         public string GetNameType()

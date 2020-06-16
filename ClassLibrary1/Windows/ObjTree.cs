@@ -903,7 +903,7 @@ namespace SpacerUnion
 
             if (node.Text.Contains("zCVobWaypoint") || node.Text.Contains("zCVobSpot"))
             {
-                SpacerNET.objectsWin.tabControlObjects.SelectedIndex = 4;
+                ObjectsWin.ChangeTab(4);
             }
 
             Imports.Extern_SelectVobSync(addr);

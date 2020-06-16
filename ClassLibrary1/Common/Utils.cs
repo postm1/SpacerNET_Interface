@@ -20,6 +20,13 @@ namespace SpacerUnion
 
     }
 
+    class FolderEntry
+    {
+        public string parent;
+        public TreeNode node;
+    }
+
+
     // Класс различных функций
     public class Utils
     {
