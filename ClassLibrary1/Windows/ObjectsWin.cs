@@ -1989,14 +1989,40 @@ namespace SpacerUnion
         {
             bool checkValueFound = false;
 
+            bool isNameSelected = false;
+            bool isVisualSelected = false;
+
+            int countSelected = 0;
+
             for (int i = 0; i < searchProps.Count; i++)
             {
                 if (searchProps[i].selectedForSearch)
                 {
                     checkValueFound = true;
-                    break;
+                    countSelected++;
+                    if (searchProps[i].Name == "vobName")
+                    {
+                        isNameSelected = true;
+                    }
+
+                    if (searchProps[i].Name == "visual")
+                    {
+                        isVisualSelected = true;
+                    }
                 }
             }
+
+            if (countSelected > 2)
+            {
+                isNameSelected = false;
+                isVisualSelected = false;
+            }
+            if (isNameSelected && !isVisualSelected && countSelected >= 2) isNameSelected = false;
+            if (isVisualSelected && !isNameSelected && countSelected >= 2) isVisualSelected = false;
+
+
+            //ConsoleEx.WriteLineRed(countSelected + " " + isNameSelected + " " + isVisualSelected);
+
 
             if (!checkValueFound)
             {
@@ -2010,15 +2036,17 @@ namespace SpacerUnion
             Stopwatch s = new Stopwatch();
             s.Start();
 
-            
 
 
 
+          
 
 
             listBoxSearchResult.Items.Clear();
             searchResultVobsAddr.Clear();
-            Imports.Extern_SearchVobs(checkBoxSearchDerived.Checked);
+
+            
+            Imports.Extern_SearchVobs(checkBoxSearchDerived.Checked, false, false);
             labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": " + listBoxSearchResult.Items.Count;
 
 

@@ -244,7 +244,7 @@ namespace SpacerUnion.Common
         public static extern void Extern_GetClassFields();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SearchVobs(bool derived);
+        public static extern void Extern_SearchVobs(bool derived, bool nameSelected, bool visualSelected);
 
         
 

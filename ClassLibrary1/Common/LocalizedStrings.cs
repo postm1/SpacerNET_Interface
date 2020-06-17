@@ -388,19 +388,19 @@ namespace SpacerUnion.Common
             words.Add("buttonStopAllSounds", new List<string> { "Заглушить все звуки", "Turn off all sounds", "Alle Sounds abschalten", "Wyłącz wszystkie dźwięki" });
             //
 
-            words.Add("vobs_found_amount", new List<string> { "Найдено", "Found", "", "" });
-            words.Add("all_vobs_classes", new List<string> { "Все классы вобов", "Vob classes", "", "" });
-            words.Add("search_derived", new List<string> { "Искать в дочерних классах", "Search in derived classes", "", "" });
-            words.Add("search_use_regex", new List<string> { "Использовать рег. выражение", "Use regular expression", "", "" });
-            words.Add("search_button_vobs", new List<string> { "Искать", "Search", "", "" });
-            words.Add("BTN_RESET", new List<string> { "Сбросить", "Reset", "", "" });
+            words.Add("vobs_found_amount", new List<string> { "Найдено", "Found", "Gefunden", "Klasy vobów" });
+            words.Add("all_vobs_classes", new List<string> { "Все классы вобов", "Vob classes", "Vob Klassen", "Szukaj w klasach pochodnych" });
+            words.Add("search_derived", new List<string> { "Искать в дочерних классах", "Search in derived classes", "In der abgeleiteten Klasse suchen", "Szukaj w klasach pochodnych" });
+            words.Add("search_use_regex", new List<string> { "Использовать рег. выражение", "Use regular expression", "Reguläre expression nutzen", "Użyj standardowego wyrażenia" });
+            words.Add("search_button_vobs", new List<string> { "Искать", "Search", "Suchen", "Szukaj" });
+            words.Add("BTN_RESET", new List<string> { "Сбросить", "Reset", "Resetten", "Reset" });
             
-            words.Add("NAME_ALREADY_EXISTS", new List<string> { "Такое имя уже существует!", "This name already exists!", "", "" });
-            words.Add("Label_Backup", new List<string> { "Старое значение", "Old value", "", "" });
-            words.Add("SET_ANY_FIELD_SEARCH", new List<string> { "Выберите хотя бы одно поле!", "Select one field at least!", "", "" });
+            words.Add("NAME_ALREADY_EXISTS", new List<string> { "Такое имя уже существует!", "This name already exists!", "Diesen Namen gibt es bereits!", "Ta nazwa jest już zajęta!" });
+            words.Add("Label_Backup", new List<string> { "Старое значение", "Old value", "Alter Wert", "Stara wartość" });
+            words.Add("SET_ANY_FIELD_SEARCH", new List<string> { "Выберите хотя бы одно поле!", "Select one field at least!", "Du musst zumindestens ein Feld auswählen!", "Wybierz przynajmniej jedno pole!" });
 
-            words.Add("VOB_SEARCH_START", new List<string> { "Поиск вобов начался...", "Looking for vobs...", "", "" });
-            words.Add("VOB_SEARCH_STOP", new List<string> { "Поиск вобов закончен за", "Searching vobs finished. Time spent", "", "" });
+            words.Add("VOB_SEARCH_START", new List<string> { "Поиск вобов начался...", "Looking for vobs...", "Nach Vob suchen....", "Rozglądanie się za vobami..." });
+            words.Add("VOB_SEARCH_STOP", new List<string> { "Поиск вобов закончен за", "Searching vobs finished. Time spent", "Vob Suche beendet. Gebrauchte Zeit", "Poszukiwanie vobów zakończone. Czas wyszukiwania" });
 
 
             
