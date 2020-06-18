@@ -55,11 +55,11 @@ namespace SpacerUnion
             tabControlProps.TabPages[2].Text = Localizator.Get("tabControlProps_2");
 
 
-            groupBoxEditBbox.Text = Localizator.Get("groupBoxEditBbox");
+           // groupBoxEditBbox.Text = Localizator.Get("groupBoxEditBbox");
             buttonResetBbox.Text = Localizator.Get("WIN_CANCEL_BUTTON");
             buttonApplyBbox.Text = Localizator.Get("BTN_APPLY");
 
-            groupBoxContainer.Text = Localizator.Get("groupBoxContainer");
+            //groupBoxContainer.Text = Localizator.Get("groupBoxContainer");
             buttonClearItems.Text = Localizator.Get("buttonClearItems");
             buttonRowDelete.Text = Localizator.Get("buttonRowDelete");
             buttonContainerCancel.Text = Localizator.Get("WIN_CANCEL_BUTTON");

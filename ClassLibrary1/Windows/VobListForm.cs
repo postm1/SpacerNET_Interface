@@ -30,7 +30,7 @@ namespace SpacerUnion
         public void UpdateLang()
         {
             this.Text = Localizator.Get("WIN_VOBLIST_TITLE");
-            labelVobType.Text = Localizator.Get("labelVobType");
+            //labelVobType.Text = Localizator.Get("labelVobType");
             labelRadius.Text = Localizator.Get("labelRadius") + ": " + trackBarRadius.Value;
         }
 

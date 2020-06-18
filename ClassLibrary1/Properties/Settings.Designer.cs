@@ -286,5 +286,41 @@ namespace SpacerUnion.Properties {
                 this["MainWindowMaxState"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("405, 492")]
+        public global::System.Drawing.Size TreeWinSize {
+            get {
+                return ((global::System.Drawing.Size)(this["TreeWinSize"]));
+            }
+            set {
+                this["TreeWinSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("346, 529")]
+        public global::System.Drawing.Size PropsWinSize {
+            get {
+                return ((global::System.Drawing.Size)(this["PropsWinSize"]));
+            }
+            set {
+                this["PropsWinSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("323, 373")]
+        public global::System.Drawing.Size VobListSize {
+            get {
+                return ((global::System.Drawing.Size)(this["VobListSize"]));
+            }
+            set {
+                this["VobListSize"] = value;
+            }
+        }
     }
 }

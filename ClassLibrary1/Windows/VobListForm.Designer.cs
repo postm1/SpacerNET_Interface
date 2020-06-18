@@ -34,20 +34,22 @@
             this.очиститьСписокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackBarRadius = new System.Windows.Forms.TrackBar();
             this.labelRadius = new System.Windows.Forms.Label();
-            this.comboBoxVobListType = new System.Windows.Forms.ComboBox();
-            this.labelVobType = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.panelVobList = new System.Windows.Forms.Panel();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRadius)).BeginInit();
+            this.panelVobList.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBoxVobs
             // 
             this.listBoxVobs.ContextMenuStrip = this.contextMenuStrip1;
+            this.listBoxVobs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxVobs.FormattingEnabled = true;
-            this.listBoxVobs.Location = new System.Drawing.Point(6, 59);
+            this.listBoxVobs.Location = new System.Drawing.Point(0, 66);
             this.listBoxVobs.Name = "listBoxVobs";
             this.listBoxVobs.ScrollAlwaysVisible = true;
-            this.listBoxVobs.Size = new System.Drawing.Size(291, 264);
+            this.listBoxVobs.Size = new System.Drawing.Size(307, 268);
             this.listBoxVobs.TabIndex = 0;
             this.listBoxVobs.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxVobs_MouseClick);
             this.listBoxVobs.SelectedIndexChanged += new System.EventHandler(this.listBoxVobs_SelectedIndexChanged);
@@ -69,7 +71,7 @@
             // 
             // trackBarRadius
             // 
-            this.trackBarRadius.Location = new System.Drawing.Point(116, 7);
+            this.trackBarRadius.Location = new System.Drawing.Point(114, 8);
             this.trackBarRadius.Maximum = 800;
             this.trackBarRadius.Minimum = 10;
             this.trackBarRadius.Name = "trackBarRadius";
@@ -88,43 +90,26 @@
             this.labelRadius.TabIndex = 4;
             this.labelRadius.Text = "Радиус поиска: 200";
             // 
-            // comboBoxVobListType
+            // panelVobList
             // 
-            this.comboBoxVobListType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxVobListType.Enabled = false;
-            this.comboBoxVobListType.FormattingEnabled = true;
-            this.comboBoxVobListType.Items.AddRange(new object[] {
-            "Все вобы",
-            "Итемы",
-            "Только zCVob"});
-            this.comboBoxVobListType.Location = new System.Drawing.Point(15, 38);
-            this.comboBoxVobListType.Name = "comboBoxVobListType";
-            this.comboBoxVobListType.Size = new System.Drawing.Size(62, 21);
-            this.comboBoxVobListType.TabIndex = 5;
-            this.comboBoxVobListType.Visible = false;
-            // 
-            // labelVobType
-            // 
-            this.labelVobType.AutoSize = true;
-            this.labelVobType.Location = new System.Drawing.Point(12, 22);
-            this.labelVobType.Name = "labelVobType";
-            this.labelVobType.Size = new System.Drawing.Size(56, 13);
-            this.labelVobType.TabIndex = 6;
-            this.labelVobType.Text = "Тип воба:";
-            this.labelVobType.Visible = false;
+            this.panelVobList.Controls.Add(this.labelRadius);
+            this.panelVobList.Controls.Add(this.trackBarRadius);
+            this.panelVobList.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelVobList.Location = new System.Drawing.Point(0, 0);
+            this.panelVobList.Name = "panelVobList";
+            this.panelVobList.Size = new System.Drawing.Size(307, 66);
+            this.panelVobList.TabIndex = 7;
             // 
             // VobListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(307, 334);
-            this.Controls.Add(this.labelVobType);
-            this.Controls.Add(this.comboBoxVobListType);
-            this.Controls.Add(this.labelRadius);
-            this.Controls.Add(this.trackBarRadius);
             this.Controls.Add(this.listBoxVobs);
+            this.Controls.Add(this.panelVobList);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "VobListForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -132,8 +117,9 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VobListForm_FormClosing);
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRadius)).EndInit();
+            this.panelVobList.ResumeLayout(false);
+            this.panelVobList.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -142,8 +128,8 @@
         private System.Windows.Forms.Label labelRadius;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem очиститьСписокToolStripMenuItem;
-        private System.Windows.Forms.Label labelVobType;
         public System.Windows.Forms.TrackBar trackBarRadius;
-        public System.Windows.Forms.ComboBox comboBoxVobListType;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.Panel panelVobList;
     }
 }

@@ -227,12 +227,20 @@ namespace SpacerUnion
             }
 
 
+            if (Properties.Settings.Default.TreeWinSize != null)
+            {
+                objTreeWin.Size = Properties.Settings.Default.TreeWinSize;
+            }
 
+            if (Properties.Settings.Default.PropsWinSize != null)
+            {
+                propWin.Size = Properties.Settings.Default.PropsWinSize;
+            }
 
-
-
-
-
+            if (Properties.Settings.Default.VobListSize != null)
+            {
+                vobList.Size = Properties.Settings.Default.VobListSize;
+            }
 
             LoadSettingsToInterface();
 
@@ -295,7 +303,7 @@ namespace SpacerUnion
 
             int radius = Imports.Extern_GetSetting();
             vobList.trackBarRadius.Value = radius;
-            vobList.comboBoxVobListType.SelectedIndex = 0;
+           // vobList.comboBoxVobListType.SelectedIndex = 0;
 
 
             form.ResetInterface();
@@ -336,6 +344,12 @@ namespace SpacerUnion
             Properties.Settings.Default.MainWindowPos = form.Location;
             Properties.Settings.Default.MainWindowSize = form.Size;
             Properties.Settings.Default.MainWindowMaxState = (form.WindowState == FormWindowState.Maximized);
+
+
+            Properties.Settings.Default.TreeWinSize = objTreeWin.Size;
+            Properties.Settings.Default.PropsWinSize = propWin.Size;
+            Properties.Settings.Default.VobListSize = vobList.Size;
+
 
             Properties.Settings.Default.Save();
 

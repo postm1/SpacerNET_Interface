@@ -68,5 +68,14 @@
     <Setting Name="MainWindowMaxState" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="TreeWinSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">405, 492</Value>
+    </Setting>
+    <Setting Name="PropsWinSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">346, 529</Value>
+    </Setting>
+    <Setting Name="VobListSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">323, 373</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

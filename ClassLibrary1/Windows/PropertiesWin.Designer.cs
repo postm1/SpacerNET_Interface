@@ -94,8 +94,8 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.treeViewProp);
             this.tabPage1.Controls.Add(this.panelButtons);
+            this.tabPage1.Controls.Add(this.treeViewProp);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -106,10 +106,11 @@
             // 
             // treeViewProp
             // 
+            this.treeViewProp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewProp.HideSelection = false;
-            this.treeViewProp.Location = new System.Drawing.Point(9, 8);
+            this.treeViewProp.Location = new System.Drawing.Point(3, 3);
             this.treeViewProp.Name = "treeViewProp";
-            this.treeViewProp.Size = new System.Drawing.Size(310, 342);
+            this.treeViewProp.Size = new System.Drawing.Size(316, 458);
             this.treeViewProp.TabIndex = 1;
             this.treeViewProp.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.treeViewProp_DrawNode);
             this.treeViewProp.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewProp_AfterSelect);
@@ -131,9 +132,10 @@
             this.panelButtons.Controls.Add(this.buttonBbox);
             this.panelButtons.Controls.Add(this.Label_Backup);
             this.panelButtons.Controls.Add(this.buttonApplyOnVob);
-            this.panelButtons.Location = new System.Drawing.Point(9, 352);
+            this.panelButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelButtons.Location = new System.Drawing.Point(3, 355);
             this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(310, 106);
+            this.panelButtons.Size = new System.Drawing.Size(316, 106);
             this.panelButtons.TabIndex = 6;
             // 
             // comboBoxPropsEnum
@@ -280,12 +282,12 @@
             this.groupBoxEditBbox.Controls.Add(this.textBoxBbox1);
             this.groupBoxEditBbox.Controls.Add(this.buttonApplyBbox);
             this.groupBoxEditBbox.Controls.Add(this.textBoxBbox0);
-            this.groupBoxEditBbox.Location = new System.Drawing.Point(8, 12);
+            this.groupBoxEditBbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxEditBbox.Location = new System.Drawing.Point(0, 0);
             this.groupBoxEditBbox.Name = "groupBoxEditBbox";
-            this.groupBoxEditBbox.Size = new System.Drawing.Size(306, 208);
+            this.groupBoxEditBbox.Size = new System.Drawing.Size(322, 464);
             this.groupBoxEditBbox.TabIndex = 9;
             this.groupBoxEditBbox.TabStop = false;
-            this.groupBoxEditBbox.Text = "Редактирование BBox";
             // 
             // label3
             // 
@@ -360,8 +362,8 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.groupBoxContainer);
             this.tabPage3.Controls.Add(this.dataGridViewItems);
+            this.tabPage3.Controls.Add(this.groupBoxContainer);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(322, 464);
@@ -375,9 +377,10 @@
             this.groupBoxContainer.Controls.Add(this.buttonClearItems);
             this.groupBoxContainer.Controls.Add(this.buttonContainerCancel);
             this.groupBoxContainer.Controls.Add(this.buttonContainerApply);
-            this.groupBoxContainer.Location = new System.Drawing.Point(8, 374);
+            this.groupBoxContainer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBoxContainer.Location = new System.Drawing.Point(0, 388);
             this.groupBoxContainer.Name = "groupBoxContainer";
-            this.groupBoxContainer.Size = new System.Drawing.Size(306, 82);
+            this.groupBoxContainer.Size = new System.Drawing.Size(322, 76);
             this.groupBoxContainer.TabIndex = 6;
             this.groupBoxContainer.TabStop = false;
             this.groupBoxContainer.Text = "Управление";
@@ -433,12 +436,13 @@
             this.dataGridViewItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            this.dataGridViewItems.Location = new System.Drawing.Point(8, 18);
+            this.dataGridViewItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewItems.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewItems.Name = "dataGridViewItems";
             this.dataGridViewItems.RowHeadersVisible = false;
             this.dataGridViewItems.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewItems.Size = new System.Drawing.Size(306, 350);
+            this.dataGridViewItems.Size = new System.Drawing.Size(322, 388);
             this.dataGridViewItems.TabIndex = 4;
             this.dataGridViewItems.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
@@ -475,7 +479,6 @@
             this.ClientSize = new System.Drawing.Size(330, 490);
             this.Controls.Add(this.tabControlProps);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ObjectsWindow";

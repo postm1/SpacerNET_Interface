@@ -42,20 +42,23 @@
             this.openFileDialogVobTree = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogVobTree = new System.Windows.Forms.SaveFileDialog();
             this.buttonTreeSort = new System.Windows.Forms.Button();
+            this.panelButtons = new System.Windows.Forms.Panel();
             this.contextMenuStripTree.SuspendLayout();
+            this.panelButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // globalTree
             // 
             this.globalTree.ContextMenuStrip = this.contextMenuStripTree;
+            this.globalTree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.globalTree.HideSelection = false;
             this.globalTree.HotTracking = true;
             this.globalTree.ImageIndex = 0;
             this.globalTree.ImageList = this.imageList1;
-            this.globalTree.Location = new System.Drawing.Point(2, 41);
+            this.globalTree.Location = new System.Drawing.Point(0, 43);
             this.globalTree.Name = "globalTree";
             this.globalTree.SelectedImageIndex = 0;
-            this.globalTree.Size = new System.Drawing.Size(389, 411);
+            this.globalTree.Size = new System.Drawing.Size(389, 410);
             this.globalTree.TabIndex = 0;
             this.globalTree.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.globalTree_BeforeSelect);
             this.globalTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.globalTree_AfterSelect);
@@ -70,7 +73,7 @@
             this.toolStripMenuItem1,
             this.удалитьВобToolStripMenuItem});
             this.contextMenuStripTree.Name = "contextMenuStrip1";
-            this.contextMenuStripTree.Size = new System.Drawing.Size(283, 114);
+            this.contextMenuStripTree.Size = new System.Drawing.Size(283, 92);
             // 
             // toolStripMenuItem2
             // 
@@ -112,7 +115,7 @@
             // 
             // buttonCollapse
             // 
-            this.buttonCollapse.Location = new System.Drawing.Point(2, 12);
+            this.buttonCollapse.Location = new System.Drawing.Point(12, 10);
             this.buttonCollapse.Name = "buttonCollapse";
             this.buttonCollapse.Size = new System.Drawing.Size(96, 23);
             this.buttonCollapse.TabIndex = 1;
@@ -122,7 +125,7 @@
             // 
             // buttonExpand
             // 
-            this.buttonExpand.Location = new System.Drawing.Point(104, 12);
+            this.buttonExpand.Location = new System.Drawing.Point(114, 10);
             this.buttonExpand.Name = "buttonExpand";
             this.buttonExpand.Size = new System.Drawing.Size(97, 23);
             this.buttonExpand.TabIndex = 2;
@@ -136,7 +139,7 @@
             // 
             // buttonTreeSort
             // 
-            this.buttonTreeSort.Location = new System.Drawing.Point(207, 12);
+            this.buttonTreeSort.Location = new System.Drawing.Point(217, 10);
             this.buttonTreeSort.Name = "buttonTreeSort";
             this.buttonTreeSort.Size = new System.Drawing.Size(97, 23);
             this.buttonTreeSort.TabIndex = 3;
@@ -144,17 +147,25 @@
             this.buttonTreeSort.UseVisualStyleBackColor = true;
             this.buttonTreeSort.Click += new System.EventHandler(this.buttonTreeSort_Click);
             // 
+            // panelButtons
+            // 
+            this.panelButtons.Controls.Add(this.buttonCollapse);
+            this.panelButtons.Controls.Add(this.buttonExpand);
+            this.panelButtons.Controls.Add(this.buttonTreeSort);
+            this.panelButtons.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelButtons.Location = new System.Drawing.Point(0, 0);
+            this.panelButtons.Name = "panelButtons";
+            this.panelButtons.Size = new System.Drawing.Size(389, 43);
+            this.panelButtons.TabIndex = 4;
+            // 
             // ObjTree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(389, 453);
-            this.Controls.Add(this.buttonTreeSort);
-            this.Controls.Add(this.buttonExpand);
-            this.Controls.Add(this.buttonCollapse);
             this.Controls.Add(this.globalTree);
+            this.Controls.Add(this.panelButtons);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ObjTree";
@@ -166,6 +177,7 @@
             this.Load += new System.EventHandler(this.ObjTree_Load);
             this.Shown += new System.EventHandler(this.ObjTree_Shown);
             this.contextMenuStripTree.ResumeLayout(false);
+            this.panelButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -184,5 +196,6 @@
         private System.Windows.Forms.ToolStripMenuItem вставитьVobTreeГлобальноToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьВобToolStripMenuItem;
         private System.Windows.Forms.Button buttonTreeSort;
+        private System.Windows.Forms.Panel panelButtons;
     }
 }
