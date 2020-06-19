@@ -21,7 +21,7 @@ namespace SpacerUnion.Common
 
             words.Add("appIsLoading", new List<string> { "Spacer.NET загружается...", "Spacer.NET is loading...", "Spacer.NET lädt", "Spacer.NET trwa ładowanie..." });
             words.Add("appIsReady", new List<string> { "Программа готова к работе!", "The program is ready!", "Programm ist bereit!", "Program jest gotowy do pracy!" });
-            words.Add("askExit", new List<string> { "Точно выйти?", "Are you sure?", "Sind Sie sich sicher?", "Czy jesteś pewny?" });
+            words.Add("askSure", new List<string> { "Вы уверены?", "Are you sure?", "Sind Sie sich sicher?", "Czy jesteś pewny?" });
             words.Add("askReset", new List<string> { "Точно сбросить мир?", "Reset world?", "Welt zurücksetzen?", "Zresetować świat?" });
             words.Add("confirmation", new List<string> { "Подтверждение", "Confirmation", "Bestätigung", "Potwierdzenie" });
             words.Add("loadZen", new List<string> { "Идет загрузка ZEN...", "ZEN is loading...", "ZEN lädt...", "ZEN jest ładowany..." });
@@ -400,11 +400,18 @@ namespace SpacerUnion.Common
             words.Add("SET_ANY_FIELD_SEARCH", new List<string> { "Выберите хотя бы одно поле!", "Select one field at least!", "Du musst zumindestens ein Feld auswählen!", "Wybierz przynajmniej jedno pole!" });
 
             words.Add("VOB_SEARCH_START", new List<string> { "Поиск вобов начался...", "Looking for vobs...", "Nach Vob suchen....", "Rozglądanie się za vobami..." });
-            words.Add("VOB_SEARCH_STOP", new List<string> { "Поиск вобов закончен за", "Searching vobs finished. Time spent", "Vob Suche beendet. Gebrauchte Zeit", "Poszukiwanie vobów zakończone. Czas wyszukiwania" });
-
-
             
 
+            //
+            words.Add("BAD_REGEX", new List<string> { "Введено некорректное регулярное выражение!", "Wrong regular expression!", "Falscher Regex eingeführt!", "Błędne wyrażenie regularne!" });
+            words.Add("search_button_convert", new List<string> { "Конвертировать", "Convert", "", "" });
+            words.Add("search_button_replacezen", new List<string> { "Заменить на VobTree", "Replace with VobTree", "", "" });
+            words.Add("search_button_remove", new List<string> { "Удалить", "Remove", "", "" });
+            words.Add("VOB_SEARCH_REPLACEZEN", new List<string> { "Заменено вобов на VobTree: ", "", "", "" });
+            words.Add("VOB_SEARCH_REMOVEVOBS", new List<string> { "Удалено вобов: ", "", "", "" });
+            words.Add("NO_REPLACE_VOBTREE", new List<string> { "VobTree не выбран!", "", "", "" });
+            words.Add("VOB_SEARCH_CONVERT", new List<string> { "Преобразовано вобов: ", "", "", "" });
+            words.Add("VOB_SEARCH_STOP", new List<string> { "Найдено вобов: ", "Vobs found: ", "", "" });
 
 
         }

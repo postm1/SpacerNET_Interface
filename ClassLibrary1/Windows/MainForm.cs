@@ -66,7 +66,7 @@ namespace SpacerUnion
 
             if (currentWorldName != "" && Imports.Extern_GetSetting() == 1)
             {
-                DialogResult res = MessageBox.Show(Localizator.Get("askExit"), Localizator.Get("confirmation"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                DialogResult res = MessageBox.Show(Localizator.Get("askSure"), Localizator.Get("confirmation"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
                 if (res == DialogResult.OK)
                 {

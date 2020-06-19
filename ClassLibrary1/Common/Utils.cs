@@ -18,6 +18,8 @@ namespace SpacerUnion
         public const string FILE_FILTER_SAVE_ZEN = "Compiled ZEN (ascii)|*.zen|Uncompiled ZEN (ascii)|*.zen|Compiled ZEN (binary safe)|*.zen";
         public const string FILE_FILTER_ALL = "All files (*.)|";
 
+        public const string TAG_FOLDER = "folder";
+
     }
 
     class FolderEntry
@@ -146,7 +148,7 @@ namespace SpacerUnion
                 zenName = zenName.Replace(".ZEN", "");
             }
 
-            ConsoleEx.WriteLineRed("First get: " + zenName);
+            //ConsoleEx.WriteLineRed("First get: " + zenName);
 
             var match = Regex.Match(zenName, @"(^.*)_\d\d\d\d_\d\d_\d\d\s+\d\d-\d\d-\d\d.*");
 

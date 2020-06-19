@@ -141,7 +141,7 @@ namespace SpacerUnion
             SpacerNET.propWin.panelButtons.Enabled = false;
 
             TreeNode firstNode = tree.Nodes.Add(className + ": zCVob");
-            firstNode.Tag = "folder";
+            firstNode.Tag = Constants.TAG_FOLDER;
 
 
 
@@ -183,7 +183,7 @@ namespace SpacerUnion
                         TreeNode node = tree.Nodes.Add(folderName);
                         node.SelectedImageIndex = 0;
                         node.ImageIndex = 0;
-                        node.Tag = "folder";
+                        node.Tag = Constants.TAG_FOLDER;
                         f.node = node;
                     }
                     else
@@ -195,7 +195,7 @@ namespace SpacerUnion
                                 TreeNode node = tree.Nodes[j].Nodes.Add(folderName);
                                 node.SelectedImageIndex = 0;
                                 node.ImageIndex = 0;
-                                node.Tag = "folder";
+                                node.Tag = Constants.TAG_FOLDER;
                                 f.node = node;
                                 break;
                             }
@@ -281,7 +281,7 @@ namespace SpacerUnion
                     TreeNode node = tree.Nodes.Add(folders.ElementAt(i).Key);
                     node.SelectedImageIndex = 0;
                     node.ImageIndex = 0;
-                    node.Tag = "folder";
+                    node.Tag = Constants.TAG_FOLDER;
                 }
                 else
                 {
@@ -292,7 +292,7 @@ namespace SpacerUnion
                             TreeNode node = tree.Nodes[j].Nodes.Add(folders.ElementAt(i).Key);
                             node.SelectedImageIndex = 0;
                             node.ImageIndex = 0;
-                            node.Tag = "folder";
+                            node.Tag = Constants.TAG_FOLDER;
                             break;
                         }
                     }
@@ -550,7 +550,7 @@ namespace SpacerUnion
             TextBox textBox = sender as TextBox;
             int index = 0;
 
-            if (node != null && node.Tag.ToString() != "folder")
+            if (node != null && node.Tag.ToString() != Constants.TAG_FOLDER)
             {
                 int.TryParse(node.Tag.ToString(), out index);
 
@@ -673,7 +673,7 @@ namespace SpacerUnion
             TreeNode node = e.Node;
             int index = 0;
 
-            if (node.Tag != null && node.Tag.ToString() != "folder")
+            if (node.Tag != null && node.Tag.ToString() != Constants.TAG_FOLDER)
             {
                 int.TryParse(node.Tag.ToString(), out index);
 
@@ -793,7 +793,7 @@ namespace SpacerUnion
             TextBox textBox = sender as TextBox;
             int index = 0;
 
-            if (node != null && node.Tag.ToString() != "folder")
+            if (node != null && node.Tag.ToString() != Constants.TAG_FOLDER)
             {
                 int.TryParse(node.Tag.ToString(), out index);
 
@@ -836,7 +836,7 @@ namespace SpacerUnion
             TextBox textBox = sender as TextBox;
             int index = 0;
 
-            if (node != null && node.Tag.ToString() != "folder")
+            if (node != null && node.Tag.ToString() != Constants.TAG_FOLDER)
             {
                 int.TryParse(node.Tag.ToString(), out index);
 
@@ -893,7 +893,7 @@ namespace SpacerUnion
                 return;
             }
 
-            if (node != null && node.Tag.ToString() != "folder")
+            if (node != null && node.Tag.ToString() != Constants.TAG_FOLDER)
             {
                 int.TryParse(node.Tag.ToString(), out index);
 
@@ -1157,7 +1157,7 @@ namespace SpacerUnion
                 {
                     int index = 0;
 
-                    if (node.Tag != null && node.Tag.ToString() != "folder")
+                    if (node.Tag != null && node.Tag.ToString() != Constants.TAG_FOLDER)
                     {
                         int.TryParse(node.Tag.ToString(), out index);
 
@@ -1214,7 +1214,7 @@ namespace SpacerUnion
             {
                 int index = 0;
 
-                if (node.Tag != null && node.Tag.ToString() != "folder")
+                if (node.Tag != null && node.Tag.ToString() != Constants.TAG_FOLDER)
                 {
                     int.TryParse(node.Tag.ToString(), out index);
 

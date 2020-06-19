@@ -241,10 +241,16 @@ namespace SpacerUnion.Common
         public static extern void Extern_ResetKeysDefault();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_GetClassFields();
+        public static extern void Extern_GetClassFields(bool isNew);
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_SearchVobs(bool derived, bool nameSelected, bool visualSelected);
+        public static extern int Extern_SearchVobs(bool derived, int type);
+
+        [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_GetConvertSubClasses();
+
+        [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_AddConvertVob();
 
         
 

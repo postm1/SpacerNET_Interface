@@ -109,7 +109,6 @@
     </Compile>
     <Compile Include="Common\Localizator.cs" />
     <Compile Include="Common\LocalizedStrings.cs" />
-    <Compile Include="Common\SearchEntry.cs" />
     <Compile Include="Common\TriggerEntry.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

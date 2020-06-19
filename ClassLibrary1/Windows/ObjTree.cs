@@ -20,7 +20,7 @@ namespace SpacerUnion
         public static TreeNode previousSelectedNode = null;
 
 
-        const string TAG_FOLDER = "folder";
+        
 
         public static Dictionary<uint, TreeEntry> globalEntries = new Dictionary<uint, TreeEntry>();
         public static Dictionary<uint, TreeEntry> tempEntries = new Dictionary<uint, TreeEntry>();
@@ -68,7 +68,7 @@ namespace SpacerUnion
             {
 
                 TreeNode newNode = nodes.Add(className);
-                newNode.Tag = TAG_FOLDER;
+                newNode.Tag = Constants.TAG_FOLDER;
                 newNode.ImageIndex = 0;
                 newNode.SelectedImageIndex = 0;
 
@@ -101,7 +101,7 @@ namespace SpacerUnion
                 node.SelectedImageIndex = 1;
             }
 
-            if (node.Tag.ToString() == TAG_FOLDER)
+            if (node.Tag.ToString() == Constants.TAG_FOLDER)
             {
                 node.ImageIndex = 0;
                 node.SelectedImageIndex = 0;
@@ -419,7 +419,7 @@ namespace SpacerUnion
             {
                 CalcNodesCount(nodes[i].Nodes);
 
-                if (nodes[i].Tag != null && nodes[i].Tag.ToString() != TAG_FOLDER)
+                if (nodes[i].Tag != null && nodes[i].Tag.ToString() != Constants.TAG_FOLDER)
                 {
                     countNodeView++;
                 }
@@ -459,7 +459,7 @@ namespace SpacerUnion
             {
                 string tag = node.Tag.ToString();
 
-                if (tag != TAG_FOLDER && tag.Length > 0)
+                if (tag != Constants.TAG_FOLDER && tag.Length > 0)
                 {
                     uint addr = Convert.ToUInt32(node.Tag);
 
@@ -501,8 +501,8 @@ namespace SpacerUnion
         {
             TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
 
-            ConsoleEx.WriteLineGreen("OnVobRemove: " + Utils.ToHex(vob));
-            ConsoleEx.WriteLineGreen("All vobs count: " + globalEntries.Count);
+            //ConsoleEx.WriteLineGreen("OnVobRemove: " + Utils.ToHex(vob));
+            //ConsoleEx.WriteLineGreen("All vobs count: " + globalEntries.Count);
 
             if (vob == 0)
             {
@@ -542,12 +542,12 @@ namespace SpacerUnion
             SpacerNET.vobList.ClearListBox();
             ObjectsWindow.CleanProps();
 
-            ConsoleEx.WriteLineGreen("All vobs count: " + globalEntries.Count);
+            ConsoleEx.WriteLineGreen("OnVobRemove: All vobs count: " + globalEntries.Count);
             countNodeView = 0;
-            CalcNodesCount(SpacerNET.objTreeWin.globalTree.Nodes);
-            ConsoleEx.WriteLineGreen("All TreeView nodes count: " + countNodeView);
+            //CalcNodesCount(SpacerNET.objTreeWin.globalTree.Nodes);
+            //ConsoleEx.WriteLineGreen("All TreeView nodes count: " + countNodeView);
             
-            Console.WriteLine("=============================");
+            //Console.WriteLine("=============================");
 
 
         }
@@ -840,7 +840,7 @@ namespace SpacerUnion
            
 
 
-            if (tag.Length == 0 || tag == TAG_FOLDER)
+            if (tag.Length == 0 || tag == Constants.TAG_FOLDER)
             {
                 return;
             }
@@ -874,7 +874,7 @@ namespace SpacerUnion
 
             if (previousSelectedNode != null)
             {
-                if (previousSelectedNode.Tag.ToString() == TAG_FOLDER)
+                if (previousSelectedNode.Tag.ToString() == Constants.TAG_FOLDER)
                 {
                     previousSelectedNode.SelectedImageIndex = 0;
                 }
@@ -887,7 +887,7 @@ namespace SpacerUnion
 
             string tag = node.Tag.ToString();
 
-            if (tag.Length == 0 || tag == TAG_FOLDER)
+            if (tag.Length == 0 || tag == Constants.TAG_FOLDER)
             {
                 return;
             }
@@ -922,7 +922,7 @@ namespace SpacerUnion
 
             string tag = node.Tag.ToString();
 
-            if (tag.Length == 0 || tag == TAG_FOLDER)
+            if (tag.Length == 0 || tag == Constants.TAG_FOLDER)
             {
                 return;
             }
@@ -977,7 +977,7 @@ namespace SpacerUnion
 
             string tag = node.Tag.ToString();
 
-            if (tag.Length == 0 || tag == TAG_FOLDER)
+            if (tag.Length == 0 || tag == Constants.TAG_FOLDER)
             {
                 return;
             }
@@ -1074,7 +1074,7 @@ namespace SpacerUnion
 
             string tag = node.Tag.ToString();
 
-            if (tag.Length == 0 || tag == TAG_FOLDER)
+            if (tag.Length == 0 || tag == Constants.TAG_FOLDER)
             {
                 return;
             }

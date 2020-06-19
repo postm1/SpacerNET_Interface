@@ -29,11 +29,14 @@ namespace SpacerUnion
 
         static List<CProperty> searchProps = new List<CProperty>();
         static List<CProperty> compareProps = new List<CProperty>();
+        static List<CProperty> newProps = new List<CProperty>();
+        static List<CProperty> convertProps = new List<CProperty>();
         static int selectTabBlocked = 0;
 
         public ObjectsWin()
         {
             InitializeComponent();
+            comboBoxSearchType.SelectedIndex = 0;
         }
 
 
@@ -319,6 +322,19 @@ namespace SpacerUnion
             if (e.KeyChar == (char)13)
             {
                 string strToFind = textBoxItems.Text.Trim().ToUpper();
+
+                Regex regEx = null;
+
+                try
+                {
+                    regEx = new Regex(@strToFind, RegexOptions.IgnoreCase | RegexOptions.Compiled);
+                }
+                catch (ArgumentException)
+                {
+                    MessageBox.Show(Localizator.Get("BAD_REGEX"));
+                    return;
+                }
+
 
                 listBoxResultItems.Items.Clear();
 
@@ -712,6 +728,21 @@ namespace SpacerUnion
             {
                 string strToFind = textBoxPfxReg.Text.Trim().ToUpper();
 
+
+                Regex regEx = null;
+
+                try
+                {
+                    regEx = new Regex(@strToFind, RegexOptions.IgnoreCase | RegexOptions.Compiled);
+                }
+                catch (ArgumentException)
+                {
+                    MessageBox.Show(Localizator.Get("BAD_REGEX"));
+                    return;
+                }
+
+
+
                 listBoxPfxResult.Items.Clear();
 
 
@@ -745,13 +776,26 @@ namespace SpacerUnion
                     strToFind += ".*3DS";
                 }
 
+                Regex regEx = null;
+
+                try
+                {
+                    regEx = new Regex(@strToFind, RegexOptions.IgnoreCase | RegexOptions.Compiled);
+                }
+                catch (ArgumentException)
+                {
+                    MessageBox.Show(Localizator.Get("BAD_REGEX"));
+                    return;
+                }
+
+
                 listBoxVisuals.Items.Clear();
 
                 if (radioButtonVdf.Checked)
                 {
                     for (int i = 0; i < listVisualsVDF.Count; i++)
                     {
-                        if (Regex.IsMatch(listVisualsVDF[i], @strToFind))
+                        if (regEx.IsMatch(listVisualsVDF[i]))
                         {
                             listBoxVisuals.Items.Add(listVisualsVDF[i]);
                         }
@@ -761,7 +805,7 @@ namespace SpacerUnion
                 {
                     for (int i = 0; i < listVisualsWORK.Count; i++)
                     {
-                        if (Regex.IsMatch(listVisualsWORK[i], @strToFind))
+                        if (regEx.IsMatch(listVisualsWORK[i]))
                         {
                             listBoxVisuals.Items.Add(listVisualsWORK[i]);
                         }
@@ -1539,8 +1583,28 @@ namespace SpacerUnion
 
         static Dictionary<string, FolderEntry> foldersCompare = new Dictionary<string, FolderEntry>();
         static string currentFolderNameCompare = "";
-        static TPropEditType currentFieldtypeCompare;
+
+        static Dictionary<string, FolderEntry> foldersConvert = new Dictionary<string, FolderEntry>();
+        static string currentFolderNameConvert = "";
+
+
+
+        static Dictionary<string, FolderEntry> foldersConvertVob = new Dictionary<string, FolderEntry>();
+        static string currentFolderNameConvertVob = "";
+
+
         public static List<uint> searchResultVobsAddr = new List<uint>();
+        public static string replaceZenPath = "";
+
+        
+        private void CleanNewProps()
+        {
+            treeViewSearchClass.Nodes.Clear();
+            currentFolderNameConvert = String.Empty;
+            foldersConvert.Clear();
+            newProps.Clear();
+        }
+
         private void CleanFindProps()
         {
             treeViewSearchClass.Nodes.Clear();
@@ -1550,10 +1614,22 @@ namespace SpacerUnion
         }
 
 
-        public void FillClassFields(string inputStr)
+        public void FillClassFields(string inputStr, bool clean = true)
         {
 
-            CleanFindProps();
+            if (clean)
+            {
+                CleanFindProps();
+            }
+            else
+            {
+                treeViewSearchClass.Nodes.Clear();
+                currentFolderName = String.Empty;
+                folders.Clear();
+            }
+
+            TreeNode showFirst = null;
+
 
             if (inputStr.Length == 0)
             {
@@ -1583,7 +1659,7 @@ namespace SpacerUnion
                     if (currentFolderName == "")
                     {
                         TreeNode node = treeViewSearchClass.Nodes.Add(folderName);
-                        node.Tag = "folder";
+                        node.Tag = Constants.TAG_FOLDER;
                         f.node = node;
                     }
                     else
@@ -1593,7 +1669,7 @@ namespace SpacerUnion
                             if (treeViewSearchClass.Nodes[j].Text == currentFolderName)
                             {
                                 TreeNode node = treeViewSearchClass.Nodes[j].Nodes.Add(folderName);
-                                node.Tag = "folder";
+                                node.Tag = Constants.TAG_FOLDER;
                                 f.node = node;
                                 break;
                             }
@@ -1611,37 +1687,42 @@ namespace SpacerUnion
                     continue;
                 }
 
-                CProperty prop = new CProperty();
-                prop.Name = words[i].Substring(0, words[i].IndexOf('='));
-                prop.GroupName = currentFolderName;
-
-                int pos = words[i].IndexOf('=');
-                int pos2 = words[i].IndexOf(':');
-
-                prop.SetType(words[i].Substring(pos + 1, pos2 - pos - 1));
-
-                pos = words[i].IndexOf(':');
-
-                prop.SetValue(words[i].Substring(pos + 1, words[i].Length - pos - 1));
-
-                if (currentFolderName != "")
+                if (clean)
                 {
-                    prop.node = folders[currentFolderName].node;
+                    CProperty prop = new CProperty();
+                    prop.Name = words[i].Substring(0, words[i].IndexOf('='));
+                    prop.GroupName = currentFolderName;
+
+                    int pos = words[i].IndexOf('=');
+                    int pos2 = words[i].IndexOf(':');
+
+                    prop.SetType(words[i].Substring(pos + 1, pos2 - pos - 1));
+
+                    pos = words[i].IndexOf(':');
+
+                    prop.SetValue(words[i].Substring(pos + 1, words[i].Length - pos - 1));
+
+                    if (currentFolderName != "")
+                    {
+                        prop.node = folders[currentFolderName].node;
+                    }
+
+                    searchProps.Add(prop);
                 }
+                else
+                {
+                    CProperty prop = searchProps.Where(x => x.Name == words[i].Substring(0, words[i].IndexOf('='))).ToArray()[0];
 
-
-                /*
-                Console.WriteLine("=================================");
-                Console.WriteLine(words[i]);
-                Console.WriteLine("[" + prop.Name + "][" + prop.GroupName + "][" + prop.type + "][" + prop.value + "]");
-                Console.WriteLine("=================================");
-                */
-
-                searchProps.Add(prop);
+                    if (prop != null && currentFolderName != "")
+                    {
+                        prop.node = folders[currentFolderName].node;
+                    }
+                }
+                
 
             }
 
-
+            
             for (int i = 0; i < searchProps.Count; i++)
             {
                 TreeNode baseNode = searchProps[i].node;
@@ -1653,6 +1734,11 @@ namespace SpacerUnion
                     node.ImageIndex = 5;
                     node.Tag = i;
                     searchProps[i].ownNode = node;
+
+                    if (searchProps[i].Name == "vobName")
+                    {
+                        showFirst = node;
+                    }
                 }
                 else
                 {
@@ -1661,9 +1747,20 @@ namespace SpacerUnion
                     node.ImageIndex = 5;
                     node.Tag = i;
                     searchProps[i].ownNode = node;
+                    if (searchProps[i].Name == "vobName")
+                    {
+                        showFirst = node;
+                    }
                 }
 
+                if (searchProps[i].selectedForSearch)
+                {
+                    TreeNode node = searchProps[i].ownNode;
 
+                    node.Text = searchProps[i].Name + ": " + searchProps[i].ShowValue();
+                    node.SelectedImageIndex = 4;
+                    node.ImageIndex = 4;
+                }
             }
 
 
@@ -1677,25 +1774,217 @@ namespace SpacerUnion
                 }
             }
 
+            if (showFirst != null)
+            {
+                treeViewSearchClass.SelectedNode = showFirst;
+            }
+        }
+
+
+        public void FillClassFieldsConvert(string inputStr, bool clean=true)
+        {
+            if (clean)
+            {
+                CleanNewProps();
+            }
+            else
+            {
+                treeViewSearchClass.Nodes.Clear();
+                currentFolderNameConvert = String.Empty;
+                foldersConvert.Clear();
+            }
+
+            TreeNode showFirst = null;
+
+
+            if (inputStr.Length == 0)
+            {
+                return;
+            }
+
+            string[] words = inputStr.Replace("\t", "").Split('\n');
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                words[i] = words[i].Trim();
+
+                if (words[i].Length == 0 || words[i].Contains('[') || (!words[i].Contains(':') || !words[i].Contains('=')))
+                {
+                    continue;
+                }
+
+                if (words[i].Contains("groupBegin"))
+                {
+                    string folderName = words[i].Substring(0, words[i].IndexOf('='));
+
+                    FolderEntry f = new FolderEntry();
+                    f.parent = currentFolderNameConvert;
+
+
+                    if (currentFolderNameConvert == "")
+                    {
+                        TreeNode node = treeViewSearchClass.Nodes.Add(folderName);
+                        node.Tag = Constants.TAG_FOLDER;
+                        f.node = node;
+                    }
+                    else
+                    {
+                        for (int j = 0; j < treeViewSearchClass.Nodes.Count; j++)
+                        {
+                            if (treeViewSearchClass.Nodes[j].Text == currentFolderNameConvert)
+                            {
+                                TreeNode node = treeViewSearchClass.Nodes[j].Nodes.Add(folderName);
+                                node.Tag = Constants.TAG_FOLDER;
+                                f.node = node;
+                                break;
+                            }
+                        }
+                    }
+
+                    foldersConvert.Add(folderName, f);
+                    currentFolderNameConvert = folderName;
+                    continue;
+                }
+
+                if (words[i].Contains("groupEnd"))
+                {
+                    currentFolderNameConvert = foldersConvert[currentFolderNameConvert].parent;
+                    continue;
+                }
+
+
+                if (clean)
+                {
+                    CProperty prop = new CProperty();
+                    prop.Name = words[i].Substring(0, words[i].IndexOf('='));
+                    prop.GroupName = currentFolderNameConvert;
+
+                    int pos = words[i].IndexOf('=');
+                    int pos2 = words[i].IndexOf(':');
+
+                    prop.SetType(words[i].Substring(pos + 1, pos2 - pos - 1));
+
+                    pos = words[i].IndexOf(':');
+
+                    prop.SetValue(words[i].Substring(pos + 1, words[i].Length - pos - 1));
+
+                    if (currentFolderNameConvert != "")
+                    {
+                        prop.node = foldersConvert[currentFolderNameConvert].node;
+                    }
+
+                    newProps.Add(prop);
+                }
+                else
+                {
+                    CProperty prop = newProps.Where(x => x.Name == words[i].Substring(0, words[i].IndexOf('='))).ToArray()[0];
+
+                    if (prop != null && currentFolderNameConvert != "")
+                    {
+                        prop.node = foldersConvert[currentFolderNameConvert].node;
+                    }
+                }
+                
+
+            }
+
+
+            for (int i = 0; i < newProps.Count; i++)
+            {
+                TreeNode baseNode = newProps[i].node;
+
+                if (baseNode != null)
+                {
+                    TreeNode node = baseNode.Nodes.Add(newProps[i].Name + ": " + newProps[i].ShowValue());
+                    node.SelectedImageIndex = 5;
+                    node.ImageIndex = 5;
+                    node.Tag = i;
+                    newProps[i].ownNode = node;
+
+                    if (newProps[i].Name == "vobName")
+                    {
+                        showFirst = node;
+                    }
+                }
+                else
+                {
+                    TreeNode node = treeViewSearchClass.Nodes.Add(newProps[i].Name + ": " + newProps[i].ShowValue());
+                    node.SelectedImageIndex = 5;
+                    node.ImageIndex = 5;
+                    node.Tag = i;
+                    newProps[i].ownNode = node;
+
+                    if (newProps[i].Name == "vobName")
+                    {
+                        showFirst = node;
+                    }
+                }
+
+                if (newProps[i].selectedForSearch)
+                {
+                    TreeNode node = newProps[i].ownNode;
+
+                    node.Text = newProps[i].Name + ": " + newProps[i].ShowValue();
+                    node.SelectedImageIndex = 3;
+                    node.ImageIndex = 3;
+                }
+            }
+
+
+            treeViewSearchClass.ExpandAll();
+
+            for (int j = 0; j < foldersConvert.Count; j++)
+            {
+                if (foldersConvert.ElementAt(j).Key == "Internals")
+                {
+                    foldersConvert.ElementAt(j).Value.node.Collapse();
+                }
+            }
+
+            if (showFirst != null)
+            {
+                treeViewSearchClass.SelectedNode = showFirst;
+            }
 
         }
+        //
+
+        [DllExport]
+        public static void AddSubClassConvert()
+        {
+            string value = Imports.Stack_PeekString();
+            SpacerNET.objectsWin.comboBoxSearchClassReplace.Items.Add(value);
+        }
+
 
         private void comboBoxSearchClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox cb = sender as ComboBox;
 
+            if (!SpacerNET.isInit)
+            {
+                return;
+            }
+
             string selectedClass = cb.Text.Replace(".", "").Trim();
            // ConsoleEx.WriteLineRed(selectedClass);
 
             Imports.Stack_PushString(selectedClass);
-            Imports.Extern_GetClassFields();
+            Imports.Extern_GetClassFields(false);
 
             string result = Imports.Stack_PeekString();
 
             
             FillClassFields(result);
-            
-            
+
+            comboBoxSearchClassReplace.Items.Clear();
+
+            Imports.Stack_PushString(selectedClass);
+            Imports.Extern_GetConvertSubClasses();
+
+
+            radioButtonConvertOld.Checked = true;
+
             //searchProps
             //ConsoleEx.WriteLineRed(result);
         }
@@ -1709,25 +1998,52 @@ namespace SpacerUnion
             int.TryParse(node.Tag.ToString(), out index);
 
 
-            if (index >= 0)
+            if (index >= 0 && node.Tag != null && node.Tag.ToString() != Constants.TAG_FOLDER)
             {
-                CProperty prop = searchProps[index];
 
-                if (prop.selectedForSearch)
+                CProperty prop = null;
+
+                if (radioButtonConvertOld.Checked)
                 {
-                    prop.selectedForSearch = false;
-                    node.Text = prop.Name + ": " + prop.ShowValue();
-                    node.SelectedImageIndex = 5;
-                    node.ImageIndex = 5;
+                    prop = searchProps[index];
+                    if (prop.selectedForSearch)
+                    {
+                        prop.selectedForSearch = false;
+                        node.Text = prop.Name + ": " + prop.ShowValue();
+                        node.SelectedImageIndex = 5;
+                        node.ImageIndex = 5;
 
+                    }
+                    else
+                    {
+                        prop.selectedForSearch = true;
+                        node.Text = prop.Name + ": " + prop.ShowValue();
+                        node.SelectedImageIndex = 4;
+                        node.ImageIndex = 4;
+                    }
                 }
                 else
                 {
-                    prop.selectedForSearch = true;
-                    node.Text = prop.Name + ": " + prop.ShowValue();
-                    node.SelectedImageIndex = 4;
-                    node.ImageIndex = 4;
+                    prop = newProps[index];
+
+                    if (prop.selectedForSearch)
+                    {
+                        prop.selectedForSearch = false;
+                        node.Text = prop.Name + ": " + prop.ShowValue();
+                        node.SelectedImageIndex = 5;
+                        node.ImageIndex = 5;
+
+                    }
+                    else
+                    {
+                        prop.selectedForSearch = true;
+                        node.Text = prop.Name + ": " + prop.ShowValue();
+                        node.SelectedImageIndex = 3;
+                        node.ImageIndex = 3;
+                    }
                 }
+
+               
                 
             }
         }
@@ -1746,7 +2062,9 @@ namespace SpacerUnion
             TreeNode node = e.Node;
             int index = 0;
 
-            if (node.Tag != null && node.Tag.ToString() != "folder")
+            //ConsoleEx.WriteLineRed(node.Tag.ToString());
+
+            if (node.Tag != null && node.Tag.ToString() != Constants.TAG_FOLDER)
             {
                 int.TryParse(node.Tag.ToString(), out index);
 
@@ -1755,7 +2073,17 @@ namespace SpacerUnion
 
                     HideAllInput();
 
-                    CProperty prop = searchProps[index];
+                    CProperty prop = null;
+
+                    if (radioButtonConvertOld.Checked)
+                    {
+                        prop = searchProps[index];
+                    }
+                    else
+                    {
+                        prop = newProps[index];
+                    }
+                    
 
 
                     if (prop.type == TPropEditType.PETstring || prop.type == TPropEditType.PETraw || prop.type == TPropEditType.PETint || prop.type == TPropEditType.PETfloat)
@@ -1844,13 +2172,25 @@ namespace SpacerUnion
             {
                 int index = 0;
 
-                if (node.Tag != null && node.Tag.ToString() != "folder")
+                if (node.Tag != null && node.Tag.ToString() != Constants.TAG_FOLDER)
                 {
                     int.TryParse(node.Tag.ToString(), out index);
 
                     if (index >= 0)
                     {
-                        CProperty prop = searchProps[index];
+
+                        CProperty prop = null;
+
+                        if (radioButtonConvertOld.Checked)
+                        {
+                            prop = searchProps[index];
+                        }
+                        else
+                        {
+                            prop = newProps[index];
+                        }
+
+                       
 
                         if (prop.type == TPropEditType.PETenum)
                         {
@@ -1881,7 +2221,7 @@ namespace SpacerUnion
             TextBox textBox = sender as TextBox;
             int index = 0;
 
-            if (node != null && node.Tag.ToString() != "folder")
+            if (node != null && node.Tag.ToString() != Constants.TAG_FOLDER)
             {
                 int.TryParse(node.Tag.ToString(), out index);
 
@@ -1890,7 +2230,16 @@ namespace SpacerUnion
 
 
                     //Console.WriteLine("Change entry with index: " + index);
-                    CProperty prop = searchProps[index];
+                    CProperty prop = null;
+
+                    if (radioButtonConvertOld.Checked)
+                    {
+                        prop = searchProps[index];
+                    }
+                    else
+                    {
+                        prop = newProps[index];
+                    }
 
                     /*
                     if (prop.backup_value == textBox.Text.Trim())
@@ -1952,7 +2301,7 @@ namespace SpacerUnion
             int index = 0;
 
 
-            if (node != null && node.Tag.ToString() != "folder")
+            if (node != null && node.Tag.ToString() != Constants.TAG_FOLDER)
             {
                 int.TryParse(node.Tag.ToString(), out index);
 
@@ -1960,7 +2309,16 @@ namespace SpacerUnion
                 {
 
                     //Console.WriteLine("Change entry with index: " + index);
-                    CProperty prop = searchProps[index];
+                    CProperty prop = null;
+
+                    if (radioButtonConvertOld.Checked)
+                    {
+                        prop = searchProps[index];
+                    }
+                    else
+                    {
+                        prop = newProps[index];
+                    }
 
                     prop.value = textBoxVecSearch0.Text.Trim() + " " + textBoxVecSearch1.Text.Trim() + " " + textBoxVecSearch2.Text.Trim();
 
@@ -1989,8 +2347,10 @@ namespace SpacerUnion
         {
             bool checkValueFound = false;
 
-            bool isNameSelected = false;
-            bool isVisualSelected = false;
+            if (comboBoxSearchType.SelectedItem == null)
+            {
+                return;
+            }
 
             int countSelected = 0;
 
@@ -2000,25 +2360,27 @@ namespace SpacerUnion
                 {
                     checkValueFound = true;
                     countSelected++;
-                    if (searchProps[i].Name == "vobName")
-                    {
-                        isNameSelected = true;
-                    }
 
-                    if (searchProps[i].Name == "visual")
+
+                    if (searchProps[i].type == TPropEditType.PETstring && checkBoxSearchUseRegex.Checked)
                     {
-                        isVisualSelected = true;
+
+                        Regex regEx = null;
+
+                        try
+                        {
+                            regEx = new Regex(@searchProps[i].value, RegexOptions.IgnoreCase | RegexOptions.Compiled);
+                        }
+                        catch (ArgumentException)
+                        {
+                            MessageBox.Show(Localizator.Get("BAD_REGEX"));
+                            return;
+                        }
+
                     }
                 }
             }
 
-            if (countSelected > 2)
-            {
-                isNameSelected = false;
-                isVisualSelected = false;
-            }
-            if (isNameSelected && !isVisualSelected && countSelected >= 2) isNameSelected = false;
-            if (isVisualSelected && !isNameSelected && countSelected >= 2) isVisualSelected = false;
 
 
             //ConsoleEx.WriteLineRed(countSelected + " " + isNameSelected + " " + isVisualSelected);
@@ -2026,34 +2388,83 @@ namespace SpacerUnion
 
             if (!checkValueFound)
             {
-                MessageBox.Show(Localizator.Get("SET_ANY_FIELD_SEARCH"));
+                //MessageBox.Show(Localizator.Get("SET_ANY_FIELD_SEARCH"));
+                //return;
+            }
+
+
+            if (comboBoxSearchType.SelectedIndex == 2 && replaceZenPath.Length == 0)
+            {
+                MessageBox.Show(Localizator.Get("NO_REPLACE_VOBTREE"));
                 return;
             }
 
+            if (comboBoxSearchType.SelectedIndex != 0)
+            {
+                DialogResult res = MessageBox.Show(Localizator.Get("askSure"), Localizator.Get("confirmation"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+                if (res != DialogResult.OK)
+                {
+                    return;
+                }
+            }
+
+
+       
 
             SpacerNET.form.AddText(Localizator.Get("VOB_SEARCH_START"));
 
             Stopwatch s = new Stopwatch();
             s.Start();
 
-
-
-
-          
-
-
             listBoxSearchResult.Items.Clear();
             searchResultVobsAddr.Clear();
 
             
-            Imports.Extern_SearchVobs(checkBoxSearchDerived.Checked, false, false);
-            labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": " + listBoxSearchResult.Items.Count;
+            if (comboBoxSearchType.SelectedIndex == 2)
+            {
+                Imports.Stack_PushString(replaceZenPath);
+            }
+
+   
+            int result = Imports.Extern_SearchVobs(checkBoxSearchDerived.Checked, comboBoxSearchType.SelectedIndex);
 
 
             s.Stop();
 
+  
+
             string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-            SpacerNET.form.AddText(Localizator.Get("VOB_SEARCH_STOP") + " (" + timeSpend + ")");
+
+   
+            if (comboBoxSearchType.SelectedIndex == 0)
+            {
+                labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": " + listBoxSearchResult.Items.Count;
+                SpacerNET.form.AddText(Localizator.Get("VOB_SEARCH_STOP") + result.ToString() + " (" + timeSpend + ")");
+            }
+
+            if (comboBoxSearchType.SelectedIndex == 1)
+            {
+                labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": ";
+                SpacerNET.form.AddText(Localizator.Get("VOB_SEARCH_CONVERT") + result.ToString() + " (" + timeSpend + ")");
+            }
+
+
+            if (comboBoxSearchType.SelectedIndex == 2)
+            {
+                //labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": " + listBoxSearchResult.Items.Count;
+                labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": ";
+                SpacerNET.form.AddText(Localizator.Get("VOB_SEARCH_REPLACEZEN") + result.ToString() +  " (" + timeSpend + ")");
+            }
+
+            if (comboBoxSearchType.SelectedIndex == 3)
+            {
+                //labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": " + listBoxSearchResult.Items.Count;
+                labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": ";
+                SpacerNET.form.AddText(Localizator.Get("VOB_SEARCH_REMOVEVOBS") + result.ToString() + " (" + timeSpend + ")");
+            }
+     
+
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -2077,12 +2488,163 @@ namespace SpacerUnion
         [DllExport]
         public static void AddSearchVobResult(uint addr)
         {
+            /*
             if (searchResultVobsAddr.Contains(addr))
             {
                 return;
             }
+            */
             SpacerNET.objectsWin.listBoxSearchResult.Items.Add(Imports.Stack_PeekString());
             searchResultVobsAddr.Add(addr);
+        }
+
+        [DllExport]
+        public static bool ConvertVobs()
+        {
+            string vobInfo = Imports.Stack_PeekString();
+
+            convertProps.Clear();
+            foldersConvertVob.Clear();
+            currentFolderNameConvertVob = "";
+
+
+            //static Dictionary<string, FolderEntry> foldersConvertVob = new Dictionary<string, FolderEntry>();
+            //static string currentFolderNameConvertVob = "";
+
+            bool useRegx = SpacerNET.objectsWin.checkBoxSearchUseRegex.Checked;
+
+            string[] words = vobInfo.Replace("\t", "").Split('\n');
+
+            List<string> rawProps = new List<string>();
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                words[i] = words[i].Trim();
+                rawProps.Add(words[i]);
+
+                if (words[i].Length == 0 || words[i].Contains('[') || (!words[i].Contains(':') || !words[i].Contains('=')))
+                {
+                    continue;
+                }
+
+                
+
+                if (words[i].Contains("groupBegin"))
+                {
+                    string folderName = words[i].Substring(0, words[i].IndexOf('='));
+
+                    FolderEntry f = new FolderEntry();
+                    f.parent = currentFolderNameConvertVob;
+
+                    foldersConvertVob.Add(folderName, f);
+                    currentFolderNameConvertVob = folderName;
+                    continue;
+                }
+
+                if (words[i].Contains("groupEnd"))
+                {
+                    currentFolderNameConvertVob = foldersConvertVob[currentFolderNameConvertVob].parent;
+                    continue;
+                }
+
+                CProperty prop = new CProperty();
+                prop.Name = words[i].Substring(0, words[i].IndexOf('='));
+                prop.GroupName = currentFolderNameConvertVob;
+
+                int pos = words[i].IndexOf('=');
+                int pos2 = words[i].IndexOf(':');
+
+                prop.SetType(words[i].Substring(pos + 1, pos2 - pos - 1));
+
+                pos = words[i].IndexOf(':');
+
+                prop.SetValue(words[i].Substring(pos + 1, words[i].Length - pos - 1));
+
+                if (currentFolderNameConvertVob != "")
+                {
+                    prop.node = foldersConvertVob[currentFolderNameConvertVob].node;
+                }
+
+                convertProps.Add(prop);
+            }
+
+
+
+            bool changed = false;
+
+            for (int i = 0; i < newProps.Count; i++)
+                if (newProps[i].selectedForSearch)
+                {
+                    bool found = false;
+                    int pc = 0;
+                    while (!found && pc < convertProps.Count)
+                    {
+                        found = convertProps[pc].Name == newProps[i].Name;
+                        if (!found) pc++;
+                    }
+
+                    if (found)
+                    {
+                        convertProps[pc] = newProps[i];
+                        changed = true;
+                    }
+                }
+
+            bool result = false;
+
+
+            string className = SpacerNET.objectsWin.comboBoxSearchClassReplace.Text.Replace(".", "").Trim();
+
+
+
+            if (changed)
+            {
+
+                string[] raw = vobInfo.Replace("\t", "").Split('\n');
+
+                for (int j = 0; j < raw.Length; j++)
+                {
+                    if (raw[j].Length == 0)
+                    {
+                        continue;
+                    }
+
+                    for (int i = 0; i < convertProps.Count; i++)
+                    {
+                        if (Regex.IsMatch(raw[j], "^" + convertProps[i].Name + @"=\w", RegexOptions.IgnoreCase))
+                        {
+                            string baseStr = raw[j].Substring(0, raw[j].IndexOf(':') + 1) + convertProps[i].value;
+                            //Console.WriteLine(baseStr);
+                            raw[j] = baseStr;
+                        }
+                    }
+
+                }
+
+
+                StringBuilder str = new StringBuilder(); 
+
+                for (int j = 0; j < words.Length; j++)
+                {
+                    str.Append(words[j] + "\n");
+                }
+
+                Imports.Stack_PushString(str.ToString());
+                Imports.Extern_AddConvertVob();
+                /*
+                zCBuffer zbuf(zstrBuf.ToChar(), zstrBuf.Length());
+
+                zCArchiver* arch = zarcFactory.CreateArchiverRead(&zbuf);
+                arch->SetStringEOL(zSTRING("\n"));
+                arch->ReadObject(vob);
+                arch->Close();
+                zRELEASE(arch);
+                */
+                result = true;
+            }
+
+            return result;
+
         }
 
         [DllExport]
@@ -2248,6 +2810,138 @@ namespace SpacerUnion
                 }
 
             }
+        }
+
+        private void comboBoxSearchType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cb = sender as ComboBox;
+
+            comboBoxSearchClassReplace.Visible = false;
+            radioButtonConvertOld.Visible = false;
+            radioButtonConvertNew.Visible = false;
+
+            switch (cb.SelectedIndex)
+            {
+                case 0: buttonSearchVobsDo.Text = Localizator.Get("search_button_vobs"); break;
+                case 1: buttonSearchVobsDo.Text = Localizator.Get("search_button_convert"); break;
+                case 2: buttonSearchVobsDo.Text = Localizator.Get("search_button_replacezen"); break;
+                case 3: buttonSearchVobsDo.Text = Localizator.Get("search_button_remove"); break;
+
+            }
+
+            if (cb.SelectedIndex == 1)
+            {
+                comboBoxSearchClassReplace.Visible = true;
+                radioButtonConvertOld.Visible = true;
+                radioButtonConvertNew.Visible = true;
+                MessageBox.Show("Пока не работает!");
+            }
+            else if (radioButtonConvertNew.Checked)
+            {
+
+                treeViewSearchClass.Nodes.Clear();
+
+                string selectedClass = comboBoxSearchClass.Text.Replace(".", "").Trim();
+
+                Imports.Stack_PushString(selectedClass);
+                Imports.Extern_GetClassFields(true);
+
+                string result = Imports.Stack_PeekString();
+
+                FillClassFields(result);
+
+                comboBoxSearchClassReplace_SelectedIndexChanged(comboBoxSearchClassReplace, null);
+            }
+
+
+
+            if (cb.SelectedIndex == 2)
+            {
+                OpenFileDialog openFileDialogVobTree = new OpenFileDialog();
+
+                openFileDialogVobTree.Filter = Constants.FILE_FILTER_OPEN_ZEN;
+
+                Imports.Stack_PushString("treeVobPath");
+                Imports.Extern_GetSettingStr();
+                string path = Imports.Stack_PeekString();
+
+                openFileDialogVobTree.InitialDirectory = Utils.GetInitialDirectory(path);
+
+                openFileDialogVobTree.RestoreDirectory = true;
+
+                if (openFileDialogVobTree.ShowDialog() == DialogResult.OK)
+                {
+                    replaceZenPath = openFileDialogVobTree.FileName.Trim();
+                }
+
+            }
+        }
+
+
+        private void radioButtonConvertNew_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton rb = sender as RadioButton;
+
+            if (rb.Checked)
+            {
+                treeViewSearchClass.Nodes.Clear();
+
+
+                string selectedClass = comboBoxSearchClassReplace.Text.Replace(".", "").Trim();
+                // ConsoleEx.WriteLineRed(selectedClass);
+
+                Imports.Stack_PushString(selectedClass);
+                Imports.Extern_GetClassFields(true);
+
+                string result = Imports.Stack_PeekString();
+
+                FillClassFieldsConvert(result, false);
+
+
+            }
+        }
+
+        private void radioButtonConvertOld_CheckedChanged(object sender, EventArgs e)
+        {
+
+            RadioButton rb = sender as RadioButton;
+
+            if (rb.Checked)
+            {
+                treeViewSearchClass.Nodes.Clear();
+
+
+                string selectedClass = comboBoxSearchClass.Text.Replace(".", "").Trim();
+
+                Imports.Stack_PushString(selectedClass);
+                Imports.Extern_GetClassFields(false);
+
+                string result = Imports.Stack_PeekString();
+
+                FillClassFields(result, false);
+            }
+        }
+
+        private void comboBoxSearchClassReplace_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cb = sender as ComboBox;
+
+            if (!SpacerNET.isInit)
+            {
+                return;
+            }
+
+            string selectedClass = cb.Text.Replace(".", "").Trim();
+
+            Imports.Stack_PushString(selectedClass);
+            Imports.Extern_GetClassFields(true);
+
+            string result = Imports.Stack_PeekString();
+
+
+            FillClassFieldsConvert(result);
+
+            radioButtonConvertNew.Checked = true;
         }
     }
 }
