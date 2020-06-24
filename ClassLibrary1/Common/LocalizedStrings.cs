@@ -351,10 +351,10 @@ namespace SpacerUnion.Common
             words.Add("labelTriggerCollision", new List<string> { "Коллизия", "Collision", "Kollision", "Kolizja" });
             words.Add("checkBoxDyn", new List<string> { "динамическая", "dynamic", "dynamisch", "dynamiczna" });
             words.Add("checkBoxStat", new List<string> { "статическая", "static", "statisch", "statyczna" });
-            words.Add("radioButtonOverwrite", new List<string> { "Перезаписать", "Overwrite", "Überschreiben", "Nadpisz" });
+            words.Add("radioButtonOverwrite", new List<string> { "перезаписать", "overwrite", "überschreiben", "nadpisz" });
             words.Add("labelTriggerInsert", new List<string> { "Вставить", "Insert key", "Taste einfügen", "Dodaj klawisz" });
-            words.Add("radioButtonAfter", new List<string> { "После", "After", "Danach", "Przed" });
-            words.Add("radioButtonBefore", new List<string> { "До", "Before", "Davor", "Po" });
+            words.Add("radioButtonAfter", new List<string> { "после", "after", "danach", "przed" });
+            words.Add("radioButtonBefore", new List<string> { "до", "before", "davor", "po" });
             words.Add("labelTriggerTargets", new List<string> { "Цели (targets)", "Targets", "Ziele", "Cele" });
             words.Add("labelTriggersSources", new List<string> { "Источники (sources)", "Sources", "Quellen", "Źródła" });
             words.Add("groupBoxWPFP", new List<string> { "Мировые точки", "World points", "Weltpunkte", "Punkty świata" });
@@ -392,7 +392,6 @@ namespace SpacerUnion.Common
             words.Add("all_vobs_classes", new List<string> { "Все классы вобов", "Vob classes", "Vob Klassen", "Szukaj w klasach pochodnych" });
             words.Add("search_derived", new List<string> { "Искать в дочерних классах", "Search in derived classes", "In der abgeleiteten Klasse suchen", "Szukaj w klasach pochodnych" });
             words.Add("search_use_regex", new List<string> { "Использовать рег. выражение", "Use regular expression", "Reguläre expression nutzen", "Użyj standardowego wyrażenia" });
-            words.Add("search_button_vobs", new List<string> { "Искать", "Search", "Suchen", "Szukaj" });
             words.Add("BTN_RESET", new List<string> { "Сбросить", "Reset", "Resetten", "Reset" });
             
             words.Add("NAME_ALREADY_EXISTS", new List<string> { "Такое имя уже существует!", "This name already exists!", "Diesen Namen gibt es bereits!", "Ta nazwa jest już zajęta!" });
@@ -404,16 +403,22 @@ namespace SpacerUnion.Common
 
             //
             words.Add("BAD_REGEX", new List<string> { "Введено некорректное регулярное выражение!", "Wrong regular expression!", "Falscher Regex eingeführt!", "Błędne wyrażenie regularne!" });
-            words.Add("search_button_convert", new List<string> { "Конвертировать", "Convert", "", "" });
-            words.Add("search_button_replacezen", new List<string> { "Заменить на VobTree", "Replace with VobTree", "", "" });
-            words.Add("search_button_remove", new List<string> { "Удалить", "Remove", "", "" });
-            words.Add("VOB_SEARCH_REPLACEZEN", new List<string> { "Заменено вобов на VobTree: ", "", "", "" });
-            words.Add("VOB_SEARCH_REMOVEVOBS", new List<string> { "Удалено вобов: ", "", "", "" });
-            words.Add("NO_REPLACE_VOBTREE", new List<string> { "VobTree не выбран!", "", "", "" });
-            words.Add("VOB_SEARCH_CONVERT", new List<string> { "Преобразовано вобов: ", "", "", "" });
-            words.Add("VOB_SEARCH_STOP", new List<string> { "Найдено вобов: ", "Vobs found: ", "", "" });
+            words.Add("VOB_SEARCH_TYPE0", new List<string> { "Искать", "Search", "Suchen", "Szukaj" });
+
+            words.Add("VOB_SEARCH_REPLACEZEN", new List<string> { "Заменено вобов на VobTree: ", "Vobs replaced with VobTree: ", "Vobs mit Vobbaum ersetzt: ", "Voby zastąpione drzewkiem vobów: " });
+            words.Add("VOB_SEARCH_REMOVEVOBS", new List<string> { "Удалено вобов: ", "Vobs removed: ", "Vobs entfernt: ", "Usunięto voby: " });
+            words.Add("NO_REPLACE_VOBTREE", new List<string> { "VobTree не выбран!", "No VobTree selected!", "Kein Vobbaum ausgewählt!", "Nie wybrano drzewka vobów!" });
+            words.Add("VOB_SEARCH_CONVERT", new List<string> { "Преобразовано вобов: ", "Vobs converted: ", " Vobs konvertiert: ", "Przekonwertowane voby: " });
+            words.Add("VOB_SEARCH_STOP", new List<string> { "Найдено вобов: ", "Vobs found: ", "Vobs gefunden: ", "Znalezione voby: " });
+            words.Add("VOB_SEARCH_TYPE1", new List<string> { "Конвертировать", "Convert", "konvertieren", "Konwertuj" });
+            words.Add("VOB_SEARCH_TYPE2", new List<string> { "Заменить на VobTree", "Replace with VobTree", "Mit Vobbaum tauschen", "Zamień na drzewko vobów" });
+            words.Add("VOB_SEARCH_TYPE3", new List<string> { "Удалить", "Remove", "Entfernen", "Usuń" });
+            words.Add("VOB_SEARCH_CONVERT_RADIO0", new List<string> { "Старый", "Old", "Alt", "Stary" });
+            words.Add("VOB_SEARCH_CONVERT_RADIO1", new List<string> { "Новый", "New", "Neu", "Nowy" });
 
 
+            words.Add("WARNING_VDF_FILE_OPEN", new List<string> { "Внимание! Файл был загружен из VDF/MOD, а не из _WORK/DATA!", "", "", "" });
+            
         }
     }
 }

@@ -63,12 +63,12 @@ namespace SpacerUnion.Common
                 }
                 else
                 {
-                    result = words[key][0];
+                    result = words[key][(int)LangEnum.EN];
                 }
 
                 if (result.Length == 0)
                 {
-                    result = words[key][0];
+                    result = words[key][(int)LangEnum.EN];
                 }
 
             }

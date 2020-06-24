@@ -124,10 +124,21 @@ namespace SpacerUnion
             groupBoxSearchClasses.Text = Localizator.Get("all_vobs_classes");
             checkBoxSearchDerived.Text = Localizator.Get("search_derived");
             checkBoxSearchUseRegex.Text = Localizator.Get("search_use_regex");
-            buttonSearchVobsDo.Text = Localizator.Get("search_button_vobs");
+            buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE0");
             buttonSearchVobsReset.Text = Localizator.Get("BTN_RESET");
 
             labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ":";
+
+
+            comboBoxSearchType.Items.Clear();
+            comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE0"));
+            comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE1"));
+            comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE2"));
+            comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE3"));
+            comboBoxSearchType.SelectedIndex = 0;
+
+            radioButtonConvertOld.Text = Localizator.Get("VOB_SEARCH_CONVERT_RADIO0");
+            radioButtonConvertNew.Text = Localizator.Get("VOB_SEARCH_CONVERT_RADIO1");
         }
 
 
@@ -2426,7 +2437,7 @@ namespace SpacerUnion
                 Imports.Stack_PushString(replaceZenPath);
             }
 
-   
+            Imports.Stack_PushInt(countSelected);
             int result = Imports.Extern_SearchVobs(checkBoxSearchDerived.Checked, comboBoxSearchType.SelectedIndex);
 
 
@@ -2822,10 +2833,10 @@ namespace SpacerUnion
 
             switch (cb.SelectedIndex)
             {
-                case 0: buttonSearchVobsDo.Text = Localizator.Get("search_button_vobs"); break;
-                case 1: buttonSearchVobsDo.Text = Localizator.Get("search_button_convert"); break;
-                case 2: buttonSearchVobsDo.Text = Localizator.Get("search_button_replacezen"); break;
-                case 3: buttonSearchVobsDo.Text = Localizator.Get("search_button_remove"); break;
+                case 0: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE0"); break;
+                case 1: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE1"); break;
+                case 2: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE2"); break;
+                case 3: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE3"); break;
 
             }
 
@@ -2834,7 +2845,7 @@ namespace SpacerUnion
                 comboBoxSearchClassReplace.Visible = true;
                 radioButtonConvertOld.Visible = true;
                 radioButtonConvertNew.Visible = true;
-                MessageBox.Show("Пока не работает!");
+                MessageBox.Show("Not working yet!");
             }
             else if (radioButtonConvertNew.Checked)
             {

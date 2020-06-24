@@ -21,7 +21,7 @@ namespace SpacerUnion
    
     public partial class MainForm : Form
     {
-        public const string SPACER_VERSION = "0.08";
+        
 
         public Form renderTarget = null;
         public string currentWorldName = "";
@@ -48,15 +48,17 @@ namespace SpacerUnion
         [DllExport]
         public static void GetSpacerVersion()
         {
-            Imports.Stack_PushString(SPACER_VERSION);
+            Imports.Stack_PushString(Constants.SPACER_VERSION);
 
         }
 
+        
+        
 
         public void UpdateSpacerCaption(string title)
         {
             currentWorldName = title;
-            this.Text = "Spacer.NET " + SPACER_VERSION + " (Beta): " + title;
+            this.Text = "Spacer.NET " + Constants.SPACER_VERSION + " (Beta): " + title;
         }
         
         private void CloseApp()
@@ -232,7 +234,7 @@ namespace SpacerUnion
             s.Stop();
 
             string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-            SpacerNET.form.AddText(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
+            SpacerNET.form.AddText(Localizator.Get("loadZenTime") + " (" + timeSpend + ")", Color.Green);
             ConsoleEx.WriteLineGreen(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
             SpacerNET.form.toolStripMenuItemMerge.Enabled = false;
             SpacerNET.form.saveZenToolStripMenuItem.Enabled = true;
@@ -315,8 +317,9 @@ namespace SpacerUnion
                 s.Stop();
 
                 string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-                SpacerNET.form.AddText(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
+                SpacerNET.form.AddText(Localizator.Get("loadZenTime") + " (" + timeSpend + ")", Color.Green);
                 ConsoleEx.WriteLineGreen(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
+
 
                 toolStripMenuItemMerge.Enabled = false;
 
@@ -401,6 +404,13 @@ namespace SpacerUnion
         {
             
             SpacerNET.infoWin.AddText(text);
+            Application.DoEvents();
+        }
+
+        public void AddText(string text, Color color)
+        {
+
+            SpacerNET.infoWin.AddText(text, color);
             Application.DoEvents();
         }
 
@@ -543,7 +553,7 @@ namespace SpacerUnion
                 s.Stop();
 
                 string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-                SpacerNET.form.AddText(Localizator.Get("saveZenTime") + " (" + timeSpend + ")");
+                SpacerNET.form.AddText(Localizator.Get("saveZenTime") + " (" + timeSpend + ")", Color.Green);
                 ConsoleEx.WriteLineGreen(Localizator.Get("saveZenTime") + " (" + timeSpend + ")");
 
             }
@@ -622,7 +632,7 @@ namespace SpacerUnion
                 s.Stop();
 
                 string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-                SpacerNET.form.AddText(Localizator.Get("loadMeshTime") + " (" + timeSpend + ")");
+                SpacerNET.form.AddText(Localizator.Get("loadMeshTime") + " (" + timeSpend + ")", Color.Green);
 
                 SpacerNET.form.toolStripMenuItemMerge.Enabled = true;
                 SpacerNET.form.compileWorldToolStrip.Enabled = true;
@@ -695,7 +705,7 @@ namespace SpacerUnion
                 s.Stop();
 
                 string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-                SpacerNET.form.AddText(Localizator.Get("mergeZenTime") + " (" + timeSpend + ")");
+                SpacerNET.form.AddText(Localizator.Get("mergeZenTime") + " (" + timeSpend + ")", Color.Green);
 
 
                 toolStripMenuItemMerge.Enabled = true;
@@ -1038,21 +1048,6 @@ namespace SpacerUnion
             return bmp;
         }
 
-        private void сделатьСкринToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-
-
-            Rectangle bounds = this.Bounds;
-            using (Bitmap bitmap = new Bitmap(bounds.Width, bounds.Height))
-            {
-                using (Graphics g = Graphics.FromImage(bitmap))
-                {
-                    g.CopyFromScreen(new Point(bounds.Left, bounds.Top), Point.Empty, bounds.Size);
-                }
-                bitmap.Save("./system/spacer_net/test.png", ImageFormat.Png);
-            }
-        }
 
         private void toolStripTop_MouseClick(object sender, MouseEventArgs e)
         {
@@ -1076,7 +1071,7 @@ namespace SpacerUnion
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Spacer.NET (version " + SPACER_VERSION + ") by Liker, 2020", Localizator.Get("MENU_TOP_ABOUT"));
+            MessageBox.Show("Spacer.NET (version " + Constants.SPACER_VERSION + ") by Liker, 2020", Localizator.Get("MENU_TOP_ABOUT"));
         }
 
         private void ввестиКоординатыToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1228,7 +1223,7 @@ namespace SpacerUnion
 
                 string timeSpendAll = string.Format("{0:HH:mm:ss.fff}", new DateTime(sAll.Elapsed.Ticks));
                 SpacerNET.form.AddText("==============");
-                SpacerNET.form.AddText(Localizator.Get("loadMeshTimeAll") + " (" + timeSpendAll + ")");
+                SpacerNET.form.AddText(Localizator.Get("loadMeshTimeAll") + " (" + timeSpendAll + ")", Color.Green);
 
                 Imports.Stack_PushString("CS_IAI_ME_ME");
                 Imports.Extern_PlaySound();

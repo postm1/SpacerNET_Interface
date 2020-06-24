@@ -19,6 +19,19 @@ namespace SpacerUnion
             InitializeComponent();
         }
 
+        [DllExport]
+        public static void ShowVdfWarning()
+        {
+            SpacerNET.infoWin.AddText(Localizator.Get("WARNING_VDF_FILE_OPEN"), Color.Red);
+      
+        }
+
+        public void SetColor(Color color)
+        {
+            richTextBoxInfo.Select(richTextBoxInfo.TextLength, 0);
+            richTextBoxInfo.SelectionColor = color;
+        }
+
         public void UpdateLang()
         {
             this.Text = Localizator.Get("WIN_INFO_TITLE");
@@ -28,6 +41,13 @@ namespace SpacerUnion
         public void AddText(string str)
         {
             this.richTextBoxInfo.AppendText(" " + str + "\n");
+        }
+
+        public void AddText(string str, Color color)
+        {
+            SetColor(color);
+            this.richTextBoxInfo.AppendText(" " + str + "\n");
+            SetColor(Color.Black);
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -180,7 +180,7 @@ namespace SpacerUnion
             s.Stop();
 
             string timeSpend = string.Format("{0:HH:mm:ss}", new DateTime(s.Elapsed.Ticks));
-            SpacerNET.form.AddText(Localizator.Get("WIN_COMPLIGHT_TIME") + " (" + timeSpend + ")");
+            SpacerNET.form.AddText(Localizator.Get("WIN_COMPLIGHT_TIME") + " (" + timeSpend + ")", Color.Green);
 
         }
 

@@ -791,9 +791,9 @@
             this.radioButtonOverwrite.AutoSize = true;
             this.radioButtonOverwrite.Location = new System.Drawing.Point(9, 68);
             this.radioButtonOverwrite.Name = "radioButtonOverwrite";
-            this.radioButtonOverwrite.Size = new System.Drawing.Size(98, 17);
+            this.radioButtonOverwrite.Size = new System.Drawing.Size(96, 17);
             this.radioButtonOverwrite.TabIndex = 5;
-            this.radioButtonOverwrite.Text = "Перезаписать";
+            this.radioButtonOverwrite.Text = "перезаписать";
             this.radioButtonOverwrite.UseVisualStyleBackColor = true;
             // 
             // buttonRemoveKey
@@ -1164,7 +1164,7 @@
             // radioButtonConvertNew
             // 
             this.radioButtonConvertNew.AutoSize = true;
-            this.radioButtonConvertNew.Location = new System.Drawing.Point(349, 97);
+            this.radioButtonConvertNew.Location = new System.Drawing.Point(326, 113);
             this.radioButtonConvertNew.Name = "radioButtonConvertNew";
             this.radioButtonConvertNew.Size = new System.Drawing.Size(59, 17);
             this.radioButtonConvertNew.TabIndex = 20;
@@ -1177,7 +1177,7 @@
             // 
             this.radioButtonConvertOld.AutoSize = true;
             this.radioButtonConvertOld.Checked = true;
-            this.radioButtonConvertOld.Location = new System.Drawing.Point(241, 97);
+            this.radioButtonConvertOld.Location = new System.Drawing.Point(241, 113);
             this.radioButtonConvertOld.Name = "radioButtonConvertOld";
             this.radioButtonConvertOld.Size = new System.Drawing.Size(63, 17);
             this.radioButtonConvertOld.TabIndex = 19;
@@ -1206,9 +1206,9 @@
             "Конвертация",
             "Замена на VobTree",
             "Удаление"});
-            this.comboBoxSearchType.Location = new System.Drawing.Point(428, 19);
+            this.comboBoxSearchType.Location = new System.Drawing.Point(241, 19);
             this.comboBoxSearchType.Name = "comboBoxSearchType";
-            this.comboBoxSearchType.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxSearchType.Size = new System.Drawing.Size(166, 21);
             this.comboBoxSearchType.TabIndex = 17;
             this.comboBoxSearchType.SelectedIndexChanged += new System.EventHandler(this.comboBoxSearchType_SelectedIndexChanged);
             // 
@@ -1217,7 +1217,7 @@
             this.checkBoxSearchUseRegex.AutoSize = true;
             this.checkBoxSearchUseRegex.Checked = true;
             this.checkBoxSearchUseRegex.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxSearchUseRegex.Location = new System.Drawing.Point(243, 45);
+            this.checkBoxSearchUseRegex.Location = new System.Drawing.Point(242, 69);
             this.checkBoxSearchUseRegex.Name = "checkBoxSearchUseRegex";
             this.checkBoxSearchUseRegex.Size = new System.Drawing.Size(183, 17);
             this.checkBoxSearchUseRegex.TabIndex = 16;
@@ -1226,7 +1226,7 @@
             // 
             // textBoxVecSearch3
             // 
-            this.textBoxVecSearch3.Location = new System.Drawing.Point(471, 74);
+            this.textBoxVecSearch3.Location = new System.Drawing.Point(471, 91);
             this.textBoxVecSearch3.Name = "textBoxVecSearch3";
             this.textBoxVecSearch3.Size = new System.Drawing.Size(70, 20);
             this.textBoxVecSearch3.TabIndex = 14;
@@ -1236,7 +1236,7 @@
             // 
             // textBoxVecSearch2
             // 
-            this.textBoxVecSearch2.Location = new System.Drawing.Point(395, 74);
+            this.textBoxVecSearch2.Location = new System.Drawing.Point(395, 91);
             this.textBoxVecSearch2.Name = "textBoxVecSearch2";
             this.textBoxVecSearch2.Size = new System.Drawing.Size(70, 20);
             this.textBoxVecSearch2.TabIndex = 13;
@@ -1247,7 +1247,7 @@
             // labelSearchResult
             // 
             this.labelSearchResult.AutoSize = true;
-            this.labelSearchResult.Location = new System.Drawing.Point(241, 147);
+            this.labelSearchResult.Location = new System.Drawing.Point(243, 161);
             this.labelSearchResult.Name = "labelSearchResult";
             this.labelSearchResult.Size = new System.Drawing.Size(54, 13);
             this.labelSearchResult.TabIndex = 9;
@@ -1256,9 +1256,9 @@
             // listBoxSearchResult
             // 
             this.listBoxSearchResult.FormattingEnabled = true;
-            this.listBoxSearchResult.Location = new System.Drawing.Point(242, 164);
+            this.listBoxSearchResult.Location = new System.Drawing.Point(242, 177);
             this.listBoxSearchResult.Name = "listBoxSearchResult";
-            this.listBoxSearchResult.Size = new System.Drawing.Size(304, 186);
+            this.listBoxSearchResult.Size = new System.Drawing.Size(304, 173);
             this.listBoxSearchResult.TabIndex = 8;
             this.listBoxSearchResult.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxSearchResult_MouseClick);
             this.listBoxSearchResult.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxSearchResult_MouseDoubleClick);
@@ -1268,7 +1268,7 @@
             this.checkBoxSearchDerived.AutoSize = true;
             this.checkBoxSearchDerived.Checked = true;
             this.checkBoxSearchDerived.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxSearchDerived.Location = new System.Drawing.Point(243, 22);
+            this.checkBoxSearchDerived.Location = new System.Drawing.Point(242, 46);
             this.checkBoxSearchDerived.Name = "checkBoxSearchDerived";
             this.checkBoxSearchDerived.Size = new System.Drawing.Size(165, 17);
             this.checkBoxSearchDerived.TabIndex = 7;
@@ -1277,7 +1277,7 @@
             // 
             // buttonSearchVobsDo
             // 
-            this.buttonSearchVobsDo.Location = new System.Drawing.Point(241, 120);
+            this.buttonSearchVobsDo.Location = new System.Drawing.Point(241, 135);
             this.buttonSearchVobsDo.Name = "buttonSearchVobsDo";
             this.buttonSearchVobsDo.Size = new System.Drawing.Size(148, 23);
             this.buttonSearchVobsDo.TabIndex = 5;
@@ -1287,7 +1287,7 @@
             // 
             // buttonSearchVobsReset
             // 
-            this.buttonSearchVobsReset.Location = new System.Drawing.Point(393, 120);
+            this.buttonSearchVobsReset.Location = new System.Drawing.Point(398, 135);
             this.buttonSearchVobsReset.Name = "buttonSearchVobsReset";
             this.buttonSearchVobsReset.Size = new System.Drawing.Size(148, 23);
             this.buttonSearchVobsReset.TabIndex = 4;
@@ -1319,7 +1319,7 @@
             // 
             this.comboBoxPropsEnumSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPropsEnumSearch.FormattingEnabled = true;
-            this.comboBoxPropsEnumSearch.Location = new System.Drawing.Point(244, 73);
+            this.comboBoxPropsEnumSearch.Location = new System.Drawing.Point(244, 90);
             this.comboBoxPropsEnumSearch.Name = "comboBoxPropsEnumSearch";
             this.comboBoxPropsEnumSearch.Size = new System.Drawing.Size(110, 21);
             this.comboBoxPropsEnumSearch.TabIndex = 15;
@@ -1328,7 +1328,7 @@
             // 
             // textBoxVecSearch1
             // 
-            this.textBoxVecSearch1.Location = new System.Drawing.Point(319, 74);
+            this.textBoxVecSearch1.Location = new System.Drawing.Point(319, 91);
             this.textBoxVecSearch1.Name = "textBoxVecSearch1";
             this.textBoxVecSearch1.Size = new System.Drawing.Size(70, 20);
             this.textBoxVecSearch1.TabIndex = 12;
@@ -1338,7 +1338,7 @@
             // 
             // textBoxVecSearch0
             // 
-            this.textBoxVecSearch0.Location = new System.Drawing.Point(243, 74);
+            this.textBoxVecSearch0.Location = new System.Drawing.Point(243, 90);
             this.textBoxVecSearch0.Name = "textBoxVecSearch0";
             this.textBoxVecSearch0.Size = new System.Drawing.Size(70, 20);
             this.textBoxVecSearch0.TabIndex = 11;
@@ -1348,7 +1348,7 @@
             // 
             // textBoxSearchVobs
             // 
-            this.textBoxSearchVobs.Location = new System.Drawing.Point(243, 74);
+            this.textBoxSearchVobs.Location = new System.Drawing.Point(243, 91);
             this.textBoxSearchVobs.Name = "textBoxSearchVobs";
             this.textBoxSearchVobs.Size = new System.Drawing.Size(300, 20);
             this.textBoxSearchVobs.TabIndex = 6;

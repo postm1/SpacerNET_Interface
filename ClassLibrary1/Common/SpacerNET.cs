@@ -157,7 +157,7 @@ namespace SpacerUnion
         {
             //ConsoleEx.WriteLineRed("Form_EnableInterface");
             //Utils.Error("Form_EnableInterface");
-            form.AddText(Localizator.Get("appIsReady"));
+            form.AddText(Localizator.Get("appIsReady"), Color.Green);
 
             form.menuStripTopMain.Enabled = true;
 

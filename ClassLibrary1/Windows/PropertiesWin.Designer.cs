@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.tabControlProps = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.treeViewProp = new System.Windows.Forms.TreeView();
             this.panelButtons = new System.Windows.Forms.Panel();
             this.comboBoxPropsEnum = new System.Windows.Forms.ComboBox();
             this.textBoxVec3 = new System.Windows.Forms.TextBox();
@@ -45,6 +44,7 @@
             this.buttonBbox = new System.Windows.Forms.Button();
             this.Label_Backup = new System.Windows.Forms.Label();
             this.buttonApplyOnVob = new System.Windows.Forms.Button();
+            this.treeViewProp = new System.Windows.Forms.TreeView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBoxEditBbox = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,14 +56,14 @@
             this.buttonApplyBbox = new System.Windows.Forms.Button();
             this.textBoxBbox0 = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dataGridViewItems = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxContainer = new System.Windows.Forms.GroupBox();
             this.buttonRowDelete = new System.Windows.Forms.Button();
             this.buttonClearItems = new System.Windows.Forms.Button();
             this.buttonContainerCancel = new System.Windows.Forms.Button();
             this.buttonContainerApply = new System.Windows.Forms.Button();
-            this.dataGridViewItems = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStripContainer = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.удалитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogFileName = new System.Windows.Forms.OpenFileDialog();
@@ -73,8 +73,8 @@
             this.tabPage2.SuspendLayout();
             this.groupBoxEditBbox.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.groupBoxContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItems)).BeginInit();
+            this.groupBoxContainer.SuspendLayout();
             this.contextMenuStripContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,8 +94,8 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.panelButtons);
             this.tabPage1.Controls.Add(this.treeViewProp);
+            this.tabPage1.Controls.Add(this.panelButtons);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -103,18 +103,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Редактирование";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // treeViewProp
-            // 
-            this.treeViewProp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeViewProp.HideSelection = false;
-            this.treeViewProp.Location = new System.Drawing.Point(3, 3);
-            this.treeViewProp.Name = "treeViewProp";
-            this.treeViewProp.Size = new System.Drawing.Size(316, 458);
-            this.treeViewProp.TabIndex = 1;
-            this.treeViewProp.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.treeViewProp_DrawNode);
-            this.treeViewProp.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewProp_AfterSelect);
-            this.treeViewProp.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewProp_NodeMouseDoubleClick);
             // 
             // panelButtons
             // 
@@ -262,6 +250,18 @@
             this.buttonApplyOnVob.UseVisualStyleBackColor = true;
             this.buttonApplyOnVob.Click += new System.EventHandler(this.buttonApply_Click);
             // 
+            // treeViewProp
+            // 
+            this.treeViewProp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeViewProp.HideSelection = false;
+            this.treeViewProp.Location = new System.Drawing.Point(3, 3);
+            this.treeViewProp.Name = "treeViewProp";
+            this.treeViewProp.Size = new System.Drawing.Size(316, 352);
+            this.treeViewProp.TabIndex = 1;
+            this.treeViewProp.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.treeViewProp_DrawNode);
+            this.treeViewProp.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewProp_AfterSelect);
+            this.treeViewProp.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewProp_NodeMouseDoubleClick);
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.groupBoxEditBbox);
@@ -371,6 +371,39 @@
             this.tabPage3.Text = "Контейнер";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewItems
+            // 
+            this.dataGridViewItems.AllowUserToResizeColumns = false;
+            this.dataGridViewItems.AllowUserToResizeRows = false;
+            this.dataGridViewItems.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridViewItems.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridViewItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridViewItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.dataGridViewItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewItems.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewItems.Name = "dataGridViewItems";
+            this.dataGridViewItems.RowHeadersVisible = false;
+            this.dataGridViewItems.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridViewItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridViewItems.Size = new System.Drawing.Size(322, 388);
+            this.dataGridViewItems.TabIndex = 4;
+            this.dataGridViewItems.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Инстанция";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 236;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Кол-во";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 66;
+            // 
             // groupBoxContainer
             // 
             this.groupBoxContainer.Controls.Add(this.buttonRowDelete);
@@ -425,39 +458,6 @@
             this.buttonContainerApply.UseVisualStyleBackColor = true;
             this.buttonContainerApply.Click += new System.EventHandler(this.buttonContainerApply_Click);
             // 
-            // dataGridViewItems
-            // 
-            this.dataGridViewItems.AllowUserToResizeColumns = false;
-            this.dataGridViewItems.AllowUserToResizeRows = false;
-            this.dataGridViewItems.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridViewItems.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridViewItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridViewItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2});
-            this.dataGridViewItems.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewItems.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewItems.Name = "dataGridViewItems";
-            this.dataGridViewItems.RowHeadersVisible = false;
-            this.dataGridViewItems.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewItems.Size = new System.Drawing.Size(322, 388);
-            this.dataGridViewItems.TabIndex = 4;
-            this.dataGridViewItems.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Инстанция";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 236;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Кол-во";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 66;
-            // 
             // contextMenuStripContainer
             // 
             this.contextMenuStripContainer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -495,8 +495,8 @@
             this.groupBoxEditBbox.ResumeLayout(false);
             this.groupBoxEditBbox.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.groupBoxContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItems)).EndInit();
+            this.groupBoxContainer.ResumeLayout(false);
             this.contextMenuStripContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
