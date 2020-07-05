@@ -50,8 +50,8 @@ namespace SpacerUnion
             if (Imports.Extern_IsWorldCompiled())
             {
                
-                MessageBox.Show(Localizator.Get("WIN_COMPWORLD_ALREADY_COMP"));
-                return;
+               // MessageBox.Show(Localizator.Get("WIN_COMPWORLD_ALREADY_COMP"));
+               // return;
             }
 
 
@@ -81,6 +81,8 @@ namespace SpacerUnion
             SpacerNET.form.dayTimeToolStrip.Enabled = true;
             SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
             SpacerNET.form.toolStripMenuItemMergeMesh.Enabled = false;
+
+            SpacerNET.form.compileWorldToolStrip.Enabled = true;
             this.Hide();
         }
 

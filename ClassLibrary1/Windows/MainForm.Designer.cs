@@ -37,6 +37,7 @@
             this.toolStripMenuOpenZEN = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemMerge = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemMergeMesh = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.saveZenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,7 +88,6 @@
             this.toolStripButtonBBox = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonInvisible = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItemMergeMesh = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -168,6 +168,14 @@
             this.toolStripMenuItemMerge.Size = new System.Drawing.Size(185, 22);
             this.toolStripMenuItemMerge.Text = "Объединить ZEN...";
             this.toolStripMenuItemMerge.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
+            // 
+            // toolStripMenuItemMergeMesh
+            // 
+            this.toolStripMenuItemMergeMesh.Enabled = false;
+            this.toolStripMenuItemMergeMesh.Name = "toolStripMenuItemMergeMesh";
+            this.toolStripMenuItemMergeMesh.Size = new System.Drawing.Size(185, 22);
+            this.toolStripMenuItemMergeMesh.Text = "Объединить MESH...";
+            this.toolStripMenuItemMergeMesh.Click += new System.EventHandler(this.toolStripMenuItemMergeMesh_Click);
             // 
             // toolStripSeparator6
             // 
@@ -439,7 +447,7 @@
             this.aboutToolStripMenuItem.Text = "О программе";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
-            // openFileDialog1
+            // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
@@ -598,24 +606,16 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripMenuItemMergeMesh
-            // 
-            this.toolStripMenuItemMergeMesh.Enabled = false;
-            this.toolStripMenuItemMergeMesh.Name = "toolStripMenuItemMergeMesh";
-            this.toolStripMenuItemMergeMesh.Size = new System.Drawing.Size(185, 22);
-            this.toolStripMenuItemMergeMesh.Text = "Объединить MESH...";
-            this.toolStripMenuItemMergeMesh.Click += new System.EventHandler(this.toolStripMenuItemMergeMesh_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkRed;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1201, 583);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.menuStripTopMain);
             this.DoubleBuffered = true;
-            this.ForeColor = System.Drawing.Color.DarkRed;
+            this.ForeColor = System.Drawing.Color.Transparent;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStripTopMain;
             this.Name = "MainForm";

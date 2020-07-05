@@ -135,10 +135,15 @@ namespace SpacerUnion
             comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE1"));
             comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE2"));
             comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE3"));
+            comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE4"));
             comboBoxSearchType.SelectedIndex = 0;
 
             radioButtonConvertOld.Text = Localizator.Get("VOB_SEARCH_CONVERT_RADIO0");
             radioButtonConvertNew.Text = Localizator.Get("VOB_SEARCH_CONVERT_RADIO1");
+
+            labelRenameVob.Text = Localizator.Get("labelRenameVob");
+
+            
         }
 
 
@@ -2474,7 +2479,15 @@ namespace SpacerUnion
                 labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": ";
                 SpacerNET.form.AddText(Localizator.Get("VOB_SEARCH_REMOVEVOBS") + result.ToString() + " (" + timeSpend + ")");
             }
-     
+
+
+            if (comboBoxSearchType.SelectedIndex == 4)
+            {
+                //labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": " + listBoxSearchResult.Items.Count;
+                labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": ";
+                SpacerNET.form.AddText(Localizator.Get("VOB_SEARCH_RENAME_VOBS") + result.ToString() + " (" + timeSpend + ")");
+            }
+
 
         }
 
@@ -2830,6 +2843,9 @@ namespace SpacerUnion
             comboBoxSearchClassReplace.Visible = false;
             radioButtonConvertOld.Visible = false;
             radioButtonConvertNew.Visible = false;
+            textBoxRenameVob.Visible = false;
+            labelRenameVob.Visible = false;
+            checkBoxAutoNumerate.Visible = false;
 
             switch (cb.SelectedIndex)
             {
@@ -2837,7 +2853,7 @@ namespace SpacerUnion
                 case 1: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE1"); break;
                 case 2: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE2"); break;
                 case 3: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE3"); break;
-
+                case 4: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE4"); break;
             }
 
             if (cb.SelectedIndex == 1)
@@ -2885,6 +2901,18 @@ namespace SpacerUnion
                     replaceZenPath = openFileDialogVobTree.FileName.Trim();
                 }
 
+            }
+
+            if (cb.SelectedIndex == 4)
+            {
+
+                checkBoxAutoNumerate.Visible = true;
+                textBoxRenameVob.Visible = true;
+                labelRenameVob.Visible = true;
+                labelRenameVob.Text = Localizator.Get("labelRenameVob");
+                checkBoxAutoNumerate.Text = Localizator.Get("checkBoxAutoNumerate");
+                
+                textBoxRenameVob.Text = String.Empty;
             }
         }
 

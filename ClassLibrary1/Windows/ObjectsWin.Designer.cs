@@ -188,6 +188,9 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.textBoxRenameVob = new System.Windows.Forms.TextBox();
+            this.labelRenameVob = new System.Windows.Forms.Label();
+            this.checkBoxAutoNumerate = new System.Windows.Forms.CheckBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsCont.SuspendLayout();
@@ -1136,6 +1139,9 @@
             // 
             // groupBoxSearchClasses
             // 
+            this.groupBoxSearchClasses.Controls.Add(this.checkBoxAutoNumerate);
+            this.groupBoxSearchClasses.Controls.Add(this.labelRenameVob);
+            this.groupBoxSearchClasses.Controls.Add(this.textBoxRenameVob);
             this.groupBoxSearchClasses.Controls.Add(this.radioButtonConvertNew);
             this.groupBoxSearchClasses.Controls.Add(this.radioButtonConvertOld);
             this.groupBoxSearchClasses.Controls.Add(this.comboBoxSearchClassReplace);
@@ -1205,7 +1211,8 @@
             "Поиск",
             "Конвертация",
             "Замена на VobTree",
-            "Удаление"});
+            "Удаление",
+            "Переименование"});
             this.comboBoxSearchType.Location = new System.Drawing.Point(241, 19);
             this.comboBoxSearchType.Name = "comboBoxSearchType";
             this.comboBoxSearchType.Size = new System.Drawing.Size(166, 21);
@@ -1939,6 +1946,36 @@
             this.button10.Text = "Удалить";
             this.button10.UseVisualStyleBackColor = true;
             // 
+            // textBoxRenameVob
+            // 
+            this.textBoxRenameVob.Location = new System.Drawing.Point(336, 113);
+            this.textBoxRenameVob.Name = "textBoxRenameVob";
+            this.textBoxRenameVob.Size = new System.Drawing.Size(206, 20);
+            this.textBoxRenameVob.TabIndex = 21;
+            this.textBoxRenameVob.Visible = false;
+            // 
+            // labelRenameVob
+            // 
+            this.labelRenameVob.AutoSize = true;
+            this.labelRenameVob.Location = new System.Drawing.Point(242, 115);
+            this.labelRenameVob.Name = "labelRenameVob";
+            this.labelRenameVob.Size = new System.Drawing.Size(88, 13);
+            this.labelRenameVob.TabIndex = 22;
+            this.labelRenameVob.Text = "labelRenameVob";
+            this.labelRenameVob.Visible = false;
+            // 
+            // checkBoxAutoNumerate
+            // 
+            this.checkBoxAutoNumerate.AutoSize = true;
+            this.checkBoxAutoNumerate.Checked = true;
+            this.checkBoxAutoNumerate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxAutoNumerate.Location = new System.Drawing.Point(413, 46);
+            this.checkBoxAutoNumerate.Name = "checkBoxAutoNumerate";
+            this.checkBoxAutoNumerate.Size = new System.Drawing.Size(137, 17);
+            this.checkBoxAutoNumerate.TabIndex = 23;
+            this.checkBoxAutoNumerate.Text = "Авто-нумерация имен";
+            this.checkBoxAutoNumerate.UseVisualStyleBackColor = true;
+            // 
             // ObjectsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2159,5 +2196,8 @@
         public System.Windows.Forms.ComboBox comboBoxSearchClassReplace;
         private System.Windows.Forms.RadioButton radioButtonConvertNew;
         private System.Windows.Forms.RadioButton radioButtonConvertOld;
+        private System.Windows.Forms.TextBox textBoxRenameVob;
+        private System.Windows.Forms.Label labelRenameVob;
+        private System.Windows.Forms.CheckBox checkBoxAutoNumerate;
     }
 }

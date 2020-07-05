@@ -417,8 +417,12 @@ namespace SpacerUnion.Common
             words.Add("VOB_SEARCH_CONVERT_RADIO1", new List<string> { "Новый", "New", "Neu", "Nowy" });
 
 
-            words.Add("WARNING_VDF_FILE_OPEN", new List<string> { "Внимание! Файл был загружен из VDF/MOD, а не из _WORK/DATA!", "", "", "" });
-            
+            words.Add("WARNING_VDF_FILE_OPEN", new List<string> { "Внимание! Файл был загружен из VDF/MOD, а не из _WORK/DATA!", "Warning! The file was loaded from VDF/MOD, not from _WORK/DATA!", "Achtung! Die Dati wurde von einer VDF/MOD und nicht vom _WORK/DATA geladen!", "Uwaga! Plik został załadowany z paczki VDF/MOD, nie z _WORK/DATA." });
+            words.Add("VOB_SEARCH_TYPE4", new List<string> { "Переименовать", "Rename", "Umbenennen", "Zmień nazwę" });
+            words.Add("VOB_SEARCH_RENAME_VOBS", new List<string> { "Переименовано вобов: ", "Vobs renamed: ", "Vobs umbenennen: ", "Vobom zmieniono nazwę: " });
+            words.Add("labelRenameVob", new List<string> { "Новое имя", "New name", "Neuer Name", "Nowa nazwa" });
+            words.Add("checkBoxAutoNumerate", new List<string> { "Авто-нумерация имен", "Auto numeration of names", "Automaitsche Nummerierung der Namen", "Automatycznie numeruj nazwy" });
+
         }
     }
 }

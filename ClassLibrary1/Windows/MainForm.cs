@@ -656,7 +656,7 @@ namespace SpacerUnion
             }
 
             openFileDialog.Filter = Constants.FILE_FILTER_MERGE_VOBS;
-
+            openFileDialog.Multiselect = true;
 
 
             Imports.Stack_PushString("vobsPath");
@@ -690,10 +690,37 @@ namespace SpacerUnion
                 UpdateSpacerCaption(openFileDialog.SafeFileName);
 
 
-                Stopwatch s = new Stopwatch();
-                s.Start();
+                Stopwatch sAll = new Stopwatch();
+                sAll.Start();
 
                 ResetInterface();
+
+                foreach (string currentPath in openFileDialog.FileNames)
+                {
+
+                    Stopwatch s = new Stopwatch();
+                    s.Start();
+
+                    string fileNameCurrent = Path.GetFileName(currentPath).ToUpper();
+
+                    if (!fileNameCurrent.EndsWith(".ZEN"))
+                    {
+                        continue;
+                    }
+
+                    SpacerNET.form.AddText(fileNameCurrent + " " + Localizator.Get("isLoading"));
+
+                    currentWorldName = fileNameCurrent;
+
+                    Imports.Stack_PushString(currentPath);
+                    Imports.Extern_MergeMesh();
+
+                    s.Stop();
+
+                    string timeSpendLocal = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
+                    SpacerNET.form.AddText(Localizator.Get("loadMeshTime") + " (" + timeSpendLocal + ")");
+                }
+
 
                 SpacerNET.form.AddText(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"));
 
@@ -702,9 +729,9 @@ namespace SpacerUnion
                 Imports.Stack_PushString(filePath);
                 Imports.Extern_MergeZen();
 
-                s.Stop();
+                sAll.Stop();
 
-                string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
+                string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(sAll.Elapsed.Ticks));
                 SpacerNET.form.AddText(Localizator.Get("mergeZenTime") + " (" + timeSpend + ")", Color.Green);
 
 
@@ -713,7 +740,7 @@ namespace SpacerUnion
                 toolStripMenuResetWorld.Enabled = true;
             }
 
-            
+            openFileDialog.Multiselect = false;
         }
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
