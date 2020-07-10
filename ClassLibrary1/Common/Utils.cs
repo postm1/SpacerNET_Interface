@@ -139,12 +139,8 @@ namespace SpacerUnion
             int addPrefx = Imports.Extern_GetSetting();
 
 
-            zenName = zenName.ToUpper();
+            zenName = Path.GetFileName(zenName).ToUpper();
 
-            if (zenName.Contains(".3DS"))
-            {
-                zenName = zenName.Replace(".3DS", "");
-            }
 
             if (zenName.Contains(".ZEN"))
             {
@@ -160,14 +156,13 @@ namespace SpacerUnion
                 zenName = match.Groups[1].Value;
             }
 
+            ConsoleEx.WriteLineRed(zenName);
+
             if (addPrefx != 0)
             {
                 zenName = zenName + "_" + time + ".ZEN";
             }
 
-            
-
-            
 
             return zenName;
         }

@@ -243,6 +243,8 @@ namespace SpacerUnion
             SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
             SpacerNET.form.dayTimeToolStrip.Enabled = true;
             SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
+            SpacerNET.form.compileWorldToolStrip.Enabled = true;
+            SpacerNET.form.compileLightToolStrip.Enabled = true;
         }
 
 
@@ -350,7 +352,8 @@ namespace SpacerUnion
                 SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
                 SpacerNET.form.dayTimeToolStrip.Enabled = true;
                 SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
-
+                SpacerNET.form.compileWorldToolStrip.Enabled = true;
+                SpacerNET.form.compileLightToolStrip.Enabled = true;
             }
 
             
