@@ -34,6 +34,7 @@ namespace SpacerUnion
         public static CameraCoords camCoordsWin;
         public static MiscSettingsWin miscSetWin;
         public static KeysForm keysWin;
+        public static PFXEditorWin pfxWin;
 
         // Список скрытых окон
         static List<Form> windowsToHideList = null;
@@ -77,6 +78,7 @@ namespace SpacerUnion
             camCoordsWin = new CameraCoords();
             miscSetWin = new MiscSettingsWin();
             keysWin = new KeysForm();
+            pfxWin = new PFXEditorWin();
 
             windowsList.Add(objTreeWin);
             windowsList.Add(objectsWin);
@@ -92,7 +94,8 @@ namespace SpacerUnion
             windowsList.Add(camCoordsWin);
             windowsList.Add(miscSetWin);
             windowsList.Add(keysWin);
-            
+            windowsList.Add(pfxWin);
+
             // каждому окну из списка задаем владельца: главную форму
             windowsList.ForEach(x => x.Owner = form);
 

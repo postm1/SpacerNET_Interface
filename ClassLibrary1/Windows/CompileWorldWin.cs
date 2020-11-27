@@ -93,6 +93,11 @@ namespace SpacerUnion
             {
                 button1_Click(null, null);
             }
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                button2_Click(null, null);
+            }
         }
 
         public void ApplySettings()

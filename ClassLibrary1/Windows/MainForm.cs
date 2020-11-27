@@ -1262,5 +1262,11 @@ namespace SpacerUnion
 
             openFileDialog.Multiselect = false;
         }
+
+        private void pfxEditorToolStrip_Click(object sender, EventArgs e)
+        {
+            SpacerNET.pfxWin.Show();
+            SpacerNET.pfxWin.LoadAllPfx();
+        }
     }
 }

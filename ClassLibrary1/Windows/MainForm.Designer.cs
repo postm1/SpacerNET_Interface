@@ -88,6 +88,7 @@
             this.toolStripButtonBBox = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonInvisible = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.pfxEditorToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -249,7 +250,8 @@
             this.cameraCoordsToolStrip,
             this.dayTimeToolStrip,
             this.analyseWaynetToolStripMenuItem,
-            this.playHeroToolStrip});
+            this.playHeroToolStrip,
+            this.pfxEditorToolStrip});
             this.ToolStripMenuWorld.ForeColor = System.Drawing.Color.Black;
             this.ToolStripMenuWorld.Name = "ToolStripMenuWorld";
             this.ToolStripMenuWorld.Size = new System.Drawing.Size(44, 20);
@@ -606,6 +608,13 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // pfxEditorToolStrip
+            // 
+            this.pfxEditorToolStrip.Name = "pfxEditorToolStrip";
+            this.pfxEditorToolStrip.Size = new System.Drawing.Size(176, 22);
+            this.pfxEditorToolStrip.Text = "Редактор PFX";
+            this.pfxEditorToolStrip.Click += new System.EventHandler(this.pfxEditorToolStrip_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -695,5 +704,6 @@
         public System.Windows.Forms.ToolStripMenuItem playHeroToolStrip;
         public System.Windows.Forms.ToolStripMenuItem toolStripMenuResetWorld;
         public System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMergeMesh;
+        private System.Windows.Forms.ToolStripMenuItem pfxEditorToolStrip;
     }
 }

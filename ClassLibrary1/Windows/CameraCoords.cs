@@ -114,9 +114,19 @@ namespace SpacerUnion.Windows
                 textBoxCamVec1.Text = arr[1].Trim();
                 textBoxCamVec2.Text = arr[2].Trim();
             }
-            else
+            else if (text.Contains(','))
             {
                 string[] arrComma = text.Split(',');
+                if (arrComma.Length == 3)
+                {
+                    textBoxCamVec0.Text = arrComma[0].Trim();
+                    textBoxCamVec1.Text = arrComma[1].Trim();
+                    textBoxCamVec2.Text = arrComma[2].Trim();
+                }
+            }
+            else if (text.Contains(';'))
+            {
+                string[] arrComma = text.Split(';');
                 if (arrComma.Length == 3)
                 {
                     textBoxCamVec0.Text = arrComma[0].Trim();

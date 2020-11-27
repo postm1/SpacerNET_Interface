@@ -209,6 +209,11 @@ namespace SpacerUnion
             {
                 button2_Click(null, null);
             }
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1_Click(null, null);
+            }
         }
 
         private void CompileLightWin_FormClosing(object sender, FormClosingEventArgs e)

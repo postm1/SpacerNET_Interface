@@ -513,6 +513,8 @@ namespace SpacerUnion
             containsIndex = index;
             containsNode = props[index].node;
 
+            currentContents = currentContents.Replace(';', ',');
+
             List<string> items = currentContents.Split(',').ToList();
 
             for (int i = 0; i < items.Count; i++)

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonGetFrom = new System.Windows.Forms.Button();
             this.checkBoxCloseCamWin = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,7 +38,6 @@
             this.textBoxCamVec1 = new System.Windows.Forms.TextBox();
             this.textBoxCamVec0 = new System.Windows.Forms.TextBox();
             this.buttonCameraGo = new System.Windows.Forms.Button();
-            this.buttonGetFrom = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +58,16 @@
             this.panel1.Size = new System.Drawing.Size(297, 192);
             this.panel1.TabIndex = 8;
             this.panel1.TabStop = true;
+            // 
+            // buttonGetFrom
+            // 
+            this.buttonGetFrom.Location = new System.Drawing.Point(69, 72);
+            this.buttonGetFrom.Name = "buttonGetFrom";
+            this.buttonGetFrom.Size = new System.Drawing.Size(157, 23);
+            this.buttonGetFrom.TabIndex = 16;
+            this.buttonGetFrom.Text = "Скопировать из буфера";
+            this.buttonGetFrom.UseVisualStyleBackColor = true;
+            this.buttonGetFrom.Click += new System.EventHandler(this.buttonGetFrom_Click);
             // 
             // checkBoxCloseCamWin
             // 
@@ -134,16 +144,6 @@
             this.buttonCameraGo.Text = "Перейти";
             this.buttonCameraGo.UseVisualStyleBackColor = true;
             this.buttonCameraGo.Click += new System.EventHandler(this.buttonCameraGo_Click);
-            // 
-            // buttonGetFrom
-            // 
-            this.buttonGetFrom.Location = new System.Drawing.Point(69, 72);
-            this.buttonGetFrom.Name = "buttonGetFrom";
-            this.buttonGetFrom.Size = new System.Drawing.Size(157, 23);
-            this.buttonGetFrom.TabIndex = 16;
-            this.buttonGetFrom.Text = "Перейти";
-            this.buttonGetFrom.UseVisualStyleBackColor = true;
-            this.buttonGetFrom.Click += new System.EventHandler(this.buttonGetFrom_Click);
             // 
             // CameraCoords
             // 
