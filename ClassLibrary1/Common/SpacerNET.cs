@@ -265,6 +265,7 @@ namespace SpacerUnion
 
 
             Imports.Stack_PushString("vobListRadius");
+            Imports.Stack_PushString("bTogglePickMaterial");
             Imports.Stack_PushString("showInvisibleVobs");
             Imports.Stack_PushString("drawBBoxGlobal");
             Imports.Stack_PushString("showHelpVobs");
@@ -281,6 +282,11 @@ namespace SpacerUnion
             btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
             btn = form.toolStripTop.Items[11] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+            btn = form.toolStripTop.Items[12] as ToolStripButton;
+            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            int radius = Imports.Extern_GetSetting();
+            vobList.trackBarRadius.Value = radius;
 
             btn = form.toolStripTop.Items[0] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(infoWin.Visible);
@@ -302,10 +308,8 @@ namespace SpacerUnion
             btn.Checked = Convert.ToBoolean(vobList.Visible);
 
 
-           
 
-            int radius = Imports.Extern_GetSetting();
-            vobList.trackBarRadius.Value = radius;
+           
            // vobList.comboBoxVobListType.SelectedIndex = 0;
 
 

@@ -312,6 +312,7 @@ namespace SpacerUnion
 
                 currentWorldName = openFileDialog.SafeFileName;
 
+                Imports.Stack_PushInt(openFileDialog.FilterIndex);
                 Imports.Stack_PushString(filePath);
                 Imports.Extern_LoadWorld();
 
@@ -659,7 +660,7 @@ namespace SpacerUnion
             }
 
             openFileDialog.Filter = Constants.FILE_FILTER_MERGE_VOBS;
-            openFileDialog.Multiselect = true;
+            openFileDialog.Multiselect = false;
 
 
             Imports.Stack_PushString("vobsPath");
@@ -687,9 +688,6 @@ namespace SpacerUnion
                 Imports.Stack_PushString("vobsPath");
                 Imports.Extern_SetSettingStr();
 
-
-               
-
                 UpdateSpacerCaption(openFileDialog.SafeFileName);
 
 
@@ -697,32 +695,6 @@ namespace SpacerUnion
                 sAll.Start();
 
                 ResetInterface();
-
-                foreach (string currentPath in openFileDialog.FileNames)
-                {
-
-                    Stopwatch s = new Stopwatch();
-                    s.Start();
-
-                    string fileNameCurrent = Path.GetFileName(currentPath).ToUpper();
-
-                    if (!fileNameCurrent.EndsWith(".ZEN"))
-                    {
-                        continue;
-                    }
-
-                    SpacerNET.form.AddText(fileNameCurrent + " " + Localizator.Get("isLoading"));
-
-                    currentWorldName = fileNameCurrent;
-
-                    Imports.Stack_PushString(currentPath);
-                    Imports.Extern_MergeMesh();
-
-                    s.Stop();
-
-                    string timeSpendLocal = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-                    SpacerNET.form.AddText(Localizator.Get("loadMeshTime") + " (" + timeSpendLocal + ")");
-                }
 
 
                 SpacerNET.form.AddText(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"));
@@ -1267,6 +1239,16 @@ namespace SpacerUnion
         {
             SpacerNET.pfxWin.Show();
             SpacerNET.pfxWin.LoadAllPfx();
+        }
+
+        private void toolStripButtonMaterial_Click(object sender, EventArgs e)
+        {
+            ToolStripButton item = sender as ToolStripButton;
+
+            item.Checked = !item.Checked;
+
+            Imports.Stack_PushString("bTogglePickMaterial");
+            Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
         }
     }
 }

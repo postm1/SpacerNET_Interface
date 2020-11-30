@@ -59,6 +59,7 @@
             this.ToolStripMenuTimeNight = new System.Windows.Forms.ToolStripMenuItem();
             this.analyseWaynetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playHeroToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.pfxEditorToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.cameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,8 +88,7 @@
             this.toolStripButtonHelpVobs = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonBBox = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonInvisible = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.pfxEditorToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButtonMaterial = new System.Windows.Forms.ToolStripButton();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -214,7 +214,7 @@
             this.toolStripMenuItem6,
             this.toolStripMenuItem7});
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.showToolStripMenuItem.Text = "Показать";
             // 
             // toolStripMenuItem5
@@ -349,6 +349,13 @@
             this.playHeroToolStrip.Text = "Играть за героя";
             this.playHeroToolStrip.Click += new System.EventHandler(this.игратьЗаГерояToolStripMenuItem_Click);
             // 
+            // pfxEditorToolStrip
+            // 
+            this.pfxEditorToolStrip.Name = "pfxEditorToolStrip";
+            this.pfxEditorToolStrip.Size = new System.Drawing.Size(176, 22);
+            this.pfxEditorToolStrip.Text = "Редактор PFX";
+            this.pfxEditorToolStrip.Click += new System.EventHandler(this.pfxEditorToolStrip_Click);
+            // 
             // toolStripMenuItemSettings
             // 
             this.toolStripMenuItemSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -478,7 +485,7 @@
             this.toolStripButtonHelpVobs,
             this.toolStripButtonBBox,
             this.toolStripButtonInvisible,
-            this.toolStripSeparator2});
+            this.toolStripButtonMaterial});
             this.toolStripTop.Location = new System.Drawing.Point(0, 0);
             this.toolStripTop.Name = "toolStripTop";
             this.toolStripTop.Size = new System.Drawing.Size(1201, 25);
@@ -603,17 +610,15 @@
             this.toolStripButtonInvisible.Text = "Показать невидимые вобы";
             this.toolStripButtonInvisible.Click += new System.EventHandler(this.toolStripButtonInvisible_Click);
             // 
-            // toolStripSeparator2
+            // toolStripButtonMaterial
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // pfxEditorToolStrip
-            // 
-            this.pfxEditorToolStrip.Name = "pfxEditorToolStrip";
-            this.pfxEditorToolStrip.Size = new System.Drawing.Size(176, 22);
-            this.pfxEditorToolStrip.Text = "Редактор PFX";
-            this.pfxEditorToolStrip.Click += new System.EventHandler(this.pfxEditorToolStrip_Click);
+            this.toolStripButtonMaterial.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonMaterial.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonMaterial.Image")));
+            this.toolStripButtonMaterial.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonMaterial.Name = "toolStripButtonMaterial";
+            this.toolStripButtonMaterial.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonMaterial.Text = "toolStripButtonMaterial";
+            this.toolStripButtonMaterial.Click += new System.EventHandler(this.toolStripButtonMaterial_Click);
             // 
             // MainForm
             // 
@@ -679,7 +684,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonWaynet;
         private System.Windows.Forms.ToolStripButton toolStripButtonHelpVobs;
         private System.Windows.Forms.ToolStripButton toolStripButtonBBox;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton toolStripButtonInvisible;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuTimeMorning;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuTimeDay;
@@ -705,5 +709,6 @@
         public System.Windows.Forms.ToolStripMenuItem toolStripMenuResetWorld;
         public System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMergeMesh;
         private System.Windows.Forms.ToolStripMenuItem pfxEditorToolStrip;
+        private System.Windows.Forms.ToolStripButton toolStripButtonMaterial;
     }
 }

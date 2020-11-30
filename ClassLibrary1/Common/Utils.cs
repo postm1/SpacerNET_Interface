@@ -12,10 +12,11 @@ namespace SpacerUnion
 {
     public class Constants
     {
-        public const string SPACER_VERSION = "0.09";
+        public const string SPACER_VERSION = "0.10";
 
 
-        public const string FILE_FILTER_OPEN_ZEN = "ZEN files (*.zen)|*.zen";
+        public const string FILE_FILTER_OPEN_ZEN = "Compiled ZEN (*.zen)|*.zen|Uncompiled ZEN (*.zen)|*.zen";
+        public const string FILE_FILTER_OPEN_VOBTREE = "VobTree ZEN (*.zen)|*.zen";
         public const string FILE_FILTER_OPEN_MESH = "Mesh-File (*.3ds)|*.3ds|All Files(*.*)|*.*||";
         public const string FILE_FILTER_MERGE_VOBS = "World(*.zen)|*.zen|All Files(*.*)|*.*||";
         public const string FILE_FILTER_SAVE_ZEN = "Compiled ZEN (ascii)|*.zen|Uncompiled ZEN (ascii)|*.zen|Compiled ZEN (binary safe)|*.zen";

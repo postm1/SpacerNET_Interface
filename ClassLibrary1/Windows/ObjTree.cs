@@ -903,7 +903,7 @@ namespace SpacerUnion
 
             if (node.Text.Contains("zCVobWaypoint") || node.Text.Contains("zCVobSpot"))
             {
-                ObjectsWin.ChangeTab(4);
+               // ObjectsWin.ChangeTab(4);
             }
 
             Imports.Extern_SelectVobSync(addr);
@@ -928,7 +928,7 @@ namespace SpacerUnion
             }
 
 
-            saveFileDialogVobTree.Filter = Constants.FILE_FILTER_OPEN_ZEN;
+            saveFileDialogVobTree.Filter = Constants.FILE_FILTER_OPEN_VOBTREE;
 
 
 
@@ -983,7 +983,7 @@ namespace SpacerUnion
             }
 
 
-            openFileDialogVobTree.Filter = Constants.FILE_FILTER_OPEN_ZEN;
+            openFileDialogVobTree.Filter = Constants.FILE_FILTER_OPEN_VOBTREE;
     
 
 
@@ -1023,7 +1023,7 @@ namespace SpacerUnion
         {
 
 
-            openFileDialogVobTree.Filter = Constants.FILE_FILTER_OPEN_ZEN;
+            openFileDialogVobTree.Filter = Constants.FILE_FILTER_OPEN_VOBTREE;
 
 
 

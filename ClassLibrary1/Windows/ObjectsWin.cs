@@ -889,10 +889,20 @@ namespace SpacerUnion
                 triggerEntry.m_kf_pos--;
 
                 Imports.Extern_SetToKeyPos(triggerEntry.m_kf_pos);
-                labelCurrentKey.Text = triggerEntry.m_kf_pos.ToString();
+                UpdateCurrentKeyLabel();
             }
 
 
+        }
+
+
+        private void UpdateCurrentKeyLabel()
+        {
+            int keyMax = triggerEntry.maxKey;
+
+            if (keyMax == 0) keyMax = 1;
+      
+            labelCurrentKey.Text = triggerEntry.m_kf_pos.ToString() + "/" + (triggerEntry.maxKey - 1).ToString();
         }
 
         private void buttonKeyPlus_Click(object sender, EventArgs e)
@@ -901,7 +911,7 @@ namespace SpacerUnion
             {
                 triggerEntry.m_kf_pos++;
                 Imports.Extern_SetToKeyPos(triggerEntry.m_kf_pos);
-                labelCurrentKey.Text = triggerEntry.m_kf_pos.ToString();
+                UpdateCurrentKeyLabel();
             }
 
 
@@ -912,7 +922,7 @@ namespace SpacerUnion
         public void UpdateTriggerWindow(bool block=true)
         {
             labelTriggerName.Text = triggerEntry.name;
-            labelCurrentKey.Text = triggerEntry.m_kf_pos.ToString();
+            UpdateCurrentKeyLabel();
             checkBoxDyn.Checked = triggerEntry.dynColl;
             checkBoxStat.Checked = triggerEntry.statColl;
 
@@ -1576,7 +1586,7 @@ namespace SpacerUnion
             if (camEntry.currentKey < camEntry.maxKey)
             {
                 camEntry.currentKey += 1;
-                labelCamKeyCurrent.Text = camEntry.currentKey.ToString();
+                UpdateCurrentKeyLabel();
             }
            
 
@@ -1587,7 +1597,7 @@ namespace SpacerUnion
             if (camEntry.currentKey > 0)
             {
                 camEntry.currentKey -= 1;
-                labelCamKeyCurrent.Text = camEntry.currentKey.ToString();
+                UpdateCurrentKeyLabel();
             }
         }
 
@@ -2886,7 +2896,7 @@ namespace SpacerUnion
             {
                 OpenFileDialog openFileDialogVobTree = new OpenFileDialog();
 
-                openFileDialogVobTree.Filter = Constants.FILE_FILTER_OPEN_ZEN;
+                openFileDialogVobTree.Filter = Constants.FILE_FILTER_OPEN_VOBTREE;
 
                 Imports.Stack_PushString("treeVobPath");
                 Imports.Extern_GetSettingStr();
