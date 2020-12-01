@@ -825,7 +825,7 @@
             this.labelCurrentKey.Name = "labelCurrentKey";
             this.labelCurrentKey.Size = new System.Drawing.Size(34, 18);
             this.labelCurrentKey.TabIndex = 2;
-            this.labelCurrentKey.Text = "0";
+            this.labelCurrentKey.Text = "0/0";
             this.labelCurrentKey.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonKeyPlus

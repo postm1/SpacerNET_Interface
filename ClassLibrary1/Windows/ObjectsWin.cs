@@ -898,10 +898,11 @@ namespace SpacerUnion
 
         private void UpdateCurrentKeyLabel()
         {
-            int keyMax = triggerEntry.maxKey;
+            int keyMax = triggerEntry.maxKey - 1;
 
-            if (keyMax == 0) keyMax = 1;
-      
+            if (keyMax < 0) keyMax = 0;
+
+
             labelCurrentKey.Text = triggerEntry.m_kf_pos.ToString() + "/" + (triggerEntry.maxKey - 1).ToString();
         }
 

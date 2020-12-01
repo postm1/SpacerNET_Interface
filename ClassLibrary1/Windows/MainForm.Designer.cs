@@ -214,7 +214,7 @@
             this.toolStripMenuItem6,
             this.toolStripMenuItem7});
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.showToolStripMenuItem.Text = "Показать";
             // 
             // toolStripMenuItem5
@@ -351,9 +351,11 @@
             // 
             // pfxEditorToolStrip
             // 
+            this.pfxEditorToolStrip.Enabled = false;
             this.pfxEditorToolStrip.Name = "pfxEditorToolStrip";
             this.pfxEditorToolStrip.Size = new System.Drawing.Size(176, 22);
             this.pfxEditorToolStrip.Text = "Редактор PFX";
+            this.pfxEditorToolStrip.Visible = false;
             this.pfxEditorToolStrip.Click += new System.EventHandler(this.pfxEditorToolStrip_Click);
             // 
             // toolStripMenuItemSettings
@@ -617,7 +619,7 @@
             this.toolStripButtonMaterial.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonMaterial.Name = "toolStripButtonMaterial";
             this.toolStripButtonMaterial.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonMaterial.Text = "toolStripButtonMaterial";
+            this.toolStripButtonMaterial.Text = "Выделение полигона";
             this.toolStripButtonMaterial.Click += new System.EventHandler(this.toolStripButtonMaterial_Click);
             // 
             // MainForm

@@ -169,9 +169,9 @@ namespace SpacerUnion
             
             toolStripButtonBBox.Text = Localizator.Get("MENU_TOP_VIEW_BBOX");
             toolStripButtonInvisible.Text = Localizator.Get("MENU_TOP_VIEW_INVIS");
+            toolStripButtonMaterial.Text = Localizator.Get("MENU_TOP_VIEW_POLYGON");
 
-
-
+            
 
         }
 
