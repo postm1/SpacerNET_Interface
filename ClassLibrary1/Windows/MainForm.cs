@@ -58,7 +58,7 @@ namespace SpacerUnion
         public void UpdateSpacerCaption(string title)
         {
             currentWorldName = title;
-            this.Text = "Spacer.NET " + Constants.SPACER_VERSION + " (Beta): " + title;
+            this.Text = "Spacer.NET (" + Constants.SPACER_VERSION + ") " + title;
         }
         
         private void CloseApp()
@@ -171,9 +171,11 @@ namespace SpacerUnion
             toolStripButtonInvisible.Text = Localizator.Get("MENU_TOP_VIEW_INVIS");
             toolStripButtonMaterial.Text = Localizator.Get("MENU_TOP_VIEW_POLYGON");
 
-            
 
+            freezeTimeToolStripMenuItem.Text = Localizator.Get("MENU_TOP_VIEW_FREEZETIME");
         }
+
+
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -1249,6 +1251,18 @@ namespace SpacerUnion
 
             Imports.Stack_PushString("bTogglePickMaterial");
             Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
+        }
+
+        private void freezeTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+
+            item.Checked = !item.Checked;
+
+            Imports.Stack_PushString("holdTime");
+            Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
+
+            Imports.Extern_FreezeTime(Convert.ToInt32(item.Checked));
         }
     }
 }

@@ -25,6 +25,7 @@ namespace SpacerUnion
         public VobListForm()
         {
             InitializeComponent();
+            this.comboBoxVobList.SelectedIndex = 0;
         }
 
         public void UpdateLang()
@@ -147,6 +148,13 @@ namespace SpacerUnion
 
         }
 
-        
+        private void comboBoxVobList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cb = sender as ComboBox;
+
+            int selIndex = cb.SelectedIndex;
+
+            Imports.Extern_SetVobListType(selIndex); 
+        }
     }
 }

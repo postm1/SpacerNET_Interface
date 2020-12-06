@@ -424,7 +424,10 @@ namespace SpacerUnion.Common
             words.Add("checkBoxAutoNumerate", new List<string> { "Авто-нумерация имен", "Auto numeration of names", "Automaitsche Nummerierung der Namen", "Automatycznie numeruj nazwy" });
 
             words.Add("VOB_SEARCH_TYPE5", new List<string> { "Поиск oCItem в сундуках", "", "", "" });
+            words.Add("MENU_TOP_VIEW_FREEZETIME", new List<string> { "Заморозить время", "Freeze time", "Ingamezeit einfrieren", "" });
 
+
+            
         }
     }
 }

@@ -36,6 +36,7 @@
             this.labelRadius = new System.Windows.Forms.Label();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.panelVobList = new System.Windows.Forms.Panel();
+            this.comboBoxVobList = new System.Windows.Forms.ComboBox();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRadius)).BeginInit();
             this.panelVobList.SuspendLayout();
@@ -72,7 +73,7 @@
             // trackBarRadius
             // 
             this.trackBarRadius.Location = new System.Drawing.Point(114, 8);
-            this.trackBarRadius.Maximum = 800;
+            this.trackBarRadius.Maximum = 1200;
             this.trackBarRadius.Minimum = 10;
             this.trackBarRadius.Name = "trackBarRadius";
             this.trackBarRadius.Size = new System.Drawing.Size(181, 45);
@@ -92,6 +93,7 @@
             // 
             // panelVobList
             // 
+            this.panelVobList.Controls.Add(this.comboBoxVobList);
             this.panelVobList.Controls.Add(this.labelRadius);
             this.panelVobList.Controls.Add(this.trackBarRadius);
             this.panelVobList.Dock = System.Windows.Forms.DockStyle.Top;
@@ -99,6 +101,24 @@
             this.panelVobList.Name = "panelVobList";
             this.panelVobList.Size = new System.Drawing.Size(307, 66);
             this.panelVobList.TabIndex = 7;
+            // 
+            // comboBoxVobList
+            // 
+            this.comboBoxVobList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxVobList.FormattingEnabled = true;
+            this.comboBoxVobList.Items.AddRange(new object[] {
+            "Any",
+            "zCVob",
+            "oCItem",
+            "zCVobSpot",
+            "zCVobWaypoint",
+            "zCVobSound",
+            "zCDecal (.TGA)"});
+            this.comboBoxVobList.Location = new System.Drawing.Point(6, 39);
+            this.comboBoxVobList.Name = "comboBoxVobList";
+            this.comboBoxVobList.Size = new System.Drawing.Size(147, 21);
+            this.comboBoxVobList.TabIndex = 5;
+            this.comboBoxVobList.SelectedIndexChanged += new System.EventHandler(this.comboBoxVobList_SelectedIndexChanged);
             // 
             // VobListForm
             // 
@@ -131,5 +151,6 @@
         public System.Windows.Forms.TrackBar trackBarRadius;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.Panel panelVobList;
+        private System.Windows.Forms.ComboBox comboBoxVobList;
     }
 }

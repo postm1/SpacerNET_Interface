@@ -309,8 +309,14 @@ namespace SpacerUnion
 
 
 
-           
-           // vobList.comboBoxVobListType.SelectedIndex = 0;
+            var some = form.freezeTimeToolStripMenuItem;
+
+            Imports.Stack_PushString("holdTime");
+
+            int holdTime = Imports.Extern_GetSetting();
+            form.freezeTimeToolStripMenuItem.Checked = Convert.ToBoolean(holdTime);
+
+            // vobList.comboBoxVobListType.SelectedIndex = 0;
 
 
             form.ResetInterface();
@@ -395,7 +401,13 @@ namespace SpacerUnion
             return (int)form.Handle;
         }
 
-        
+        [DllExport]
+        public static int GetVobsWinHandler()
+        {
+            return (int)objTreeWin.Handle;
+        }
+
+
         [DllExport]
         public static void HideWindows()
         {

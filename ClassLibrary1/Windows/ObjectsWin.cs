@@ -135,7 +135,7 @@ namespace SpacerUnion
             comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE1"));
             comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE2"));
             comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE3"));
-            comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE4"));
+            //comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE4"));
             comboBoxSearchType.SelectedIndex = 0;
 
             radioButtonConvertOld.Text = Localizator.Get("VOB_SEARCH_CONVERT_RADIO0");
@@ -903,7 +903,7 @@ namespace SpacerUnion
             if (keyMax < 0) keyMax = 0;
 
 
-            labelCurrentKey.Text = triggerEntry.m_kf_pos.ToString() + "/" + (triggerEntry.maxKey - 1).ToString();
+            labelCurrentKey.Text = triggerEntry.m_kf_pos.ToString() + "/" + keyMax.ToString();
         }
 
         private void buttonKeyPlus_Click(object sender, EventArgs e)

@@ -89,6 +89,7 @@
             this.toolStripButtonBBox = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonInvisible = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonMaterial = new System.Windows.Forms.ToolStripButton();
+            this.freezeTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -300,7 +301,8 @@
             this.ToolStripMenuTimeMorning,
             this.ToolStripMenuTimeDay,
             this.ToolStripMenuTimeEvening,
-            this.ToolStripMenuTimeNight});
+            this.ToolStripMenuTimeNight,
+            this.freezeTimeToolStripMenuItem});
             this.dayTimeToolStrip.Name = "dayTimeToolStrip";
             this.dayTimeToolStrip.Size = new System.Drawing.Size(176, 22);
             this.dayTimeToolStrip.Text = "Время суток";
@@ -308,28 +310,28 @@
             // ToolStripMenuTimeMorning
             // 
             this.ToolStripMenuTimeMorning.Name = "ToolStripMenuTimeMorning";
-            this.ToolStripMenuTimeMorning.Size = new System.Drawing.Size(145, 22);
+            this.ToolStripMenuTimeMorning.Size = new System.Drawing.Size(177, 22);
             this.ToolStripMenuTimeMorning.Text = "Утро (07:00)";
             this.ToolStripMenuTimeMorning.Click += new System.EventHandler(this.ToolStripMenuTimeMorning_Click);
             // 
             // ToolStripMenuTimeDay
             // 
             this.ToolStripMenuTimeDay.Name = "ToolStripMenuTimeDay";
-            this.ToolStripMenuTimeDay.Size = new System.Drawing.Size(145, 22);
+            this.ToolStripMenuTimeDay.Size = new System.Drawing.Size(177, 22);
             this.ToolStripMenuTimeDay.Text = "День (12:00)";
             this.ToolStripMenuTimeDay.Click += new System.EventHandler(this.ToolStripMenuTimeDay_Click);
             // 
             // ToolStripMenuTimeEvening
             // 
             this.ToolStripMenuTimeEvening.Name = "ToolStripMenuTimeEvening";
-            this.ToolStripMenuTimeEvening.Size = new System.Drawing.Size(145, 22);
+            this.ToolStripMenuTimeEvening.Size = new System.Drawing.Size(177, 22);
             this.ToolStripMenuTimeEvening.Text = "Вечер (17:00)";
             this.ToolStripMenuTimeEvening.Click += new System.EventHandler(this.ToolStripMenuTimeEvening_Click);
             // 
             // ToolStripMenuTimeNight
             // 
             this.ToolStripMenuTimeNight.Name = "ToolStripMenuTimeNight";
-            this.ToolStripMenuTimeNight.Size = new System.Drawing.Size(145, 22);
+            this.ToolStripMenuTimeNight.Size = new System.Drawing.Size(177, 22);
             this.ToolStripMenuTimeNight.Text = "Ночь (00:00)";
             this.ToolStripMenuTimeNight.Click += new System.EventHandler(this.ToolStripMenuTimeNight_Click);
             // 
@@ -622,6 +624,13 @@
             this.toolStripButtonMaterial.Text = "Выделение полигона";
             this.toolStripButtonMaterial.Click += new System.EventHandler(this.toolStripButtonMaterial_Click);
             // 
+            // freezeTimeToolStripMenuItem
+            // 
+            this.freezeTimeToolStripMenuItem.Name = "freezeTimeToolStripMenuItem";
+            this.freezeTimeToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.freezeTimeToolStripMenuItem.Text = "Заморозить время";
+            this.freezeTimeToolStripMenuItem.Click += new System.EventHandler(this.freezeTimeToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -712,5 +721,6 @@
         public System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMergeMesh;
         private System.Windows.Forms.ToolStripMenuItem pfxEditorToolStrip;
         private System.Windows.Forms.ToolStripButton toolStripButtonMaterial;
+        public System.Windows.Forms.ToolStripMenuItem freezeTimeToolStripMenuItem;
     }
 }

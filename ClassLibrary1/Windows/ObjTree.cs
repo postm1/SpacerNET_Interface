@@ -1115,5 +1115,20 @@ namespace SpacerUnion
         private void ObjTree_Shown(object sender, EventArgs e)
         {
         }
+
+        private void ObjTree_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           // e.Handled = true;
+        }
+
+        private void globalTree_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //e.Handled = true;
+        }
+
+        private void globalTree_KeyDown(object sender, KeyEventArgs e)
+        {
+           // e.Handled = true;
+        }
     }
 }
