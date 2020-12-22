@@ -271,6 +271,7 @@ namespace SpacerUnion.Common
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_FreezeTime(int enabled);
 
-        
+        [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SetRenderMode(int mode);
     }
 }

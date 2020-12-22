@@ -316,8 +316,8 @@ namespace SpacerUnion
             int holdTime = Imports.Extern_GetSetting();
             form.freezeTimeToolStripMenuItem.Checked = Convert.ToBoolean(holdTime);
 
-            // vobList.comboBoxVobListType.SelectedIndex = 0;
 
+            form.normalToolStripMenuItem.Checked = true;
 
             form.ResetInterface();
             objectsWin.LoadSettings();

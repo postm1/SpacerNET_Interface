@@ -57,6 +57,12 @@
             this.ToolStripMenuTimeDay = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuTimeEvening = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuTimeNight = new System.Windows.Forms.ToolStripMenuItem();
+            this.freezeTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renderModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.normalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mATERIALWIREToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fLATToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wIREToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analyseWaynetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playHeroToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.pfxEditorToolStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,7 +95,7 @@
             this.toolStripButtonBBox = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonInvisible = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonMaterial = new System.Windows.Forms.ToolStripButton();
-            this.freezeTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -250,6 +256,7 @@
             this.compileWorldToolStrip,
             this.cameraCoordsToolStrip,
             this.dayTimeToolStrip,
+            this.renderModeToolStripMenuItem,
             this.analyseWaynetToolStripMenuItem,
             this.playHeroToolStrip,
             this.pfxEditorToolStrip});
@@ -334,6 +341,54 @@
             this.ToolStripMenuTimeNight.Size = new System.Drawing.Size(177, 22);
             this.ToolStripMenuTimeNight.Text = "Ночь (00:00)";
             this.ToolStripMenuTimeNight.Click += new System.EventHandler(this.ToolStripMenuTimeNight_Click);
+            // 
+            // freezeTimeToolStripMenuItem
+            // 
+            this.freezeTimeToolStripMenuItem.Name = "freezeTimeToolStripMenuItem";
+            this.freezeTimeToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.freezeTimeToolStripMenuItem.Text = "Заморозить время";
+            this.freezeTimeToolStripMenuItem.Click += new System.EventHandler(this.freezeTimeToolStripMenuItem_Click);
+            // 
+            // renderModeToolStripMenuItem
+            // 
+            this.renderModeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.normalToolStripMenuItem,
+            this.mATERIALWIREToolStripMenuItem,
+            this.fLATToolStripMenuItem,
+            this.wIREToolStripMenuItem});
+            this.renderModeToolStripMenuItem.Name = "renderModeToolStripMenuItem";
+            this.renderModeToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.renderModeToolStripMenuItem.Text = "Режим рендера";
+            // 
+            // normalToolStripMenuItem
+            // 
+            this.normalToolStripMenuItem.Checked = true;
+            this.normalToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.normalToolStripMenuItem.Name = "normalToolStripMenuItem";
+            this.normalToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.normalToolStripMenuItem.Text = "NORMAL";
+            this.normalToolStripMenuItem.Click += new System.EventHandler(this.normalToolStripMenuItem_Click);
+            // 
+            // mATERIALWIREToolStripMenuItem
+            // 
+            this.mATERIALWIREToolStripMenuItem.Name = "mATERIALWIREToolStripMenuItem";
+            this.mATERIALWIREToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.mATERIALWIREToolStripMenuItem.Text = "MATERIAL_WIRE";
+            this.mATERIALWIREToolStripMenuItem.Click += new System.EventHandler(this.mATERIALWIREToolStripMenuItem_Click);
+            // 
+            // fLATToolStripMenuItem
+            // 
+            this.fLATToolStripMenuItem.Name = "fLATToolStripMenuItem";
+            this.fLATToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.fLATToolStripMenuItem.Text = "FLAT";
+            this.fLATToolStripMenuItem.Click += new System.EventHandler(this.fLATToolStripMenuItem_Click);
+            // 
+            // wIREToolStripMenuItem
+            // 
+            this.wIREToolStripMenuItem.Name = "wIREToolStripMenuItem";
+            this.wIREToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.wIREToolStripMenuItem.Text = "WIRE";
+            this.wIREToolStripMenuItem.Click += new System.EventHandler(this.wIREToolStripMenuItem_Click);
             // 
             // analyseWaynetToolStripMenuItem
             // 
@@ -489,7 +544,8 @@
             this.toolStripButtonHelpVobs,
             this.toolStripButtonBBox,
             this.toolStripButtonInvisible,
-            this.toolStripButtonMaterial});
+            this.toolStripButtonMaterial,
+            this.toolStripSeparator2});
             this.toolStripTop.Location = new System.Drawing.Point(0, 0);
             this.toolStripTop.Name = "toolStripTop";
             this.toolStripTop.Size = new System.Drawing.Size(1201, 25);
@@ -624,12 +680,10 @@
             this.toolStripButtonMaterial.Text = "Выделение полигона";
             this.toolStripButtonMaterial.Click += new System.EventHandler(this.toolStripButtonMaterial_Click);
             // 
-            // freezeTimeToolStripMenuItem
+            // toolStripSeparator2
             // 
-            this.freezeTimeToolStripMenuItem.Name = "freezeTimeToolStripMenuItem";
-            this.freezeTimeToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.freezeTimeToolStripMenuItem.Text = "Заморозить время";
-            this.freezeTimeToolStripMenuItem.Click += new System.EventHandler(this.freezeTimeToolStripMenuItem_Click);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // MainForm
             // 
@@ -722,5 +776,11 @@
         private System.Windows.Forms.ToolStripMenuItem pfxEditorToolStrip;
         private System.Windows.Forms.ToolStripButton toolStripButtonMaterial;
         public System.Windows.Forms.ToolStripMenuItem freezeTimeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem renderModeToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem normalToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem mATERIALWIREToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem fLATToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem wIREToolStripMenuItem;
     }
 }

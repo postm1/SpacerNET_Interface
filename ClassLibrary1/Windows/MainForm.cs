@@ -173,6 +173,9 @@ namespace SpacerUnion
 
 
             freezeTimeToolStripMenuItem.Text = Localizator.Get("MENU_TOP_VIEW_FREEZETIME");
+
+            renderModeToolStripMenuItem.Text = Localizator.Get("MENU_TOP_VIEW_RENDERMODE");
+            
         }
 
 
@@ -1263,6 +1266,53 @@ namespace SpacerUnion
             Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
 
             Imports.Extern_FreezeTime(Convert.ToInt32(item.Checked));
+        }
+
+        public void UncheckRenderMode()
+        {
+            for (int i = 0; i < renderModeToolStripMenuItem.DropDownItems.Count; i++)
+            {
+                var element = renderModeToolStripMenuItem.DropDownItems[i] as ToolStripMenuItem;
+
+                if (element != null)
+                {
+                    element.Checked = false;
+                }
+
+            }
+        }
+        private void normalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+
+
+            UncheckRenderMode();
+            item.Checked = true;
+            Imports.Extern_SetRenderMode(0);
+        }
+
+        private void mATERIALWIREToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+            UncheckRenderMode();
+            item.Checked = true;
+            Imports.Extern_SetRenderMode(1);
+        }
+
+        private void fLATToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+            UncheckRenderMode();
+            item.Checked = true;
+            Imports.Extern_SetRenderMode(2);
+        }
+
+        private void wIREToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+            UncheckRenderMode();
+            item.Checked = true;
+            Imports.Extern_SetRenderMode(3);
         }
     }
 }

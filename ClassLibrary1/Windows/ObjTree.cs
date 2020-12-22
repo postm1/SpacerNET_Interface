@@ -1123,7 +1123,7 @@ namespace SpacerUnion
 
         private void globalTree_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //e.Handled = true;
+            e.Handled = true;
         }
 
         private void globalTree_KeyDown(object sender, KeyEventArgs e)
