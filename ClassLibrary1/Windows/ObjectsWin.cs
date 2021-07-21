@@ -1216,8 +1216,13 @@ namespace SpacerUnion
             if (listBoxVisuals.SelectedItem != null && checkBoxShowPreview.Checked)
             {
                 string visual = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
-   
 
+
+                if (SpacerNET.grassWin.checkBoxGrassWinCopyName.Checked)
+                {
+                    SpacerNET.grassWin.textBoxGrassWinModel.Text = visual;
+                    SpacerNET.grassWin.buttonGrassWinApply_Click(null, null);
+                }
 
                 Imports.Stack_PushString(visual);
                 Imports.Extern_RenderSelectedVob();
@@ -1322,11 +1327,7 @@ namespace SpacerUnion
                         string visual = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
                         Clipboard.SetText(visual);
 
-                        if (SpacerNET.grassWin.checkBoxGrassWinCopyName.Checked)
-                        {
-                            SpacerNET.grassWin.textBoxGrassWinModel.Text = visual;
-                            SpacerNET.grassWin.buttonGrassWinApply_Click(null, null);
-                        }
+
                         Imports.Stack_PushString(Localizator.Get("COPYBUFFER")  + ": " + visual);
 
                         Imports.Extern_PrintGreen();

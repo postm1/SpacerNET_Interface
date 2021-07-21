@@ -25,33 +25,59 @@ namespace SpacerUnion.Windows
 
         public void UpdateLang()
         {
-            //this.Text = Localizator.Get("WIN_VOBLIST_TITLE");
-
-            this.labelWinGrassMinRadius.Text = "Мин. расстояние между вобами: " + trackBarWinGrassMinRadius.Value;
+            this.labelWinGrassMinRadius.Text = Localizator.Get("WIN_GRASS_MINRADIUS") + trackBarWinGrassMinRadius.Value;
+            this.labelWinGrassVertOffset.Text = Localizator.Get("WIN_GRASS_VERTOFFSET") + trackBarGrassWinVertical.Value; 
         }
 
         private void trackBarWinGrassMinRadius_ValueChanged(object sender, EventArgs e)
         {
-            var track = sender as TrackBar;
 
-            this.labelWinGrassMinRadius.Text = "Мин. расстояние между вобами: " + track.Value;
+            if (!SpacerNET.isInit)
+            {
+                return;
+            }
+
+            var track = sender as TrackBar;
 
             Imports.Stack_PushString("grassMinDist");
             Imports.Extern_SetSetting(track.Value);
+
+            this.UpdateLang();
         }
 
         private void textBoxGrassWinModel_TextChanged(object sender, EventArgs e)
         {
+
             var text = sender as TextBox;
 
            
             Imports.Stack_PushString(text.Text.Trim());
             Imports.Stack_PushString("grassModelName");
             Imports.Extern_SetSettingStr();
+
+        }
+
+
+
+        private void trackBarGrassWinVertical_ValueChanged(object sender, EventArgs e)
+        {
+            if (!SpacerNET.isInit)
+            {
+                return;
+            }
+
+            var track = sender as TrackBar;
+
+
+            Imports.Stack_PushString("grassVertOffset");
+            Imports.Extern_SetSetting(track.Value);
+
+            this.UpdateLang();
         }
 
         public void buttonGrassWinApply_Click(object sender, EventArgs e)
         {
+
 
             Imports.Stack_PushString("grassMinDist");
             Imports.Extern_SetSetting(trackBarWinGrassMinRadius.Value);
@@ -63,16 +89,6 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString(textBoxGrassWinModel.Text.Trim());
             Imports.Stack_PushString("grassModelName");
             Imports.Extern_SetSettingStr();
-        }
-
-        private void trackBarGrassWinVertical_ValueChanged(object sender, EventArgs e)
-        {
-            var track = sender as TrackBar;
-
-            this.labelWinGrassVertOffset.Text = "Вертикальное смещение: " + track.Value;
-
-            Imports.Stack_PushString("grassVertOffset");
-            Imports.Extern_SetSetting(track.Value);
         }
     }
 }

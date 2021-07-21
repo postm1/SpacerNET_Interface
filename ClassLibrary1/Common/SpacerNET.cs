@@ -285,9 +285,9 @@ namespace SpacerUnion
             ToolStripButton btn = null;
 
 
-            Imports.Stack_PushString("grassMinDist");
+            
             Imports.Stack_PushString("vobListRadius");
-            Imports.Stack_PushString("bToggleWorkMode");
+    
             Imports.Stack_PushString("showInvisibleVobs");
             Imports.Stack_PushString("drawBBoxGlobal");
             Imports.Stack_PushString("showHelpVobs");
@@ -311,37 +311,28 @@ namespace SpacerUnion
             btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
 
+            vobList.trackBarRadius.Value = Imports.Extern_GetSetting(); //voblist radius
 
-            int workMode = Imports.Extern_GetSetting(); //bToggleWorkMode
+            //====================================================================================
 
-            if (workMode == 0)
-            {
+            Imports.Stack_PushString("bToggleNewController");
+            btn = form.toolStripTop.Items[12] as ToolStripButton;
+            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
-            }
-            else if (workMode == 1)
-            {
-                btn = form.toolStripTop.Items[14] as ToolStripButton; //mat
-                btn.Checked = true;
-            }
-            else if (workMode == 2)
-            {
-                btn = form.toolStripTop.Items[15] as ToolStripButton; //grass
-                btn.Checked = true;
-            }
+            //====================================================================================
 
+            Imports.Stack_PushString("grassMinDist");
+            grassWin.trackBarWinGrassMinRadius.Value = Imports.Extern_GetSetting();
 
-            int radius = Imports.Extern_GetSetting();
-            vobList.trackBarRadius.Value = radius;
-
-            int radiusGrassMin = Imports.Extern_GetSetting();
-            grassWin.trackBarWinGrassMinRadius.Value = radius;
+            Imports.Stack_PushString("grassVertOffset");
+            grassWin.trackBarGrassWinVertical.Value = Imports.Extern_GetSetting();
 
 
             Imports.Stack_PushString("grassModelName");
             Imports.Extern_GetSettingStr();
 
             grassWin.textBoxGrassWinModel.Text = Imports.Stack_PeekString();
-
+            grassWin.UpdateLang();
             //==========================================================
 
 
@@ -393,7 +384,7 @@ namespace SpacerUnion
             Properties.Settings.Default.VobListWinLocation = vobList.Location;
             Properties.Settings.Default.InfoWinLocation = infoWin.Location;
             Properties.Settings.Default.SoundWinLocation = soundWin.Location;
-
+            Properties.Settings.Default.GrassWinLocation = grassWin.Location;
 
             Properties.Settings.Default.InfoWinShow = infoWin.Visible;
             Properties.Settings.Default.ObjectWinShow = objectsWin.Visible;
@@ -401,7 +392,7 @@ namespace SpacerUnion
             Properties.Settings.Default.SoundWinShow = soundWin.Visible;
             Properties.Settings.Default.TreeWinShow = objTreeWin.Visible;
             Properties.Settings.Default.VobListWinShow = vobList.Visible;
-
+            Properties.Settings.Default.GrassWinShow = grassWin.Visible;
 
             Properties.Settings.Default.ObjWinShowNext = !objectsWin.Visible && windowsToHideList.Contains(objectsWin);
             Properties.Settings.Default.VobListWinShowNext = !vobList.Visible && windowsToHideList.Contains(vobList);
@@ -409,7 +400,7 @@ namespace SpacerUnion
             Properties.Settings.Default.SoundWinShowNext = !soundWin.Visible && windowsToHideList.Contains(soundWin);
             Properties.Settings.Default.PropWinShowNext = !propWin.Visible && windowsToHideList.Contains(propWin);
             Properties.Settings.Default.InfoWinShowNext = !infoWin.Visible && windowsToHideList.Contains(infoWin);
-
+            Properties.Settings.Default.GrassWinShowNext = !grassWin.Visible && windowsToHideList.Contains(grassWin);
 
             Properties.Settings.Default.MainWindowPos = form.Location;
             Properties.Settings.Default.MainWindowSize = form.Size;

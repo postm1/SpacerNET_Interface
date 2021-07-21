@@ -429,6 +429,11 @@ namespace SpacerUnion.Common
 
             words.Add("CHECK_BADPLUGINS_MSG", new List<string> { "У вас есть плагины, которые могут помешать работе Spacer.net!", "You have plugins which may not work with Spacer.net!", "Möglicherweise sind Plugins installiert, welche nicht mit Spacer.net kompatibel sind!", "Masz pluginy, które mogą nie działać poprawnie z Spacer.net" });
 
+
+            words.Add("WIN_GRASS_VERTOFFSET", new List<string> { "Смещение по вертикали: ", "Vertical offset: ", "", "" });
+            words.Add("WIN_GRASS_MINRADIUS", new List<string> { "Мин. расстояние между вобами: ", "Minimal distance between vobs: ", "", "" });
+
+            
         }
     }
 }

@@ -66,7 +66,6 @@
             this.trackBarWinGrassMinRadius.Size = new System.Drawing.Size(295, 45);
             this.trackBarWinGrassMinRadius.SmallChange = 5;
             this.trackBarWinGrassMinRadius.TabIndex = 2;
-            this.trackBarWinGrassMinRadius.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBarWinGrassMinRadius.ValueChanged += new System.EventHandler(this.trackBarWinGrassMinRadius_ValueChanged);
             // 
             // labelWinGrassMinRadius
@@ -80,7 +79,7 @@
             // 
             // buttonGrassWinApply
             // 
-            this.buttonGrassWinApply.Location = new System.Drawing.Point(117, 243);
+            this.buttonGrassWinApply.Location = new System.Drawing.Point(120, 243);
             this.buttonGrassWinApply.Name = "buttonGrassWinApply";
             this.buttonGrassWinApply.Size = new System.Drawing.Size(107, 23);
             this.buttonGrassWinApply.TabIndex = 4;
@@ -96,7 +95,6 @@
             this.trackBarGrassWinVertical.Name = "trackBarGrassWinVertical";
             this.trackBarGrassWinVertical.Size = new System.Drawing.Size(295, 45);
             this.trackBarGrassWinVertical.TabIndex = 5;
-            this.trackBarGrassWinVertical.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBarGrassWinVertical.Value = -250;
             this.trackBarGrassWinVertical.ValueChanged += new System.EventHandler(this.trackBarGrassWinVertical_ValueChanged);
             // 
@@ -112,18 +110,20 @@
             // checkBoxGrassWinCopyName
             // 
             this.checkBoxGrassWinCopyName.AutoSize = true;
+            this.checkBoxGrassWinCopyName.Checked = true;
+            this.checkBoxGrassWinCopyName.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxGrassWinCopyName.Location = new System.Drawing.Point(15, 203);
             this.checkBoxGrassWinCopyName.Name = "checkBoxGrassWinCopyName";
-            this.checkBoxGrassWinCopyName.Size = new System.Drawing.Size(333, 17);
+            this.checkBoxGrassWinCopyName.Size = new System.Drawing.Size(297, 17);
             this.checkBoxGrassWinCopyName.TabIndex = 7;
-            this.checkBoxGrassWinCopyName.Text = "При копировании модели воба вставлять ее название сюда";
+            this.checkBoxGrassWinCopyName.Text = "При выделении модели в поиске копироваю ее сюда";
             this.checkBoxGrassWinCopyName.UseVisualStyleBackColor = true;
             // 
             // GrassWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 278);
+            this.ClientSize = new System.Drawing.Size(347, 278);
             this.Controls.Add(this.checkBoxGrassWinCopyName);
             this.Controls.Add(this.labelWinGrassVertOffset);
             this.Controls.Add(this.trackBarGrassWinVertical);
