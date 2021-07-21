@@ -322,5 +322,41 @@ namespace SpacerUnion.Properties {
                 this["VobListSize"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("500, 500")]
+        public global::System.Drawing.Point GrassWinLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["GrassWinLocation"]));
+            }
+            set {
+                this["GrassWinLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool GrassWinShow {
+            get {
+                return ((bool)(this["GrassWinShow"]));
+            }
+            set {
+                this["GrassWinShow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool GrassWinShowNext {
+            get {
+                return ((bool)(this["GrassWinShowNext"]));
+            }
+            set {
+                this["GrassWinShowNext"] = value;
+            }
+        }
     }
 }

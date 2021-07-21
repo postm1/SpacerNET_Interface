@@ -1246,15 +1246,7 @@ namespace SpacerUnion
             SpacerNET.pfxWin.LoadAllPfx();
         }
 
-        private void toolStripButtonMaterial_Click(object sender, EventArgs e)
-        {
-            ToolStripButton item = sender as ToolStripButton;
-
-            item.Checked = !item.Checked;
-
-            Imports.Stack_PushString("bTogglePickMaterial");
-            Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
-        }
+    
 
         private void freezeTimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1314,5 +1306,59 @@ namespace SpacerUnion
             item.Checked = true;
             Imports.Extern_SetRenderMode(3);
         }
+
+        private void toolStripButtonMaterial_Click(object sender, EventArgs e)
+        {
+            ToolStripButton item = sender as ToolStripButton;
+
+            item.Checked = !item.Checked;
+
+            Imports.Stack_PushString("bToggleWorkMode");
+
+            var btn = this.toolStripTop.Items[15] as ToolStripButton;
+
+            if (item.Checked) btn.Checked = false;
+
+            int mode = item.Checked ? 1 : 0;
+            Imports.Extern_SetSetting(mode);
+        }
+
+        private void toolStripButtonGrass_Click(object sender, EventArgs e)
+        {
+            ToolStripButton item = sender as ToolStripButton;
+
+            item.Checked = !item.Checked;
+
+            int mode = item.Checked ? 2 : 0;
+
+            var btn = this.toolStripTop.Items[14] as ToolStripButton;
+
+            if (item.Checked)
+            {
+                SpacerNET.grassWin.Show();
+
+                btn.Checked = false;
+
+            }
+            else
+            {
+                SpacerNET.grassWin.Hide();
+            }
+
+            Imports.Stack_PushString("bToggleWorkMode");
+            Imports.Extern_SetSetting(mode);
+        }
+
+        private void toolStripButtonGratt_Click(object sender, EventArgs e)
+        {
+            ToolStripButton item = sender as ToolStripButton;
+
+            item.Checked = !item.Checked;
+
+            Imports.Stack_PushString("bToggleNewController");
+            Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
+        }
+
+        
     }
 }

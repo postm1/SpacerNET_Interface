@@ -222,5 +222,11 @@ namespace SpacerUnion.Windows
         {
             //MessageBox.Show(e.NewSelection.Label + "/" + e.NewSelection.Value);
         }
+
+        private void PFXEditorWin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Hide();
+            e.Cancel = true;
+        }
     }
 }

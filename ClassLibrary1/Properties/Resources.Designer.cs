@@ -63,6 +63,16 @@ namespace SpacerUnion.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _132 {
+            get {
+                object obj = ResourceManager.GetObject("132", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Flag_Eng {
             get {
                 object obj = ResourceManager.GetObject("Flag_Eng", resourceCulture);

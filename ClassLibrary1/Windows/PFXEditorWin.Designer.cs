@@ -88,6 +88,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "PFXEditorWin";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PFXEditorWin_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

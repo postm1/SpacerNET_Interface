@@ -35,6 +35,7 @@ namespace SpacerUnion
         public static MiscSettingsWin miscSetWin;
         public static KeysForm keysWin;
         public static PFXEditorWin pfxWin;
+        public static GrassWin grassWin;
 
         // Список скрытых окон
         static List<Form> windowsToHideList = null;
@@ -45,13 +46,18 @@ namespace SpacerUnion
         public static bool isInit = false;
 
 
+        [DllExport]
+        public static void UI_Initialize()
+        {
+            Imports.CoInitialize(IntPtr.Zero);
+            Application.EnableVisualStyles();
+        }
+
         // Главная функция запуска, вызывается из Union
         [DllExport]
         public static void UnionInitialize()
         {
-            // автоматически закрываемый MessageBox, без него не запустится
-            AutoClosingMessageBox.Show("", "", 80);
-
+         
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -79,6 +85,7 @@ namespace SpacerUnion
             miscSetWin = new MiscSettingsWin();
             keysWin = new KeysForm();
             pfxWin = new PFXEditorWin();
+            grassWin = new GrassWin();
 
             windowsList.Add(objTreeWin);
             windowsList.Add(objectsWin);
@@ -95,6 +102,9 @@ namespace SpacerUnion
             windowsList.Add(miscSetWin);
             windowsList.Add(keysWin);
             windowsList.Add(pfxWin);
+            windowsList.Add(grassWin);
+
+            
 
             // каждому окну из списка задаем владельца: главную форму
             windowsList.ForEach(x => x.Owner = form);
@@ -196,6 +206,12 @@ namespace SpacerUnion
             }
 
 
+            if (Properties.Settings.Default.GrassWinShow || Properties.Settings.Default.GrassWinShowNext)
+            {
+                grassWin.Show();
+            }
+
+
 
             if (Properties.Settings.Default.TreeWinLocation != null)
             {
@@ -229,6 +245,10 @@ namespace SpacerUnion
                 soundWin.Location = Properties.Settings.Default.SoundWinLocation;
             }
 
+            if (Properties.Settings.Default.GrassWinLocation != null)
+            {
+                grassWin.Location = Properties.Settings.Default.GrassWinLocation;
+            }
 
             if (Properties.Settings.Default.TreeWinSize != null)
             {
@@ -245,6 +265,8 @@ namespace SpacerUnion
                 vobList.Size = Properties.Settings.Default.VobListSize;
             }
 
+
+
             LoadSettingsToInterface();
 
 
@@ -260,33 +282,68 @@ namespace SpacerUnion
         public static void LoadSettingsToInterface()
         {
             //ConsoleEx.WriteLineRed("LoadSettingsToInterface");
-            ToolStripButton btn = form.toolStripTop.Items[7] as ToolStripButton;
+            ToolStripButton btn = null;
 
 
-
+            Imports.Stack_PushString("grassMinDist");
             Imports.Stack_PushString("vobListRadius");
-            Imports.Stack_PushString("bTogglePickMaterial");
+            Imports.Stack_PushString("bToggleWorkMode");
             Imports.Stack_PushString("showInvisibleVobs");
             Imports.Stack_PushString("drawBBoxGlobal");
             Imports.Stack_PushString("showHelpVobs");
             Imports.Stack_PushString("showWaynet");
             Imports.Stack_PushString("showVobs");
+            
 
-
+            btn = form.toolStripTop.Items[7] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
             btn = form.toolStripTop.Items[8] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
             btn = form.toolStripTop.Items[9] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
             btn = form.toolStripTop.Items[10] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
             btn = form.toolStripTop.Items[11] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
-            btn = form.toolStripTop.Items[12] as ToolStripButton;
-            btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+
+
+            int workMode = Imports.Extern_GetSetting(); //bToggleWorkMode
+
+            if (workMode == 0)
+            {
+
+            }
+            else if (workMode == 1)
+            {
+                btn = form.toolStripTop.Items[14] as ToolStripButton; //mat
+                btn.Checked = true;
+            }
+            else if (workMode == 2)
+            {
+                btn = form.toolStripTop.Items[15] as ToolStripButton; //grass
+                btn.Checked = true;
+            }
+
 
             int radius = Imports.Extern_GetSetting();
             vobList.trackBarRadius.Value = radius;
+
+            int radiusGrassMin = Imports.Extern_GetSetting();
+            grassWin.trackBarWinGrassMinRadius.Value = radius;
+
+
+            Imports.Stack_PushString("grassModelName");
+            Imports.Extern_GetSettingStr();
+
+            grassWin.textBoxGrassWinModel.Text = Imports.Stack_PeekString();
+
+            //==========================================================
+
 
             btn = form.toolStripTop.Items[0] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(infoWin.Visible);

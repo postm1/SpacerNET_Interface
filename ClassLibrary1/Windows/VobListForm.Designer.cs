@@ -36,6 +36,7 @@
             this.labelRadius = new System.Windows.Forms.Label();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.panelVobList = new System.Windows.Forms.Panel();
+            this.btnRemoveContainerVobs = new System.Windows.Forms.Button();
             this.comboBoxVobList = new System.Windows.Forms.ComboBox();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRadius)).BeginInit();
@@ -93,6 +94,7 @@
             // 
             // panelVobList
             // 
+            this.panelVobList.Controls.Add(this.btnRemoveContainerVobs);
             this.panelVobList.Controls.Add(this.comboBoxVobList);
             this.panelVobList.Controls.Add(this.labelRadius);
             this.panelVobList.Controls.Add(this.trackBarRadius);
@@ -101,6 +103,16 @@
             this.panelVobList.Name = "panelVobList";
             this.panelVobList.Size = new System.Drawing.Size(307, 66);
             this.panelVobList.TabIndex = 7;
+            // 
+            // btnRemoveContainerVobs
+            // 
+            this.btnRemoveContainerVobs.Location = new System.Drawing.Point(174, 39);
+            this.btnRemoveContainerVobs.Name = "btnRemoveContainerVobs";
+            this.btnRemoveContainerVobs.Size = new System.Drawing.Size(107, 23);
+            this.btnRemoveContainerVobs.TabIndex = 6;
+            this.btnRemoveContainerVobs.Text = "Удалить";
+            this.btnRemoveContainerVobs.UseVisualStyleBackColor = true;
+            this.btnRemoveContainerVobs.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBoxVobList
             // 
@@ -152,5 +164,6 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.Panel panelVobList;
         private System.Windows.Forms.ComboBox comboBoxVobList;
+        private System.Windows.Forms.Button btnRemoveContainerVobs;
     }
 }

@@ -1322,6 +1322,11 @@ namespace SpacerUnion
                         string visual = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
                         Clipboard.SetText(visual);
 
+                        if (SpacerNET.grassWin.checkBoxGrassWinCopyName.Checked)
+                        {
+                            SpacerNET.grassWin.textBoxGrassWinModel.Text = visual;
+                            SpacerNET.grassWin.buttonGrassWinApply_Click(null, null);
+                        }
                         Imports.Stack_PushString(Localizator.Get("COPYBUFFER")  + ": " + visual);
 
                         Imports.Extern_PrintGreen();

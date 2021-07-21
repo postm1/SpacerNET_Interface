@@ -33,6 +33,7 @@ namespace SpacerUnion
             this.Text = Localizator.Get("WIN_VOBLIST_TITLE");
             //labelVobType.Text = Localizator.Get("labelVobType");
             labelRadius.Text = Localizator.Get("labelRadius") + ": " + trackBarRadius.Value;
+            btnRemoveContainerVobs.Text = Localizator.Get("VOB_SEARCH_TYPE3");
         }
 
         [DllExport]
@@ -155,6 +156,27 @@ namespace SpacerUnion
             int selIndex = cb.SelectedIndex;
 
             Imports.Extern_SetVobListType(selIndex); 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            DialogResult res = MessageBox.Show(Localizator.Get("askSure"), Localizator.Get("confirmation"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (res != DialogResult.OK)
+            {
+                return;
+            }
+
+            foreach (var entry in vobList)
+            {
+                Imports.Extern_RemoveVob(entry);
+            }
+
+            vobList.Clear();
+            listBoxVobs.Items.Clear();
+
+
         }
     }
 }

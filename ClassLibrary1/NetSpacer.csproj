@@ -100,7 +100,6 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\AutoClosingMessageBox.cs" />
     <Compile Include="Common\CameraKeyEntry.cs" />
     <Compile Include="Common\Imports.cs" />
     <Compile Include="Common\Imports_Interchange.cs" />
@@ -135,6 +134,12 @@
       <DependentUpon>CompileWorldWin.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\ConsoleEx.cs" />
+    <Compile Include="Windows\GrassWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\GrassWin.Designer.cs">
+      <DependentUpon>GrassWin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\KeysForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +240,9 @@
     <EmbeddedResource Include="Windows\CompileWorldWin.resx">
       <DependentUpon>CompileWorldWin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\GrassWin.resx">
+      <DependentUpon>GrassWin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\InfoWin.resx">
       <DependentUpon>InfoWin.cs</DependentUpon>
     </EmbeddedResource>
@@ -316,6 +324,7 @@
     <None Include="Resources\440px-Flag_of_Germany.svg.png" />
     <None Include="Resources\cl_pols.png" />
     <None Include="Resources\1920px-Flag_of_Poland.svg.png" />
+    <None Include="Resources\132.png" />
     <Content Include="Resources\Pictures\Letter_S_red_34876.ico" />
     <None Include="Resources\Pictures\Loading.png" />
     <None Include="Resources\Pictures\Spinner-0.5s-137px.gif" />
