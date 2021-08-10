@@ -36,6 +36,12 @@
             this.trackBarGrassWinVertical = new System.Windows.Forms.TrackBar();
             this.labelWinGrassVertOffset = new System.Windows.Forms.Label();
             this.checkBoxGrassWinCopyName = new System.Windows.Forms.CheckBox();
+            this.checkBoxGrassWinRemove = new System.Windows.Forms.CheckBox();
+            this.checkBoxGrassWinIsItem = new System.Windows.Forms.CheckBox();
+            this.checkBoxGrassWinClickOnce = new System.Windows.Forms.CheckBox();
+            this.checkBoxGrassWinDynColl = new System.Windows.Forms.CheckBox();
+            this.checkBoxGrassWinRotRand = new System.Windows.Forms.CheckBox();
+            this.checkBoxGrassWinSetNormal = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarWinGrassMinRadius)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarGrassWinVertical)).BeginInit();
             this.SuspendLayout();
@@ -45,9 +51,9 @@
             this.labelGrassWinVobName.AutoSize = true;
             this.labelGrassWinVobName.Location = new System.Drawing.Point(12, 14);
             this.labelGrassWinVobName.Name = "labelGrassWinVobName";
-            this.labelGrassWinVobName.Size = new System.Drawing.Size(110, 13);
+            this.labelGrassWinVobName.Size = new System.Drawing.Size(76, 13);
             this.labelGrassWinVobName.TabIndex = 0;
-            this.labelGrassWinVobName.Text = "Модель воба травы:";
+            this.labelGrassWinVobName.Text = "Модель воба:";
             // 
             // textBoxGrassWinModel
             // 
@@ -79,7 +85,7 @@
             // 
             // buttonGrassWinApply
             // 
-            this.buttonGrassWinApply.Location = new System.Drawing.Point(120, 243);
+            this.buttonGrassWinApply.Location = new System.Drawing.Point(116, 377);
             this.buttonGrassWinApply.Name = "buttonGrassWinApply";
             this.buttonGrassWinApply.Size = new System.Drawing.Size(107, 23);
             this.buttonGrassWinApply.TabIndex = 4;
@@ -119,11 +125,95 @@
             this.checkBoxGrassWinCopyName.Text = "При выделении модели в поиске копироваю ее сюда";
             this.checkBoxGrassWinCopyName.UseVisualStyleBackColor = true;
             // 
+            // checkBoxGrassWinRemove
+            // 
+            this.checkBoxGrassWinRemove.AutoSize = true;
+            this.checkBoxGrassWinRemove.Checked = true;
+            this.checkBoxGrassWinRemove.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxGrassWinRemove.Location = new System.Drawing.Point(15, 226);
+            this.checkBoxGrassWinRemove.Name = "checkBoxGrassWinRemove";
+            this.checkBoxGrassWinRemove.Size = new System.Drawing.Size(109, 17);
+            this.checkBoxGrassWinRemove.TabIndex = 8;
+            this.checkBoxGrassWinRemove.Text = "Удаление вобов";
+            this.checkBoxGrassWinRemove.UseVisualStyleBackColor = true;
+            this.checkBoxGrassWinRemove.CheckedChanged += new System.EventHandler(this.checkBoxGrassWinRemove_CheckedChanged);
+            // 
+            // checkBoxGrassWinIsItem
+            // 
+            this.checkBoxGrassWinIsItem.AutoSize = true;
+            this.checkBoxGrassWinIsItem.Checked = true;
+            this.checkBoxGrassWinIsItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxGrassWinIsItem.Location = new System.Drawing.Point(15, 249);
+            this.checkBoxGrassWinIsItem.Name = "checkBoxGrassWinIsItem";
+            this.checkBoxGrassWinIsItem.Size = new System.Drawing.Size(80, 17);
+            this.checkBoxGrassWinIsItem.TabIndex = 9;
+            this.checkBoxGrassWinIsItem.Text = "Это oCItem";
+            this.checkBoxGrassWinIsItem.UseVisualStyleBackColor = true;
+            this.checkBoxGrassWinIsItem.CheckedChanged += new System.EventHandler(this.checkBoxGrassWinIsItem_CheckedChanged);
+            // 
+            // checkBoxGrassWinClickOnce
+            // 
+            this.checkBoxGrassWinClickOnce.AutoSize = true;
+            this.checkBoxGrassWinClickOnce.Checked = true;
+            this.checkBoxGrassWinClickOnce.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxGrassWinClickOnce.Location = new System.Drawing.Point(15, 272);
+            this.checkBoxGrassWinClickOnce.Name = "checkBoxGrassWinClickOnce";
+            this.checkBoxGrassWinClickOnce.Size = new System.Drawing.Size(230, 17);
+            this.checkBoxGrassWinClickOnce.TabIndex = 10;
+            this.checkBoxGrassWinClickOnce.Text = "Защита от зажатия левой кнопки мыши";
+            this.checkBoxGrassWinClickOnce.UseVisualStyleBackColor = true;
+            this.checkBoxGrassWinClickOnce.CheckedChanged += new System.EventHandler(this.checkBoxGrassWinClickOnce_CheckedChanged);
+            // 
+            // checkBoxGrassWinDynColl
+            // 
+            this.checkBoxGrassWinDynColl.AutoSize = true;
+            this.checkBoxGrassWinDynColl.Checked = true;
+            this.checkBoxGrassWinDynColl.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxGrassWinDynColl.Location = new System.Drawing.Point(15, 295);
+            this.checkBoxGrassWinDynColl.Name = "checkBoxGrassWinDynColl";
+            this.checkBoxGrassWinDynColl.Size = new System.Drawing.Size(153, 17);
+            this.checkBoxGrassWinDynColl.TabIndex = 11;
+            this.checkBoxGrassWinDynColl.Text = "Динамическая коллизия";
+            this.checkBoxGrassWinDynColl.UseVisualStyleBackColor = true;
+            this.checkBoxGrassWinDynColl.CheckedChanged += new System.EventHandler(this.checkBoxGrassWinDynColl_CheckedChanged);
+            // 
+            // checkBoxGrassWinRotRand
+            // 
+            this.checkBoxGrassWinRotRand.AutoSize = true;
+            this.checkBoxGrassWinRotRand.Checked = true;
+            this.checkBoxGrassWinRotRand.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxGrassWinRotRand.Location = new System.Drawing.Point(15, 318);
+            this.checkBoxGrassWinRotRand.Name = "checkBoxGrassWinRotRand";
+            this.checkBoxGrassWinRotRand.Size = new System.Drawing.Size(327, 17);
+            this.checkBoxGrassWinRotRand.TabIndex = 12;
+            this.checkBoxGrassWinRotRand.Text = "Поворачивать на случайный угол вокруг вертикальной оси";
+            this.checkBoxGrassWinRotRand.UseVisualStyleBackColor = true;
+            this.checkBoxGrassWinRotRand.CheckedChanged += new System.EventHandler(this.checkBoxGrassWinRotRand_CheckedChanged);
+            // 
+            // checkBoxGrassWinSetNormal
+            // 
+            this.checkBoxGrassWinSetNormal.AutoSize = true;
+            this.checkBoxGrassWinSetNormal.Checked = true;
+            this.checkBoxGrassWinSetNormal.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxGrassWinSetNormal.Location = new System.Drawing.Point(15, 341);
+            this.checkBoxGrassWinSetNormal.Name = "checkBoxGrassWinSetNormal";
+            this.checkBoxGrassWinSetNormal.Size = new System.Drawing.Size(208, 17);
+            this.checkBoxGrassWinSetNormal.TabIndex = 13;
+            this.checkBoxGrassWinSetNormal.Text = "Ставить перпендикулярно полигону";
+            this.checkBoxGrassWinSetNormal.UseVisualStyleBackColor = true;
+            this.checkBoxGrassWinSetNormal.CheckedChanged += new System.EventHandler(this.checkBoxGrassWinSetNormal_CheckedChanged);
+            // 
             // GrassWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 278);
+            this.ClientSize = new System.Drawing.Size(361, 411);
+            this.Controls.Add(this.checkBoxGrassWinSetNormal);
+            this.Controls.Add(this.checkBoxGrassWinRotRand);
+            this.Controls.Add(this.checkBoxGrassWinDynColl);
+            this.Controls.Add(this.checkBoxGrassWinClickOnce);
+            this.Controls.Add(this.checkBoxGrassWinIsItem);
+            this.Controls.Add(this.checkBoxGrassWinRemove);
             this.Controls.Add(this.checkBoxGrassWinCopyName);
             this.Controls.Add(this.labelWinGrassVertOffset);
             this.Controls.Add(this.trackBarGrassWinVertical);
@@ -158,5 +248,11 @@
         public System.Windows.Forms.TrackBar trackBarGrassWinVertical;
         public System.Windows.Forms.Label labelWinGrassVertOffset;
         public System.Windows.Forms.CheckBox checkBoxGrassWinCopyName;
+        public System.Windows.Forms.CheckBox checkBoxGrassWinRemove;
+        public System.Windows.Forms.CheckBox checkBoxGrassWinIsItem;
+        public System.Windows.Forms.CheckBox checkBoxGrassWinClickOnce;
+        public System.Windows.Forms.CheckBox checkBoxGrassWinDynColl;
+        public System.Windows.Forms.CheckBox checkBoxGrassWinRotRand;
+        public System.Windows.Forms.CheckBox checkBoxGrassWinSetNormal;
     }
 }

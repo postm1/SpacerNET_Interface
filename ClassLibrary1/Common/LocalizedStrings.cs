@@ -432,8 +432,9 @@ namespace SpacerUnion.Common
 
             words.Add("WIN_GRASS_VERTOFFSET", new List<string> { "Смещение по вертикали: ", "Vertical offset: ", "", "" });
             words.Add("WIN_GRASS_MINRADIUS", new List<string> { "Мин. расстояние между вобами: ", "Minimal distance between vobs: ", "", "" });
+            words.Add("VOB_SEARCH_TYPE5", new List<string> { "Поставить динамич. коллизию", "Set dynamic collision", "", "" });
+            words.Add("VOB_SEARCH_DYNCOLL_VOBS", new List<string> { "Проставлено коллизий: ", "Collisions set: ", "", "" });
 
-            
         }
     }
 }

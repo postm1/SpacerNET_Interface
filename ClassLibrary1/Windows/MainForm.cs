@@ -1024,7 +1024,7 @@ namespace SpacerUnion
 
         private void игратьЗаГерояToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not working yet...");
+            Imports.Extern_PlayHero();
         }
 
         public static Image CaptureScreens(params Screen[] screens)

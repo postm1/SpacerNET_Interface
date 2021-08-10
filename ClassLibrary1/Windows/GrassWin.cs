@@ -90,5 +90,53 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("grassModelName");
             Imports.Extern_SetSettingStr();
         }
+
+        private void checkBoxGrassWinRemove_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkBox = sender as CheckBox;
+
+            Imports.Stack_PushString("grassToolRemove");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBox.Checked));
+        }
+
+        private void checkBoxGrassWinIsItem_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkBox = sender as CheckBox;
+
+            Imports.Stack_PushString("grassToolIsItem");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBox.Checked));
+        }
+
+        private void checkBoxGrassWinClickOnce_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkBox = sender as CheckBox;
+
+            Imports.Stack_PushString("grassToolClearMouse");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBox.Checked));
+        }
+
+        private void checkBoxGrassWinDynColl_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkBox = sender as CheckBox;
+
+            Imports.Stack_PushString("grassToolDynColl");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBox.Checked));
+        }
+
+        private void checkBoxGrassWinRotRand_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkBox = sender as CheckBox;
+
+            Imports.Stack_PushString("grassToolRotRandAngle");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBox.Checked));
+        }
+
+        private void checkBoxGrassWinSetNormal_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkBox = sender as CheckBox;
+
+            Imports.Stack_PushString("grassToolSetNormal");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBox.Checked));
+        }
     }
 }

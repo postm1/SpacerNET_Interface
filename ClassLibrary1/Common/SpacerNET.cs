@@ -208,7 +208,7 @@ namespace SpacerUnion
 
             if (Properties.Settings.Default.GrassWinShow || Properties.Settings.Default.GrassWinShowNext)
             {
-                grassWin.Show();
+                //grassWin.Show();
             }
 
 
@@ -332,6 +332,26 @@ namespace SpacerUnion
             Imports.Extern_GetSettingStr();
 
             grassWin.textBoxGrassWinModel.Text = Imports.Stack_PeekString();
+
+            Imports.Stack_PushString("grassToolRemove");
+            grassWin.checkBoxGrassWinRemove.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("grassToolIsItem");
+            grassWin.checkBoxGrassWinIsItem.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("grassToolClearMouse");
+            grassWin.checkBoxGrassWinClickOnce.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("grassToolDynColl");
+            grassWin.checkBoxGrassWinDynColl.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("grassToolRotRandAngle");
+            grassWin.checkBoxGrassWinRotRand.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("grassToolSetNormal");
+            grassWin.checkBoxGrassWinSetNormal.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            
             grassWin.UpdateLang();
             //==========================================================
 

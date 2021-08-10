@@ -1551,6 +1551,12 @@ namespace SpacerUnion
             {
                 string visual = lb.GetItemText(lb.SelectedItem);
 
+                if (SpacerNET.grassWin.checkBoxGrassWinCopyName.Checked)
+                {
+                    SpacerNET.grassWin.textBoxGrassWinModel.Text = visual;
+                    SpacerNET.grassWin.buttonGrassWinApply_Click(null, null);
+                }
+
                 if (checkBoxItemShow.Checked)
                 {
                     SendRenderItems(visual);
@@ -1565,6 +1571,13 @@ namespace SpacerUnion
             if (lb.SelectedItem != null)
             {
                 string visual = lb.GetItemText(lb.SelectedItem);
+
+                if (SpacerNET.grassWin.checkBoxGrassWinCopyName.Checked)
+                {
+                    SpacerNET.grassWin.textBoxGrassWinModel.Text = visual;
+                    SpacerNET.grassWin.buttonGrassWinApply_Click(null, null);
+                }
+
 
                 if (checkBoxItemShow.Checked)
                 {
@@ -2498,13 +2511,20 @@ namespace SpacerUnion
             }
 
 
-            if (comboBoxSearchType.SelectedIndex == 4)
+           /* if (comboBoxSearchType.SelectedIndex == 4)
             {
                 //labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": " + listBoxSearchResult.Items.Count;
                 labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": ";
                 SpacerNET.form.AddText(Localizator.Get("VOB_SEARCH_RENAME_VOBS") + result.ToString() + " (" + timeSpend + ")");
             }
+            */
 
+            if (comboBoxSearchType.SelectedIndex == 4)
+            {
+                //labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": " + listBoxSearchResult.Items.Count;
+                labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": ";
+                SpacerNET.form.AddText(Localizator.Get("VOB_SEARCH_DYNCOLL_VOBS") + result.ToString() + " (" + timeSpend + ")");
+            }
 
         }
 
@@ -2870,7 +2890,8 @@ namespace SpacerUnion
                 case 1: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE1"); break;
                 case 2: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE2"); break;
                 case 3: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE3"); break;
-                case 4: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE4"); break;
+                //case 4: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE4"); break;
+                case 4: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE5"); break;
             }
 
             if (cb.SelectedIndex == 1)
@@ -2919,7 +2940,7 @@ namespace SpacerUnion
                 }
 
             }
-
+            /*
             if (cb.SelectedIndex == 4)
             {
 
@@ -2930,6 +2951,12 @@ namespace SpacerUnion
                 checkBoxAutoNumerate.Text = Localizator.Get("checkBoxAutoNumerate");
                 
                 textBoxRenameVob.Text = String.Empty;
+            }
+            */
+            //dynamic
+            if (cb.SelectedIndex == 4)
+            {
+                
             }
         }
 

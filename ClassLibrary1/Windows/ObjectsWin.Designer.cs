@@ -1241,7 +1241,8 @@
             "Поиск",
             "Конвертация",
             "Замена на VobTree",
-            "Удаление"});
+            "Удаление",
+            "Динамическая коллизия"});
             this.comboBoxSearchType.Location = new System.Drawing.Point(241, 19);
             this.comboBoxSearchType.Name = "comboBoxSearchType";
             this.comboBoxSearchType.Size = new System.Drawing.Size(166, 21);
