@@ -135,7 +135,7 @@ namespace SpacerUnion
             comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE1"));
             comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE2"));
             comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE3"));
-            //comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE4"));
+            comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE_DYNAMIC"));
             comboBoxSearchType.SelectedIndex = 0;
 
             radioButtonConvertOld.Text = Localizator.Get("VOB_SEARCH_CONVERT_RADIO0");
@@ -2891,7 +2891,7 @@ namespace SpacerUnion
                 case 2: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE2"); break;
                 case 3: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE3"); break;
                 //case 4: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE4"); break;
-                case 4: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE5"); break;
+                case 4: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE_DYNAMIC"); break;
             }
 
             if (cb.SelectedIndex == 1)

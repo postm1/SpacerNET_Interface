@@ -94,6 +94,7 @@ namespace SpacerUnion
             ObjectsWindow.CleanProps();
             toolStripMenuItemMerge.Enabled = false;
             saveZenToolStripMenuItem.Enabled = false;
+            saveUncZenToolStrip.Enabled = false;
             compileLightToolStrip.Enabled = false;
             compileWorldToolStrip.Enabled = false;
             analyseWaynetToolStripMenuItem.Enabled = false;
@@ -124,6 +125,7 @@ namespace SpacerUnion
             toolStripMenuItemMerge.Text = Localizator.Get("MENU_TOP_MERGE");
             toolStripMenuItemMergeMesh.Text = Localizator.Get("MENU_TOP_MERGEMESH");
             saveZenToolStripMenuItem.Text = Localizator.Get("MENU_TOP_SAVEZEN");
+            saveUncZenToolStrip.Text = Localizator.Get("MENU_TOP_SAVEZENUNC");
             aboutToolStripMenuItem.Text = Localizator.Get("MENU_TOP_ABOUT");
 
 
@@ -243,6 +245,7 @@ namespace SpacerUnion
             ConsoleEx.WriteLineGreen(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
             SpacerNET.form.toolStripMenuItemMerge.Enabled = false;
             SpacerNET.form.saveZenToolStripMenuItem.Enabled = true;
+            SpacerNET.form.saveUncZenToolStrip.Enabled = true;
             SpacerNET.form.analyseWaynetToolStripMenuItem.Enabled = true;
             SpacerNET.form.playHeroToolStrip.Enabled = true;
             SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
@@ -353,6 +356,7 @@ namespace SpacerUnion
 
                 SpacerNET.form.compileLightToolStrip.Enabled = true;
                 SpacerNET.form.saveZenToolStripMenuItem.Enabled = true;
+                SpacerNET.form.saveUncZenToolStrip.Enabled = true;
                 SpacerNET.form.analyseWaynetToolStripMenuItem.Enabled = true;
                 SpacerNET.form.playHeroToolStrip.Enabled = true;
                 SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
@@ -499,14 +503,21 @@ namespace SpacerUnion
 
             saveFileDialog.InitialDirectory = Utils.GetInitialDirectory(path);
             saveFileDialog.RestoreDirectory = true;
-
+            saveFileDialog.FilterIndex = 0;
             //Console.WriteLine(openFileDialog1.InitialDirectory);
+
+            if (currentWorldName.Contains("_VOBS_"))
+            {
+                currentWorldName = currentWorldName.Replace("_VOBS_", "");
+            }
 
             string zenName = Utils.GetZenName(currentWorldName);
 
+           
+
 
             //Path.GetFileName(currentWorldName.Replace(".zen", "").Replace(".ZEN", ""));
-            
+
 
 
 
@@ -515,7 +526,11 @@ namespace SpacerUnion
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
+                // uncompiled zen
+                if (saveFileDialog.FilterIndex == 1)
+                {
 
+                }
                 Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(saveFileDialog.FileName))));
                 Imports.Stack_PushString("zenzPath");
                 Imports.Extern_SetSettingStr();
@@ -693,6 +708,13 @@ namespace SpacerUnion
                 Imports.Stack_PushString("vobsPath");
                 Imports.Extern_SetSettingStr();
 
+                string zenName = openFileDialog.SafeFileName;
+
+                if (zenName.Contains("_VOBS_"))
+                {
+                    zenName = zenName.Replace("_VOBS_", "");
+                }
+
                 UpdateSpacerCaption(openFileDialog.SafeFileName);
 
 
@@ -718,9 +740,21 @@ namespace SpacerUnion
                 toolStripMenuItemMerge.Enabled = true;
                 compileWorldToolStrip.Enabled = true;
                 toolStripMenuResetWorld.Enabled = true;
+
+                openFileDialog.Multiselect = false;
+
+                Imports.Stack_PushString("autoCompileWorldLight");
+                int autoCompile = Imports.Extern_GetSetting();
+
+                if (autoCompile == 1)
+                {
+                    SpacerNET.compWorldWin.OnWorldCompile();
+
+
+                }
             }
 
-            openFileDialog.Multiselect = false;
+            
         }
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
@@ -1078,7 +1112,7 @@ namespace SpacerUnion
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Spacer.NET (version " + Constants.SPACER_VERSION + ") by Liker, 2020", Localizator.Get("MENU_TOP_ABOUT"));
+            MessageBox.Show("Spacer.NET (version " + Constants.SPACER_VERSION + ") by Liker, 2021", Localizator.Get("MENU_TOP_ABOUT"));
         }
 
         private void ввестиКоординатыToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1359,6 +1393,71 @@ namespace SpacerUnion
             Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
         }
 
-        
+        private void saveUncZenToolStrip_Click(object sender, EventArgs e)
+        {
+            if (currentWorldName.Length == 0)
+            {
+                return;
+            }
+
+            saveFileDialog.Filter = Constants.FILE_FILTER_SAVE_ZEN_UNC;
+
+
+            Imports.Stack_PushString("zenzPath");
+            Imports.Extern_GetSettingStr();
+            string path = Utils.FixPath(Imports.Stack_PeekString());
+
+            saveFileDialog.InitialDirectory = Utils.GetInitialDirectory(path);
+            saveFileDialog.RestoreDirectory = true;
+            saveFileDialog.FilterIndex = 0;
+            //Console.WriteLine(openFileDialog1.InitialDirectory);
+
+            if (currentWorldName.Contains("_VOBS_"))
+            {
+                currentWorldName = currentWorldName.Replace("_VOBS_", "");
+            }
+
+            string zenName = Utils.GetZenName(currentWorldName);
+
+
+            //Path.GetFileName(currentWorldName.Replace(".zen", "").Replace(".ZEN", ""));
+
+            //zenName = Utils.CorrectZenName(zenName);
+            saveFileDialog.FileName = "_VOBS_" + zenName;
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+
+                Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(saveFileDialog.FileName))));
+                Imports.Stack_PushString("zenzPath");
+                Imports.Extern_SetSettingStr();
+
+
+                Imports.Stack_PushString(Utils.FixPath((saveFileDialog.FileName)));
+                Imports.Stack_PushString("openLastZenPath");
+                Imports.Extern_SetSettingStr();
+
+                string filePath = saveFileDialog.FileName;
+                string selectedFileName = Path.GetFileName(saveFileDialog.FileName);
+
+                Stopwatch s = new Stopwatch();
+                s.Start();
+
+
+                // ConsoleEx.WriteLineGreen(selectedFileName + " " + Localizator.Get("IS_SAVING"));
+                SpacerNET.form.AddText(selectedFileName + " " + Localizator.Get("IS_SAVING"));
+
+                Imports.Stack_PushString(filePath);
+                 
+                Imports.Extern_SaveWorld(1);
+
+                s.Stop();
+
+                string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
+                SpacerNET.form.AddText(Localizator.Get("saveZenTime") + " (" + timeSpend + ")", Color.Green);
+                ConsoleEx.WriteLineGreen(Localizator.Get("saveZenTime") + " (" + timeSpend + ")");
+
+            }
+        }
     }
 }

@@ -40,6 +40,7 @@
             this.toolStripMenuItemMergeMesh = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.saveZenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveUncZenToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuView = new System.Windows.Forms.ToolStripMenuItem();
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -134,6 +135,7 @@
             this.toolStripMenuItemMergeMesh,
             this.toolStripSeparator6,
             this.saveZenToolStripMenuItem,
+            this.saveUncZenToolStrip,
             this.exitToolStripMenuItem});
             this.ToolStripMenuFile.ForeColor = System.Drawing.Color.Black;
             this.ToolStripMenuFile.Name = "ToolStripMenuFile";
@@ -200,6 +202,13 @@
             this.saveZenToolStripMenuItem.Text = "Сохранить ZEN";
             this.saveZenToolStripMenuItem.Click += new System.EventHandler(this.сохранитьZENToolStripMenuItem_Click);
             // 
+            // saveUncZenToolStrip
+            // 
+            this.saveUncZenToolStrip.Name = "saveUncZenToolStrip";
+            this.saveUncZenToolStrip.Size = new System.Drawing.Size(185, 22);
+            this.saveUncZenToolStrip.Text = "Сохранить Vobs";
+            this.saveUncZenToolStrip.Click += new System.EventHandler(this.saveUncZenToolStrip_Click);
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
@@ -223,7 +232,7 @@
             this.toolStripMenuItem6,
             this.toolStripMenuItem7});
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.showToolStripMenuItem.Text = "Показать";
             // 
             // toolStripMenuItem5
@@ -401,6 +410,7 @@
             // 
             // playHeroToolStrip
             // 
+            this.playHeroToolStrip.Enabled = false;
             this.playHeroToolStrip.Name = "playHeroToolStrip";
             this.playHeroToolStrip.Size = new System.Drawing.Size(176, 22);
             this.playHeroToolStrip.Text = "Играть за героя";
@@ -471,7 +481,7 @@
             // 
             this.russianToolStrip.Image = global::SpacerUnion.Properties.Resources.Flag_Russia;
             this.russianToolStrip.Name = "russianToolStrip";
-            this.russianToolStrip.Size = new System.Drawing.Size(119, 22);
+            this.russianToolStrip.Size = new System.Drawing.Size(152, 22);
             this.russianToolStrip.Text = "Русский";
             this.russianToolStrip.Click += new System.EventHandler(this.русскийToolStripMenuItem1_Click);
             // 
@@ -479,7 +489,7 @@
             // 
             this.englishToolStripMenuItem1.Image = global::SpacerUnion.Properties.Resources.Flag_Eng;
             this.englishToolStripMenuItem1.Name = "englishToolStripMenuItem1";
-            this.englishToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
+            this.englishToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.englishToolStripMenuItem1.Text = "English";
             this.englishToolStripMenuItem1.Click += new System.EventHandler(this.englishToolStripMenuItem1_Click);
             // 
@@ -487,7 +497,7 @@
             // 
             this.deutscheToolStripMenuItem.Image = global::SpacerUnion.Properties.Resources.Flag_Germany;
             this.deutscheToolStripMenuItem.Name = "deutscheToolStripMenuItem";
-            this.deutscheToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.deutscheToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.deutscheToolStripMenuItem.Text = "Deutsch";
             this.deutscheToolStripMenuItem.Click += new System.EventHandler(this.deutscheToolStripMenuItem_Click);
             // 
@@ -495,7 +505,7 @@
             // 
             this.polskiToolStripMenuItem.Image = global::SpacerUnion.Properties.Resources.Flag_Poland;
             this.polskiToolStripMenuItem.Name = "polskiToolStripMenuItem";
-            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.polskiToolStripMenuItem.Text = "Polski";
             this.polskiToolStripMenuItem.Click += new System.EventHandler(this.polskiToolStripMenuItem_Click);
             // 
@@ -695,6 +705,7 @@
             this.toolStripButtonMaterial.Name = "toolStripButtonMaterial";
             this.toolStripButtonMaterial.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonMaterial.Text = "Выделение полигона";
+            this.toolStripButtonMaterial.Visible = false;
             this.toolStripButtonMaterial.Click += new System.EventHandler(this.toolStripButtonMaterial_Click);
             // 
             // toolStripButtonGrass
@@ -806,5 +817,6 @@
         public System.Windows.Forms.ToolStripMenuItem wIREToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButtonGratt;
         private System.Windows.Forms.ToolStripButton toolStripButtonGrass;
+        public System.Windows.Forms.ToolStripMenuItem saveUncZenToolStrip;
     }
 }

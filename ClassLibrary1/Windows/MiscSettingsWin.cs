@@ -25,11 +25,13 @@ namespace SpacerUnion.Windows
             checkBoxMiscExitAsk.Text = Localizator.Get("checkBoxMiscExitAsk");
             checkBoxLastZenAuto.Text = Localizator.Get("checkBoxLastZenAuto");
             checkBoxMiscFullPath.Text = Localizator.Get("checkBoxMiscFullPath");
+            checkBoxMiscAutoCompile.Text = Localizator.Get("checkBoxMiscAutoCompile");
             btnMiscSetApply.Text = Localizator.Get("BTN_APPLY");
         }
 
         public void LoadSettings()
         {
+            Imports.Stack_PushString("autoCompileWorldLight");
             Imports.Stack_PushString("fullPathTitle");
             Imports.Stack_PushString("openLastZen");
             Imports.Stack_PushString("askExitZen");
@@ -40,16 +42,18 @@ namespace SpacerUnion.Windows
 
             int openLastZen = Imports.Extern_GetSetting();
             int fullPath = Imports.Extern_GetSetting();
+            int autoCompile = Imports.Extern_GetSetting();
 
             SpacerNET.miscSetWin.checkBoxSetDatePrefix.Checked = Convert.ToBoolean(useDatePrefix);
             SpacerNET.miscSetWin.checkBoxMiscExitAsk.Checked = Convert.ToBoolean(askExitZen);
             SpacerNET.miscSetWin.checkBoxLastZenAuto.Checked = Convert.ToBoolean(openLastZen);
             SpacerNET.miscSetWin.checkBoxMiscFullPath.Checked = Convert.ToBoolean(fullPath);
-
+            SpacerNET.miscSetWin.checkBoxMiscAutoCompile.Checked = Convert.ToBoolean(autoCompile);
         }
 
         public void OnApplySettings()
         {
+            Imports.Stack_PushString("autoCompileWorldLight");
             Imports.Stack_PushString("fullPathTitle");
             Imports.Stack_PushString("openLastZen");
             Imports.Stack_PushString("askExitZen");
@@ -59,7 +63,7 @@ namespace SpacerUnion.Windows
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxMiscExitAsk.Checked));
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxLastZenAuto.Checked));
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxMiscFullPath.Checked));
-            
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxMiscAutoCompile.Checked));
         }
 
         private void MiscSettingsWin_FormClosing(object sender, FormClosingEventArgs e)

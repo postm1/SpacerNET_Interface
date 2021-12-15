@@ -30,6 +30,7 @@
         {
             this.checkBoxSetDatePrefix = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxMiscAutoCompile = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscFullPath = new System.Windows.Forms.CheckBox();
             this.checkBoxLastZenAuto = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
@@ -49,15 +50,26 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxMiscAutoCompile);
             this.groupBox1.Controls.Add(this.checkBoxMiscFullPath);
             this.groupBox1.Controls.Add(this.checkBoxLastZenAuto);
             this.groupBox1.Controls.Add(this.checkBoxMiscExitAsk);
             this.groupBox1.Controls.Add(this.checkBoxSetDatePrefix);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(354, 152);
+            this.groupBox1.Size = new System.Drawing.Size(463, 171);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // checkBoxMiscAutoCompile
+            // 
+            this.checkBoxMiscAutoCompile.AutoSize = true;
+            this.checkBoxMiscAutoCompile.Location = new System.Drawing.Point(13, 111);
+            this.checkBoxMiscAutoCompile.Name = "checkBoxMiscAutoCompile";
+            this.checkBoxMiscAutoCompile.Size = new System.Drawing.Size(158, 17);
+            this.checkBoxMiscAutoCompile.TabIndex = 4;
+            this.checkBoxMiscAutoCompile.Text = "Auto compile world and light";
+            this.checkBoxMiscAutoCompile.UseVisualStyleBackColor = true;
             // 
             // checkBoxMiscFullPath
             // 
@@ -92,7 +104,7 @@
             // 
             // btnMiscSetApply
             // 
-            this.btnMiscSetApply.Location = new System.Drawing.Point(131, 170);
+            this.btnMiscSetApply.Location = new System.Drawing.Point(177, 189);
             this.btnMiscSetApply.Name = "btnMiscSetApply";
             this.btnMiscSetApply.Size = new System.Drawing.Size(115, 23);
             this.btnMiscSetApply.TabIndex = 11;
@@ -104,7 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 205);
+            this.ClientSize = new System.Drawing.Size(487, 224);
             this.Controls.Add(this.btnMiscSetApply);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -130,5 +142,6 @@
         public System.Windows.Forms.CheckBox checkBoxMiscExitAsk;
         public System.Windows.Forms.CheckBox checkBoxLastZenAuto;
         public System.Windows.Forms.CheckBox checkBoxMiscFullPath;
+        public System.Windows.Forms.CheckBox checkBoxMiscAutoCompile;
     }
 }

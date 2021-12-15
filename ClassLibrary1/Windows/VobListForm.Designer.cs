@@ -74,7 +74,7 @@
             // trackBarRadius
             // 
             this.trackBarRadius.Location = new System.Drawing.Point(114, 8);
-            this.trackBarRadius.Maximum = 1200;
+            this.trackBarRadius.Maximum = 3500;
             this.trackBarRadius.Minimum = 10;
             this.trackBarRadius.Name = "trackBarRadius";
             this.trackBarRadius.Size = new System.Drawing.Size(181, 45);
@@ -125,7 +125,10 @@
             "zCVobSpot",
             "zCVobWaypoint",
             "zCVobSound",
-            "zCDecal (.TGA)"});
+            "zCDecal (.TGA)",
+            "zCTrigger",
+            "zCVobSpot",
+            "oCMOB"});
             this.comboBoxVobList.Location = new System.Drawing.Point(6, 39);
             this.comboBoxVobList.Name = "comboBoxVobList";
             this.comboBoxVobList.Size = new System.Drawing.Size(147, 21);

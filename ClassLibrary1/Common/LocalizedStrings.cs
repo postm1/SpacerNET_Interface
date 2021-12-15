@@ -429,11 +429,23 @@ namespace SpacerUnion.Common
 
             words.Add("CHECK_BADPLUGINS_MSG", new List<string> { "У вас есть плагины, которые могут помешать работе Spacer.net!", "You have plugins which may not work with Spacer.net!", "Möglicherweise sind Plugins installiert, welche nicht mit Spacer.net kompatibel sind!", "Masz pluginy, które mogą nie działać poprawnie z Spacer.net" });
 
-
-            words.Add("WIN_GRASS_VERTOFFSET", new List<string> { "Смещение по вертикали: ", "Vertical offset: ", "", "" });
+            words.Add("WIN_GRASS_TITLE", new List<string> { "Сеятель объектов", "Objects sewer", "", "" });
+            words.Add("WIN_GRASS_VOBMODEL", new List<string> { "Название модели воба:", "Vob's model:", "", "" });
+            words.Add("WIN_GRASS_VERTOFFSET", new List<string> { "Смещение воба по вертикали: ", "Vob's vertical offset: ", "", "" });
             words.Add("WIN_GRASS_MINRADIUS", new List<string> { "Мин. расстояние между вобами: ", "Minimal distance between vobs: ", "", "" });
-            words.Add("VOB_SEARCH_TYPE5", new List<string> { "Поставить динамич. коллизию", "Set dynamic collision", "", "" });
+            words.Add("VOB_SEARCH_TYPE_DYNAMIC", new List<string> { "Поставить динамич. коллизию", "Set dynamic collision", "", "" });
             words.Add("VOB_SEARCH_DYNCOLL_VOBS", new List<string> { "Проставлено коллизий: ", "Collisions set: ", "", "" });
+            words.Add("MENU_TOP_SAVEZENUNC", new List<string> { "Сохранить Vobs", "Save Vobs", "", "" });
+
+
+            words.Add("WIN_GRASS_COPYNAME", new List<string> { "При выделении модели в поиске копировать ее сюда", "Copy model name from another window", "", "" });
+            words.Add("WIN_GRASS_REMOVE", new List<string> { "Режим удаления вобов", "Removing vobs mod", "", "" });
+            words.Add("WIN_GRASS_ISITEM", new List<string> { "Воб - это oCItem", "Inserted vob is oCItem", "", "" });
+            words.Add("WIN_GRASS_PROTECT", new List<string> { "Защита от зажатия левой кнопки мыши", "Protect from left mouse bottom pushing", "", "" });
+            words.Add("WIN_GRASS_DYNCOLL", new List<string> { "Ставить вобу динамическую коллизию", "Set synamic collision for vob", "", "" });
+            words.Add("WIN_GRASS_RANDANGLE", new List<string> { "Поворачивать воб на случайный угол вокруг вертикальной оси", "Rotate vob on random angle above vertical axis", "", "" });
+            words.Add("WIN_GRASS_NORMALPOLYGON", new List<string> { "Ставить воб перпендикулярно полигону", "Set vob perpendicular to the polygon", "", "" });
+            words.Add("checkBoxMiscAutoCompile", new List<string> { "Автокомпиляция мира и света после объединения меша с вобами", "Autocompile world and light after merging mesh with vobs", "", "" });
 
         }
     }

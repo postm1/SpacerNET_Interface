@@ -44,6 +44,26 @@ namespace SpacerUnion
             groupBoxTypeLoc.Text = Localizator.Get("WIN_COMPWORLD_LOCTYPE");
         }
 
+        public void OnWorldCompile()
+        {
+            SpacerNET.form.toolStripMenuItemMerge.Enabled = false;
+            SpacerNET.form.compileLightToolStrip.Enabled = true;
+            SpacerNET.form.saveZenToolStripMenuItem.Enabled = true;
+            SpacerNET.form.saveUncZenToolStrip.Enabled = true;
+
+            SpacerNET.form.analyseWaynetToolStripMenuItem.Enabled = true;
+            SpacerNET.form.playHeroToolStrip.Enabled = true;
+            SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
+            SpacerNET.form.dayTimeToolStrip.Enabled = true;
+            SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
+            SpacerNET.form.toolStripMenuItemMergeMesh.Enabled = false;
+
+
+
+
+            SpacerNET.form.compileWorldToolStrip.Enabled = true;
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
 
@@ -70,19 +90,9 @@ namespace SpacerUnion
             SpacerNET.form.AddText(Localizator.Get("WIN_COMPWORLD_TIME") + " (" + timeSpend + ")", Color.Green);
 
 
-           // SpacerNET.form.AddText(Localizator.Get("WIN_COMPWORLD_LEVELCOMPO"));
+            // SpacerNET.form.AddText(Localizator.Get("WIN_COMPWORLD_LEVELCOMPO"));
 
-            SpacerNET.form.toolStripMenuItemMerge.Enabled = false;
-            SpacerNET.form.compileLightToolStrip.Enabled = true;
-            SpacerNET.form.saveZenToolStripMenuItem.Enabled = true;
-            SpacerNET.form.analyseWaynetToolStripMenuItem.Enabled = true;
-            SpacerNET.form.playHeroToolStrip.Enabled = true;
-            SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
-            SpacerNET.form.dayTimeToolStrip.Enabled = true;
-            SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
-            SpacerNET.form.toolStripMenuItemMergeMesh.Enabled = false;
-
-            SpacerNET.form.compileWorldToolStrip.Enabled = true;
+            OnWorldCompile();
             this.Hide();
         }
 
