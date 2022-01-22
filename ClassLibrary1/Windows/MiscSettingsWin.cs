@@ -26,11 +26,17 @@ namespace SpacerUnion.Windows
             checkBoxLastZenAuto.Text = Localizator.Get("checkBoxLastZenAuto");
             checkBoxMiscFullPath.Text = Localizator.Get("checkBoxMiscFullPath");
             checkBoxMiscAutoCompile.Text = Localizator.Get("checkBoxMiscAutoCompile");
+            checkBoxAutoCompileUncompiled.Text = Localizator.Get("checkBoxMiscAutoCompileUncZen");
+            autoRemoveLevelCompo.Text = Localizator.Get("autoRemoveLevelCompo");
+            
             btnMiscSetApply.Text = Localizator.Get("BTN_APPLY");
         }
 
         public void LoadSettings()
         {
+           
+            Imports.Stack_PushString("autoRemoveLevelCompo");
+            Imports.Stack_PushString("autoCompileWorldLightForUnc");
             Imports.Stack_PushString("autoCompileWorldLight");
             Imports.Stack_PushString("fullPathTitle");
             Imports.Stack_PushString("openLastZen");
@@ -43,16 +49,22 @@ namespace SpacerUnion.Windows
             int openLastZen = Imports.Extern_GetSetting();
             int fullPath = Imports.Extern_GetSetting();
             int autoCompile = Imports.Extern_GetSetting();
+            int autoCompileUnc = Imports.Extern_GetSetting();
+            int autoRemoveCompo = Imports.Extern_GetSetting();
 
             SpacerNET.miscSetWin.checkBoxSetDatePrefix.Checked = Convert.ToBoolean(useDatePrefix);
             SpacerNET.miscSetWin.checkBoxMiscExitAsk.Checked = Convert.ToBoolean(askExitZen);
             SpacerNET.miscSetWin.checkBoxLastZenAuto.Checked = Convert.ToBoolean(openLastZen);
             SpacerNET.miscSetWin.checkBoxMiscFullPath.Checked = Convert.ToBoolean(fullPath);
             SpacerNET.miscSetWin.checkBoxMiscAutoCompile.Checked = Convert.ToBoolean(autoCompile);
+            SpacerNET.miscSetWin.checkBoxAutoCompileUncompiled.Checked = Convert.ToBoolean(autoCompileUnc);
+            SpacerNET.miscSetWin.autoRemoveLevelCompo.Checked = Convert.ToBoolean(autoRemoveCompo);
         }
 
         public void OnApplySettings()
         {
+            Imports.Stack_PushString("autoRemoveLevelCompo");
+            Imports.Stack_PushString("autoCompileWorldLightForUnc");
             Imports.Stack_PushString("autoCompileWorldLight");
             Imports.Stack_PushString("fullPathTitle");
             Imports.Stack_PushString("openLastZen");
@@ -64,6 +76,8 @@ namespace SpacerUnion.Windows
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxLastZenAuto.Checked));
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxMiscFullPath.Checked));
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxMiscAutoCompile.Checked));
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxAutoCompileUncompiled.Checked));
+            Imports.Extern_SetSetting(Convert.ToInt32(autoRemoveLevelCompo.Checked));
         }
 
         private void MiscSettingsWin_FormClosing(object sender, FormClosingEventArgs e)

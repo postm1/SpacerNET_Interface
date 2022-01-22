@@ -20,7 +20,6 @@ namespace SpacerUnion
         public static TreeNode previousSelectedNode = null;
 
 
-        
 
         public static Dictionary<uint, TreeEntry> globalEntries = new Dictionary<uint, TreeEntry>();
         public static Dictionary<uint, TreeEntry> tempEntries = new Dictionary<uint, TreeEntry>();
@@ -44,6 +43,9 @@ namespace SpacerUnion
             contextMenuStripTree.Items[1].Text = Localizator.Get("CONTEXTMENU_TREE_INSERT_VOBTREE_GLOBAL");
             contextMenuStripTree.Items[2].Text = Localizator.Get("CONTEXTMENU_TREE_SAVE_VOBTREE");
             contextMenuStripTree.Items[3].Text = Localizator.Get("CONTEXTMENU_TREE_REMOVE_VOB");
+
+            contextMenuStripTree.Items[5].Text = Localizator.Get("CONTEXTMENU_TREE_ADD_PARENT");
+            contextMenuStripTree.Items[6].Text = Localizator.Get("CONTEXTMENU_TREE_REMOVE_PARENT");
         }
 
         
@@ -1003,7 +1005,17 @@ namespace SpacerUnion
 
             if (openFileDialogVobTree.ShowDialog() == DialogResult.OK)
             {
+                bool insertNearCamera = false;
 
+                DialogResult dialogResult = MessageBox.Show(Localizator.Get("WIN_MSG_CONFIRM_PLACENEARCAM"), Localizator.Get("WIN_MSG_CONFIRM_INSERTVOBTREE"), MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    insertNearCamera = true;
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    insertNearCamera = false;
+                }
 
                 Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(openFileDialogVobTree.FileName))));
                 Imports.Stack_PushString("treeVobPath");
@@ -1012,7 +1024,7 @@ namespace SpacerUnion
 
                 string filePath = openFileDialogVobTree.FileName;
                 Imports.Stack_PushString(filePath);
-                Imports.Extern_OpenVobTree(false);
+                Imports.Extern_OpenVobTree(false, insertNearCamera);
 
             }
 
@@ -1043,7 +1055,17 @@ namespace SpacerUnion
 
             if (openFileDialogVobTree.ShowDialog() == DialogResult.OK)
             {
+                bool insertNearCamera = false;
 
+                DialogResult dialogResult = MessageBox.Show(Localizator.Get("WIN_MSG_CONFIRM_PLACENEARCAM"), Localizator.Get("WIN_MSG_CONFIRM_INSERTVOBTREE"), MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    insertNearCamera = true;
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    insertNearCamera = false;
+                }
 
                 Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(openFileDialogVobTree.FileName))));
                 Imports.Stack_PushString("treeVobPath");
@@ -1052,7 +1074,7 @@ namespace SpacerUnion
 
                 string filePath = openFileDialogVobTree.FileName;
                 Imports.Stack_PushString(filePath);
-                Imports.Extern_OpenVobTree(true);
+                Imports.Extern_OpenVobTree(true, insertNearCamera);
 
                 if (SpacerNET.objTreeWin.globalTree.SelectedNode != null)
                 {
@@ -1129,6 +1151,40 @@ namespace SpacerUnion
         private void globalTree_KeyDown(object sender, KeyEventArgs e)
         {
            // e.Handled = true;
+        }
+
+        private void сделатьРодителемДляНовыхВобовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (globalTree.SelectedNode == null)
+            {
+                return;
+            }
+
+            TreeNode node = globalTree.SelectedNode;
+
+            string tag = node.Tag.ToString();
+
+            if (tag.Length == 0 || tag == Constants.TAG_FOLDER)
+            {
+                return;
+            }
+
+            uint vob = 0;
+
+            uint.TryParse(tag, out vob);
+
+
+            Imports.Extern_MakeGlobalParent(vob);
+        }
+
+        private void очиститьРодителяДляВобовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_CleanGlobalParent();
+        }
+
+        private void contextMenuStripTree_Opening(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

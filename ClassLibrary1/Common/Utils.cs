@@ -12,7 +12,7 @@ namespace SpacerUnion
 {
     public class Constants
     {
-        public const string SPACER_VERSION = "0.14";
+        public const string SPACER_VERSION = "0.15";
 
 
         public const string FILE_FILTER_OPEN_ZEN = "Compiled ZEN (*.zen)|*.zen|Uncompiled ZEN (*.zen)|*.zen";
@@ -21,6 +21,7 @@ namespace SpacerUnion
         public const string FILE_FILTER_MERGE_VOBS = "World(*.zen)|*.zen|All Files(*.*)|*.*||";
         public const string FILE_FILTER_SAVE_ZEN = "Compiled ZEN (ascii)|*.zen|Uncompiled ZEN (ascii)|*.zen|Compiled ZEN (binary safe)|*.zen";
         public const string FILE_FILTER_SAVE_ZEN_UNC = "Uncompiled ZEN (ascii)|*.zen";
+        public const string FILE_FILTER_SAVE_ONLY_MESH = "COMPILED MESH |*.MSH";
         public const string FILE_FILTER_ALL = "All files (*.)|";
 
         public const string TAG_FOLDER = "folder";

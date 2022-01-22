@@ -36,6 +36,8 @@
             this.вставитьVobTreeГлобальноToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьВобToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сделатьРодителемДляНовыхВобовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.очиститьРодителяДляВобовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.buttonCollapse = new System.Windows.Forms.Button();
             this.buttonExpand = new System.Windows.Forms.Button();
@@ -43,6 +45,7 @@
             this.saveFileDialogVobTree = new System.Windows.Forms.SaveFileDialog();
             this.buttonTreeSort = new System.Windows.Forms.Button();
             this.panelButtons = new System.Windows.Forms.Panel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStripTree.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.SuspendLayout();
@@ -73,9 +76,13 @@
             this.toolStripMenuItem2,
             this.вставитьVobTreeГлобальноToolStripMenuItem,
             this.toolStripMenuItem1,
-            this.удалитьВобToolStripMenuItem});
+            this.удалитьВобToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.сделатьРодителемДляНовыхВобовToolStripMenuItem,
+            this.очиститьРодителяДляВобовToolStripMenuItem});
             this.contextMenuStripTree.Name = "contextMenuStrip1";
-            this.contextMenuStripTree.Size = new System.Drawing.Size(283, 92);
+            this.contextMenuStripTree.Size = new System.Drawing.Size(283, 164);
+            this.contextMenuStripTree.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripTree_Opening);
             // 
             // toolStripMenuItem2
             // 
@@ -104,6 +111,20 @@
             this.удалитьВобToolStripMenuItem.Size = new System.Drawing.Size(282, 22);
             this.удалитьВобToolStripMenuItem.Text = "Удалить воб";
             this.удалитьВобToolStripMenuItem.Click += new System.EventHandler(this.удалитьВобToolStripMenuItem_Click);
+            // 
+            // сделатьРодителемДляНовыхВобовToolStripMenuItem
+            // 
+            this.сделатьРодителемДляНовыхВобовToolStripMenuItem.Name = "сделатьРодителемДляНовыхВобовToolStripMenuItem";
+            this.сделатьРодителемДляНовыхВобовToolStripMenuItem.Size = new System.Drawing.Size(282, 22);
+            this.сделатьРодителемДляНовыхВобовToolStripMenuItem.Text = "Сделать родителем для новых вобов";
+            this.сделатьРодителемДляНовыхВобовToolStripMenuItem.Click += new System.EventHandler(this.сделатьРодителемДляНовыхВобовToolStripMenuItem_Click);
+            // 
+            // очиститьРодителяДляВобовToolStripMenuItem
+            // 
+            this.очиститьРодителяДляВобовToolStripMenuItem.Name = "очиститьРодителяДляВобовToolStripMenuItem";
+            this.очиститьРодителяДляВобовToolStripMenuItem.Size = new System.Drawing.Size(282, 22);
+            this.очиститьРодителяДляВобовToolStripMenuItem.Text = "Очистить родителя для вобов";
+            this.очиститьРодителяДляВобовToolStripMenuItem.Click += new System.EventHandler(this.очиститьРодителяДляВобовToolStripMenuItem_Click);
             // 
             // imageList1
             // 
@@ -160,6 +181,11 @@
             this.panelButtons.Size = new System.Drawing.Size(389, 43);
             this.panelButtons.TabIndex = 4;
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(279, 6);
+            // 
             // ObjTree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,5 +227,8 @@
         private System.Windows.Forms.ToolStripMenuItem удалитьВобToolStripMenuItem;
         private System.Windows.Forms.Button buttonTreeSort;
         private System.Windows.Forms.Panel panelButtons;
+        private System.Windows.Forms.ToolStripMenuItem сделатьРодителемДляНовыхВобовToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem очиститьРодителяДляВобовToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

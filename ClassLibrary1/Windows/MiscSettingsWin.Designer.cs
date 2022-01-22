@@ -30,11 +30,13 @@
         {
             this.checkBoxSetDatePrefix = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxAutoCompileUncompiled = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscAutoCompile = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscFullPath = new System.Windows.Forms.CheckBox();
             this.checkBoxLastZenAuto = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
             this.btnMiscSetApply = new System.Windows.Forms.Button();
+            this.autoRemoveLevelCompo = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +52,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.autoRemoveLevelCompo);
+            this.groupBox1.Controls.Add(this.checkBoxAutoCompileUncompiled);
             this.groupBox1.Controls.Add(this.checkBoxMiscAutoCompile);
             this.groupBox1.Controls.Add(this.checkBoxMiscFullPath);
             this.groupBox1.Controls.Add(this.checkBoxLastZenAuto);
@@ -57,18 +61,28 @@
             this.groupBox1.Controls.Add(this.checkBoxSetDatePrefix);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(463, 171);
+            this.groupBox1.Size = new System.Drawing.Size(526, 201);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // checkBoxAutoCompileUncompiled
+            // 
+            this.checkBoxAutoCompileUncompiled.AutoSize = true;
+            this.checkBoxAutoCompileUncompiled.Location = new System.Drawing.Point(13, 150);
+            this.checkBoxAutoCompileUncompiled.Name = "checkBoxAutoCompileUncompiled";
+            this.checkBoxAutoCompileUncompiled.Size = new System.Drawing.Size(389, 17);
+            this.checkBoxAutoCompileUncompiled.TabIndex = 5;
+            this.checkBoxAutoCompileUncompiled.Text = "Автокомпиляция мира и света при загрузки некомпилированного ZEN";
+            this.checkBoxAutoCompileUncompiled.UseVisualStyleBackColor = true;
             // 
             // checkBoxMiscAutoCompile
             // 
             this.checkBoxMiscAutoCompile.AutoSize = true;
-            this.checkBoxMiscAutoCompile.Location = new System.Drawing.Point(13, 111);
+            this.checkBoxMiscAutoCompile.Location = new System.Drawing.Point(13, 127);
             this.checkBoxMiscAutoCompile.Name = "checkBoxMiscAutoCompile";
-            this.checkBoxMiscAutoCompile.Size = new System.Drawing.Size(158, 17);
+            this.checkBoxMiscAutoCompile.Size = new System.Drawing.Size(366, 17);
             this.checkBoxMiscAutoCompile.TabIndex = 4;
-            this.checkBoxMiscAutoCompile.Text = "Auto compile world and light";
+            this.checkBoxMiscAutoCompile.Text = "Автокомпиляция мира и света после объединения меша с вобами";
             this.checkBoxMiscAutoCompile.UseVisualStyleBackColor = true;
             // 
             // checkBoxMiscFullPath
@@ -104,7 +118,7 @@
             // 
             // btnMiscSetApply
             // 
-            this.btnMiscSetApply.Location = new System.Drawing.Point(177, 189);
+            this.btnMiscSetApply.Location = new System.Drawing.Point(225, 225);
             this.btnMiscSetApply.Name = "btnMiscSetApply";
             this.btnMiscSetApply.Size = new System.Drawing.Size(115, 23);
             this.btnMiscSetApply.TabIndex = 11;
@@ -112,11 +126,21 @@
             this.btnMiscSetApply.UseVisualStyleBackColor = true;
             this.btnMiscSetApply.Click += new System.EventHandler(this.btnMiscSetApply_Click);
             // 
+            // autoRemoveLevelCompo
+            // 
+            this.autoRemoveLevelCompo.AutoSize = true;
+            this.autoRemoveLevelCompo.Location = new System.Drawing.Point(13, 173);
+            this.autoRemoveLevelCompo.Name = "autoRemoveLevelCompo";
+            this.autoRemoveLevelCompo.Size = new System.Drawing.Size(468, 17);
+            this.autoRemoveLevelCompo.TabIndex = 6;
+            this.autoRemoveLevelCompo.Text = "Автоматически удалять лишний zCVobLevelCompo после объединения MESH с вобами";
+            this.autoRemoveLevelCompo.UseVisualStyleBackColor = true;
+            // 
             // MiscSettingsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 224);
+            this.ClientSize = new System.Drawing.Size(550, 260);
             this.Controls.Add(this.btnMiscSetApply);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -143,5 +167,7 @@
         public System.Windows.Forms.CheckBox checkBoxLastZenAuto;
         public System.Windows.Forms.CheckBox checkBoxMiscFullPath;
         public System.Windows.Forms.CheckBox checkBoxMiscAutoCompile;
+        public System.Windows.Forms.CheckBox checkBoxAutoCompileUncompiled;
+        public System.Windows.Forms.CheckBox autoRemoveLevelCompo;
     }
 }

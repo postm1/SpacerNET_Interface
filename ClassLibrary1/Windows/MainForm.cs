@@ -95,6 +95,7 @@ namespace SpacerUnion
             toolStripMenuItemMerge.Enabled = false;
             saveZenToolStripMenuItem.Enabled = false;
             saveUncZenToolStrip.Enabled = false;
+            toolStripMenuExtractMesh.Enabled = false;
             compileLightToolStrip.Enabled = false;
             compileWorldToolStrip.Enabled = false;
             analyseWaynetToolStripMenuItem.Enabled = false;
@@ -126,6 +127,7 @@ namespace SpacerUnion
             toolStripMenuItemMergeMesh.Text = Localizator.Get("MENU_TOP_MERGEMESH");
             saveZenToolStripMenuItem.Text = Localizator.Get("MENU_TOP_SAVEZEN");
             saveUncZenToolStrip.Text = Localizator.Get("MENU_TOP_SAVEZENUNC");
+            toolStripMenuExtractMesh.Text = Localizator.Get("MENU_TOP_SAVEMESH");
             aboutToolStripMenuItem.Text = Localizator.Get("MENU_TOP_ABOUT");
 
 
@@ -171,8 +173,9 @@ namespace SpacerUnion
             
             toolStripButtonBBox.Text = Localizator.Get("MENU_TOP_VIEW_BBOX");
             toolStripButtonInvisible.Text = Localizator.Get("MENU_TOP_VIEW_INVIS");
+            toolStripButtonGratt.Text = Localizator.Get("MENU_TOP_VIEW_ALTCONTROLLER");
             toolStripButtonMaterial.Text = Localizator.Get("MENU_TOP_VIEW_POLYGON");
-
+            toolStripButtonGrass.Text = Localizator.Get("MENU_TOP_VIEW_GRASS");
 
             freezeTimeToolStripMenuItem.Text = Localizator.Get("MENU_TOP_VIEW_FREEZETIME");
 
@@ -246,6 +249,9 @@ namespace SpacerUnion
             SpacerNET.form.toolStripMenuItemMerge.Enabled = false;
             SpacerNET.form.saveZenToolStripMenuItem.Enabled = true;
             SpacerNET.form.saveUncZenToolStrip.Enabled = true;
+            SpacerNET.form.toolStripMenuExtractMesh.Enabled = true;
+            
+
             SpacerNET.form.analyseWaynetToolStripMenuItem.Enabled = true;
             SpacerNET.form.playHeroToolStrip.Enabled = true;
             SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
@@ -357,6 +363,7 @@ namespace SpacerUnion
                 SpacerNET.form.compileLightToolStrip.Enabled = true;
                 SpacerNET.form.saveZenToolStripMenuItem.Enabled = true;
                 SpacerNET.form.saveUncZenToolStrip.Enabled = true;
+                SpacerNET.form.toolStripMenuExtractMesh.Enabled = true;
                 SpacerNET.form.analyseWaynetToolStripMenuItem.Enabled = true;
                 SpacerNET.form.playHeroToolStrip.Enabled = true;
                 SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
@@ -364,6 +371,8 @@ namespace SpacerUnion
                 SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
                 SpacerNET.form.compileWorldToolStrip.Enabled = true;
                 SpacerNET.form.compileLightToolStrip.Enabled = true;
+
+
             }
 
             
@@ -666,7 +675,7 @@ namespace SpacerUnion
                 meshOpenFirst = true;
             }
 
-            
+            toolStripMenuResetWorld.Enabled = true;
 
         }
 
@@ -1379,6 +1388,8 @@ namespace SpacerUnion
                 SpacerNET.grassWin.Hide();
             }
 
+            (toolStripTop.Items[16] as ToolStripButton).Checked = false;
+
             Imports.Stack_PushString("bToggleWorkMode");
             Imports.Extern_SetSetting(mode);
         }
@@ -1448,7 +1459,7 @@ namespace SpacerUnion
                 SpacerNET.form.AddText(selectedFileName + " " + Localizator.Get("IS_SAVING"));
 
                 Imports.Stack_PushString(filePath);
-                 
+
                 Imports.Extern_SaveWorld(1);
 
                 s.Stop();
@@ -1456,6 +1467,73 @@ namespace SpacerUnion
                 string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
                 SpacerNET.form.AddText(Localizator.Get("saveZenTime") + " (" + timeSpend + ")", Color.Green);
                 ConsoleEx.WriteLineGreen(Localizator.Get("saveZenTime") + " (" + timeSpend + ")");
+
+            }
+        }
+
+        private void toolStripButtonMulti_Click(object sender, EventArgs e)
+        {
+            ToolStripButton item = sender as ToolStripButton;
+
+            item.Checked = !item.Checked;
+
+            int mode = item.Checked ? 3 : 0;
+
+            (toolStripTop.Items[14] as ToolStripButton).Checked = false;
+            (toolStripTop.Items[15] as ToolStripButton).Checked = false;
+
+
+            Imports.Stack_PushString("bToggleWorkMode");
+            Imports.Extern_SetSetting(mode);
+        }
+
+        private void toolStripMenuExtractMesh_Click(object sender, EventArgs e)
+        {
+            if (currentWorldName.Length == 0)
+            {
+                return;
+            }
+
+            saveFileDialog.Filter = Constants.FILE_FILTER_SAVE_ONLY_MESH;
+
+
+            Imports.Stack_PushString("meshPath");
+            Imports.Extern_GetSettingStr();
+            string path = Utils.FixPath(Imports.Stack_PeekString());
+
+            saveFileDialog.InitialDirectory = Utils.GetInitialDirectory(path);
+            saveFileDialog.RestoreDirectory = true;
+            saveFileDialog.FilterIndex = 0;
+
+            string zenName = Utils.GetZenName(currentWorldName);
+
+            //ConsoleEx.WriteLineRed(zenName);
+            zenName = zenName.Replace(".ZEN", ".MSH");
+
+            saveFileDialog.FileName = zenName;
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+
+                string filePath = saveFileDialog.FileName;
+                string selectedFileName = Path.GetFileName(saveFileDialog.FileName);
+
+                Stopwatch s = new Stopwatch();
+                s.Start();
+
+
+                // ConsoleEx.WriteLineGreen(selectedFileName + " " + Localizator.Get("IS_SAVING"));
+                SpacerNET.form.AddText(selectedFileName + " " + Localizator.Get("IS_SAVING"));
+
+                Imports.Stack_PushString(filePath);
+
+                Imports.Extern_SaveMesh();
+
+                s.Stop();
+
+                string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
+                SpacerNET.form.AddText(Localizator.Get("saveMeshTime") + " (" + timeSpend + ")", Color.Green);
+                ConsoleEx.WriteLineGreen(Localizator.Get("saveMeshTime") + " (" + timeSpend + ")");
 
             }
         }

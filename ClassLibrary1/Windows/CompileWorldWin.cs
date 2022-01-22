@@ -50,7 +50,8 @@ namespace SpacerUnion
             SpacerNET.form.compileLightToolStrip.Enabled = true;
             SpacerNET.form.saveZenToolStripMenuItem.Enabled = true;
             SpacerNET.form.saveUncZenToolStrip.Enabled = true;
-
+            SpacerNET.form.toolStripMenuExtractMesh.Enabled = true;
+            
             SpacerNET.form.analyseWaynetToolStripMenuItem.Enabled = true;
             SpacerNET.form.playHeroToolStrip.Enabled = true;
             SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
