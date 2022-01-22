@@ -441,7 +441,7 @@ namespace SpacerUnion.Common
             words.Add("WIN_GRASS_COPYNAME", new List<string> { "При выделении модели в поиске копировать ее сюда", "Copy model name from another window", "", "" });
             words.Add("WIN_GRASS_REMOVE", new List<string> { "Режим удаления вобов", "Removing vob mod", "", "" });
             words.Add("WIN_GRASS_ISITEM", new List<string> { "Воб - это oCItem", "Inserted vob is oCItem", "", "" });
-            words.Add("WIN_GRASS_PROTECT", new List<string> { "Защита от зажатия левой кнопки мыши", "Protect from left mouse bottom pushing", "", "" });
+            words.Add("WIN_GRASS_PROTECT", new List<string> { "Защита от зажатия левой кнопки мыши", "Protect from left mouse botton pushing", "", "" });
             words.Add("WIN_GRASS_DYNCOLL", new List<string> { "Ставить вобу динамическую коллизию", "Set dynamic collision for vob", "", "" });
             words.Add("WIN_GRASS_RANDANGLE", new List<string> { "Поворачивать воб на случайный угол вокруг вертикальной оси", "Rotate vob on random angle above vertical axis", "", "" });
             words.Add("WIN_GRASS_NORMALPOLYGON", new List<string> { "Ставить воб перпендикулярно полигону", "Set vob perpendicular to the polygon", "", "" });
@@ -451,7 +451,7 @@ namespace SpacerUnion.Common
 
 
             
-            words.Add("MENU_TOP_VIEW_GRASS", new List<string> { "Сеятель объектов", "Objects sewer", "", "" });
+            words.Add("MENU_TOP_VIEW_GRASS", new List<string> { "Сеятель объектов", "Objects placer", "", "" });
             words.Add("MENU_TOP_VIEW_ALTCONTROLLER", new List<string> { "Альтернативное управление", "Alternative controller", "", "" });
 
             words.Add("CANT_APPLY_PARENT_VOB", new List<string> { "Данный тип воба не может быть родителем!", "This type of vob can't be a parent!", "", "" });
