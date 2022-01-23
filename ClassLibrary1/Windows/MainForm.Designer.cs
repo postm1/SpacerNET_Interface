@@ -715,7 +715,7 @@
             // toolStripButtonGrass
             // 
             this.toolStripButtonGrass.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonGrass.Image = global::SpacerUnion.Properties.Resources._132;
+            this.toolStripButtonGrass.Image = global::SpacerUnion.Properties.Resources.grass_icon;
             this.toolStripButtonGrass.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonGrass.Name = "toolStripButtonGrass";
             this.toolStripButtonGrass.Size = new System.Drawing.Size(23, 22);

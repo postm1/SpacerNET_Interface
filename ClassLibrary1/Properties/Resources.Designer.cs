@@ -63,16 +63,6 @@ namespace SpacerUnion.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _132 {
-            get {
-                object obj = ResourceManager.GetObject("132", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Flag_Eng {
             get {
                 object obj = ResourceManager.GetObject("Flag_Eng", resourceCulture);
@@ -113,6 +103,16 @@ namespace SpacerUnion.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap grass_icon {
+            get {
+                object obj = ResourceManager.GetObject("grass_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap jab {
             get {
                 object obj = ResourceManager.GetObject("jab", resourceCulture);
@@ -126,6 +126,26 @@ namespace SpacerUnion.Properties {
         internal static System.Drawing.Bitmap jab2 {
             get {
                 object obj = ResourceManager.GetObject("jab2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vob_parent_fav {
+            get {
+                object obj = ResourceManager.GetObject("vob_parent_fav", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vob_start_fav {
+            get {
+                object obj = ResourceManager.GetObject("vob_start_fav", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

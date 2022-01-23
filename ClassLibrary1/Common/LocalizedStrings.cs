@@ -429,40 +429,48 @@ namespace SpacerUnion.Common
 
             words.Add("CHECK_BADPLUGINS_MSG", new List<string> { "У вас есть плагины, которые могут помешать работе Spacer.net!", "You have plugins which may not work with Spacer.net!", "Möglicherweise sind Plugins installiert, welche nicht mit Spacer.net kompatibel sind!", "Masz pluginy, które mogą nie działać poprawnie z Spacer.net" });
 
-            words.Add("WIN_GRASS_TITLE", new List<string> { "Сеятель объектов", "Objects sewer", "", "" });
-            words.Add("WIN_GRASS_VOBMODEL", new List<string> { "Название модели воба:", "Vob's model:", "", "" });
-            words.Add("WIN_GRASS_VERTOFFSET", new List<string> { "Смещение воба по вертикали: ", "Vob's vertical offset: ", "", "" });
-            words.Add("WIN_GRASS_MINRADIUS", new List<string> { "Мин. расстояние между вобами: ", "Minimal distance between vobs: ", "", "" });
-            words.Add("VOB_SEARCH_TYPE_DYNAMIC", new List<string> { "Сменить динамич. коллизию", "Toggle dynamic collision", "", "" });
-            words.Add("VOB_SEARCH_DYNCOLL_VOBS", new List<string> { "Проставлено коллизий: ", "Collisions set: ", "", "" });
-            words.Add("MENU_TOP_SAVEZENUNC", new List<string> { "Сохранить Vobs", "Save Vobs", "", "" });
+            words.Add("WIN_GRASS_TITLE", new List<string> { "Сеятель объектов", "Objects sewer", "", "Generator obiektów" });
+            words.Add("WIN_GRASS_VOBMODEL", new List<string> { "Название модели воба:", "Vob's model:", "", "Model voba:" });
+            words.Add("WIN_GRASS_VERTOFFSET", new List<string> { "Смещение воба по вертикали: ", "Vob's vertical offset: ", "", "Przesunięcie pionowe voba:" });
+            words.Add("WIN_GRASS_MINRADIUS", new List<string> { "Мин. расстояние между вобами: ", "Minimal distance between vobs: ", "", "Minimalny dystans pomiędzy vobami:" });
+            words.Add("VOB_SEARCH_TYPE_DYNAMIC", new List<string> { "Сменить динамич. коллизию", "Toggle dynamic collision", "", "Przełącz dynamiczną kolizję" });
+            words.Add("VOB_SEARCH_DYNCOLL_VOBS", new List<string> { "Проставлено коллизий: ", "Collisions set: ", "", "Ustawione kolizje:" });
+            words.Add("MENU_TOP_SAVEZENUNC", new List<string> { "Сохранить Vobs", "Save Vobs", "", "Zapisz Voby" });
 
 
-            words.Add("WIN_GRASS_COPYNAME", new List<string> { "При выделении модели в поиске копировать ее сюда", "Copy model name from another window", "", "" });
-            words.Add("WIN_GRASS_REMOVE", new List<string> { "Режим удаления вобов", "Removing vob mod", "", "" });
-            words.Add("WIN_GRASS_ISITEM", new List<string> { "Воб - это oCItem", "Inserted vob is oCItem", "", "" });
-            words.Add("WIN_GRASS_PROTECT", new List<string> { "Защита от зажатия левой кнопки мыши", "Protect from left mouse botton pushing", "", "" });
-            words.Add("WIN_GRASS_DYNCOLL", new List<string> { "Ставить вобу динамическую коллизию", "Set dynamic collision for vob", "", "" });
-            words.Add("WIN_GRASS_RANDANGLE", new List<string> { "Поворачивать воб на случайный угол вокруг вертикальной оси", "Rotate vob on random angle above vertical axis", "", "" });
-            words.Add("WIN_GRASS_NORMALPOLYGON", new List<string> { "Ставить воб перпендикулярно полигону", "Set vob perpendicular to the polygon", "", "" });
-            words.Add("checkBoxMiscAutoCompile", new List<string> { "Автокомпиляция мира и света после объединения меша с вобами", "Autocompile world and light after merging mesh with vobs", "", "" });
-            words.Add("checkBoxMiscAutoCompileUncZen", new List<string> { "Автокомпиляция мира и света при загрузки некомпилированного ZEN", "Autocompile world and light after loading uncompiled ZEN", "", "" });
-            words.Add("autoRemoveLevelCompo", new List<string> { "Автоматически удалять лишний zCVobLevelCompo после объединения MESH с вобами", "Auto removing zCVobLevelCompo after merging mesh with vobs", "", "" });
+            words.Add("WIN_GRASS_COPYNAME", new List<string> { "При выделении модели в поиске копировать ее сюда", "Copy model name from another window", "", "Skopiuj nazwę modelu z innego okna" });
+            words.Add("WIN_GRASS_REMOVE", new List<string> { "Режим удаления вобов", "Removing vob mod", "", "Usuwanie vobów z moda" });
+            words.Add("WIN_GRASS_ISITEM", new List<string> { "Воб - это oCItem", "Inserted vob is oCItem", "", "Dodany vob to oCItem" });
+            words.Add("WIN_GRASS_PROTECT", new List<string> { "Защита от зажатия левой кнопки мыши", "Protect from left mouse button pushing", "", "Ochrona przed naciśnięciem lewego przycisku myszki" });
+            words.Add("WIN_GRASS_DYNCOLL", new List<string> { "Ставить вобу динамическую коллизию", "Set dynamic collision for vob", "", "Ustaw dynamiczną kolizję dla voba" });
+            words.Add("WIN_GRASS_RANDANGLE", new List<string> { "Поворачивать воб на случайный угол вокруг вертикальной оси", "Rotate vob on random angle above vertical axis", "", "Obróć vob o losowy kąt powyżej osi pionowej" });
+            words.Add("WIN_GRASS_NORMALPOLYGON", new List<string> { "Ставить воб перпендикулярно полигону", "Set vob perpendicular to the polygon", "", "Ustaw vob prostopadle do polygona" });
+            words.Add("checkBoxMiscAutoCompile", new List<string> { "Автокомпиляция мира и света после объединения меша с вобами", "Autocompile world and light after merging mesh with vobs", "", "Autokompilacja świata i światła po połączeniu mesha z vobami" });
+            words.Add("checkBoxMiscAutoCompileUncZen", new List<string> { "Автокомпиляция мира и света при загрузки некомпилированного ZEN", "Autocompile world and light after loading uncompiled ZEN", "", "Autokompilacja świata i światła po załadowaniu nieskompilowanego ZENA" });
+            words.Add("autoRemoveLevelCompo", new List<string> { "Автоматически удалять лишний zCVobLevelCompo после объединения MESH с вобами", "Auto removing zCVobLevelCompo after merging mesh with vobs", "", "Automatyczne usuwanie zCVobLevelCompo po połączeniu mesha z vobami" });
 
 
-            
-            words.Add("MENU_TOP_VIEW_GRASS", new List<string> { "Сеятель объектов", "Objects placer", "", "" });
-            words.Add("MENU_TOP_VIEW_ALTCONTROLLER", new List<string> { "Альтернативное управление", "Alternative controller", "", "" });
 
-            words.Add("CANT_APPLY_PARENT_VOB", new List<string> { "Данный тип воба не может быть родителем!", "This type of vob can't be a parent!", "", "" });
+            words.Add("MENU_TOP_VIEW_GRASS", new List<string> { "Сеятель объектов", "Objects sewer", "", "Generator obiektów" });
+            words.Add("MENU_TOP_VIEW_ALTCONTROLLER", new List<string> { "Альтернативное управление", "Alternative controller", "", "Alternatywna kamera" });
+
+            words.Add("CANT_APPLY_PARENT_VOB", new List<string> { "Данный тип воба не может быть родителем!", "This type of vob can't be a parent!", "", "Ten typ voba nie może być zapisany jako rodzic!" });
 
             words.Add("saveMeshTime", new List<string> { "Сохранение MESH выполнено за", "Saving MESH time...", "Speichern der MESH dauerte", @"Czas zapisywania MESH'a..." });
-            words.Add("MENU_TOP_SAVEMESH", new List<string> { "Сохранить MESH", "Save MESH", "", "" });
+            words.Add("MENU_TOP_SAVEMESH", new List<string> { "Сохранить MESH", "Save MESH", "", "Zapisz MESH" });
 
-            words.Add("WIN_MSG_CONFIRM_INSERTVOBTREE", new List<string> { "Подтвердите действие", "Confirm the action", "", "" });
-            words.Add("WIN_MSG_CONFIRM_PLACENEARCAM", new List<string> { "Вставить Vobtree перед камерой?", "Do insert vobtree near the camera?", "", "" });
-            words.Add("CONTEXTMENU_TREE_ADD_PARENT", new List<string> { "Сделать родителем для всех новых вобов", "Make this vob as a global parent for all new vobs", "", "" });
-            words.Add("CONTEXTMENU_TREE_REMOVE_PARENT", new List<string> { "Очистить родителя для вобов", "Remove the global parent", "", "" });
+            words.Add("WIN_MSG_CONFIRM_INSERTVOBTREE", new List<string> { "Подтвердите действие", "Confirm the action", "", "Potwierdź akcję" });
+            words.Add("WIN_MSG_CONFIRM_PLACENEARCAM", new List<string> { "Вставить Vobtree перед камерой?", "Do insert vobtree near the camera?", "", "Czy wstawiasz vobtree w pobliżu kamery?" });
+            words.Add("CONTEXTMENU_TREE_ADD_PARENT", new List<string> { "Сделать родителем для всех новых вобов", "Make this vob as a global parent for all new vobs", "", "Stwórz ten vob jako globalnego rodzica dla wszystkich nowych vobów" });
+            words.Add("CONTEXTMENU_TREE_REMOVE_PARENT", new List<string> { "Очистить родителя для вобов", "Remove the global parent", "", "Usuń globalnego rodzica" });
+
+
+            words.Add("CONTEXTMENU_TREE_ADD_VOB", new List<string> { "Добавить воб в быстрый доступ", "Add vob into Fast access list", "", "Dodaj vob do listy szybkiego dostępu" });
+            words.Add("QUICKVOBS_PARENT", new List<string> { "Глобальный воб-родитель", "Global parent vob", "", "Globalny rodzic voba" });
+            words.Add("QUICKVOBS_ACCESS", new List<string> { "Быстрый доступ", "Fast access", "", "Szybki dostęp" });
+            words.Add("TAB_PAGE_OBJECTS", new List<string> { "Объекты", "Objects", "", "Obiekty" });
+            words.Add("CONTEXTMENU_FAST_REMOVE_VOB", new List<string> { " Удалить воб из быстрого доступа", "Remove the vob from fast access", "", "Usuń vob z szybkiego dostępu" });
+            words.Add("QUICKVOBS_CANTBE_PARENT", new List<string> { "Данный воб не может быть родителем!", "Current vob can't be a parent!", "", "Obecny vob nie może być rodzicem!" });
         }
     }
 }

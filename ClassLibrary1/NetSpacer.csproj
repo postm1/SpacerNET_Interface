@@ -110,6 +110,7 @@
     <Compile Include="Common\LocalizedStrings.cs" />
     <Compile Include="Common\PFX_Editor\PFX_Editor.cs" />
     <Compile Include="Common\PFX_Editor\PFX_Enums.cs" />
+    <Compile Include="Common\QuickVobsManager.cs" />
     <Compile Include="Common\TriggerEntry.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -312,6 +313,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\png-transparent-yellow-simple-star-yellow-simple-stars.png" />
     <None Include="Resources\v-ozhidanii-otveta_63203298_orig_.jpeg" />
     <None Include="Resources\uk-flag.png" />
     <None Include="Resources\usa.png" />
@@ -325,6 +327,9 @@
     <None Include="Resources\cl_pols.png" />
     <None Include="Resources\1920px-Flag_of_Poland.svg.png" />
     <None Include="Resources\132.png" />
+    <None Include="Resources\320x0w.jpg" />
+    <None Include="Resources\exclamation-mark-300x300.png" />
+    <None Include="Resources\kisspng-triangle-yellow-pattern-yellow-star-image-5a888e623d59a6.0193086215188987862513.jpg" />
     <Content Include="Resources\Pictures\Letter_S_red_34876.ico" />
     <None Include="Resources\Pictures\Loading.png" />
     <None Include="Resources\Pictures\Spinner-0.5s-137px.gif" />
