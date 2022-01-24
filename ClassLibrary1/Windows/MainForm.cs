@@ -682,7 +682,7 @@ namespace SpacerUnion
         private void toolStripMenuItem8_Click(object sender, EventArgs e)
         {
 
-            if (Imports.Extern_IsWorldCompiled())
+            if (Imports.Extern_IsWorldCompiled() == 1)
             {
                 MessageBox.Show(Localizator.Get("WIN_COMPWORLD_ALREADY_COMP"));
                 return;

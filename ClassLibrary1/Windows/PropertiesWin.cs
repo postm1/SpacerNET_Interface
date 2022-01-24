@@ -64,7 +64,9 @@ namespace SpacerUnion
             buttonRowDelete.Text = Localizator.Get("buttonRowDelete");
             buttonContainerCancel.Text = Localizator.Get("WIN_CANCEL_BUTTON");
             buttonContainerApply.Text = Localizator.Get("BTN_APPLY");
+            buttonSelectColor.Text = Localizator.Get("PROP_BUTTON_COLOR");
 
+            
 
             dataGridViewItems.Columns[0].HeaderText = Localizator.Get("ITEMS_COLUMN_INSTANCE");
             dataGridViewItems.Columns[1].HeaderText = Localizator.Get("ITEMS_COLUMN_COUNT");
@@ -450,6 +452,8 @@ namespace SpacerUnion
 
                     node.Text = prop.Name + ": " + prop.ShowValue();
 
+                    comboBoxPropsEnum.SelectedIndex = prop.value == "0" ? 0 : 1;
+
                     changed = true;
                     buttonApplyOnVob.Enabled = true;
                 }
@@ -470,7 +474,11 @@ namespace SpacerUnion
                     prop.value = currentIndex.ToString();
 
                     node.Text = prop.Name + ": " + prop.ShowValue();
+
+                    comboBoxPropsEnum.SelectedIndex = currentIndex;
+
                     changed = true;
+                    
                     buttonApplyOnVob.Enabled = true;
                     buttonRestoreVobProp.Enabled = true;
                 }
@@ -568,7 +576,7 @@ namespace SpacerUnion
 
                         Imports.Stack_PushString(newName);
 
-                        if (Imports.Extern_CheckUniqueNameExist())
+                        if (Imports.Extern_CheckUniqueNameExist() == 1)
                         {
                             MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
                             
@@ -666,6 +674,7 @@ namespace SpacerUnion
             textBoxVec3.Visible = false;
             buttonFileOpen.Enabled = false;
             comboBoxPropsEnum.Visible = false;
+            buttonSelectColor.Visible = false;
             DisableTabBBox();
 
         }
@@ -713,8 +722,7 @@ namespace SpacerUnion
                         textBoxVec1.Visible = true;
                         textBoxVec2.Visible = true;
 
-                       
-                        
+
 
                         string[] arr = prop.value.Split(' ');
 
@@ -727,6 +735,7 @@ namespace SpacerUnion
                         {
                             textBoxVec3.Visible = true;
                             textBoxVec3.Text = arr[3];
+                            buttonSelectColor.Visible = true;
                         }
                     }
 
@@ -737,6 +746,18 @@ namespace SpacerUnion
                         comboBoxPropsEnum.Items.AddRange(prop.enumArray.ToArray());
                         comboBoxPropsEnum.SelectedIndex = prop.GetCurrentEnumIndex();
                     }
+
+                    if (prop.type == TPropEditType.PETbool)
+                    {
+                        comboBoxPropsEnum.Visible = true;
+                        comboBoxPropsEnum.Items.Clear();
+                        comboBoxPropsEnum.Items.Add("FALSE");
+                        comboBoxPropsEnum.Items.Add("TRUE");
+                        comboBoxPropsEnum.SelectedIndex = prop.value == "1" ? 1 : 0;
+                    }
+
+
+
 
                     currentFieldtype = prop.type;
 
@@ -1232,6 +1253,13 @@ namespace SpacerUnion
                             buttonApplyOnVob.Enabled = true;
                             buttonRestoreVobProp.Enabled = true;
                         }
+                        else if (prop.type == TPropEditType.PETbool)
+                        {
+                            prop.value = comboBoxPropsEnum.SelectedIndex.ToString();
+                            prop.ownNode.Text = prop.Name + ": " + prop.ShowValue();
+                            buttonApplyOnVob.Enabled = true;
+                            buttonRestoreVobProp.Enabled = true;
+                        }
                     }
 
                 }
@@ -1252,6 +1280,27 @@ namespace SpacerUnion
                     OpenVobContainer();
                 }
             }
+        }
+
+        private void buttonSelectColor_Click(object sender, EventArgs e)
+        {
+            ColorDialog MyDialog = new ColorDialog();
+
+            int r = Convert.ToInt32(textBoxVec0.Text);
+            int g = Convert.ToInt32(textBoxVec1.Text);
+            int b = Convert.ToInt32(textBoxVec2.Text);
+            int a = Convert.ToInt32(textBoxVec3.Text);
+
+            MyDialog.Color = Color.FromArgb(a, r, g, b);
+
+            if (MyDialog.ShowDialog() == DialogResult.OK)
+            {
+                textBoxVec0.Text = MyDialog.Color.R.ToString();
+                textBoxVec1.Text = MyDialog.Color.G.ToString();
+                textBoxVec2.Text = MyDialog.Color.B.ToString();
+                textBoxVec3.Text = MyDialog.Color.A.ToString();
+            }
+               
         }
     }
 }

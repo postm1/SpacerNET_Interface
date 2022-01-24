@@ -68,7 +68,7 @@ namespace SpacerUnion
         private void button2_Click(object sender, EventArgs e)
         {
 
-            if (Imports.Extern_IsWorldCompiled())
+            if (Imports.Extern_IsWorldCompiled() == 1)
             {
                
                // MessageBox.Show(Localizator.Get("WIN_COMPWORLD_ALREADY_COMP"));

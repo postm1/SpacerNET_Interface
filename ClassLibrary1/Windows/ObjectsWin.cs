@@ -612,9 +612,9 @@ namespace SpacerUnion
             
 
             Imports.Stack_PushString(vobName);
-            bool nameFound = Imports.Extern_VobNameExist(true);
+            int nameFound = Imports.Extern_VobNameExist(true);
 
-            if (nameFound && !autoGenerate)
+            if (nameFound == 1 && !autoGenerate)
             {
                 MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
                 
@@ -661,8 +661,8 @@ namespace SpacerUnion
 
             Imports.Stack_PushString(vobName);
 
-            bool nameFound = Imports.Extern_VobNameExist(false);
-            if (nameFound)
+            int nameFound = Imports.Extern_VobNameExist(false);
+            if (nameFound == 1)
             {
                 
                 MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
@@ -1099,6 +1099,8 @@ namespace SpacerUnion
             //ConsoleEx.WriteLineRed("Send trigger: action " + name);
             Imports.Extern_SendTrigger(triggerEntry.currentActionIndex);
             triggerEntry.m_kf_pos = Imports.Extern_GetCurrentKey();
+
+           // UpdateTriggerWindow(false);
         }
 
         private void ParticleWin_Shown(object sender, EventArgs e)

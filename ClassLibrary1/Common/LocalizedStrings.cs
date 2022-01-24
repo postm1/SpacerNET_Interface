@@ -471,6 +471,10 @@ namespace SpacerUnion.Common
             words.Add("TAB_PAGE_OBJECTS", new List<string> { "Объекты", "Objects", "", "Obiekty" });
             words.Add("CONTEXTMENU_FAST_REMOVE_VOB", new List<string> { " Удалить воб из быстрого доступа", "Remove the vob from fast access", "", "Usuń vob z szybkiego dostępu" });
             words.Add("QUICKVOBS_CANTBE_PARENT", new List<string> { "Данный воб не может быть родителем!", "Current vob can't be a parent!", "", "Obecny vob nie może być rodzicem!" });
+
+            words.Add("showLightRadiusVob", new List<string> { "Показывать радиус освещения zCVobLight", "Show radius of light for zCVobLight vobs", "", "" });
+            words.Add("PROP_BUTTON_COLOR", new List<string> { "Цвет", "Color", "", "" });
+
         }
     }
 }

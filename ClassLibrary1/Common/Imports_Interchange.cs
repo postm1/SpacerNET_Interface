@@ -80,7 +80,6 @@ namespace SpacerUnion.Common
 
         public static string Stack_PeekString()
         {
-            //Console.Write("## ");
             IntPtr ptr = Stack_PeekString_S();
             string v = PtrAToString(ptr);
             Stack_Pop();
@@ -89,7 +88,7 @@ namespace SpacerUnion.Common
 
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-    public static extern int Stack_PeekInt();
+        public static extern int Stack_PeekInt();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern long Stack_PeekLong();

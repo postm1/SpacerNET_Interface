@@ -137,13 +137,13 @@ namespace SpacerUnion
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!Imports.Extern_IsWorldLoaded())
+            if (Imports.Extern_IsWorldLoaded() == 0)
             {
                 MessageBox.Show(Localizator.Get("WIN_COMPLIGHT_NOWORLD"));
                 return;
             }
 
-            if (!Imports.Extern_IsWorldCompiled())
+            if (Imports.Extern_IsWorldCompiled() == 0)
             {
                 MessageBox.Show(Localizator.Get("WIN_COMPLIGHT_NOWORLDCOMPILED"));
                 return;

@@ -28,6 +28,9 @@ namespace SpacerUnion.Windows
             checkBoxMiscAutoCompile.Text = Localizator.Get("checkBoxMiscAutoCompile");
             checkBoxAutoCompileUncompiled.Text = Localizator.Get("checkBoxMiscAutoCompileUncZen");
             autoRemoveLevelCompo.Text = Localizator.Get("autoRemoveLevelCompo");
+            showLightRadiusVob.Text = Localizator.Get("showLightRadiusVob");
+
+
             
             btnMiscSetApply.Text = Localizator.Get("BTN_APPLY");
         }
@@ -59,6 +62,12 @@ namespace SpacerUnion.Windows
             SpacerNET.miscSetWin.checkBoxMiscAutoCompile.Checked = Convert.ToBoolean(autoCompile);
             SpacerNET.miscSetWin.checkBoxAutoCompileUncompiled.Checked = Convert.ToBoolean(autoCompileUnc);
             SpacerNET.miscSetWin.autoRemoveLevelCompo.Checked = Convert.ToBoolean(autoRemoveCompo);
+
+
+
+            Imports.Stack_PushString("showLightRadiusVob");
+            int showLightRadiusVob = Imports.Extern_GetSetting();
+            SpacerNET.miscSetWin.showLightRadiusVob.Checked = Convert.ToBoolean(showLightRadiusVob);
         }
 
         public void OnApplySettings()
@@ -78,6 +87,10 @@ namespace SpacerUnion.Windows
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxMiscAutoCompile.Checked));
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxAutoCompileUncompiled.Checked));
             Imports.Extern_SetSetting(Convert.ToInt32(autoRemoveLevelCompo.Checked));
+
+
+            Imports.Stack_PushString("showLightRadiusVob");
+            Imports.Extern_SetSetting(Convert.ToInt32(showLightRadiusVob.Checked));
         }
 
         private void MiscSettingsWin_FormClosing(object sender, FormClosingEventArgs e)

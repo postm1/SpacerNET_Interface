@@ -188,14 +188,12 @@
             // 
             // buttonTreeSort
             // 
-            this.buttonTreeSort.Enabled = false;
-            this.buttonTreeSort.Location = new System.Drawing.Point(271, 10);
+            this.buttonTreeSort.Location = new System.Drawing.Point(219, 10);
             this.buttonTreeSort.Name = "buttonTreeSort";
             this.buttonTreeSort.Size = new System.Drawing.Size(97, 23);
             this.buttonTreeSort.TabIndex = 3;
             this.buttonTreeSort.Text = "Сортировать";
             this.buttonTreeSort.UseVisualStyleBackColor = true;
-            this.buttonTreeSort.Visible = false;
             this.buttonTreeSort.Click += new System.EventHandler(this.buttonTreeSort_Click);
             // 
             // panelButtons

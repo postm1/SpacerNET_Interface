@@ -125,7 +125,7 @@ namespace SpacerUnion.Common
 
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern bool Extern_VobNameExist(bool isWaypoint);
+        public static extern int Extern_VobNameExist(bool isWaypoint);
 
 
 
@@ -151,7 +151,7 @@ namespace SpacerUnion.Common
         public static extern void Extern_DisconnectWP();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern bool Extern_StopAllSounds();
+        public static extern int Extern_StopAllSounds();
 
         #region Функции триггеров
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
@@ -186,7 +186,7 @@ namespace SpacerUnion.Common
 
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern bool Extern_CheckUniqueNameExist();
+        public static extern int Extern_CheckUniqueNameExist();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_AnalyseWaynet();
@@ -244,10 +244,10 @@ namespace SpacerUnion.Common
         public static extern void Extern_GetIniKey();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern bool Extern_IsWorldLoaded();
+        public static extern int Extern_IsWorldLoaded();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern bool Extern_IsWorldCompiled();
+        public static extern int Extern_IsWorldCompiled();
 
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]

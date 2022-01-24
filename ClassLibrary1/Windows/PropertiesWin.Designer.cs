@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControlProps = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.treeViewProp = new System.Windows.Forms.TreeView();
             this.panelButtons = new System.Windows.Forms.Panel();
             this.comboBoxPropsEnum = new System.Windows.Forms.ComboBox();
             this.textBoxVec3 = new System.Windows.Forms.TextBox();
@@ -44,7 +45,6 @@
             this.buttonBbox = new System.Windows.Forms.Button();
             this.Label_Backup = new System.Windows.Forms.Label();
             this.buttonApplyOnVob = new System.Windows.Forms.Button();
-            this.treeViewProp = new System.Windows.Forms.TreeView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBoxEditBbox = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -67,6 +67,7 @@
             this.contextMenuStripContainer = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.удалитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogFileName = new System.Windows.Forms.OpenFileDialog();
+            this.buttonSelectColor = new System.Windows.Forms.Button();
             this.tabControlProps.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panelButtons.SuspendLayout();
@@ -104,10 +105,23 @@
             this.tabPage1.Text = "Редактирование";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // treeViewProp
+            // 
+            this.treeViewProp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeViewProp.HideSelection = false;
+            this.treeViewProp.Location = new System.Drawing.Point(3, 3);
+            this.treeViewProp.Name = "treeViewProp";
+            this.treeViewProp.Size = new System.Drawing.Size(316, 352);
+            this.treeViewProp.TabIndex = 1;
+            this.treeViewProp.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.treeViewProp_DrawNode);
+            this.treeViewProp.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewProp_AfterSelect);
+            this.treeViewProp.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewProp_NodeMouseDoubleClick);
+            // 
             // panelButtons
             // 
             this.panelButtons.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panelButtons.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelButtons.Controls.Add(this.buttonSelectColor);
             this.panelButtons.Controls.Add(this.comboBoxPropsEnum);
             this.panelButtons.Controls.Add(this.textBoxVec3);
             this.panelButtons.Controls.Add(this.buttonFileOpen);
@@ -249,18 +263,6 @@
             this.buttonApplyOnVob.Text = "Применить на вобе";
             this.buttonApplyOnVob.UseVisualStyleBackColor = true;
             this.buttonApplyOnVob.Click += new System.EventHandler(this.buttonApply_Click);
-            // 
-            // treeViewProp
-            // 
-            this.treeViewProp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeViewProp.HideSelection = false;
-            this.treeViewProp.Location = new System.Drawing.Point(3, 3);
-            this.treeViewProp.Name = "treeViewProp";
-            this.treeViewProp.Size = new System.Drawing.Size(316, 352);
-            this.treeViewProp.TabIndex = 1;
-            this.treeViewProp.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.treeViewProp_DrawNode);
-            this.treeViewProp.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewProp_AfterSelect);
-            this.treeViewProp.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewProp_NodeMouseDoubleClick);
             // 
             // tabPage2
             // 
@@ -472,6 +474,17 @@
             this.удалитьСтрокуToolStripMenuItem.Text = "Удалить строку";
             this.удалитьСтрокуToolStripMenuItem.Click += new System.EventHandler(this.удалитьСтрокуToolStripMenuItem_Click);
             // 
+            // buttonSelectColor
+            // 
+            this.buttonSelectColor.Location = new System.Drawing.Point(256, 75);
+            this.buttonSelectColor.Name = "buttonSelectColor";
+            this.buttonSelectColor.Size = new System.Drawing.Size(48, 23);
+            this.buttonSelectColor.TabIndex = 14;
+            this.buttonSelectColor.Text = "Цвет";
+            this.buttonSelectColor.UseVisualStyleBackColor = true;
+            this.buttonSelectColor.Visible = false;
+            this.buttonSelectColor.Click += new System.EventHandler(this.buttonSelectColor_Click);
+            // 
             // ObjectsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -541,5 +554,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialogFileName;
         private System.Windows.Forms.TextBox textBoxVec3;
         private System.Windows.Forms.ComboBox comboBoxPropsEnum;
+        private System.Windows.Forms.Button buttonSelectColor;
     }
 }
