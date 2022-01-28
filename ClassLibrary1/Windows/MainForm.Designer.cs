@@ -41,6 +41,7 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.saveZenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveUncZenToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuExtractMesh = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuView = new System.Windows.Forms.ToolStripMenuItem();
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,7 +101,10 @@
             this.toolStripButtonMaterial = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonGrass = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonMulti = new System.Windows.Forms.ToolStripButton();
-            this.toolStripMenuExtractMesh = new System.Windows.Forms.ToolStripMenuItem();
+            this.testCoordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.WinPosMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetWinAction = new System.Windows.Forms.ToolStripMenuItem();
+            this.preset1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -212,6 +216,14 @@
             this.saveUncZenToolStrip.Text = "Сохранить Vobs";
             this.saveUncZenToolStrip.Click += new System.EventHandler(this.saveUncZenToolStrip_Click);
             // 
+            // toolStripMenuExtractMesh
+            // 
+            this.toolStripMenuExtractMesh.Enabled = false;
+            this.toolStripMenuExtractMesh.Name = "toolStripMenuExtractMesh";
+            this.toolStripMenuExtractMesh.Size = new System.Drawing.Size(185, 22);
+            this.toolStripMenuExtractMesh.Text = "Сохранить MESH";
+            this.toolStripMenuExtractMesh.Click += new System.EventHandler(this.toolStripMenuExtractMesh_Click);
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
@@ -222,7 +234,8 @@
             // ToolStripMenuView
             // 
             this.ToolStripMenuView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showToolStripMenuItem});
+            this.showToolStripMenuItem,
+            this.WinPosMenu});
             this.ToolStripMenuView.ForeColor = System.Drawing.Color.Black;
             this.ToolStripMenuView.Name = "ToolStripMenuView";
             this.ToolStripMenuView.Size = new System.Drawing.Size(39, 20);
@@ -235,7 +248,7 @@
             this.toolStripMenuItem6,
             this.toolStripMenuItem7});
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.showToolStripMenuItem.Text = "Показать";
             // 
             // toolStripMenuItem5
@@ -243,14 +256,14 @@
             this.toolStripMenuItem5.Checked = true;
             this.toolStripMenuItem5.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem5.Text = "Вобы";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem6.Text = "Сетку Waynet";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
             // 
@@ -259,7 +272,7 @@
             this.toolStripMenuItem7.Checked = true;
             this.toolStripMenuItem7.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem7.Text = "Help-вобы";
             this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
             // 
@@ -273,7 +286,8 @@
             this.renderModeToolStripMenuItem,
             this.analyseWaynetToolStripMenuItem,
             this.playHeroToolStrip,
-            this.pfxEditorToolStrip});
+            this.pfxEditorToolStrip,
+            this.testCoordsToolStripMenuItem});
             this.ToolStripMenuWorld.ForeColor = System.Drawing.Color.Black;
             this.ToolStripMenuWorld.Name = "ToolStripMenuWorld";
             this.ToolStripMenuWorld.Size = new System.Drawing.Size(44, 20);
@@ -413,7 +427,6 @@
             // 
             // playHeroToolStrip
             // 
-            this.playHeroToolStrip.Enabled = false;
             this.playHeroToolStrip.Name = "playHeroToolStrip";
             this.playHeroToolStrip.Size = new System.Drawing.Size(176, 22);
             this.playHeroToolStrip.Text = "Играть за героя";
@@ -732,13 +745,37 @@
             this.toolStripButtonMulti.Text = "Multi selection";
             this.toolStripButtonMulti.Click += new System.EventHandler(this.toolStripButtonMulti_Click);
             // 
-            // toolStripMenuExtractMesh
+            // testCoordsToolStripMenuItem
             // 
-            this.toolStripMenuExtractMesh.Enabled = false;
-            this.toolStripMenuExtractMesh.Name = "toolStripMenuExtractMesh";
-            this.toolStripMenuExtractMesh.Size = new System.Drawing.Size(185, 22);
-            this.toolStripMenuExtractMesh.Text = "Сохранить MESH";
-            this.toolStripMenuExtractMesh.Click += new System.EventHandler(this.toolStripMenuExtractMesh_Click);
+            this.testCoordsToolStripMenuItem.Name = "testCoordsToolStripMenuItem";
+            this.testCoordsToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.testCoordsToolStripMenuItem.Text = "TestCoords";
+            this.testCoordsToolStripMenuItem.Visible = false;
+            this.testCoordsToolStripMenuItem.Click += new System.EventHandler(this.testCoordsToolStripMenuItem_Click);
+            // 
+            // WinPosMenu
+            // 
+            this.WinPosMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.resetWinAction,
+            this.preset1ToolStripMenuItem});
+            this.WinPosMenu.Name = "WinPosMenu";
+            this.WinPosMenu.Size = new System.Drawing.Size(169, 22);
+            this.WinPosMenu.Text = "Положение окон";
+            this.WinPosMenu.Click += new System.EventHandler(this.resetWinPos_Click);
+            // 
+            // resetWinAction
+            // 
+            this.resetWinAction.Name = "resetWinAction";
+            this.resetWinAction.Size = new System.Drawing.Size(223, 22);
+            this.resetWinAction.Text = "Сбросить положение окон";
+            this.resetWinAction.Click += new System.EventHandler(this.сброситьПоложениЕоконToolStripMenuItem_Click);
+            // 
+            // preset1ToolStripMenuItem
+            // 
+            this.preset1ToolStripMenuItem.Name = "preset1ToolStripMenuItem";
+            this.preset1ToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.preset1ToolStripMenuItem.Text = "Пресет #1 (FullHD)";
+            this.preset1ToolStripMenuItem.Click += new System.EventHandler(this.preset1ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -842,5 +879,9 @@
         public System.Windows.Forms.ToolStripMenuItem saveUncZenToolStrip;
         private System.Windows.Forms.ToolStripButton toolStripButtonMulti;
         public System.Windows.Forms.ToolStripMenuItem toolStripMenuExtractMesh;
+        private System.Windows.Forms.ToolStripMenuItem testCoordsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem WinPosMenu;
+        private System.Windows.Forms.ToolStripMenuItem resetWinAction;
+        private System.Windows.Forms.ToolStripMenuItem preset1ToolStripMenuItem;
     }
 }

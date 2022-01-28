@@ -3,22 +3,22 @@
   <Profiles />
   <Settings>
     <Setting Name="PartWinLocation" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 500</Value>
+      <Value Profile="(Default)">0, 300</Value>
     </Setting>
     <Setting Name="VobListWinLocation" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">500, 500</Value>
+      <Value Profile="(Default)">0, 300</Value>
     </Setting>
     <Setting Name="InfoWinLocation" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">500, 500</Value>
+      <Value Profile="(Default)">0, 300</Value>
     </Setting>
     <Setting Name="TreeWinLocation" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 150</Value>
+      <Value Profile="(Default)">0, 300</Value>
     </Setting>
     <Setting Name="PropWinLocation" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">500, 150</Value>
+      <Value Profile="(Default)">0, 300</Value>
     </Setting>
     <Setting Name="SoundWinLocation" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">500, 150</Value>
+      <Value Profile="(Default)">0, 300</Value>
     </Setting>
     <Setting Name="Language" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
@@ -78,7 +78,7 @@
       <Value Profile="(Default)">323, 373</Value>
     </Setting>
     <Setting Name="GrassWinLocation" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">500, 500</Value>
+      <Value Profile="(Default)">0, 300</Value>
     </Setting>
     <Setting Name="GrassWinShow" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

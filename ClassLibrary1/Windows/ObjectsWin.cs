@@ -143,7 +143,45 @@ namespace SpacerUnion
 
             labelRenameVob.Text = Localizator.Get("labelRenameVob");
 
+            groupBoxItemsLocator.Text = Localizator.Get("groupBoxItemsLocator");
+            checkBoxLocatorEnabled.Text = Localizator.Get("checkBoxLocatorEnabled");
+            checkBoxLocatorOnlySusp.Text = Localizator.Get("checkBoxLocatorOnlySusp");
             
+        }
+
+        public void LoadSettings()
+        {
+
+
+            Imports.Stack_PushString("addFPAutoName");
+            Imports.Stack_PushString("downFPToGround");
+            Imports.Stack_PushString("addWPAutoName");
+            Imports.Stack_PushString("addWPToNet");
+            Imports.Stack_PushString("searchOnly3DS");
+            Imports.Stack_PushString("showModelPreview");
+
+
+            checkBoxShowPreview.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+            checkBoxSearchOnly3DS.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+
+            checkBoxWayNet.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+            checkBoxWPAutoName.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+            checkBoxFPGround.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+            checkBoxAutoNameFP.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("itemLocatorEnabled");
+            checkBoxLocatorEnabled.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("itemLocatorOnlySusp");
+            checkBoxLocatorOnlySusp.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            
+
+            Imports.Stack_PushString("itemLocatorRadius");
+            trackBarLocatorRad.Value = Imports.Extern_GetSetting();
+
+            trackBarLocatorRad_ValueChanged(null, null);
         }
 
 
@@ -1391,29 +1429,7 @@ namespace SpacerUnion
 
         }
 
-        public void LoadSettings()
-        {
-
-
-            Imports.Stack_PushString("addFPAutoName");
-            Imports.Stack_PushString("downFPToGround");
-            Imports.Stack_PushString("addWPAutoName");
-            Imports.Stack_PushString("addWPToNet");
-            Imports.Stack_PushString("searchOnly3DS");
-            Imports.Stack_PushString("showModelPreview");
-
-
-            checkBoxShowPreview.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
-            checkBoxSearchOnly3DS.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
-
-
-            checkBoxWayNet.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
-            checkBoxWPAutoName.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
-            checkBoxFPGround.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
-            checkBoxAutoNameFP.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
-
-            
-        }
+        
 
         private void checkBoxWayNet_CheckedChanged(object sender, EventArgs e)
         {
@@ -3027,6 +3043,30 @@ namespace SpacerUnion
             FillClassFieldsConvert(result);
 
             radioButtonConvertNew.Checked = true;
+        }
+
+        private void trackBarLocatorRad_ValueChanged(object sender, EventArgs e)
+        {
+            labelItemLocatorRadius.Text = Localizator.Get("labelItemLocatorRadius") + trackBarLocatorRad.Value;
+
+            Imports.Stack_PushString("itemLocatorRadius");
+            Imports.Extern_SetSetting(trackBarLocatorRad.Value);
+        }
+
+        private void checkBoxLocatorEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            var locatorCheck = sender as CheckBox;
+
+            Imports.Stack_PushString("itemLocatorEnabled");
+            Imports.Extern_SetSetting(Convert.ToInt32(locatorCheck.Checked));
+        }
+
+        private void checkBoxLocatorOnlySusp_CheckedChanged(object sender, EventArgs e)
+        {
+            var locatorCheck = sender as CheckBox;
+
+            Imports.Stack_PushString("itemLocatorOnlySusp");
+            Imports.Extern_SetSetting(Convert.ToInt32(locatorCheck.Checked));
         }
     }
 }

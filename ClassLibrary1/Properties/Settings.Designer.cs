@@ -25,7 +25,7 @@ namespace SpacerUnion.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 500")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 300")]
         public global::System.Drawing.Point PartWinLocation {
             get {
                 return ((global::System.Drawing.Point)(this["PartWinLocation"]));
@@ -37,7 +37,7 @@ namespace SpacerUnion.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("500, 500")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 300")]
         public global::System.Drawing.Point VobListWinLocation {
             get {
                 return ((global::System.Drawing.Point)(this["VobListWinLocation"]));
@@ -49,7 +49,7 @@ namespace SpacerUnion.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("500, 500")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 300")]
         public global::System.Drawing.Point InfoWinLocation {
             get {
                 return ((global::System.Drawing.Point)(this["InfoWinLocation"]));
@@ -61,7 +61,7 @@ namespace SpacerUnion.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 150")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 300")]
         public global::System.Drawing.Point TreeWinLocation {
             get {
                 return ((global::System.Drawing.Point)(this["TreeWinLocation"]));
@@ -73,7 +73,7 @@ namespace SpacerUnion.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("500, 150")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 300")]
         public global::System.Drawing.Point PropWinLocation {
             get {
                 return ((global::System.Drawing.Point)(this["PropWinLocation"]));
@@ -85,7 +85,7 @@ namespace SpacerUnion.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("500, 150")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 300")]
         public global::System.Drawing.Point SoundWinLocation {
             get {
                 return ((global::System.Drawing.Point)(this["SoundWinLocation"]));
@@ -325,7 +325,7 @@ namespace SpacerUnion.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("500, 500")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 300")]
         public global::System.Drawing.Point GrassWinLocation {
             get {
                 return ((global::System.Drawing.Point)(this["GrassWinLocation"]));

@@ -472,9 +472,16 @@ namespace SpacerUnion.Common
             words.Add("CONTEXTMENU_FAST_REMOVE_VOB", new List<string> { " Удалить воб из быстрого доступа", "Remove the vob from fast access", "", "Usuń vob z szybkiego dostępu" });
             words.Add("QUICKVOBS_CANTBE_PARENT", new List<string> { "Данный воб не может быть родителем!", "Current vob can't be a parent!", "", "Obecny vob nie może być rodzicem!" });
 
-            words.Add("showLightRadiusVob", new List<string> { "Показывать радиус освещения zCVobLight", "Show radius of light for zCVobLight vobs", "", "" });
-            words.Add("PROP_BUTTON_COLOR", new List<string> { "Цвет", "Color", "", "" });
+            words.Add("showLightRadiusVob", new List<string> { "Показывать радиус освещения zCVobLight", "Show radius of light for zCVobLight vobs", "", "Pokaż promień światła dla vobów zCVobLight" });
+            words.Add("PROP_BUTTON_COLOR", new List<string> { "Цвет", "Color", "", "Kolor" });
+            words.Add("labelItemLocatorRadius", new List<string> { "Радиус показа вещей: ", "Items show radius: ", "", "Pokaż promień: " });
+            words.Add("groupBoxItemsLocator", new List<string> { "Локатор предметов: ", "Items locator: ", "", "Lokalizator przedmiotów" });
+            words.Add("checkBoxLocatorEnabled", new List<string> { "Включить", "Enabled", "", "Włączony" });
+            words.Add("checkBoxLocatorOnlySusp", new List<string> { "Только \"плохие\" oCItem", "Only 'bad' oCItem", "", "Tylko 'zły' oCItem" });
 
+            words.Add("MENU_TOP_WIN_POS", new List<string> { "Положение окон", "Position of windows", "", "Pozycja okien" });
+            words.Add("MENU_TOP_WIN_POS_RESET", new List<string> { "Сбросить положение окон", "Reset windows' position", "", "Zresetuj pozycje okien" });
+            words.Add("MENU_TOP_WIN_POS_PRESET_1", new List<string> { "Использовать пресет #1 (FullHD)", "Use windows presets #1 (FullHD)", "", "Użyj ustawień dla okien #1 (FullHD)" });
         }
     }
 }

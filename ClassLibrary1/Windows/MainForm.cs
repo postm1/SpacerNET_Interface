@@ -138,6 +138,13 @@ namespace SpacerUnion
 
             showToolStripMenuItem.Text = Localizator.Get("MENU_TOP_VIEW_SHOW");
 
+            WinPosMenu.Text = Localizator.Get("MENU_TOP_WIN_POS");
+            resetWinAction.Text = Localizator.Get("MENU_TOP_WIN_POS_RESET");
+            preset1ToolStripMenuItem.Text = Localizator.Get("MENU_TOP_WIN_POS_PRESET_1");
+            
+
+
+
             toolStripMenuItem5.Text = Localizator.Get("MENU_TOP_VIEW_VOBS");
             toolStripMenuItem6.Text = Localizator.Get("MENU_TOP_VIEW_WAYNET");
             toolStripMenuItem7.Text = Localizator.Get("MENU_TOP_VIEW_HELPER");
@@ -197,10 +204,18 @@ namespace SpacerUnion
             //toolStripTop.BringToFront();
         }
 
-       
-
 
         [DllExport]
+        public static void GameModeToggleInterface(int mode)
+        {
+            SpacerNET.form.menuStripTopMain.Enabled = Convert.ToBoolean(mode);
+            SpacerNET.form.toolStripTop.Enabled = Convert.ToBoolean(mode);
+  
+        }
+        
+
+
+         [DllExport]
         public static void LoadZenAuto()
         {
             string path = Imports.Stack_PeekString();
@@ -1121,7 +1136,7 @@ namespace SpacerUnion
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Spacer.NET (version " + Constants.SPACER_VERSION + ") by Liker, 2021", Localizator.Get("MENU_TOP_ABOUT"));
+            MessageBox.Show("Spacer.NET (version " + Constants.SPACER_VERSION + ") by Liker, 2020-2022", Localizator.Get("MENU_TOP_ABOUT"));
         }
 
         private void ввестиКоординатыToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1535,6 +1550,58 @@ namespace SpacerUnion
                 SpacerNET.form.AddText(Localizator.Get("saveMeshTime") + " (" + timeSpend + ")", Color.Green);
                 ConsoleEx.WriteLineGreen(Localizator.Get("saveMeshTime") + " (" + timeSpend + ")");
 
+            }
+        }
+
+        private void testCoordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            ConsoleEx.WriteLineRed("objTreeWin.Location: " + SpacerNET.objTreeWin.Location);
+            ConsoleEx.WriteLineRed("objectsWin.Location: " + SpacerNET.objectsWin.Location);
+            ConsoleEx.WriteLineRed("vobList.Location: " + SpacerNET.vobList.Location);
+            ConsoleEx.WriteLineRed("infoWin.Location: " + SpacerNET.infoWin.Location);
+            ConsoleEx.WriteLineRed("propWin.Location: " + SpacerNET.propWin.Location);
+            ConsoleEx.WriteLineRed("grassWin.Location: " + SpacerNET.grassWin.Location);
+        }
+
+        private void resetWinPos_Click(object sender, EventArgs e)
+        {
+
+            
+
+            
+        }
+
+        private void сброситьПоложениЕоконToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show(Localizator.Get("askSure"), Localizator.Get("confirmation"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (res == DialogResult.OK)
+            {
+
+                SpacerNET.objTreeWin.Location = new Point(0, 300);
+                SpacerNET.objectsWin.Location = new Point(0, 300);
+                SpacerNET.vobList.Location = new Point(0, 300);
+                SpacerNET.infoWin.Location = new Point(0, 300);
+                SpacerNET.propWin.Location = new Point(0, 300);
+                SpacerNET.grassWin.Location = new Point(0, 300);
+            }
+        }
+
+        private void preset1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show(Localizator.Get("askSure"), Localizator.Get("confirmation"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+
+            if (res == DialogResult.OK)
+            {
+
+                SpacerNET.objTreeWin.Location = new Point(1510, 550);
+                SpacerNET.objectsWin.Location = new Point(0, 622);
+                SpacerNET.vobList.Location = new Point(570, 670);
+                SpacerNET.infoWin.Location = new Point(890, 655);
+                SpacerNET.propWin.Location = new Point(1572, 28);
+                SpacerNET.grassWin.Location = new Point(1079, 603);
             }
         }
     }

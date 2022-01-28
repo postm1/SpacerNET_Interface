@@ -38,6 +38,10 @@
             this.listBoxParticles = new System.Windows.Forms.ListBox();
             this.buttonParticles = new System.Windows.Forms.Button();
             this.groupBoxObjItems = new System.Windows.Forms.GroupBox();
+            this.groupBoxItemsLocator = new System.Windows.Forms.GroupBox();
+            this.labelItemLocatorRadius = new System.Windows.Forms.Label();
+            this.trackBarLocatorRad = new System.Windows.Forms.TrackBar();
+            this.checkBoxLocatorEnabled = new System.Windows.Forms.CheckBox();
             this.groupBoxItemsCont = new System.Windows.Forms.GroupBox();
             this.buttonAddContainer = new System.Windows.Forms.Button();
             this.textBoxItemCount = new System.Windows.Forms.TextBox();
@@ -191,8 +195,11 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.checkBoxLocatorOnlySusp = new System.Windows.Forms.CheckBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
+            this.groupBoxItemsLocator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarLocatorRad)).BeginInit();
             this.groupBoxItemsCont.SuspendLayout();
             this.groupBoxObjAllClasses.SuspendLayout();
             this.groupBoxObjPropVobs.SuspendLayout();
@@ -315,6 +322,7 @@
             // 
             // groupBoxObjItems
             // 
+            this.groupBoxObjItems.Controls.Add(this.groupBoxItemsLocator);
             this.groupBoxObjItems.Controls.Add(this.groupBoxItemsCont);
             this.groupBoxObjItems.Controls.Add(this.checkBoxItemShow);
             this.groupBoxObjItems.Controls.Add(this.buttonItemsCreateReg);
@@ -330,6 +338,53 @@
             this.groupBoxObjItems.TabIndex = 2;
             this.groupBoxObjItems.TabStop = false;
             this.groupBoxObjItems.Text = "Предметы";
+            // 
+            // groupBoxItemsLocator
+            // 
+            this.groupBoxItemsLocator.Controls.Add(this.checkBoxLocatorOnlySusp);
+            this.groupBoxItemsLocator.Controls.Add(this.labelItemLocatorRadius);
+            this.groupBoxItemsLocator.Controls.Add(this.trackBarLocatorRad);
+            this.groupBoxItemsLocator.Controls.Add(this.checkBoxLocatorEnabled);
+            this.groupBoxItemsLocator.Location = new System.Drawing.Point(375, 140);
+            this.groupBoxItemsLocator.Name = "groupBoxItemsLocator";
+            this.groupBoxItemsLocator.Size = new System.Drawing.Size(171, 207);
+            this.groupBoxItemsLocator.TabIndex = 21;
+            this.groupBoxItemsLocator.TabStop = false;
+            this.groupBoxItemsLocator.Text = "Локатор предметов";
+            // 
+            // labelItemLocatorRadius
+            // 
+            this.labelItemLocatorRadius.AutoSize = true;
+            this.labelItemLocatorRadius.Location = new System.Drawing.Point(6, 49);
+            this.labelItemLocatorRadius.Name = "labelItemLocatorRadius";
+            this.labelItemLocatorRadius.Size = new System.Drawing.Size(118, 13);
+            this.labelItemLocatorRadius.TabIndex = 2;
+            this.labelItemLocatorRadius.Text = "Радиус показа вещей";
+            // 
+            // trackBarLocatorRad
+            // 
+            this.trackBarLocatorRad.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.trackBarLocatorRad.Location = new System.Drawing.Point(6, 65);
+            this.trackBarLocatorRad.Maximum = 30000;
+            this.trackBarLocatorRad.Minimum = 500;
+            this.trackBarLocatorRad.Name = "trackBarLocatorRad";
+            this.trackBarLocatorRad.Size = new System.Drawing.Size(159, 45);
+            this.trackBarLocatorRad.SmallChange = 25;
+            this.trackBarLocatorRad.TabIndex = 1;
+            this.trackBarLocatorRad.TickFrequency = 100;
+            this.trackBarLocatorRad.Value = 3000;
+            this.trackBarLocatorRad.ValueChanged += new System.EventHandler(this.trackBarLocatorRad_ValueChanged);
+            // 
+            // checkBoxLocatorEnabled
+            // 
+            this.checkBoxLocatorEnabled.AutoSize = true;
+            this.checkBoxLocatorEnabled.Location = new System.Drawing.Point(9, 19);
+            this.checkBoxLocatorEnabled.Name = "checkBoxLocatorEnabled";
+            this.checkBoxLocatorEnabled.Size = new System.Drawing.Size(75, 17);
+            this.checkBoxLocatorEnabled.TabIndex = 0;
+            this.checkBoxLocatorEnabled.Text = "Включить";
+            this.checkBoxLocatorEnabled.UseVisualStyleBackColor = true;
+            this.checkBoxLocatorEnabled.CheckedChanged += new System.EventHandler(this.checkBoxLocatorEnabled_CheckedChanged);
             // 
             // groupBoxItemsCont
             // 
@@ -1976,6 +2031,17 @@
             this.button10.Text = "Удалить";
             this.button10.UseVisualStyleBackColor = true;
             // 
+            // checkBoxLocatorOnlySusp
+            // 
+            this.checkBoxLocatorOnlySusp.AutoSize = true;
+            this.checkBoxLocatorOnlySusp.Location = new System.Drawing.Point(9, 105);
+            this.checkBoxLocatorOnlySusp.Name = "checkBoxLocatorOnlySusp";
+            this.checkBoxLocatorOnlySusp.Size = new System.Drawing.Size(147, 17);
+            this.checkBoxLocatorOnlySusp.TabIndex = 3;
+            this.checkBoxLocatorOnlySusp.Text = "Только \"плохие\" oCItem";
+            this.checkBoxLocatorOnlySusp.UseVisualStyleBackColor = true;
+            this.checkBoxLocatorOnlySusp.CheckedChanged += new System.EventHandler(this.checkBoxLocatorOnlySusp_CheckedChanged);
+            // 
             // ObjectsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1995,6 +2061,9 @@
             this.groupBoxPFX.PerformLayout();
             this.groupBoxObjItems.ResumeLayout(false);
             this.groupBoxObjItems.PerformLayout();
+            this.groupBoxItemsLocator.ResumeLayout(false);
+            this.groupBoxItemsLocator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarLocatorRad)).EndInit();
             this.groupBoxItemsCont.ResumeLayout(false);
             this.groupBoxItemsCont.PerformLayout();
             this.groupBoxObjAllClasses.ResumeLayout(false);
@@ -2199,5 +2268,10 @@
         private System.Windows.Forms.TextBox textBoxRenameVob;
         private System.Windows.Forms.Label labelRenameVob;
         private System.Windows.Forms.CheckBox checkBoxAutoNumerate;
+        private System.Windows.Forms.GroupBox groupBoxItemsLocator;
+        private System.Windows.Forms.CheckBox checkBoxLocatorEnabled;
+        public System.Windows.Forms.TrackBar trackBarLocatorRad;
+        private System.Windows.Forms.Label labelItemLocatorRadius;
+        private System.Windows.Forms.CheckBox checkBoxLocatorOnlySusp;
     }
 }
