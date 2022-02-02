@@ -482,6 +482,17 @@ namespace SpacerUnion.Common
             words.Add("MENU_TOP_WIN_POS", new List<string> { "Положение окон", "Position of windows", "", "Pozycja okien" });
             words.Add("MENU_TOP_WIN_POS_RESET", new List<string> { "Сбросить положение окон", "Reset windows' position", "", "Zresetuj pozycje okien" });
             words.Add("MENU_TOP_WIN_POS_PRESET_1", new List<string> { "Использовать пресет #1 (FullHD)", "Use windows presets #1 (FullHD)", "", "Użyj ustawień dla okien #1 (FullHD)" });
+
+
+
+            words.Add("checkBoxShutSounds", new List<string> { "Глушить звуки при загрузке", "Shut sounds after world loaded", "", "Wyłącz dźwięki po załadowaniu świata" });
+            words.Add("checkBoxConstSound", new List<string> { "Постоянно глушить звуки", "Always shut all sounds", "", "Zawsze wyłączaj wszystkie dźwięki" });
+            words.Add("OnlyOneVobCanBe", new List<string> { "Воб такого типа может быть на карте ТОЛЬКО ОДИН!", "Only ONE vob like this can be on the map!", "", "Tylko jeden vob takiego typu może znajdować się na mapie!" });
+
+            words.Add("checkBoxAutoRemoveAllVisuals", new List<string> { "Автоматически удалять visual для всех zCVobLevelCompo при сохранении ZEN", "Auto removing visual for all zCVobLevelCompo before saving ZEN", "", "" });
+            words.Add("GAME_MODE", new List<string> { "Играть за героя", "Play the hero", "", "" });
+            words.Add("ZEN_BAD_NAME", new List<string> { "В имени ZEN не может содержаться '.3DS' ! Переименуйте файл!", "ZEN's name can't contain '.3DS' ! Rename the file.", "", "" });
+
         }
     }
 }

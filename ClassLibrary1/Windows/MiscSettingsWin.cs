@@ -29,9 +29,10 @@ namespace SpacerUnion.Windows
             checkBoxAutoCompileUncompiled.Text = Localizator.Get("checkBoxMiscAutoCompileUncZen");
             autoRemoveLevelCompo.Text = Localizator.Get("autoRemoveLevelCompo");
             showLightRadiusVob.Text = Localizator.Get("showLightRadiusVob");
-
-
+            checkBoxAutoRemoveAllVisuals.Text = Localizator.Get("checkBoxAutoRemoveAllVisuals");
             
+
+
             btnMiscSetApply.Text = Localizator.Get("BTN_APPLY");
         }
 
@@ -68,6 +69,12 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("showLightRadiusVob");
             int showLightRadiusVob = Imports.Extern_GetSetting();
             SpacerNET.miscSetWin.showLightRadiusVob.Checked = Convert.ToBoolean(showLightRadiusVob);
+
+
+            Imports.Stack_PushString("checkBoxAutoRemoveAllVisuals");
+            SpacerNET.miscSetWin.autoRemoveLevelCompo.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            
         }
 
         public void OnApplySettings()
@@ -91,6 +98,12 @@ namespace SpacerUnion.Windows
 
             Imports.Stack_PushString("showLightRadiusVob");
             Imports.Extern_SetSetting(Convert.ToInt32(showLightRadiusVob.Checked));
+
+
+
+            Imports.Stack_PushString("checkBoxAutoRemoveAllVisuals");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxAutoRemoveAllVisuals.Checked));
+
         }
 
         private void MiscSettingsWin_FormClosing(object sender, FormClosingEventArgs e)

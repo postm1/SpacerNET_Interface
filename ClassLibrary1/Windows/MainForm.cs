@@ -122,7 +122,7 @@ namespace SpacerUnion
             ToolStripMenuView.Text = Localizator.Get("MENU_TOP_VIEW");
 
             openZENToolStripMenuItem.Text = Localizator.Get("MENU_TOP_OPENZEN");
-            toolStripMenuOpenZEN.Text = Localizator.Get("MENU_TOP_MESH");
+            toolStripMenuOpenMESH.Text = Localizator.Get("MENU_TOP_MESH");
             toolStripMenuItemMerge.Text = Localizator.Get("MENU_TOP_MERGE");
             toolStripMenuItemMergeMesh.Text = Localizator.Get("MENU_TOP_MERGEMESH");
             saveZenToolStripMenuItem.Text = Localizator.Get("MENU_TOP_SAVEZEN");
@@ -306,6 +306,12 @@ namespace SpacerUnion
                     return;
                 }
 
+                if (filePath.ToUpper().Contains(".3DS"))
+                {
+                    MessageBox.Show(Localizator.Get("ZEN_BAD_NAME"));
+                    return;
+                }
+
 
                 Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(openFileDialog.FileName))));
                 Imports.Stack_PushString("zenzPath");
@@ -402,6 +408,8 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
+            toolStripButtonVobs.Checked = item.Checked;
+
             Imports.Stack_PushString("showVobs");
             Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
             
@@ -413,7 +421,9 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Stack_PushString("showVobs");
+            toolStripButtonWaynet.Checked = item.Checked;
+
+            Imports.Stack_PushString("showWaynet");
             Imports.Extern_SetSetting( Convert.ToInt32(item.Checked));
             
         }
@@ -424,7 +434,9 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
-            Imports.Stack_PushString("showVobs");
+            toolStripButtonHelpVobs.Checked = item.Checked;
+
+            Imports.Stack_PushString("showHelpVobs");
             Imports.Extern_SetSetting( Convert.ToInt32(item.Checked));
             
         }
@@ -855,19 +867,8 @@ namespace SpacerUnion
         {
             ToolStripButton btn = sender as ToolStripButton;
 
-            Imports.Stack_PushString("musicVolume");
-            Imports.Stack_PushString("musicZenOff");
+            
 
-            bool musicOff = Convert.ToBoolean(Imports.Extern_GetSetting());
-            SpacerNET.soundWin.checkBoxShutMusic.Checked = musicOff;
-
-
-
-            int volume = Imports.Extern_GetSetting();
-            SpacerNET.soundWin.trackBarMusicVolume.Value = volume;
-
-
-            SpacerNET.soundWin.UpdateAll();
 
             if (SpacerNET.soundWin.Visible)
             {

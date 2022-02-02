@@ -65,14 +65,15 @@
             // globalTree
             // 
             this.globalTree.ContextMenuStrip = this.contextMenuStripTree;
+            this.globalTree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.globalTree.HideSelection = false;
             this.globalTree.HotTracking = true;
             this.globalTree.ImageIndex = 0;
             this.globalTree.ImageList = this.imageList1;
-            this.globalTree.Location = new System.Drawing.Point(3, 47);
+            this.globalTree.Location = new System.Drawing.Point(3, 46);
             this.globalTree.Name = "globalTree";
             this.globalTree.SelectedImageIndex = 0;
-            this.globalTree.Size = new System.Drawing.Size(372, 375);
+            this.globalTree.Size = new System.Drawing.Size(375, 378);
             this.globalTree.TabIndex = 0;
             this.globalTree.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.globalTree_BeforeSelect);
             this.globalTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.globalTree_AfterSelect);
@@ -164,9 +165,9 @@
             // 
             // buttonCollapse
             // 
-            this.buttonCollapse.Location = new System.Drawing.Point(14, 10);
+            this.buttonCollapse.Location = new System.Drawing.Point(5, 10);
             this.buttonCollapse.Name = "buttonCollapse";
-            this.buttonCollapse.Size = new System.Drawing.Size(96, 23);
+            this.buttonCollapse.Size = new System.Drawing.Size(112, 23);
             this.buttonCollapse.TabIndex = 1;
             this.buttonCollapse.Text = "Свернуть все";
             this.buttonCollapse.UseVisualStyleBackColor = true;
@@ -174,9 +175,9 @@
             // 
             // buttonExpand
             // 
-            this.buttonExpand.Location = new System.Drawing.Point(116, 10);
+            this.buttonExpand.Location = new System.Drawing.Point(132, 10);
             this.buttonExpand.Name = "buttonExpand";
-            this.buttonExpand.Size = new System.Drawing.Size(97, 23);
+            this.buttonExpand.Size = new System.Drawing.Size(112, 23);
             this.buttonExpand.TabIndex = 2;
             this.buttonExpand.Text = "Развернуть все";
             this.buttonExpand.UseVisualStyleBackColor = true;
@@ -188,9 +189,9 @@
             // 
             // buttonTreeSort
             // 
-            this.buttonTreeSort.Location = new System.Drawing.Point(219, 10);
+            this.buttonTreeSort.Location = new System.Drawing.Point(258, 10);
             this.buttonTreeSort.Name = "buttonTreeSort";
-            this.buttonTreeSort.Size = new System.Drawing.Size(97, 23);
+            this.buttonTreeSort.Size = new System.Drawing.Size(112, 23);
             this.buttonTreeSort.TabIndex = 3;
             this.buttonTreeSort.Text = "Сортировать";
             this.buttonTreeSort.UseVisualStyleBackColor = true;
@@ -198,34 +199,36 @@
             // 
             // panelButtons
             // 
+            this.panelButtons.BackColor = System.Drawing.Color.Transparent;
             this.panelButtons.Controls.Add(this.buttonCollapse);
             this.panelButtons.Controls.Add(this.buttonExpand);
             this.panelButtons.Controls.Add(this.buttonTreeSort);
             this.panelButtons.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelButtons.Location = new System.Drawing.Point(3, 3);
             this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(372, 43);
+            this.panelButtons.Size = new System.Drawing.Size(375, 43);
             this.panelButtons.TabIndex = 4;
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(2, 2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(386, 451);
+            this.tabControl1.Size = new System.Drawing.Size(389, 453);
             this.tabControl1.TabIndex = 5;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.panelButtons);
             this.tabPage1.Controls.Add(this.globalTree);
+            this.tabPage1.Controls.Add(this.panelButtons);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(378, 425);
+            this.tabPage1.Size = new System.Drawing.Size(381, 427);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Объекты";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -236,7 +239,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(378, 425);
+            this.tabPage2.Size = new System.Drawing.Size(381, 427);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Быстрый доступ";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -244,14 +247,15 @@
             // quickTree
             // 
             this.quickTree.ContextMenuStrip = this.contextMenuQuick;
+            this.quickTree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.quickTree.HideSelection = false;
             this.quickTree.HotTracking = true;
             this.quickTree.ImageIndex = 0;
             this.quickTree.ImageList = this.imageList1;
-            this.quickTree.Location = new System.Drawing.Point(0, 6);
+            this.quickTree.Location = new System.Drawing.Point(3, 3);
             this.quickTree.Name = "quickTree";
             this.quickTree.SelectedImageIndex = 0;
-            this.quickTree.Size = new System.Drawing.Size(372, 416);
+            this.quickTree.Size = new System.Drawing.Size(375, 421);
             this.quickTree.TabIndex = 1;
             this.quickTree.BeforeCollapse += new System.Windows.Forms.TreeViewCancelEventHandler(this.quickTree_BeforeCollapse);
             this.quickTree.MouseClick += new System.Windows.Forms.MouseEventHandler(this.quickTree_MouseClick);

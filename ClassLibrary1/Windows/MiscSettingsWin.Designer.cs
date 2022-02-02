@@ -30,6 +30,7 @@
         {
             this.checkBoxSetDatePrefix = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.showLightRadiusVob = new System.Windows.Forms.CheckBox();
             this.autoRemoveLevelCompo = new System.Windows.Forms.CheckBox();
             this.checkBoxAutoCompileUncompiled = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscAutoCompile = new System.Windows.Forms.CheckBox();
@@ -37,7 +38,7 @@
             this.checkBoxLastZenAuto = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
             this.btnMiscSetApply = new System.Windows.Forms.Button();
-            this.showLightRadiusVob = new System.Windows.Forms.CheckBox();
+            this.checkBoxAutoRemoveAllVisuals = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +54,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxAutoRemoveAllVisuals);
             this.groupBox1.Controls.Add(this.showLightRadiusVob);
             this.groupBox1.Controls.Add(this.autoRemoveLevelCompo);
             this.groupBox1.Controls.Add(this.checkBoxAutoCompileUncompiled);
@@ -66,6 +68,16 @@
             this.groupBox1.Size = new System.Drawing.Size(526, 263);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // showLightRadiusVob
+            // 
+            this.showLightRadiusVob.AutoSize = true;
+            this.showLightRadiusVob.Location = new System.Drawing.Point(13, 217);
+            this.showLightRadiusVob.Name = "showLightRadiusVob";
+            this.showLightRadiusVob.Size = new System.Drawing.Size(234, 17);
+            this.showLightRadiusVob.TabIndex = 7;
+            this.showLightRadiusVob.Text = "Показывать радиус действия zCVobLight";
+            this.showLightRadiusVob.UseVisualStyleBackColor = true;
             // 
             // autoRemoveLevelCompo
             // 
@@ -100,7 +112,7 @@
             // checkBoxMiscFullPath
             // 
             this.checkBoxMiscFullPath.AutoSize = true;
-            this.checkBoxMiscFullPath.Location = new System.Drawing.Point(13, 88);
+            this.checkBoxMiscFullPath.Location = new System.Drawing.Point(13, 68);
             this.checkBoxMiscFullPath.Name = "checkBoxMiscFullPath";
             this.checkBoxMiscFullPath.Size = new System.Drawing.Size(205, 17);
             this.checkBoxMiscFullPath.TabIndex = 3;
@@ -111,12 +123,14 @@
             // checkBoxLastZenAuto
             // 
             this.checkBoxLastZenAuto.AutoSize = true;
-            this.checkBoxLastZenAuto.Location = new System.Drawing.Point(13, 65);
+            this.checkBoxLastZenAuto.Enabled = false;
+            this.checkBoxLastZenAuto.Location = new System.Drawing.Point(265, 68);
             this.checkBoxLastZenAuto.Name = "checkBoxLastZenAuto";
             this.checkBoxLastZenAuto.Size = new System.Drawing.Size(244, 17);
             this.checkBoxLastZenAuto.TabIndex = 2;
             this.checkBoxLastZenAuto.Text = "Открывать последний ZEN автоматически";
             this.checkBoxLastZenAuto.UseVisualStyleBackColor = true;
+            this.checkBoxLastZenAuto.Visible = false;
             // 
             // checkBoxMiscExitAsk
             // 
@@ -138,15 +152,15 @@
             this.btnMiscSetApply.UseVisualStyleBackColor = true;
             this.btnMiscSetApply.Click += new System.EventHandler(this.btnMiscSetApply_Click);
             // 
-            // showLightRadiusVob
+            // checkBoxAutoRemoveAllVisuals
             // 
-            this.showLightRadiusVob.AutoSize = true;
-            this.showLightRadiusVob.Location = new System.Drawing.Point(13, 196);
-            this.showLightRadiusVob.Name = "showLightRadiusVob";
-            this.showLightRadiusVob.Size = new System.Drawing.Size(234, 17);
-            this.showLightRadiusVob.TabIndex = 7;
-            this.showLightRadiusVob.Text = "Показывать радиус действия zCVobLight";
-            this.showLightRadiusVob.UseVisualStyleBackColor = true;
+            this.checkBoxAutoRemoveAllVisuals.AutoSize = true;
+            this.checkBoxAutoRemoveAllVisuals.Location = new System.Drawing.Point(13, 194);
+            this.checkBoxAutoRemoveAllVisuals.Name = "checkBoxAutoRemoveAllVisuals";
+            this.checkBoxAutoRemoveAllVisuals.Size = new System.Drawing.Size(425, 17);
+            this.checkBoxAutoRemoveAllVisuals.TabIndex = 8;
+            this.checkBoxAutoRemoveAllVisuals.Text = "Автоматически удалять visual для всех zCVobLevelCompo при сохранении ZEN";
+            this.checkBoxAutoRemoveAllVisuals.UseVisualStyleBackColor = true;
             // 
             // MiscSettingsWin
             // 
@@ -182,5 +196,6 @@
         public System.Windows.Forms.CheckBox checkBoxAutoCompileUncompiled;
         public System.Windows.Forms.CheckBox autoRemoveLevelCompo;
         public System.Windows.Forms.CheckBox showLightRadiusVob;
+        public System.Windows.Forms.CheckBox checkBoxAutoRemoveAllVisuals;
     }
 }

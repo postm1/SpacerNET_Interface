@@ -44,6 +44,8 @@
             this.trackBarMusicVolume = new System.Windows.Forms.TrackBar();
             this.buttonOffMusic = new System.Windows.Forms.Button();
             this.groupBoxSoundsMisc = new System.Windows.Forms.GroupBox();
+            this.checkBoxShutSounds = new System.Windows.Forms.CheckBox();
+            this.checkBoxConstSound = new System.Windows.Forms.CheckBox();
             this.groupBoxSound.SuspendLayout();
             this.groupBoxMusic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarMusicVolume)).BeginInit();
@@ -71,7 +73,7 @@
             // 
             // buttonStopAllSounds
             // 
-            this.buttonStopAllSounds.Location = new System.Drawing.Point(10, 32);
+            this.buttonStopAllSounds.Location = new System.Drawing.Point(10, 19);
             this.buttonStopAllSounds.Name = "buttonStopAllSounds";
             this.buttonStopAllSounds.Size = new System.Drawing.Size(195, 32);
             this.buttonStopAllSounds.TabIndex = 2;
@@ -164,6 +166,7 @@
             this.checkBoxShutMusic.Text = "Отключать музыку при загрузке ";
             this.checkBoxShutMusic.UseVisualStyleBackColor = true;
             this.checkBoxShutMusic.CheckedChanged += new System.EventHandler(this.checkBoxShutMusic_CheckedChanged);
+            this.checkBoxShutMusic.ChangeUICues += new System.Windows.Forms.UICuesEventHandler(this.checkBoxShutMusic_ChangeUICues);
             // 
             // buttonMusicOn
             // 
@@ -205,13 +208,37 @@
             // 
             // groupBoxSoundsMisc
             // 
+            this.groupBoxSoundsMisc.Controls.Add(this.checkBoxConstSound);
+            this.groupBoxSoundsMisc.Controls.Add(this.checkBoxShutSounds);
             this.groupBoxSoundsMisc.Controls.Add(this.buttonStopAllSounds);
-            this.groupBoxSoundsMisc.Location = new System.Drawing.Point(392, 192);
+            this.groupBoxSoundsMisc.Location = new System.Drawing.Point(392, 184);
             this.groupBoxSoundsMisc.Name = "groupBoxSoundsMisc";
-            this.groupBoxSoundsMisc.Size = new System.Drawing.Size(216, 100);
+            this.groupBoxSoundsMisc.Size = new System.Drawing.Size(216, 108);
             this.groupBoxSoundsMisc.TabIndex = 10;
             this.groupBoxSoundsMisc.TabStop = false;
             this.groupBoxSoundsMisc.Text = "Звуки";
+            // 
+            // checkBoxShutSounds
+            // 
+            this.checkBoxShutSounds.AutoSize = true;
+            this.checkBoxShutSounds.Location = new System.Drawing.Point(10, 57);
+            this.checkBoxShutSounds.Name = "checkBoxShutSounds";
+            this.checkBoxShutSounds.Size = new System.Drawing.Size(170, 17);
+            this.checkBoxShutSounds.TabIndex = 13;
+            this.checkBoxShutSounds.Text = "Глушить звуки при загрузке";
+            this.checkBoxShutSounds.UseVisualStyleBackColor = true;
+            this.checkBoxShutSounds.CheckedChanged += new System.EventHandler(this.checkBoxShutSounds_CheckedChanged);
+            // 
+            // checkBoxConstSound
+            // 
+            this.checkBoxConstSound.AutoSize = true;
+            this.checkBoxConstSound.Location = new System.Drawing.Point(10, 80);
+            this.checkBoxConstSound.Name = "checkBoxConstSound";
+            this.checkBoxConstSound.Size = new System.Drawing.Size(157, 17);
+            this.checkBoxConstSound.TabIndex = 14;
+            this.checkBoxConstSound.Text = "Постоянно глушить звуки";
+            this.checkBoxConstSound.UseVisualStyleBackColor = true;
+            this.checkBoxConstSound.CheckedChanged += new System.EventHandler(this.checkBoxConstSound_CheckedChanged);
             // 
             // SoundWin
             // 
@@ -230,12 +257,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Звуки и музыка";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SoundWin_FormClosing);
+            this.Shown += new System.EventHandler(this.SoundWin_Shown);
             this.groupBoxSound.ResumeLayout(false);
             this.groupBoxSound.PerformLayout();
             this.groupBoxMusic.ResumeLayout(false);
             this.groupBoxMusic.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarMusicVolume)).EndInit();
             this.groupBoxSoundsMisc.ResumeLayout(false);
+            this.groupBoxSoundsMisc.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -258,5 +287,7 @@
         private System.Windows.Forms.Button buttonMusicOn;
         public System.Windows.Forms.CheckBox checkBoxShutMusic;
         private System.Windows.Forms.GroupBox groupBoxSoundsMisc;
+        public System.Windows.Forms.CheckBox checkBoxShutSounds;
+        public System.Windows.Forms.CheckBox checkBoxConstSound;
     }
 }

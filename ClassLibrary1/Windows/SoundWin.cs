@@ -35,11 +35,11 @@ namespace SpacerUnion
             buttonMusicOn.Text = Localizator.Get("buttonMusicOn");
             checkBoxShutMusic.Text = Localizator.Get("checkBoxShutMusic");
             labelMusicVolume.Text = Localizator.Get("labelMusicVolume");
-            checkBoxShutMusic.Text = Localizator.Get("checkBoxShutMusic");
             groupBoxSoundsMisc.Text = Localizator.Get("groupBoxSound");
             buttonStopAllSounds.Text = Localizator.Get("buttonStopAllSounds");
-
-
+            checkBoxShutSounds.Text = Localizator.Get("checkBoxShutSounds");
+            checkBoxConstSound.Text = Localizator.Get("checkBoxConstSound");
+            
         }
 
 
@@ -193,6 +193,50 @@ namespace SpacerUnion
                     Imports.Extern_PlaySound();
                 }
             }
+        }
+
+        private void checkBoxShutSounds_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+            Imports.Stack_PushString("soundZenOff");
+            Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
+        }
+
+        private void checkBoxShutMusic_ChangeUICues(object sender, UICuesEventArgs e)
+        {
+            
+        }
+
+        private void SoundWin_Shown(object sender, EventArgs e)
+        {
+            Imports.Stack_PushString("musicZenOff");
+            bool musicOff = Convert.ToBoolean(Imports.Extern_GetSetting());
+            SpacerNET.soundWin.checkBoxShutMusic.Checked = musicOff;
+
+
+            Imports.Stack_PushString("soundZenOff");
+            bool soundOff = Convert.ToBoolean(Imports.Extern_GetSetting());
+            SpacerNET.soundWin.checkBoxShutSounds.Checked = soundOff;
+
+
+            Imports.Stack_PushString("alwaysShutSounds");
+            bool soundConst = Convert.ToBoolean(Imports.Extern_GetSetting());
+            SpacerNET.soundWin.checkBoxConstSound.Checked = soundConst;
+
+
+            Imports.Stack_PushString("musicVolume");
+            int volume = Imports.Extern_GetSetting();
+            SpacerNET.soundWin.trackBarMusicVolume.Value = volume;
+
+
+            SpacerNET.soundWin.UpdateAll();
+        }
+
+        private void checkBoxConstSound_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+            Imports.Stack_PushString("alwaysShutSounds");
+            Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
         }
     }
 }

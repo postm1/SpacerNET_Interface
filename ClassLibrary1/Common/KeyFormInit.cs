@@ -366,6 +366,8 @@ namespace SpacerUnion.Windows
             row = new string[] { "WIN_HIDEALL", Localizator.Get("WIN_HIDEALL"), "" };
             dataGridKeys.Rows.Add(row);
 
+            row = new string[] { "GAME_MODE", Localizator.Get("GAME_MODE"), "" };
+            dataGridKeys.Rows.Add(row);
 
             row = new string[] { "OPEN_CONTAINER", Localizator.Get("OPEN_CONTAINER"), "" };
             dataGridKeys.Rows.Add(row);
