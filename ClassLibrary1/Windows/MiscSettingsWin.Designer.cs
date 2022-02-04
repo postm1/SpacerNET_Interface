@@ -30,6 +30,7 @@
         {
             this.checkBoxSetDatePrefix = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxAutoRemoveAllVisuals = new System.Windows.Forms.CheckBox();
             this.showLightRadiusVob = new System.Windows.Forms.CheckBox();
             this.autoRemoveLevelCompo = new System.Windows.Forms.CheckBox();
             this.checkBoxAutoCompileUncompiled = new System.Windows.Forms.CheckBox();
@@ -38,7 +39,7 @@
             this.checkBoxLastZenAuto = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
             this.btnMiscSetApply = new System.Windows.Forms.Button();
-            this.checkBoxAutoRemoveAllVisuals = new System.Windows.Forms.CheckBox();
+            this.checkBoxSetNearestVobCam = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +55,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxSetNearestVobCam);
             this.groupBox1.Controls.Add(this.checkBoxAutoRemoveAllVisuals);
             this.groupBox1.Controls.Add(this.showLightRadiusVob);
             this.groupBox1.Controls.Add(this.autoRemoveLevelCompo);
@@ -65,9 +67,19 @@
             this.groupBox1.Controls.Add(this.checkBoxSetDatePrefix);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(526, 263);
+            this.groupBox1.Size = new System.Drawing.Size(624, 263);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // checkBoxAutoRemoveAllVisuals
+            // 
+            this.checkBoxAutoRemoveAllVisuals.AutoSize = true;
+            this.checkBoxAutoRemoveAllVisuals.Location = new System.Drawing.Point(13, 194);
+            this.checkBoxAutoRemoveAllVisuals.Name = "checkBoxAutoRemoveAllVisuals";
+            this.checkBoxAutoRemoveAllVisuals.Size = new System.Drawing.Size(425, 17);
+            this.checkBoxAutoRemoveAllVisuals.TabIndex = 8;
+            this.checkBoxAutoRemoveAllVisuals.Text = "Автоматически удалять visual для всех zCVobLevelCompo при сохранении ZEN";
+            this.checkBoxAutoRemoveAllVisuals.UseVisualStyleBackColor = true;
             // 
             // showLightRadiusVob
             // 
@@ -144,7 +156,7 @@
             // 
             // btnMiscSetApply
             // 
-            this.btnMiscSetApply.Location = new System.Drawing.Point(226, 281);
+            this.btnMiscSetApply.Location = new System.Drawing.Point(277, 281);
             this.btnMiscSetApply.Name = "btnMiscSetApply";
             this.btnMiscSetApply.Size = new System.Drawing.Size(115, 23);
             this.btnMiscSetApply.TabIndex = 11;
@@ -152,21 +164,22 @@
             this.btnMiscSetApply.UseVisualStyleBackColor = true;
             this.btnMiscSetApply.Click += new System.EventHandler(this.btnMiscSetApply_Click);
             // 
-            // checkBoxAutoRemoveAllVisuals
+            // checkBoxSetNearestVobCam
             // 
-            this.checkBoxAutoRemoveAllVisuals.AutoSize = true;
-            this.checkBoxAutoRemoveAllVisuals.Location = new System.Drawing.Point(13, 194);
-            this.checkBoxAutoRemoveAllVisuals.Name = "checkBoxAutoRemoveAllVisuals";
-            this.checkBoxAutoRemoveAllVisuals.Size = new System.Drawing.Size(425, 17);
-            this.checkBoxAutoRemoveAllVisuals.TabIndex = 8;
-            this.checkBoxAutoRemoveAllVisuals.Text = "Автоматически удалять visual для всех zCVobLevelCompo при сохранении ZEN";
-            this.checkBoxAutoRemoveAllVisuals.UseVisualStyleBackColor = true;
+            this.checkBoxSetNearestVobCam.AutoSize = true;
+            this.checkBoxSetNearestVobCam.Location = new System.Drawing.Point(13, 91);
+            this.checkBoxSetNearestVobCam.Name = "checkBoxSetNearestVobCam";
+            this.checkBoxSetNearestVobCam.Size = new System.Drawing.Size(606, 17);
+            this.checkBoxSetNearestVobCam.TabIndex = 9;
+            this.checkBoxSetNearestVobCam.Text = "Устанавливать камеру на воб с именем VOB_SPACER_CAMERA_START или zCVobStartpoint " +
+    "после загрузки ZEN";
+            this.checkBoxSetNearestVobCam.UseVisualStyleBackColor = true;
             // 
             // MiscSettingsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 316);
+            this.ClientSize = new System.Drawing.Size(648, 316);
             this.Controls.Add(this.btnMiscSetApply);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -197,5 +210,6 @@
         public System.Windows.Forms.CheckBox autoRemoveLevelCompo;
         public System.Windows.Forms.CheckBox showLightRadiusVob;
         public System.Windows.Forms.CheckBox checkBoxAutoRemoveAllVisuals;
+        public System.Windows.Forms.CheckBox checkBoxSetNearestVobCam;
     }
 }

@@ -489,10 +489,14 @@ namespace SpacerUnion.Common
             words.Add("checkBoxConstSound", new List<string> { "Постоянно глушить звуки", "Always shut all sounds", "", "Zawsze wyłączaj wszystkie dźwięki" });
             words.Add("OnlyOneVobCanBe", new List<string> { "Воб такого типа может быть на карте ТОЛЬКО ОДИН!", "Only ONE vob like this can be on the map!", "", "Tylko jeden vob takiego typu może znajdować się na mapie!" });
 
-            words.Add("checkBoxAutoRemoveAllVisuals", new List<string> { "Автоматически удалять visual для всех zCVobLevelCompo при сохранении ZEN", "Auto removing visual for all zCVobLevelCompo before saving ZEN", "", "" });
-            words.Add("GAME_MODE", new List<string> { "Играть за героя", "Play the hero", "", "" });
-            words.Add("ZEN_BAD_NAME", new List<string> { "В имени ZEN не может содержаться '.3DS' ! Переименуйте файл!", "ZEN's name can't contain '.3DS' ! Rename the file.", "", "" });
+            words.Add("checkBoxAutoRemoveAllVisuals", new List<string> { "Автоматически удалять visual для всех zCVobLevelCompo при сохранении ZEN", "Auto removing visual for all zCVobLevelCompo before saving ZEN", "", "Automatyczne usuwanie visuali dla wszystkich zCVobLevelCompo przed zapisaniem ZENA" });
+            words.Add("GAME_MODE", new List<string> { "Играть за героя", "Play the hero", "", "Zagraj bohaterem" });
+            words.Add("ZEN_BAD_NAME", new List<string> { "В имени ZEN не может содержаться '.3DS' ! Переименуйте файл!", "ZEN's name can't contain '.3DS' ! Rename the file.", "", "Nazwa ZEN nie może zawierać '.3DS' ! Zmień nazwę pliku." });
+            words.Add("CONTEXTMENU_TREE_RESTORE_POS", new List<string> { "Восстановить позицию воба", "Restore vob's position", "", "Przywróć pozycję voba" });
 
+            words.Add("CANT_COPY_INITSELF", new List<string> { "Нельзя скопировать и вставить глобального родителя в самого себя!", "Can't copy and insert global parent vob into itself!", "", "Nie można skopiować i dodać globalnego rodzica voba do siebie!" });
+            words.Add("checkBoxSetNearestVobCam", new List<string> { "Устанавливать камеру на воб с именем VOB_SPACER_CAMERA_START или zCVobStartpoint после загрузки ZEN", "Set the camera near the vob with name VOB_SPACER_CAMERA_START or zCVobStartpoint after loading ZEN", "", "Ustaw kamerę w pobliżu voba z nazwą VOB_SPACER_CAMERA_START lub zCVobStartpoint po załadowaniu ZENA" });
+            
         }
     }
 }

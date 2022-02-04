@@ -30,7 +30,7 @@ namespace SpacerUnion.Windows
             autoRemoveLevelCompo.Text = Localizator.Get("autoRemoveLevelCompo");
             showLightRadiusVob.Text = Localizator.Get("showLightRadiusVob");
             checkBoxAutoRemoveAllVisuals.Text = Localizator.Get("checkBoxAutoRemoveAllVisuals");
-            
+            checkBoxSetNearestVobCam.Text = Localizator.Get("checkBoxSetNearestVobCam");
 
 
             btnMiscSetApply.Text = Localizator.Get("BTN_APPLY");
@@ -74,6 +74,9 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("checkBoxAutoRemoveAllVisuals");
             SpacerNET.miscSetWin.autoRemoveLevelCompo.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
+            Imports.Stack_PushString("checkBoxSetNearestVobCam");
+            SpacerNET.miscSetWin.checkBoxSetNearestVobCam.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
             
         }
 
@@ -103,6 +106,11 @@ namespace SpacerUnion.Windows
 
             Imports.Stack_PushString("checkBoxAutoRemoveAllVisuals");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxAutoRemoveAllVisuals.Checked));
+
+            Imports.Stack_PushString("checkBoxSetNearestVobCam");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxSetNearestVobCam.Checked));
+
+            
 
         }
 

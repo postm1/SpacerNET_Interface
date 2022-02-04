@@ -46,11 +46,12 @@ namespace SpacerUnion
             contextMenuStripTree.Items[1].Text = Localizator.Get("CONTEXTMENU_TREE_INSERT_VOBTREE_GLOBAL");
             contextMenuStripTree.Items[2].Text = Localizator.Get("CONTEXTMENU_TREE_SAVE_VOBTREE");
             contextMenuStripTree.Items[3].Text = Localizator.Get("CONTEXTMENU_TREE_REMOVE_VOB");
-
+            //---------------------------------
             contextMenuStripTree.Items[5].Text = Localizator.Get("CONTEXTMENU_TREE_ADD_PARENT");
             contextMenuStripTree.Items[6].Text = Localizator.Get("CONTEXTMENU_TREE_REMOVE_PARENT");
             contextMenuStripTree.Items[7].Text = Localizator.Get("CONTEXTMENU_TREE_ADD_VOB");
-
+            //---------------------------------
+            contextMenuStripTree.Items[9].Text = Localizator.Get("CONTEXTMENU_TREE_RESTORE_POS");
 
             tabControl1.TabPages[0].Text = Localizator.Get("TAB_PAGE_OBJECTS");
             tabControl1.TabPages[1].Text = Localizator.Get("QUICKVOBS_ACCESS");
@@ -58,8 +59,8 @@ namespace SpacerUnion
             contextMenuQuick.Items[0].Text = Localizator.Get("CONTEXTMENU_TREE_REMOVE_PARENT");
             contextMenuQuick.Items[1].Text = Localizator.Get("CONTEXTMENU_FAST_REMOVE_VOB");
 
-            
 
+            
 
         }
 
@@ -1354,6 +1355,30 @@ namespace SpacerUnion
             SpacerNET.form.Focus();
         }
 
+
+        void AddVobInQuickList(TreeNode node, uint vob)
+        {
+            if (!quickVobMan.AlreadyInList(vob))
+            {
+                var entry = quickVobMan.Add();
+
+                TreeNodeCollection nodes = SpacerNET.objTreeWin.quickTree.Nodes;
+
+                int classNameFoundPos = -1;
+
+                classNameFoundPos = CreateAndGetFolderQuickTree(Localizator.Get("QUICKVOBS_ACCESS"));
+
+                TreeNode newNode = nodes[classNameFoundPos].Nodes.Add(node.Name);
+                newNode.Tag = node.Tag;
+                newNode.ImageIndex = 1;
+                newNode.SelectedImageIndex = 1;
+                newNode.Text = node.Text;
+
+                entry.quickNode = newNode;
+                entry.realNode = node;
+            }
+        }
+
         private void AddQuickVobToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (globalTree.SelectedNode == null)
@@ -1374,28 +1399,9 @@ namespace SpacerUnion
 
             uint.TryParse(tag, out vob);
 
-            if (!quickVobMan.AlreadyInList(vob))
-            {
-                var entry = quickVobMan.Add();
-
-                TreeNodeCollection nodes = SpacerNET.objTreeWin.quickTree.Nodes;
-
-                int classNameFoundPos = -1;
-
-                classNameFoundPos = CreateAndGetFolderQuickTree(Localizator.Get("QUICKVOBS_ACCESS"));
+            AddVobInQuickList(node, vob);
 
 
-
-
-                TreeNode newNode = nodes[classNameFoundPos].Nodes.Add(node.Name);
-                newNode.Tag = node.Tag;
-                newNode.ImageIndex = 1;
-                newNode.SelectedImageIndex = 1;
-                newNode.Text = node.Text;
-
-                entry.quickNode = newNode;
-                entry.realNode = node;
-            }
         }
 
         private void toolStripClearGlobalPar_Click(object sender, EventArgs e)
@@ -1460,6 +1466,47 @@ namespace SpacerUnion
             Imports.Extern_SelectVobSync(addr);
 
             SpacerNET.form.Focus();
+        }
+
+        private void toolStripMenuRestorePos_Click(object sender, EventArgs e)
+        {
+            if (globalTree.SelectedNode == null)
+            {
+                return;
+            }
+
+            TreeNode node = globalTree.SelectedNode;
+
+            string tag = node.Tag.ToString();
+
+            if (tag.Length == 0 || tag == Constants.TAG_FOLDER)
+            {
+                return;
+            }
+
+            uint vob = 0;
+
+            uint.TryParse(tag, out vob);
+
+
+            ConsoleEx.WriteLineGreen("RestorePos: vob " + Utils.ToHex(vob));
+
+            Imports.Extern_RestorePosition(vob);
+            SpacerNET.form.Focus();
+
+        }
+
+        [DllExport]
+        public static void OnRemoveGlobalParent()
+        {
+            var globalEntry = quickVobMan.GetGlobalParentNode();
+
+            if (globalEntry != null && globalEntry.quickNode != null)
+            {
+                SpacerNET.objTreeWin.quickTree.Nodes.Remove(globalEntry.quickNode);
+                globalEntry.Clean();
+
+            }
         }
     }
 }

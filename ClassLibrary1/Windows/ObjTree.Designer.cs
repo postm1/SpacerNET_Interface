@@ -54,6 +54,8 @@
             this.contextMenuQuick = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripClearGlobalPar = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuRemoveQuickVob = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuRestorePos = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripTree.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -92,9 +94,11 @@
             this.toolStripSeparator1,
             this.сделатьРодителемДляНовыхВобовToolStripMenuItem,
             this.очиститьРодителяДляВобовToolStripMenuItem,
-            this.AddQuickVobToolStripMenuItem});
+            this.AddQuickVobToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.toolStripMenuRestorePos});
             this.contextMenuStripTree.Name = "contextMenuStrip1";
-            this.contextMenuStripTree.Size = new System.Drawing.Size(283, 164);
+            this.contextMenuStripTree.Size = new System.Drawing.Size(283, 214);
             this.contextMenuStripTree.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripTree_Opening);
             // 
             // toolStripMenuItem2
@@ -284,6 +288,18 @@
             this.toolStripMenuRemoveQuickVob.Text = "Удалить воб из быстрого доступа";
             this.toolStripMenuRemoveQuickVob.Click += new System.EventHandler(this.toolStripMenuRemoveQuickVob_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(279, 6);
+            // 
+            // toolStripMenuRestorePos
+            // 
+            this.toolStripMenuRestorePos.Name = "toolStripMenuRestorePos";
+            this.toolStripMenuRestorePos.Size = new System.Drawing.Size(282, 22);
+            this.toolStripMenuRestorePos.Text = "Восстановить позицию воба";
+            this.toolStripMenuRestorePos.Click += new System.EventHandler(this.toolStripMenuRestorePos_Click);
+            // 
             // ObjTree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,5 +355,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuQuick;
         private System.Windows.Forms.ToolStripMenuItem toolStripClearGlobalPar;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuRemoveQuickVob;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuRestorePos;
     }
 }
