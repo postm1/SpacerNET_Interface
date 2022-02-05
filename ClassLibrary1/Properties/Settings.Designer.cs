@@ -358,5 +358,17 @@ namespace SpacerUnion.Properties {
                 this["GrassWinShowNext"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Microsoft Sans Serif; 8pt")]
+        public string PropWindowFont {
+            get {
+                return ((string)(this["PropWindowFont"]));
+            }
+            set {
+                this["PropWindowFont"] = value;
+            }
+        }
     }
 }

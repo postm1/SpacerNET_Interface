@@ -183,11 +183,17 @@ namespace SpacerUnion
             toolStripButtonGratt.Text = Localizator.Get("MENU_TOP_VIEW_ALTCONTROLLER");
             toolStripButtonMaterial.Text = Localizator.Get("MENU_TOP_VIEW_POLYGON");
             toolStripButtonGrass.Text = Localizator.Get("MENU_TOP_VIEW_GRASS");
+            toolStripButtonMulti.Text = Localizator.Get("MENU_TOP_VIEW_MULTI");
 
             freezeTimeToolStripMenuItem.Text = Localizator.Get("MENU_TOP_VIEW_FREEZETIME");
 
             renderModeToolStripMenuItem.Text = Localizator.Get("MENU_TOP_VIEW_RENDERMODE");
-            
+
+
+            toolStripButtonMaterial.ToolTipText = toolStripButtonMaterial.Text;
+            toolStripButtonGrass.ToolTipText = toolStripButtonGrass.Text;
+            toolStripButtonGratt.ToolTipText = toolStripButtonGratt.Text;
+            toolStripButtonMulti.ToolTipText = toolStripButtonMulti.Text;
         }
 
 
@@ -1374,9 +1380,14 @@ namespace SpacerUnion
 
             Imports.Stack_PushString("bToggleWorkMode");
 
-            var btn = this.toolStripTop.Items[15] as ToolStripButton;
 
-            if (item.Checked) btn.Checked = false;
+            if (item.Checked)
+            {
+                toolStripButtonGrass.Checked = false;
+                toolStripButtonMulti.Checked = false;
+            }
+
+
 
             int mode = item.Checked ? 1 : 0;
             Imports.Extern_SetSetting(mode);
@@ -1390,14 +1401,13 @@ namespace SpacerUnion
 
             int mode = item.Checked ? 2 : 0;
 
-            var btn = this.toolStripTop.Items[14] as ToolStripButton;
 
             if (item.Checked)
             {
                 SpacerNET.grassWin.Show();
 
-                btn.Checked = false;
-
+                toolStripButtonMaterial.Checked = false;
+                toolStripButtonMulti.Checked = false;
             }
             else
             {
@@ -1495,8 +1505,12 @@ namespace SpacerUnion
 
             int mode = item.Checked ? 3 : 0;
 
-            (toolStripTop.Items[14] as ToolStripButton).Checked = false;
-            (toolStripTop.Items[15] as ToolStripButton).Checked = false;
+            if (item.Checked)
+            {
+                toolStripButtonMaterial.Checked = false;
+                toolStripButtonGrass.Checked = false;
+            }
+
 
 
             Imports.Stack_PushString("bToggleWorkMode");

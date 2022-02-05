@@ -26,12 +26,13 @@ namespace SpacerUnion
         static TPropEditType currentFieldtype;
         static TreeNode showFirst;
         static bool isItemSelected;
+        static bool isMaterialSelected;
 
         static string currentContents;
         static int containsIndex;
         static TreeNode containsNode;
         static bool vobHasContainer = false;
-        
+        static bool updateRenderWindow = false;
 
         
 
@@ -46,16 +47,16 @@ namespace SpacerUnion
         {
             this.Text = Localizator.Get("WIN_PROPS_TITLE");
             Label_Backup.Text = Localizator.Get("Label_Backup");
-            buttonApplyOnVob.Text = Localizator.Get("buttonApplyOnVob");
+            buttonApplyOnVob.Text = Localizator.Get("BTN_APPLY");
             buttonFileOpen.Text = Localizator.Get("buttonFileOpen");
             buttonRestoreVobProp.Text = Localizator.Get("buttonRestoreVobProp");
             buttonOpenContainer.Text = Localizator.Get("buttonOpenContainer");
             tabControlProps.TabPages[0].Text = Localizator.Get("tabControlProps_0");
             tabControlProps.TabPages[1].Text = Localizator.Get("tabControlProps_1");
             tabControlProps.TabPages[2].Text = Localizator.Get("tabControlProps_2");
+            tabControlProps.TabPages[3].Text = Localizator.Get("tabControlProps_3");
 
-
-           // groupBoxEditBbox.Text = Localizator.Get("groupBoxEditBbox");
+            // groupBoxEditBbox.Text = Localizator.Get("groupBoxEditBbox");
             buttonResetBbox.Text = Localizator.Get("WIN_CANCEL_BUTTON");
             buttonApplyBbox.Text = Localizator.Get("BTN_APPLY");
 
@@ -70,6 +71,13 @@ namespace SpacerUnion
 
             dataGridViewItems.Columns[0].HeaderText = Localizator.Get("ITEMS_COLUMN_INSTANCE");
             dataGridViewItems.Columns[1].HeaderText = Localizator.Get("ITEMS_COLUMN_COUNT");
+
+
+            checkBoxBoldFontProps.Text = Localizator.Get("checkBoxBoldFontProps");
+            checkBoxFontUnderstroke.Text = Localizator.Get("checkBoxFontUnderstroke");
+            buttonSelectFontProps.Text = Localizator.Get("buttonSelectFontProps");
+            buttonResetFontDefault.Text = Localizator.Get("buttonResetFontDefault");
+            labelChangeFontStyleText.Text = Localizator.Get("labelChangeFontStyleText");
         }
 
         public static void ChangeProp(string propName, string value)
@@ -96,7 +104,12 @@ namespace SpacerUnion
             TreeView tree = SpacerNET.propWin.treeViewProp;
 
             tree.Nodes.Clear();
+
+
+
             EnableTab(SpacerNET.propWin.tabControlProps.TabPages[2], false);
+            EnableTab(SpacerNET.propWin.tabControlProps.TabPages[1], true);
+            EnableTab(SpacerNET.propWin.tabControlProps.TabPages[3], true);
             SpacerNET.propWin.tabControlProps.SelectedIndex = 0;
 
             SpacerNET.propWin.HideAllInput();
@@ -154,6 +167,17 @@ namespace SpacerUnion
             else
             {
                 isItemSelected = false;
+            }
+
+            if (className == "zCMaterial")
+            {
+                isMaterialSelected = true;
+            }
+            else
+            {
+                isMaterialSelected = false;
+                EnableTab(SpacerNET.propWin.tabControlProps.TabPages[1], false);
+                EnableTab(SpacerNET.propWin.tabControlProps.TabPages[2], false);
             }
 
             CProperty.originalStrPropsWindow = inputStr;
@@ -322,6 +346,8 @@ namespace SpacerUnion
                 if (baseNode != null)
                 {
                     TreeNode node = baseNode.Nodes.Add(props[i].Name + ": " + props[i].ShowValue());
+
+                    SetFieldBold(props[i].Name, node, className);
                     node.SelectedImageIndex = 5;
                     node.ImageIndex = 5;
                     node.Tag = i;
@@ -335,6 +361,8 @@ namespace SpacerUnion
                 else
                 {
                     TreeNode node = tree.Nodes.Add(props[i].Name + ": " + props[i].ShowValue());
+                   
+                    SetFieldBold(props[i].Name, node, className);
                     node.SelectedImageIndex = 5;
                     node.ImageIndex = 5;
                     node.Tag = i;
@@ -367,36 +395,33 @@ namespace SpacerUnion
             {
                 tree.SelectedNode = showFirst;
             }
-            
-
-            //UnionNET.objWin.panelButtons.Visible = true;
-
-            // tree.Nodes["Internals"].Collapse();
-
-
-            /*
-            string w = string.PickWord(z, "\n\t", "\n\t");
-
-            while (!w.Contains("["))
-            {
-                CProperty ele = new CProperty();
-                ele.Name = w;
-
-                props.Add(ele);
-                //spcCObjPropertyElement* ele = new spcCObjPropertyElement(w.ToChar());
-                //propList.Insert(ele);
-                z++;
-                //w = propString.PickWord(z, "\n\t", "\n\t");
-            }
-
-            */
-
+           
         }
+
+
 
         private void ObjectsWindow_Shown(object sender, EventArgs e)
         {
             this.treeViewProp.ImageList = SpacerNET.objTreeWin.imageList1;
-           
+
+            if (Properties.Settings.Default.PropWindowFont != null)
+            {
+
+                TypeConverter converter = TypeDescriptor.GetConverter(typeof(Font));
+
+                Font font = (Font)converter.ConvertFromString(Properties.Settings.Default.PropWindowFont);
+
+                treeViewProp.Font = font;
+            }
+
+
+            Imports.Stack_PushString("checkBoxBoldFontProps");
+            SpacerNET.propWin.checkBoxBoldFontProps.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("checkBoxFontUnderstroke");
+            SpacerNET.propWin.checkBoxFontUnderstroke.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+
         }
 
         private void treeViewProp_DrawNode(object sender, DrawTreeNodeEventArgs e)
@@ -1280,6 +1305,11 @@ namespace SpacerUnion
                     OpenVobContainer();
                 }
             }
+
+            if (updateRenderWindow)
+            {
+                updateRenderWindow = false;
+            }
         }
 
         private void buttonSelectColor_Click(object sender, EventArgs e)
@@ -1301,6 +1331,99 @@ namespace SpacerUnion
                 textBoxVec3.Text = MyDialog.Color.A.ToString();
             }
                
+        }
+
+        private void buttonSelectFontProps_Click(object sender, EventArgs e)
+        {
+            if (fontDialogSelect.ShowDialog() == DialogResult.OK)
+            {
+
+                treeViewProp.Font = fontDialogSelect.Font;
+                updateRenderWindow = true;
+                SaveFontToSettings();
+            }
+        }
+
+        private void buttonResetFontDefault_Click(object sender, EventArgs e)
+        {
+            treeViewProp.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
+            updateRenderWindow = true;
+            SaveFontToSettings();
+        }
+
+        private void checkBoxBoldFontProps_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkBox = sender as CheckBox;
+
+            if (checkBox.Checked) checkBoxFontUnderstroke.Checked = false;
+
+
+
+            Imports.Stack_PushString("checkBoxBoldFontProps");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxBoldFontProps.Checked));
+
+
+            updateRenderWindow = true;
+        }
+
+        private void checkBoxFontUnderstroke_CheckedChanged(object sender, EventArgs e)
+        {
+            return;
+            var checkBox = sender as CheckBox;
+
+            if (checkBox.Checked) checkBoxBoldFontProps.Checked = false;
+
+
+            Imports.Stack_PushString("checkBoxFontUnderstroke");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxFontUnderstroke.Checked));
+
+            updateRenderWindow = true;
+        }
+
+        public void SaveFontToSettings()
+        {
+            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Font));
+
+            string fontString = converter.ConvertToString(treeViewProp.Font);
+
+            //ConsoleEx.WriteLineRed(fontString);
+
+            Properties.Settings.Default.PropWindowFont = fontString;
+        }
+
+        public static void SetFieldBold(string fieldName, TreeNode node, string className)
+        {
+            TreeView tree = SpacerNET.propWin.treeViewProp;
+
+            FontStyle style = FontStyle.Regular;
+
+            if (SpacerNET.propWin.checkBoxFontUnderstroke.Checked)
+            {
+                style = FontStyle.Underline;
+            }
+            else if (SpacerNET.propWin.checkBoxBoldFontProps.Checked)
+            {
+                style = FontStyle.Bold;
+            }
+
+
+            if (className == "zCMaterial")
+            {
+                if (fieldName == "name" || fieldName == "texture" || fieldName == "matGroup")
+                {
+                    node.NodeFont = new Font(tree.Font, style);
+                }
+            }
+            else
+            {
+                if (fieldName == "vobName" || fieldName == "visual" || fieldName == "cdDyn" || fieldName == "cdStattic"
+                    || fieldName == "focusName" || fieldName == "triggerTarget" || fieldName == "conditionFunc"
+                    || fieldName == "onStateFunc" || fieldName == "useWithItem" || fieldName == "contains"
+                    )
+                {
+                    node.NodeFont = new Font(tree.Font, style);
+                }
+            }
         }
     }
 }

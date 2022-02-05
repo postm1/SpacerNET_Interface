@@ -30,6 +30,7 @@
         {
             this.checkBoxSetDatePrefix = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxSetNearestVobCam = new System.Windows.Forms.CheckBox();
             this.checkBoxAutoRemoveAllVisuals = new System.Windows.Forms.CheckBox();
             this.showLightRadiusVob = new System.Windows.Forms.CheckBox();
             this.autoRemoveLevelCompo = new System.Windows.Forms.CheckBox();
@@ -39,7 +40,6 @@
             this.checkBoxLastZenAuto = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
             this.btnMiscSetApply = new System.Windows.Forms.Button();
-            this.checkBoxSetNearestVobCam = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +70,17 @@
             this.groupBox1.Size = new System.Drawing.Size(624, 263);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // checkBoxSetNearestVobCam
+            // 
+            this.checkBoxSetNearestVobCam.AutoSize = true;
+            this.checkBoxSetNearestVobCam.Location = new System.Drawing.Point(13, 91);
+            this.checkBoxSetNearestVobCam.Name = "checkBoxSetNearestVobCam";
+            this.checkBoxSetNearestVobCam.Size = new System.Drawing.Size(606, 17);
+            this.checkBoxSetNearestVobCam.TabIndex = 9;
+            this.checkBoxSetNearestVobCam.Text = "Устанавливать камеру на воб с именем VOB_SPACER_CAMERA_START или zCVobStartpoint " +
+    "после загрузки ZEN";
+            this.checkBoxSetNearestVobCam.UseVisualStyleBackColor = true;
             // 
             // checkBoxAutoRemoveAllVisuals
             // 
@@ -136,6 +147,7 @@
             // 
             this.checkBoxLastZenAuto.AutoSize = true;
             this.checkBoxLastZenAuto.Enabled = false;
+            this.checkBoxLastZenAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.checkBoxLastZenAuto.Location = new System.Drawing.Point(265, 68);
             this.checkBoxLastZenAuto.Name = "checkBoxLastZenAuto";
             this.checkBoxLastZenAuto.Size = new System.Drawing.Size(244, 17);
@@ -163,17 +175,6 @@
             this.btnMiscSetApply.Text = "Применить";
             this.btnMiscSetApply.UseVisualStyleBackColor = true;
             this.btnMiscSetApply.Click += new System.EventHandler(this.btnMiscSetApply_Click);
-            // 
-            // checkBoxSetNearestVobCam
-            // 
-            this.checkBoxSetNearestVobCam.AutoSize = true;
-            this.checkBoxSetNearestVobCam.Location = new System.Drawing.Point(13, 91);
-            this.checkBoxSetNearestVobCam.Name = "checkBoxSetNearestVobCam";
-            this.checkBoxSetNearestVobCam.Size = new System.Drawing.Size(606, 17);
-            this.checkBoxSetNearestVobCam.TabIndex = 9;
-            this.checkBoxSetNearestVobCam.Text = "Устанавливать камеру на воб с именем VOB_SPACER_CAMERA_START или zCVobStartpoint " +
-    "после загрузки ZEN";
-            this.checkBoxSetNearestVobCam.UseVisualStyleBackColor = true;
             // 
             // MiscSettingsWin
             // 

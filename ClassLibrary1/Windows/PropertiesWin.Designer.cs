@@ -33,6 +33,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.treeViewProp = new System.Windows.Forms.TreeView();
             this.panelButtons = new System.Windows.Forms.Panel();
+            this.buttonSelectColor = new System.Windows.Forms.Button();
             this.comboBoxPropsEnum = new System.Windows.Forms.ComboBox();
             this.textBoxVec3 = new System.Windows.Forms.TextBox();
             this.buttonFileOpen = new System.Windows.Forms.Button();
@@ -67,7 +68,13 @@
             this.contextMenuStripContainer = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.удалитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogFileName = new System.Windows.Forms.OpenFileDialog();
-            this.buttonSelectColor = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.fontDialogSelect = new System.Windows.Forms.FontDialog();
+            this.buttonSelectFontProps = new System.Windows.Forms.Button();
+            this.checkBoxBoldFontProps = new System.Windows.Forms.CheckBox();
+            this.buttonResetFontDefault = new System.Windows.Forms.Button();
+            this.checkBoxFontUnderstroke = new System.Windows.Forms.CheckBox();
+            this.labelChangeFontStyleText = new System.Windows.Forms.Label();
             this.tabControlProps.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panelButtons.SuspendLayout();
@@ -77,6 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItems)).BeginInit();
             this.groupBoxContainer.SuspendLayout();
             this.contextMenuStripContainer.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlProps
@@ -84,6 +92,7 @@
             this.tabControlProps.Controls.Add(this.tabPage1);
             this.tabControlProps.Controls.Add(this.tabPage2);
             this.tabControlProps.Controls.Add(this.tabPage3);
+            this.tabControlProps.Controls.Add(this.tabPage4);
             this.tabControlProps.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlProps.Location = new System.Drawing.Point(0, 0);
             this.tabControlProps.Name = "tabControlProps";
@@ -108,6 +117,7 @@
             // treeViewProp
             // 
             this.treeViewProp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeViewProp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.treeViewProp.HideSelection = false;
             this.treeViewProp.Location = new System.Drawing.Point(3, 3);
             this.treeViewProp.Name = "treeViewProp";
@@ -139,6 +149,17 @@
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.Size = new System.Drawing.Size(316, 106);
             this.panelButtons.TabIndex = 6;
+            // 
+            // buttonSelectColor
+            // 
+            this.buttonSelectColor.Location = new System.Drawing.Point(256, 75);
+            this.buttonSelectColor.Name = "buttonSelectColor";
+            this.buttonSelectColor.Size = new System.Drawing.Size(48, 23);
+            this.buttonSelectColor.TabIndex = 14;
+            this.buttonSelectColor.Text = "Цвет";
+            this.buttonSelectColor.UseVisualStyleBackColor = true;
+            this.buttonSelectColor.Visible = false;
+            this.buttonSelectColor.Click += new System.EventHandler(this.buttonSelectColor_Click);
             // 
             // comboBoxPropsEnum
             // 
@@ -260,7 +281,7 @@
             this.buttonApplyOnVob.Name = "buttonApplyOnVob";
             this.buttonApplyOnVob.Size = new System.Drawing.Size(120, 23);
             this.buttonApplyOnVob.TabIndex = 2;
-            this.buttonApplyOnVob.Text = "Применить на вобе";
+            this.buttonApplyOnVob.Text = "Применить";
             this.buttonApplyOnVob.UseVisualStyleBackColor = true;
             this.buttonApplyOnVob.Click += new System.EventHandler(this.buttonApply_Click);
             // 
@@ -474,16 +495,71 @@
             this.удалитьСтрокуToolStripMenuItem.Text = "Удалить строку";
             this.удалитьСтрокуToolStripMenuItem.Click += new System.EventHandler(this.удалитьСтрокуToolStripMenuItem_Click);
             // 
-            // buttonSelectColor
+            // tabPage4
             // 
-            this.buttonSelectColor.Location = new System.Drawing.Point(256, 75);
-            this.buttonSelectColor.Name = "buttonSelectColor";
-            this.buttonSelectColor.Size = new System.Drawing.Size(48, 23);
-            this.buttonSelectColor.TabIndex = 14;
-            this.buttonSelectColor.Text = "Цвет";
-            this.buttonSelectColor.UseVisualStyleBackColor = true;
-            this.buttonSelectColor.Visible = false;
-            this.buttonSelectColor.Click += new System.EventHandler(this.buttonSelectColor_Click);
+            this.tabPage4.Controls.Add(this.labelChangeFontStyleText);
+            this.tabPage4.Controls.Add(this.checkBoxFontUnderstroke);
+            this.tabPage4.Controls.Add(this.buttonResetFontDefault);
+            this.tabPage4.Controls.Add(this.checkBoxBoldFontProps);
+            this.tabPage4.Controls.Add(this.buttonSelectFontProps);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(322, 464);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Настройки";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // buttonSelectFontProps
+            // 
+            this.buttonSelectFontProps.Location = new System.Drawing.Point(60, 63);
+            this.buttonSelectFontProps.Name = "buttonSelectFontProps";
+            this.buttonSelectFontProps.Size = new System.Drawing.Size(189, 23);
+            this.buttonSelectFontProps.TabIndex = 0;
+            this.buttonSelectFontProps.Text = "Выбрать шрифт для свойств";
+            this.buttonSelectFontProps.UseVisualStyleBackColor = true;
+            this.buttonSelectFontProps.Click += new System.EventHandler(this.buttonSelectFontProps_Click);
+            // 
+            // checkBoxBoldFontProps
+            // 
+            this.checkBoxBoldFontProps.AutoSize = true;
+            this.checkBoxBoldFontProps.Location = new System.Drawing.Point(17, 17);
+            this.checkBoxBoldFontProps.Name = "checkBoxBoldFontProps";
+            this.checkBoxBoldFontProps.Size = new System.Drawing.Size(251, 17);
+            this.checkBoxBoldFontProps.TabIndex = 1;
+            this.checkBoxBoldFontProps.Text = "Выделять основные поля жирным шрифтом";
+            this.checkBoxBoldFontProps.UseVisualStyleBackColor = true;
+            this.checkBoxBoldFontProps.CheckedChanged += new System.EventHandler(this.checkBoxBoldFontProps_CheckedChanged);
+            // 
+            // buttonResetFontDefault
+            // 
+            this.buttonResetFontDefault.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonResetFontDefault.Location = new System.Drawing.Point(60, 92);
+            this.buttonResetFontDefault.Name = "buttonResetFontDefault";
+            this.buttonResetFontDefault.Size = new System.Drawing.Size(189, 23);
+            this.buttonResetFontDefault.TabIndex = 2;
+            this.buttonResetFontDefault.Text = "Сбросить шрифт по умолчанию";
+            this.buttonResetFontDefault.UseVisualStyleBackColor = true;
+            this.buttonResetFontDefault.Click += new System.EventHandler(this.buttonResetFontDefault_Click);
+            // 
+            // checkBoxFontUnderstroke
+            // 
+            this.checkBoxFontUnderstroke.AutoSize = true;
+            this.checkBoxFontUnderstroke.Location = new System.Drawing.Point(17, 40);
+            this.checkBoxFontUnderstroke.Name = "checkBoxFontUnderstroke";
+            this.checkBoxFontUnderstroke.Size = new System.Drawing.Size(282, 17);
+            this.checkBoxFontUnderstroke.TabIndex = 3;
+            this.checkBoxFontUnderstroke.Text = "Выделять основные поля подчеркнутым шрифтом";
+            this.checkBoxFontUnderstroke.UseVisualStyleBackColor = true;
+            this.checkBoxFontUnderstroke.CheckedChanged += new System.EventHandler(this.checkBoxFontUnderstroke_CheckedChanged);
+            // 
+            // labelChangeFontStyleText
+            // 
+            this.labelChangeFontStyleText.AutoSize = true;
+            this.labelChangeFontStyleText.Location = new System.Drawing.Point(44, 131);
+            this.labelChangeFontStyleText.Name = "labelChangeFontStyleText";
+            this.labelChangeFontStyleText.Size = new System.Drawing.Size(224, 13);
+            this.labelChangeFontStyleText.TabIndex = 4;
+            this.labelChangeFontStyleText.Text = "* Для применения выберите объект снова";
             // 
             // ObjectsWindow
             // 
@@ -511,6 +587,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItems)).EndInit();
             this.groupBoxContainer.ResumeLayout(false);
             this.contextMenuStripContainer.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -555,5 +633,12 @@
         private System.Windows.Forms.TextBox textBoxVec3;
         private System.Windows.Forms.ComboBox comboBoxPropsEnum;
         private System.Windows.Forms.Button buttonSelectColor;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button buttonSelectFontProps;
+        private System.Windows.Forms.FontDialog fontDialogSelect;
+        public System.Windows.Forms.CheckBox checkBoxBoldFontProps;
+        public System.Windows.Forms.CheckBox checkBoxFontUnderstroke;
+        private System.Windows.Forms.Button buttonResetFontDefault;
+        private System.Windows.Forms.Label labelChangeFontStyleText;
     }
 }

@@ -762,8 +762,7 @@
             this.toolStripButtonMaterial.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonMaterial.Name = "toolStripButtonMaterial";
             this.toolStripButtonMaterial.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonMaterial.Text = "Выделение полигона";
-            this.toolStripButtonMaterial.Visible = false;
+            this.toolStripButtonMaterial.Text = "Выбор материала";
             this.toolStripButtonMaterial.Click += new System.EventHandler(this.toolStripButtonMaterial_Click);
             // 
             // toolStripButtonGrass
@@ -773,7 +772,7 @@
             this.toolStripButtonGrass.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonGrass.Name = "toolStripButtonGrass";
             this.toolStripButtonGrass.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonGrass.Text = "toolStripButtonGrass";
+            this.toolStripButtonGrass.Text = "Сеятель травы";
             this.toolStripButtonGrass.Click += new System.EventHandler(this.toolStripButtonGrass_Click);
             // 
             // toolStripButtonMulti
@@ -783,7 +782,7 @@
             this.toolStripButtonMulti.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonMulti.Name = "toolStripButtonMulti";
             this.toolStripButtonMulti.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonMulti.Text = "Multi selection";
+            this.toolStripButtonMulti.Text = "Режим множественного выделения";
             this.toolStripButtonMulti.Click += new System.EventHandler(this.toolStripButtonMulti_Click);
             // 
             // MainForm

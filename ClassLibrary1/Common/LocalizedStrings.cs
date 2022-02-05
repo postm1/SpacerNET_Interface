@@ -496,7 +496,15 @@ namespace SpacerUnion.Common
 
             words.Add("CANT_COPY_INITSELF", new List<string> { "Нельзя скопировать и вставить глобального родителя в самого себя!", "Can't copy and insert global parent vob into itself!", "", "Nie można skopiować i dodać globalnego rodzica voba do siebie!" });
             words.Add("checkBoxSetNearestVobCam", new List<string> { "Устанавливать камеру на воб с именем VOB_SPACER_CAMERA_START или zCVobStartpoint после загрузки ZEN", "Set the camera near the vob with name VOB_SPACER_CAMERA_START or zCVobStartpoint after loading ZEN", "", "Ustaw kamerę w pobliżu voba z nazwą VOB_SPACER_CAMERA_START lub zCVobStartpoint po załadowaniu ZENA" });
-            
+
+
+            words.Add("tabControlProps_3", new List<string> { "Настройки", "Settings", "", "" });
+            words.Add("checkBoxBoldFontProps", new List<string> { "Выделять основные поля жирным шрифтом", "Use bold font for main fields", "", "" });
+            words.Add("checkBoxFontUnderstroke", new List<string> { "Выделять основные поля подчеркнутым шрифтом", "Use understroke font for main fields", "", "" });
+            words.Add("buttonSelectFontProps", new List<string> { "Выбрать шрифт для свойств", "Select font for properties", "", "" });
+            words.Add("buttonResetFontDefault", new List<string> { "Сбросить шрифт по умолчанию", "Reset font by default", "", "" });
+            words.Add("labelChangeFontStyleText", new List<string> { "* Для применения выберите объект снова", "* For applying reselect the object", "", "" });
+            words.Add("MENU_TOP_VIEW_MULTI", new List<string> { "Режим множественного выделения", "Multi selection mode", "", "" });
         }
     }
 }
