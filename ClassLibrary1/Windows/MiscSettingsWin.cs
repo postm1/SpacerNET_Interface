@@ -72,7 +72,7 @@ namespace SpacerUnion.Windows
 
 
             Imports.Stack_PushString("checkBoxAutoRemoveAllVisuals");
-            SpacerNET.miscSetWin.autoRemoveLevelCompo.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+            SpacerNET.miscSetWin.checkBoxAutoRemoveAllVisuals.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
             Imports.Stack_PushString("checkBoxSetNearestVobCam");
             SpacerNET.miscSetWin.checkBoxSetNearestVobCam.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());

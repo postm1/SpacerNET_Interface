@@ -85,17 +85,17 @@
             // checkBoxAutoRemoveAllVisuals
             // 
             this.checkBoxAutoRemoveAllVisuals.AutoSize = true;
-            this.checkBoxAutoRemoveAllVisuals.Location = new System.Drawing.Point(13, 194);
+            this.checkBoxAutoRemoveAllVisuals.Location = new System.Drawing.Point(13, 173);
             this.checkBoxAutoRemoveAllVisuals.Name = "checkBoxAutoRemoveAllVisuals";
-            this.checkBoxAutoRemoveAllVisuals.Size = new System.Drawing.Size(425, 17);
+            this.checkBoxAutoRemoveAllVisuals.Size = new System.Drawing.Size(428, 17);
             this.checkBoxAutoRemoveAllVisuals.TabIndex = 8;
-            this.checkBoxAutoRemoveAllVisuals.Text = "Автоматически удалять visual для всех zCVobLevelCompo при сохранении ZEN";
+            this.checkBoxAutoRemoveAllVisuals.Text = "Автоматически очищать visual для всех zCVobLevelCompo при сохранении ZEN";
             this.checkBoxAutoRemoveAllVisuals.UseVisualStyleBackColor = true;
             // 
             // showLightRadiusVob
             // 
             this.showLightRadiusVob.AutoSize = true;
-            this.showLightRadiusVob.Location = new System.Drawing.Point(13, 217);
+            this.showLightRadiusVob.Location = new System.Drawing.Point(13, 196);
             this.showLightRadiusVob.Name = "showLightRadiusVob";
             this.showLightRadiusVob.Size = new System.Drawing.Size(234, 17);
             this.showLightRadiusVob.TabIndex = 7;
@@ -105,12 +105,13 @@
             // autoRemoveLevelCompo
             // 
             this.autoRemoveLevelCompo.AutoSize = true;
-            this.autoRemoveLevelCompo.Location = new System.Drawing.Point(13, 173);
+            this.autoRemoveLevelCompo.Location = new System.Drawing.Point(370, 19);
             this.autoRemoveLevelCompo.Name = "autoRemoveLevelCompo";
             this.autoRemoveLevelCompo.Size = new System.Drawing.Size(468, 17);
             this.autoRemoveLevelCompo.TabIndex = 6;
             this.autoRemoveLevelCompo.Text = "Автоматически удалять лишний zCVobLevelCompo после объединения MESH с вобами";
             this.autoRemoveLevelCompo.UseVisualStyleBackColor = true;
+            this.autoRemoveLevelCompo.Visible = false;
             // 
             // checkBoxAutoCompileUncompiled
             // 
@@ -148,7 +149,7 @@
             this.checkBoxLastZenAuto.AutoSize = true;
             this.checkBoxLastZenAuto.Enabled = false;
             this.checkBoxLastZenAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBoxLastZenAuto.Location = new System.Drawing.Point(265, 68);
+            this.checkBoxLastZenAuto.Location = new System.Drawing.Point(380, 42);
             this.checkBoxLastZenAuto.Name = "checkBoxLastZenAuto";
             this.checkBoxLastZenAuto.Size = new System.Drawing.Size(244, 17);
             this.checkBoxLastZenAuto.TabIndex = 2;

@@ -1368,7 +1368,6 @@ namespace SpacerUnion
 
         private void checkBoxFontUnderstroke_CheckedChanged(object sender, EventArgs e)
         {
-            return;
             var checkBox = sender as CheckBox;
 
             if (checkBox.Checked) checkBoxBoldFontProps.Checked = false;

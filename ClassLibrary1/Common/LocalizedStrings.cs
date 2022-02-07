@@ -461,8 +461,8 @@ namespace SpacerUnion.Common
 
             words.Add("WIN_MSG_CONFIRM_INSERTVOBTREE", new List<string> { "Подтвердите действие", "Confirm the action", "", "Potwierdź akcję" });
             words.Add("WIN_MSG_CONFIRM_PLACENEARCAM", new List<string> { "Вставить Vobtree перед камерой?", "Do insert vobtree near the camera?", "", "Czy wstawiasz vobtree w pobliżu kamery?" });
-            words.Add("CONTEXTMENU_TREE_ADD_PARENT", new List<string> { "Сделать родителем для всех новых вобов", "Make this vob as a global parent for all new vobs", "", "Stwórz ten vob jako globalnego rodzica dla wszystkich nowych vobów" });
-            words.Add("CONTEXTMENU_TREE_REMOVE_PARENT", new List<string> { "Очистить родителя для вобов", "Remove the global parent", "", "Usuń globalnego rodzica" });
+            words.Add("CONTEXTMENU_TREE_ADD_PARENT", new List<string> { "Сделать глобальным родителем", "Make this vob as a global parent", "", "Stwórz ten vob jako globalnego rodzica dla wszystkich nowych vobów" });
+            words.Add("CONTEXTMENU_TREE_REMOVE_PARENT", new List<string> { "Очистить глобального родителя", "Remove the global parent", "", "Usuń globalnego rodzica" });
 
 
             words.Add("CONTEXTMENU_TREE_ADD_VOB", new List<string> { "Добавить воб в быстрый доступ", "Add vob into Fast access list", "", "Dodaj vob do listy szybkiego dostępu" });
@@ -489,7 +489,7 @@ namespace SpacerUnion.Common
             words.Add("checkBoxConstSound", new List<string> { "Постоянно глушить звуки", "Always shut all sounds", "", "Zawsze wyłączaj wszystkie dźwięki" });
             words.Add("OnlyOneVobCanBe", new List<string> { "Воб такого типа может быть на карте ТОЛЬКО ОДИН!", "Only ONE vob like this can be on the map!", "", "Tylko jeden vob takiego typu może znajdować się na mapie!" });
 
-            words.Add("checkBoxAutoRemoveAllVisuals", new List<string> { "Автоматически удалять visual для всех zCVobLevelCompo при сохранении ZEN", "Auto removing visual for all zCVobLevelCompo before saving ZEN", "", "Automatyczne usuwanie visuali dla wszystkich zCVobLevelCompo przed zapisaniem ZENA" });
+            words.Add("checkBoxAutoRemoveAllVisuals", new List<string> { "Автоматически очищать visual для всех zCVobLevelCompo при сохранении ZEN", "Auto cleaning visual for all zCVobLevelCompo before saving ZEN", "", "Automatyczne usuwanie visuali dla wszystkich zCVobLevelCompo przed zapisaniem ZENA" });
             words.Add("GAME_MODE", new List<string> { "Играть за героя", "Play the hero", "", "Zagraj bohaterem" });
             words.Add("ZEN_BAD_NAME", new List<string> { "В имени ZEN не может содержаться '.3DS' ! Переименуйте файл!", "ZEN's name can't contain '.3DS' ! Rename the file.", "", "Nazwa ZEN nie może zawierać '.3DS' ! Zmień nazwę pliku." });
             words.Add("CONTEXTMENU_TREE_RESTORE_POS", new List<string> { "Восстановить позицию воба", "Restore vob's position", "", "Przywróć pozycję voba" });
@@ -498,13 +498,14 @@ namespace SpacerUnion.Common
             words.Add("checkBoxSetNearestVobCam", new List<string> { "Устанавливать камеру на воб с именем VOB_SPACER_CAMERA_START или zCVobStartpoint после загрузки ZEN", "Set the camera near the vob with name VOB_SPACER_CAMERA_START or zCVobStartpoint after loading ZEN", "", "Ustaw kamerę w pobliżu voba z nazwą VOB_SPACER_CAMERA_START lub zCVobStartpoint po załadowaniu ZENA" });
 
 
-            words.Add("tabControlProps_3", new List<string> { "Настройки", "Settings", "", "" });
-            words.Add("checkBoxBoldFontProps", new List<string> { "Выделять основные поля жирным шрифтом", "Use bold font for main fields", "", "" });
-            words.Add("checkBoxFontUnderstroke", new List<string> { "Выделять основные поля подчеркнутым шрифтом", "Use understroke font for main fields", "", "" });
-            words.Add("buttonSelectFontProps", new List<string> { "Выбрать шрифт для свойств", "Select font for properties", "", "" });
-            words.Add("buttonResetFontDefault", new List<string> { "Сбросить шрифт по умолчанию", "Reset font by default", "", "" });
-            words.Add("labelChangeFontStyleText", new List<string> { "* Для применения выберите объект снова", "* For applying reselect the object", "", "" });
-            words.Add("MENU_TOP_VIEW_MULTI", new List<string> { "Режим множественного выделения", "Multi selection mode", "", "" });
+            words.Add("tabControlProps_3", new List<string> { "Настройки", "Settings", "", "Ustawienia" });
+            words.Add("checkBoxBoldFontProps", new List<string> { "Выделять основные поля жирным шрифтом", "Use bold font for main fields", "", "Użyj pogrubionej czcionki dla głównych pól" });
+            words.Add("checkBoxFontUnderstroke", new List<string> { "Выделять основные поля подчеркнутым шрифтом", "Use understroke font for main fields", "", "Użyj czcionki z podkreśleniem dla pól głównych" });
+            words.Add("buttonSelectFontProps", new List<string> { "Выбрать шрифт для свойств", "Select font for properties", "", "Wybierz czcionkę dla właściwości" });
+            words.Add("buttonResetFontDefault", new List<string> { "Сбросить шрифт по умолчанию", "Reset font by default", "", "Przywróć domyślną czcionkę" });
+            words.Add("labelChangeFontStyleText", new List<string> { "* Для применения выберите объект снова", "* For applying reselect the object", "", "* Aby zastosować ponownie wybierz obiekt" });
+
+            words.Add("MENU_TOP_VIEW_MULTI", new List<string> { "Режим множественного выделения", "Multi selection mode", "", "Tryb wielokrotnego wyboru" });
         }
     }
 }

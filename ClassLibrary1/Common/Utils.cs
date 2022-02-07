@@ -12,7 +12,7 @@ namespace SpacerUnion
 {
     public class Constants
     {
-        public const string SPACER_VERSION = "0.20";
+        public const string SPACER_VERSION = "0.21";
 
 
         public const string FILE_FILTER_OPEN_ZEN = "Compiled ZEN (*.zen)|*.zen|Uncompiled ZEN (*.zen)|*.zen";
@@ -161,7 +161,7 @@ namespace SpacerUnion
                 zenName = match.Groups[1].Value;
             }
 
-            ConsoleEx.WriteLineRed(zenName);
+            //ConsoleEx.WriteLineRed(zenName);
 
             if (addPrefx != 0)
             {
