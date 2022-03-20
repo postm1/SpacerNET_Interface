@@ -39,6 +39,7 @@
             this.buttonParticles = new System.Windows.Forms.Button();
             this.groupBoxObjItems = new System.Windows.Forms.GroupBox();
             this.groupBoxItemsLocator = new System.Windows.Forms.GroupBox();
+            this.checkBoxLocatorOnlySusp = new System.Windows.Forms.CheckBox();
             this.labelItemLocatorRadius = new System.Windows.Forms.Label();
             this.trackBarLocatorRad = new System.Windows.Forms.TrackBar();
             this.checkBoxLocatorEnabled = new System.Windows.Forms.CheckBox();
@@ -195,7 +196,8 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.checkBoxLocatorOnlySusp = new System.Windows.Forms.CheckBox();
+            this.textBoxLocatorByName = new System.Windows.Forms.TextBox();
+            this.checkBoxLocatorByName = new System.Windows.Forms.CheckBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -341,6 +343,8 @@
             // 
             // groupBoxItemsLocator
             // 
+            this.groupBoxItemsLocator.Controls.Add(this.checkBoxLocatorByName);
+            this.groupBoxItemsLocator.Controls.Add(this.textBoxLocatorByName);
             this.groupBoxItemsLocator.Controls.Add(this.checkBoxLocatorOnlySusp);
             this.groupBoxItemsLocator.Controls.Add(this.labelItemLocatorRadius);
             this.groupBoxItemsLocator.Controls.Add(this.trackBarLocatorRad);
@@ -351,6 +355,17 @@
             this.groupBoxItemsLocator.TabIndex = 21;
             this.groupBoxItemsLocator.TabStop = false;
             this.groupBoxItemsLocator.Text = "Локатор предметов";
+            // 
+            // checkBoxLocatorOnlySusp
+            // 
+            this.checkBoxLocatorOnlySusp.AutoSize = true;
+            this.checkBoxLocatorOnlySusp.Location = new System.Drawing.Point(9, 105);
+            this.checkBoxLocatorOnlySusp.Name = "checkBoxLocatorOnlySusp";
+            this.checkBoxLocatorOnlySusp.Size = new System.Drawing.Size(147, 17);
+            this.checkBoxLocatorOnlySusp.TabIndex = 3;
+            this.checkBoxLocatorOnlySusp.Text = "Только \"плохие\" oCItem";
+            this.checkBoxLocatorOnlySusp.UseVisualStyleBackColor = true;
+            this.checkBoxLocatorOnlySusp.CheckedChanged += new System.EventHandler(this.checkBoxLocatorOnlySusp_CheckedChanged);
             // 
             // labelItemLocatorRadius
             // 
@@ -2031,16 +2046,25 @@
             this.button10.Text = "Удалить";
             this.button10.UseVisualStyleBackColor = true;
             // 
-            // checkBoxLocatorOnlySusp
+            // textBoxLocatorByName
             // 
-            this.checkBoxLocatorOnlySusp.AutoSize = true;
-            this.checkBoxLocatorOnlySusp.Location = new System.Drawing.Point(9, 105);
-            this.checkBoxLocatorOnlySusp.Name = "checkBoxLocatorOnlySusp";
-            this.checkBoxLocatorOnlySusp.Size = new System.Drawing.Size(147, 17);
-            this.checkBoxLocatorOnlySusp.TabIndex = 3;
-            this.checkBoxLocatorOnlySusp.Text = "Только \"плохие\" oCItem";
-            this.checkBoxLocatorOnlySusp.UseVisualStyleBackColor = true;
-            this.checkBoxLocatorOnlySusp.CheckedChanged += new System.EventHandler(this.checkBoxLocatorOnlySusp_CheckedChanged);
+            this.textBoxLocatorByName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxLocatorByName.Location = new System.Drawing.Point(10, 170);
+            this.textBoxLocatorByName.Name = "textBoxLocatorByName";
+            this.textBoxLocatorByName.Size = new System.Drawing.Size(156, 22);
+            this.textBoxLocatorByName.TabIndex = 10;
+            this.textBoxLocatorByName.TextChanged += new System.EventHandler(this.textBoxLocatorByName_TextChanged);
+            // 
+            // checkBoxLocatorByName
+            // 
+            this.checkBoxLocatorByName.AutoSize = true;
+            this.checkBoxLocatorByName.Location = new System.Drawing.Point(9, 147);
+            this.checkBoxLocatorByName.Name = "checkBoxLocatorByName";
+            this.checkBoxLocatorByName.Size = new System.Drawing.Size(116, 17);
+            this.checkBoxLocatorByName.TabIndex = 11;
+            this.checkBoxLocatorByName.Text = "Искать по имени:";
+            this.checkBoxLocatorByName.UseVisualStyleBackColor = true;
+            this.checkBoxLocatorByName.CheckedChanged += new System.EventHandler(this.checkBoxLocatorByName_CheckedChanged);
             // 
             // ObjectsWin
             // 
@@ -2273,5 +2297,7 @@
         public System.Windows.Forms.TrackBar trackBarLocatorRad;
         private System.Windows.Forms.Label labelItemLocatorRadius;
         private System.Windows.Forms.CheckBox checkBoxLocatorOnlySusp;
+        private System.Windows.Forms.TextBox textBoxLocatorByName;
+        private System.Windows.Forms.CheckBox checkBoxLocatorByName;
     }
 }

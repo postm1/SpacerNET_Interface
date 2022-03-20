@@ -9,7 +9,7 @@ namespace SpacerUnion.Common
     {
         public static void Init()
         {
-           
+
 
             //For special symbols use @ before string like @"someString"
             /*
@@ -49,7 +49,7 @@ namespace SpacerUnion.Common
 
             words.Add("MENU_TOP_OPENZEN", new List<string> { "Открыть ZEN...", "Open ZEN...", "ZEN öffnen...", "Otwórz ZEN..." });
             words.Add("MENU_TOP_MESH", new List<string> { "Открыть MESH...", "Open MESH...", "MESH öffnen...", "Otwórz MESH..." });
-            words.Add("MENU_TOP_MERGE", new List<string> { "Объединить ZEN...",  "Merge ZEN...", "ZEN zusammenfügen...", "Połącz ZEN..." });
+            words.Add("MENU_TOP_MERGE", new List<string> { "Объединить ZEN...", "Merge ZEN...", "ZEN zusammenfügen...", "Połącz ZEN..." });
             words.Add("MENU_TOP_SAVEZEN", new List<string> { "Сохранить ZEN...", "Save ZEN...", "ZEN speichern...", "Zapisz ZEN..." });
             words.Add("MENU_TOP_ABOUT", new List<string> { "О программе", "About", "Über", "O programie" });
 
@@ -65,7 +65,7 @@ namespace SpacerUnion.Common
 
             words.Add("MENU_TOP_VIEW_BBOX", new List<string> { "Показать все BBox", "Show all the BBoxes", "Alle BBoxen anzeigen", "Pokaż wszystkie BBoxy" });
             words.Add("MENU_TOP_VIEW_INVIS", new List<string> { "Показать невидимые вобы", "Show invisible vobs", "Unsichtbare Vobs anzeigen", "Pokaż niewidzialne voby" });
-            
+
 
             words.Add("MENU_TOP_COMPILE_LIGHT", new List<string> { "Компиляция света", "Compile light", "Licht kompilieren", "Kompiluj światło" });
             words.Add("MENU_TOP_COMPILE_WORLD", new List<string> { "Компиляция мира", "Compile world", "Welt kompilieren", "Kompiluj świat" });
@@ -284,7 +284,7 @@ namespace SpacerUnion.Common
             words.Add("buttonMusicOn", new List<string> { "Включить музыку", "Turn on music", "Musik anschalten", "Włącz muzykę" });
             words.Add("checkBoxShutMusic", new List<string> { "Отключать музыку при загрузке", "Shut music after world loaded", "Musik schließen nachdem die Welt geladen worden ist", "Utnij muzykę po wczytaniu świata" });
             words.Add("labelMusicVolume", new List<string> { "Громкость", "Volume", "Volumen", "Głośność" });
-            
+
             words.Add("WIN_PROPS_TITLE", new List<string> { "Окно свойств", "Properties window", "Eigenschaftenfenster", "Okno właściwości" });
             words.Add("buttonApplyOnVob", new List<string> { "Применить на вобе", "Apply on the vob", "Auf den vob anwenden", "Zastosuj dla voba" });
             words.Add("buttonFileOpen", new List<string> { "Файл", "File", "Datei", "Plik" });
@@ -381,7 +381,7 @@ namespace SpacerUnion.Common
             words.Add("checkBoxSelectMoveInsert", new List<string> { "Включать инструмент перемещение при вставке воба", "Select Moving tool after inserting a vob", "Bewegungswerkzeug auswählen, nachdem vob eingefügt worden ist", "Wybierz narzędzie przemieszczania przed dodaniem voba" });
 
             words.Add("labelSpeedPreview", new List<string> { "Скорость вращения превью-модели", "Model preview rotation speed", "Rotationsgeschwindigkeit der Modelvorschau", "Prędkość rotacji podglądu" });
-            
+
             words.Add("loadMeshTimeAll", new List<string> { "Общее время объединения всех мешей", "Total time of merging all the meshes", "Gesamtzeit um alle Meshes zu vereinen", @"Czałkowicy czas łączenia wszystkich mesh'y" });
 
             words.Add("WORK_PATH_ERROR", new List<string> { "Вы пытаетесь загрузить файл, который не находится в папке _WORK/DATA/. Поместите файл внутрь игры!", "You are trying to load a file which is not in _WORK/DATA/. Place this file inside the game folder!", "Du versuchst eine Datei zu laden, welche nicht im _WORK/DATA/ Ordner ist. Ziehe die Datei zuerst in den Spieleordner!", "Próbujesz wczytać plik, który nie znajduje się w _WORK/DATA/. Umieść go w folderze gry!" });
@@ -393,13 +393,13 @@ namespace SpacerUnion.Common
             words.Add("search_derived", new List<string> { "Искать в дочерних классах", "Search in derived classes", "In der abgeleiteten Klasse suchen", "Szukaj w klasach pochodnych" });
             words.Add("search_use_regex", new List<string> { "Использовать рег. выражение", "Use regular expression", "Reguläre expression nutzen", "Użyj standardowego wyrażenia" });
             words.Add("BTN_RESET", new List<string> { "Сбросить", "Reset", "Resetten", "Reset" });
-            
+
             words.Add("NAME_ALREADY_EXISTS", new List<string> { "Такое имя уже существует!", "This name already exists!", "Diesen Namen gibt es bereits!", "Ta nazwa jest już zajęta!" });
             words.Add("Label_Backup", new List<string> { "Старое значение", "Old value", "Alter Wert", "Stara wartość" });
             words.Add("SET_ANY_FIELD_SEARCH", new List<string> { "Выберите хотя бы одно поле!", "Select one field at least!", "Du musst zumindestens ein Feld auswählen!", "Wybierz przynajmniej jedno pole!" });
 
             words.Add("VOB_SEARCH_START", new List<string> { "Поиск вобов начался...", "Looking for vobs...", "Nach Vob suchen....", "Rozglądanie się za vobami..." });
-            
+
 
             //
             words.Add("BAD_REGEX", new List<string> { "Введено некорректное регулярное выражение!", "Wrong regular expression!", "Falscher Regex eingeführt!", "Błędne wyrażenie regularne!" });
@@ -506,6 +506,16 @@ namespace SpacerUnion.Common
             words.Add("labelChangeFontStyleText", new List<string> { "* Для применения выберите объект снова", "* For applying reselect the object", "", "* Aby zastosować ponownie wybierz obiekt" });
 
             words.Add("MENU_TOP_VIEW_MULTI", new List<string> { "Режим множественного выделения", "Multi selection mode", "", "Tryb wielokrotnego wyboru" });
+
+            words.Add("TAB_PAGE_MATERIALS", new List<string> { "Материалы", "Materials", "", "Materiały" });
+            words.Add("NoVisualForSuchVob", new List<string> { "Воб данного типа не может иметь визуал!", "This type of a vob can't have any visual!", "", "Ten typ voba nie może mieć visuala!" });
+
+
+            words.Add("MENU_TOP_SPECIAL_FUNCS", new List<string> { "Специальные функции", "Special functions", "", "Funkcje specjalne" });
+            words.Add("MENU_TOP_CREATE_VOB_VISUALS_LIST", new List<string> { "Сформировать список 3DS/MRM визуалов локации", "Create a list of 3DS/MRM files which are used in the location", "", "Stwórz lisę plików 3DS/MRM, któresą używane w lokacji" });
+
+
         }
+        
     }
 }

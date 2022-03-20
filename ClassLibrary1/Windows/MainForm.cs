@@ -26,6 +26,7 @@ namespace SpacerUnion
         public Form renderTarget = null;
         public string currentWorldName = "";
         public bool meshOpenFirst = false;
+        public string locationName;
         
         public enum ToggleMenuType
         {
@@ -59,6 +60,8 @@ namespace SpacerUnion
         {
             currentWorldName = title;
             this.Text = "Spacer.NET (" + Constants.SPACER_VERSION + ") " + title;
+
+            locationName = title;
         }
         
         private void CloseApp()
@@ -90,6 +93,8 @@ namespace SpacerUnion
         {
             ObjTree.globalEntries.Clear();
             SpacerNET.objTreeWin.globalTree.Nodes.Clear();
+            SpacerNET.objTreeWin.matTree.Nodes.Clear();
+            SpacerNET.objTreeWin.quickTree.Nodes.Clear();
             SpacerNET.vobList.ClearListBox();
             ObjectsWindow.CleanProps();
             toolStripMenuItemMerge.Enabled = false;
@@ -104,6 +109,7 @@ namespace SpacerUnion
             dayTimeToolStrip.Enabled = false;
             toolStripMenuResetWorld.Enabled = false;
             toolStripMenuItemMergeMesh.Enabled = false;
+            stripSpecialFunctions.Enabled = false;
             // UnionNET.partWin.listBoxParticles.Items.Clear();
             // UnionNET.partWin.listBoxItems.Items.Clear();
         }
@@ -163,6 +169,8 @@ namespace SpacerUnion
             analyseWaynetToolStripMenuItem.Text = Localizator.Get("MENU_TOP_ANALYSE_WAYNET");
             playHeroToolStrip.Text = Localizator.Get("MENU_TOP_PLAY_THE_GAME");
 
+            stripSpecialFunctions.Text = Localizator.Get("MENU_TOP_SPECIAL_FUNCS");
+            stripSpecialFormVobsVisuals.Text = Localizator.Get("MENU_TOP_CREATE_VOB_VISUALS_LIST");
 
             keyBindsToolStripMenuItem.Text = Localizator.Get("MENU_TOP_KEYSBINDS");
 
@@ -275,6 +283,7 @@ namespace SpacerUnion
 
             SpacerNET.form.analyseWaynetToolStripMenuItem.Enabled = true;
             SpacerNET.form.playHeroToolStrip.Enabled = true;
+            SpacerNET.form.stripSpecialFunctions.Enabled = true;
             SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
             SpacerNET.form.dayTimeToolStrip.Enabled = true;
             SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
@@ -393,6 +402,7 @@ namespace SpacerUnion
                 SpacerNET.form.toolStripMenuExtractMesh.Enabled = true;
                 SpacerNET.form.analyseWaynetToolStripMenuItem.Enabled = true;
                 SpacerNET.form.playHeroToolStrip.Enabled = true;
+                SpacerNET.form.stripSpecialFunctions.Enabled = true;
                 SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
                 SpacerNET.form.dayTimeToolStrip.Enabled = true;
                 SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
@@ -553,9 +563,14 @@ namespace SpacerUnion
                 currentWorldName = currentWorldName.Replace("_VOBS_", "");
             }
 
+
+
             string zenName = Utils.GetZenName(currentWorldName);
 
-           
+            if (zenName.Contains(".3DS"))
+            {
+                zenName = zenName.Replace(".3DS", "");
+            }
 
 
             //Path.GetFileName(currentWorldName.Replace(".zen", "").Replace(".ZEN", ""));
@@ -1610,6 +1625,16 @@ namespace SpacerUnion
 
             if (res == DialogResult.OK)
             {
+               
+
+                
+
+
+                SpacerNET.objTreeWin.Show();
+                SpacerNET.objectsWin.Show();
+                SpacerNET.vobList.Show();
+                SpacerNET.infoWin.Show();
+                SpacerNET.propWin.Show();
 
                 SpacerNET.objTreeWin.Location = new Point(1510, 550);
                 SpacerNET.objectsWin.Location = new Point(0, 622);
@@ -1617,6 +1642,29 @@ namespace SpacerUnion
                 SpacerNET.infoWin.Location = new Point(890, 655);
                 SpacerNET.propWin.Location = new Point(1572, 28);
                 SpacerNET.grassWin.Location = new Point(1079, 603);
+
+
+            }
+        }
+
+        private void stripSpecialFormVobsVisuals_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+            saveFileDialog1.InitialDirectory = "./";
+            saveFileDialog1.FileName = "LOCATION_VOBS_VISUALS_FILES.txt";
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string path = Path.GetFullPath(saveFileDialog1.FileName);
+
+                Imports.Stack_PushString(path);
+
+                Imports.Extern_SaveVobVisualsUnique();
+
             }
         }
     }

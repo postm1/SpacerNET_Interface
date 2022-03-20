@@ -55,12 +55,15 @@ namespace SpacerUnion
 
             tabControl1.TabPages[0].Text = Localizator.Get("TAB_PAGE_OBJECTS");
             tabControl1.TabPages[1].Text = Localizator.Get("QUICKVOBS_ACCESS");
+            tabControl1.TabPages[2].Text = Localizator.Get("TAB_PAGE_MATERIALS");
 
             contextMenuQuick.Items[0].Text = Localizator.Get("CONTEXTMENU_TREE_REMOVE_PARENT");
             contextMenuQuick.Items[1].Text = Localizator.Get("CONTEXTMENU_FAST_REMOVE_VOB");
 
 
-            
+            buttonCollapseMatTree.Text = Localizator.Get("buttonCollapse");
+            buttonExpandMatTree.Text = Localizator.Get("buttonExpand");
+            buttonSortMatTree.Text = Localizator.Get("buttonTreeSort");
 
         }
 
@@ -238,6 +241,7 @@ namespace SpacerUnion
         {
             SpacerNET.objTreeWin.globalTree.Nodes.Clear();
             SpacerNET.objTreeWin.quickTree.Nodes.Clear();
+            SpacerNET.objTreeWin.matTree.Nodes.Clear();
             ObjTree.globalEntries.Clear();
             ObjTree.quickVobMan.Clear();
             ObjTree.quickVobMan.Clear();
@@ -1507,6 +1511,101 @@ namespace SpacerUnion
                 globalEntry.Clean();
 
             }
+        }
+
+
+        //================================================================
+
+
+        public static int CreateAndGetFolderMat(string className)
+        {
+            TreeNodeCollection nodes = SpacerNET.objTreeWin.matTree.Nodes;
+
+            int classNameFoundPos = -1;
+
+            for (int i = 0; i < nodes.Count; i++)
+            {
+                if (nodes[i].Text == className)
+                {
+                    classNameFoundPos = i;
+                    break;
+                }
+            }
+
+            if (classNameFoundPos == -1)
+            {
+
+                TreeNode newNode = nodes.Add(className);
+                newNode.Tag = Constants.TAG_FOLDER;
+                newNode.ImageIndex = 0;
+                newNode.SelectedImageIndex = 0;
+
+                classNameFoundPos = newNode.Index;
+            }
+
+            return classNameFoundPos;
+        }
+
+        [DllExport]
+        public static void AddGlobalEntryMat(uint mat)
+        {
+            SpacerNET.objTreeWin.matTree.Visible = false;
+
+            TreeNodeCollection nodes = SpacerNET.objTreeWin.matTree.Nodes;
+
+            string group = Imports.Stack_PeekString();
+            string name = Imports.Stack_PeekString();
+
+            int nodeIndex = CreateAndGetFolderMat(group);
+
+            TreeNode node = nodes[nodeIndex].Nodes.Add(name);
+            node.Tag = mat;
+            node.Text = name;
+            node.ImageIndex = 1;
+            node.SelectedImageIndex = 1;
+
+            SpacerNET.objTreeWin.matTree.Visible = true;
+        }
+
+        private void matTree_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            TreeNode node = matTree.SelectedNode;
+
+            if (node == null) return;
+
+            string tag = node.Tag.ToString();
+
+            if (tag.Length == 0 || tag == Constants.TAG_FOLDER)
+            {
+                return;
+            }
+
+            uint addr = Convert.ToUInt32(node.Tag);
+
+            ConsoleEx.WriteLineGreen("OnSelectDoubleClick node: material " + Utils.ToHex(addr));
+
+            Imports.Extern_SelectMat(addr);
+            SpacerNET.form.Focus();
+        }
+
+        private void buttonSortMatTree_Click(object sender, EventArgs e)
+        {
+            matTree.Sort();
+        }
+
+        private void buttonCollapseMatTree_Click(object sender, EventArgs e)
+        {
+            matTree.CollapseAll();
+        }
+
+        private void buttonExpandMatTree_Click(object sender, EventArgs e)
+        {
+            matTree.ExpandAll();
+        }
+
+        private void matTree_MouseClick(object sender, MouseEventArgs e)
+        {
+            matTree_MouseDoubleClick(null, e);
         }
     }
 }

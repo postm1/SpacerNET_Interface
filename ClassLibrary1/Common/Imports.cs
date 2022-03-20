@@ -99,6 +99,10 @@ namespace SpacerUnion.Common
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_SelectVob(uint a);
 
+        [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SelectMat(uint a);
+        
+
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_RestorePosition(uint a);
@@ -293,5 +297,10 @@ namespace SpacerUnion.Common
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_SetRenderMode(int mode);
+
+
+
+        [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SaveVobVisualsUnique();
     }
 }

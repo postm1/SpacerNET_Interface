@@ -56,12 +56,20 @@
             this.contextMenuQuick = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripClearGlobalPar = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuRemoveQuickVob = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.matTree = new System.Windows.Forms.TreeView();
+            this.panelMatTree = new System.Windows.Forms.Panel();
+            this.buttonCollapseMatTree = new System.Windows.Forms.Button();
+            this.buttonExpandMatTree = new System.Windows.Forms.Button();
+            this.buttonSortMatTree = new System.Windows.Forms.Button();
             this.contextMenuStripTree.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.contextMenuQuick.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.panelMatTree.SuspendLayout();
             this.SuspendLayout();
             // 
             // globalTree
@@ -98,7 +106,7 @@
             this.toolStripSeparator2,
             this.toolStripMenuRestorePos});
             this.contextMenuStripTree.Name = "contextMenuStrip1";
-            this.contextMenuStripTree.Size = new System.Drawing.Size(283, 214);
+            this.contextMenuStripTree.Size = new System.Drawing.Size(283, 192);
             this.contextMenuStripTree.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripTree_Opening);
             // 
             // toolStripMenuItem2
@@ -229,6 +237,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -300,6 +309,74 @@
             this.toolStripMenuRemoveQuickVob.Text = "Удалить воб из быстрого доступа";
             this.toolStripMenuRemoveQuickVob.Click += new System.EventHandler(this.toolStripMenuRemoveQuickVob_Click);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.matTree);
+            this.tabPage3.Controls.Add(this.panelMatTree);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(381, 427);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Материалы";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // matTree
+            // 
+            this.matTree.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.matTree.HideSelection = false;
+            this.matTree.HotTracking = true;
+            this.matTree.ImageIndex = 0;
+            this.matTree.ImageList = this.imageList1;
+            this.matTree.Location = new System.Drawing.Point(0, 43);
+            this.matTree.Name = "matTree";
+            this.matTree.SelectedImageIndex = 0;
+            this.matTree.Size = new System.Drawing.Size(381, 384);
+            this.matTree.TabIndex = 1;
+            this.matTree.MouseClick += new System.Windows.Forms.MouseEventHandler(this.matTree_MouseClick);
+            this.matTree.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.matTree_MouseDoubleClick);
+            // 
+            // panelMatTree
+            // 
+            this.panelMatTree.BackColor = System.Drawing.Color.Transparent;
+            this.panelMatTree.Controls.Add(this.buttonCollapseMatTree);
+            this.panelMatTree.Controls.Add(this.buttonExpandMatTree);
+            this.panelMatTree.Controls.Add(this.buttonSortMatTree);
+            this.panelMatTree.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMatTree.Location = new System.Drawing.Point(0, 0);
+            this.panelMatTree.Name = "panelMatTree";
+            this.panelMatTree.Size = new System.Drawing.Size(381, 43);
+            this.panelMatTree.TabIndex = 5;
+            // 
+            // buttonCollapseMatTree
+            // 
+            this.buttonCollapseMatTree.Location = new System.Drawing.Point(5, 10);
+            this.buttonCollapseMatTree.Name = "buttonCollapseMatTree";
+            this.buttonCollapseMatTree.Size = new System.Drawing.Size(112, 23);
+            this.buttonCollapseMatTree.TabIndex = 1;
+            this.buttonCollapseMatTree.Text = "Свернуть все";
+            this.buttonCollapseMatTree.UseVisualStyleBackColor = true;
+            this.buttonCollapseMatTree.Click += new System.EventHandler(this.buttonCollapseMatTree_Click);
+            // 
+            // buttonExpandMatTree
+            // 
+            this.buttonExpandMatTree.Location = new System.Drawing.Point(132, 10);
+            this.buttonExpandMatTree.Name = "buttonExpandMatTree";
+            this.buttonExpandMatTree.Size = new System.Drawing.Size(112, 23);
+            this.buttonExpandMatTree.TabIndex = 2;
+            this.buttonExpandMatTree.Text = "Развернуть все";
+            this.buttonExpandMatTree.UseVisualStyleBackColor = true;
+            this.buttonExpandMatTree.Click += new System.EventHandler(this.buttonExpandMatTree_Click);
+            // 
+            // buttonSortMatTree
+            // 
+            this.buttonSortMatTree.Location = new System.Drawing.Point(258, 10);
+            this.buttonSortMatTree.Name = "buttonSortMatTree";
+            this.buttonSortMatTree.Size = new System.Drawing.Size(112, 23);
+            this.buttonSortMatTree.TabIndex = 3;
+            this.buttonSortMatTree.Text = "Сортировать";
+            this.buttonSortMatTree.UseVisualStyleBackColor = true;
+            this.buttonSortMatTree.Click += new System.EventHandler(this.buttonSortMatTree_Click);
+            // 
             // ObjTree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,6 +402,8 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.contextMenuQuick.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.panelMatTree.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -357,5 +436,11 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuRemoveQuickVob;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuRestorePos;
+        private System.Windows.Forms.TabPage tabPage3;
+        public System.Windows.Forms.TreeView matTree;
+        private System.Windows.Forms.Panel panelMatTree;
+        private System.Windows.Forms.Button buttonCollapseMatTree;
+        private System.Windows.Forms.Button buttonExpandMatTree;
+        private System.Windows.Forms.Button buttonSortMatTree;
     }
 }

@@ -106,6 +106,8 @@
             this.toolStripButtonMaterial = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonGrass = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonMulti = new System.Windows.Forms.ToolStripButton();
+            this.stripSpecialFunctions = new System.Windows.Forms.ToolStripMenuItem();
+            this.stripSpecialFormVobsVisuals = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -320,7 +322,8 @@
             this.analyseWaynetToolStripMenuItem,
             this.playHeroToolStrip,
             this.pfxEditorToolStrip,
-            this.testCoordsToolStripMenuItem});
+            this.testCoordsToolStripMenuItem,
+            this.stripSpecialFunctions});
             this.ToolStripMenuWorld.ForeColor = System.Drawing.Color.Black;
             this.ToolStripMenuWorld.Name = "ToolStripMenuWorld";
             this.ToolStripMenuWorld.Size = new System.Drawing.Size(44, 20);
@@ -329,14 +332,14 @@
             // compileLightToolStrip
             // 
             this.compileLightToolStrip.Name = "compileLightToolStrip";
-            this.compileLightToolStrip.Size = new System.Drawing.Size(176, 22);
+            this.compileLightToolStrip.Size = new System.Drawing.Size(202, 22);
             this.compileLightToolStrip.Text = "Компиляция света";
             this.compileLightToolStrip.Click += new System.EventHandler(this.здрастеToolStripMenuItem_Click);
             // 
             // compileWorldToolStrip
             // 
             this.compileWorldToolStrip.Name = "compileWorldToolStrip";
-            this.compileWorldToolStrip.Size = new System.Drawing.Size(176, 22);
+            this.compileWorldToolStrip.Size = new System.Drawing.Size(202, 22);
             this.compileWorldToolStrip.Text = "Компиляция мира";
             this.compileWorldToolStrip.Click += new System.EventHandler(this.компиляцияМираToolStripMenuItem_Click);
             // 
@@ -346,7 +349,7 @@
             this.прыгнутьНа000КоординатыToolStripMenuItem,
             this.ввестиКоординатыToolStripMenuItem});
             this.cameraCoordsToolStrip.Name = "cameraCoordsToolStrip";
-            this.cameraCoordsToolStrip.Size = new System.Drawing.Size(176, 22);
+            this.cameraCoordsToolStrip.Size = new System.Drawing.Size(202, 22);
             this.cameraCoordsToolStrip.Text = "Камера";
             // 
             // прыгнутьНа000КоординатыToolStripMenuItem
@@ -372,7 +375,7 @@
             this.ToolStripMenuTimeNight,
             this.freezeTimeToolStripMenuItem});
             this.dayTimeToolStrip.Name = "dayTimeToolStrip";
-            this.dayTimeToolStrip.Size = new System.Drawing.Size(176, 22);
+            this.dayTimeToolStrip.Size = new System.Drawing.Size(202, 22);
             this.dayTimeToolStrip.Text = "Время суток";
             // 
             // ToolStripMenuTimeMorning
@@ -418,7 +421,7 @@
             this.fLATToolStripMenuItem,
             this.wIREToolStripMenuItem});
             this.renderModeToolStripMenuItem.Name = "renderModeToolStripMenuItem";
-            this.renderModeToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.renderModeToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.renderModeToolStripMenuItem.Text = "Режим рендера";
             // 
             // normalToolStripMenuItem
@@ -454,14 +457,14 @@
             // analyseWaynetToolStripMenuItem
             // 
             this.analyseWaynetToolStripMenuItem.Name = "analyseWaynetToolStripMenuItem";
-            this.analyseWaynetToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.analyseWaynetToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.analyseWaynetToolStripMenuItem.Text = "Анализ Waynet";
             this.analyseWaynetToolStripMenuItem.Click += new System.EventHandler(this.анализWaynetToolStripMenuItem_Click);
             // 
             // playHeroToolStrip
             // 
             this.playHeroToolStrip.Name = "playHeroToolStrip";
-            this.playHeroToolStrip.Size = new System.Drawing.Size(176, 22);
+            this.playHeroToolStrip.Size = new System.Drawing.Size(202, 22);
             this.playHeroToolStrip.Text = "Играть за героя";
             this.playHeroToolStrip.Click += new System.EventHandler(this.игратьЗаГерояToolStripMenuItem_Click);
             // 
@@ -469,7 +472,7 @@
             // 
             this.pfxEditorToolStrip.Enabled = false;
             this.pfxEditorToolStrip.Name = "pfxEditorToolStrip";
-            this.pfxEditorToolStrip.Size = new System.Drawing.Size(176, 22);
+            this.pfxEditorToolStrip.Size = new System.Drawing.Size(202, 22);
             this.pfxEditorToolStrip.Text = "Редактор PFX";
             this.pfxEditorToolStrip.Visible = false;
             this.pfxEditorToolStrip.Click += new System.EventHandler(this.pfxEditorToolStrip_Click);
@@ -477,7 +480,7 @@
             // testCoordsToolStripMenuItem
             // 
             this.testCoordsToolStripMenuItem.Name = "testCoordsToolStripMenuItem";
-            this.testCoordsToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.testCoordsToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.testCoordsToolStripMenuItem.Text = "TestCoords";
             this.testCoordsToolStripMenuItem.Visible = false;
             this.testCoordsToolStripMenuItem.Click += new System.EventHandler(this.testCoordsToolStripMenuItem_Click);
@@ -785,6 +788,21 @@
             this.toolStripButtonMulti.Text = "Режим множественного выделения";
             this.toolStripButtonMulti.Click += new System.EventHandler(this.toolStripButtonMulti_Click);
             // 
+            // stripSpecialFunctions
+            // 
+            this.stripSpecialFunctions.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stripSpecialFormVobsVisuals});
+            this.stripSpecialFunctions.Name = "stripSpecialFunctions";
+            this.stripSpecialFunctions.Size = new System.Drawing.Size(202, 22);
+            this.stripSpecialFunctions.Text = "Специальные функции";
+            // 
+            // stripSpecialFormVobsVisuals
+            // 
+            this.stripSpecialFormVobsVisuals.Name = "stripSpecialFormVobsVisuals";
+            this.stripSpecialFormVobsVisuals.Size = new System.Drawing.Size(360, 22);
+            this.stripSpecialFormVobsVisuals.Text = "Сформировать список 3DS/MRM визуалов локации";
+            this.stripSpecialFormVobsVisuals.Click += new System.EventHandler(this.stripSpecialFormVobsVisuals_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -892,5 +910,7 @@
         private System.Windows.Forms.ToolStripMenuItem resetWinAction;
         private System.Windows.Forms.ToolStripMenuItem preset1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuOpenLast;
+        private System.Windows.Forms.ToolStripMenuItem stripSpecialFormVobsVisuals;
+        public System.Windows.Forms.ToolStripMenuItem stripSpecialFunctions;
     }
 }

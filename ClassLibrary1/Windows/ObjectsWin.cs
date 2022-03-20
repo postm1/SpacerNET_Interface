@@ -37,6 +37,7 @@ namespace SpacerUnion
         {
             InitializeComponent();
             comboBoxSearchType.SelectedIndex = 0;
+            
         }
 
 
@@ -176,12 +177,19 @@ namespace SpacerUnion
             Imports.Stack_PushString("itemLocatorOnlySusp");
             checkBoxLocatorOnlySusp.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
+            Imports.Stack_PushString("itemLocatorOnlyByName");
+            checkBoxLocatorByName.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
             
+
+
 
             Imports.Stack_PushString("itemLocatorRadius");
             trackBarLocatorRad.Value = Imports.Extern_GetSetting();
 
             trackBarLocatorRad_ValueChanged(null, null);
+
+            
         }
 
 
@@ -1146,6 +1154,7 @@ namespace SpacerUnion
             //listBoxActionType.SelectedIndex = 0;
 
             this.treeViewSearchClass.ImageList = SpacerNET.objTreeWin.imageList1;
+            InitCameraTab();
         }
 
         private void listBoxSources_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -1619,25 +1628,7 @@ namespace SpacerUnion
 
         }
 
-        private void buttonCamPlus_Click(object sender, EventArgs e)
-        {
-            if (camEntry.currentKey < camEntry.maxKey)
-            {
-                camEntry.currentKey += 1;
-                UpdateCurrentKeyLabel();
-            }
-           
 
-        }
-
-        private void buttonCamMinus_Click(object sender, EventArgs e)
-        {
-            if (camEntry.currentKey > 0)
-            {
-                camEntry.currentKey -= 1;
-                UpdateCurrentKeyLabel();
-            }
-        }
 
 
         static Dictionary<string, FolderEntry> folders = new Dictionary<string, FolderEntry>();
@@ -3067,6 +3058,56 @@ namespace SpacerUnion
 
             Imports.Stack_PushString("itemLocatorOnlySusp");
             Imports.Extern_SetSetting(Convert.ToInt32(locatorCheck.Checked));
+        }
+
+        //========================================================
+
+
+        public void InitCameraTab()
+        {
+
+        }
+        private void buttonCamPlus_Click(object sender, EventArgs e)
+        {
+            if (camEntry.currentKey < camEntry.maxKey)
+            {
+                camEntry.currentKey += 1;
+               
+            }
+
+
+        }
+
+        private void buttonCamMinus_Click(object sender, EventArgs e)
+        {
+            if (camEntry.currentKey > 0)
+            {
+                camEntry.currentKey -= 1;
+               
+            }
+        }
+
+        private void checkBoxLocatorByName_CheckedChanged(object sender, EventArgs e)
+        {
+            var locatorCheck = sender as CheckBox;
+
+            Imports.Stack_PushString("itemLocatorOnlyByName");
+            Imports.Extern_SetSetting(Convert.ToInt32(locatorCheck.Checked));
+
+            if (locatorCheck.Checked)
+            {
+                Imports.Stack_PushString(textBoxLocatorByName.Text.Trim());
+                Imports.Stack_PushString("itemLocatorNameSearch");
+                Imports.Extern_SetSettingStr();
+            }
+        }
+
+        private void textBoxLocatorByName_TextChanged(object sender, EventArgs e)
+        {
+
+            Imports.Stack_PushString(textBoxLocatorByName.Text.Trim());
+            Imports.Stack_PushString("itemLocatorNameSearch");
+            Imports.Extern_SetSettingStr();
         }
     }
 }
