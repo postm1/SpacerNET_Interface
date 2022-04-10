@@ -39,6 +39,8 @@
             this.buttonParticles = new System.Windows.Forms.Button();
             this.groupBoxObjItems = new System.Windows.Forms.GroupBox();
             this.groupBoxItemsLocator = new System.Windows.Forms.GroupBox();
+            this.checkBoxLocatorByName = new System.Windows.Forms.CheckBox();
+            this.textBoxLocatorByName = new System.Windows.Forms.TextBox();
             this.checkBoxLocatorOnlySusp = new System.Windows.Forms.CheckBox();
             this.labelItemLocatorRadius = new System.Windows.Forms.Label();
             this.trackBarLocatorRad = new System.Windows.Forms.TrackBar();
@@ -56,6 +58,7 @@
             this.listBoxItems = new System.Windows.Forms.ListBox();
             this.buttonItemsCreate = new System.Windows.Forms.Button();
             this.groupBoxObjAllClasses = new System.Windows.Forms.GroupBox();
+            this.labelFindVisualArchive = new System.Windows.Forms.Label();
             this.checkBoxSearchOnly3DS = new System.Windows.Forms.CheckBox();
             this.groupBoxObjPropVobs = new System.Windows.Forms.GroupBox();
             this.labelObjAllClassesNameVob = new System.Windows.Forms.Label();
@@ -196,8 +199,7 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.textBoxLocatorByName = new System.Windows.Forms.TextBox();
-            this.checkBoxLocatorByName = new System.Windows.Forms.CheckBox();
+            this.comboBoxArchiveList = new System.Windows.Forms.ComboBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -336,7 +338,7 @@
             this.groupBoxObjItems.Controls.Add(this.buttonItemsCreate);
             this.groupBoxObjItems.Location = new System.Drawing.Point(6, 6);
             this.groupBoxObjItems.Name = "groupBoxObjItems";
-            this.groupBoxObjItems.Size = new System.Drawing.Size(552, 353);
+            this.groupBoxObjItems.Size = new System.Drawing.Size(609, 403);
             this.groupBoxObjItems.TabIndex = 2;
             this.groupBoxObjItems.TabStop = false;
             this.groupBoxObjItems.Text = "Предметы";
@@ -355,6 +357,26 @@
             this.groupBoxItemsLocator.TabIndex = 21;
             this.groupBoxItemsLocator.TabStop = false;
             this.groupBoxItemsLocator.Text = "Локатор предметов";
+            // 
+            // checkBoxLocatorByName
+            // 
+            this.checkBoxLocatorByName.AutoSize = true;
+            this.checkBoxLocatorByName.Location = new System.Drawing.Point(9, 147);
+            this.checkBoxLocatorByName.Name = "checkBoxLocatorByName";
+            this.checkBoxLocatorByName.Size = new System.Drawing.Size(116, 17);
+            this.checkBoxLocatorByName.TabIndex = 11;
+            this.checkBoxLocatorByName.Text = "Искать по имени:";
+            this.checkBoxLocatorByName.UseVisualStyleBackColor = true;
+            this.checkBoxLocatorByName.CheckedChanged += new System.EventHandler(this.checkBoxLocatorByName_CheckedChanged);
+            // 
+            // textBoxLocatorByName
+            // 
+            this.textBoxLocatorByName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxLocatorByName.Location = new System.Drawing.Point(10, 170);
+            this.textBoxLocatorByName.Name = "textBoxLocatorByName";
+            this.textBoxLocatorByName.Size = new System.Drawing.Size(156, 22);
+            this.textBoxLocatorByName.TabIndex = 10;
+            this.textBoxLocatorByName.TextChanged += new System.EventHandler(this.textBoxLocatorByName_TextChanged);
             // 
             // checkBoxLocatorOnlySusp
             // 
@@ -525,6 +547,8 @@
             // 
             // groupBoxObjAllClasses
             // 
+            this.groupBoxObjAllClasses.Controls.Add(this.comboBoxArchiveList);
+            this.groupBoxObjAllClasses.Controls.Add(this.labelFindVisualArchive);
             this.groupBoxObjAllClasses.Controls.Add(this.checkBoxSearchOnly3DS);
             this.groupBoxObjAllClasses.Controls.Add(this.groupBoxObjPropVobs);
             this.groupBoxObjAllClasses.Controls.Add(this.checkBoxShowPreview);
@@ -536,12 +560,22 @@
             this.groupBoxObjAllClasses.Controls.Add(this.labelSearchVisual);
             this.groupBoxObjAllClasses.Controls.Add(this.textBoxVisuals);
             this.groupBoxObjAllClasses.Controls.Add(this.classesTreeView);
-            this.groupBoxObjAllClasses.Location = new System.Drawing.Point(6, 6);
+            this.groupBoxObjAllClasses.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxObjAllClasses.Location = new System.Drawing.Point(0, 0);
             this.groupBoxObjAllClasses.Name = "groupBoxObjAllClasses";
-            this.groupBoxObjAllClasses.Size = new System.Drawing.Size(545, 350);
+            this.groupBoxObjAllClasses.Size = new System.Drawing.Size(617, 379);
             this.groupBoxObjAllClasses.TabIndex = 3;
             this.groupBoxObjAllClasses.TabStop = false;
             this.groupBoxObjAllClasses.Text = "Все классы вобов";
+            // 
+            // labelFindVisualArchive
+            // 
+            this.labelFindVisualArchive.AutoSize = true;
+            this.labelFindVisualArchive.Location = new System.Drawing.Point(252, 231);
+            this.labelFindVisualArchive.Name = "labelFindVisualArchive";
+            this.labelFindVisualArchive.Size = new System.Drawing.Size(159, 13);
+            this.labelFindVisualArchive.TabIndex = 21;
+            this.labelFindVisualArchive.Text = "Искать только в архиве (VDF)";
             // 
             // checkBoxSearchOnly3DS
             // 
@@ -565,7 +599,7 @@
             this.groupBoxObjPropVobs.Controls.Add(this.checkBoxStaStat);
             this.groupBoxObjPropVobs.Location = new System.Drawing.Point(252, 13);
             this.groupBoxObjPropVobs.Name = "groupBoxObjPropVobs";
-            this.groupBoxObjPropVobs.Size = new System.Drawing.Size(287, 115);
+            this.groupBoxObjPropVobs.Size = new System.Drawing.Size(363, 115);
             this.groupBoxObjPropVobs.TabIndex = 18;
             this.groupBoxObjPropVobs.TabStop = false;
             this.groupBoxObjPropVobs.Text = "Свойства воба";
@@ -584,7 +618,7 @@
             // 
             this.buttonAllClassesCreateVob.Location = new System.Drawing.Point(9, 60);
             this.buttonAllClassesCreateVob.Name = "buttonAllClassesCreateVob";
-            this.buttonAllClassesCreateVob.Size = new System.Drawing.Size(260, 26);
+            this.buttonAllClassesCreateVob.Size = new System.Drawing.Size(348, 26);
             this.buttonAllClassesCreateVob.TabIndex = 0;
             this.buttonAllClassesCreateVob.Text = "Создать Vob";
             this.buttonAllClassesCreateVob.UseVisualStyleBackColor = true;
@@ -595,7 +629,7 @@
             this.textBoxVobName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxVobName.Location = new System.Drawing.Point(9, 33);
             this.textBoxVobName.Name = "textBoxVobName";
-            this.textBoxVobName.Size = new System.Drawing.Size(260, 22);
+            this.textBoxVobName.Size = new System.Drawing.Size(348, 22);
             this.textBoxVobName.TabIndex = 3;
             // 
             // checkBoxDynStat
@@ -666,7 +700,7 @@
             // 
             // buttonAllClassesClear
             // 
-            this.buttonAllClassesClear.Location = new System.Drawing.Point(466, 200);
+            this.buttonAllClassesClear.Location = new System.Drawing.Point(542, 200);
             this.buttonAllClassesClear.Name = "buttonAllClassesClear";
             this.buttonAllClassesClear.Size = new System.Drawing.Size(73, 25);
             this.buttonAllClassesClear.TabIndex = 12;
@@ -677,12 +711,14 @@
             // listBoxVisuals
             // 
             this.listBoxVisuals.FormattingEnabled = true;
-            this.listBoxVisuals.Location = new System.Drawing.Point(255, 236);
+            this.listBoxVisuals.Location = new System.Drawing.Point(253, 255);
             this.listBoxVisuals.Name = "listBoxVisuals";
-            this.listBoxVisuals.Size = new System.Drawing.Size(284, 108);
+            this.listBoxVisuals.Size = new System.Drawing.Size(360, 121);
             this.listBoxVisuals.TabIndex = 8;
             this.listBoxVisuals.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxVisuals_MouseClick);
             this.listBoxVisuals.SelectedIndexChanged += new System.EventHandler(this.listBoxVisuals_SelectedIndexChanged);
+            this.listBoxVisuals.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBoxVisuals_KeyDown);
+            this.listBoxVisuals.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBoxVisuals_KeyPress);
             this.listBoxVisuals.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxVisuals_MouseDown);
             // 
             // labelSearchVisual
@@ -697,9 +733,9 @@
             // textBoxVisuals
             // 
             this.textBoxVisuals.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxVisuals.Location = new System.Drawing.Point(255, 203);
+            this.textBoxVisuals.Location = new System.Drawing.Point(255, 202);
             this.textBoxVisuals.Name = "textBoxVisuals";
-            this.textBoxVisuals.Size = new System.Drawing.Size(200, 22);
+            this.textBoxVisuals.Size = new System.Drawing.Size(281, 22);
             this.textBoxVisuals.TabIndex = 6;
             this.textBoxVisuals.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVisuals_KeyPress);
             // 
@@ -708,7 +744,7 @@
             this.classesTreeView.HideSelection = false;
             this.classesTreeView.Location = new System.Drawing.Point(6, 19);
             this.classesTreeView.Name = "classesTreeView";
-            this.classesTreeView.Size = new System.Drawing.Size(240, 325);
+            this.classesTreeView.Size = new System.Drawing.Size(240, 357);
             this.classesTreeView.TabIndex = 1;
             this.classesTreeView.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.classesTreeView_DrawNode);
             // 
@@ -722,10 +758,11 @@
             this.tabControlObjects.Controls.Add(this.tabPage6);
             this.tabControlObjects.Controls.Add(this.tabPage7);
             this.tabControlObjects.Controls.Add(this.tabPage8);
-            this.tabControlObjects.Location = new System.Drawing.Point(3, 2);
+            this.tabControlObjects.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlObjects.Location = new System.Drawing.Point(0, 0);
             this.tabControlObjects.Name = "tabControlObjects";
             this.tabControlObjects.SelectedIndex = 0;
-            this.tabControlObjects.Size = new System.Drawing.Size(569, 388);
+            this.tabControlObjects.Size = new System.Drawing.Size(625, 405);
             this.tabControlObjects.TabIndex = 4;
             this.tabControlObjects.SelectedIndexChanged += new System.EventHandler(this.tabControlObjects_SelectedIndexChanged);
             // 
@@ -734,7 +771,7 @@
             this.tabPage3.Controls.Add(this.groupBoxObjAllClasses);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(561, 362);
+            this.tabPage3.Size = new System.Drawing.Size(617, 379);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Все классы";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -745,7 +782,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(561, 362);
+            this.tabPage2.Size = new System.Drawing.Size(616, 395);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Вещи";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -756,7 +793,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(561, 362);
+            this.tabPage1.Size = new System.Drawing.Size(616, 395);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Эффекты";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -774,7 +811,7 @@
             this.tabPage4.Controls.Add(this.groupBoxTriggersVob);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(561, 362);
+            this.tabPage4.Size = new System.Drawing.Size(616, 395);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Триггеры";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1018,7 +1055,7 @@
             this.tabPage5.Controls.Add(this.groupBoxWPFP);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(561, 362);
+            this.tabPage5.Size = new System.Drawing.Size(623, 417);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "WP/FP";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1202,7 +1239,7 @@
             this.tabPage6.Controls.Add(this.groupBoxSearchClasses);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(561, 362);
+            this.tabPage6.Size = new System.Drawing.Size(623, 417);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Поиск";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -1474,7 +1511,7 @@
             this.tabPage7.Controls.Add(this.groupBox11);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(561, 362);
+            this.tabPage7.Size = new System.Drawing.Size(623, 417);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Камера";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1730,7 +1767,7 @@
             this.tabPage8.Controls.Add(this.button10);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(561, 362);
+            this.tabPage8.Size = new System.Drawing.Size(623, 417);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Свет";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -2046,31 +2083,19 @@
             this.button10.Text = "Удалить";
             this.button10.UseVisualStyleBackColor = true;
             // 
-            // textBoxLocatorByName
+            // comboBoxArchiveList
             // 
-            this.textBoxLocatorByName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxLocatorByName.Location = new System.Drawing.Point(10, 170);
-            this.textBoxLocatorByName.Name = "textBoxLocatorByName";
-            this.textBoxLocatorByName.Size = new System.Drawing.Size(156, 22);
-            this.textBoxLocatorByName.TabIndex = 10;
-            this.textBoxLocatorByName.TextChanged += new System.EventHandler(this.textBoxLocatorByName_TextChanged);
-            // 
-            // checkBoxLocatorByName
-            // 
-            this.checkBoxLocatorByName.AutoSize = true;
-            this.checkBoxLocatorByName.Location = new System.Drawing.Point(9, 147);
-            this.checkBoxLocatorByName.Name = "checkBoxLocatorByName";
-            this.checkBoxLocatorByName.Size = new System.Drawing.Size(116, 17);
-            this.checkBoxLocatorByName.TabIndex = 11;
-            this.checkBoxLocatorByName.Text = "Искать по имени:";
-            this.checkBoxLocatorByName.UseVisualStyleBackColor = true;
-            this.checkBoxLocatorByName.CheckedChanged += new System.EventHandler(this.checkBoxLocatorByName_CheckedChanged);
+            this.comboBoxArchiveList.FormattingEnabled = true;
+            this.comboBoxArchiveList.Location = new System.Drawing.Point(418, 228);
+            this.comboBoxArchiveList.Name = "comboBoxArchiveList";
+            this.comboBoxArchiveList.Size = new System.Drawing.Size(195, 21);
+            this.comboBoxArchiveList.TabIndex = 22;
             // 
             // ObjectsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 389);
+            this.ClientSize = new System.Drawing.Size(625, 405);
             this.Controls.Add(this.tabControlObjects);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -2299,5 +2324,7 @@
         private System.Windows.Forms.CheckBox checkBoxLocatorOnlySusp;
         private System.Windows.Forms.TextBox textBoxLocatorByName;
         private System.Windows.Forms.CheckBox checkBoxLocatorByName;
+        private System.Windows.Forms.Label labelFindVisualArchive;
+        private System.Windows.Forms.ComboBox comboBoxArchiveList;
     }
 }

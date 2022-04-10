@@ -1651,11 +1651,11 @@ namespace SpacerUnion
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
-            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.Filter = "HTML file (*.html)|*.html|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 1;
             saveFileDialog1.RestoreDirectory = true;
             saveFileDialog1.InitialDirectory = "./";
-            saveFileDialog1.FileName = "LOCATION_VOBS_VISUALS_FILES.txt";
+            saveFileDialog1.FileName = "LOCATION_VOBS_VISUALS_FILES.html";
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {

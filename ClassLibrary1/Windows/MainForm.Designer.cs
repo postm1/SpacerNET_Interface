@@ -73,6 +73,8 @@
             this.playHeroToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.pfxEditorToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.testCoordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stripSpecialFunctions = new System.Windows.Forms.ToolStripMenuItem();
+            this.stripSpecialFormVobsVisuals = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.cameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -106,8 +108,6 @@
             this.toolStripButtonMaterial = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonGrass = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonMulti = new System.Windows.Forms.ToolStripButton();
-            this.stripSpecialFunctions = new System.Windows.Forms.ToolStripMenuItem();
-            this.stripSpecialFormVobsVisuals = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -485,6 +485,21 @@
             this.testCoordsToolStripMenuItem.Visible = false;
             this.testCoordsToolStripMenuItem.Click += new System.EventHandler(this.testCoordsToolStripMenuItem_Click);
             // 
+            // stripSpecialFunctions
+            // 
+            this.stripSpecialFunctions.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stripSpecialFormVobsVisuals});
+            this.stripSpecialFunctions.Name = "stripSpecialFunctions";
+            this.stripSpecialFunctions.Size = new System.Drawing.Size(202, 22);
+            this.stripSpecialFunctions.Text = "Специальные функции";
+            // 
+            // stripSpecialFormVobsVisuals
+            // 
+            this.stripSpecialFormVobsVisuals.Name = "stripSpecialFormVobsVisuals";
+            this.stripSpecialFormVobsVisuals.Size = new System.Drawing.Size(303, 22);
+            this.stripSpecialFormVobsVisuals.Text = "Сформировать список визуалов локации";
+            this.stripSpecialFormVobsVisuals.Click += new System.EventHandler(this.stripSpecialFormVobsVisuals_Click);
+            // 
             // toolStripMenuItemSettings
             // 
             this.toolStripMenuItemSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -787,21 +802,6 @@
             this.toolStripButtonMulti.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonMulti.Text = "Режим множественного выделения";
             this.toolStripButtonMulti.Click += new System.EventHandler(this.toolStripButtonMulti_Click);
-            // 
-            // stripSpecialFunctions
-            // 
-            this.stripSpecialFunctions.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.stripSpecialFormVobsVisuals});
-            this.stripSpecialFunctions.Name = "stripSpecialFunctions";
-            this.stripSpecialFunctions.Size = new System.Drawing.Size(202, 22);
-            this.stripSpecialFunctions.Text = "Специальные функции";
-            // 
-            // stripSpecialFormVobsVisuals
-            // 
-            this.stripSpecialFormVobsVisuals.Name = "stripSpecialFormVobsVisuals";
-            this.stripSpecialFormVobsVisuals.Size = new System.Drawing.Size(360, 22);
-            this.stripSpecialFormVobsVisuals.Text = "Сформировать список 3DS/MRM визуалов локации";
-            this.stripSpecialFormVobsVisuals.Click += new System.EventHandler(this.stripSpecialFormVobsVisuals_Click);
             // 
             // MainForm
             // 

@@ -512,7 +512,7 @@ namespace SpacerUnion.Common
 
 
             words.Add("MENU_TOP_SPECIAL_FUNCS", new List<string> { "Специальные функции", "Special functions", "", "Funkcje specjalne" });
-            words.Add("MENU_TOP_CREATE_VOB_VISUALS_LIST", new List<string> { "Сформировать список 3DS/MRM визуалов локации", "Create a list of 3DS/MRM files which are used in the location", "", "Stwórz lisę plików 3DS/MRM, któresą używane w lokacji" });
+            words.Add("MENU_TOP_CREATE_VOB_VISUALS_LIST", new List<string> { "Сформировать список визуалов локации", "Create a list of files which are used in the location", "", "Stwórz lisę plików, któresą używane w lokacji" });
 
 
         }

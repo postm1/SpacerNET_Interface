@@ -189,7 +189,26 @@ namespace SpacerUnion
 
             trackBarLocatorRad_ValueChanged(null, null);
 
-            
+            GetVdfArchivesList();
+        }
+
+        public void GetVdfArchivesList()
+        {
+            DirectoryInfo d = new DirectoryInfo(@"./Data/"); 
+
+            FileInfo[] Files = d.GetFiles("*.vdf"); 
+            string str = "";
+
+            comboBoxArchiveList.Items.Clear();
+
+            comboBoxArchiveList.Items.Add("-");
+
+            foreach (FileInfo file in Files)
+            {
+                comboBoxArchiveList.Items.Add(file.Name);
+            }
+
+            comboBoxArchiveList.SelectedIndex = 0;
         }
 
 
@@ -857,9 +876,29 @@ namespace SpacerUnion
                 {
                     for (int i = 0; i < listVisualsVDF.Count; i++)
                     {
+
                         if (regEx.IsMatch(listVisualsVDF[i]))
                         {
-                            listBoxVisuals.Items.Add(listVisualsVDF[i]);
+
+                            if (comboBoxArchiveList.SelectedIndex > 0)
+                            {
+                                string searchArchive = comboBoxArchiveList.GetItemText(comboBoxArchiveList.SelectedItem);
+
+                                if (searchArchive.Length > 0)
+                                {
+                                    Imports.Stack_PushString(listVisualsVDF[i]);
+                                    Imports.Stack_PushString(searchArchive);
+
+                                    if (Imports.Extern_VisualIsInVDF() == 1)
+                                    {
+                                        listBoxVisuals.Items.Add(listVisualsVDF[i]);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                listBoxVisuals.Items.Add(listVisualsVDF[i]);
+                            }
                         }
                     }
                 }
@@ -3108,6 +3147,34 @@ namespace SpacerUnion
             Imports.Stack_PushString(textBoxLocatorByName.Text.Trim());
             Imports.Stack_PushString("itemLocatorNameSearch");
             Imports.Extern_SetSettingStr();
+        }
+
+        private void listBoxVisuals_KeyDown(object sender, KeyEventArgs e)
+        {
+            /*
+            ListBox listBox = sender as ListBox;
+
+            ConsoleEx.WriteLineRed("listBoxVisuals_KeyDown");
+
+            if (e.KeyCode == Keys.S && listBox.SelectedIndex < listBox.Items.Count - 1)
+            {
+                listBox.SelectedIndex += 1;
+
+                ConsoleEx.WriteLineRed("index plus");
+            }
+
+            if (e.KeyCode == Keys.W && listBox.SelectedIndex > 0)
+            {
+                listBox.SelectedIndex -= 1;
+            }
+
+            Application.DoEvents();
+            */
+        }
+
+        private void listBoxVisuals_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //ConsoleEx.WriteLineRed("listBoxVisuals_KeyPress");
         }
     }
 }
