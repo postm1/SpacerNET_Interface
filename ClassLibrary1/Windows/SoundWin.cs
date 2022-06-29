@@ -28,14 +28,14 @@ namespace SpacerUnion
             groupBoxSound.Text = Localizator.Get("groupBoxSound");
             groupBoxMusic.Text = Localizator.Get("groupBoxMusic");
             buttonPlaySound.Text = Localizator.Get("buttonPlaySound");
-            buttonPlaySoundRegex.Text = Localizator.Get("buttonPlaySound");
+           // buttonPlaySoundRegex.Text = Localizator.Get("buttonPlaySound");
             labelAllSounds.Text = Localizator.Get("labelAllSounds");
             labelSndList.Text = Localizator.Get("labelSndList");
             buttonOffMusic.Text = Localizator.Get("buttonOffMusic");
             buttonMusicOn.Text = Localizator.Get("buttonMusicOn");
             checkBoxShutMusic.Text = Localizator.Get("checkBoxShutMusic");
             labelMusicVolume.Text = Localizator.Get("labelMusicVolume");
-            groupBoxSoundsMisc.Text = Localizator.Get("groupBoxSound");
+            //groupBoxSoundsMisc.Text = Localizator.Get("groupBoxSound");
             buttonStopAllSounds.Text = Localizator.Get("buttonStopAllSounds");
             checkBoxShutSounds.Text = Localizator.Get("checkBoxShutSounds");
             checkBoxConstSound.Text = Localizator.Get("checkBoxConstSound");
@@ -61,11 +61,30 @@ namespace SpacerUnion
         }
 
         [DllExport]
+        public static void SortMusic()
+        {
+            Utils.SortListBox(SpacerNET.soundWin.listBoxMusic);
+
+            SpacerNET.soundWin.labelAllSounds.Text = Localizator.Get("labelAllSounds") + ": " + SpacerNET.soundWin.listBoxSound.Items.Count;
+
+            //UnionNET.soundWin.Text += ", всего: " + UnionNET.soundWin.listBoxSound.Items.Count;
+        }
+
+
+        [DllExport]
         public static void AddSoundToList()
         {
             string name = Imports.Stack_PeekString();
 
             SpacerNET.soundWin.listBoxSound.Items.Add(name);
+        }
+
+        [DllExport]
+        public static void AddMusicToList()
+        {
+            string name = Imports.Stack_PeekString();
+
+            SpacerNET.soundWin.listBoxMusic.Items.Add(name);
         }
 
 
@@ -99,6 +118,7 @@ namespace SpacerUnion
             Imports.Extern_StopAllSounds();
         }
 
+        /*
         private void textBoxSnd_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
@@ -134,6 +154,7 @@ namespace SpacerUnion
             Imports.Extern_PlaySound();
 
         }
+        */
 
         private void buttonOffMusic_Click(object sender, EventArgs e)
         {
@@ -180,6 +201,7 @@ namespace SpacerUnion
             }
         }
 
+        /*
         private void listBoxSndResult_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             ListBox lb = sender as ListBox;
@@ -194,6 +216,7 @@ namespace SpacerUnion
                 }
             }
         }
+        */
 
         private void checkBoxShutSounds_CheckedChanged(object sender, EventArgs e)
         {
@@ -237,6 +260,21 @@ namespace SpacerUnion
             CheckBox cb = sender as CheckBox;
             Imports.Stack_PushString("alwaysShutSounds");
             Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
+        }
+
+        private void listBoxMusic_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ListBox lb = sender as ListBox;
+
+            int index = lb.IndexFromPoint(e.Location);
+            {
+                if (index == lb.SelectedIndex)
+                {
+                    string name = listBoxMusic.GetItemText(listBoxMusic.SelectedItem);
+                    Imports.Stack_PushString(name);
+                    Imports.Extern_PlayMusic();
+                }
+            }
         }
     }
 }

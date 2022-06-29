@@ -84,6 +84,9 @@ namespace SpacerUnion
 
 
 
+            labelFindVisualArchive.Text = Localizator.Get("labelFindVisualArchive");
+
+
             groupBoxTriggersVob.Text = Localizator.Get("groupBoxTriggersVob");
             groupBoxTriggersKeys.Text = Localizator.Get("groupBoxTriggersKeys");
             buttonSendTrigger.Text = Localizator.Get("buttonSendTrigger");
@@ -124,6 +127,7 @@ namespace SpacerUnion
 
             groupBoxSearchClasses.Text = Localizator.Get("all_vobs_classes");
             checkBoxSearchDerived.Text = Localizator.Get("search_derived");
+            checkBoxSearchHasChildren.Text = Localizator.Get("checkBoxSearchHasChildren");
             checkBoxSearchUseRegex.Text = Localizator.Get("search_use_regex");
             buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE0");
             buttonSearchVobsReset.Text = Localizator.Get("BTN_RESET");
@@ -147,7 +151,11 @@ namespace SpacerUnion
             groupBoxItemsLocator.Text = Localizator.Get("groupBoxItemsLocator");
             checkBoxLocatorEnabled.Text = Localizator.Get("checkBoxLocatorEnabled");
             checkBoxLocatorOnlySusp.Text = Localizator.Get("checkBoxLocatorOnlySusp");
+
             
+            checkBoxLocatorByName.Text = Localizator.Get("checkBoxLocatorByName");
+            labelItemLocatorRadius.Text = Localizator.Get("labelItemLocatorRadius") + trackBarLocatorRad.Value;
+
         }
 
         public void LoadSettings()
@@ -187,7 +195,7 @@ namespace SpacerUnion
             Imports.Stack_PushString("itemLocatorRadius");
             trackBarLocatorRad.Value = Imports.Extern_GetSetting();
 
-            trackBarLocatorRad_ValueChanged(null, null);
+
 
             GetVdfArchivesList();
         }
@@ -2521,7 +2529,7 @@ namespace SpacerUnion
             }
 
             Imports.Stack_PushInt(countSelected);
-            int result = Imports.Extern_SearchVobs(checkBoxSearchDerived.Checked, comboBoxSearchType.SelectedIndex);
+            int result = Imports.Extern_SearchVobs(checkBoxSearchDerived.Checked, checkBoxSearchHasChildren.Checked, comboBoxSearchType.SelectedIndex);
 
 
             s.Stop();
@@ -2754,6 +2762,63 @@ namespace SpacerUnion
 
             return result;
 
+        }
+
+
+        [DllExport]
+        public static bool CompareByNameOrVisual()
+        {
+            bool match = false;
+            bool useRegx = SpacerNET.objectsWin.checkBoxSearchUseRegex.Checked;
+            string visualName = Imports.Stack_PeekString();
+            string vobName = Imports.Stack_PeekString();
+
+            bool flagSearchName = vobName.Length > 0;
+            bool flagSearchVisual = visualName.Length > 0;
+
+            compareProps.Clear();
+            foldersCompare.Clear();
+            currentFolderNameCompare = "";
+
+            //ConsoleEx.WriteLineGreen(vobName + "; " + visualName + " SearchPropsCount: " + searchProps.Count);
+
+            int j = 0;
+            while (j < searchProps.Count)
+            {
+                if (flagSearchName && searchProps[j].selectedForSearch && searchProps[j].Name == "vobName")
+                {
+                    if (useRegx)
+                    {
+                        Regex reg = new Regex(searchProps[j].value, RegexOptions.IgnoreCase);
+
+                        match = reg.IsMatch(vobName);
+                    }
+                    else
+                    {
+                        match = vobName == searchProps[j].value;
+                    }
+
+                    return match;
+                }
+                else if (flagSearchVisual && searchProps[j].selectedForSearch && searchProps[j].Name == "visual")
+                {
+                    if (useRegx)
+                    {
+                        Regex reg = new Regex(searchProps[j].value, RegexOptions.IgnoreCase);
+
+                        match = reg.IsMatch(visualName);
+                    }
+                    else
+                    {
+                        match = visualName == searchProps[j].value;
+                    }
+
+                    return match;
+                }
+                j++;
+            }
+
+            return false;
         }
 
         [DllExport]

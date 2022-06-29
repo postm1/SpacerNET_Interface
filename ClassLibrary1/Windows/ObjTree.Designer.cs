@@ -42,6 +42,7 @@
             this.AddQuickVobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuRestorePos = new System.Windows.Forms.ToolStripMenuItem();
+            this.tempInvisibleToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.buttonCollapse = new System.Windows.Forms.Button();
             this.buttonExpand = new System.Windows.Forms.Button();
@@ -104,9 +105,10 @@
             this.очиститьРодителяДляВобовToolStripMenuItem,
             this.AddQuickVobToolStripMenuItem,
             this.toolStripSeparator2,
-            this.toolStripMenuRestorePos});
+            this.toolStripMenuRestorePos,
+            this.tempInvisibleToolStrip});
             this.contextMenuStripTree.Name = "contextMenuStrip1";
-            this.contextMenuStripTree.Size = new System.Drawing.Size(283, 192);
+            this.contextMenuStripTree.Size = new System.Drawing.Size(283, 214);
             this.contextMenuStripTree.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripTree_Opening);
             // 
             // toolStripMenuItem2
@@ -176,6 +178,13 @@
             this.toolStripMenuRestorePos.Size = new System.Drawing.Size(282, 22);
             this.toolStripMenuRestorePos.Text = "Восстановить позицию воба";
             this.toolStripMenuRestorePos.Click += new System.EventHandler(this.toolStripMenuRestorePos_Click);
+            // 
+            // tempInvisibleToolStrip
+            // 
+            this.tempInvisibleToolStrip.Name = "tempInvisibleToolStrip";
+            this.tempInvisibleToolStrip.Size = new System.Drawing.Size(282, 22);
+            this.tempInvisibleToolStrip.Text = "Переместить все вобы из родителя";
+            this.tempInvisibleToolStrip.Click += new System.EventHandler(this.tempInvisibleToolStrip_Click);
             // 
             // imageList1
             // 
@@ -442,5 +451,6 @@
         private System.Windows.Forms.Button buttonCollapseMatTree;
         private System.Windows.Forms.Button buttonExpandMatTree;
         private System.Windows.Forms.Button buttonSortMatTree;
+        private System.Windows.Forms.ToolStripMenuItem tempInvisibleToolStrip;
     }
 }

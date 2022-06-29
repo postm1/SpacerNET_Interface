@@ -42,9 +42,9 @@ namespace SpacerUnion
             checkBoxDistVob.Text = Localizator.Get("checkBoxDistVob");
             checkBoxCameraHideWins.Text = Localizator.Get("checkBoxCameraHideWins");
             labelCamSetSlerp.Text = Localizator.Get("labelCamSetSlerp");
+            checkBoxCamShowPortalsInfo.Text = Localizator.Get("checkBoxCamShowPortalsInfo");
 
 
-            
         }
 
 
@@ -124,6 +124,8 @@ namespace SpacerUnion
            textBoxLimitFPS.Text = Imports.Extern_GetSetting().ToString();
 
 
+            Imports.Stack_PushString("showPortalsInfo");
+            checkBoxCamShowPortalsInfo.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
             trackBarTransSpeed_ValueChanged(null, EventArgs.Empty);
             trackBarRotSpeed_ValueChanged(null, EventArgs.Empty);
@@ -400,6 +402,13 @@ namespace SpacerUnion
             labelSpeedPreview.Text = Localizator.Get("labelSpeedPreview") + ": " + trackBarSpeedPreview.Value;
             Imports.Stack_PushString("previewSpeed");
             Imports.Extern_SetSetting(trackBarSpeedPreview.Value);
+        }
+
+        private void checkBoxCamShowPortalsInfo_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+            Imports.Stack_PushString("showPortalsInfo");
+            Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
         }
     }
 }

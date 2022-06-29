@@ -58,6 +58,7 @@
             this.listBoxItems = new System.Windows.Forms.ListBox();
             this.buttonItemsCreate = new System.Windows.Forms.Button();
             this.groupBoxObjAllClasses = new System.Windows.Forms.GroupBox();
+            this.comboBoxArchiveList = new System.Windows.Forms.ComboBox();
             this.labelFindVisualArchive = new System.Windows.Forms.Label();
             this.checkBoxSearchOnly3DS = new System.Windows.Forms.CheckBox();
             this.groupBoxObjPropVobs = new System.Windows.Forms.GroupBox();
@@ -199,7 +200,7 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.comboBoxArchiveList = new System.Windows.Forms.ComboBox();
+            this.checkBoxSearchHasChildren = new System.Windows.Forms.CheckBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -568,6 +569,15 @@
             this.groupBoxObjAllClasses.TabStop = false;
             this.groupBoxObjAllClasses.Text = "Все классы вобов";
             // 
+            // comboBoxArchiveList
+            // 
+            this.comboBoxArchiveList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxArchiveList.FormattingEnabled = true;
+            this.comboBoxArchiveList.Location = new System.Drawing.Point(418, 228);
+            this.comboBoxArchiveList.Name = "comboBoxArchiveList";
+            this.comboBoxArchiveList.Size = new System.Drawing.Size(195, 21);
+            this.comboBoxArchiveList.TabIndex = 22;
+            // 
             // labelFindVisualArchive
             // 
             this.labelFindVisualArchive.AutoSize = true;
@@ -782,7 +792,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(616, 395);
+            this.tabPage2.Size = new System.Drawing.Size(617, 379);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Вещи";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -793,7 +803,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(616, 395);
+            this.tabPage1.Size = new System.Drawing.Size(617, 379);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Эффекты";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -811,7 +821,7 @@
             this.tabPage4.Controls.Add(this.groupBoxTriggersVob);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(616, 395);
+            this.tabPage4.Size = new System.Drawing.Size(617, 379);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Триггеры";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1055,7 +1065,7 @@
             this.tabPage5.Controls.Add(this.groupBoxWPFP);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(623, 417);
+            this.tabPage5.Size = new System.Drawing.Size(617, 379);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "WP/FP";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1239,13 +1249,14 @@
             this.tabPage6.Controls.Add(this.groupBoxSearchClasses);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(623, 417);
+            this.tabPage6.Size = new System.Drawing.Size(617, 379);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Поиск";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // groupBoxSearchClasses
             // 
+            this.groupBoxSearchClasses.Controls.Add(this.checkBoxSearchHasChildren);
             this.groupBoxSearchClasses.Controls.Add(this.checkBoxAutoNumerate);
             this.groupBoxSearchClasses.Controls.Add(this.labelRenameVob);
             this.groupBoxSearchClasses.Controls.Add(this.textBoxRenameVob);
@@ -1269,7 +1280,7 @@
             this.groupBoxSearchClasses.Controls.Add(this.textBoxSearchVobs);
             this.groupBoxSearchClasses.Location = new System.Drawing.Point(5, 3);
             this.groupBoxSearchClasses.Name = "groupBoxSearchClasses";
-            this.groupBoxSearchClasses.Size = new System.Drawing.Size(553, 356);
+            this.groupBoxSearchClasses.Size = new System.Drawing.Size(604, 356);
             this.groupBoxSearchClasses.TabIndex = 4;
             this.groupBoxSearchClasses.TabStop = false;
             this.groupBoxSearchClasses.Text = "Класс воба";
@@ -1279,7 +1290,7 @@
             this.checkBoxAutoNumerate.AutoSize = true;
             this.checkBoxAutoNumerate.Checked = true;
             this.checkBoxAutoNumerate.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxAutoNumerate.Location = new System.Drawing.Point(413, 46);
+            this.checkBoxAutoNumerate.Location = new System.Drawing.Point(431, 46);
             this.checkBoxAutoNumerate.Name = "checkBoxAutoNumerate";
             this.checkBoxAutoNumerate.Size = new System.Drawing.Size(137, 17);
             this.checkBoxAutoNumerate.TabIndex = 23;
@@ -1511,7 +1522,7 @@
             this.tabPage7.Controls.Add(this.groupBox11);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(623, 417);
+            this.tabPage7.Size = new System.Drawing.Size(617, 379);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Камера";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1767,7 +1778,7 @@
             this.tabPage8.Controls.Add(this.button10);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(623, 417);
+            this.tabPage8.Size = new System.Drawing.Size(617, 379);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Свет";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -2083,13 +2094,15 @@
             this.button10.Text = "Удалить";
             this.button10.UseVisualStyleBackColor = true;
             // 
-            // comboBoxArchiveList
+            // checkBoxSearchHasChildren
             // 
-            this.comboBoxArchiveList.FormattingEnabled = true;
-            this.comboBoxArchiveList.Location = new System.Drawing.Point(418, 228);
-            this.comboBoxArchiveList.Name = "comboBoxArchiveList";
-            this.comboBoxArchiveList.Size = new System.Drawing.Size(195, 21);
-            this.comboBoxArchiveList.TabIndex = 22;
+            this.checkBoxSearchHasChildren.AutoSize = true;
+            this.checkBoxSearchHasChildren.Location = new System.Drawing.Point(431, 69);
+            this.checkBoxSearchHasChildren.Name = "checkBoxSearchHasChildren";
+            this.checkBoxSearchHasChildren.Size = new System.Drawing.Size(113, 17);
+            this.checkBoxSearchHasChildren.TabIndex = 24;
+            this.checkBoxSearchHasChildren.Text = "У воба есть дети";
+            this.checkBoxSearchHasChildren.UseVisualStyleBackColor = true;
             // 
             // ObjectsWin
             // 
@@ -2326,5 +2339,6 @@
         private System.Windows.Forms.CheckBox checkBoxLocatorByName;
         private System.Windows.Forms.Label labelFindVisualArchive;
         private System.Windows.Forms.ComboBox comboBoxArchiveList;
+        private System.Windows.Forms.CheckBox checkBoxSearchHasChildren;
     }
 }

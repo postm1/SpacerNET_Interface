@@ -52,6 +52,7 @@ namespace SpacerUnion
             contextMenuStripTree.Items[7].Text = Localizator.Get("CONTEXTMENU_TREE_ADD_VOB");
             //---------------------------------
             contextMenuStripTree.Items[9].Text = Localizator.Get("CONTEXTMENU_TREE_RESTORE_POS");
+            contextMenuStripTree.Items[10].Text = Localizator.Get("CONTEXTMENU_TREE_REPLACE_FROM_PARENT");
 
             tabControl1.TabPages[0].Text = Localizator.Get("TAB_PAGE_OBJECTS");
             tabControl1.TabPages[1].Text = Localizator.Get("QUICKVOBS_ACCESS");
@@ -1606,6 +1607,29 @@ namespace SpacerUnion
         private void matTree_MouseClick(object sender, MouseEventArgs e)
         {
             matTree_MouseDoubleClick(null, e);
+        }
+
+        private void tempInvisibleToolStrip_Click(object sender, EventArgs e)
+        {
+            if (globalTree.SelectedNode == null)
+            {
+                return;
+            }
+
+            TreeNode node = globalTree.SelectedNode;
+
+            string tag = node.Tag.ToString();
+
+            if (tag.Length == 0 || tag == Constants.TAG_FOLDER)
+            {
+                return;
+            }
+
+            uint vob = 0;
+
+            uint.TryParse(tag, out vob);
+
+            Imports.Extern_RemoveAsParent(vob);
         }
     }
 }

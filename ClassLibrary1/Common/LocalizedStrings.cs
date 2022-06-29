@@ -278,7 +278,7 @@ namespace SpacerUnion.Common
             words.Add("groupBoxSound", new List<string> { "Звуки", "Sounds", "Sounds", "Dźwięki" });
             words.Add("groupBoxMusic", new List<string> { "Музыка", "Music", "Musik", "Muzyka" });
             words.Add("buttonPlaySound", new List<string> { "Воспроизвести", "Play", "Abspielen", "Odtwórz" });
-            words.Add("labelAllSounds", new List<string> { "Все звуки. Кол-во:", "All sound. Count:", "Alle sound. Anzahl:", "Wszystkie dźwięki. Ilość:" });
+            words.Add("labelAllSounds", new List<string> { "Все звуки. Кол-во", "All sound. Count", "Alle sound. Anzahl", "Wszystkie dźwięki. Ilość" });
             words.Add("labelSndList", new List<string> { "Поиск по рег. выражению", "Search using regex", "Suche mit regex", "Wyszukaj za pomocą wyrażenia regularnego" });
             words.Add("buttonOffMusic", new List<string> { "Отключить музыку", "Turn off music", "Musik abschalten", "Wyłącz muzykę" });
             words.Add("buttonMusicOn", new List<string> { "Включить музыку", "Turn on music", "Musik anschalten", "Włącz muzykę" });
@@ -513,8 +513,15 @@ namespace SpacerUnion.Common
 
             words.Add("MENU_TOP_SPECIAL_FUNCS", new List<string> { "Специальные функции", "Special functions", "", "Funkcje specjalne" });
             words.Add("MENU_TOP_CREATE_VOB_VISUALS_LIST", new List<string> { "Сформировать список визуалов локации", "Create a list of files which are used in the location", "", "Stwórz lisę plików, któresą używane w lokacji" });
+            words.Add("labelFindVisualArchive", new List<string> { "Искать только в архиве (VDF)", "Search only in selected (VDF)", "", "Szukaj tylko w wybranych (VDF)" });
+            words.Add("checkBoxLocatorByName", new List<string> { "Искать по имени:", "Search by name:", "", "Szukaj według nazwy:" });
+            words.Add("checkBoxSearchHasChildren", new List<string> { "У воба есть дети", "Vob has child(s)", "", "Vob ma dzieci" });
 
 
+            words.Add("CONTEXTMENU_TREE_REPLACE_FROM_PARENT", new List<string> { "Переместить все вобы из родителя", "Move all vobs from the parent", "", "Przenieś wszystkie voby od rodzica" });
+            words.Add("checkBoxCamShowPortalsInfo", new List<string> { "Показывать информацию о порталах", "Show portals info", "", "" });
+
+            
         }
         
     }

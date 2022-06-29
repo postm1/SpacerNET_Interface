@@ -47,6 +47,9 @@
             this.textBoxWorldRange = new System.Windows.Forms.TextBox();
             this.btnSetCamApply = new System.Windows.Forms.Button();
             this.groupBoxInfo = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.trackBarSpeedPreview = new System.Windows.Forms.TrackBar();
+            this.labelSpeedPreview = new System.Windows.Forms.Label();
             this.labelLimitFPS = new System.Windows.Forms.Label();
             this.textBoxLimitFPS = new System.Windows.Forms.TextBox();
             this.checkBoxCameraHideWins = new System.Windows.Forms.CheckBox();
@@ -56,9 +59,7 @@
             this.checkBoxCamCoord = new System.Windows.Forms.CheckBox();
             this.checkBoxTris = new System.Windows.Forms.CheckBox();
             this.checkBoxFPS = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.trackBarSpeedPreview = new System.Windows.Forms.TrackBar();
-            this.labelSpeedPreview = new System.Windows.Forms.Label();
+            this.checkBoxCamShowPortalsInfo = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRotSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobs)).BeginInit();
@@ -261,6 +262,7 @@
             // 
             // groupBoxInfo
             // 
+            this.groupBoxInfo.Controls.Add(this.checkBoxCamShowPortalsInfo);
             this.groupBoxInfo.Controls.Add(this.groupBox1);
             this.groupBoxInfo.Controls.Add(this.labelLimitFPS);
             this.groupBoxInfo.Controls.Add(this.textBoxLimitFPS);
@@ -277,6 +279,36 @@
             this.groupBoxInfo.TabIndex = 10;
             this.groupBoxInfo.TabStop = false;
             this.groupBoxInfo.Text = "Информация";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.trackBarSpeedPreview);
+            this.groupBox1.Controls.Add(this.labelSpeedPreview);
+            this.groupBox1.Location = new System.Drawing.Point(10, 219);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(284, 138);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            // 
+            // trackBarSpeedPreview
+            // 
+            this.trackBarSpeedPreview.Location = new System.Drawing.Point(6, 38);
+            this.trackBarSpeedPreview.Maximum = 100;
+            this.trackBarSpeedPreview.Name = "trackBarSpeedPreview";
+            this.trackBarSpeedPreview.Size = new System.Drawing.Size(261, 45);
+            this.trackBarSpeedPreview.TabIndex = 7;
+            this.trackBarSpeedPreview.TickFrequency = 10;
+            this.trackBarSpeedPreview.Value = 10;
+            this.trackBarSpeedPreview.ValueChanged += new System.EventHandler(this.trackBarSpeedPreview_ValueChanged);
+            // 
+            // labelSpeedPreview
+            // 
+            this.labelSpeedPreview.AutoSize = true;
+            this.labelSpeedPreview.Location = new System.Drawing.Point(9, 19);
+            this.labelSpeedPreview.Name = "labelSpeedPreview";
+            this.labelSpeedPreview.Size = new System.Drawing.Size(191, 13);
+            this.labelSpeedPreview.TabIndex = 4;
+            this.labelSpeedPreview.Text = "Скорость вращение превью-модели";
             // 
             // labelLimitFPS
             // 
@@ -373,35 +405,16 @@
             this.checkBoxFPS.UseVisualStyleBackColor = true;
             this.checkBoxFPS.CheckedChanged += new System.EventHandler(this.checkBoxFPS_CheckedChanged);
             // 
-            // groupBox1
+            // checkBoxCamShowPortalsInfo
             // 
-            this.groupBox1.Controls.Add(this.trackBarSpeedPreview);
-            this.groupBox1.Controls.Add(this.labelSpeedPreview);
-            this.groupBox1.Location = new System.Drawing.Point(10, 219);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(284, 138);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            // 
-            // trackBarSpeedPreview
-            // 
-            this.trackBarSpeedPreview.Location = new System.Drawing.Point(6, 38);
-            this.trackBarSpeedPreview.Maximum = 100;
-            this.trackBarSpeedPreview.Name = "trackBarSpeedPreview";
-            this.trackBarSpeedPreview.Size = new System.Drawing.Size(261, 45);
-            this.trackBarSpeedPreview.TabIndex = 7;
-            this.trackBarSpeedPreview.TickFrequency = 10;
-            this.trackBarSpeedPreview.Value = 10;
-            this.trackBarSpeedPreview.ValueChanged += new System.EventHandler(this.trackBarSpeedPreview_ValueChanged);
-            // 
-            // labelSpeedPreview
-            // 
-            this.labelSpeedPreview.AutoSize = true;
-            this.labelSpeedPreview.Location = new System.Drawing.Point(9, 19);
-            this.labelSpeedPreview.Name = "labelSpeedPreview";
-            this.labelSpeedPreview.Size = new System.Drawing.Size(191, 13);
-            this.labelSpeedPreview.TabIndex = 4;
-            this.labelSpeedPreview.Text = "Скорость вращение превью-модели";
+            this.checkBoxCamShowPortalsInfo.AutoSize = true;
+            this.checkBoxCamShowPortalsInfo.Location = new System.Drawing.Point(9, 205);
+            this.checkBoxCamShowPortalsInfo.Name = "checkBoxCamShowPortalsInfo";
+            this.checkBoxCamShowPortalsInfo.Size = new System.Drawing.Size(216, 17);
+            this.checkBoxCamShowPortalsInfo.TabIndex = 11;
+            this.checkBoxCamShowPortalsInfo.Text = "Показывать информацию о порталах";
+            this.checkBoxCamShowPortalsInfo.UseVisualStyleBackColor = true;
+            this.checkBoxCamShowPortalsInfo.CheckedChanged += new System.EventHandler(this.checkBoxCamShowPortalsInfo_CheckedChanged);
             // 
             // SettingsCamera
             // 
@@ -474,5 +487,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         public System.Windows.Forms.TrackBar trackBarSpeedPreview;
         private System.Windows.Forms.Label labelSpeedPreview;
+        public System.Windows.Forms.CheckBox checkBoxCamShowPortalsInfo;
     }
 }
