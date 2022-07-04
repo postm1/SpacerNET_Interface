@@ -33,6 +33,9 @@ namespace SpacerUnion
         static List<CProperty> convertProps = new List<CProperty>();
         static int selectTabBlocked = 0;
 
+
+        int onlyNameVisualSearch = 0;
+
         public ObjectsWin()
         {
             InitializeComponent();
@@ -2448,12 +2451,15 @@ namespace SpacerUnion
         private void button9_Click(object sender, EventArgs e)
         {
             bool checkValueFound = false;
+            bool onlyNameVisualSearchFoundName = false;
+            bool onlyNameVisualSearchFoundVisual = false;
 
             if (comboBoxSearchType.SelectedItem == null)
             {
                 return;
             }
 
+            onlyNameVisualSearch = 0;
             int countSelected = 0;
 
             for (int i = 0; i < searchProps.Count; i++)
@@ -2463,6 +2469,14 @@ namespace SpacerUnion
                     checkValueFound = true;
                     countSelected++;
 
+                    if (searchProps[i].Name == "vobName")
+                    {
+                        onlyNameVisualSearchFoundName = true;
+                    }
+                    else if (searchProps[i].Name == "visual")
+                    {
+                        onlyNameVisualSearchFoundVisual = true;
+                    }
 
                     if (searchProps[i].type == TPropEditType.PETstring && checkBoxSearchUseRegex.Checked)
                     {
@@ -2484,6 +2498,17 @@ namespace SpacerUnion
             }
 
 
+            if (countSelected == 1 && (onlyNameVisualSearchFoundName || onlyNameVisualSearchFoundVisual))
+            {
+                if (onlyNameVisualSearchFoundName)
+                {
+                    onlyNameVisualSearch = 1;
+                }
+                else
+                {
+                    onlyNameVisualSearch = 2;
+                }
+            }
 
             //ConsoleEx.WriteLineRed(countSelected + " " + isNameSelected + " " + isVisualSelected);
 
@@ -2529,7 +2554,7 @@ namespace SpacerUnion
             }
 
             Imports.Stack_PushInt(countSelected);
-            int result = Imports.Extern_SearchVobs(checkBoxSearchDerived.Checked, checkBoxSearchHasChildren.Checked, comboBoxSearchType.SelectedIndex);
+            int result = Imports.Extern_SearchVobs(checkBoxSearchDerived.Checked, checkBoxSearchHasChildren.Checked, comboBoxSearchType.SelectedIndex, onlyNameVisualSearch);
 
 
             s.Stop();
@@ -2773,8 +2798,8 @@ namespace SpacerUnion
             string visualName = Imports.Stack_PeekString();
             string vobName = Imports.Stack_PeekString();
 
-            bool flagSearchName = vobName.Length > 0;
-            bool flagSearchVisual = visualName.Length > 0;
+            bool flagSearchName = SpacerNET.objectsWin.onlyNameVisualSearch == 1;
+            bool flagSearchVisual = SpacerNET.objectsWin.onlyNameVisualSearch == 2;
 
             compareProps.Clear();
             foldersCompare.Clear();

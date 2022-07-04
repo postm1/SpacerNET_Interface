@@ -519,7 +519,7 @@ namespace SpacerUnion.Common
 
 
             words.Add("CONTEXTMENU_TREE_REPLACE_FROM_PARENT", new List<string> { "Переместить все вобы из родителя", "Move all vobs from the parent", "", "Przenieś wszystkie voby od rodzica" });
-            words.Add("checkBoxCamShowPortalsInfo", new List<string> { "Показывать информацию о порталах", "Show portals info", "", "" });
+            words.Add("checkBoxCamShowPortalsInfo", new List<string> { "Показывать информацию о порталах", "Show portals info", "", "Pokaż info o portalach" });
 
             
         }

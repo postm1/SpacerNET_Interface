@@ -277,7 +277,7 @@ namespace SpacerUnion.Common
         public static extern void Extern_GetClassFields(bool isNew);
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int Extern_SearchVobs(bool derived, bool hasChildren, int type);
+        public static extern int Extern_SearchVobs(bool derived, bool hasChildren, int type, int onlyVisualOrName);
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_GetConvertSubClasses();
