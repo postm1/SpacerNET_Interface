@@ -133,6 +133,16 @@ namespace SpacerUnion.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap nograssPic {
+            get {
+                object obj = ResourceManager.GetObject("nograssPic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap vob_parent_fav {
             get {
                 object obj = ResourceManager.GetObject("vob_parent_fav", resourceCulture);

@@ -72,8 +72,8 @@ namespace SpacerUnion
             if (Imports.Extern_IsWorldCompiled() == 1)
             {
                
-               // MessageBox.Show(Localizator.Get("WIN_COMPWORLD_ALREADY_COMP"));
-               // return;
+               MessageBox.Show(Localizator.Get("WIN_COMPWORLD_ALREADY_COMP"));
+               return;
             }
 
 

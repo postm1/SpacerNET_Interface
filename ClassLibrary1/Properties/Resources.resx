@@ -118,31 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="grass_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\132.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="jab2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pictures\Loading.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="vob_parent_fav" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exclamation-mark-300x300.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Flag_Russia" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\s1200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Flag_Poland" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1920px-Flag_of_Poland.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="jab" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pictures\jab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Flag_Eng" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\uk-flag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Flag_Germany" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\440px-Flag_of_Germany.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="vob_start_fav" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\png-transparent-yellow-simple-star-yellow-simple-stars.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vob_parent_fav" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exclamation-mark-300x300.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Flag_Poland" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1920px-Flag_of_Poland.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Flag_Russia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\s1200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="grass_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\132.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Flag_Eng" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\uk-flag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="jab2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pictures\Loading.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nograssPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nograssPic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -330,6 +330,7 @@
     <None Include="Resources\320x0w.jpg" />
     <None Include="Resources\exclamation-mark-300x300.png" />
     <None Include="Resources\kisspng-triangle-yellow-pattern-yellow-star-image-5a888e623d59a6.0193086215188987862513.jpg" />
+    <None Include="Resources\nograssPic.png" />
     <Content Include="Resources\Pictures\Letter_S_red_34876.ico" />
     <None Include="Resources\Pictures\Loading.png" />
     <None Include="Resources\Pictures\Spinner-0.5s-137px.gif" />

@@ -521,6 +521,8 @@ namespace SpacerUnion.Common
             words.Add("CONTEXTMENU_TREE_REPLACE_FROM_PARENT", new List<string> { "Переместить все вобы из родителя", "Move all vobs from the parent", "", "Przenieś wszystkie voby od rodzica" });
             words.Add("checkBoxCamShowPortalsInfo", new List<string> { "Показывать информацию о порталах", "Show portals info", "", "Pokaż info o portalach" });
 
+            words.Add("CHECK_SORTING_POLYS", new List<string> { "Сортировать полигоны локации?\nСортировка полигонов в локации сильно замедляет сохранение больших локаций (по времени), однако, это необходимо делать для финальной версии локации, для промежуточных версий локации это необязательно и экономит время.", "Should we sort polygons of the location?\nSorting polygons is necessary for the final version of the location, but it requires much time for saving in big locations, for work version of locations you don't need to sort them every time while saving.", "", "" });
+            words.Add("checkBoxShowPolysSort", new List<string> { "При сохранении больших локаций спрашивать о сортировке полигонов (более 200 тыс. полигонов)", "Ask for sorting polygons while saving big locations (more than 200k polygons)", "", "" });
             
         }
         

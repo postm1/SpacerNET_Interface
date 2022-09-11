@@ -94,6 +94,8 @@ namespace SpacerUnion.Windows
             {
                 string s = ((char)val).ToString();
 
+                //ConsoleEx.WriteLineGreen("Key int: " + val);
+
                 if ((char)val == ' ') s = Localizator.Get("WIN_KEYSBIND_KEY_SPACE");
                 if (val == 37) s = Localizator.Get("WIN_KEYSBIND_KEY_ARROW_LEFT");
                 if (val == 38) s = Localizator.Get("WIN_KEYSBIND_KEY_ARROW_UP");

@@ -27,7 +27,6 @@ namespace SpacerUnion
         public string currentWorldName = "";
         public bool meshOpenFirst = false;
         public string locationName;
-        
         public enum ToggleMenuType
         {
             ToggleVobs = 0,
@@ -619,7 +618,33 @@ namespace SpacerUnion
                 {
                     //filePath = filePath.Replace(".zen", "") + "_vobs.zen";
                 }
+
+                bool sortPolys = true;
+
+                int polysCountLoc = Imports.Extern_GetPolysCount();
+
+                //ConsoleEx.WriteLineRed("Polys: " + polysCountLoc + " Check: " + SpacerNET.miscSetWin.checkBoxShowPolysSort.Checked);
+
+                if (SpacerNET.miscSetWin.checkBoxShowPolysSort.Checked && polysCountLoc >= 200000)
+                {
+                    DialogResult result = MessageBox.Show(
+                  Localizator.Get("CHECK_SORTING_POLYS"),
+                  Localizator.Get("groupBoxInfo"),
+
+                  MessageBoxButtons.YesNo,
+                  MessageBoxIcon.Information,
+                  MessageBoxDefaultButton.Button1,
+                  MessageBoxOptions.DefaultDesktopOnly);
+
+                    if (result == DialogResult.No)
+                    {
+                        sortPolys = false;
+                    }
+                }
+
                 
+
+
                 Stopwatch s = new Stopwatch();
                 s.Start();
 
@@ -627,8 +652,10 @@ namespace SpacerUnion
                // ConsoleEx.WriteLineGreen(selectedFileName + " " + Localizator.Get("IS_SAVING"));
                 SpacerNET.form.AddText(selectedFileName + " " + Localizator.Get("IS_SAVING"));
 
-                Imports.Stack_PushString(filePath);
+               
 
+                Imports.Stack_PushString(filePath);
+                Imports.Stack_PushInt(Convert.ToInt32(sortPolys));
                 Imports.Extern_SaveWorld( saveFileDialog.FilterIndex - 1);
 
                 s.Stop();
@@ -1500,7 +1527,7 @@ namespace SpacerUnion
                 SpacerNET.form.AddText(selectedFileName + " " + Localizator.Get("IS_SAVING"));
 
                 Imports.Stack_PushString(filePath);
-
+                Imports.Stack_PushInt(1); // опция сортировки поликов, здесь 1 для общности
                 Imports.Extern_SaveWorld(1);
 
                 s.Stop();
@@ -1666,6 +1693,14 @@ namespace SpacerUnion
                 Imports.Extern_SaveVobVisualsUnique();
 
             }
+        }
+
+        private void toolStripButtonNoGrass_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_ToggleNoGrass();
+            ToolStripButton btn = sender as ToolStripButton;
+
+            btn.Checked = !btn.Checked;
         }
     }
 }

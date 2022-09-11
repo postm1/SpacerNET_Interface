@@ -31,7 +31,7 @@ namespace SpacerUnion.Windows
             showLightRadiusVob.Text = Localizator.Get("showLightRadiusVob");
             checkBoxAutoRemoveAllVisuals.Text = Localizator.Get("checkBoxAutoRemoveAllVisuals");
             checkBoxSetNearestVobCam.Text = Localizator.Get("checkBoxSetNearestVobCam");
-
+            checkBoxShowPolysSort.Text = Localizator.Get("checkBoxShowPolysSort");
 
             btnMiscSetApply.Text = Localizator.Get("BTN_APPLY");
         }
@@ -77,7 +77,8 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("checkBoxSetNearestVobCam");
             SpacerNET.miscSetWin.checkBoxSetNearestVobCam.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
-            
+            Imports.Stack_PushString("checkBoxShowPolysSort");
+            SpacerNET.miscSetWin.checkBoxShowPolysSort.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
         }
 
         public void OnApplySettings()
@@ -110,8 +111,9 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("checkBoxSetNearestVobCam");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxSetNearestVobCam.Checked));
 
-            
 
+            Imports.Stack_PushString("checkBoxShowPolysSort");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxShowPolysSort.Checked));
         }
 
         private void MiscSettingsWin_FormClosing(object sender, FormClosingEventArgs e)

@@ -40,6 +40,7 @@
             this.checkBoxLastZenAuto = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
             this.btnMiscSetApply = new System.Windows.Forms.Button();
+            this.checkBoxShowPolysSort = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +56,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxShowPolysSort);
             this.groupBox1.Controls.Add(this.checkBoxSetNearestVobCam);
             this.groupBox1.Controls.Add(this.checkBoxAutoRemoveAllVisuals);
             this.groupBox1.Controls.Add(this.showLightRadiusVob);
@@ -177,6 +179,17 @@
             this.btnMiscSetApply.UseVisualStyleBackColor = true;
             this.btnMiscSetApply.Click += new System.EventHandler(this.btnMiscSetApply_Click);
             // 
+            // checkBoxShowPolysSort
+            // 
+            this.checkBoxShowPolysSort.AutoSize = true;
+            this.checkBoxShowPolysSort.Location = new System.Drawing.Point(13, 219);
+            this.checkBoxShowPolysSort.Name = "checkBoxShowPolysSort";
+            this.checkBoxShowPolysSort.Size = new System.Drawing.Size(531, 17);
+            this.checkBoxShowPolysSort.TabIndex = 10;
+            this.checkBoxShowPolysSort.Text = "При сохранении больших локаций спрашивать о сортировке полигонов (более 200 тыс. " +
+    "полигонов)";
+            this.checkBoxShowPolysSort.UseVisualStyleBackColor = true;
+            // 
             // MiscSettingsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,5 +226,6 @@
         public System.Windows.Forms.CheckBox showLightRadiusVob;
         public System.Windows.Forms.CheckBox checkBoxAutoRemoveAllVisuals;
         public System.Windows.Forms.CheckBox checkBoxSetNearestVobCam;
+        public System.Windows.Forms.CheckBox checkBoxShowPolysSort;
     }
 }

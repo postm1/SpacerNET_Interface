@@ -391,6 +391,8 @@ namespace SpacerUnion
             objectsWin.LoadSettings();
             keysWin.LoadKeys();
 
+            miscSetWin.LoadSettings();
+
             isInit = true;
         }
 
