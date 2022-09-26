@@ -14,6 +14,8 @@ namespace SpacerUnion.Windows
     public partial class KeysForm : Form
     {
         KeyEntry currentKeyEntry = new KeyEntry();
+        Color safeColor;
+        bool colorSaveSet = false;
 
         public KeysForm()
         {
@@ -46,15 +48,21 @@ namespace SpacerUnion.Windows
 
         private void dataGridKeys_KeyDown(object sender, KeyEventArgs e)
         {
+            bool flagSupressKeys = false;
 
             if (e.KeyData == Keys.Back || e.KeyData == Keys.CapsLock || dataGridKeys.CurrentRow.Cells[0].Value == null)
             {
                 return;
             }
 
-            currentKeyEntry.SetData(e.Alt, e.Shift, e.Control, e.KeyValue);
+            if (e.KeyData == Keys.PageUp || e.KeyData == Keys.PageDown)
+            {
+                flagSupressKeys = true;
+            }
 
+            currentKeyEntry.SetData(e);
 
+ 
             if (keysGothic.ContainsKey(e.KeyValue) && dataGridKeys.CurrentRow != null)
             {
 
@@ -67,7 +75,69 @@ namespace SpacerUnion.Windows
                     Imports.Stack_PushString(dataGridKeys.CurrentRow.Cells[0].Value.ToString());
                     Imports.Extern_SendNewKeyPreset(currentKeyEntry.union_key, currentKeyEntry.mod);
                 }
-            }
+
+
+                if (currentKeyEntry.IsOnlyModKeys())
+                {
+                    
+                    if (!colorSaveSet)
+                    {
+                        safeColor = dataGridKeys.CurrentRow.Cells[2].Style.BackColor;
+                        colorSaveSet = true;
+                    }
+
+                   // ConsoleEx.WriteLineRed("Bad keys!");
+                    dataGridKeys.CurrentRow.Cells[2].Style.BackColor = Color.Red;
+                }
+                else if (colorSaveSet)
+                {
+                    
+                    dataGridKeys.CurrentRow.Cells[2].Style.BackColor = safeColor;
+                }
+                        /*
+                        // поиск дублей кнопок
+                        var dictCheckDouble = new Dictionary<string, List<int>>();
+
+                        for (int i = 0; i < dataGridKeys.Rows.Count; i++)
+                        {
+                            var data = dataGridKeys.Rows[i].Cells[2].Value;
+
+                            if (data != null)
+                            {
+                                var key = data.ToString();
+
+                                if (dictCheckDouble.ContainsKey(key))
+                                {
+                                    var entry = dictCheckDouble[key];
+
+                                    entry.Add(i);
+
+                                    ConsoleEx.WriteLineRed("Add exist entry: " + i + " " + key);
+                                }
+                                else
+                                {
+                                    var list = new List<int>();
+                                    list.Add(i);
+
+                                    dictCheckDouble.Add(key, list);
+
+                                    ConsoleEx.WriteLineGreen("Add new entry: " + i + " " + key);
+                                }
+
+                            }
+                        }
+
+                        foreach (KeyValuePair<string, List<int>> entry in dictCheckDouble)
+                        {
+                            if (entry.Value.Count > 1)
+                            {
+                                ConsoleEx.WriteLineGreen(entry.Key + ": " + entry.Value.Count);
+                            }
+                        }
+                        */
+
+
+                    }
             else
             {
                 ConsoleEx.WriteLineRed("No key found: " + e.KeyValue);
@@ -76,7 +146,10 @@ namespace SpacerUnion.Windows
            
 
             e.Handled = false;
-            e.SuppressKeyPress = false;
+
+            e.SuppressKeyPress = flagSupressKeys;
+
+
         }
 
 

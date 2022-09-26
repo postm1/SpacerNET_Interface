@@ -49,6 +49,9 @@ namespace SpacerUnion.Windows
             // modifiest shift/ctrl/alt/
             {16, 1}, {17, 1}, {18, 1 },
 
+            //modifiest rshift/rctrl/ralt/,
+            //{16, 1}, {17, 1}, {18, 1 },
+
             // - = [ ]
             {189, 12}, {187, 13}, {219, 26 }, {221, 27 },
 
@@ -60,6 +63,9 @@ namespace SpacerUnion.Windows
 
             //NUMPAD - + / *
             {109, 74}, {107, 78 }, {111, 181}, {106, 55},
+            
+            //Insert/home/page up, down/End
+            {45, 0xD2}, {36, 0xC7 }, {33, 0xC9}, {34, 0xD1}, {35, 0xCF},
         };
 
         enum KeyMod
@@ -67,7 +73,9 @@ namespace SpacerUnion.Windows
             LControl = 2 << 0,
             Alt = 2 << 1,
             LShift = 2 << 2,
-            RShift = 2 << 3
+            RShift = 2 << 3,
+            RAlt = 2 << 4,
+            RCtrl = 2 << 5
         };
 
         class KeyEntry
@@ -77,8 +85,13 @@ namespace SpacerUnion.Windows
             public bool control;
             public bool alt;
 
+            public bool r_shift;
+            public bool r_control;
+            public bool r_alt;
+
             public int mod;
             public int union_key;
+
 
             public void Reset()
             {
@@ -86,25 +99,81 @@ namespace SpacerUnion.Windows
                 shift = false;
                 control = false;
                 alt = false;
+                r_shift = false;
+                r_control = false;
+                r_alt = false;
                 mod = 0;
                 union_key = 0;
             }
 
+
+            // если введены 2 и более только клафиш shift/ctrl/alt
+            public bool IsOnlyModKeys()
+            {
+                bool result = false;
+
+                int count = 0;
+
+                //ConsoleEx.WriteLineRed("IsOnlyModKeys: " + key);
+                if (IsModKey(key))
+                {
+                    if (alt) count++;
+                    if (r_alt) count++;
+                    if (shift) count++;
+                    if (r_shift) count++;
+                    if (control) count++;
+                    if (r_control) count++;
+
+
+                    if (count >= 2) result = true;
+                }
+
+
+                return result;
+            }
             public string FixShowChar(int val)
             {
                 string s = ((char)val).ToString();
 
-                //ConsoleEx.WriteLineGreen("Key int: " + val);
+                //ConsoleEx.WriteLineGreen("FixShowChar, Key int: " + val);
 
                 if ((char)val == ' ') s = Localizator.Get("WIN_KEYSBIND_KEY_SPACE");
                 if (val == 37) s = Localizator.Get("WIN_KEYSBIND_KEY_ARROW_LEFT");
                 if (val == 38) s = Localizator.Get("WIN_KEYSBIND_KEY_ARROW_UP");
                 if (val == 39) s = Localizator.Get("WIN_KEYSBIND_KEY_ARROW_RIGHT");
                 if (val == 40) s = Localizator.Get("WIN_KEYSBIND_KEY_ARROW_DOWN");
+
+
                 if (val == 16) s = "LSHIFT";
                 if (val == 17) s = "LCTRL";
                 if (val == 18) s = "LALT";
+
+
+                if (r_shift && val == 16)
+                {
+                    s = "RSHIFT";
+                }
+
+                if (r_control && val == 17)
+                {
+                    s = "RCTRL";
+                }
+
+                if (r_alt && val == 18)
+                {
+                    s = "RALT";
+                }
+
+
+
+
                 if (val == 46) s = "DELETE";
+                if (val == 36) s = "HOME";
+                if (val == 45) s = "INSERT";
+
+                if (val == 33) s = "PAGE_UP";
+                if (val == 34) s = "PAGE_DOWN";
+                if (val == 35) s = "END";
 
                 if (val == 189) s = "-";
                 if (val == 187) s = "=";
@@ -135,12 +204,42 @@ namespace SpacerUnion.Windows
                 return s;
             }
 
-            public void SetData(bool alt, bool shift, bool ctrl, int key)
+            public void SetData(KeyEventArgs e)
             {
-                this.alt = alt;
-                this.shift = shift;
-                this.control = ctrl;
-                this.key = key;
+
+                Reset();
+
+                this.alt = e.Alt;
+                this.shift = e.Shift;
+                this.control = e.Control;
+                this.key = e.KeyValue;
+
+                
+                //ConsoleEx.WriteLineRed("SetData KeyValue: " + e.KeyValue);
+               
+
+                if (this.control && System.Windows.Input.Keyboard.IsKeyDown(System.Windows.Input.Key.RightCtrl))
+                {
+                   // ConsoleEx.WriteLineRed("RCTRL");
+
+                    this.r_control = true;
+                    this.control = false;
+                }
+
+                if (this.shift && System.Windows.Input.Keyboard.IsKeyDown(System.Windows.Input.Key.RightShift))
+                {
+                    //ConsoleEx.WriteLineRed("RSHIFT");
+                    this.r_shift = true;
+                    this.shift = false;
+                }
+
+                if (this.alt && System.Windows.Input.Keyboard.IsKeyDown(System.Windows.Input.Key.RightAlt))
+                {
+
+                    this.r_alt = true;
+                    this.alt = false;
+                   // ConsoleEx.WriteLineRed("RALT");
+                }
             }
 
             public void PackToUnion()
@@ -160,6 +259,10 @@ namespace SpacerUnion.Windows
                 if (control) mod |= (int)KeyMod.LControl;
                 if (shift) mod |= (int)KeyMod.LShift;
                 if (alt) mod |= (int)KeyMod.Alt;
+
+                if (r_control) mod |= (int)KeyMod.RCtrl;
+                if (r_shift) mod |= (int)KeyMod.RShift;
+                if (r_alt) mod |= (int)KeyMod.RAlt;
             }
 
             public bool IsModKey(int key)
@@ -176,15 +279,36 @@ namespace SpacerUnion.Windows
                     if (shift) str.Append("LSHIFT + ");
                     if (control) str.Append("LCTRL + ");
                     if (alt) str.Append("LALT + ");
+
+                    if (r_shift) str.Append("RSHIFT + ");
+                    if (r_control) str.Append("RCTRL + ");
+                    if (r_alt) str.Append("RALT + ");
+
                     str.Append(FixShowChar(key));
                 }
-                else
+                else if (!IsOnlyModKeys())
                 {
                     if (shift) str.Append("LSHIFT");
                     if (control) str.Append("LCTRL");
                     if (alt) str.Append("LALT");
+
+
+                    if (r_shift) str.Append("RSHIFT");
+                    if (r_control) str.Append("RCTRL");
+                    if (r_alt) str.Append("RALT");
+                }
+                else
+                {
+                    if (shift) str.Append("LSHIFT + ");
+                    if (control) str.Append("LCTRL + ");
+                    if (alt) str.Append("LALT + ");
+
+                    if (r_shift) str.Append("RSHIFT + ");
+                    if (r_control) str.Append("RCTRL + ");
+                    if (r_alt) str.Append("RALT + ");
                 }
 
+               // ConsoleEx.WriteLineGreen("GetKeysAsString: " + str.ToString());
                 return str.ToString();
             }
 
@@ -207,6 +331,10 @@ namespace SpacerUnion.Windows
                     if ((modVal & (int)KeyMod.LControl) != 0) str.Append("LCTRL");
                     if ((modVal & (int)KeyMod.Alt) != 0) str.Append("LALT");
                     if ((modVal & (int)KeyMod.LShift) != 0) str.Append("LSHIFT");
+
+                    if ((modVal & (int)KeyMod.RCtrl) != 0) str.Append("RCTRL");
+                    if ((modVal & (int)KeyMod.RAlt) != 0) str.Append("RALT");
+                    if ((modVal & (int)KeyMod.RShift) != 0) str.Append("RSHIFT");
                 }
                 else
                 {
@@ -223,6 +351,22 @@ namespace SpacerUnion.Windows
                     if ((modVal & (int)KeyMod.LShift) != 0)
                     {
                         str.Append("LSHIFT + ");
+                    }
+
+
+                    if ((modVal & (int)KeyMod.RCtrl) != 0)
+                    {
+                        str.Append("RCTRL + ");
+                    }
+
+                    if ((modVal & (int)KeyMod.RAlt) != 0)
+                    {
+                        str.Append("RALT + ");
+                    }
+
+                    if ((modVal & (int)KeyMod.RShift) != 0)
+                    {
+                        str.Append("RSHIFT + ");
                     }
 
                     char val = (char)keysGothic.Where(x => x.Value == num).Select(pair => pair.Key).FirstOrDefault();

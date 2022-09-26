@@ -41,6 +41,7 @@ namespace SpacerUnion
         {
             InitializeComponent();
             this.KeyPreview = true;
+         
             UpdateSpacerCaption("");
         }
 
@@ -625,24 +626,30 @@ namespace SpacerUnion
 
                 //ConsoleEx.WriteLineRed("Polys: " + polysCountLoc + " Check: " + SpacerNET.miscSetWin.checkBoxShowPolysSort.Checked);
 
+
+                ToggleWindowOnTop(true);
+
                 if (SpacerNET.miscSetWin.checkBoxShowPolysSort.Checked && polysCountLoc >= 200000)
                 {
                     DialogResult result = MessageBox.Show(
-                  Localizator.Get("CHECK_SORTING_POLYS"),
-                  Localizator.Get("groupBoxInfo"),
+                          Localizator.Get("CHECK_SORTING_POLYS"),
+                          Localizator.Get("groupBoxInfo"),
 
-                  MessageBoxButtons.YesNo,
-                  MessageBoxIcon.Information,
-                  MessageBoxDefaultButton.Button1,
-                  MessageBoxOptions.DefaultDesktopOnly);
+                          MessageBoxButtons.YesNo,
+                          MessageBoxIcon.Information,
+                          MessageBoxDefaultButton.Button1,
+                          MessageBoxOptions.DefaultDesktopOnly
+                    );
 
                     if (result == DialogResult.No)
                     {
                         sortPolys = false;
                     }
+                    Application.DoEvents();
+
                 }
 
-                
+                ToggleWindowOnTop(false);
 
 
                 Stopwatch s = new Stopwatch();
@@ -668,7 +675,10 @@ namespace SpacerUnion
             
         }
 
-
+        public void ToggleWindowOnTop(bool toggle)
+        {
+            this.TopMost = toggle;
+        }
 
 
         private void камераToolStripMenuItem_Click(object sender, EventArgs e)
