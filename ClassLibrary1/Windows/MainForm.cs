@@ -272,6 +272,9 @@ namespace SpacerUnion
 
             s.Stop();
 
+
+           
+
             string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
             SpacerNET.form.AddText(Localizator.Get("loadZenTime") + " (" + timeSpend + ")", Color.Green);
             ConsoleEx.WriteLineGreen(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
@@ -365,7 +368,6 @@ namespace SpacerUnion
                 Imports.Stack_PushInt(openFileDialog.FilterIndex);
                 Imports.Stack_PushString(filePath);
                 Imports.Extern_LoadWorld();
-
 
                 s.Stop();
 
@@ -1085,6 +1087,14 @@ namespace SpacerUnion
             SpacerNET.settingsControl.checkBoxVobRotRandAngle.Checked = vobInsertVobRotRand;
             SpacerNET.settingsControl.checkBoxVobInsertHierarchy.Checked = vobInsertHierarchy;
             SpacerNET.settingsControl.checkBoxSelectMoveInsert.Checked = selectMove;
+
+
+
+            Imports.Stack_PushString("checkBoxShowVobTraceFloor");
+            SpacerNET.settingsControl.checkBoxShowVobTraceFloor.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+
+
             SpacerNET.settingsControl.UpdateAll();
 
             SpacerNET.settingsControl.SetRadioTurnMode(turnMode);

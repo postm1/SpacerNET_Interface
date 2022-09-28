@@ -36,8 +36,8 @@ namespace SpacerUnion.Windows
 
             buttonVobControlApply.Text = Localizator.Get("BTN_APPLY");
             checkBoxSelectMoveInsert.Text = Localizator.Get("checkBoxSelectMoveInsert");
+            checkBoxShowVobTraceFloor.Text = Localizator.Get("checkBoxShowVobTraceFloor");
 
-            
 
             labelVobTrans.Text = Localizator.Get("WIN_CONTROLSET_TRANSSPEED") + trackBarVobTransSpeed.Value;
             labelVobRot.Text = Localizator.Get("WIN_CONTROLSET_ROTSPEED") + trackBarVobRotSpeed.Value;
@@ -211,6 +211,13 @@ namespace SpacerUnion.Windows
         {
             CheckBox cb = sender as CheckBox;
             Imports.Stack_PushString("selectMoveWhenVobInsert");
+            Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
+        }
+
+        private void checkBoxShowVobTraceFloor_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+            Imports.Stack_PushString("checkBoxShowVobTraceFloor");
             Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
         }
     }

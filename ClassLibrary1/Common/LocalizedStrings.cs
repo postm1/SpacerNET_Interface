@@ -459,7 +459,7 @@ namespace SpacerUnion.Common
             words.Add("saveMeshTime", new List<string> { "Сохранение MESH выполнено за", "Saving MESH time...", "Speichern der MESH dauerte", @"Czas zapisywania MESH'a..." });
             words.Add("MENU_TOP_SAVEMESH", new List<string> { "Сохранить MESH", "Save MESH", "", "Zapisz MESH" });
 
-            words.Add("WIN_MSG_CONFIRM_INSERTVOBTREE", new List<string> { "Подтвердите действие", "Confirm the action", "", "Potwierdź akcję" });
+            words.Add("WIN_MSG_CONFIRM", new List<string> { "Подтвердите действие", "Confirm the action", "", "Potwierdź akcję" });
             words.Add("WIN_MSG_CONFIRM_PLACENEARCAM", new List<string> { "Вставить Vobtree перед камерой?", "Do insert vobtree near the camera?", "", "Czy wstawiasz vobtree w pobliżu kamery?" });
             words.Add("CONTEXTMENU_TREE_ADD_PARENT", new List<string> { "Сделать глобальным родителем", "Make this vob as a global parent", "", "Stwórz ten vob jako globalnego rodzica dla wszystkich nowych vobów" });
             words.Add("CONTEXTMENU_TREE_REMOVE_PARENT", new List<string> { "Очистить глобального родителя", "Remove the global parent", "", "Usuń globalnego rodzica" });
@@ -521,9 +521,14 @@ namespace SpacerUnion.Common
             words.Add("CONTEXTMENU_TREE_REPLACE_FROM_PARENT", new List<string> { "Переместить все вобы из родителя", "Move all vobs from the parent", "", "Przenieś wszystkie voby od rodzica" });
             words.Add("checkBoxCamShowPortalsInfo", new List<string> { "Показывать информацию о порталах", "Show portals info", "", "Pokaż info o portalach" });
 
-            words.Add("CHECK_SORTING_POLYS", new List<string> { "Сортировать полигоны локации?\nСортировка полигонов в локации сильно замедляет сохранение больших локаций (по времени), однако, это необходимо делать для финальной версии локации, для промежуточных версий локации это необязательно и экономит время.", "Should we sort polygons of the location?\nSorting polygons is necessary for the final version of the location, but it requires much time for saving in big locations, for work version of locations you don't need to sort them every time while saving.", "", "" });
-            words.Add("checkBoxShowPolysSort", new List<string> { "При сохранении больших локаций спрашивать о сортировке полигонов (более 200 тыс. полигонов)", "Ask for sorting polygons while saving big locations (more than 200k polygons)", "", "" });
-            
+            words.Add("CHECK_SORTING_POLYS", new List<string> { "Сортировать полигоны локации?\nСортировка полигонов в локации сильно замедляет сохранение больших локаций (по времени), однако, это необходимо делать для финальной версии локации, для промежуточных версий локации это необязательно и экономит время.", "Should we sort polygons of the location?\nSorting polygons is necessary for the final version of the location, but it requires much time for saving in big locations, for work version of locations you don't need to sort them every time while saving.", "", "Czy chcesz sortować wielokąty lokacji?\nSortowanie wielokątów jest konieczne dla ostatniej wersji lokacji, ale wymaga dużo czasu przy zapisie w dużych lokacjach, dla wersji roboczych lokacji nie trzeba ich sortować za każdym razem przy zapisie." });
+            words.Add("checkBoxShowPolysSort", new List<string> { "При сохранении больших локаций спрашивать о сортировке полигонов (более 200 тыс. полигонов)", "Ask for sorting polygons while saving big locations (more than 200k polygons)", "", "Sortowanie wielokątów podczas zapisywania dużych lokacji (ponad 200k wielokątów)" });
+
+            //0.27
+
+            words.Add("checkBoxShowVobTraceFloor", new List<string> { "Подсвечивать положение воба на поверхности", "Brighten selected vob position on the floor", "", "" });
+            words.Add("WIN_MSG_CONFIRM_REMOVEVOB", new List<string> { "Удалить воб?", "Remove the vob?", "", "" });
+
         }
         
     }

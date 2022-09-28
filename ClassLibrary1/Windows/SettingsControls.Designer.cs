@@ -37,6 +37,7 @@
             this.trackBarVobRotSpeed = new System.Windows.Forms.TrackBar();
             this.buttonVobControlApply = new System.Windows.Forms.Button();
             this.groupBoxSet = new System.Windows.Forms.GroupBox();
+            this.checkBoxSelectMoveInsert = new System.Windows.Forms.CheckBox();
             this.labelRotWpFP = new System.Windows.Forms.Label();
             this.radioButtonWPTurnNone = new System.Windows.Forms.RadioButton();
             this.radioButtonWPTurnAgainst = new System.Windows.Forms.RadioButton();
@@ -44,7 +45,7 @@
             this.checkBoxVobInsertHierarchy = new System.Windows.Forms.CheckBox();
             this.checkBoxVobRotRandAngle = new System.Windows.Forms.CheckBox();
             this.checkBoxInsertVob = new System.Windows.Forms.CheckBox();
-            this.checkBoxSelectMoveInsert = new System.Windows.Forms.CheckBox();
+            this.checkBoxShowVobTraceFloor = new System.Windows.Forms.CheckBox();
             this.groupBoxControlVob.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobRotSpeed)).BeginInit();
@@ -61,7 +62,7 @@
             this.groupBoxControlVob.Controls.Add(this.trackBarVobRotSpeed);
             this.groupBoxControlVob.Location = new System.Drawing.Point(12, 12);
             this.groupBoxControlVob.Name = "groupBoxControlVob";
-            this.groupBoxControlVob.Size = new System.Drawing.Size(369, 139);
+            this.groupBoxControlVob.Size = new System.Drawing.Size(413, 139);
             this.groupBoxControlVob.TabIndex = 9;
             this.groupBoxControlVob.TabStop = false;
             this.groupBoxControlVob.Text = "Управление вобом";
@@ -127,7 +128,7 @@
             // 
             // buttonVobControlApply
             // 
-            this.buttonVobControlApply.Location = new System.Drawing.Point(141, 427);
+            this.buttonVobControlApply.Location = new System.Drawing.Point(168, 427);
             this.buttonVobControlApply.Name = "buttonVobControlApply";
             this.buttonVobControlApply.Size = new System.Drawing.Size(115, 23);
             this.buttonVobControlApply.TabIndex = 11;
@@ -137,6 +138,7 @@
             // 
             // groupBoxSet
             // 
+            this.groupBoxSet.Controls.Add(this.checkBoxShowVobTraceFloor);
             this.groupBoxSet.Controls.Add(this.checkBoxSelectMoveInsert);
             this.groupBoxSet.Controls.Add(this.labelRotWpFP);
             this.groupBoxSet.Controls.Add(this.radioButtonWPTurnNone);
@@ -147,15 +149,26 @@
             this.groupBoxSet.Controls.Add(this.checkBoxInsertVob);
             this.groupBoxSet.Location = new System.Drawing.Point(13, 168);
             this.groupBoxSet.Name = "groupBoxSet";
-            this.groupBoxSet.Size = new System.Drawing.Size(368, 253);
+            this.groupBoxSet.Size = new System.Drawing.Size(412, 253);
             this.groupBoxSet.TabIndex = 10;
             this.groupBoxSet.TabStop = false;
             this.groupBoxSet.Text = "Вставка воба";
             // 
+            // checkBoxSelectMoveInsert
+            // 
+            this.checkBoxSelectMoveInsert.AutoSize = true;
+            this.checkBoxSelectMoveInsert.Location = new System.Drawing.Point(9, 92);
+            this.checkBoxSelectMoveInsert.Name = "checkBoxSelectMoveInsert";
+            this.checkBoxSelectMoveInsert.Size = new System.Drawing.Size(303, 17);
+            this.checkBoxSelectMoveInsert.TabIndex = 7;
+            this.checkBoxSelectMoveInsert.Text = "Включать инструмент перемещение при вставке воба";
+            this.checkBoxSelectMoveInsert.UseVisualStyleBackColor = true;
+            this.checkBoxSelectMoveInsert.CheckedChanged += new System.EventHandler(this.checkBoxSelectMoveInsert_CheckedChanged);
+            // 
             // labelRotWpFP
             // 
             this.labelRotWpFP.AutoSize = true;
-            this.labelRotWpFP.Location = new System.Drawing.Point(6, 124);
+            this.labelRotWpFP.Location = new System.Drawing.Point(6, 164);
             this.labelRotWpFP.Name = "labelRotWpFP";
             this.labelRotWpFP.Size = new System.Drawing.Size(188, 13);
             this.labelRotWpFP.TabIndex = 6;
@@ -164,7 +177,7 @@
             // radioButtonWPTurnNone
             // 
             this.radioButtonWPTurnNone.AutoSize = true;
-            this.radioButtonWPTurnNone.Location = new System.Drawing.Point(9, 144);
+            this.radioButtonWPTurnNone.Location = new System.Drawing.Point(9, 184);
             this.radioButtonWPTurnNone.Name = "radioButtonWPTurnNone";
             this.radioButtonWPTurnNone.Size = new System.Drawing.Size(44, 17);
             this.radioButtonWPTurnNone.TabIndex = 5;
@@ -177,7 +190,7 @@
             // radioButtonWPTurnAgainst
             // 
             this.radioButtonWPTurnAgainst.AutoSize = true;
-            this.radioButtonWPTurnAgainst.Location = new System.Drawing.Point(9, 167);
+            this.radioButtonWPTurnAgainst.Location = new System.Drawing.Point(9, 207);
             this.radioButtonWPTurnAgainst.Name = "radioButtonWPTurnAgainst";
             this.radioButtonWPTurnAgainst.Size = new System.Drawing.Size(81, 17);
             this.radioButtonWPTurnAgainst.TabIndex = 4;
@@ -190,7 +203,7 @@
             // radioButtonWPTurnOn
             // 
             this.radioButtonWPTurnOn.AutoSize = true;
-            this.radioButtonWPTurnOn.Location = new System.Drawing.Point(9, 190);
+            this.radioButtonWPTurnOn.Location = new System.Drawing.Point(9, 230);
             this.radioButtonWPTurnOn.Name = "radioButtonWPTurnOn";
             this.radioButtonWPTurnOn.Size = new System.Drawing.Size(79, 17);
             this.radioButtonWPTurnOn.TabIndex = 3;
@@ -235,22 +248,22 @@
             this.checkBoxInsertVob.UseVisualStyleBackColor = true;
             this.checkBoxInsertVob.CheckedChanged += new System.EventHandler(this.checkBoxInsertVob_CheckedChanged);
             // 
-            // checkBoxSelectMoveInsert
+            // checkBoxShowVobTraceFloor
             // 
-            this.checkBoxSelectMoveInsert.AutoSize = true;
-            this.checkBoxSelectMoveInsert.Location = new System.Drawing.Point(9, 92);
-            this.checkBoxSelectMoveInsert.Name = "checkBoxSelectMoveInsert";
-            this.checkBoxSelectMoveInsert.Size = new System.Drawing.Size(303, 17);
-            this.checkBoxSelectMoveInsert.TabIndex = 7;
-            this.checkBoxSelectMoveInsert.Text = "Включать инструмент перемещение при вставке воба";
-            this.checkBoxSelectMoveInsert.UseVisualStyleBackColor = true;
-            this.checkBoxSelectMoveInsert.CheckedChanged += new System.EventHandler(this.checkBoxSelectMoveInsert_CheckedChanged);
+            this.checkBoxShowVobTraceFloor.AutoSize = true;
+            this.checkBoxShowVobTraceFloor.Location = new System.Drawing.Point(9, 115);
+            this.checkBoxShowVobTraceFloor.Name = "checkBoxShowVobTraceFloor";
+            this.checkBoxShowVobTraceFloor.Size = new System.Drawing.Size(266, 17);
+            this.checkBoxShowVobTraceFloor.TabIndex = 8;
+            this.checkBoxShowVobTraceFloor.Text = "Подсвечивать положение воба на поверхности";
+            this.checkBoxShowVobTraceFloor.UseVisualStyleBackColor = true;
+            this.checkBoxShowVobTraceFloor.CheckedChanged += new System.EventHandler(this.checkBoxShowVobTraceFloor_CheckedChanged);
             // 
             // SettingsControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(393, 456);
+            this.ClientSize = new System.Drawing.Size(437, 456);
             this.Controls.Add(this.groupBoxSet);
             this.Controls.Add(this.buttonVobControlApply);
             this.Controls.Add(this.groupBoxControlVob);
@@ -292,5 +305,6 @@
         private System.Windows.Forms.TextBox textBoxVobRot;
         private System.Windows.Forms.TextBox textBoxVobTrans;
         public System.Windows.Forms.CheckBox checkBoxSelectMoveInsert;
+        public System.Windows.Forms.CheckBox checkBoxShowVobTraceFloor;
     }
 }

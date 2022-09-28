@@ -1166,12 +1166,21 @@ namespace SpacerUnion
                 return;
             }
 
-            SpacerNET.vobList.ClearListBox();
-            uint vob = 0;
+            SpacerNET.form.ToggleWindowOnTop(true);
 
-            uint.TryParse(tag, out vob);
+            DialogResult dialogResult = MessageBox.Show(Localizator.Get("WIN_MSG_CONFIRM_REMOVEVOB"), Localizator.Get("WIN_MSG_CONFIRM"), MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                SpacerNET.vobList.ClearListBox();
+                uint vob = 0;
 
-            Imports.Extern_RemoveVob(vob);
+                uint.TryParse(tag, out vob);
+
+                Imports.Extern_RemoveVob(vob);
+            }
+
+            SpacerNET.form.ToggleWindowOnTop(false);
+
 
         }
 

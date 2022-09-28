@@ -1040,6 +1040,18 @@ namespace SpacerUnion
 
         }
 
+
+        [DllExport]
+        public static void Trigger_UpdateKeys(int cur, int max)
+        {
+
+            SpacerNET.objectsWin.triggerEntry.m_kf_pos = cur;
+            SpacerNET.objectsWin.triggerEntry.maxKey = max;
+
+            SpacerNET.objectsWin.UpdateTriggerWindow(false);
+
+        }
+
         [DllExport]
         public static void CleanTriggerForm()
         {
