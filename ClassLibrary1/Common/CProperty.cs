@@ -22,6 +22,14 @@ namespace SpacerUnion
         PETchunkend
     };
 
+    public enum TSearchNumberType
+    {
+        TS_EQUALS,
+        TS_LESSTHAN,
+        TS_MORETHAN
+    }
+
+
     public class CProperty
     {
         string groupName;
@@ -35,6 +43,7 @@ namespace SpacerUnion
         public TreeNode ownNode;
         public static string originalStrPropsWindow;
         public static string originalStrSearchWindow;
+        public TSearchNumberType numSearchType;
 
         public bool selectedForSearch;
 
@@ -46,6 +55,7 @@ namespace SpacerUnion
             oldValueInit = false;
             value = "";
             selectedForSearch = false;
+            numSearchType = TSearchNumberType.TS_EQUALS;
         }
 
         public string GetNameType()

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -33,6 +34,7 @@ namespace SpacerUnion
         static List<CProperty> convertProps = new List<CProperty>();
         static int selectTabBlocked = 0;
 
+        public static bool dontUpdateNumType = false;
 
         int onlyNameVisualSearch = 0;
 
@@ -2114,6 +2116,7 @@ namespace SpacerUnion
 
             int.TryParse(node.Tag.ToString(), out index);
 
+           // ConsoleEx.WriteLineRed("ModeMouseDoubleClick index: " + index);
 
             if (index >= 0 && node.Tag != null && node.Tag.ToString() != Constants.TAG_FOLDER)
             {
@@ -2172,6 +2175,13 @@ namespace SpacerUnion
             textBoxVecSearch1.Visible = false;
             textBoxVecSearch2.Visible = false;
             comboBoxPropsEnumSearch.Visible = false;
+
+            dontUpdateNumType = true;
+
+
+            panelRadioNumType.Visible = false;
+
+            dontUpdateNumType = false;
         }
 
         private void treeViewSearchClass_AfterSelect(object sender, TreeViewEventArgs e)
@@ -2181,16 +2191,23 @@ namespace SpacerUnion
 
             //ConsoleEx.WriteLineRed(node.Tag.ToString());
 
+
+
             if (node.Tag != null && node.Tag.ToString() != Constants.TAG_FOLDER)
             {
                 int.TryParse(node.Tag.ToString(), out index);
+
+
 
                 if (index >= 0)
                 {
 
                     HideAllInput();
 
+
                     CProperty prop = null;
+                    //ConsoleEx.WriteLineRed("try index: " + index);
+
 
                     if (radioButtonConvertOld.Checked)
                     {
@@ -2200,7 +2217,6 @@ namespace SpacerUnion
                     {
                         prop = newProps[index];
                     }
-                    
 
 
                     if (prop.type == TPropEditType.PETstring || prop.type == TPropEditType.PETraw || prop.type == TPropEditType.PETint || prop.type == TPropEditType.PETfloat)
@@ -2215,6 +2231,17 @@ namespace SpacerUnion
                         else if (prop.type == TPropEditType.PETint || prop.type == TPropEditType.PETfloat)
                         {
                             textBoxSearchVobs.Width = 75;
+
+                            
+                            dontUpdateNumType = true;
+
+                            panelRadioNumType.Visible = true;
+
+
+                            radioButtonSearchEquals.Checked = true;
+
+                            dontUpdateNumType = false;
+                            
                         }
                     }
 
@@ -2263,6 +2290,7 @@ namespace SpacerUnion
                         }
                     }
 
+                    //MessageBox.Show("after");
 
                     currentFieldtype = prop.type;
 
@@ -2366,6 +2394,24 @@ namespace SpacerUnion
                         return;
                     }
                     */
+
+
+                    if (prop.type == TPropEditType.PETint || prop.type == TPropEditType.PETfloat)
+                    {
+                        if (radioButtonSearchLessThan.Checked)
+                        {
+                            prop.numSearchType = TSearchNumberType.TS_LESSTHAN;
+                        }
+                        else if (radioButtonSearchBiggerThan.Checked)
+                        {
+                            prop.numSearchType = TSearchNumberType.TS_MORETHAN;
+                        }
+                        else if (radioButtonSearchEquals.Checked)
+                        {
+                            prop.numSearchType = TSearchNumberType.TS_EQUALS;
+                        }
+                    }
+                    
 
                     prop.value = textBox.Text.Trim().ToUpper();
                     node.Text = prop.Name + ": " + prop.ShowValue();
@@ -2938,8 +2984,69 @@ namespace SpacerUnion
                         if (compareProps[pc].Name == searchProps[j].Name)
                         {
                             //ConsoleEx.WriteLineRed(compareProps[pc].Name + ": " + compareProps[pc].value + "/" + searchProps[j].value);
+                            // compare это текущий воб, search это то что в интерфейсе
 
-                            if (useRegx)
+                            if (compareProps[pc].type == TPropEditType.PETint || compareProps[pc].type == TPropEditType.PETfloat)
+                            {
+
+                                match = compareProps[pc].value == searchProps[j].value;
+
+                                // если строки (числа) не равны, то
+                                if (!match 
+                                    && searchProps[j].numSearchType != TSearchNumberType.TS_EQUALS
+                                    && searchProps[j].value != ""
+                                    && compareProps[pc].value != ""
+                                   )
+                                {
+                                    if (compareProps[pc].type == TPropEditType.PETint)
+                                    {
+                                       // ConsoleEx.WriteLineRed("INT");
+                                        int vobIntValue = Convert.ToInt32(compareProps[pc].value);
+                                        int searchIntValue = Convert.ToInt32(searchProps[j].value);
+
+                                        
+                                        if (searchProps[j].numSearchType == TSearchNumberType.TS_LESSTHAN)
+                                        {
+                                            match = vobIntValue <= searchIntValue;
+                                        }
+                                        else if (searchProps[j].numSearchType == TSearchNumberType.TS_MORETHAN)
+                                        {
+                                            match = vobIntValue >= searchIntValue;
+                                        }
+                                    }
+                                    else if (compareProps[pc].type == TPropEditType.PETfloat)
+                                    {
+                                        //ConsoleEx.WriteLineRed("FLOAT");
+
+                                        double vobFloatValue = 0;
+                                        double searchFloatValue = 0;
+
+                                        if (Double.TryParse(searchProps[j].value, NumberStyles.Any, CultureInfo.InvariantCulture, out searchFloatValue) 
+                                            && Double.TryParse(compareProps[pc].value, NumberStyles.Any, CultureInfo.InvariantCulture, out vobFloatValue)
+                                            )
+                                        {
+                                           // ConsoleEx.WriteLineGreen("TryParse ok");
+
+                                            float valCompare = Convert.ToSingle(searchFloatValue);
+                                            float valVob = Convert.ToSingle(vobFloatValue);
+
+
+                                            if (searchProps[j].numSearchType == TSearchNumberType.TS_LESSTHAN)
+                                            {
+                                                match = valVob <= valCompare;
+                                            }
+                                            else if (searchProps[j].numSearchType == TSearchNumberType.TS_MORETHAN)
+                                            {
+                                                match = valVob >= valCompare;
+                                            }
+                                        }
+
+                                        
+                                    }
+                                }
+
+                            }
+                            else if (useRegx)
                             {
                                 Regex reg = new Regex(searchProps[j].value, RegexOptions.IgnoreCase);
 
@@ -3277,6 +3384,13 @@ namespace SpacerUnion
         private void listBoxVisuals_KeyPress(object sender, KeyPressEventArgs e)
         {
             //ConsoleEx.WriteLineRed("listBoxVisuals_KeyPress");
+        }
+
+        private void radioButtonSearchEquals_CheckedChanged(object sender, EventArgs e)
+        {
+            if (dontUpdateNumType || Imports.Extern_IsWorldLoaded() == 0) return;
+
+            textBoxSearchVobs_TextChanged(textBoxSearchVobs, null);
         }
     }
 }

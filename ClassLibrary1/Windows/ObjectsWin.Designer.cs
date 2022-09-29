@@ -121,6 +121,10 @@
             this.textBoxFP = new System.Windows.Forms.TextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.groupBoxSearchClasses = new System.Windows.Forms.GroupBox();
+            this.radioButtonSearchEquals = new System.Windows.Forms.RadioButton();
+            this.radioButtonSearchBiggerThan = new System.Windows.Forms.RadioButton();
+            this.radioButtonSearchLessThan = new System.Windows.Forms.RadioButton();
+            this.checkBoxSearchHasChildren = new System.Windows.Forms.CheckBox();
             this.checkBoxAutoNumerate = new System.Windows.Forms.CheckBox();
             this.labelRenameVob = new System.Windows.Forms.Label();
             this.textBoxRenameVob = new System.Windows.Forms.TextBox();
@@ -168,7 +172,7 @@
             this.textBoxCamName = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelLight = new System.Windows.Forms.Panel();
             this.labelNotReady2 = new System.Windows.Forms.Label();
             this.button17 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
@@ -200,7 +204,7 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.checkBoxSearchHasChildren = new System.Windows.Forms.CheckBox();
+            this.panelRadioNumType = new System.Windows.Forms.Panel();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -225,7 +229,8 @@
             this.groupBox12.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.tabPage8.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panelLight.SuspendLayout();
+            this.panelRadioNumType.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxPFX
@@ -1256,6 +1261,7 @@
             // 
             // groupBoxSearchClasses
             // 
+            this.groupBoxSearchClasses.Controls.Add(this.panelRadioNumType);
             this.groupBoxSearchClasses.Controls.Add(this.checkBoxSearchHasChildren);
             this.groupBoxSearchClasses.Controls.Add(this.checkBoxAutoNumerate);
             this.groupBoxSearchClasses.Controls.Add(this.labelRenameVob);
@@ -1284,6 +1290,53 @@
             this.groupBoxSearchClasses.TabIndex = 4;
             this.groupBoxSearchClasses.TabStop = false;
             this.groupBoxSearchClasses.Text = "Класс воба";
+            // 
+            // radioButtonSearchEquals
+            // 
+            this.radioButtonSearchEquals.AutoSize = true;
+            this.radioButtonSearchEquals.Checked = true;
+            this.radioButtonSearchEquals.Location = new System.Drawing.Point(7, 0);
+            this.radioButtonSearchEquals.Name = "radioButtonSearchEquals";
+            this.radioButtonSearchEquals.Size = new System.Drawing.Size(31, 17);
+            this.radioButtonSearchEquals.TabIndex = 27;
+            this.radioButtonSearchEquals.TabStop = true;
+            this.radioButtonSearchEquals.Text = "=";
+            this.radioButtonSearchEquals.UseVisualStyleBackColor = true;
+            this.radioButtonSearchEquals.CheckedChanged += new System.EventHandler(this.radioButtonSearchEquals_CheckedChanged);
+            // 
+            // radioButtonSearchBiggerThan
+            // 
+            this.radioButtonSearchBiggerThan.AutoSize = true;
+            this.radioButtonSearchBiggerThan.Location = new System.Drawing.Point(87, -1);
+            this.radioButtonSearchBiggerThan.Name = "radioButtonSearchBiggerThan";
+            this.radioButtonSearchBiggerThan.Size = new System.Drawing.Size(37, 17);
+            this.radioButtonSearchBiggerThan.TabIndex = 26;
+            this.radioButtonSearchBiggerThan.TabStop = true;
+            this.radioButtonSearchBiggerThan.Text = ">=";
+            this.radioButtonSearchBiggerThan.UseVisualStyleBackColor = true;
+            this.radioButtonSearchBiggerThan.CheckedChanged += new System.EventHandler(this.radioButtonSearchEquals_CheckedChanged);
+            // 
+            // radioButtonSearchLessThan
+            // 
+            this.radioButtonSearchLessThan.AutoSize = true;
+            this.radioButtonSearchLessThan.Location = new System.Drawing.Point(44, 0);
+            this.radioButtonSearchLessThan.Name = "radioButtonSearchLessThan";
+            this.radioButtonSearchLessThan.Size = new System.Drawing.Size(37, 17);
+            this.radioButtonSearchLessThan.TabIndex = 25;
+            this.radioButtonSearchLessThan.TabStop = true;
+            this.radioButtonSearchLessThan.Text = "<=";
+            this.radioButtonSearchLessThan.UseVisualStyleBackColor = true;
+            this.radioButtonSearchLessThan.CheckedChanged += new System.EventHandler(this.radioButtonSearchEquals_CheckedChanged);
+            // 
+            // checkBoxSearchHasChildren
+            // 
+            this.checkBoxSearchHasChildren.AutoSize = true;
+            this.checkBoxSearchHasChildren.Location = new System.Drawing.Point(431, 69);
+            this.checkBoxSearchHasChildren.Name = "checkBoxSearchHasChildren";
+            this.checkBoxSearchHasChildren.Size = new System.Drawing.Size(113, 17);
+            this.checkBoxSearchHasChildren.TabIndex = 24;
+            this.checkBoxSearchHasChildren.Text = "У воба есть дети";
+            this.checkBoxSearchHasChildren.UseVisualStyleBackColor = true;
             // 
             // checkBoxAutoNumerate
             // 
@@ -1330,12 +1383,10 @@
             // radioButtonConvertOld
             // 
             this.radioButtonConvertOld.AutoSize = true;
-            this.radioButtonConvertOld.Checked = true;
             this.radioButtonConvertOld.Location = new System.Drawing.Point(241, 113);
             this.radioButtonConvertOld.Name = "radioButtonConvertOld";
             this.radioButtonConvertOld.Size = new System.Drawing.Size(63, 17);
             this.radioButtonConvertOld.TabIndex = 19;
-            this.radioButtonConvertOld.TabStop = true;
             this.radioButtonConvertOld.Text = "Старый";
             this.radioButtonConvertOld.UseVisualStyleBackColor = true;
             this.radioButtonConvertOld.Visible = false;
@@ -1762,7 +1813,7 @@
             // 
             // tabPage8
             // 
-            this.tabPage8.Controls.Add(this.panel1);
+            this.tabPage8.Controls.Add(this.panelLight);
             this.tabPage8.Controls.Add(this.textBox5);
             this.tabPage8.Controls.Add(this.label19);
             this.tabPage8.Controls.Add(this.checkBox4);
@@ -1783,30 +1834,30 @@
             this.tabPage8.Text = "Свет";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // panelLight
             // 
-            this.panel1.Controls.Add(this.labelNotReady2);
-            this.panel1.Controls.Add(this.button17);
-            this.panel1.Controls.Add(this.button16);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.label18);
-            this.panel1.Controls.Add(this.checkBox2);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.listBox4);
-            this.panel1.Controls.Add(this.button21);
-            this.panel1.Controls.Add(this.button20);
-            this.panel1.Controls.Add(this.button19);
-            this.panel1.Controls.Add(this.button18);
-            this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.checkBox1);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.listBox2);
-            this.panel1.Controls.Add(this.radioButton2);
-            this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Location = new System.Drawing.Point(194, 106);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(316, 237);
-            this.panel1.TabIndex = 34;
+            this.panelLight.Controls.Add(this.labelNotReady2);
+            this.panelLight.Controls.Add(this.button17);
+            this.panelLight.Controls.Add(this.button16);
+            this.panelLight.Controls.Add(this.comboBox1);
+            this.panelLight.Controls.Add(this.label18);
+            this.panelLight.Controls.Add(this.checkBox2);
+            this.panelLight.Controls.Add(this.textBox4);
+            this.panelLight.Controls.Add(this.listBox4);
+            this.panelLight.Controls.Add(this.button21);
+            this.panelLight.Controls.Add(this.button20);
+            this.panelLight.Controls.Add(this.button19);
+            this.panelLight.Controls.Add(this.button18);
+            this.panelLight.Controls.Add(this.label17);
+            this.panelLight.Controls.Add(this.checkBox1);
+            this.panelLight.Controls.Add(this.textBox3);
+            this.panelLight.Controls.Add(this.listBox2);
+            this.panelLight.Controls.Add(this.radioButton2);
+            this.panelLight.Controls.Add(this.radioButton1);
+            this.panelLight.Location = new System.Drawing.Point(194, 106);
+            this.panelLight.Name = "panelLight";
+            this.panelLight.Size = new System.Drawing.Size(316, 237);
+            this.panelLight.TabIndex = 34;
             // 
             // labelNotReady2
             // 
@@ -2094,15 +2145,16 @@
             this.button10.Text = "Удалить";
             this.button10.UseVisualStyleBackColor = true;
             // 
-            // checkBoxSearchHasChildren
+            // panelRadioNumType
             // 
-            this.checkBoxSearchHasChildren.AutoSize = true;
-            this.checkBoxSearchHasChildren.Location = new System.Drawing.Point(431, 69);
-            this.checkBoxSearchHasChildren.Name = "checkBoxSearchHasChildren";
-            this.checkBoxSearchHasChildren.Size = new System.Drawing.Size(113, 17);
-            this.checkBoxSearchHasChildren.TabIndex = 24;
-            this.checkBoxSearchHasChildren.Text = "У воба есть дети";
-            this.checkBoxSearchHasChildren.UseVisualStyleBackColor = true;
+            this.panelRadioNumType.Controls.Add(this.radioButtonSearchEquals);
+            this.panelRadioNumType.Controls.Add(this.radioButtonSearchBiggerThan);
+            this.panelRadioNumType.Controls.Add(this.radioButtonSearchLessThan);
+            this.panelRadioNumType.Location = new System.Drawing.Point(332, 91);
+            this.panelRadioNumType.Name = "panelRadioNumType";
+            this.panelRadioNumType.Size = new System.Drawing.Size(125, 20);
+            this.panelRadioNumType.TabIndex = 28;
+            this.panelRadioNumType.Visible = false;
             // 
             // ObjectsWin
             // 
@@ -2159,8 +2211,10 @@
             this.groupBox11.PerformLayout();
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelLight.ResumeLayout(false);
+            this.panelLight.PerformLayout();
+            this.panelRadioNumType.ResumeLayout(false);
+            this.panelRadioNumType.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2294,7 +2348,7 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelLight;
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -2340,5 +2394,9 @@
         private System.Windows.Forms.Label labelFindVisualArchive;
         private System.Windows.Forms.ComboBox comboBoxArchiveList;
         private System.Windows.Forms.CheckBox checkBoxSearchHasChildren;
+        private System.Windows.Forms.RadioButton radioButtonSearchBiggerThan;
+        private System.Windows.Forms.RadioButton radioButtonSearchLessThan;
+        private System.Windows.Forms.RadioButton radioButtonSearchEquals;
+        private System.Windows.Forms.Panel panelRadioNumType;
     }
 }
