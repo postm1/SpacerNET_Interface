@@ -110,16 +110,7 @@ namespace SpacerUnion.Windows
 
         private void richTextBoxMacros_KeyDown(object sender, KeyEventArgs e)
         {
-            buttonMacrosRun.Enabled = false;
-
-
-            int index = listBoxMacros.SelectedIndex;
-
-            if (index == -1) return;
-
-            macros.OnParse();
-
-            buttonMacrosRun.Enabled = true;
+            
         }
 
         private void buttonMacrosReloadFromFile_Click(object sender, EventArgs e)
@@ -155,6 +146,20 @@ namespace SpacerUnion.Windows
             }
 
 
+        }
+
+        private void richTextBoxMacros_KeyUp(object sender, KeyEventArgs e)
+        {
+            buttonMacrosRun.Enabled = false;
+
+
+            int index = listBoxMacros.SelectedIndex;
+
+            if (index == -1) return;
+
+            macros.OnParse();
+
+            buttonMacrosRun.Enabled = true;
         }
     }
 }

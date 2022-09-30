@@ -20,8 +20,11 @@ namespace SpacerUnion.Common
         MT_LOAD_MESH,
 
 
-        MT_SAVE_COMPILED,
-        MT_SAVE_ASCII,
+        MT_SAVE_WORLD_BIN,
+        MT_SAVE_WORLD_COMPILED_ASCII,
+        MT_SAVE_WORLD_UNCOMPILED_VOBS,
+
+
         MT_SAVE_MESH,
 
         MT_COMPILE_WORLD_OUTDOOR,
@@ -59,6 +62,7 @@ namespace SpacerUnion.Common
         public List<MacroEntry> entries;
 
         public MacroEntry currentEntry = null;
+        public int currentIndex = -1;
 
 
         public ConfirmForm formConf;
@@ -291,6 +295,65 @@ namespace SpacerUnion.Common
                     }
 
                 }
+                else if (curWord == "SAVE" && words.Length >= 2)
+                {
+                    string saveType = words[1];
+
+                    if (saveType == "MESH" && words.Length >= 3)
+                    {
+                        tempEntry.actions.Add(MacrosType.MT_SAVE_MESH);
+                        tempEntry.rawValues.Add(str);
+
+                        string path = str.Replace("SAVE MESH", "").Trim();
+
+                        tempEntry.cmds[tempEntry.cmds.Count - 1] = path;
+
+                        //ConsoleEx.WriteLineYellow(path);
+                    }
+                    else if (saveType == "WORLD" && words.Length >= 4)
+                    {
+                        string worldType = words[2];
+
+                        if (worldType == "ASCII")
+                        {
+                            tempEntry.actions.Add(MacrosType.MT_SAVE_WORLD_COMPILED_ASCII);
+
+                            string path = str.Replace("SAVE WORLD ASCII", "").Trim();
+
+                            tempEntry.cmds[tempEntry.cmds.Count - 1] = path;
+                        }
+                        else if (worldType == "BIN")
+                        {
+                            tempEntry.actions.Add(MacrosType.MT_SAVE_WORLD_BIN);
+
+                            string path = str.Replace("SAVE WORLD BIN", "").Trim();
+
+                            tempEntry.cmds[tempEntry.cmds.Count - 1] = path;
+                        }
+                        else if (worldType == "UNC")
+                        {
+                            tempEntry.actions.Add(MacrosType.MT_SAVE_WORLD_UNCOMPILED_VOBS);
+
+                            string path = str.Replace("SAVE WORLD UNC", "").Trim();
+
+                            tempEntry.cmds[tempEntry.cmds.Count - 1] = path;
+                        }
+                        else
+                        {
+                            tempEntry.actions.Add(MacrosType.MT_COMMENT);
+                        }
+                        tempEntry.rawValues.Add(str);
+
+                        
+
+                        //ConsoleEx.WriteLineYellow(path);
+                    }
+                    else
+                    {
+                        tempEntry.actions.Add(MacrosType.MT_COMMENT);
+                        tempEntry.rawValues.Add(str);
+                    }
+                }
                 else
                 {
                     tempEntry.actions.Add(MacrosType.MT_COMMENT);
@@ -306,7 +369,7 @@ namespace SpacerUnion.Common
 
 
             /*
-            ConsoleEx.WriteLineRed("===========Parse: " + tempEntry.name + "=============");
+            ConsoleEx.WriteLineYellow("===========Parse: " + tempEntry.name + "=============");
             ConsoleEx.WriteLineRed(tempEntry.actions.Count + " " + tempEntry.cmds.Count + " " + tempEntry.rawValues.Count);
 
             for (int j = 0; j < tempEntry.actions.Count; j++)
@@ -314,6 +377,7 @@ namespace SpacerUnion.Common
                 ConsoleEx.WriteLineWhite(tempEntry.rawValues[j] + " " + tempEntry.actions[j].ToString() + " " + tempEntry.cmds[j]);
             }
             */
+            
 
             return tempEntry;
         }
@@ -427,6 +491,21 @@ namespace SpacerUnion.Common
 
             var entry = entries[index];
 
+            /*
+            if (currentEntry != null && objWin.richTextBoxMacros.Text.Length > 0 && currentIndex != -1)
+            {
+                string text = objWin.richTextBoxMacros.Text.Trim();
+
+                var oldEntry = TryParseString(text, false);
+
+                if (oldEntry != null)
+                {
+                    entries[currentIndex] = oldEntry;
+                }
+            }
+            */
+
+            currentIndex = index;
             objWin.richTextBoxMacros.Clear();
             objWin.richTextBoxMacros.Enabled = true;
             currentEntry = entry;
@@ -539,13 +618,13 @@ namespace SpacerUnion.Common
             if (entries.Count > 0)
             {
                 initOk = true;
-                ConsoleEx.WriteLineRed("Loaded entries from MACROS file: " + entries.Count);
+                ConsoleEx.WriteLineGreen("Loaded entries count from MACROS file: " + entries.Count);
 
                 for (int i = 0; i < entries.Count; i++)
                 {
                     var entry = entries[i];
 
-                    ConsoleEx.WriteLineRed("Name: " + entry.name + " " + entry.actions.Count + " " + entry.cmds.Count + " " + entry.rawValues.Count);
+                    //ConsoleEx.WriteLineRed("Name: " + entry.name + " " + entry.actions.Count + " " + entry.cmds.Count + " " + entry.rawValues.Count);
 
                     for (int j = 0; j < entry.actions.Count; j++)
                     {
@@ -554,134 +633,6 @@ namespace SpacerUnion.Common
 
                 }
             }
-
-            /*
-            foreach (string line in System.IO.File.ReadLines(pathFile))
-            {
-                string text = line;
-
-                text = text.Trim();
-
-
-                if (text.Length == 0)
-                {
-                    continue;
-                }
-
-                if (text.StartsWith("["))
-                {
-                    text = text.Trim('[');
-                    text = text.Trim(']');
-
-
-                    CheckEntry(true);
-
-                    currentEntry.name = text;
-                    continue;
-
-                    //ConsoleEx.WriteLineGreen(text);
-                }
-                else if (text.StartsWith("//"))
-                {
-                    CheckEntry();
-
-                    currentEntry.actions.Add(MacrosType.MT_COMMENT);
-                    currentEntry.rawValues.Add(text);
-                    currentEntry.cmds.Add(text);
-
-                    continue;
-                    //ConsoleEx.WriteLineGreen(text);
-                }
-                else
-                {
-                    CheckEntry();
-
-                    text = text.ToUpper();
-
-
-                    if (text == "compile world outdoor".ToUpper())
-                    {
-                        currentEntry.actions.Add(MacrosType.MT_COMPILE_WORLD_OUTDOOR);
-                        currentEntry.cmds.Add(text);
-                        currentEntry.rawValues.Add(text);
-                    }
-                    else if (text == "compile world indoor".ToUpper())
-                    {
-                        currentEntry.actions.Add(MacrosType.MT_COMPILE_WORLD_INDOOR);
-                        currentEntry.cmds.Add(text);
-                        currentEntry.rawValues.Add(text);
-                    }
-                    else if (text == "reset".ToUpper())
-                    {
-                        currentEntry.actions.Add(MacrosType.MT_RESET);
-                        currentEntry.cmds.Add(text);
-                        currentEntry.rawValues.Add(text);
-                    }
-                    else if (text == "compile light high".ToUpper())
-                    {
-                        currentEntry.actions.Add(MacrosType.MT_COMPILE_LIGHT_HIGH);
-                        currentEntry.cmds.Add(text);
-                        currentEntry.rawValues.Add(text);
-                    }
-                    else if (text == "compile light mid".ToUpper())
-                    {
-                        currentEntry.actions.Add(MacrosType.MT_COMPILE_LIGHT_MID);
-                        currentEntry.cmds.Add(text);
-                        currentEntry.rawValues.Add(text);
-                    }
-                    else if (text == "compile light low".ToUpper())
-                    {
-                        currentEntry.actions.Add(MacrosType.MT_COMPILE_LIGHT_LOW);
-                        currentEntry.cmds.Add(text);
-                        currentEntry.rawValues.Add(text);
-                    }
-                    else if (text == "compile light vertex".ToUpper())
-                    {
-                        currentEntry.actions.Add(MacrosType.MT_COMPILE_LIGHT_VERTEX);
-                        currentEntry.cmds.Add(text);
-                        currentEntry.rawValues.Add(text);
-                    }
-                    else if (text.StartsWith("load".ToUpper()))
-                    {
-                        string[] split = text.Split(' ');
-
-                        if (split[1] == "world".ToUpper() && split.Length >= 3)
-                        {
-                            currentEntry.rawValues.Add(text);
-
-                            currentEntry.actions.Add(MacrosType.MT_LOAD_WORLD);
-
-                            string path = text.Replace("LOAD WORLD", "").Trim();
-
-                            currentEntry.cmds.Add(path);
-                        }
-                        else if (split[1] == "mesh".ToUpper() && split.Length >= 3)
-                        {
-
-                            currentEntry.rawValues.Add(text);
-                            string path = text.Replace("LOAD MESH", "").Trim();
-                            currentEntry.actions.Add(MacrosType.MT_LOAD_MESH);
-                            currentEntry.cmds.Add(path);
-                        }
-
-
-                        continue;
-                    }
-                    else
-                    {
-                        currentEntry.actions.Add(MacrosType.MT_COMMENT);
-                        currentEntry.rawValues.Add(text);
-                        currentEntry.cmds.Add(text);
-                    }
-
-
-                    //ConsoleEx.WriteLineGreen(text);
-                }
-            }
-            */
-
-
-
 
         }
     }

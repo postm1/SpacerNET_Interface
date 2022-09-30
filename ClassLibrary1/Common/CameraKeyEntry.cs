@@ -23,5 +23,18 @@ namespace SpacerUnion.Common
             splineSelect = 0;
             durationTime = 0;
         }
+
+        public void OnInsertNewCamera(string camName)
+        {
+            this.name = camName;
+
+            Imports.Stack_PushString(this.name);
+            Imports.Extern_InsertNewCamera();
+        }
+
+        public void OnRun()
+        {
+
+        }
     }
 }

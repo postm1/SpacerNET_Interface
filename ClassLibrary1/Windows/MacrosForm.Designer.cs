@@ -49,6 +49,7 @@
             this.richTextBoxMacros.TabIndex = 9;
             this.richTextBoxMacros.Text = "";
             this.richTextBoxMacros.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBoxMacros_KeyDown);
+            this.richTextBoxMacros.KeyUp += new System.Windows.Forms.KeyEventHandler(this.richTextBoxMacros_KeyUp);
             // 
             // buttonMacrosRun
             // 

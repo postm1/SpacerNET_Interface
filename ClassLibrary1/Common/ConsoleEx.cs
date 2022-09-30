@@ -33,5 +33,21 @@ namespace SpacerUnion
             Console.WriteLine(PREFIX + message);
             Console.ForegroundColor = oldColor;
         }
+
+        public static void WriteLineYellow(String message)
+        {
+            var oldColor = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(PREFIX + message);
+            Console.ForegroundColor = oldColor;
+        }
+
+        public static void WriteLineCyan(String message)
+        {
+            var oldColor = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(PREFIX + message);
+            Console.ForegroundColor = oldColor;
+        }
     }
 }

@@ -621,15 +621,15 @@ namespace SpacerUnion
 
        
         [DllExport]
-        public static void OnVobInsert(uint vob, uint parent, int isNodeBlocked, bool select)
+        public static void OnVobInsert(uint vob, uint parent, int isNodeBlocked, int isSelect)
         {
             string name = Imports.Stack_PeekString();
             string className = Imports.Stack_PeekString();
+            bool select = Convert.ToBoolean(isSelect);
 
             TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
 
-            Console.WriteLine("");
-            ConsoleEx.WriteLineGreen("OnVobInsert: " + name);
+            ConsoleEx.WriteLineYellow("\nOnVobInsert: " + name);
             int classNameFoundPos = -1;
 
             classNameFoundPos = CreateAndGetFolder(className);
@@ -729,12 +729,12 @@ namespace SpacerUnion
                 }
                 else
                 {
-                    //ConsoleEx.WriteLineRed("No select");
+                    //ConsoleEx.WriteLineRed("No select parent == 0");
                 }
                
                 
                 
-                Console.WriteLine("OnVobInsert globally: " + name + " parent: " + Utils.ToHex(parent) + " className: " + className);
+                //Console.WriteLine("OnVobInsert globally: " + name + " parent: " + Utils.ToHex(parent) + " className: " + className);
             }
             else if (entry.parentEntry != null)
             {

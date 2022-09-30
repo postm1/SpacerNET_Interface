@@ -405,10 +405,10 @@ namespace SpacerUnion
 
             Imports.Extern_KillPreviewItem();
 
-       
+            //ConsoleEx.WriteLineYellow("=========================");
             Imports.Stack_PushString(name);
             Imports.Extern_CreateItem();
-
+            //ConsoleEx.WriteLineYellow("=========================");
             SpacerNET.form.Focus();
 
             
@@ -2429,7 +2429,15 @@ namespace SpacerUnion
 
         private void textBoxSearchVobs_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (currentFieldtype == TPropEditType.PETint || currentFieldtype == TPropEditType.PETfloat)
+
+            if (currentFieldtype == TPropEditType.PETint)
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }
+            else if (currentFieldtype == TPropEditType.PETfloat)
             {
                 if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
          (e.KeyChar != '.'))
@@ -3400,6 +3408,29 @@ namespace SpacerUnion
         private void ObjectsWin_FormClosed(object sender, FormClosedEventArgs e)
         {
             
+        }
+
+        private void buttonCamInsert_Click(object sender, EventArgs e)
+        {
+
+            return;
+
+            string camName = textBoxCamName.Text.Trim();
+
+            if (camName.Length == 0)
+            {
+                MessageBox.Show(Localizator.Get("ENTER_NAME"));
+                return;
+            }
+
+            camEntry.OnInsertNewCamera(camName);
+
+            SpacerNET.form.Focus();
+        }
+
+        private void buttonCamPlay_Click(object sender, EventArgs e)
+        {
+            camEntry.OnRun();
         }
     }
 }

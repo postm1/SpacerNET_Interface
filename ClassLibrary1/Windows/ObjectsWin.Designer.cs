@@ -1637,6 +1637,7 @@
             this.buttonCamInsert.TabIndex = 3;
             this.buttonCamInsert.Text = "Вставить";
             this.buttonCamInsert.UseVisualStyleBackColor = true;
+            this.buttonCamInsert.Click += new System.EventHandler(this.buttonCamInsert_Click);
             // 
             // listBoxCameras
             // 
@@ -1728,6 +1729,7 @@
             this.buttonCamPlay.TabIndex = 10;
             this.buttonCamPlay.Text = "Запуск";
             this.buttonCamPlay.UseVisualStyleBackColor = true;
+            this.buttonCamPlay.Click += new System.EventHandler(this.buttonCamPlay_Click);
             // 
             // buttonCamKey
             // 
@@ -1812,6 +1814,7 @@
             this.textBoxCamName.Name = "textBoxCamName";
             this.textBoxCamName.Size = new System.Drawing.Size(173, 20);
             this.textBoxCamName.TabIndex = 1;
+            this.textBoxCamName.Text = "CAM_TEST";
             // 
             // label12
             // 
