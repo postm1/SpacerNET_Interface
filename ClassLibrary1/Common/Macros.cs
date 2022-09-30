@@ -51,9 +51,10 @@ namespace SpacerUnion.Common
 
     public class Macros
     {
-        public ObjectsWin objWin;
+        public MacrosForm objWin;
         string pathFile;
         bool initOk;
+        bool isMacrosRun;
 
         public List<MacroEntry> entries;
 
@@ -62,9 +63,10 @@ namespace SpacerUnion.Common
 
         public ConfirmForm formConf;
 
-        public Macros(ObjectsWin win)
+        public Macros(MacrosForm win)
         {
             initOk = false;
+            isMacrosRun = false;
             entries = new List<MacroEntry>();
             objWin = win;
 
@@ -342,10 +344,13 @@ namespace SpacerUnion.Common
         {
             if (!IsActive()) return;
 
+            if (isMacrosRun) return;
+
             if (currentEntry != null)
             {
                 ConsoleEx.WriteLineRed("OnRun===============");
 
+                isMacrosRun = true;
                 /*
                 for (int i = 0; i < entries.Count; i++)
                 {
@@ -411,7 +416,7 @@ namespace SpacerUnion.Common
                 SpacerNET.form.stripSpecialFunctions.Enabled = true;
                 SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
 
-
+                isMacrosRun = false;
             }
         }
 

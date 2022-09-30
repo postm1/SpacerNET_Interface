@@ -48,6 +48,7 @@
             this.richTextBoxMacros.Size = new System.Drawing.Size(601, 215);
             this.richTextBoxMacros.TabIndex = 9;
             this.richTextBoxMacros.Text = "";
+            this.richTextBoxMacros.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBoxMacros_KeyDown);
             // 
             // buttonMacrosRun
             // 
@@ -57,6 +58,7 @@
             this.buttonMacrosRun.TabIndex = 8;
             this.buttonMacrosRun.Text = "Выполнить";
             this.buttonMacrosRun.UseVisualStyleBackColor = true;
+            this.buttonMacrosRun.Click += new System.EventHandler(this.buttonMacrosRun_Click);
             // 
             // groupBoxMacrosButtons
             // 
@@ -80,6 +82,7 @@
             this.buttonMacrosReloadFromFile.TabIndex = 4;
             this.buttonMacrosReloadFromFile.Text = "Перезагрузить всё из файла";
             this.buttonMacrosReloadFromFile.UseVisualStyleBackColor = true;
+            this.buttonMacrosReloadFromFile.Click += new System.EventHandler(this.buttonMacrosReloadFromFile_Click);
             // 
             // buttonCreateNewMacros
             // 
@@ -89,6 +92,7 @@
             this.buttonCreateNewMacros.TabIndex = 3;
             this.buttonCreateNewMacros.Text = "Создать новый макрос";
             this.buttonCreateNewMacros.UseVisualStyleBackColor = true;
+            this.buttonCreateNewMacros.Click += new System.EventHandler(this.buttonCreateNewMacros_Click);
             // 
             // buttonMacrosRemoveCurrent
             // 
@@ -98,6 +102,7 @@
             this.buttonMacrosRemoveCurrent.TabIndex = 2;
             this.buttonMacrosRemoveCurrent.Text = "Удалить";
             this.buttonMacrosRemoveCurrent.UseVisualStyleBackColor = true;
+            this.buttonMacrosRemoveCurrent.Click += new System.EventHandler(this.buttonMacrosRemoveCurrent_Click);
             // 
             // buttonMacrosRenameCurrent
             // 
@@ -107,6 +112,7 @@
             this.buttonMacrosRenameCurrent.TabIndex = 1;
             this.buttonMacrosRenameCurrent.Text = "Переименовать";
             this.buttonMacrosRenameCurrent.UseVisualStyleBackColor = true;
+            this.buttonMacrosRenameCurrent.Click += new System.EventHandler(this.buttonMacrosRenameCurrent_Click);
             // 
             // buttonMacrosSaveAll
             // 
@@ -126,6 +132,8 @@
             this.listBoxMacros.Name = "listBoxMacros";
             this.listBoxMacros.Size = new System.Drawing.Size(287, 134);
             this.listBoxMacros.TabIndex = 6;
+            this.listBoxMacros.SelectedIndexChanged += new System.EventHandler(this.listBoxMacros_SelectedIndexChanged);
+            this.listBoxMacros.DoubleClick += new System.EventHandler(this.listBoxMacros_DoubleClick);
             // 
             // MacrosForm
             // 
@@ -136,12 +144,14 @@
             this.Controls.Add(this.buttonMacrosRun);
             this.Controls.Add(this.groupBoxMacrosButtons);
             this.Controls.Add(this.listBoxMacros);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MacrosForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Macros";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.Text = "Макросы";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MacrosForm_FormClosing);
             this.groupBoxMacrosButtons.ResumeLayout(false);
             this.ResumeLayout(false);

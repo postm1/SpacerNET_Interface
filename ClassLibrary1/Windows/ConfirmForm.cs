@@ -65,5 +65,14 @@ namespace SpacerUnion.Windows
         {
             this.textBoxValueEnter.Focus();
         }
+
+        private void textBoxValueEnter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                e.Handled = true;
+                buttonConfirmYes_Click(null, null);
+            }
+        }
     }
 }

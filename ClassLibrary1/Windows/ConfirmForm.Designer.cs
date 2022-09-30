@@ -40,6 +40,7 @@
             this.textBoxValueEnter.Name = "textBoxValueEnter";
             this.textBoxValueEnter.Size = new System.Drawing.Size(361, 20);
             this.textBoxValueEnter.TabIndex = 0;
+            this.textBoxValueEnter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValueEnter_KeyPress);
             // 
             // labelTextShow
             // 
@@ -79,10 +80,13 @@
             this.Controls.Add(this.buttonConfirmYes);
             this.Controls.Add(this.labelTextShow);
             this.Controls.Add(this.textBoxValueEnter);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ConfirmForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConfirmForm_FormClosing);
             this.Shown += new System.EventHandler(this.ConfirmForm_Shown);

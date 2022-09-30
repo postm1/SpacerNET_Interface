@@ -96,7 +96,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="MacrosWinLocation" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+      <Value Profile="(Default)">200, 200</Value>
     </Setting>
   </Settings>
 </SettingsFile>

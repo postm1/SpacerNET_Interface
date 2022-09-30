@@ -215,6 +215,7 @@ namespace SpacerUnion
 
             if (Properties.Settings.Default.MacrosWinShow || Properties.Settings.Default.MacrosWinShowNext)
             {
+               // ConsoleEx.WriteLineRed("Macro show");
                 macrosWin.Show();
             }
 
@@ -391,6 +392,9 @@ namespace SpacerUnion
             btn.Checked = Convert.ToBoolean(vobList.Visible);
 
 
+            btn = form.toolStripTop.Items[18] as ToolStripButton;
+            btn.Checked = Convert.ToBoolean(macrosWin.Visible);
+
 
             var some = form.freezeTimeToolStripMenuItem;
 
@@ -404,7 +408,7 @@ namespace SpacerUnion
 
             form.ResetInterface();
             objectsWin.LoadSettings();
-            objectsWin.macros.SetupInterface();
+            macrosWin.macros.SetupInterface();
             keysWin.LoadKeys();
 
             miscSetWin.LoadSettings();
@@ -442,6 +446,8 @@ namespace SpacerUnion
             Properties.Settings.Default.InfoWinShowNext = !infoWin.Visible && windowsToHideList.Contains(infoWin);
             Properties.Settings.Default.GrassWinShowNext = !grassWin.Visible && windowsToHideList.Contains(grassWin);
             Properties.Settings.Default.MacrosWinShowNext = !macrosWin.Visible && windowsToHideList.Contains(macrosWin);
+
+            //ConsoleEx.WriteLineRed(Properties.Settings.Default.MacrosWinShowNext + "/" + Properties.Settings.Default.MacrosWinShowNext);
 
             Properties.Settings.Default.MainWindowPos = form.Location;
             Properties.Settings.Default.MainWindowSize = form.Size;

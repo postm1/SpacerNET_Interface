@@ -205,16 +205,6 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.listBoxMacros = new System.Windows.Forms.ListBox();
-            this.buttonMacrosSaveAll = new System.Windows.Forms.Button();
-            this.buttonMacrosRenameCurrent = new System.Windows.Forms.Button();
-            this.buttonMacrosRemoveCurrent = new System.Windows.Forms.Button();
-            this.buttonCreateNewMacros = new System.Windows.Forms.Button();
-            this.buttonMacrosReloadFromFile = new System.Windows.Forms.Button();
-            this.groupBoxMacrosButtons = new System.Windows.Forms.GroupBox();
-            this.buttonMacrosRun = new System.Windows.Forms.Button();
-            this.richTextBoxMacros = new System.Windows.Forms.RichTextBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -241,8 +231,6 @@
             this.groupBox11.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.panelLight.SuspendLayout();
-            this.tabPage9.SuspendLayout();
-            this.groupBoxMacrosButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxPFX
@@ -785,7 +773,6 @@
             this.tabControlObjects.Controls.Add(this.tabPage6);
             this.tabControlObjects.Controls.Add(this.tabPage7);
             this.tabControlObjects.Controls.Add(this.tabPage8);
-            this.tabControlObjects.Controls.Add(this.tabPage9);
             this.tabControlObjects.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlObjects.Location = new System.Drawing.Point(0, 0);
             this.tabControlObjects.Name = "tabControlObjects";
@@ -2169,114 +2156,6 @@
             this.button10.Text = "Удалить";
             this.button10.UseVisualStyleBackColor = true;
             // 
-            // tabPage9
-            // 
-            this.tabPage9.Controls.Add(this.richTextBoxMacros);
-            this.tabPage9.Controls.Add(this.buttonMacrosRun);
-            this.tabPage9.Controls.Add(this.groupBoxMacrosButtons);
-            this.tabPage9.Controls.Add(this.listBoxMacros);
-            this.tabPage9.Location = new System.Drawing.Point(4, 22);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(617, 379);
-            this.tabPage9.TabIndex = 8;
-            this.tabPage9.Text = "Макросы";
-            this.tabPage9.UseVisualStyleBackColor = true;
-            // 
-            // listBoxMacros
-            // 
-            this.listBoxMacros.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.listBoxMacros.FormattingEnabled = true;
-            this.listBoxMacros.Location = new System.Drawing.Point(8, 6);
-            this.listBoxMacros.Name = "listBoxMacros";
-            this.listBoxMacros.Size = new System.Drawing.Size(287, 134);
-            this.listBoxMacros.TabIndex = 0;
-            this.listBoxMacros.SelectedIndexChanged += new System.EventHandler(this.listBoxMacros_SelectedIndexChanged);
-            this.listBoxMacros.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxMacros_MouseDoubleClick);
-            // 
-            // buttonMacrosSaveAll
-            // 
-            this.buttonMacrosSaveAll.Location = new System.Drawing.Point(16, 136);
-            this.buttonMacrosSaveAll.Name = "buttonMacrosSaveAll";
-            this.buttonMacrosSaveAll.Size = new System.Drawing.Size(267, 23);
-            this.buttonMacrosSaveAll.TabIndex = 0;
-            this.buttonMacrosSaveAll.Text = "Сохранить всё в файл";
-            this.buttonMacrosSaveAll.UseVisualStyleBackColor = true;
-            this.buttonMacrosSaveAll.Click += new System.EventHandler(this.buttonMacrosSaveAll_Click);
-            // 
-            // buttonMacrosRenameCurrent
-            // 
-            this.buttonMacrosRenameCurrent.Location = new System.Drawing.Point(17, 49);
-            this.buttonMacrosRenameCurrent.Name = "buttonMacrosRenameCurrent";
-            this.buttonMacrosRenameCurrent.Size = new System.Drawing.Size(266, 23);
-            this.buttonMacrosRenameCurrent.TabIndex = 1;
-            this.buttonMacrosRenameCurrent.Text = "Переименовать";
-            this.buttonMacrosRenameCurrent.UseVisualStyleBackColor = true;
-            this.buttonMacrosRenameCurrent.Click += new System.EventHandler(this.buttonMacrosRenameCurrent_Click);
-            // 
-            // buttonMacrosRemoveCurrent
-            // 
-            this.buttonMacrosRemoveCurrent.Location = new System.Drawing.Point(17, 78);
-            this.buttonMacrosRemoveCurrent.Name = "buttonMacrosRemoveCurrent";
-            this.buttonMacrosRemoveCurrent.Size = new System.Drawing.Size(266, 23);
-            this.buttonMacrosRemoveCurrent.TabIndex = 2;
-            this.buttonMacrosRemoveCurrent.Text = "Удалить";
-            this.buttonMacrosRemoveCurrent.UseVisualStyleBackColor = true;
-            this.buttonMacrosRemoveCurrent.Click += new System.EventHandler(this.buttonMacrosRemoveCurrent_Click);
-            // 
-            // buttonCreateNewMacros
-            // 
-            this.buttonCreateNewMacros.Location = new System.Drawing.Point(17, 19);
-            this.buttonCreateNewMacros.Name = "buttonCreateNewMacros";
-            this.buttonCreateNewMacros.Size = new System.Drawing.Size(266, 23);
-            this.buttonCreateNewMacros.TabIndex = 3;
-            this.buttonCreateNewMacros.Text = "Создать новый макрос";
-            this.buttonCreateNewMacros.UseVisualStyleBackColor = true;
-            this.buttonCreateNewMacros.Click += new System.EventHandler(this.buttonCreateNewMacros_Click);
-            // 
-            // buttonMacrosReloadFromFile
-            // 
-            this.buttonMacrosReloadFromFile.Location = new System.Drawing.Point(17, 107);
-            this.buttonMacrosReloadFromFile.Name = "buttonMacrosReloadFromFile";
-            this.buttonMacrosReloadFromFile.Size = new System.Drawing.Size(266, 23);
-            this.buttonMacrosReloadFromFile.TabIndex = 4;
-            this.buttonMacrosReloadFromFile.Text = "Перезагрузить всё из файла";
-            this.buttonMacrosReloadFromFile.UseVisualStyleBackColor = true;
-            this.buttonMacrosReloadFromFile.Click += new System.EventHandler(this.buttonMacrosReloadFromFile_Click);
-            // 
-            // groupBoxMacrosButtons
-            // 
-            this.groupBoxMacrosButtons.Controls.Add(this.buttonMacrosReloadFromFile);
-            this.groupBoxMacrosButtons.Controls.Add(this.buttonCreateNewMacros);
-            this.groupBoxMacrosButtons.Controls.Add(this.buttonMacrosRemoveCurrent);
-            this.groupBoxMacrosButtons.Controls.Add(this.buttonMacrosRenameCurrent);
-            this.groupBoxMacrosButtons.Controls.Add(this.buttonMacrosSaveAll);
-            this.groupBoxMacrosButtons.Location = new System.Drawing.Point(311, 5);
-            this.groupBoxMacrosButtons.Name = "groupBoxMacrosButtons";
-            this.groupBoxMacrosButtons.Size = new System.Drawing.Size(289, 169);
-            this.groupBoxMacrosButtons.TabIndex = 1;
-            this.groupBoxMacrosButtons.TabStop = false;
-            this.groupBoxMacrosButtons.Text = "Действия";
-            // 
-            // buttonMacrosRun
-            // 
-            this.buttonMacrosRun.Location = new System.Drawing.Point(8, 151);
-            this.buttonMacrosRun.Name = "buttonMacrosRun";
-            this.buttonMacrosRun.Size = new System.Drawing.Size(287, 23);
-            this.buttonMacrosRun.TabIndex = 4;
-            this.buttonMacrosRun.Text = "Выполнить";
-            this.buttonMacrosRun.UseVisualStyleBackColor = true;
-            this.buttonMacrosRun.Click += new System.EventHandler(this.buttonMacrosRun_Click);
-            // 
-            // richTextBoxMacros
-            // 
-            this.richTextBoxMacros.Location = new System.Drawing.Point(8, 180);
-            this.richTextBoxMacros.Name = "richTextBoxMacros";
-            this.richTextBoxMacros.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.richTextBoxMacros.Size = new System.Drawing.Size(601, 196);
-            this.richTextBoxMacros.TabIndex = 5;
-            this.richTextBoxMacros.Text = "";
-            this.richTextBoxMacros.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBoxMacros_KeyDown);
-            // 
             // ObjectsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2337,8 +2216,6 @@
             this.tabPage8.PerformLayout();
             this.panelLight.ResumeLayout(false);
             this.panelLight.PerformLayout();
-            this.tabPage9.ResumeLayout(false);
-            this.groupBoxMacrosButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2522,15 +2399,5 @@
         private System.Windows.Forms.RadioButton radioButtonSearchLessThan;
         private System.Windows.Forms.RadioButton radioButtonSearchEquals;
         private System.Windows.Forms.Panel panelRadioNumType;
-        private System.Windows.Forms.TabPage tabPage9;
-        public System.Windows.Forms.RichTextBox richTextBoxMacros;
-        private System.Windows.Forms.Button buttonMacrosRun;
-        private System.Windows.Forms.GroupBox groupBoxMacrosButtons;
-        private System.Windows.Forms.Button buttonMacrosReloadFromFile;
-        private System.Windows.Forms.Button buttonCreateNewMacros;
-        private System.Windows.Forms.Button buttonMacrosRemoveCurrent;
-        private System.Windows.Forms.Button buttonMacrosRenameCurrent;
-        private System.Windows.Forms.Button buttonMacrosSaveAll;
-        public System.Windows.Forms.ListBox listBoxMacros;
     }
 }

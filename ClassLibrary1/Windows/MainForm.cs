@@ -66,7 +66,7 @@ namespace SpacerUnion
         
         private void CloseApp()
         {
-            SpacerNET.objectsWin.macros.OnUpdateAndSave();
+            SpacerNET.macrosWin.macros.OnUpdateAndSave();
 
 
             Imports.Stack_PushString("askExitZen");
@@ -1688,6 +1688,7 @@ namespace SpacerUnion
                 SpacerNET.vobList.Show();
                 SpacerNET.infoWin.Show();
                 SpacerNET.propWin.Show();
+                SpacerNET.macrosWin.Show();
 
                 SpacerNET.objTreeWin.Location = new Point(1510, 550);
                 SpacerNET.objectsWin.Location = new Point(0, 622);

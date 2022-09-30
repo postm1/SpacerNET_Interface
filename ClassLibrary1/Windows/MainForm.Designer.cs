@@ -109,7 +109,7 @@
             this.toolStripButtonGrass = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonMulti = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonNoGrass = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonMacros = new System.Windows.Forms.ToolStripButton();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -637,7 +637,7 @@
             this.toolStripButtonGrass,
             this.toolStripButtonMulti,
             this.toolStripButtonNoGrass,
-            this.toolStripButton1});
+            this.toolStripButtonMacros});
             this.toolStripTop.Location = new System.Drawing.Point(0, 0);
             this.toolStripTop.Name = "toolStripTop";
             this.toolStripTop.Size = new System.Drawing.Size(1201, 25);
@@ -817,15 +817,15 @@
             this.toolStripButtonNoGrass.Text = "NoGrass";
             this.toolStripButtonNoGrass.Click += new System.EventHandler(this.toolStripButtonNoGrass_Click);
             // 
-            // toolStripButton1
+            // toolStripButtonMacros
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButtonMacros";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.toolStripButtonMacros.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonMacros.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonMacros.Image")));
+            this.toolStripButtonMacros.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonMacros.Name = "toolStripButtonMacros";
+            this.toolStripButtonMacros.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonMacros.Text = "Macros";
+            this.toolStripButtonMacros.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // MainForm
             // 
@@ -937,6 +937,6 @@
         private System.Windows.Forms.ToolStripMenuItem stripSpecialFormVobsVisuals;
         public System.Windows.Forms.ToolStripMenuItem stripSpecialFunctions;
         private System.Windows.Forms.ToolStripButton toolStripButtonNoGrass;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonMacros;
     }
 }
