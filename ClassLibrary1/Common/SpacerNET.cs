@@ -36,6 +36,7 @@ namespace SpacerUnion
         public static KeysForm keysWin;
         public static PFXEditorWin pfxWin;
         public static GrassWin grassWin;
+        public static MacrosForm macrosWin;
 
         // Список скрытых окон
         static List<Form> windowsToHideList = null;
@@ -86,6 +87,7 @@ namespace SpacerUnion
             keysWin = new KeysForm();
             pfxWin = new PFXEditorWin();
             grassWin = new GrassWin();
+            macrosWin = new MacrosForm();
 
             windowsList.Add(objTreeWin);
             windowsList.Add(objectsWin);
@@ -103,7 +105,7 @@ namespace SpacerUnion
             windowsList.Add(keysWin);
             windowsList.Add(pfxWin);
             windowsList.Add(grassWin);
-
+            windowsList.Add(macrosWin);
             
 
             // каждому окну из списка задаем владельца: главную форму
@@ -211,6 +213,11 @@ namespace SpacerUnion
                 //grassWin.Show();
             }
 
+            if (Properties.Settings.Default.MacrosWinShow || Properties.Settings.Default.MacrosWinShowNext)
+            {
+                macrosWin.Show();
+            }
+
 
 
             if (Properties.Settings.Default.TreeWinLocation != null)
@@ -249,6 +256,14 @@ namespace SpacerUnion
             {
                 grassWin.Location = Properties.Settings.Default.GrassWinLocation;
             }
+
+            if (Properties.Settings.Default.MacrosWinLocation != null)
+            {
+                macrosWin.Location = Properties.Settings.Default.MacrosWinLocation;
+            }
+
+            
+
 
             if (Properties.Settings.Default.TreeWinSize != null)
             {
@@ -389,6 +404,7 @@ namespace SpacerUnion
 
             form.ResetInterface();
             objectsWin.LoadSettings();
+            objectsWin.macros.SetupInterface();
             keysWin.LoadKeys();
 
             miscSetWin.LoadSettings();
@@ -407,6 +423,7 @@ namespace SpacerUnion
             Properties.Settings.Default.InfoWinLocation = infoWin.Location;
             Properties.Settings.Default.SoundWinLocation = soundWin.Location;
             Properties.Settings.Default.GrassWinLocation = grassWin.Location;
+            Properties.Settings.Default.MacrosWinLocation = macrosWin.Location;
 
             Properties.Settings.Default.InfoWinShow = infoWin.Visible;
             Properties.Settings.Default.ObjectWinShow = objectsWin.Visible;
@@ -415,6 +432,7 @@ namespace SpacerUnion
             Properties.Settings.Default.TreeWinShow = objTreeWin.Visible;
             Properties.Settings.Default.VobListWinShow = vobList.Visible;
             Properties.Settings.Default.GrassWinShow = grassWin.Visible;
+            Properties.Settings.Default.MacrosWinShow = macrosWin.Visible;
 
             Properties.Settings.Default.ObjWinShowNext = !objectsWin.Visible && windowsToHideList.Contains(objectsWin);
             Properties.Settings.Default.VobListWinShowNext = !vobList.Visible && windowsToHideList.Contains(vobList);
@@ -423,6 +441,7 @@ namespace SpacerUnion
             Properties.Settings.Default.PropWinShowNext = !propWin.Visible && windowsToHideList.Contains(propWin);
             Properties.Settings.Default.InfoWinShowNext = !infoWin.Visible && windowsToHideList.Contains(infoWin);
             Properties.Settings.Default.GrassWinShowNext = !grassWin.Visible && windowsToHideList.Contains(grassWin);
+            Properties.Settings.Default.MacrosWinShowNext = !macrosWin.Visible && windowsToHideList.Contains(macrosWin);
 
             Properties.Settings.Default.MainWindowPos = form.Location;
             Properties.Settings.Default.MainWindowSize = form.Size;

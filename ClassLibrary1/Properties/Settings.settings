@@ -89,5 +89,14 @@
     <Setting Name="PropWindowFont" Type="System.String" Scope="User">
       <Value Profile="(Default)">Microsoft Sans Serif; 8pt</Value>
     </Setting>
+    <Setting Name="MacrosWinShow" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MacrosWinShowNext" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="MacrosWinLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

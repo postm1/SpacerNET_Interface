@@ -526,8 +526,23 @@ namespace SpacerUnion.Common
 
             //0.27
 
-            words.Add("checkBoxShowVobTraceFloor", new List<string> { "Подсвечивать положение воба на поверхности", "Brighten selected vob position on the floor", "", "" });
-            words.Add("WIN_MSG_CONFIRM_REMOVEVOB", new List<string> { "Удалить воб?", "Remove the vob?", "", "" });
+            words.Add("checkBoxShowVobTraceFloor", new List<string> { "Подсвечивать положение воба на поверхности", "Brighten selected vob position on the floor", "", "Rozjaśnij pozycję wybranego voba na podłodze" });
+
+            words.Add("WIN_MSG_CONFIRM_REMOVEVOB", new List<string> { "Удалить воб?", "Remove the vob?", "", "Czy chcesz usunąć vob?" });
+
+
+            words.Add("WIN_BTN_CONFIRM", new List<string> { "Подтвердить", "Confirm", "", "Potwierdź" });
+            words.Add("WIN_LABEL_MACROS_RENAME", new List<string> { "Введите имя:", "Enter the name:", "", "Ustal nazwę:" });
+            words.Add("WIN_LABEL_MACROS_NEW", new List<string> { "Введите имя нового макроса:", "Enter the name of a new macros:", "", "Ustal nazwę dla nowego macrosa:" });
+            words.Add("WIN_OBJ_TAB8", new List<string> { "Макросы", "Macros", "", "Macros" });
+            words.Add("buttonCreateNewMacros", new List<string> { "Создать новый макрос", "Create a new macros", "", "Utwórz nowy macros" });
+            words.Add("buttonMacrosRenameCurrent", new List<string> { "Переименовать", "Rename", "", "Zmień nazwę" });
+            words.Add("buttonMacrosRemoveCurrent", new List<string> { "Удалить", "Delete", "", "Usuń" });
+            words.Add("buttonMacrosReloadFromFile", new List<string> { "Перезагрузить всё из файла", "Reload all from the file", "", "Załaduj ponownie wszystko z pliku" });
+            words.Add("buttonMacrosSaveAll", new List<string> { "Сохранить всё в файла", "Save all to the file", "", "Zapisz wszystko do pliku" });
+            words.Add("buttonMacrosRun", new List<string> { "Выполнить", "Run", "", "Uruchom" });
+            words.Add("buttonMacrosParse", new List<string> { "Парсить и сохранить текущий текст", "Parse and save current text", "", "Parsuj i zapisz aktualny tekst" });
+            words.Add("groupBoxMacrosButtons", new List<string> { "Действия", "Actions", "", "Akcje" });
 
         }
         

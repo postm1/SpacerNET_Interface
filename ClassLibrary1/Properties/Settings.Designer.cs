@@ -370,5 +370,41 @@ namespace SpacerUnion.Properties {
                 this["PropWindowFont"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool MacrosWinShow {
+            get {
+                return ((bool)(this["MacrosWinShow"]));
+            }
+            set {
+                this["MacrosWinShow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool MacrosWinShowNext {
+            get {
+                return ((bool)(this["MacrosWinShowNext"]));
+            }
+            set {
+                this["MacrosWinShowNext"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point MacrosWinLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["MacrosWinLocation"]));
+            }
+            set {
+                this["MacrosWinLocation"] = value;
+            }
+        }
     }
 }

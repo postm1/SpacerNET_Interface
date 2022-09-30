@@ -36,13 +36,15 @@ namespace SpacerUnion
 
         public static bool dontUpdateNumType = false;
 
+
+        public Macros macros;
         int onlyNameVisualSearch = 0;
 
         public ObjectsWin()
         {
             InitializeComponent();
             comboBoxSearchType.SelectedIndex = 0;
-            
+            macros = new Macros(this);
         }
 
 
@@ -57,6 +59,8 @@ namespace SpacerUnion
             tabControlObjects.TabPages[5].Text = Localizator.Get("WIN_OBJ_TAB5");
             tabControlObjects.TabPages[6].Text = Localizator.Get("WIN_OBJ_TAB6");
             tabControlObjects.TabPages[7].Text = Localizator.Get("WIN_OBJ_TAB7");
+
+            tabControlObjects.TabPages[8].Text = Localizator.Get("WIN_OBJ_TAB8");
 
             groupBoxObjAllClasses.Text = Localizator.Get("groupBoxObjAllClasses");
             groupBoxObjPropVobs.Text = Localizator.Get("groupBoxObjPropVobs");
@@ -161,6 +165,15 @@ namespace SpacerUnion
             checkBoxLocatorByName.Text = Localizator.Get("checkBoxLocatorByName");
             labelItemLocatorRadius.Text = Localizator.Get("labelItemLocatorRadius") + trackBarLocatorRad.Value;
 
+
+            buttonCreateNewMacros.Text = Localizator.Get("buttonCreateNewMacros");
+            buttonMacrosRenameCurrent.Text = Localizator.Get("buttonMacrosRenameCurrent");
+            buttonMacrosRemoveCurrent.Text = Localizator.Get("buttonMacrosRemoveCurrent");
+            buttonMacrosReloadFromFile.Text = Localizator.Get("buttonMacrosReloadFromFile");
+            buttonMacrosSaveAll.Text = Localizator.Get("buttonMacrosSaveAll");
+
+            buttonMacrosRun.Text = Localizator.Get("buttonMacrosRun");
+            groupBoxMacrosButtons.Text = Localizator.Get("groupBoxMacrosButtons");
         }
 
         public void LoadSettings()
@@ -381,6 +394,7 @@ namespace SpacerUnion
         {
             this.Hide();
             e.Cancel = true;
+           
         }
 
 
@@ -3391,6 +3405,142 @@ namespace SpacerUnion
             if (dontUpdateNumType || Imports.Extern_IsWorldLoaded() == 0) return;
 
             textBoxSearchVobs_TextChanged(textBoxSearchVobs, null);
+        }
+
+        private void listBoxMacros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var listBox = sender as ListBox;
+
+            int index = listBox.SelectedIndex;
+
+            if (index == -1) return;
+            //ConsoleEx.WriteLineRed("listBoxMacros_SelectedIndexChanged: " + index);
+
+            macros.OnSelectIndex(index);
+
+            buttonMacrosRun.Enabled = true;
+        }
+
+        private void buttonMacrosRemoveCurrent_Click(object sender, EventArgs e)
+        {
+            if (!macros.IsActive()) return;
+
+            int index = listBoxMacros.SelectedIndex;
+
+            if (index == -1) return;
+            
+
+
+            DialogResult res = MessageBox.Show(Localizator.Get("askSure"), Localizator.Get("confirmation"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (res == DialogResult.OK)
+            {
+                if (index >= 0)
+                {
+                    macros.OnRemoveIndex(index);
+                    richTextBoxMacros.Clear();
+                    richTextBoxMacros.Enabled = false;
+                }
+            }
+
+
+            
+        }
+
+        private void buttonMacrosReloadFromFile_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show(Localizator.Get("askSure"), Localizator.Get("confirmation"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (res == DialogResult.OK)
+            {
+                macros.ReloadAgain();
+            }
+        }
+
+        private void buttonMacrosRenameCurrent_Click(object sender, EventArgs e)
+        {
+            int index = listBoxMacros.SelectedIndex;
+
+            if (index == -1) return;
+
+            macros.formConf.buttonConfirmNo.Text = Localizator.Get("WIN_COMPLIGHT_CLOSEBUTTON");
+            macros.formConf.buttonConfirmYes.Text = Localizator.Get("WIN_BTN_CONFIRM");
+            macros.formConf.labelTextShow.Text = Localizator.Get("WIN_LABEL_MACROS_RENAME");
+            macros.formConf.confType = "RENAME_MACROS";
+            if (macros.currentEntry != null)
+            {
+                macros.formConf.textBoxValueEnter.Text = macros.currentEntry.name;
+            }
+            
+
+            macros.formConf.ShowDialog();
+        }
+
+        private void buttonCreateNewMacros_Click(object sender, EventArgs e)
+        {
+            macros.formConf.buttonConfirmNo.Text = Localizator.Get("WIN_COMPLIGHT_CLOSEBUTTON");
+            macros.formConf.buttonConfirmYes.Text = Localizator.Get("WIN_BTN_CONFIRM");
+            macros.formConf.labelTextShow.Text = Localizator.Get("WIN_LABEL_MACROS_NEW");
+            macros.formConf.confType = "CREATE_MACROS";
+           
+            macros.formConf.textBoxValueEnter.Text = "";
+          
+            macros.formConf.ShowDialog();
+
+            
+        }
+
+        private void buttonMacrosSaveAll_Click(object sender, EventArgs e)
+        {
+            macros.OnUpdateAndSave();
+        }
+
+        private void buttonMacrosRun_Click(object sender, EventArgs e)
+        {
+            int index = listBoxMacros.SelectedIndex;
+
+            if (index == -1) return;
+            macros.OnRun();
+        }
+
+        private void listBoxMacros_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int index = listBoxMacros.SelectedIndex;
+
+            if (index == -1) return;
+            macros.OnRun();
+        }
+
+        private void buttonMacrosParse_Click(object sender, EventArgs e)
+        {
+
+            int index = listBoxMacros.SelectedIndex;
+
+            if (index == -1) return;
+
+            macros.OnParse();
+
+            buttonMacrosRun.Enabled = true;
+        }
+
+        private void richTextBoxMacros_KeyDown(object sender, KeyEventArgs e)
+        {
+            buttonMacrosRun.Enabled = false;
+
+
+            int index = listBoxMacros.SelectedIndex;
+
+            if (index == -1) return;
+
+            macros.OnParse();
+
+            buttonMacrosRun.Enabled = true;
+
+        }
+
+        private void ObjectsWin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
         }
     }
 }

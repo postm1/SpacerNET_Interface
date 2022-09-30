@@ -108,6 +108,7 @@
     </Compile>
     <Compile Include="Common\Localizator.cs" />
     <Compile Include="Common\LocalizedStrings.cs" />
+    <Compile Include="Common\Macros.cs" />
     <Compile Include="Common\PFX_Editor\PFX_Editor.cs" />
     <Compile Include="Common\PFX_Editor\PFX_Enums.cs" />
     <Compile Include="Common\QuickVobsManager.cs" />
@@ -135,6 +136,12 @@
       <DependentUpon>CompileWorldWin.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\ConsoleEx.cs" />
+    <Compile Include="Windows\ConfirmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ConfirmForm.Designer.cs">
+      <DependentUpon>ConfirmForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\GrassWin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +159,12 @@
     </Compile>
     <Compile Include="Windows\LoadingForm.Designer.cs">
       <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MacrosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\MacrosForm.Designer.cs">
+      <DependentUpon>MacrosForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\MiscSettingsWin.cs">
       <SubType>Form</SubType>
@@ -241,6 +254,9 @@
     <EmbeddedResource Include="Windows\CompileWorldWin.resx">
       <DependentUpon>CompileWorldWin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ConfirmForm.resx">
+      <DependentUpon>ConfirmForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\GrassWin.resx">
       <DependentUpon>GrassWin.cs</DependentUpon>
     </EmbeddedResource>
@@ -252,6 +268,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\LoadingForm.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\MacrosForm.resx">
+      <DependentUpon>MacrosForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\MiscSettingsWin.resx">
       <DependentUpon>MiscSettingsWin.cs</DependentUpon>

@@ -102,6 +102,7 @@ namespace SpacerUnion.Common
             SpacerNET.propWin.UpdateLang();
             SpacerNET.objectsWin.UpdateLang();
             SpacerNET.grassWin.UpdateLang();
+            SpacerNET.macrosWin.UpdateLang();
         }
 
         [DllExport]

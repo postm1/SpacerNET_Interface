@@ -26,6 +26,16 @@ namespace SpacerUnion
       
         }
 
+
+        [DllExport]
+        public static void InfoWin_AddText()
+        {
+            string str = Imports.Stack_PeekString();
+
+            SpacerNET.infoWin.richTextBoxInfo.AppendText(str);
+
+        }
+
         public void SetColor(Color color)
         {
             richTextBoxInfo.Select(richTextBoxInfo.TextLength, 0);

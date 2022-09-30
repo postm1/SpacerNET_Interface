@@ -66,6 +66,9 @@ namespace SpacerUnion
         
         private void CloseApp()
         {
+            SpacerNET.objectsWin.macros.OnUpdateAndSave();
+
+
             Imports.Stack_PushString("askExitZen");
 
 
@@ -1662,6 +1665,9 @@ namespace SpacerUnion
                 SpacerNET.infoWin.Location = new Point(0, 300);
                 SpacerNET.propWin.Location = new Point(0, 300);
                 SpacerNET.grassWin.Location = new Point(0, 300);
+                SpacerNET.macrosWin.Location = new Point(200, 300);
+
+                
             }
         }
 
@@ -1689,8 +1695,7 @@ namespace SpacerUnion
                 SpacerNET.infoWin.Location = new Point(890, 655);
                 SpacerNET.propWin.Location = new Point(1572, 28);
                 SpacerNET.grassWin.Location = new Point(1079, 603);
-
-
+                SpacerNET.macrosWin.Location = new Point(200, 300);
             }
         }
 
@@ -1721,6 +1726,31 @@ namespace SpacerUnion
             ToolStripButton btn = sender as ToolStripButton;
 
             btn.Checked = !btn.Checked;
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            
+            ToolStripButton btn = sender as ToolStripButton;
+
+            if (SpacerNET.macrosWin.Visible)
+            {
+                btn.Checked = false;
+                SpacerNET.macrosWin.Hide();
+            }
+            else
+            {
+                btn.Checked = true;
+                SpacerNET.macrosWin.Show();
+            }
+
+
+
+            if (Properties.Settings.Default.MacrosWinLocation != null)
+            {
+                SpacerNET.macrosWin.Location = Properties.Settings.Default.MacrosWinLocation;
+            }
+
         }
     }
 }
