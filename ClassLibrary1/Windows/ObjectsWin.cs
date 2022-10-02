@@ -25,7 +25,7 @@ namespace SpacerUnion
         public static List<string> listVisualsVDF = new List<string>();
         public static List<string> listVisualsWORK = new List<string>();
         public TriggerEntry triggerEntry = new TriggerEntry();
-        public CameraKeyEntry camEntry = new CameraKeyEntry();
+        public CameraKeyEntry camEntry;
 
 
         static List<CProperty> searchProps = new List<CProperty>();
@@ -44,7 +44,7 @@ namespace SpacerUnion
         {
             InitializeComponent();
             comboBoxSearchType.SelectedIndex = 0;
-           
+            camEntry = new CameraKeyEntry(this);
         }
 
 
@@ -128,7 +128,6 @@ namespace SpacerUnion
 
 
             //labelNotReady0.Text = Localizator.Get("TEST_NOT_READY");
-            labelNotReady1.Text = Localizator.Get("TEST_NOT_READY");
             labelNotReady2.Text = Localizator.Get("TEST_NOT_READY");
 
 
@@ -163,6 +162,40 @@ namespace SpacerUnion
             checkBoxLocatorByName.Text = Localizator.Get("checkBoxLocatorByName");
             labelItemLocatorRadius.Text = Localizator.Get("labelItemLocatorRadius") + trackBarLocatorRad.Value;
 
+
+
+
+            // камера
+            groupBoxCameraNew.Text = Localizator.Get("groupBoxCameraNew");
+            labelCamNewName.Text = Localizator.Get("FORM_COMMON_NAME");
+            buttonCamInsert.Text = Localizator.Get("FORM_COMMON_CREATE");
+
+
+            groupBoxCamKeys.Text = Localizator.Get("groupBoxCamKeys");
+            buttonCamSpline.Text = Localizator.Get("buttonCamSpline");
+            buttonCamTargetSpline.Text = Localizator.Get("buttonCamTargetSpline");
+
+
+            groupBoxCamSettings.Text = Localizator.Get("groupBoxCamSettings");
+            labelCamTimeSec.Text = Localizator.Get("labelCamTimeSec");
+            checkBoxCameraHide.Text = Localizator.Get("checkBoxCameraHide");
+
+            if (camEntry.cameraRun)
+            {
+                buttonCamPlay.Text = Localizator.Get("WIN_CAMERA_STOP");
+            }
+            else
+            {
+                buttonCamPlay.Text = Localizator.Get("WIN_CAMERA_START");
+            }
+
+            labelCamGotoKey.Text = Localizator.Get("labelCamGotoKey");
+
+            contextMenuStripCam.Items[0].Text = Localizator.Get("FORM_COMMON_DELETE");
+            contextMenuStripCam.Items[1].Text = Localizator.Get("FORM_CAMERA_INSERT_KEY_HERE");
+
+            contextMenuStripCamTarget.Items[0].Text = Localizator.Get("FORM_COMMON_DELETE");
+            contextMenuStripCamTarget.Items[1].Text = Localizator.Get("FORM_CAMERA_INSERT_KEY_HERE");
 
         }
 
@@ -608,6 +641,12 @@ namespace SpacerUnion
 
             string name = entry.name;
             string vobName = textBoxVobName.Text.Trim();
+
+            if (vobName.Length > 0 && !Utils.IsOnlyLatin(vobName) && Utils.IsOptionActive("checkBoxOnlyLatinInInput"))
+            {
+                MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+                return;
+            }
             string visualVob = "";
             int isDyn = Convert.ToInt32(checkBoxDynStat.Checked);
             int isStat = Convert.ToInt32(checkBoxStaStat.Checked);
@@ -620,7 +659,7 @@ namespace SpacerUnion
 
             ConsoleEx.WriteLineGreen("OnCreateVob: ClassDef: " + name);
 
-            if (name == "oCItem" || name == "zCVobWaypoint" || name == "zCVobSpot")
+            if (name == "oCItem" || name == "zCVobWaypoint" || name == "zCVobSpot" || name == "zCCSCamera" || name == "zCCamTrj_KeyFrame")
             {
                 MessageBox.Show(Localizator.Get("WIN_OBJ_TYPE_CANTHERE"));
                 return;
@@ -1104,6 +1143,13 @@ namespace SpacerUnion
             ChangeTab(3);
         }
 
+        [DllExport]
+        public static void SelectCameraTab()
+        {
+
+            ChangeTab(6);
+        }
+
 
         [DllExport]
         public static void AddActionTypeMover()
@@ -1473,7 +1519,10 @@ namespace SpacerUnion
         {
             Button bt = sender as Button;
 
-      
+            camEntry.OnInsertSplineKey();
+
+
+            listBoxCameraSpline.SelectedIndex = listBoxCameraSpline.Items.Count - 1;
         }
 
         private void textBox4_TextChanged_1(object sender, EventArgs e)
@@ -3327,25 +3376,7 @@ namespace SpacerUnion
         {
 
         }
-        private void buttonCamPlus_Click(object sender, EventArgs e)
-        {
-            if (camEntry.currentKey < camEntry.maxKey)
-            {
-                camEntry.currentKey += 1;
-               
-            }
 
-
-        }
-
-        private void buttonCamMinus_Click(object sender, EventArgs e)
-        {
-            if (camEntry.currentKey > 0)
-            {
-                camEntry.currentKey -= 1;
-               
-            }
-        }
 
         private void checkBoxLocatorByName_CheckedChanged(object sender, EventArgs e)
         {
@@ -3410,10 +3441,9 @@ namespace SpacerUnion
             
         }
 
+        // CAMERA============================================================================
         private void buttonCamInsert_Click(object sender, EventArgs e)
         {
-
-            return;
 
             string camName = textBoxCamName.Text.Trim();
 
@@ -3423,14 +3453,234 @@ namespace SpacerUnion
                 return;
             }
 
+            Imports.Stack_PushString(camName.ToUpper());
+
+            int nameFound = Imports.Extern_VobNameExist(false);
+            if (nameFound == 1)
+            {
+
+                MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
+                return;
+            }
+
+
             camEntry.OnInsertNewCamera(camName);
 
             SpacerNET.form.Focus();
         }
 
+
+        public void BlockInterfaceWhileCameraMoving(bool toggle)
+        {
+            buttonCamInsert.Enabled = !toggle;
+            buttonCamSpline.Enabled = !toggle;
+            buttonCamTargetSpline.Enabled = !toggle;
+            listBoxCameraSpline.Enabled = !toggle;
+            listBoxCameraTarget.Enabled = !toggle;
+            textBoxCamName.Enabled = !toggle;
+            checkBoxCameraHide.Enabled = !toggle;
+            textBoxCamTime.Enabled = !toggle;
+        }
+
+        [DllExport]
+        public static void OnToggleCamera_Interface()
+        {
+            bool val = Convert.ToBoolean(Imports.Stack_PeekInt());
+
+            SpacerNET.objectsWin.BlockInterfaceWhileCameraMoving(!val);
+
+            //SpacerNET.objectsWin.buttonCamMinus.Enabled = val;
+            //SpacerNET.objectsWin.buttonCamPlus.Enabled = val;
+            SpacerNET.objectsWin.buttonCamPlay.Enabled = val;
+            
+        }
+
+        public void EnableInterfaceWhileCameraMoving(bool toggle)
+        {
+            buttonCamMinus.Enabled = toggle;
+            buttonCamPlus.Enabled = toggle;
+        }
         private void buttonCamPlay_Click(object sender, EventArgs e)
         {
-            camEntry.OnRun();
+            var btn = sender as Button;
+
+            if (camEntry.cameraRun)
+            {
+                camEntry.cameraRun = false;
+                BlockInterfaceWhileCameraMoving(false);
+                EnableInterfaceWhileCameraMoving(false);
+                camEntry.currentKey = 0;
+                labelCamKeyCurrent.Text = camEntry.currentKey.ToString();
+                btn.Text = Localizator.Get("WIN_CAMERA_START");
+                camEntry.OnStop();
+                
+            }
+            else
+            {
+                camEntry.OnChangeTime(textBoxCamTime.Text.Trim(), checkBoxCameraHide.Checked);
+                camEntry.cameraRun = true;
+                BlockInterfaceWhileCameraMoving(true);
+                EnableInterfaceWhileCameraMoving(true);
+                camEntry.currentKey = 0;
+                labelCamKeyCurrent.Text = camEntry.currentKey.ToString();
+                btn.Text = Localizator.Get("WIN_CAMERA_STOP");
+                camEntry.OnRun();
+                
+            }
+            
+        }
+
+        private void buttonCamTargetSpline_Click(object sender, EventArgs e)
+        {
+            camEntry.OnInsertTargetKey();
+
+            listBoxCameraTarget.SelectedIndex = listBoxCameraTarget.Items.Count - 1;
+        }
+
+        private void buttonCameraStop_Click(object sender, EventArgs e)
+        {
+            camEntry.OnStop();
+        }
+
+        private void textBoxCamTime_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+         (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            
+        }
+
+        private void textBoxCamTime_KeyUp(object sender, KeyEventArgs e)
+        {
+            camEntry.OnChangeTime(textBoxCamTime.Text.Trim(), checkBoxCameraHide.Checked);
+        }
+
+        private void checkBoxCameraHide_CheckedChanged(object sender, EventArgs e)
+        {
+            camEntry.OnChangeTime(textBoxCamTime.Text.Trim(), checkBoxCameraHide.Checked);
+        }
+
+        private void buttonCamPlus_Click(object sender, EventArgs e)
+        {
+            if (camEntry.currentKey < Imports.Extern_CameraGetMaxKey())
+            {
+                camEntry.currentKey += 1;
+                labelCamKeyCurrent.Text = camEntry.currentKey.ToString();
+                camEntry.OnUpdateKey();
+                
+            }
+
+
+        }
+
+        private void buttonCamMinus_Click(object sender, EventArgs e)
+        {
+            if (camEntry.currentKey > 0)
+            {
+                camEntry.currentKey -= 1;
+                labelCamKeyCurrent.Text = camEntry.currentKey.ToString();
+                camEntry.OnUpdateKey();
+                
+            }
+        }
+
+
+        private void labelCamGotoKey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItemCamRemove_Click(object sender, EventArgs e)
+        {
+            int index = listBoxCameraSpline.SelectedIndex;
+            if (index != -1)
+            {
+
+                DialogResult dialogResult = MessageBox.Show(Localizator.Get("WIN_MSG_CONFIRM_REMOVEVOB"), Localizator.Get("WIN_MSG_CONFIRM"), MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Imports.Extern_RemoveSplineKeyByIndex(index);
+                }
+
+
+               
+            }
+        }
+
+        private void listBoxCameraTarget_DoubleClick(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void listBoxCameraTarget_MouseClick(object sender, MouseEventArgs e)
+        {
+            int index = listBoxCameraTarget.SelectedIndex;
+
+            if (index != -1)
+            {
+                Imports.Extern_SelectTargetKeyByIndex(index);
+            }
+
+            listBoxCameraTarget.SelectedIndex = index;
+
+        }
+
+        private void listBoxCameraSpline_MouseClick(object sender, MouseEventArgs e)
+        {
+            int index = listBoxCameraSpline.SelectedIndex;
+
+            if (index != -1)
+            {
+                Imports.Extern_SelectSplineKeyByIndex(index);
+            }
+
+            listBoxCameraSpline.SelectedIndex = index;
+
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            int index = listBoxCameraTarget.SelectedIndex;
+            if (index != -1)
+            {
+
+                DialogResult dialogResult = MessageBox.Show(Localizator.Get("WIN_MSG_CONFIRM_REMOVEVOB"), Localizator.Get("WIN_MSG_CONFIRM"), MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Imports.Extern_RemoveTargetKeyByIndex(index);
+                }
+
+                
+            }
+        }
+
+        private void stInsertNewKeyHere_Click(object sender, EventArgs e)
+        {
+            int index = listBoxCameraSpline.SelectedIndex;
+
+            if (index != -1)
+            {
+                Imports.Extern_InsertPosKeyAtIndex(index);
+            }
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            int index = listBoxCameraTarget.SelectedIndex;
+
+            if (index != -1)
+            {
+                Imports.Extern_InsertTargetKeyAtIndex(index);
+            }
         }
     }
 }

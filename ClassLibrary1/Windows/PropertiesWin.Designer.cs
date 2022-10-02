@@ -65,16 +65,16 @@
             this.buttonClearItems = new System.Windows.Forms.Button();
             this.buttonContainerCancel = new System.Windows.Forms.Button();
             this.buttonContainerApply = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.labelChangeFontStyleText = new System.Windows.Forms.Label();
+            this.checkBoxFontUnderstroke = new System.Windows.Forms.CheckBox();
+            this.buttonResetFontDefault = new System.Windows.Forms.Button();
+            this.checkBoxBoldFontProps = new System.Windows.Forms.CheckBox();
+            this.buttonSelectFontProps = new System.Windows.Forms.Button();
             this.contextMenuStripContainer = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.удалитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogFileName = new System.Windows.Forms.OpenFileDialog();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.fontDialogSelect = new System.Windows.Forms.FontDialog();
-            this.buttonSelectFontProps = new System.Windows.Forms.Button();
-            this.checkBoxBoldFontProps = new System.Windows.Forms.CheckBox();
-            this.buttonResetFontDefault = new System.Windows.Forms.Button();
-            this.checkBoxFontUnderstroke = new System.Windows.Forms.CheckBox();
-            this.labelChangeFontStyleText = new System.Windows.Forms.Label();
             this.tabControlProps.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panelButtons.SuspendLayout();
@@ -83,8 +83,8 @@
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItems)).BeginInit();
             this.groupBoxContainer.SuspendLayout();
-            this.contextMenuStripContainer.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.contextMenuStripContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlProps
@@ -309,8 +309,9 @@
             this.groupBoxEditBbox.Location = new System.Drawing.Point(0, 0);
             this.groupBoxEditBbox.Name = "groupBoxEditBbox";
             this.groupBoxEditBbox.Size = new System.Drawing.Size(322, 464);
-            this.groupBoxEditBbox.TabIndex = 9;
+            this.groupBoxEditBbox.TabIndex = 0;
             this.groupBoxEditBbox.TabStop = false;
+            this.groupBoxEditBbox.Enter += new System.EventHandler(this.groupBoxEditBbox_Enter);
             // 
             // label3
             // 
@@ -327,7 +328,8 @@
             this.textBoxBbox2.Location = new System.Drawing.Point(33, 125);
             this.textBoxBbox2.Name = "textBoxBbox2";
             this.textBoxBbox2.Size = new System.Drawing.Size(212, 20);
-            this.textBoxBbox2.TabIndex = 14;
+            this.textBoxBbox2.TabIndex = 3;
+            this.textBoxBbox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxBbox0_KeyDown);
             // 
             // label2
             // 
@@ -344,7 +346,7 @@
             this.buttonResetBbox.Location = new System.Drawing.Point(33, 160);
             this.buttonResetBbox.Name = "buttonResetBbox";
             this.buttonResetBbox.Size = new System.Drawing.Size(104, 23);
-            this.buttonResetBbox.TabIndex = 10;
+            this.buttonResetBbox.TabIndex = 3;
             this.buttonResetBbox.Text = "Отмена";
             this.buttonResetBbox.UseVisualStyleBackColor = true;
             this.buttonResetBbox.Click += new System.EventHandler(this.buttonResetBbox_Click_1);
@@ -364,14 +366,15 @@
             this.textBoxBbox1.Location = new System.Drawing.Point(33, 85);
             this.textBoxBbox1.Name = "textBoxBbox1";
             this.textBoxBbox1.Size = new System.Drawing.Size(212, 20);
-            this.textBoxBbox1.TabIndex = 13;
+            this.textBoxBbox1.TabIndex = 2;
+            this.textBoxBbox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxBbox0_KeyDown);
             // 
             // buttonApplyBbox
             // 
             this.buttonApplyBbox.Location = new System.Drawing.Point(143, 160);
             this.buttonApplyBbox.Name = "buttonApplyBbox";
             this.buttonApplyBbox.Size = new System.Drawing.Size(102, 23);
-            this.buttonApplyBbox.TabIndex = 11;
+            this.buttonApplyBbox.TabIndex = 4;
             this.buttonApplyBbox.Text = "Применить";
             this.buttonApplyBbox.UseVisualStyleBackColor = true;
             this.buttonApplyBbox.Click += new System.EventHandler(this.buttonApplyBbox_Click_1);
@@ -381,7 +384,8 @@
             this.textBoxBbox0.Location = new System.Drawing.Point(33, 46);
             this.textBoxBbox0.Name = "textBoxBbox0";
             this.textBoxBbox0.Size = new System.Drawing.Size(212, 20);
-            this.textBoxBbox0.TabIndex = 12;
+            this.textBoxBbox0.TabIndex = 1;
+            this.textBoxBbox0.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxBbox0_KeyDown);
             // 
             // tabPage3
             // 
@@ -481,20 +485,6 @@
             this.buttonContainerApply.UseVisualStyleBackColor = true;
             this.buttonContainerApply.Click += new System.EventHandler(this.buttonContainerApply_Click);
             // 
-            // contextMenuStripContainer
-            // 
-            this.contextMenuStripContainer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.удалитьСтрокуToolStripMenuItem});
-            this.contextMenuStripContainer.Name = "contextMenuStripContainer";
-            this.contextMenuStripContainer.Size = new System.Drawing.Size(159, 26);
-            // 
-            // удалитьСтрокуToolStripMenuItem
-            // 
-            this.удалитьСтрокуToolStripMenuItem.Name = "удалитьСтрокуToolStripMenuItem";
-            this.удалитьСтрокуToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.удалитьСтрокуToolStripMenuItem.Text = "Удалить строку";
-            this.удалитьСтрокуToolStripMenuItem.Click += new System.EventHandler(this.удалитьСтрокуToolStripMenuItem_Click);
-            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.labelChangeFontStyleText);
@@ -509,37 +499,14 @@
             this.tabPage4.Text = "Настройки";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // buttonSelectFontProps
+            // labelChangeFontStyleText
             // 
-            this.buttonSelectFontProps.Location = new System.Drawing.Point(60, 63);
-            this.buttonSelectFontProps.Name = "buttonSelectFontProps";
-            this.buttonSelectFontProps.Size = new System.Drawing.Size(189, 23);
-            this.buttonSelectFontProps.TabIndex = 0;
-            this.buttonSelectFontProps.Text = "Выбрать шрифт для свойств";
-            this.buttonSelectFontProps.UseVisualStyleBackColor = true;
-            this.buttonSelectFontProps.Click += new System.EventHandler(this.buttonSelectFontProps_Click);
-            // 
-            // checkBoxBoldFontProps
-            // 
-            this.checkBoxBoldFontProps.AutoSize = true;
-            this.checkBoxBoldFontProps.Location = new System.Drawing.Point(17, 17);
-            this.checkBoxBoldFontProps.Name = "checkBoxBoldFontProps";
-            this.checkBoxBoldFontProps.Size = new System.Drawing.Size(251, 17);
-            this.checkBoxBoldFontProps.TabIndex = 1;
-            this.checkBoxBoldFontProps.Text = "Выделять основные поля жирным шрифтом";
-            this.checkBoxBoldFontProps.UseVisualStyleBackColor = true;
-            this.checkBoxBoldFontProps.CheckedChanged += new System.EventHandler(this.checkBoxBoldFontProps_CheckedChanged);
-            // 
-            // buttonResetFontDefault
-            // 
-            this.buttonResetFontDefault.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonResetFontDefault.Location = new System.Drawing.Point(60, 92);
-            this.buttonResetFontDefault.Name = "buttonResetFontDefault";
-            this.buttonResetFontDefault.Size = new System.Drawing.Size(189, 23);
-            this.buttonResetFontDefault.TabIndex = 2;
-            this.buttonResetFontDefault.Text = "Сбросить шрифт по умолчанию";
-            this.buttonResetFontDefault.UseVisualStyleBackColor = true;
-            this.buttonResetFontDefault.Click += new System.EventHandler(this.buttonResetFontDefault_Click);
+            this.labelChangeFontStyleText.AutoSize = true;
+            this.labelChangeFontStyleText.Location = new System.Drawing.Point(44, 131);
+            this.labelChangeFontStyleText.Name = "labelChangeFontStyleText";
+            this.labelChangeFontStyleText.Size = new System.Drawing.Size(224, 13);
+            this.labelChangeFontStyleText.TabIndex = 4;
+            this.labelChangeFontStyleText.Text = "* Для применения выберите объект снова";
             // 
             // checkBoxFontUnderstroke
             // 
@@ -552,14 +519,51 @@
             this.checkBoxFontUnderstroke.UseVisualStyleBackColor = true;
             this.checkBoxFontUnderstroke.CheckedChanged += new System.EventHandler(this.checkBoxFontUnderstroke_CheckedChanged);
             // 
-            // labelChangeFontStyleText
+            // buttonResetFontDefault
             // 
-            this.labelChangeFontStyleText.AutoSize = true;
-            this.labelChangeFontStyleText.Location = new System.Drawing.Point(44, 131);
-            this.labelChangeFontStyleText.Name = "labelChangeFontStyleText";
-            this.labelChangeFontStyleText.Size = new System.Drawing.Size(224, 13);
-            this.labelChangeFontStyleText.TabIndex = 4;
-            this.labelChangeFontStyleText.Text = "* Для применения выберите объект снова";
+            this.buttonResetFontDefault.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonResetFontDefault.Location = new System.Drawing.Point(60, 92);
+            this.buttonResetFontDefault.Name = "buttonResetFontDefault";
+            this.buttonResetFontDefault.Size = new System.Drawing.Size(189, 23);
+            this.buttonResetFontDefault.TabIndex = 2;
+            this.buttonResetFontDefault.Text = "Сбросить шрифт по умолчанию";
+            this.buttonResetFontDefault.UseVisualStyleBackColor = true;
+            this.buttonResetFontDefault.Click += new System.EventHandler(this.buttonResetFontDefault_Click);
+            // 
+            // checkBoxBoldFontProps
+            // 
+            this.checkBoxBoldFontProps.AutoSize = true;
+            this.checkBoxBoldFontProps.Location = new System.Drawing.Point(17, 17);
+            this.checkBoxBoldFontProps.Name = "checkBoxBoldFontProps";
+            this.checkBoxBoldFontProps.Size = new System.Drawing.Size(251, 17);
+            this.checkBoxBoldFontProps.TabIndex = 1;
+            this.checkBoxBoldFontProps.Text = "Выделять основные поля жирным шрифтом";
+            this.checkBoxBoldFontProps.UseVisualStyleBackColor = true;
+            this.checkBoxBoldFontProps.CheckedChanged += new System.EventHandler(this.checkBoxBoldFontProps_CheckedChanged);
+            // 
+            // buttonSelectFontProps
+            // 
+            this.buttonSelectFontProps.Location = new System.Drawing.Point(60, 63);
+            this.buttonSelectFontProps.Name = "buttonSelectFontProps";
+            this.buttonSelectFontProps.Size = new System.Drawing.Size(189, 23);
+            this.buttonSelectFontProps.TabIndex = 0;
+            this.buttonSelectFontProps.Text = "Выбрать шрифт для свойств";
+            this.buttonSelectFontProps.UseVisualStyleBackColor = true;
+            this.buttonSelectFontProps.Click += new System.EventHandler(this.buttonSelectFontProps_Click);
+            // 
+            // contextMenuStripContainer
+            // 
+            this.contextMenuStripContainer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.удалитьСтрокуToolStripMenuItem});
+            this.contextMenuStripContainer.Name = "contextMenuStripContainer";
+            this.contextMenuStripContainer.Size = new System.Drawing.Size(159, 26);
+            // 
+            // удалитьСтрокуToolStripMenuItem
+            // 
+            this.удалитьСтрокуToolStripMenuItem.Name = "удалитьСтрокуToolStripMenuItem";
+            this.удалитьСтрокуToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.удалитьСтрокуToolStripMenuItem.Text = "Удалить строку";
+            this.удалитьСтрокуToolStripMenuItem.Click += new System.EventHandler(this.удалитьСтрокуToolStripMenuItem_Click);
             // 
             // ObjectsWindow
             // 
@@ -586,9 +590,9 @@
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItems)).EndInit();
             this.groupBoxContainer.ResumeLayout(false);
-            this.contextMenuStripContainer.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.contextMenuStripContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

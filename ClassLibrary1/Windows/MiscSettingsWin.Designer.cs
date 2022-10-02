@@ -30,6 +30,7 @@
         {
             this.checkBoxSetDatePrefix = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxShowPolysSort = new System.Windows.Forms.CheckBox();
             this.checkBoxSetNearestVobCam = new System.Windows.Forms.CheckBox();
             this.checkBoxAutoRemoveAllVisuals = new System.Windows.Forms.CheckBox();
             this.showLightRadiusVob = new System.Windows.Forms.CheckBox();
@@ -40,7 +41,7 @@
             this.checkBoxLastZenAuto = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
             this.btnMiscSetApply = new System.Windows.Forms.Button();
-            this.checkBoxShowPolysSort = new System.Windows.Forms.CheckBox();
+            this.checkBoxOnlyLatinInInput = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +57,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxOnlyLatinInInput);
             this.groupBox1.Controls.Add(this.checkBoxShowPolysSort);
             this.groupBox1.Controls.Add(this.checkBoxSetNearestVobCam);
             this.groupBox1.Controls.Add(this.checkBoxAutoRemoveAllVisuals);
@@ -69,9 +71,20 @@
             this.groupBox1.Controls.Add(this.checkBoxSetDatePrefix);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(624, 263);
+            this.groupBox1.Size = new System.Drawing.Size(624, 409);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // checkBoxShowPolysSort
+            // 
+            this.checkBoxShowPolysSort.AutoSize = true;
+            this.checkBoxShowPolysSort.Location = new System.Drawing.Point(13, 219);
+            this.checkBoxShowPolysSort.Name = "checkBoxShowPolysSort";
+            this.checkBoxShowPolysSort.Size = new System.Drawing.Size(531, 17);
+            this.checkBoxShowPolysSort.TabIndex = 10;
+            this.checkBoxShowPolysSort.Text = "При сохранении больших локаций спрашивать о сортировке полигонов (более 200 тыс. " +
+    "полигонов)";
+            this.checkBoxShowPolysSort.UseVisualStyleBackColor = true;
             // 
             // checkBoxSetNearestVobCam
             // 
@@ -168,10 +181,11 @@
             this.checkBoxMiscExitAsk.TabIndex = 1;
             this.checkBoxMiscExitAsk.Text = "Подтверждать выход если открыт зен";
             this.checkBoxMiscExitAsk.UseVisualStyleBackColor = true;
+            this.checkBoxMiscExitAsk.CheckedChanged += new System.EventHandler(this.checkBoxMiscExitAsk_CheckedChanged);
             // 
             // btnMiscSetApply
             // 
-            this.btnMiscSetApply.Location = new System.Drawing.Point(277, 281);
+            this.btnMiscSetApply.Location = new System.Drawing.Point(276, 427);
             this.btnMiscSetApply.Name = "btnMiscSetApply";
             this.btnMiscSetApply.Size = new System.Drawing.Size(115, 23);
             this.btnMiscSetApply.TabIndex = 11;
@@ -179,22 +193,23 @@
             this.btnMiscSetApply.UseVisualStyleBackColor = true;
             this.btnMiscSetApply.Click += new System.EventHandler(this.btnMiscSetApply_Click);
             // 
-            // checkBoxShowPolysSort
+            // checkBoxOnlyLatinInInput
             // 
-            this.checkBoxShowPolysSort.AutoSize = true;
-            this.checkBoxShowPolysSort.Location = new System.Drawing.Point(13, 219);
-            this.checkBoxShowPolysSort.Name = "checkBoxShowPolysSort";
-            this.checkBoxShowPolysSort.Size = new System.Drawing.Size(531, 17);
-            this.checkBoxShowPolysSort.TabIndex = 10;
-            this.checkBoxShowPolysSort.Text = "При сохранении больших локаций спрашивать о сортировке полигонов (более 200 тыс. " +
-    "полигонов)";
-            this.checkBoxShowPolysSort.UseVisualStyleBackColor = true;
+            this.checkBoxOnlyLatinInInput.AutoSize = true;
+            this.checkBoxOnlyLatinInInput.Checked = true;
+            this.checkBoxOnlyLatinInInput.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxOnlyLatinInInput.Location = new System.Drawing.Point(13, 262);
+            this.checkBoxOnlyLatinInInput.Name = "checkBoxOnlyLatinInInput";
+            this.checkBoxOnlyLatinInInput.Size = new System.Drawing.Size(347, 17);
+            this.checkBoxOnlyLatinInInput.TabIndex = 11;
+            this.checkBoxOnlyLatinInInput.Text = "Допускать введение только латинских символов в поля ввода";
+            this.checkBoxOnlyLatinInInput.UseVisualStyleBackColor = true;
             // 
             // MiscSettingsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 316);
+            this.ClientSize = new System.Drawing.Size(648, 462);
             this.Controls.Add(this.btnMiscSetApply);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -227,5 +242,6 @@
         public System.Windows.Forms.CheckBox checkBoxAutoRemoveAllVisuals;
         public System.Windows.Forms.CheckBox checkBoxSetNearestVobCam;
         public System.Windows.Forms.CheckBox checkBoxShowPolysSort;
+        public System.Windows.Forms.CheckBox checkBoxOnlyLatinInInput;
     }
 }

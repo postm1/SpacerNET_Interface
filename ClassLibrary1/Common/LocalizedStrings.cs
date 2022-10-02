@@ -544,6 +544,43 @@ namespace SpacerUnion.Common
             words.Add("buttonMacrosParse", new List<string> { "Парсить и сохранить текущий текст", "Parse and save current text", "", "Parsuj i zapisz aktualny tekst" });
             words.Add("groupBoxMacrosButtons", new List<string> { "Действия", "Actions", "", "Akcje" });
 
+
+
+
+
+            words.Add("WIN_CAMERA_START", new List<string> { "Старт", "Start", "", "Start" });
+            words.Add("WIN_CAMERA_STOP", new List<string> { "Стоп", "Stop", "", "Stop" });
+            words.Add("CANT_APPLY_PARENT_CAMERA", new List<string> { "Нельзя вставить новую камеру в другую камеру!", "Can't set current camera as a parent for a new camera!", "", "Nie można ustawić bieżącej kamery jako rodzica dla nowej kamery!" });
+            words.Add("CANT_APPLY_CAMERA_NEWKEY", new List<string> { "Свойство камеры стоит FOR_OBJECT, а воба нет!", "Camera has FOR_OBJECT value, but no vob found", "", "Kamera a wartość FOR_OBJECT, ale nie znaleziono voba" });
+            words.Add("CAMERA_ITEMS_FORCE_RENAME", new List<string> { "Ключам камеры были проставлены имена", "Camera's keys got its names", "", "Klatki kamery mają swoje nazwy" });
+            words.Add("FORM_ENTER_BAD_VALUE_INT", new List<string> { "Введено недопустимое значение! Данное поле целочисленное!", "Invalid value entered. Only integer is allowed in this field!", "", "Wprowadzono nieprawidłową wartość. W tym polu dozwolone są tylko liczby całkowite!" });
+            words.Add("FORM_ENTER_BAD_STRING_INPUT", new List<string> { "Введены недопустимые символы!", "Invalid symbols found in the input", "", "W danych wejściowych znaleziono nieprawidłowe symbole" });
+            words.Add("checkBoxOnlyLatinInInput", new List<string> { "Допускать ввод только латинских символов в поля свойств", "Allow only Latin symbols as input values", "", "Zezwalaj tylko na symbole łacińskie jako wartości wejściowe" });
+            words.Add("MSG_VOB_CANT_BE_COPIED", new List<string> { "Данный тип воба нельзя скопировать!", "This vob type can't be copied!", "", "Ten typ voba nie może zostać skopiowany!" });
+
+            words.Add("groupBoxCameraNew", new List<string> { "Новая камера", "New camera", "", "Nowa kamera" });
+            words.Add("FORM_COMMON_NAME", new List<string> { "Имя", "Name", "", "Nazwa" });
+            words.Add("FORM_COMMON_CREATE", new List<string> { "Создать", "Create", "", "Utwórz" });
+
+
+            words.Add("groupBoxCamKeys", new List<string> { "Ключи", "Keyframes", "", " Klatki kluczowe" });
+            words.Add("buttonCamSpline", new List<string> { "Добавить позицию", "Add a position", "", "Dodaj pozycję" });
+            words.Add("buttonCamTargetSpline", new List<string> { "Добавить цель", "Add a target", "", "Dodaj cel" });
+
+
+            words.Add("groupBoxCamSettings", new List<string> { "Настройки", "Settings", "", "Ustawienia" });
+            words.Add("labelCamTimeSec", new List<string> { "Время полета:", "Fly time:", "", "Czas lotu:" });
+            words.Add("checkBoxCameraHide", new List<string> { "Скрывать вобы в полете", "Hide vobs while camera active", "", "Ukryj voby, gdy kamera jest aktywna" });
+            words.Add("labelCamGotoKey", new List<string> { "Перейти к ключу: ", "Go to key", "", "Przejdź do klatki" });
+
+
+            words.Add("FORM_COMMON_DELETE", new List<string> { "Удалить", "Delete", "", "Usuń" });
+            words.Add("FORM_CAMERA_INSERT_KEY_HERE", new List<string> { "Вставить новый ключ сюда", "Insert a new key here", "", "Wstaw nową klatkę" });
+            words.Add("TOOL_BBOX_CHANGE", new List<string> { "Режим 'Изменение Bbox'", "Bbox change mode", "", "Tryb zmiany BBoxa" });
+            words.Add("TOOL_BBOX_CHANGE_LEAVE", new List<string> { "Выход из режима 'Изменение Bbox'", "Leaving bbox change mode", "", "Opuszczenie trybu zmiany Bboxa" });
+
+            words.Add("TOOL_BBOX_MAXS", new List<string> { "Изменение bbox maxs", "Changing bbox maxs", "", "Zmiana maks. bbox" });
+            words.Add("TOOL_BBOX_MINS", new List<string> { "Изменение bbox mins", "Changing bbox mins", "", "Zmiana min. bbox" });
         }
         
     }

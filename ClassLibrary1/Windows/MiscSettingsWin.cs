@@ -32,6 +32,8 @@ namespace SpacerUnion.Windows
             checkBoxAutoRemoveAllVisuals.Text = Localizator.Get("checkBoxAutoRemoveAllVisuals");
             checkBoxSetNearestVobCam.Text = Localizator.Get("checkBoxSetNearestVobCam");
             checkBoxShowPolysSort.Text = Localizator.Get("checkBoxShowPolysSort");
+            checkBoxOnlyLatinInInput.Text = Localizator.Get("checkBoxOnlyLatinInInput");
+
 
             btnMiscSetApply.Text = Localizator.Get("BTN_APPLY");
         }
@@ -79,6 +81,11 @@ namespace SpacerUnion.Windows
 
             Imports.Stack_PushString("checkBoxShowPolysSort");
             SpacerNET.miscSetWin.checkBoxShowPolysSort.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+
+            Imports.Stack_PushString("checkBoxOnlyLatinInInput");
+            SpacerNET.miscSetWin.checkBoxOnlyLatinInInput.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+            
         }
 
         public void OnApplySettings()
@@ -114,6 +121,11 @@ namespace SpacerUnion.Windows
 
             Imports.Stack_PushString("checkBoxShowPolysSort");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxShowPolysSort.Checked));
+
+            Imports.Stack_PushString("checkBoxOnlyLatinInInput");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxOnlyLatinInInput.Checked));
+
+            
         }
 
         private void MiscSettingsWin_FormClosing(object sender, FormClosingEventArgs e)
@@ -140,6 +152,11 @@ namespace SpacerUnion.Windows
         private void checkBoxMiscFullPath_CheckedChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void checkBoxMiscExitAsk_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

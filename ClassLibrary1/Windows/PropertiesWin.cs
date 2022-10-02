@@ -861,7 +861,34 @@ namespace SpacerUnion
                     }
                     */
 
-                    prop.value = textBox.Text.Trim();
+                    string textTry = textBox.Text.Trim();
+
+
+
+                    if (prop.type == TPropEditType.PETfloat)
+                    {
+                        textTry = textTry.Replace(',', '.');
+                    }
+                    else if (prop.type == TPropEditType.PETint)
+                    {
+                        if (textTry.Contains('.'))
+                        {
+                            
+                            MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_VALUE_INT"));
+                            textBox.Text = String.Empty;
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        if (textTry.Length > 0 && !Utils.IsOnlyLatin(textTry) && Utils.IsOptionActive("checkBoxOnlyLatinInInput"))
+                        {
+                            MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+                            return;
+                        }
+                    }
+
+                    prop.value = textTry;
                     node.Text = prop.Name + ": " + prop.ShowValue();
                     buttonApplyOnVob.Enabled = true;
                     buttonRestoreVobProp.Enabled = true;
@@ -1143,8 +1170,13 @@ namespace SpacerUnion
 
 
             buttonApplyOnVob.Enabled = true;
+
+            buttonApply_Click(textBoxString, null);
+            //DisableTabBBox();
+            /*
             tabControlProps.SelectTab(0);
             DisableTabBBox();
+            */
         }
 
         private void buttonClearItems_Click(object sender, EventArgs e)
@@ -1422,6 +1454,33 @@ namespace SpacerUnion
                 {
                     node.NodeFont = new Font(tree.Font, style);
                 }
+            }
+        }
+
+        private void groupBoxEditBbox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxBbox0_KeyDown(object sender, KeyEventArgs e)
+        {
+            var box = sender as TextBox;
+
+            if (e.KeyCode == Keys.Tab)
+            {
+                if (textBoxBbox0.Focused)
+                {
+                    textBoxBbox1.Focus();
+                }
+                else if (textBoxBbox1.Focused)
+                {
+                    textBoxBbox2.Focus();
+                }
+                else if (textBoxBbox2.Focused)
+                {
+                    textBoxBbox0.Focus();
+                }
+                e.SuppressKeyPress = true;
             }
         }
     }

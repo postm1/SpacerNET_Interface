@@ -539,6 +539,16 @@ namespace SpacerUnion.Windows
             row = new string[] { "LIGHT_RAD_ZERO", Localizator.Get("LIGHT_RAD_ZERO"), "" };
             dataGridKeys.Rows.Add(row);
 
+
+
+            row = new string[] { "TOOL_BBOX_CHANGE", Localizator.Get("TOOL_BBOX_CHANGE"), "" };
+            dataGridKeys.Rows.Add(row);
+
+            row = new string[] { "TOOL_BBOX_MAXS", Localizator.Get("TOOL_BBOX_MAXS"), "" };
+            dataGridKeys.Rows.Add(row);
+
+            row = new string[] { "TOOL_BBOX_MINS", Localizator.Get("TOOL_BBOX_MINS"), "" };
+            dataGridKeys.Rows.Add(row);
         }
     }
 

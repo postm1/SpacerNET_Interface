@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBoxPFX = new System.Windows.Forms.GroupBox();
             this.checkBoxShowPFXPreview = new System.Windows.Forms.CheckBox();
             this.labelSearchRegPFx = new System.Windows.Forms.Label();
@@ -148,30 +149,28 @@
             this.textBoxVecSearch0 = new System.Windows.Forms.TextBox();
             this.textBoxSearchVobs = new System.Windows.Forms.TextBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.labelNotReady1 = new System.Windows.Forms.Label();
-            this.checkBoxCamPosition = new System.Windows.Forms.CheckBox();
-            this.buttonCamRemove = new System.Windows.Forms.Button();
-            this.buttonCamCreateUpdate = new System.Windows.Forms.Button();
+            this.groupBoxCameraNew = new System.Windows.Forms.GroupBox();
+            this.labelCamNewName = new System.Windows.Forms.Label();
             this.buttonCamInsert = new System.Windows.Forms.Button();
-            this.listBoxCameras = new System.Windows.Forms.ListBox();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.textBoxCamName = new System.Windows.Forms.TextBox();
+            this.groupBoxCamSettings = new System.Windows.Forms.GroupBox();
+            this.labelCamGotoKey = new System.Windows.Forms.Label();
+            this.checkBoxCameraHide = new System.Windows.Forms.CheckBox();
             this.labelCamKeyCurrent = new System.Windows.Forms.Label();
-            this.buttonCamPlus = new System.Windows.Forms.Button();
-            this.buttonCamMinus = new System.Windows.Forms.Button();
-            this.textBoxCamTime = new System.Windows.Forms.TextBox();
-            this.buttonCamStop = new System.Windows.Forms.Button();
-            this.labelCamTimeSec = new System.Windows.Forms.Label();
             this.buttonCamPlay = new System.Windows.Forms.Button();
-            this.buttonCamKey = new System.Windows.Forms.Button();
+            this.textBoxCamTime = new System.Windows.Forms.TextBox();
+            this.buttonCamPlus = new System.Windows.Forms.Button();
+            this.labelCamTimeSec = new System.Windows.Forms.Label();
+            this.buttonCamMinus = new System.Windows.Forms.Button();
+            this.groupBoxCamKeys = new System.Windows.Forms.GroupBox();
+            this.listBoxCameraTarget = new System.Windows.Forms.ListBox();
+            this.contextMenuStripCamTarget = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.listBoxCameraSpline = new System.Windows.Forms.ListBox();
+            this.contextMenuStripCam = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemCamRemove = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonCamTargetSpline = new System.Windows.Forms.Button();
             this.buttonCamSpline = new System.Windows.Forms.Button();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.textBoxCamTargetVob = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBoxCamVobCam = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBoxCamName = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.panelLight = new System.Windows.Forms.Panel();
             this.labelNotReady2 = new System.Windows.Forms.Label();
@@ -205,6 +204,8 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.stInsertNewKeyHere = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -227,8 +228,11 @@
             this.groupBoxSearchClasses.SuspendLayout();
             this.panelRadioNumType.SuspendLayout();
             this.tabPage7.SuspendLayout();
-            this.groupBox12.SuspendLayout();
-            this.groupBox11.SuspendLayout();
+            this.groupBoxCameraNew.SuspendLayout();
+            this.groupBoxCamSettings.SuspendLayout();
+            this.groupBoxCamKeys.SuspendLayout();
+            this.contextMenuStripCamTarget.SuspendLayout();
+            this.contextMenuStripCam.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.panelLight.SuspendLayout();
             this.SuspendLayout();
@@ -1574,14 +1578,9 @@
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.labelNotReady1);
-            this.tabPage7.Controls.Add(this.checkBoxCamPosition);
-            this.tabPage7.Controls.Add(this.buttonCamRemove);
-            this.tabPage7.Controls.Add(this.buttonCamCreateUpdate);
-            this.tabPage7.Controls.Add(this.buttonCamInsert);
-            this.tabPage7.Controls.Add(this.listBoxCameras);
-            this.tabPage7.Controls.Add(this.groupBox12);
-            this.tabPage7.Controls.Add(this.groupBox11);
+            this.tabPage7.Controls.Add(this.groupBoxCameraNew);
+            this.tabPage7.Controls.Add(this.groupBoxCamSettings);
+            this.tabPage7.Controls.Add(this.groupBoxCamKeys);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Size = new System.Drawing.Size(617, 379);
@@ -1589,95 +1588,118 @@
             this.tabPage7.Text = "Камера";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // labelNotReady1
+            // groupBoxCameraNew
             // 
-            this.labelNotReady1.AutoSize = true;
-            this.labelNotReady1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelNotReady1.Location = new System.Drawing.Point(179, 272);
-            this.labelNotReady1.Name = "labelNotReady1";
-            this.labelNotReady1.Size = new System.Drawing.Size(239, 29);
-            this.labelNotReady1.TabIndex = 11;
-            this.labelNotReady1.Text = "ЕЩЕ НЕ СДЕЛАНО";
+            this.groupBoxCameraNew.Controls.Add(this.labelCamNewName);
+            this.groupBoxCameraNew.Controls.Add(this.buttonCamInsert);
+            this.groupBoxCameraNew.Controls.Add(this.textBoxCamName);
+            this.groupBoxCameraNew.Location = new System.Drawing.Point(8, 4);
+            this.groupBoxCameraNew.Name = "groupBoxCameraNew";
+            this.groupBoxCameraNew.Size = new System.Drawing.Size(390, 50);
+            this.groupBoxCameraNew.TabIndex = 15;
+            this.groupBoxCameraNew.TabStop = false;
+            this.groupBoxCameraNew.Text = "Новая камера";
             // 
-            // checkBoxCamPosition
+            // labelCamNewName
             // 
-            this.checkBoxCamPosition.AutoSize = true;
-            this.checkBoxCamPosition.Checked = true;
-            this.checkBoxCamPosition.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxCamPosition.Location = new System.Drawing.Point(86, 12);
-            this.checkBoxCamPosition.Name = "checkBoxCamPosition";
-            this.checkBoxCamPosition.Size = new System.Drawing.Size(126, 17);
-            this.checkBoxCamPosition.TabIndex = 6;
-            this.checkBoxCamPosition.Text = "в текущую позицию";
-            this.checkBoxCamPosition.UseVisualStyleBackColor = true;
-            // 
-            // buttonCamRemove
-            // 
-            this.buttonCamRemove.Location = new System.Drawing.Point(5, 312);
-            this.buttonCamRemove.Name = "buttonCamRemove";
-            this.buttonCamRemove.Size = new System.Drawing.Size(136, 23);
-            this.buttonCamRemove.TabIndex = 5;
-            this.buttonCamRemove.Text = "Удалить";
-            this.buttonCamRemove.UseVisualStyleBackColor = true;
-            // 
-            // buttonCamCreateUpdate
-            // 
-            this.buttonCamCreateUpdate.Location = new System.Drawing.Point(5, 283);
-            this.buttonCamCreateUpdate.Name = "buttonCamCreateUpdate";
-            this.buttonCamCreateUpdate.Size = new System.Drawing.Size(136, 23);
-            this.buttonCamCreateUpdate.TabIndex = 4;
-            this.buttonCamCreateUpdate.Text = "Создать/Обновить";
-            this.buttonCamCreateUpdate.UseVisualStyleBackColor = true;
+            this.labelCamNewName.AutoSize = true;
+            this.labelCamNewName.Location = new System.Drawing.Point(6, 21);
+            this.labelCamNewName.Name = "labelCamNewName";
+            this.labelCamNewName.Size = new System.Drawing.Size(32, 13);
+            this.labelCamNewName.TabIndex = 0;
+            this.labelCamNewName.Text = "Имя:";
             // 
             // buttonCamInsert
             // 
-            this.buttonCamInsert.Location = new System.Drawing.Point(5, 8);
+            this.buttonCamInsert.Location = new System.Drawing.Point(241, 16);
             this.buttonCamInsert.Name = "buttonCamInsert";
-            this.buttonCamInsert.Size = new System.Drawing.Size(75, 23);
+            this.buttonCamInsert.Size = new System.Drawing.Size(143, 23);
             this.buttonCamInsert.TabIndex = 3;
-            this.buttonCamInsert.Text = "Вставить";
+            this.buttonCamInsert.Text = "Создать";
             this.buttonCamInsert.UseVisualStyleBackColor = true;
             this.buttonCamInsert.Click += new System.EventHandler(this.buttonCamInsert_Click);
             // 
-            // listBoxCameras
+            // textBoxCamName
             // 
-            this.listBoxCameras.FormattingEnabled = true;
-            this.listBoxCameras.Location = new System.Drawing.Point(5, 43);
-            this.listBoxCameras.Name = "listBoxCameras";
-            this.listBoxCameras.Size = new System.Drawing.Size(136, 225);
-            this.listBoxCameras.TabIndex = 2;
+            this.textBoxCamName.Location = new System.Drawing.Point(50, 18);
+            this.textBoxCamName.Name = "textBoxCamName";
+            this.textBoxCamName.Size = new System.Drawing.Size(185, 20);
+            this.textBoxCamName.TabIndex = 1;
+            this.textBoxCamName.Text = "EVT_CAM_";
             // 
-            // groupBox12
+            // groupBoxCamSettings
             // 
-            this.groupBox12.Controls.Add(this.labelCamKeyCurrent);
-            this.groupBox12.Controls.Add(this.buttonCamPlus);
-            this.groupBox12.Controls.Add(this.buttonCamMinus);
-            this.groupBox12.Controls.Add(this.textBoxCamTime);
-            this.groupBox12.Controls.Add(this.buttonCamStop);
-            this.groupBox12.Controls.Add(this.labelCamTimeSec);
-            this.groupBox12.Controls.Add(this.buttonCamPlay);
-            this.groupBox12.Controls.Add(this.buttonCamKey);
-            this.groupBox12.Controls.Add(this.buttonCamTargetSpline);
-            this.groupBox12.Controls.Add(this.buttonCamSpline);
-            this.groupBox12.Location = new System.Drawing.Point(341, 37);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(210, 232);
-            this.groupBox12.TabIndex = 1;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Ключи";
+            this.groupBoxCamSettings.Controls.Add(this.labelCamGotoKey);
+            this.groupBoxCamSettings.Controls.Add(this.checkBoxCameraHide);
+            this.groupBoxCamSettings.Controls.Add(this.labelCamKeyCurrent);
+            this.groupBoxCamSettings.Controls.Add(this.buttonCamPlay);
+            this.groupBoxCamSettings.Controls.Add(this.textBoxCamTime);
+            this.groupBoxCamSettings.Controls.Add(this.buttonCamPlus);
+            this.groupBoxCamSettings.Controls.Add(this.labelCamTimeSec);
+            this.groupBoxCamSettings.Controls.Add(this.buttonCamMinus);
+            this.groupBoxCamSettings.Location = new System.Drawing.Point(402, 4);
+            this.groupBoxCamSettings.Name = "groupBoxCamSettings";
+            this.groupBoxCamSettings.Size = new System.Drawing.Size(212, 367);
+            this.groupBoxCamSettings.TabIndex = 0;
+            this.groupBoxCamSettings.TabStop = false;
+            this.groupBoxCamSettings.Text = "Настройки";
+            // 
+            // labelCamGotoKey
+            // 
+            this.labelCamGotoKey.AutoSize = true;
+            this.labelCamGotoKey.Location = new System.Drawing.Point(13, 106);
+            this.labelCamGotoKey.Name = "labelCamGotoKey";
+            this.labelCamGotoKey.Size = new System.Drawing.Size(98, 13);
+            this.labelCamGotoKey.TabIndex = 15;
+            this.labelCamGotoKey.Text = "Перейти к ключу: ";
+            this.labelCamGotoKey.Click += new System.EventHandler(this.labelCamGotoKey_Click);
+            // 
+            // checkBoxCameraHide
+            // 
+            this.checkBoxCameraHide.AutoSize = true;
+            this.checkBoxCameraHide.Checked = true;
+            this.checkBoxCameraHide.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxCameraHide.Location = new System.Drawing.Point(14, 49);
+            this.checkBoxCameraHide.Name = "checkBoxCameraHide";
+            this.checkBoxCameraHide.Size = new System.Drawing.Size(152, 17);
+            this.checkBoxCameraHide.TabIndex = 14;
+            this.checkBoxCameraHide.Text = "Скрывать вобы в полете";
+            this.checkBoxCameraHide.UseVisualStyleBackColor = true;
+            this.checkBoxCameraHide.CheckedChanged += new System.EventHandler(this.checkBoxCameraHide_CheckedChanged);
             // 
             // labelCamKeyCurrent
             // 
-            this.labelCamKeyCurrent.Location = new System.Drawing.Point(29, 74);
+            this.labelCamKeyCurrent.Location = new System.Drawing.Point(37, 127);
             this.labelCamKeyCurrent.Name = "labelCamKeyCurrent";
             this.labelCamKeyCurrent.Size = new System.Drawing.Size(48, 13);
             this.labelCamKeyCurrent.TabIndex = 6;
             this.labelCamKeyCurrent.Text = "0";
             this.labelCamKeyCurrent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // buttonCamPlay
+            // 
+            this.buttonCamPlay.Location = new System.Drawing.Point(14, 76);
+            this.buttonCamPlay.Name = "buttonCamPlay";
+            this.buttonCamPlay.Size = new System.Drawing.Size(192, 23);
+            this.buttonCamPlay.TabIndex = 10;
+            this.buttonCamPlay.Text = "Старт";
+            this.buttonCamPlay.UseVisualStyleBackColor = true;
+            this.buttonCamPlay.Click += new System.EventHandler(this.buttonCamPlay_Click);
+            // 
+            // textBoxCamTime
+            // 
+            this.textBoxCamTime.Location = new System.Drawing.Point(102, 23);
+            this.textBoxCamTime.Name = "textBoxCamTime";
+            this.textBoxCamTime.Size = new System.Drawing.Size(40, 20);
+            this.textBoxCamTime.TabIndex = 7;
+            this.textBoxCamTime.Text = "5";
+            this.textBoxCamTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamTime_KeyPress);
+            this.textBoxCamTime.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxCamTime_KeyUp);
+            // 
             // buttonCamPlus
             // 
-            this.buttonCamPlus.Location = new System.Drawing.Point(77, 69);
+            this.buttonCamPlus.Enabled = false;
+            this.buttonCamPlus.Location = new System.Drawing.Point(85, 122);
             this.buttonCamPlus.Name = "buttonCamPlus";
             this.buttonCamPlus.Size = new System.Drawing.Size(24, 23);
             this.buttonCamPlus.TabIndex = 13;
@@ -1685,9 +1707,19 @@
             this.buttonCamPlus.UseVisualStyleBackColor = true;
             this.buttonCamPlus.Click += new System.EventHandler(this.buttonCamPlus_Click);
             // 
+            // labelCamTimeSec
+            // 
+            this.labelCamTimeSec.AutoSize = true;
+            this.labelCamTimeSec.Location = new System.Drawing.Point(11, 26);
+            this.labelCamTimeSec.Name = "labelCamTimeSec";
+            this.labelCamTimeSec.Size = new System.Drawing.Size(81, 13);
+            this.labelCamTimeSec.TabIndex = 6;
+            this.labelCamTimeSec.Text = "Время полета:";
+            // 
             // buttonCamMinus
             // 
-            this.buttonCamMinus.Location = new System.Drawing.Point(6, 69);
+            this.buttonCamMinus.Enabled = false;
+            this.buttonCamMinus.Location = new System.Drawing.Point(14, 122);
             this.buttonCamMinus.Name = "buttonCamMinus";
             this.buttonCamMinus.Size = new System.Drawing.Size(24, 23);
             this.buttonCamMinus.TabIndex = 12;
@@ -1695,135 +1727,89 @@
             this.buttonCamMinus.UseVisualStyleBackColor = true;
             this.buttonCamMinus.Click += new System.EventHandler(this.buttonCamMinus_Click);
             // 
-            // textBoxCamTime
+            // groupBoxCamKeys
             // 
-            this.textBoxCamTime.Location = new System.Drawing.Point(9, 129);
-            this.textBoxCamTime.Name = "textBoxCamTime";
-            this.textBoxCamTime.Size = new System.Drawing.Size(52, 20);
-            this.textBoxCamTime.TabIndex = 7;
-            this.textBoxCamTime.Text = "5";
+            this.groupBoxCamKeys.Controls.Add(this.listBoxCameraTarget);
+            this.groupBoxCamKeys.Controls.Add(this.listBoxCameraSpline);
+            this.groupBoxCamKeys.Controls.Add(this.buttonCamTargetSpline);
+            this.groupBoxCamKeys.Controls.Add(this.buttonCamSpline);
+            this.groupBoxCamKeys.Location = new System.Drawing.Point(8, 60);
+            this.groupBoxCamKeys.Name = "groupBoxCamKeys";
+            this.groupBoxCamKeys.Size = new System.Drawing.Size(390, 311);
+            this.groupBoxCamKeys.TabIndex = 1;
+            this.groupBoxCamKeys.TabStop = false;
+            this.groupBoxCamKeys.Text = "Ключи";
             // 
-            // buttonCamStop
+            // listBoxCameraTarget
             // 
-            this.buttonCamStop.Location = new System.Drawing.Point(9, 194);
-            this.buttonCamStop.Name = "buttonCamStop";
-            this.buttonCamStop.Size = new System.Drawing.Size(195, 23);
-            this.buttonCamStop.TabIndex = 11;
-            this.buttonCamStop.Text = "Стоп";
-            this.buttonCamStop.UseVisualStyleBackColor = true;
+            this.listBoxCameraTarget.ContextMenuStrip = this.contextMenuStripCamTarget;
+            this.listBoxCameraTarget.FormattingEnabled = true;
+            this.listBoxCameraTarget.Location = new System.Drawing.Point(187, 48);
+            this.listBoxCameraTarget.Name = "listBoxCameraTarget";
+            this.listBoxCameraTarget.Size = new System.Drawing.Size(166, 251);
+            this.listBoxCameraTarget.TabIndex = 14;
+            this.listBoxCameraTarget.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxCameraTarget_MouseClick);
+            this.listBoxCameraTarget.DoubleClick += new System.EventHandler(this.listBoxCameraTarget_DoubleClick);
             // 
-            // labelCamTimeSec
+            // contextMenuStripCamTarget
             // 
-            this.labelCamTimeSec.AutoSize = true;
-            this.labelCamTimeSec.Location = new System.Drawing.Point(6, 111);
-            this.labelCamTimeSec.Name = "labelCamTimeSec";
-            this.labelCamTimeSec.Size = new System.Drawing.Size(139, 13);
-            this.labelCamTimeSec.TabIndex = 6;
-            this.labelCamTimeSec.Text = "Время полета в секундах:";
+            this.contextMenuStripCamTarget.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2});
+            this.contextMenuStripCamTarget.Name = "contextMenuStripCam";
+            this.contextMenuStripCamTarget.Size = new System.Drawing.Size(226, 48);
             // 
-            // buttonCamPlay
+            // toolStripMenuItem1
             // 
-            this.buttonCamPlay.Location = new System.Drawing.Point(9, 165);
-            this.buttonCamPlay.Name = "buttonCamPlay";
-            this.buttonCamPlay.Size = new System.Drawing.Size(195, 23);
-            this.buttonCamPlay.TabIndex = 10;
-            this.buttonCamPlay.Text = "Запуск";
-            this.buttonCamPlay.UseVisualStyleBackColor = true;
-            this.buttonCamPlay.Click += new System.EventHandler(this.buttonCamPlay_Click);
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(118, 22);
+            this.toolStripMenuItem1.Text = "Удалить";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
-            // buttonCamKey
+            // listBoxCameraSpline
             // 
-            this.buttonCamKey.Location = new System.Drawing.Point(109, 69);
-            this.buttonCamKey.Name = "buttonCamKey";
-            this.buttonCamKey.Size = new System.Drawing.Size(95, 23);
-            this.buttonCamKey.TabIndex = 9;
-            this.buttonCamKey.Text = "Перейти к ключу";
-            this.buttonCamKey.UseVisualStyleBackColor = true;
+            this.listBoxCameraSpline.ContextMenuStrip = this.contextMenuStripCam;
+            this.listBoxCameraSpline.FormattingEnabled = true;
+            this.listBoxCameraSpline.Location = new System.Drawing.Point(6, 48);
+            this.listBoxCameraSpline.Name = "listBoxCameraSpline";
+            this.listBoxCameraSpline.Size = new System.Drawing.Size(166, 251);
+            this.listBoxCameraSpline.TabIndex = 2;
+            this.listBoxCameraSpline.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxCameraSpline_MouseClick);
+            // 
+            // contextMenuStripCam
+            // 
+            this.contextMenuStripCam.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemCamRemove,
+            this.stInsertNewKeyHere});
+            this.contextMenuStripCam.Name = "contextMenuStripCam";
+            this.contextMenuStripCam.Size = new System.Drawing.Size(226, 48);
+            // 
+            // toolStripMenuItemCamRemove
+            // 
+            this.toolStripMenuItemCamRemove.Name = "toolStripMenuItemCamRemove";
+            this.toolStripMenuItemCamRemove.Size = new System.Drawing.Size(225, 22);
+            this.toolStripMenuItemCamRemove.Text = "Удалить";
+            this.toolStripMenuItemCamRemove.Click += new System.EventHandler(this.toolStripMenuItemCamRemove_Click);
             // 
             // buttonCamTargetSpline
             // 
-            this.buttonCamTargetSpline.Location = new System.Drawing.Point(109, 40);
+            this.buttonCamTargetSpline.Location = new System.Drawing.Point(187, 20);
             this.buttonCamTargetSpline.Name = "buttonCamTargetSpline";
-            this.buttonCamTargetSpline.Size = new System.Drawing.Size(95, 23);
+            this.buttonCamTargetSpline.Size = new System.Drawing.Size(166, 23);
             this.buttonCamTargetSpline.TabIndex = 8;
-            this.buttonCamTargetSpline.Text = "Цель spline";
+            this.buttonCamTargetSpline.Text = "Добавить цель";
             this.buttonCamTargetSpline.UseVisualStyleBackColor = true;
+            this.buttonCamTargetSpline.Click += new System.EventHandler(this.buttonCamTargetSpline_Click);
             // 
             // buttonCamSpline
             // 
-            this.buttonCamSpline.Location = new System.Drawing.Point(6, 40);
+            this.buttonCamSpline.Location = new System.Drawing.Point(6, 19);
             this.buttonCamSpline.Name = "buttonCamSpline";
-            this.buttonCamSpline.Size = new System.Drawing.Size(95, 23);
+            this.buttonCamSpline.Size = new System.Drawing.Size(166, 23);
             this.buttonCamSpline.TabIndex = 7;
-            this.buttonCamSpline.Text = "Камера spline";
+            this.buttonCamSpline.Text = "Добавить позицию";
             this.buttonCamSpline.UseVisualStyleBackColor = true;
             this.buttonCamSpline.Click += new System.EventHandler(this.buttonCamSpline_Click);
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.textBoxCamTargetVob);
-            this.groupBox11.Controls.Add(this.label15);
-            this.groupBox11.Controls.Add(this.textBoxCamVobCam);
-            this.groupBox11.Controls.Add(this.label14);
-            this.groupBox11.Controls.Add(this.textBoxCamName);
-            this.groupBox11.Controls.Add(this.label12);
-            this.groupBox11.Location = new System.Drawing.Point(147, 37);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(188, 232);
-            this.groupBox11.TabIndex = 0;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Камера";
-            // 
-            // textBoxCamTargetVob
-            // 
-            this.textBoxCamTargetVob.Location = new System.Drawing.Point(9, 167);
-            this.textBoxCamTargetVob.Name = "textBoxCamTargetVob";
-            this.textBoxCamTargetVob.Size = new System.Drawing.Size(173, 20);
-            this.textBoxCamTargetVob.TabIndex = 5;
-            this.textBoxCamTargetVob.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 151);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(56, 13);
-            this.label15.TabIndex = 4;
-            this.label15.Text = "Воб цели:";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
-            // 
-            // textBoxCamVobCam
-            // 
-            this.textBoxCamVobCam.Location = new System.Drawing.Point(9, 105);
-            this.textBoxCamVobCam.Name = "textBoxCamVobCam";
-            this.textBoxCamVobCam.Size = new System.Drawing.Size(173, 20);
-            this.textBoxCamVobCam.TabIndex = 3;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 89);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(72, 13);
-            this.label14.TabIndex = 2;
-            this.label14.Text = "Воб камеры:";
-            // 
-            // textBoxCamName
-            // 
-            this.textBoxCamName.Location = new System.Drawing.Point(9, 44);
-            this.textBoxCamName.Name = "textBoxCamName";
-            this.textBoxCamName.Size = new System.Drawing.Size(173, 20);
-            this.textBoxCamName.TabIndex = 1;
-            this.textBoxCamName.Text = "CAM_TEST";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 28);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(32, 13);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Имя:";
             // 
             // tabPage8
             // 
@@ -2159,6 +2145,20 @@
             this.button10.Text = "Удалить";
             this.button10.UseVisualStyleBackColor = true;
             // 
+            // stInsertNewKeyHere
+            // 
+            this.stInsertNewKeyHere.Name = "stInsertNewKeyHere";
+            this.stInsertNewKeyHere.Size = new System.Drawing.Size(225, 22);
+            this.stInsertNewKeyHere.Text = "Вставить новый ключ сюда";
+            this.stInsertNewKeyHere.Click += new System.EventHandler(this.stInsertNewKeyHere_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(225, 22);
+            this.toolStripMenuItem2.Text = "Вставить новый ключ сюда";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
             // ObjectsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2210,11 +2210,13 @@
             this.panelRadioNumType.ResumeLayout(false);
             this.panelRadioNumType.PerformLayout();
             this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
+            this.groupBoxCameraNew.ResumeLayout(false);
+            this.groupBoxCameraNew.PerformLayout();
+            this.groupBoxCamSettings.ResumeLayout(false);
+            this.groupBoxCamSettings.PerformLayout();
+            this.groupBoxCamKeys.ResumeLayout(false);
+            this.contextMenuStripCamTarget.ResumeLayout(false);
+            this.contextMenuStripCam.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
             this.panelLight.ResumeLayout(false);
@@ -2316,27 +2318,16 @@
         private System.Windows.Forms.GroupBox groupBoxObjPropVobs;
         public System.Windows.Forms.CheckBox checkBoxShowPreview;
         public System.Windows.Forms.CheckBox checkBoxSearchOnly3DS;
-        private System.Windows.Forms.Button buttonCamRemove;
-        private System.Windows.Forms.Button buttonCamCreateUpdate;
         private System.Windows.Forms.Button buttonCamInsert;
-        private System.Windows.Forms.ListBox listBoxCameras;
-        private System.Windows.Forms.GroupBox groupBox12;
-        private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.CheckBox checkBoxCamPosition;
-        private System.Windows.Forms.TextBox textBoxCamTargetVob;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBoxCamVobCam;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.GroupBox groupBoxCamKeys;
+        private System.Windows.Forms.GroupBox groupBoxCamSettings;
         private System.Windows.Forms.TextBox textBoxCamName;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label labelCamNewName;
         private System.Windows.Forms.Button buttonCamTargetSpline;
         private System.Windows.Forms.Button buttonCamSpline;
         private System.Windows.Forms.TextBox textBoxCamTime;
-        private System.Windows.Forms.Button buttonCamStop;
         private System.Windows.Forms.Label labelCamTimeSec;
         private System.Windows.Forms.Button buttonCamPlay;
-        private System.Windows.Forms.Button buttonCamKey;
-        private System.Windows.Forms.Label labelCamKeyCurrent;
         private System.Windows.Forms.Button buttonCamPlus;
         private System.Windows.Forms.Button buttonCamMinus;
         private System.Windows.Forms.Button button15;
@@ -2370,7 +2361,6 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label labelNotReady1;
         private System.Windows.Forms.Label labelNotReady2;
         public System.Windows.Forms.CheckBox checkBoxShowPFXPreview;
         public System.Windows.Forms.CheckBox checkBoxItemShow;
@@ -2402,5 +2392,17 @@
         private System.Windows.Forms.RadioButton radioButtonSearchLessThan;
         private System.Windows.Forms.RadioButton radioButtonSearchEquals;
         private System.Windows.Forms.Panel panelRadioNumType;
+        public System.Windows.Forms.ListBox listBoxCameraSpline;
+        public System.Windows.Forms.ListBox listBoxCameraTarget;
+        private System.Windows.Forms.GroupBox groupBoxCameraNew;
+        private System.Windows.Forms.CheckBox checkBoxCameraHide;
+        private System.Windows.Forms.Label labelCamGotoKey;
+        public System.Windows.Forms.Label labelCamKeyCurrent;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripCam;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCamRemove;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripCamTarget;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem stInsertNewKeyHere;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
     }
 }
