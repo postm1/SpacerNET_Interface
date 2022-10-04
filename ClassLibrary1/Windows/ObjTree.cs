@@ -629,7 +629,7 @@ namespace SpacerUnion
 
             TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
 
-            ConsoleEx.WriteLineYellow("\nOnVobInsert: " + name);
+          //  ConsoleEx.WriteLineYellow("\nOnVobInsert: " + name);
             int classNameFoundPos = -1;
 
             classNameFoundPos = CreateAndGetFolder(className);

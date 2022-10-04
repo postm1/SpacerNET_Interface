@@ -33,13 +33,29 @@ namespace SpacerUnion
         static TreeNode containsNode;
         static bool vobHasContainer = false;
         static bool updateRenderWindow = false;
-
         
+
+        public static string lastSelectedNodeName;
+        static bool blockUpdateLastNodeName;
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                // Activate double buffering at the form level.  All child controls will be double buffered as well.
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED
+                return cp;
+            }
+        }
 
 
         public ObjectsWindow()
         {
             InitializeComponent();
+
+            lastSelectedNodeName = String.Empty;
+            blockUpdateLastNodeName = false;
 
         }
 
@@ -103,6 +119,7 @@ namespace SpacerUnion
             vobHasContainer = false;
             TreeView tree = SpacerNET.propWin.treeViewProp;
 
+            tree.Visible = false;
             tree.Nodes.Clear();
 
 
@@ -117,14 +134,18 @@ namespace SpacerUnion
             SpacerNET.propWin.buttonRestoreVobProp.Enabled = false;
             SpacerNET.propWin.buttonBbox.Enabled = false;
             SpacerNET.propWin.buttonFileOpen.Enabled = false;
+
+            tree.Visible = true;
         }
 
         [DllExport]
 
         public static void CleanPropWindow()
         {
+            TreeView tree = SpacerNET.propWin.treeViewProp;
+            tree.Visible = false;
             CleanProps();
-
+            tree.Visible = true;
         }
 
         [DllExport]
@@ -144,7 +165,7 @@ namespace SpacerUnion
             string inputStr = Imports.Stack_PeekString();
             string className = Imports.Stack_PeekString();
             TreeView tree = SpacerNET.propWin.treeViewProp;
-
+           // ConsoleEx.WriteLineRed("AddProps");
 
             CleanProps();
 
@@ -154,6 +175,10 @@ namespace SpacerUnion
             }
 
             SpacerNET.propWin.panelButtons.Enabled = false;
+
+           // tree.Visible = false;
+
+            blockUpdateLastNodeName = true;
 
             TreeNode firstNode = tree.Nodes.Add(className + ": zCVob");
             firstNode.Tag = Constants.TAG_FOLDER;
@@ -395,7 +420,39 @@ namespace SpacerUnion
             {
                 tree.SelectedNode = showFirst;
             }
-           
+
+
+            blockUpdateLastNodeName = false;
+
+            //ConsoleEx.WriteLineYellow("lastSelectedNodeName PRE aPPLY: " + lastSelectedNodeName);
+
+            if (lastSelectedNodeName != String.Empty)
+            {
+               // ConsoleEx.WriteLineYellow("lastSelectedNodeName: " + lastSelectedNodeName);
+
+                for (int i = 0; i < props.Count; i++)
+                {
+                    var prop = props[i];
+
+                    //ConsoleEx.WriteLineYellow("Name: " + prop.Name);
+
+                    if (prop.Name == lastSelectedNodeName)
+                    {
+                        //ConsoleEx.WriteLineGreen("Select Node: " + lastSelectedNodeName + " Index " + i);
+
+
+                        tree.SelectedNode = prop.ownNode;
+                        break;
+
+                    }
+                }
+               
+                //lastSelectedNodeName = String.Empty;
+            }
+
+
+           // tree.Visible = true;
+            //ConsoleEx.WriteLineYellow("AddProps End");
         }
 
 
@@ -706,6 +763,7 @@ namespace SpacerUnion
         private void treeViewProp_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
+           // ConsoleEx.WriteLineRed("treeViewProp_AfterSelect");
             TreeNode node = e.Node;
             int index = 0;
 
@@ -716,9 +774,18 @@ namespace SpacerUnion
                 if (index >= 0)
                 {
 
+                    
+
                     HideAllInput();
 
                     CProperty prop = props[index];
+
+                    if (!blockUpdateLastNodeName)
+                    {
+                        lastSelectedNodeName = prop.Name;
+                       // ConsoleEx.WriteLineRed("lastSelectedNodeName set: " + prop.Name + " index: " + index);
+                    }
+                    
 
                     if (prop.Name == "itemInstance")
                     {

@@ -30,11 +30,33 @@ namespace SpacerUnion
         [DllExport]
         public static void InfoWin_AddText()
         {
+            string color_str = Imports.Stack_PeekString();
             string str = Imports.Stack_PeekString();
 
-            SpacerNET.infoWin.richTextBoxInfo.AppendText(str);
+            color_str = color_str.ToUpper();
+
+            var lightGray = System.Drawing.ColorTranslator.FromHtml(color_str);
+
+            if (lightGray != Color.Empty)
+            {
+                //ConsoleEx.WriteLineYellow(lightGray.ToString());
+                SpacerNET.infoWin.AddText_External(str, lightGray);
+            }
+            else
+            {
+                //ConsoleEx.WriteLineYellow("No color, black");
+                SpacerNET.infoWin.AddText_External(str, Color.Black);
+            }
 
         }
+
+        public void AddText_External(string str, Color color)
+        {
+            SetColor(color);
+            this.richTextBoxInfo.AppendText(str);
+            SetColor(Color.Black);
+        }
+
 
         public void SetColor(Color color)
         {
@@ -50,13 +72,13 @@ namespace SpacerUnion
         
         public void AddText(string str)
         {
-            this.richTextBoxInfo.AppendText(" " + str + "\n");
+            this.richTextBoxInfo.AppendText(str + "\n");
         }
 
         public void AddText(string str, Color color)
         {
             SetColor(color);
-            this.richTextBoxInfo.AppendText(" " + str + "\n");
+            this.richTextBoxInfo.AppendText(str + "\n");
             SetColor(Color.Black);
         }
 

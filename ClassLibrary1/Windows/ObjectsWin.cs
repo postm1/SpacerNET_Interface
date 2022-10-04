@@ -3470,14 +3470,19 @@ namespace SpacerUnion
         }
 
 
-        public void BlockInterfaceWhileCameraMoving(bool toggle)
+        public void BlockInterfaceWhileCameraMoving(bool toggle, bool blockNewCam = false)
         {
-            buttonCamInsert.Enabled = !toggle;
+            if (blockNewCam)
+            {
+                buttonCamInsert.Enabled = !toggle;
+                textBoxCamName.Enabled = !toggle;
+            }
+            
             buttonCamSpline.Enabled = !toggle;
             buttonCamTargetSpline.Enabled = !toggle;
             listBoxCameraSpline.Enabled = !toggle;
             listBoxCameraTarget.Enabled = !toggle;
-            textBoxCamName.Enabled = !toggle;
+            
             checkBoxCameraHide.Enabled = !toggle;
             textBoxCamTime.Enabled = !toggle;
         }
@@ -3507,7 +3512,7 @@ namespace SpacerUnion
             if (camEntry.cameraRun)
             {
                 camEntry.cameraRun = false;
-                BlockInterfaceWhileCameraMoving(false);
+                BlockInterfaceWhileCameraMoving(false, true);
                 EnableInterfaceWhileCameraMoving(false);
                 camEntry.currentKey = 0;
                 labelCamKeyCurrent.Text = camEntry.currentKey.ToString();
@@ -3519,7 +3524,7 @@ namespace SpacerUnion
             {
                 camEntry.OnChangeTime(textBoxCamTime.Text.Trim(), checkBoxCameraHide.Checked);
                 camEntry.cameraRun = true;
-                BlockInterfaceWhileCameraMoving(true);
+                BlockInterfaceWhileCameraMoving(true, true);
                 EnableInterfaceWhileCameraMoving(true);
                 camEntry.currentKey = 0;
                 labelCamKeyCurrent.Text = camEntry.currentKey.ToString();

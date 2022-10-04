@@ -581,6 +581,8 @@ namespace SpacerUnion.Common
 
             words.Add("TOOL_BBOX_MAXS", new List<string> { "Изменение bbox maxs", "Changing bbox maxs", "", "Zmiana maks. bbox" });
             words.Add("TOOL_BBOX_MINS", new List<string> { "Изменение bbox mins", "Changing bbox mins", "", "Zmiana min. bbox" });
+            words.Add("TOOL_BBOX_CANT_WORK", new List<string> { "У текущего типа воба нельзя менять bbox!", "Can't change bbox of this vob type", "", "Nie można zmienić bboxa w tym typie voba" });
+
         }
         
     }
