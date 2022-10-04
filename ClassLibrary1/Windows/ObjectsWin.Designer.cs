@@ -166,9 +166,11 @@
             this.listBoxCameraTarget = new System.Windows.Forms.ListBox();
             this.contextMenuStripCamTarget = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.listBoxCameraSpline = new System.Windows.Forms.ListBox();
             this.contextMenuStripCam = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemCamRemove = new System.Windows.Forms.ToolStripMenuItem();
+            this.stInsertNewKeyHere = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonCamTargetSpline = new System.Windows.Forms.Button();
             this.buttonCamSpline = new System.Windows.Forms.Button();
             this.tabPage8 = new System.Windows.Forms.TabPage();
@@ -204,8 +206,8 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.stInsertNewKeyHere = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelHintWP = new System.Windows.Forms.Label();
+            this.labelHintFP = new System.Windows.Forms.Label();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -1092,6 +1094,7 @@
             // 
             // groupBox9
             // 
+            this.groupBox9.Controls.Add(this.labelHintWP);
             this.groupBox9.Controls.Add(this.labelNameWPMandatory);
             this.groupBox9.Controls.Add(this.buttonWPCreate);
             this.groupBox9.Controls.Add(this.checkBoxWPAutoName);
@@ -1184,6 +1187,7 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.labelHintFP);
             this.groupBox8.Controls.Add(this.checkBoxFPGround);
             this.groupBox8.Controls.Add(this.labelFreepointMandatory);
             this.groupBox8.Controls.Add(this.checkBoxAutoNameFP);
@@ -1762,9 +1766,16 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(118, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(225, 22);
             this.toolStripMenuItem1.Text = "Удалить";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(225, 22);
+            this.toolStripMenuItem2.Text = "Вставить новый ключ сюда";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // listBoxCameraSpline
             // 
@@ -1790,6 +1801,13 @@
             this.toolStripMenuItemCamRemove.Size = new System.Drawing.Size(225, 22);
             this.toolStripMenuItemCamRemove.Text = "Удалить";
             this.toolStripMenuItemCamRemove.Click += new System.EventHandler(this.toolStripMenuItemCamRemove_Click);
+            // 
+            // stInsertNewKeyHere
+            // 
+            this.stInsertNewKeyHere.Name = "stInsertNewKeyHere";
+            this.stInsertNewKeyHere.Size = new System.Drawing.Size(225, 22);
+            this.stInsertNewKeyHere.Text = "Вставить новый ключ сюда";
+            this.stInsertNewKeyHere.Click += new System.EventHandler(this.stInsertNewKeyHere_Click);
             // 
             // buttonCamTargetSpline
             // 
@@ -2145,19 +2163,23 @@
             this.button10.Text = "Удалить";
             this.button10.UseVisualStyleBackColor = true;
             // 
-            // stInsertNewKeyHere
+            // labelHintWP
             // 
-            this.stInsertNewKeyHere.Name = "stInsertNewKeyHere";
-            this.stInsertNewKeyHere.Size = new System.Drawing.Size(225, 22);
-            this.stInsertNewKeyHere.Text = "Вставить новый ключ сюда";
-            this.stInsertNewKeyHere.Click += new System.EventHandler(this.stInsertNewKeyHere_Click);
+            this.labelHintWP.AutoSize = true;
+            this.labelHintWP.Location = new System.Drawing.Point(8, 268);
+            this.labelHintWP.Name = "labelHintWP";
+            this.labelHintWP.Size = new System.Drawing.Size(200, 13);
+            this.labelHintWP.TabIndex = 14;
+            this.labelHintWP.Text = "Кнопка F2, чтобы вставить новый воб";
             // 
-            // toolStripMenuItem2
+            // labelHintFP
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(225, 22);
-            this.toolStripMenuItem2.Text = "Вставить новый ключ сюда";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            this.labelHintFP.AutoSize = true;
+            this.labelHintFP.Location = new System.Drawing.Point(9, 268);
+            this.labelHintFP.Name = "labelHintFP";
+            this.labelHintFP.Size = new System.Drawing.Size(200, 13);
+            this.labelHintFP.TabIndex = 16;
+            this.labelHintFP.Text = "Кнопка F2, чтобы вставить новый воб";
             // 
             // ObjectsWin
             // 
@@ -2404,5 +2426,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem stInsertNewKeyHere;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.Label labelHintWP;
+        private System.Windows.Forms.Label labelHintFP;
     }
 }

@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -12,7 +13,7 @@ namespace SpacerUnion
 {
     public class Constants
     {
-        public const string SPACER_VERSION = "0.29";
+        public const string SPACER_VERSION = "0.30";
 
 
         public const string FILE_FILTER_OPEN_ZEN = "Compiled ZEN (*.zen)|*.zen|Uncompiled ZEN (*.zen)|*.zen";
@@ -174,7 +175,7 @@ namespace SpacerUnion
 
         public static bool IsOnlyLatin(string text)
         {
-            return Regex.IsMatch(text, @"^[a-zA-Z0-9_\-\=\.\,\; ]+$");
+            return Regex.IsMatch(text, @"^[a-zA-Z0-9_\-\=\.\,\;\: ]+$");
         }
 
         public static bool IsOptionActive(string text)
@@ -185,6 +186,19 @@ namespace SpacerUnion
         }
     }
 
-    
+    public static class Helper
+    {
+        public static void EnableDoubleBuffering(Control control)
+        {
+            SendMessage(control.Handle, TVM_SETEXTENDEDSTYLE, (IntPtr)TVS_EX_DOUBLEBUFFER, (IntPtr)TVS_EX_DOUBLEBUFFER);
+        }
+
+        private const int TVM_SETEXTENDEDSTYLE = 0x1100 + 44;
+        private const int TVM_GETEXTENDEDSTYLE = 0x1100 + 45;
+        private const int TVS_EX_DOUBLEBUFFER = 0x0004;
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
+    }
 }
 

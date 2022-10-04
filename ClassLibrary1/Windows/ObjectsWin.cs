@@ -50,6 +50,8 @@ namespace SpacerUnion
 
         public void UpdateLang()
         {
+            //ConsoleEx.WriteLineRed("WinObj:UpdateLang");
+
             this.Text = Localizator.Get("WIN_OBJ_TITLE");
             tabControlObjects.TabPages[0].Text = Localizator.Get("WIN_OBJ_TAB0");
             tabControlObjects.TabPages[1].Text = Localizator.Get("WIN_OBJ_TAB1");
@@ -197,6 +199,19 @@ namespace SpacerUnion
             contextMenuStripCamTarget.Items[0].Text = Localizator.Get("FORM_COMMON_DELETE");
             contextMenuStripCamTarget.Items[1].Text = Localizator.Get("FORM_CAMERA_INSERT_KEY_HERE");
 
+            
+        }
+
+        public void SetHintWPFP()
+        {
+            //ConsoleEx.WriteLineRed("SetHintWPFP");
+
+            string text = String.Format(Localizator.Get("FORM_HINT_INSERT_WPFP"), SpacerNET.keysWin.keysTable["WP_CREATEFAST"]);
+
+            labelHintWP.Text = text;
+            labelHintFP.Text = text;
+
+
         }
 
         public void LoadSettings()
@@ -235,8 +250,6 @@ namespace SpacerUnion
 
             Imports.Stack_PushString("itemLocatorRadius");
             trackBarLocatorRad.Value = Imports.Extern_GetSetting();
-
-
 
             GetVdfArchivesList();
         }
@@ -725,6 +738,12 @@ namespace SpacerUnion
                 return;
             }
 
+            if (vobName.Length > 0 && !Utils.IsOnlyLatin(vobName) && Utils.IsOptionActive("checkBoxOnlyLatinInInput"))
+            {
+                MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+                return;
+            }
+
             if (vobName.All(char.IsDigit))
             {
                 MessageBox.Show(Localizator.Get("WIN_OBJ_NO_WAYPOINT_NUMBERSONLY"));
@@ -777,6 +796,12 @@ namespace SpacerUnion
             if (vobName.Length == 0)
             {
                 MessageBox.Show(Localizator.Get("WIN_OBJ_NO_EMPTY_NAME"));
+                return;
+            }
+
+            if (vobName.Length > 0 && !Utils.IsOnlyLatin(vobName) && Utils.IsOptionActive("checkBoxOnlyLatinInInput"))
+            {
+                MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
                 return;
             }
 

@@ -54,9 +54,9 @@ namespace SpacerUnion
             contextMenuStripTree.Items[9].Text = Localizator.Get("CONTEXTMENU_TREE_RESTORE_POS");
             contextMenuStripTree.Items[10].Text = Localizator.Get("CONTEXTMENU_TREE_REPLACE_FROM_PARENT");
 
-            tabControl1.TabPages[0].Text = Localizator.Get("TAB_PAGE_OBJECTS");
-            tabControl1.TabPages[1].Text = Localizator.Get("QUICKVOBS_ACCESS");
-            tabControl1.TabPages[2].Text = Localizator.Get("TAB_PAGE_MATERIALS");
+            tabControlObjectList.TabPages[0].Text = Localizator.Get("TAB_PAGE_OBJECTS");
+            tabControlObjectList.TabPages[1].Text = Localizator.Get("QUICKVOBS_ACCESS");
+            tabControlObjectList.TabPages[2].Text = Localizator.Get("TAB_PAGE_MATERIALS");
 
             contextMenuQuick.Items[0].Text = Localizator.Get("CONTEXTMENU_TREE_REMOVE_PARENT");
             contextMenuQuick.Items[1].Text = Localizator.Get("CONTEXTMENU_FAST_REMOVE_VOB");
@@ -246,6 +246,8 @@ namespace SpacerUnion
             ObjTree.globalEntries.Clear();
             ObjTree.quickVobMan.Clear();
             ObjTree.quickVobMan.Clear();
+
+            //SpacerNET.objTreeWin.tabControlObjectList.SelectedIndex = 0;
 
             CreateAndGetFolderQuickTree(Localizator.Get("QUICKVOBS_PARENT"));
             CreateAndGetFolderQuickTree(Localizator.Get("QUICKVOBS_ACCESS"));
@@ -797,7 +799,8 @@ namespace SpacerUnion
         {
             noParentCount = 0;
 
-            SpacerNET.objTreeWin.globalTree.Visible = false;
+           // SpacerNET.objTreeWin.globalTree.Visible = false;
+            SpacerNET.objTreeWin.globalTree.BeginUpdate();
 
             //globalEntries = globalEntries.OrderBy(x => x.Value.name).ToDictionary(x => x.Key, x => x.Value);
 
@@ -807,7 +810,8 @@ namespace SpacerUnion
             }
 
             ConsoleEx.WriteLineGreen("Tree is ready. GlobalEntries count: " + globalEntries.Count);
-            SpacerNET.objTreeWin.globalTree.Visible = true;
+           // SpacerNET.objTreeWin.globalTree.Visible = true;
+            SpacerNET.objTreeWin.globalTree.EndUpdate();
             Application.DoEvents();
 
         }
@@ -1330,7 +1334,7 @@ namespace SpacerUnion
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedIndex == 1)
+            if (tabControlObjectList.SelectedIndex == 1)
             {
                 quickTree.ExpandAll();
             }
@@ -1350,7 +1354,7 @@ namespace SpacerUnion
             }
 
 
-            tabControl1.SelectedIndex = 0;
+            tabControlObjectList.SelectedIndex = 0;
 
             var globalEntry = quickVobMan.GetEntryByQuickNode(node);
 
@@ -1556,12 +1560,32 @@ namespace SpacerUnion
             return classNameFoundPos;
         }
 
+
+        [DllExport]
+        public static void SetObjTree_VisibleToggle(int val)
+        {
+            bool toggle = Convert.ToBoolean(val);
+
+            
+            SpacerNET.objTreeWin.matTree.Visible = Convert.ToBoolean(toggle);
+
+            if (toggle)
+            {
+                SpacerNET.objTreeWin.matTree.EndUpdate();
+            }
+            else
+            {
+                SpacerNET.objTreeWin.matTree.BeginUpdate();
+            }
+            
+        }
         [DllExport]
         public static void AddGlobalEntryMat(uint mat)
         {
-            SpacerNET.objTreeWin.matTree.Visible = false;
+            //SpacerNET.objTreeWin.matTree.Visible = false;
 
             TreeNodeCollection nodes = SpacerNET.objTreeWin.matTree.Nodes;
+            
 
             string group = Imports.Stack_PeekString();
             string name = Imports.Stack_PeekString();
@@ -1574,7 +1598,9 @@ namespace SpacerUnion
             node.ImageIndex = 1;
             node.SelectedImageIndex = 1;
 
-            SpacerNET.objTreeWin.matTree.Visible = true;
+           // SpacerNET.objTreeWin.matTree.Visible = true;
+
+           // ConsoleEx.WriteLineYellow("AddGlobalEntryMat: " + nodes.Count);
         }
 
         private void matTree_MouseDoubleClick(object sender, MouseEventArgs e)

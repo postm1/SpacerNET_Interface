@@ -414,6 +414,8 @@ namespace SpacerUnion
             miscSetWin.LoadSettings();
 
             isInit = true;
+
+            form.UpdateLangAfter();
         }
 
 

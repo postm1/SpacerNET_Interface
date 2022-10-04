@@ -17,7 +17,7 @@ namespace SpacerUnion
 {
     public partial class ObjectsWindow : Form
     {
-
+        
 
         static List<CProperty> props = new List<CProperty>();
         static Dictionary<string, FolderEntry> folders = new Dictionary<string, FolderEntry>();
@@ -38,6 +38,8 @@ namespace SpacerUnion
         public static string lastSelectedNodeName;
         static bool blockUpdateLastNodeName;
 
+        static Timer updateTimer;
+
         protected override CreateParams CreateParams
         {
             get
@@ -57,6 +59,23 @@ namespace SpacerUnion
             lastSelectedNodeName = String.Empty;
             blockUpdateLastNodeName = false;
 
+            updateTimer = new Timer();
+            updateTimer.Enabled = true;
+            updateTimer.Tick += UpdateTimer_Tick;
+            updateTimer.Interval = 1;
+
+            this.DoubleBuffered = true;
+
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+
+            Helper.EnableDoubleBuffering(this.treeViewProp);
+
+        }
+
+        private void UpdateTimer_Tick(object sender, EventArgs e)
+        {
+            //this.treeViewProp.Refresh();
         }
 
         public void UpdateLang()
@@ -119,7 +138,7 @@ namespace SpacerUnion
             vobHasContainer = false;
             TreeView tree = SpacerNET.propWin.treeViewProp;
 
-            tree.Visible = false;
+ 
             tree.Nodes.Clear();
 
 
@@ -134,8 +153,6 @@ namespace SpacerUnion
             SpacerNET.propWin.buttonRestoreVobProp.Enabled = false;
             SpacerNET.propWin.buttonBbox.Enabled = false;
             SpacerNET.propWin.buttonFileOpen.Enabled = false;
-
-            tree.Visible = true;
         }
 
         [DllExport]
@@ -143,9 +160,9 @@ namespace SpacerUnion
         public static void CleanPropWindow()
         {
             TreeView tree = SpacerNET.propWin.treeViewProp;
-            tree.Visible = false;
+            //tree.Visible = false;
             CleanProps();
-            tree.Visible = true;
+            //tree.Visible = true;
         }
 
         [DllExport]
@@ -175,8 +192,8 @@ namespace SpacerUnion
             }
 
             SpacerNET.propWin.panelButtons.Enabled = false;
-
-           // tree.Visible = false;
+            tree.BeginUpdate();
+            // tree.Visible = false;
 
             blockUpdateLastNodeName = true;
 
@@ -450,8 +467,9 @@ namespace SpacerUnion
                 //lastSelectedNodeName = String.Empty;
             }
 
-
-           // tree.Visible = true;
+            tree.EndUpdate();
+            tree.Refresh();
+            // tree.Visible = true;
             //ConsoleEx.WriteLineYellow("AddProps End");
         }
 
@@ -483,6 +501,8 @@ namespace SpacerUnion
 
         private void treeViewProp_DrawNode(object sender, DrawTreeNodeEventArgs e)
         {
+
+            /*
             if (e.Node == null) return;
 
             // if treeview's HideSelection property is "True", 
@@ -502,6 +522,7 @@ namespace SpacerUnion
             {
                 e.DrawDefault = true;
             }
+            */
         }
 
         private void ObjectsWindow_FormClosing(object sender, FormClosingEventArgs e)
@@ -734,7 +755,7 @@ namespace SpacerUnion
             Imports.Stack_PushString(str.ToString());
 
             Imports.Extern_ApplyProps();
-
+            this.treeViewProp.Refresh();
         }
 
         public void DisableTabBBox()

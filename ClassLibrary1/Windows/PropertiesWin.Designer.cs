@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.contextMenuStripContainer = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.удалитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialogFileName = new System.Windows.Forms.OpenFileDialog();
+            this.fontDialogSelect = new System.Windows.Forms.FontDialog();
+            this.dBufPanelMainTab = new SpacerUnion.Common.Extended.DBufPanel();
             this.tabControlProps = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.treeViewProp = new System.Windows.Forms.TreeView();
@@ -71,10 +76,8 @@
             this.buttonResetFontDefault = new System.Windows.Forms.Button();
             this.checkBoxBoldFontProps = new System.Windows.Forms.CheckBox();
             this.buttonSelectFontProps = new System.Windows.Forms.Button();
-            this.contextMenuStripContainer = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.удалитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFileDialogFileName = new System.Windows.Forms.OpenFileDialog();
-            this.fontDialogSelect = new System.Windows.Forms.FontDialog();
+            this.contextMenuStripContainer.SuspendLayout();
+            this.dBufPanelMainTab.SuspendLayout();
             this.tabControlProps.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panelButtons.SuspendLayout();
@@ -84,8 +87,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItems)).BeginInit();
             this.groupBoxContainer.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            this.contextMenuStripContainer.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // contextMenuStripContainer
+            // 
+            this.contextMenuStripContainer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.удалитьСтрокуToolStripMenuItem});
+            this.contextMenuStripContainer.Name = "contextMenuStripContainer";
+            this.contextMenuStripContainer.Size = new System.Drawing.Size(159, 26);
+            // 
+            // удалитьСтрокуToolStripMenuItem
+            // 
+            this.удалитьСтрокуToolStripMenuItem.Name = "удалитьСтрокуToolStripMenuItem";
+            this.удалитьСтрокуToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.удалитьСтрокуToolStripMenuItem.Text = "Удалить строку";
+            this.удалитьСтрокуToolStripMenuItem.Click += new System.EventHandler(this.удалитьСтрокуToolStripMenuItem_Click);
+            // 
+            // dBufPanelMainTab
+            // 
+            this.dBufPanelMainTab.Controls.Add(this.tabControlProps);
+            this.dBufPanelMainTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dBufPanelMainTab.Location = new System.Drawing.Point(0, 0);
+            this.dBufPanelMainTab.Name = "dBufPanelMainTab";
+            this.dBufPanelMainTab.Size = new System.Drawing.Size(330, 490);
+            this.dBufPanelMainTab.TabIndex = 1;
             // 
             // tabControlProps
             // 
@@ -551,26 +576,12 @@
             this.buttonSelectFontProps.UseVisualStyleBackColor = true;
             this.buttonSelectFontProps.Click += new System.EventHandler(this.buttonSelectFontProps_Click);
             // 
-            // contextMenuStripContainer
-            // 
-            this.contextMenuStripContainer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.удалитьСтрокуToolStripMenuItem});
-            this.contextMenuStripContainer.Name = "contextMenuStripContainer";
-            this.contextMenuStripContainer.Size = new System.Drawing.Size(159, 26);
-            // 
-            // удалитьСтрокуToolStripMenuItem
-            // 
-            this.удалитьСтрокуToolStripMenuItem.Name = "удалитьСтрокуToolStripMenuItem";
-            this.удалитьСтрокуToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.удалитьСтрокуToolStripMenuItem.Text = "Удалить строку";
-            this.удалитьСтрокуToolStripMenuItem.Click += new System.EventHandler(this.удалитьСтрокуToolStripMenuItem_Click);
-            // 
             // ObjectsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(330, 490);
-            this.Controls.Add(this.tabControlProps);
+            this.Controls.Add(this.dBufPanelMainTab);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -580,6 +591,8 @@
             this.Text = "Окно свойств";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ObjectsWindow_FormClosing);
             this.Shown += new System.EventHandler(this.ObjectsWindow_Shown);
+            this.contextMenuStripContainer.ResumeLayout(false);
+            this.dBufPanelMainTab.ResumeLayout(false);
             this.tabControlProps.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panelButtons.ResumeLayout(false);
@@ -592,7 +605,6 @@
             this.groupBoxContainer.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            this.contextMenuStripContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -644,5 +656,6 @@
         public System.Windows.Forms.CheckBox checkBoxFontUnderstroke;
         private System.Windows.Forms.Button buttonResetFontDefault;
         private System.Windows.Forms.Label labelChangeFontStyleText;
+        private Common.Extended.DBufPanel dBufPanelMainTab;
     }
 }

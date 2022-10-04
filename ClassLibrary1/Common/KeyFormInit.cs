@@ -381,11 +381,6 @@ namespace SpacerUnion.Windows
 
 
 
-
-
-        
-
-
         private void InitRows()
         {
             string[] row;

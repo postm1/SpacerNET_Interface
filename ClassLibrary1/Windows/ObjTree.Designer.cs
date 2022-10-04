@@ -50,7 +50,7 @@
             this.saveFileDialogVobTree = new System.Windows.Forms.SaveFileDialog();
             this.buttonTreeSort = new System.Windows.Forms.Button();
             this.panelButtons = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControlObjectList = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.quickTree = new System.Windows.Forms.TreeView();
@@ -65,7 +65,7 @@
             this.buttonSortMatTree = new System.Windows.Forms.Button();
             this.contextMenuStripTree.SuspendLayout();
             this.panelButtons.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tabControlObjectList.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.contextMenuQuick.SuspendLayout();
@@ -242,18 +242,18 @@
             this.panelButtons.Size = new System.Drawing.Size(375, 43);
             this.panelButtons.TabIndex = 4;
             // 
-            // tabControl1
+            // tabControlObjectList
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(389, 453);
-            this.tabControl1.TabIndex = 5;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tabControlObjectList.Controls.Add(this.tabPage1);
+            this.tabControlObjectList.Controls.Add(this.tabPage2);
+            this.tabControlObjectList.Controls.Add(this.tabPage3);
+            this.tabControlObjectList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlObjectList.Location = new System.Drawing.Point(0, 0);
+            this.tabControlObjectList.Name = "tabControlObjectList";
+            this.tabControlObjectList.SelectedIndex = 0;
+            this.tabControlObjectList.Size = new System.Drawing.Size(389, 453);
+            this.tabControlObjectList.TabIndex = 5;
+            this.tabControlObjectList.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -391,7 +391,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(389, 453);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControlObjectList);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
             this.MaximizeBox = false;
@@ -407,7 +407,7 @@
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ObjTree_KeyPress);
             this.contextMenuStripTree.ResumeLayout(false);
             this.panelButtons.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.tabControlObjectList.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.contextMenuQuick.ResumeLayout(false);
@@ -435,7 +435,7 @@
         private System.Windows.Forms.ToolStripMenuItem сделатьРодителемДляНовыхВобовToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem очиститьРодителяДляВобовToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControlObjectList;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         public System.Windows.Forms.TreeView quickTree;

@@ -119,6 +119,14 @@ namespace SpacerUnion
             // UnionNET.partWin.listBoxItems.Items.Clear();
         }
 
+        // применение после загрузки
+        public void UpdateLangAfter()
+        {
+            //ConsoleEx.WriteLineRed("Main:UpdateLangAfter");
+
+            SpacerNET.objectsWin.SetHintWPFP();
+
+        }
         public void UpdateLang()
         {
             ToolStripMenuFile.Text = Localizator.Get("MENU_TOP_FILE");
@@ -207,6 +215,14 @@ namespace SpacerUnion
             toolStripButtonGrass.ToolTipText = toolStripButtonGrass.Text;
             toolStripButtonGratt.ToolTipText = toolStripButtonGratt.Text;
             toolStripButtonMulti.ToolTipText = toolStripButtonMulti.Text;
+
+
+            if (SpacerNET.isInit)
+            {
+                this.UpdateLangAfter();
+            }
+
+            
         }
 
 

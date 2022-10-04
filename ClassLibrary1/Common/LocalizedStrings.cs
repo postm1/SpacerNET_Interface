@@ -255,7 +255,7 @@ namespace SpacerUnion.Common
             words.Add("VOB_ROT_RIGHT", new List<string> { "Вращение воба вправо", "Vob rotating to the right", "Vob rechtsherum rotieren lassen", "Rotacja voba w prawo" });
             words.Add("VOB_ROT_LEFT", new List<string> { "Вращение воба влево", "Vob rotating to the left", "Vob linksherum rotieren lassen", "Rotacja voba w lewo" });
             words.Add("VOBLIST_COLLECT", new List<string> { "Собрать вобы в окно Контейнер вобов", "Collect vobes in Vob-List window", "Alle vobs in der VoB-Liste sammeln", "Zbieraj voby w oknie listy-vobów" });
-            words.Add("WP_CREATEFAST", new List<string> { "Создать вейпоинт по кнопке", "Create waypoint", "Wegpunkte erschaffen", "Utwórz waypoint" });
+            words.Add("WP_CREATEFAST", new List<string> { "Создать WP/FP по кнопке", "Create WP/FP", "", "Utwórz WP/FP" });
             words.Add("WIN_HIDEALL", new List<string> { "Скрыть все окна", "Hide all windows", "Alle Fenster verstecken", "Ukryj wszystkie okna" });
             words.Add("OPEN_CONTAINER", new List<string> { "Открыть содержимое контейнера oCMobContainer", "Open oCMobContainer container", "Öffne den oCMobContainer Container", "Otwórz kontener oCMobContainer" });
             words.Add("TOGGLE_BBOX", new List<string> { "Показать/Скрыть все BBox", "Show/Hide all the BBoxes", "Zeige/Verstecke alle BBoxen", "Pokaż/Ukryj wszystkie BBoxy" });
@@ -282,13 +282,13 @@ namespace SpacerUnion.Common
             words.Add("labelSndList", new List<string> { "Поиск по рег. выражению", "Search using regex", "Suche mit regex", "Wyszukaj za pomocą wyrażenia regularnego" });
             words.Add("buttonOffMusic", new List<string> { "Отключить музыку", "Turn off music", "Musik abschalten", "Wyłącz muzykę" });
             words.Add("buttonMusicOn", new List<string> { "Включить музыку", "Turn on music", "Musik anschalten", "Włącz muzykę" });
-            words.Add("checkBoxShutMusic", new List<string> { "Отключать музыку при загрузке", "Shut music after world loaded", "Musik schließen nachdem die Welt geladen worden ist", "Utnij muzykę po wczytaniu świata" });
+            words.Add("checkBoxShutMusic", new List<string> { "Отключать музыку при загрузке", "Shut music after world loaded", "Musik schließen nachdem die Welt geladen worden ist", "Wyłącz muzykę po wczytaniu świata" });
             words.Add("labelMusicVolume", new List<string> { "Громкость", "Volume", "Volumen", "Głośność" });
 
             words.Add("WIN_PROPS_TITLE", new List<string> { "Окно свойств", "Properties window", "Eigenschaftenfenster", "Okno właściwości" });
             words.Add("buttonApplyOnVob", new List<string> { "Применить на вобе", "Apply on the vob", "Auf den vob anwenden", "Zastosuj dla voba" });
             words.Add("buttonFileOpen", new List<string> { "Файл", "File", "Datei", "Plik" });
-            words.Add("buttonRestoreVobProp", new List<string> { "Восстановить", "Restore", "Wiederherstellen", "Odzyskaj" });
+            words.Add("buttonRestoreVobProp", new List<string> { "Восстановить", "Restore", "Wiederherstellen", "Przywróć" });
             words.Add("buttonOpenContainer", new List<string> { "Контейнер", "Container", "Container", "Kontener" });
             words.Add("tabControlProps_0", new List<string> { "Редактирование", "Edit", "Editieren", "Edytuj" });
             words.Add("tabControlProps_1", new List<string> { "BBox", "Bbox", "Bbox", "BBox" });
@@ -583,6 +583,9 @@ namespace SpacerUnion.Common
             words.Add("TOOL_BBOX_MINS", new List<string> { "Изменение bbox mins", "Changing bbox mins", "", "Zmiana min. bbox" });
             words.Add("TOOL_BBOX_CANT_WORK", new List<string> { "У текущего типа воба нельзя менять bbox!", "Can't change bbox of this vob type", "", "Nie można zmienić bboxa w tym typie voba" });
 
+            words.Add("FORM_HINT_INSERT_WPFP", new List<string> { "*Кнопка {0}, чтобы вставить новый воб", "*Press {0} button to insert a new vob", "", "*Wciśnij klawisz {0} aby dodać nowy vob" });
+
+            
         }
         
     }

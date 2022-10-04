@@ -12,6 +12,10 @@ namespace SpacerUnion.Common.Extended
     {
         public DBufPanel() : base()
         {
+            this.DoubleBuffered = true;
+
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
         }
 
         protected override CreateParams CreateParams

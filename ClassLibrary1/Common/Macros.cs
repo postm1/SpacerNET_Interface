@@ -412,7 +412,7 @@ namespace SpacerUnion.Common
 
             if (currentEntry != null)
             {
-                ConsoleEx.WriteLineRed("OnRun===============");
+                //ConsoleEx.WriteLineRed("OnRun===============");
 
                 isMacrosRun = true;
                 /*

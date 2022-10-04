@@ -17,9 +17,12 @@ namespace SpacerUnion.Windows
         Color safeColor;
         bool colorSaveSet = false;
 
+        public Dictionary<string, string> keysTable;
+
         public KeysForm()
         {
             InitializeComponent();
+            keysTable = new Dictionary<string, string>();
         }
         
         public void UpdateLang()
@@ -34,15 +37,16 @@ namespace SpacerUnion.Windows
             if (SpacerNET.isInit)
             {
                 LoadKeys();
+                SpacerNET.form.UpdateLangAfter();
             }
-           
         }
 
         public void LoadKeys()
         {
             dataGridKeys.Rows.Clear();
-
+            keysTable.Clear();
             Fill_Table();
+            //ConsoleEx.WriteLineRed("LoadKeys");
         }
 
 
@@ -62,15 +66,20 @@ namespace SpacerUnion.Windows
 
             currentKeyEntry.SetData(e);
 
- 
             if (keysGothic.ContainsKey(e.KeyValue) && dataGridKeys.CurrentRow != null)
             {
+                string value = currentKeyEntry.GetKeysAsString();
+              
 
-                dataGridKeys.CurrentRow.Cells[2].Value = currentKeyEntry.GetKeysAsString();
+
+                dataGridKeys.CurrentRow.Cells[2].Value = value;
 
                 if (dataGridKeys.CurrentRow.Cells[0].Value != null)
                 {
-                    
+
+                    string currentKey = dataGridKeys.CurrentRow.Cells[0].Value.ToString();
+                    keysTable[currentKey] = value;
+
                     currentKeyEntry.PackToUnion();
                     Imports.Stack_PushString(dataGridKeys.CurrentRow.Cells[0].Value.ToString());
                     Imports.Extern_SendNewKeyPreset(currentKeyEntry.union_key, currentKeyEntry.mod);
@@ -94,50 +103,56 @@ namespace SpacerUnion.Windows
                     
                     dataGridKeys.CurrentRow.Cells[2].Style.BackColor = safeColor;
                 }
-                        /*
-                        // поиск дублей кнопок
-                        var dictCheckDouble = new Dictionary<string, List<int>>();
 
-                        for (int i = 0; i < dataGridKeys.Rows.Count; i++)
+                if (SpacerNET.isInit)
+                {
+                    SpacerNET.form.UpdateLangAfter();
+                }
+
+                /*
+                // поиск дублей кнопок
+                var dictCheckDouble = new Dictionary<string, List<int>>();
+
+                for (int i = 0; i < dataGridKeys.Rows.Count; i++)
+                {
+                    var data = dataGridKeys.Rows[i].Cells[2].Value;
+
+                    if (data != null)
+                    {
+                        var key = data.ToString();
+
+                        if (dictCheckDouble.ContainsKey(key))
                         {
-                            var data = dataGridKeys.Rows[i].Cells[2].Value;
+                            var entry = dictCheckDouble[key];
 
-                            if (data != null)
-                            {
-                                var key = data.ToString();
+                            entry.Add(i);
 
-                                if (dictCheckDouble.ContainsKey(key))
-                                {
-                                    var entry = dictCheckDouble[key];
-
-                                    entry.Add(i);
-
-                                    ConsoleEx.WriteLineRed("Add exist entry: " + i + " " + key);
-                                }
-                                else
-                                {
-                                    var list = new List<int>();
-                                    list.Add(i);
-
-                                    dictCheckDouble.Add(key, list);
-
-                                    ConsoleEx.WriteLineGreen("Add new entry: " + i + " " + key);
-                                }
-
-                            }
+                            ConsoleEx.WriteLineRed("Add exist entry: " + i + " " + key);
                         }
-
-                        foreach (KeyValuePair<string, List<int>> entry in dictCheckDouble)
+                        else
                         {
-                            if (entry.Value.Count > 1)
-                            {
-                                ConsoleEx.WriteLineGreen(entry.Key + ": " + entry.Value.Count);
-                            }
-                        }
-                        */
+                            var list = new List<int>();
+                            list.Add(i);
 
+                            dictCheckDouble.Add(key, list);
+
+                            ConsoleEx.WriteLineGreen("Add new entry: " + i + " " + key);
+                        }
 
                     }
+                }
+
+                foreach (KeyValuePair<string, List<int>> entry in dictCheckDouble)
+                {
+                    if (entry.Value.Count > 1)
+                    {
+                        ConsoleEx.WriteLineGreen(entry.Key + ": " + entry.Value.Count);
+                    }
+                }
+                */
+
+
+            }
             else
             {
                 ConsoleEx.WriteLineRed("No key found: " + e.KeyValue);
@@ -176,14 +191,23 @@ namespace SpacerUnion.Windows
 
                         if (gotString.Length > 0)
                         {
+                            string value = currentKeyEntry.SolveString(gotString);
+
                             //ConsoleEx.WriteLineRed("gotString: " + gotString);
-                            entry.Cells[2].Value = currentKeyEntry.SolveString(gotString);
+                            entry.Cells[2].Value = value;
+
+                            keysTable.Add(currentKey, value);
                         }
 
                     }
                 }
 
 
+            }
+
+            if (SpacerNET.isInit)
+            {
+                SpacerNET.form.UpdateLangAfter();
             }
         }
 
@@ -211,7 +235,7 @@ namespace SpacerUnion.Windows
                 Imports.Extern_ResetKeysDefault();
 
                 dataGridKeys.Rows.Clear();
-
+                keysTable.Clear();
                 Fill_Table();
             }
 
