@@ -27,6 +27,7 @@ namespace SpacerUnion
         public string currentWorldName = "";
         public bool meshOpenFirst = false;
         public string locationName;
+
         public enum ToggleMenuType
         {
             ToggleVobs = 0,
@@ -41,7 +42,8 @@ namespace SpacerUnion
         {
             InitializeComponent();
             this.KeyPreview = true;
-         
+
+
             UpdateSpacerCaption("");
         }
 
@@ -540,20 +542,13 @@ namespace SpacerUnion
 
 
 
-        private void menuStrip1_MouseMove(object sender, MouseEventArgs e)
-        {
-           
-        }
+        
 
         private void toolStrip1_MouseEnter(object sender, EventArgs e)
         {
             SpacerNET.form.Focus();
         }
 
-        private void menuStrip1_MouseEnter(object sender, EventArgs e)
-        {
-            SpacerNET.form.Focus();
-        }
 
 
 
@@ -1770,6 +1765,135 @@ namespace SpacerUnion
                 SpacerNET.macrosWin.Location = Properties.Settings.Default.MacrosWinLocation;
             }
 
+        }
+
+
+        private void menuStrip1_MouseEnter(object sender, EventArgs e)
+        {
+            SpacerNET.form.Focus();
+
+           
+        }
+
+
+        private void menuStripTopMain_MouseLeave(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void menuStripTopMain_Enter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void menuStripTopMain_Leave(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void menuStrip1_MouseMove(object sender, MouseEventArgs e)
+        {
+           
+            
+        }
+
+        private void ToolStripMenuWorld_MouseMove(object sender, MouseEventArgs e)
+        {
+           
+        }
+
+        private void ToolStripMenuWorld_MouseLeave(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ToolStripMenuWorld_MouseEnter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ToolStripMenuWorld_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm_MouseClick(object sender, MouseEventArgs e)
+        {
+           
+        }
+
+
+
+        public static bool IsMouseOverControl(Control c)
+        {
+            return c.ClientRectangle.Contains(c.PointToClient(Cursor.Position));
+        }
+
+
+        // блок прокликивания окон
+        [DllExport]
+        public static int IsClickBlocked()
+        {
+            int result = 0;
+            var menuTop = SpacerNET.form.menuStripTopMain;
+
+
+            if (IsMouseOverControl(menuTop))
+            {
+                result = 1;
+                //ConsoleEx.WriteLineRed("over: " + menuTop.Name);
+            }
+            else if (menuTop.Items.Count > 0)
+            {
+
+                foreach (ToolStripItem toolItem in menuTop.Items)
+                {
+                    if (toolItem.Selected)
+                    {
+                        result = 1;
+                        //ConsoleEx.WriteLineRed("over: " + menuTop.Name);
+                        break;
+                    }
+                    else
+                    {
+                        ToolStripMenuItem itm = toolItem as ToolStripMenuItem;
+
+                        if (itm != null)
+                        {
+                            if (itm.Selected)
+                            {
+                                result = 1;
+                                //ConsoleEx.WriteLineRed("over menu: " + itm.Name);
+                                break;
+                            }
+                            else
+                            {
+                                foreach (ToolStripItem subItem in itm.DropDownItems)
+                                {
+                                    if (subItem.Selected)
+                                    {
+                                        result = 1;
+                                       // ConsoleEx.WriteLineRed("over sub: " + subItem.Name);
+                                        break;
+                                    }
+
+                                    //ConsoleEx.WriteLineYellow(subItem.Name + " " + subItem.Text + " Sel: " + subItem.Selected);
+                                }
+                            }
+
+                            
+                        }
+  
+                        
+                    }
+                    
+                }
+
+                
+            }
+
+
+            return result;
         }
     }
 }

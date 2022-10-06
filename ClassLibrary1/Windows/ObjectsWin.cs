@@ -3712,5 +3712,77 @@ namespace SpacerUnion
                 Imports.Extern_InsertTargetKeyAtIndex(index);
             }
         }
+
+        private void listBoxSearchResult_MouseDown(object sender, MouseEventArgs e)
+        {
+            ListBox lb = sender as ListBox;
+            if (e.Button == MouseButtons.Right)
+            {
+
+                int index = lb.IndexFromPoint(e.Location);
+                {
+                    if (index == lb.SelectedIndex)
+                    {
+                        string visual = listBoxSearchResult.GetItemText(listBoxSearchResult.SelectedItem);
+                        Clipboard.SetText(visual);
+
+
+                        Imports.Stack_PushString(Localizator.Get("COPYBUFFER") + ": " + visual);
+
+                        Imports.Extern_PrintGreen();
+
+
+                    }
+                }
+            }
+        }
+
+        private void listBoxItems_MouseDown(object sender, MouseEventArgs e)
+        {
+            ListBox lb = sender as ListBox;
+            if (e.Button == MouseButtons.Right)
+            {
+
+                int index = lb.IndexFromPoint(e.Location);
+                {
+                    if (index == lb.SelectedIndex)
+                    {
+                        string visual = listBoxItems.GetItemText(listBoxItems.SelectedItem);
+                        Clipboard.SetText(visual);
+
+
+                        Imports.Stack_PushString(Localizator.Get("COPYBUFFER") + ": " + visual);
+
+                        Imports.Extern_PrintGreen();
+
+
+                    }
+                }
+            }
+        }
+
+        private void listBoxResultItems_MouseDown(object sender, MouseEventArgs e)
+        {
+            ListBox lb = sender as ListBox;
+            if (e.Button == MouseButtons.Right)
+            {
+
+                int index = lb.IndexFromPoint(e.Location);
+                {
+                    if (index == lb.SelectedIndex)
+                    {
+                        string visual = listBoxResultItems.GetItemText(listBoxResultItems.SelectedItem);
+                        Clipboard.SetText(visual);
+
+
+                        Imports.Stack_PushString(Localizator.Get("COPYBUFFER") + ": " + visual);
+
+                        Imports.Extern_PrintGreen();
+
+
+                    }
+                }
+            }
+        }
     }
 }

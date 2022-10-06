@@ -129,9 +129,12 @@
             this.menuStripTopMain.Size = new System.Drawing.Size(1201, 24);
             this.menuStripTopMain.TabIndex = 0;
             this.menuStripTopMain.Text = "menuStrip1";
+            this.menuStripTopMain.Enter += new System.EventHandler(this.menuStripTopMain_Enter);
+            this.menuStripTopMain.Leave += new System.EventHandler(this.menuStripTopMain_Leave);
             this.menuStripTopMain.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menuStripTopMain_MouseClick);
             this.menuStripTopMain.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menuStripTopMain_MouseDoubleClick);
             this.menuStripTopMain.MouseEnter += new System.EventHandler(this.menuStrip1_MouseEnter);
+            this.menuStripTopMain.MouseLeave += new System.EventHandler(this.menuStripTopMain_MouseLeave);
             this.menuStripTopMain.MouseMove += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseMove);
             // 
             // ToolStripMenuFile
@@ -330,6 +333,10 @@
             this.ToolStripMenuWorld.Name = "ToolStripMenuWorld";
             this.ToolStripMenuWorld.Size = new System.Drawing.Size(44, 20);
             this.ToolStripMenuWorld.Text = "Мир";
+            this.ToolStripMenuWorld.Click += new System.EventHandler(this.ToolStripMenuWorld_Click);
+            this.ToolStripMenuWorld.MouseEnter += new System.EventHandler(this.ToolStripMenuWorld_MouseEnter);
+            this.ToolStripMenuWorld.MouseLeave += new System.EventHandler(this.ToolStripMenuWorld_MouseLeave);
+            this.ToolStripMenuWorld.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ToolStripMenuWorld_MouseMove);
             // 
             // compileLightToolStrip
             // 
@@ -845,6 +852,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseClick);
             this.menuStripTopMain.ResumeLayout(false);
             this.menuStripTopMain.PerformLayout();
             this.panelMain.ResumeLayout(false);

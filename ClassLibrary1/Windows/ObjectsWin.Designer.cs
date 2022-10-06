@@ -107,6 +107,7 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBoxWPFP = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.labelHintWP = new System.Windows.Forms.Label();
             this.labelNameWPMandatory = new System.Windows.Forms.Label();
             this.buttonWPCreate = new System.Windows.Forms.Button();
             this.checkBoxWPAutoName = new System.Windows.Forms.CheckBox();
@@ -115,6 +116,7 @@
             this.buttonConnectWp = new System.Windows.Forms.Button();
             this.buttonDisconnectWP = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.labelHintFP = new System.Windows.Forms.Label();
             this.checkBoxFPGround = new System.Windows.Forms.CheckBox();
             this.labelFreepointMandatory = new System.Windows.Forms.Label();
             this.checkBoxAutoNameFP = new System.Windows.Forms.CheckBox();
@@ -206,8 +208,6 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.labelHintWP = new System.Windows.Forms.Label();
-            this.labelHintFP = new System.Windows.Forms.Label();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -526,6 +526,7 @@
             this.listBoxResultItems.Size = new System.Drawing.Size(180, 212);
             this.listBoxResultItems.TabIndex = 3;
             this.listBoxResultItems.SelectedIndexChanged += new System.EventHandler(this.listBoxResultItems_SelectedIndexChanged);
+            this.listBoxResultItems.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxResultItems_MouseDown);
             // 
             // textBoxItems
             // 
@@ -546,6 +547,7 @@
             this.listBoxItems.Size = new System.Drawing.Size(180, 238);
             this.listBoxItems.TabIndex = 1;
             this.listBoxItems.SelectedIndexChanged += new System.EventHandler(this.listBoxItems_SelectedIndexChanged);
+            this.listBoxItems.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxItems_MouseDown);
             // 
             // buttonItemsCreate
             // 
@@ -1109,6 +1111,15 @@
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Waypoints";
             // 
+            // labelHintWP
+            // 
+            this.labelHintWP.AutoSize = true;
+            this.labelHintWP.Location = new System.Drawing.Point(8, 268);
+            this.labelHintWP.Name = "labelHintWP";
+            this.labelHintWP.Size = new System.Drawing.Size(200, 13);
+            this.labelHintWP.TabIndex = 14;
+            this.labelHintWP.Text = "Кнопка F2, чтобы вставить новый воб";
+            // 
             // labelNameWPMandatory
             // 
             this.labelNameWPMandatory.AutoSize = true;
@@ -1199,6 +1210,15 @@
             this.groupBox8.TabIndex = 15;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Freepoints";
+            // 
+            // labelHintFP
+            // 
+            this.labelHintFP.AutoSize = true;
+            this.labelHintFP.Location = new System.Drawing.Point(9, 268);
+            this.labelHintFP.Name = "labelHintFP";
+            this.labelHintFP.Size = new System.Drawing.Size(200, 13);
+            this.labelHintFP.TabIndex = 16;
+            this.labelHintFP.Text = "Кнопка F2, чтобы вставить новый воб";
             // 
             // checkBoxFPGround
             // 
@@ -1487,6 +1507,7 @@
             this.listBoxSearchResult.TabIndex = 8;
             this.listBoxSearchResult.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxSearchResult_MouseClick);
             this.listBoxSearchResult.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxSearchResult_MouseDoubleClick);
+            this.listBoxSearchResult.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxSearchResult_MouseDown);
             // 
             // checkBoxSearchDerived
             // 
@@ -2162,24 +2183,6 @@
             this.button10.TabIndex = 4;
             this.button10.Text = "Удалить";
             this.button10.UseVisualStyleBackColor = true;
-            // 
-            // labelHintWP
-            // 
-            this.labelHintWP.AutoSize = true;
-            this.labelHintWP.Location = new System.Drawing.Point(8, 268);
-            this.labelHintWP.Name = "labelHintWP";
-            this.labelHintWP.Size = new System.Drawing.Size(200, 13);
-            this.labelHintWP.TabIndex = 14;
-            this.labelHintWP.Text = "Кнопка F2, чтобы вставить новый воб";
-            // 
-            // labelHintFP
-            // 
-            this.labelHintFP.AutoSize = true;
-            this.labelHintFP.Location = new System.Drawing.Point(9, 268);
-            this.labelHintFP.Name = "labelHintFP";
-            this.labelHintFP.Size = new System.Drawing.Size(200, 13);
-            this.labelHintFP.TabIndex = 16;
-            this.labelHintFP.Text = "Кнопка F2, чтобы вставить новый воб";
             // 
             // ObjectsWin
             // 
