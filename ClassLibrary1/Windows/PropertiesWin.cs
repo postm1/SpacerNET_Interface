@@ -142,10 +142,9 @@ namespace SpacerUnion
             tree.Nodes.Clear();
 
 
-
-            EnableTab(SpacerNET.propWin.tabControlProps.TabPages[2], false);
-            EnableTab(SpacerNET.propWin.tabControlProps.TabPages[1], true);
-            EnableTab(SpacerNET.propWin.tabControlProps.TabPages[3], true);
+            EnableTab(SpacerNET.propWin.tabControlProps.TabPages[1], false); //edit props
+            EnableTab(SpacerNET.propWin.tabControlProps.TabPages[2], false);//bbox
+            EnableTab(SpacerNET.propWin.tabControlProps.TabPages[3], true);//container
             SpacerNET.propWin.tabControlProps.SelectedIndex = 0;
 
             SpacerNET.propWin.HideAllInput();
@@ -153,6 +152,7 @@ namespace SpacerUnion
             SpacerNET.propWin.buttonRestoreVobProp.Enabled = false;
             SpacerNET.propWin.buttonBbox.Enabled = false;
             SpacerNET.propWin.buttonFileOpen.Enabled = false;
+
         }
 
         [DllExport]
@@ -469,6 +469,15 @@ namespace SpacerUnion
 
             tree.EndUpdate();
             tree.Refresh();
+
+
+            //ConsoleEx.WriteLineYellow("AddProps End");
+            if (Imports.Extern_CanEditBboxCurrentVob() == 0)
+            {
+                EnableTab(SpacerNET.propWin.tabControlProps.TabPages[1], false);
+              ///  ConsoleEx.WriteLineYellow("Disable");
+            }
+
             // tree.Visible = true;
             //ConsoleEx.WriteLineYellow("AddProps End");
         }
@@ -882,8 +891,10 @@ namespace SpacerUnion
                     }
 
                     Label_Backup.Visible = true;
+
+                  
                     buttonRestoreVobProp.Enabled = true;
-                    buttonBbox.Enabled = true;
+                    
                     
                 }
             }
@@ -1189,11 +1200,17 @@ namespace SpacerUnion
         {
             if (SpacerNET.propWin.treeViewProp.SelectedNode != null)
             {
-                EnableTab(tabControlProps.TabPages[1], true);
 
-                textBoxBbox0.Text = Imports.Extern_GetBBox(0).ToString().Replace(',', '.');
-                textBoxBbox1.Text = Imports.Extern_GetBBox(1).ToString().Replace(',', '.');
-                textBoxBbox2.Text = Imports.Extern_GetBBox(2).ToString().Replace(',', '.');
+                if (Imports.Extern_CanEditBboxCurrentVob() == 1)
+                {
+                    EnableTab(tabControlProps.TabPages[1], true);
+
+                    textBoxBbox0.Text = Imports.Extern_GetBBox(0).ToString().Replace(',', '.');
+                    textBoxBbox1.Text = Imports.Extern_GetBBox(1).ToString().Replace(',', '.');
+                    textBoxBbox2.Text = Imports.Extern_GetBBox(2).ToString().Replace(',', '.');
+                }
+                
+               
             }
            
         }

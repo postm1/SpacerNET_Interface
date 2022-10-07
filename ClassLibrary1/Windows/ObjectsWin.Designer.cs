@@ -953,14 +953,14 @@
             // 
             this.labelCurrentKey.Location = new System.Drawing.Point(33, 18);
             this.labelCurrentKey.Name = "labelCurrentKey";
-            this.labelCurrentKey.Size = new System.Drawing.Size(34, 18);
+            this.labelCurrentKey.Size = new System.Drawing.Size(42, 18);
             this.labelCurrentKey.TabIndex = 2;
             this.labelCurrentKey.Text = "0/0";
             this.labelCurrentKey.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonKeyPlus
             // 
-            this.buttonKeyPlus.Location = new System.Drawing.Point(67, 15);
+            this.buttonKeyPlus.Location = new System.Drawing.Point(76, 15);
             this.buttonKeyPlus.Name = "buttonKeyPlus";
             this.buttonKeyPlus.Size = new System.Drawing.Size(27, 23);
             this.buttonKeyPlus.TabIndex = 1;
