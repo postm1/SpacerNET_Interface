@@ -58,8 +58,7 @@ namespace SpacerUnion.Windows
         {
             
             
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-        (e.KeyChar != '.'))
+            if (!char.IsControl(e.KeyChar) && !Utils.IsNumberInput(e.KeyChar, true, true))
             {
                 e.Handled = true;
             }
@@ -80,8 +79,7 @@ namespace SpacerUnion.Windows
 
         private void textBoxCamVec0_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-         (e.KeyChar != '.') && (e.KeyChar != '-'))
+            if (!char.IsControl(e.KeyChar) && !Utils.IsNumberInput(e.KeyChar, true, true))
             {
                 e.Handled = true;
             }

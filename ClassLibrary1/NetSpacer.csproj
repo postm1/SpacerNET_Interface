@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\CameraKeyEntry.cs" />
+    <Compile Include="Common\Exports.cs" />
     <Compile Include="Common\Extended\DBufPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -280,6 +281,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\ObjTree.resx">
       <DependentUpon>ObjTree.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\ObjectsWin.resx">
       <DependentUpon>ObjectsWin.cs</DependentUpon>

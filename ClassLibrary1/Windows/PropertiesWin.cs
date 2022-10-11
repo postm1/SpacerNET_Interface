@@ -327,6 +327,11 @@ namespace SpacerUnion
                     }
 
                 }
+
+
+
+                
+
                 /*
                 Console.WriteLine("=================================");
                 Console.WriteLine(words[i]);
@@ -376,7 +381,7 @@ namespace SpacerUnion
             for (int i = 0; i < props.Count; i++)
             {
                 TreeNode baseNode = props[i].node;
-
+                var prop = props[i];
 
                 if (props[i].Name == "contains")
                 {
@@ -415,8 +420,47 @@ namespace SpacerUnion
                         showFirst = node;
                     }
                 }
-                    
+
+
+                // значки для свойств
+               
+                if (prop.type == TPropEditType.PETbool)
+                {
+                    prop.ownNode.SelectedImageIndex = 5;
+                    prop.ownNode.ImageIndex = 5;
+                }
+                else if (prop.type == TPropEditType.PETint)
+                {
+                    prop.ownNode.SelectedImageIndex = 11;
+                    prop.ownNode.ImageIndex = 11;
+                }
+                else if (prop.type == TPropEditType.PETfloat)
+                {
+                    prop.ownNode.SelectedImageIndex = 9;
+                    prop.ownNode.ImageIndex = 9;
+                }
+                else if (prop.type == TPropEditType.PETstring)
+                {
+                    prop.ownNode.SelectedImageIndex = 12;
+                    prop.ownNode.ImageIndex = 12;
+                }
+                else if (prop.type == TPropEditType.PETenum)
+                {
+                    prop.ownNode.SelectedImageIndex = 8;
+                    prop.ownNode.ImageIndex = 8;
+                }
+                else if (prop.type == TPropEditType.PETraw)
+                {
+                    prop.ownNode.SelectedImageIndex = 10;
+                    prop.ownNode.ImageIndex = 10;
+                }
+                else if (prop.type == TPropEditType.PETvec3)
+                {
+                    prop.ownNode.SelectedImageIndex = 14;
+                    prop.ownNode.ImageIndex = 14;
+                }
                 
+
             }
 
 
@@ -486,7 +530,7 @@ namespace SpacerUnion
 
         private void ObjectsWindow_Shown(object sender, EventArgs e)
         {
-            this.treeViewProp.ImageList = SpacerNET.objTreeWin.imageList1;
+             this.treeViewProp.ImageList = imageListProps;
 
             if (Properties.Settings.Default.PropWindowFont != null)
             {
@@ -909,10 +953,16 @@ namespace SpacerUnion
 
         private void textBoxString_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (currentFieldtype == TPropEditType.PETint || currentFieldtype == TPropEditType.PETfloat)
+            if (currentFieldtype == TPropEditType.PETint)
             {
-                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-         (e.KeyChar != '.'))
+                if (!char.IsControl(e.KeyChar) && !Utils.IsNumberInput(e.KeyChar, false, true))
+                {
+                    e.Handled = true;
+                }
+            }
+            else if ( currentFieldtype == TPropEditType.PETfloat)
+            {
+                if (!char.IsControl(e.KeyChar) && !Utils.IsNumberInput(e.KeyChar, true, true))
                 {
                     e.Handled = true;
                 }
@@ -1124,8 +1174,7 @@ namespace SpacerUnion
 
         private void textBoxVec0_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-         (e.KeyChar != '.') && (e.KeyChar != '-'))
+            if (!char.IsControl(e.KeyChar) && !Utils.IsNumberInput(e.KeyChar, true, true))
             {
                 e.Handled = true;
             }
@@ -1150,8 +1199,7 @@ namespace SpacerUnion
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-         (e.KeyChar != '.') && (e.KeyChar != '-'))
+            if (!char.IsControl(e.KeyChar) && !Utils.IsNumberInput(e.KeyChar, true, true))
             {
                 e.Handled = true;
             }

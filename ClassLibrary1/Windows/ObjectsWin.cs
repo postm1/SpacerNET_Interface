@@ -1292,7 +1292,7 @@ namespace SpacerUnion
         {
             //listBoxActionType.SelectedIndex = 0;
 
-            this.treeViewSearchClass.ImageList = SpacerNET.objTreeWin.imageList1;
+            this.treeViewSearchClass.ImageList = SpacerNET.objTreeWin.imageListObjects;
             InitCameraTab();
         }
 
@@ -1385,8 +1385,7 @@ namespace SpacerUnion
 
         private void textBoxItemCount_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-        (e.KeyChar != '.'))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !Utils.IsNumberInput(e.KeyChar, false, false))
             {
                 e.Handled = true;
             }
@@ -2506,15 +2505,14 @@ namespace SpacerUnion
 
             if (currentFieldtype == TPropEditType.PETint)
             {
-                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                if (!char.IsControl(e.KeyChar) && !Utils.IsNumberInput(e.KeyChar, false, true))
                 {
                     e.Handled = true;
                 }
             }
             else if (currentFieldtype == TPropEditType.PETfloat)
             {
-                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-         (e.KeyChar != '.'))
+                if (!char.IsControl(e.KeyChar) && !Utils.IsNumberInput(e.KeyChar, true, true))
                 {
                     e.Handled = true;
                 }
@@ -3239,10 +3237,12 @@ namespace SpacerUnion
 
             if (cb.SelectedIndex == 1)
             {
+                
+                MessageBox.Show("Not working yet!");
+                return;
                 comboBoxSearchClassReplace.Visible = true;
                 radioButtonConvertOld.Visible = true;
                 radioButtonConvertNew.Visible = true;
-                MessageBox.Show("Not working yet!");
             }
             else if (radioButtonConvertNew.Checked)
             {

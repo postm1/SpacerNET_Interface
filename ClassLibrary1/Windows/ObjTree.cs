@@ -24,6 +24,7 @@ namespace SpacerUnion
 
 
         public static Dictionary<uint, TreeEntry> globalEntries = new Dictionary<uint, TreeEntry>();
+        public static Dictionary<uint, TreeEntry> matEntries = new Dictionary<uint, TreeEntry>();
         public static Dictionary<uint, TreeEntry> tempEntries = new Dictionary<uint, TreeEntry>();
         static bool nextAfterEventBlocked = false;
         static TreeNode lastSelectedNode = null;
@@ -33,6 +34,8 @@ namespace SpacerUnion
         {
             InitializeComponent();
             quickVobMan = new QuickVobsManager();
+
+            //this.imageListObjects.ImageSize = new Size(16, 16);
         }
 
         public void UpdateLang()
@@ -244,6 +247,7 @@ namespace SpacerUnion
             SpacerNET.objTreeWin.quickTree.Nodes.Clear();
             SpacerNET.objTreeWin.matTree.Nodes.Clear();
             ObjTree.globalEntries.Clear();
+            ObjTree.matEntries.Clear();
             ObjTree.quickVobMan.Clear();
             ObjTree.quickVobMan.Clear();
 
@@ -410,6 +414,45 @@ namespace SpacerUnion
             }
         }
 
+
+
+        [DllExport]
+        public static void OnSelectMaterial(uint ptr)
+        {
+            if (ptr == 0)
+            {
+                return;
+            }
+
+            //ConsoleEx.WriteLineGreen("OnSelectMaterial: " + Utils.ToHex(ptr));
+
+
+            TreeEntry entry = null;
+
+
+            entry = matEntries
+                    .Where(x => x.Value.zCVob == ptr)
+                    .Select(pair => pair.Value)
+                    .FirstOrDefault();
+
+            if (entry != null)
+            {
+                if (entry.node != null)
+                {
+                    SpacerNET.objTreeWin.matTree.SelectedNode = entry.node;
+                }
+                else
+                {
+                    Utils.Error("OnSelectMaterial: entry.node is null, key/addr/vob is " + Utils.ToHex(ptr));
+                }
+
+            }
+            else
+            {
+                Utils.Error("OnSelectMaterial: No key/addr/vob found in matEntries. Key: " + Utils.ToHex(ptr));
+            }
+        }
+
         [DllExport]
         public static void OnSelectVob(uint ptr)
         {
@@ -435,7 +478,15 @@ namespace SpacerUnion
             {
                 if (entry.node != null)
                 {
-                    SpacerNET.objTreeWin.globalTree.SelectedNode = entry.node;
+                    var nodeSelected = SpacerNET.objTreeWin.globalTree.SelectedNode;
+
+                    nodeSelected = entry.node;
+
+                    if (SpacerNET.objTreeWin.globalTree.Visible)
+                    {
+                        nodeSelected.EnsureVisible();
+                    }
+                    
                 }
                 else
                 {
@@ -617,7 +668,12 @@ namespace SpacerUnion
             //ConsoleEx.WriteLineGreen("All TreeView nodes count: " + countNodeView);
             
             //Console.WriteLine("=============================");
+            
 
+            if (SpacerNET.objTreeWin.globalTree.SelectedNode != null)
+            {
+                SpacerNET.objTreeWin.globalTree_AfterSelect(null, null);
+            }
 
         }
 
@@ -848,7 +904,7 @@ namespace SpacerUnion
             catch
             {
 
-                Utils.Error("AddGlobalEntry: ключ уже существует!: Key: " + Utils.ToHex(vob) + ", Name: " + name + " Parent: " + Utils.ToHex(parent));
+                Utils.Error("AddGlobalEntry: Key exists!: Key: " + Utils.ToHex(vob) + ", Name: " + name + " Parent: " + Utils.ToHex(parent));
             }
             
 
@@ -1561,47 +1617,11 @@ namespace SpacerUnion
         }
 
 
-        [DllExport]
-        public static void SetObjTree_VisibleToggle(int val)
-        {
-            bool toggle = Convert.ToBoolean(val);
 
-            
-            SpacerNET.objTreeWin.matTree.Visible = Convert.ToBoolean(toggle);
 
-            if (toggle)
-            {
-                SpacerNET.objTreeWin.matTree.EndUpdate();
-            }
-            else
-            {
-                SpacerNET.objTreeWin.matTree.BeginUpdate();
-            }
-            
-        }
-        [DllExport]
-        public static void AddGlobalEntryMat(uint mat)
-        {
-            //SpacerNET.objTreeWin.matTree.Visible = false;
+       
 
-            TreeNodeCollection nodes = SpacerNET.objTreeWin.matTree.Nodes;
-            
-
-            string group = Imports.Stack_PeekString();
-            string name = Imports.Stack_PeekString();
-
-            int nodeIndex = CreateAndGetFolderMat(group);
-
-            TreeNode node = nodes[nodeIndex].Nodes.Add(name);
-            node.Tag = mat;
-            node.Text = name;
-            node.ImageIndex = 1;
-            node.SelectedImageIndex = 1;
-
-           // SpacerNET.objTreeWin.matTree.Visible = true;
-
-           // ConsoleEx.WriteLineYellow("AddGlobalEntryMat: " + nodes.Count);
-        }
+        
 
         private void matTree_MouseDoubleClick(object sender, MouseEventArgs e)
         {

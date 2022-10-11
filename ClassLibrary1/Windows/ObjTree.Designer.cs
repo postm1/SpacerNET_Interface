@@ -43,7 +43,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuRestorePos = new System.Windows.Forms.ToolStripMenuItem();
             this.tempInvisibleToolStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imageListObjects = new System.Windows.Forms.ImageList(this.components);
             this.buttonCollapse = new System.Windows.Forms.Button();
             this.buttonExpand = new System.Windows.Forms.Button();
             this.openFileDialogVobTree = new System.Windows.Forms.OpenFileDialog();
@@ -80,7 +80,7 @@
             this.globalTree.HideSelection = false;
             this.globalTree.HotTracking = true;
             this.globalTree.ImageIndex = 0;
-            this.globalTree.ImageList = this.imageList1;
+            this.globalTree.ImageList = this.imageListObjects;
             this.globalTree.Location = new System.Drawing.Point(3, 46);
             this.globalTree.Name = "globalTree";
             this.globalTree.SelectedImageIndex = 0;
@@ -186,15 +186,15 @@
             this.tempInvisibleToolStrip.Text = "Переместить все вобы из родителя";
             this.tempInvisibleToolStrip.Click += new System.EventHandler(this.tempInvisibleToolStrip_Click);
             // 
-            // imageList1
+            // imageListObjects
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "256-256-722452f33cc453c66fdb23d8c3b4c820-folder.png");
-            this.imageList1.Images.SetKeyName(1, "p3.png");
-            this.imageList1.Images.SetKeyName(2, "selWP.png");
-            this.imageList1.Images.SetKeyName(3, "selnew.png");
-            this.imageList1.Images.SetKeyName(4, "256-256-722452f33cc453c66fdb23d8c3b4c820-folder.png");
+            this.imageListObjects.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListObjects.ImageStream")));
+            this.imageListObjects.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListObjects.Images.SetKeyName(0, "256-256-722452f33cc453c66fdb23d8c3b4c820-folder.png");
+            this.imageListObjects.Images.SetKeyName(1, "p3.png");
+            this.imageListObjects.Images.SetKeyName(2, "selWP.png");
+            this.imageListObjects.Images.SetKeyName(3, "selnew.png");
+            this.imageListObjects.Images.SetKeyName(4, "256-256-722452f33cc453c66fdb23d8c3b4c820-folder.png");
             // 
             // buttonCollapse
             // 
@@ -285,7 +285,7 @@
             this.quickTree.HideSelection = false;
             this.quickTree.HotTracking = true;
             this.quickTree.ImageIndex = 0;
-            this.quickTree.ImageList = this.imageList1;
+            this.quickTree.ImageList = this.imageListObjects;
             this.quickTree.Location = new System.Drawing.Point(3, 3);
             this.quickTree.Name = "quickTree";
             this.quickTree.SelectedImageIndex = 0;
@@ -335,7 +335,7 @@
             this.matTree.HideSelection = false;
             this.matTree.HotTracking = true;
             this.matTree.ImageIndex = 0;
-            this.matTree.ImageList = this.imageList1;
+            this.matTree.ImageList = this.imageListObjects;
             this.matTree.Location = new System.Drawing.Point(0, 43);
             this.matTree.Name = "matTree";
             this.matTree.SelectedImageIndex = 0;
@@ -420,7 +420,7 @@
         #endregion
 
         public System.Windows.Forms.TreeView globalTree;
-        public System.Windows.Forms.ImageList imageList1;
+        public System.Windows.Forms.ImageList imageListObjects;
         private System.Windows.Forms.Button buttonCollapse;
         private System.Windows.Forms.Button buttonExpand;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripTree;

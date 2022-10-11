@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ObjectsWindow));
             this.contextMenuStripContainer = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.удалитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogFileName = new System.Windows.Forms.OpenFileDialog();
             this.fontDialogSelect = new System.Windows.Forms.FontDialog();
+            this.imageListProps = new System.Windows.Forms.ImageList(this.components);
             this.dBufPanelMainTab = new SpacerUnion.Common.Extended.DBufPanel();
             this.tabControlProps = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -103,6 +105,26 @@
             this.удалитьСтрокуToolStripMenuItem.Text = "Удалить строку";
             this.удалитьСтрокуToolStripMenuItem.Click += new System.EventHandler(this.удалитьСтрокуToolStripMenuItem_Click);
             // 
+            // imageListProps
+            // 
+            this.imageListProps.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListProps.ImageStream")));
+            this.imageListProps.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListProps.Images.SetKeyName(0, "imgFolder_v4_16x16.png");
+            this.imageListProps.Images.SetKeyName(1, "p3.png");
+            this.imageListProps.Images.SetKeyName(2, "selWP.png");
+            this.imageListProps.Images.SetKeyName(3, "selnew.png");
+            this.imageListProps.Images.SetKeyName(4, "256-256-722452f33cc453c66fdb23d8c3b4c820-folder.png");
+            this.imageListProps.Images.SetKeyName(5, "imgBool16x16.png");
+            this.imageListProps.Images.SetKeyName(6, "imgClass16x16.png");
+            this.imageListProps.Images.SetKeyName(7, "imgColor16x16.png");
+            this.imageListProps.Images.SetKeyName(8, "imgEnum16x16.png");
+            this.imageListProps.Images.SetKeyName(9, "imgFloat16x16.png");
+            this.imageListProps.Images.SetKeyName(10, "imgMAT16x16.png");
+            this.imageListProps.Images.SetKeyName(11, "imgNum16x16.png");
+            this.imageListProps.Images.SetKeyName(12, "imgString16x16.png");
+            this.imageListProps.Images.SetKeyName(13, "imgUnknown16x16.png");
+            this.imageListProps.Images.SetKeyName(14, "imgVEC16x16.png");
+            // 
             // dBufPanelMainTab
             // 
             this.dBufPanelMainTab.Controls.Add(this.tabControlProps);
@@ -144,8 +166,11 @@
             this.treeViewProp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewProp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.treeViewProp.HideSelection = false;
+            this.treeViewProp.ImageIndex = 0;
+            this.treeViewProp.ImageList = this.imageListProps;
             this.treeViewProp.Location = new System.Drawing.Point(3, 3);
             this.treeViewProp.Name = "treeViewProp";
+            this.treeViewProp.SelectedImageIndex = 0;
             this.treeViewProp.Size = new System.Drawing.Size(316, 352);
             this.treeViewProp.TabIndex = 1;
             this.treeViewProp.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.treeViewProp_DrawNode);
@@ -657,5 +682,6 @@
         private System.Windows.Forms.Button buttonResetFontDefault;
         private System.Windows.Forms.Label labelChangeFontStyleText;
         private Common.Extended.DBufPanel dBufPanelMainTab;
+        public System.Windows.Forms.ImageList imageListProps;
     }
 }

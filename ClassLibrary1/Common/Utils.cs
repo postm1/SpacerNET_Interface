@@ -13,7 +13,7 @@ namespace SpacerUnion
 {
     public class Constants
     {
-        public const string SPACER_VERSION = "0.31";
+        public const string SPACER_VERSION = "0.32";
 
 
         public const string FILE_FILTER_OPEN_ZEN = "Compiled ZEN (*.zen)|*.zen|Uncompiled ZEN (*.zen)|*.zen";
@@ -183,6 +183,26 @@ namespace SpacerUnion
             Imports.Stack_PushString(text);
 
             return Convert.ToBoolean(Imports.Extern_GetSetting());
+        }
+
+        public static bool IsNumberInput(char input, bool isFloat, bool isNegative)
+        {
+            if (!isNegative && input == '-')
+            {
+                return false;
+            }
+
+            if (!isFloat && input == '.')
+            {
+                return false;
+            }
+
+            if (char.IsDigit(input) || input == '.' || input == '-')
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 
