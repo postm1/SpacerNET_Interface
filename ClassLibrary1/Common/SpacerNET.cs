@@ -281,6 +281,10 @@ namespace SpacerUnion
                 vobList.Size = Properties.Settings.Default.VobListSize;
             }
 
+            if (Properties.Settings.Default.InfoWinSize != null)
+            {
+                infoWin.Size = Properties.Settings.Default.InfoWinSize;
+            }
 
 
             LoadSettingsToInterface();
@@ -413,6 +417,8 @@ namespace SpacerUnion
 
             miscSetWin.LoadSettings();
 
+            infoWin.LoadSettings();
+
             isInit = true;
 
             form.UpdateLangAfter();
@@ -459,6 +465,7 @@ namespace SpacerUnion
             Properties.Settings.Default.TreeWinSize = objTreeWin.Size;
             Properties.Settings.Default.PropsWinSize = propWin.Size;
             Properties.Settings.Default.VobListSize = vobList.Size;
+            Properties.Settings.Default.InfoWinSize = infoWin.Size;
 
 
             Properties.Settings.Default.Save();

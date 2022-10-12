@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -198,6 +199,37 @@ namespace SpacerUnion.Common
                     Application.DoEvents();
                 }
             }
+        }
+
+        [DllExport]
+        public static void ShowVdfWarning()
+        {
+            SpacerNET.infoWin.AddText(Localizator.Get("WARNING_VDF_FILE_OPEN"), Color.Red);
+
+        }
+
+        // сообщение в окно
+        [DllExport]
+        public static void InfoWin_AddText()
+        {
+            string color_str = Imports.Stack_PeekString();
+            string str = Imports.Stack_PeekString();
+
+            color_str = color_str.ToUpper();
+
+            var lightGray = System.Drawing.ColorTranslator.FromHtml(color_str);
+
+            if (lightGray != Color.Empty)
+            {
+                //ConsoleEx.WriteLineYellow(lightGray.ToString());
+                SpacerNET.infoWin.AddText_External(str, lightGray);
+            }
+            else
+            {
+                //ConsoleEx.WriteLineYellow("No color, black");
+                SpacerNET.infoWin.AddText_External(str, Color.Black);
+            }
+
         }
     }
 }

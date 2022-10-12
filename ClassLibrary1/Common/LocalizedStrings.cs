@@ -585,6 +585,9 @@ namespace SpacerUnion.Common
 
             words.Add("FORM_HINT_INSERT_WPFP", new List<string> { "*Кнопка {0}, чтобы вставить новый воб", "*Press {0} button to insert a new vob", "", "*Wciśnij klawisz {0} aby dodać nowy vob" });
 
+
+
+            words.Add("checkBoxInfoUseZSpy", new List<string> { "Отладочные сообщения zSpy", "zSpy debug messages", "", "" });
             
         }
         

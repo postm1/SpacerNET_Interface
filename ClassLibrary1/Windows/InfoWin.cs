@@ -19,35 +19,21 @@ namespace SpacerUnion
             InitializeComponent();
         }
 
-        [DllExport]
-        public static void ShowVdfWarning()
+
+
+
+        public void LoadSettings()
         {
-            SpacerNET.infoWin.AddText(Localizator.Get("WARNING_VDF_FILE_OPEN"), Color.Red);
-      
-        }
+
+            Imports.Stack_PushString("infoWinzSpyEnabled");
+            checkBoxInfoUseZSpy.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("infoWinzSpyLevel");
+            trackBarSpy.Value = Imports.Extern_GetSetting();
 
 
-        [DllExport]
-        public static void InfoWin_AddText()
-        {
-            string color_str = Imports.Stack_PeekString();
-            string str = Imports.Stack_PeekString();
-
-            color_str = color_str.ToUpper();
-
-            var lightGray = System.Drawing.ColorTranslator.FromHtml(color_str);
-
-            if (lightGray != Color.Empty)
-            {
-                //ConsoleEx.WriteLineYellow(lightGray.ToString());
-                SpacerNET.infoWin.AddText_External(str, lightGray);
-            }
-            else
-            {
-                //ConsoleEx.WriteLineYellow("No color, black");
-                SpacerNET.infoWin.AddText_External(str, Color.Black);
-            }
-
+            checkBoxInfoUseZSpy_CheckedChanged(null, null);
+            trackBarSpy_ValueChanged(null, null);
         }
 
         public void AddText_External(string str, Color color)
@@ -64,10 +50,13 @@ namespace SpacerUnion
             richTextBoxInfo.SelectionColor = color;
         }
 
+        
+
         public void UpdateLang()
         {
             this.Text = Localizator.Get("WIN_INFO_TITLE");
             buttonInfoClear.Text = Localizator.Get("WIN_INFO_CLEAR");
+            checkBoxInfoUseZSpy.Text = Localizator.Get("checkBoxInfoUseZSpy");
         }
         
         public void AddText(string str)
@@ -101,6 +90,29 @@ namespace SpacerUnion
 
         private void InfoWin_Move(object sender, EventArgs e)
         {
+        }
+
+        private void trackBarSpy_ValueChanged(object sender, EventArgs e)
+        {
+            labelLevelzSPY.Text = trackBarSpy.Value.ToString();
+
+            Imports.Stack_PushString("infoWinzSpyLevel");
+            Imports.Extern_SetSetting(trackBarSpy.Value);
+
+
+        }
+
+        private void checkBoxInfoUseZSpy_CheckedChanged(object sender, EventArgs e)
+        {
+            trackBarSpy.Enabled = checkBoxInfoUseZSpy.Checked;
+
+            Imports.Stack_PushString("infoWinzSpyEnabled");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxInfoUseZSpy.Checked));
+        }
+
+        private void labelLevelzSPY_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -406,5 +406,17 @@ namespace SpacerUnion.Properties {
                 this["MacrosWinLocation"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("365, 430")]
+        public global::System.Drawing.Size InfoWinSize {
+            get {
+                return ((global::System.Drawing.Size)(this["InfoWinSize"]));
+            }
+            set {
+                this["InfoWinSize"] = value;
+            }
+        }
     }
 }
