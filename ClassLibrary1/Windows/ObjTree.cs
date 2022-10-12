@@ -258,6 +258,8 @@ namespace SpacerUnion
         }
 
 
+
+
         // Обновление родителя для сущ. воба
         [DllExport]
         public static void updateParentAddNode(uint ptr, uint ptrParent)
@@ -856,7 +858,7 @@ namespace SpacerUnion
             noParentCount = 0;
 
            // SpacerNET.objTreeWin.globalTree.Visible = false;
-            SpacerNET.objTreeWin.globalTree.BeginUpdate();
+
 
             //globalEntries = globalEntries.OrderBy(x => x.Value.name).ToDictionary(x => x.Key, x => x.Value);
 
@@ -866,9 +868,8 @@ namespace SpacerUnion
             }
 
             ConsoleEx.WriteLineGreen("Tree is ready. GlobalEntries count: " + globalEntries.Count);
-           // SpacerNET.objTreeWin.globalTree.Visible = true;
-            SpacerNET.objTreeWin.globalTree.EndUpdate();
-            Application.DoEvents();
+
+            //Application.DoEvents();
 
         }
 

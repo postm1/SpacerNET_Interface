@@ -2260,7 +2260,6 @@
         private System.Windows.Forms.Button buttonItemsCreate;
         private System.Windows.Forms.TextBox textBoxItems;
         private System.Windows.Forms.GroupBox groupBoxObjAllClasses;
-        private System.Windows.Forms.TreeView classesTreeView;
         private System.Windows.Forms.Button buttonAllClassesCreateVob;
         private System.Windows.Forms.Label labelObjAllClassesNameVob;
         private System.Windows.Forms.TextBox textBoxVobName;
@@ -2339,7 +2338,6 @@
         public System.Windows.Forms.ComboBox comboBoxSearchClass;
         private System.Windows.Forms.CheckBox checkBoxSearchDerived;
         private System.Windows.Forms.Label labelSearchResult;
-        private System.Windows.Forms.ListBox listBoxSearchResult;
         private System.Windows.Forms.GroupBox groupBoxObjPropVobs;
         public System.Windows.Forms.CheckBox checkBoxShowPreview;
         public System.Windows.Forms.CheckBox checkBoxSearchOnly3DS;
@@ -2431,5 +2429,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.Label labelHintWP;
         private System.Windows.Forms.Label labelHintFP;
+        public System.Windows.Forms.TreeView classesTreeView;
+        public System.Windows.Forms.ListBox listBoxSearchResult;
     }
 }

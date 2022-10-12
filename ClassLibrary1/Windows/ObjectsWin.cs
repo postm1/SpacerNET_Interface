@@ -903,7 +903,7 @@ namespace SpacerUnion
                     return;
                 }
 
-
+                listBoxPfxResult.BeginUpdate();
 
                 listBoxPfxResult.Items.Clear();
 
@@ -918,6 +918,8 @@ namespace SpacerUnion
                         listBoxPfxResult.Items.Add(value);
                     }
                 }
+
+                listBoxPfxResult.EndUpdate();
             }
         }
 
@@ -931,6 +933,8 @@ namespace SpacerUnion
         {
             if (e.KeyChar == (char)13)
             {
+                e.Handled = true;
+
                 string strToFind = textBoxVisuals.Text.Trim().ToUpper();
 
                 if (checkBoxSearchOnly3DS.Checked)
@@ -950,6 +954,7 @@ namespace SpacerUnion
                     return;
                 }
 
+                listBoxVisuals.BeginUpdate();
 
                 listBoxVisuals.Items.Clear();
 
@@ -997,7 +1002,7 @@ namespace SpacerUnion
 
                 SpacerNET.objectsWin.labelSearchVisual.Text = Localizator.Get("WIN_OBJ_SEARCHVISUAL_ALL") + ": " + listBoxVisuals.Items.Count;
 
-
+                listBoxVisuals.EndUpdate();
             }
         }
 
