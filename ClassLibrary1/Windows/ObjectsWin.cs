@@ -2700,6 +2700,8 @@ namespace SpacerUnion
                 Imports.Stack_PushString(replaceZenPath);
             }
 
+            //ConsoleEx.WriteLineYellow("search");
+
             Imports.Stack_PushInt(countSelected);
             int result = Imports.Extern_SearchVobs(checkBoxSearchDerived.Checked, checkBoxSearchHasChildren.Checked, comboBoxSearchType.SelectedIndex, onlyNameVisualSearch);
 

@@ -587,8 +587,10 @@ namespace SpacerUnion.Common
 
 
 
-            words.Add("checkBoxInfoUseZSpy", new List<string> { "Отладочные сообщения zSpy", "zSpy debug messages", "", "" });
-            
+            words.Add("checkBoxInfoUseZSpy", new List<string> { "Отладочные сообщения zSpy", "zSpy debug messages", "", "Komunikaty debugowania zSpy" });
+            words.Add("MSG_COMMON_SEARCH", new List<string> { "Поиск", "Search", "", "Szukaj" });
+            words.Add("MSG_COMMON_COMMON", new List<string> { "Общее", "Common", "", "Ogólne" });
+            words.Add("MSG_COMMON_MATSEACH", new List<string> { "Поиск материала:", "Material search:", "", "Szukaj materiał:" });
         }
         
     }

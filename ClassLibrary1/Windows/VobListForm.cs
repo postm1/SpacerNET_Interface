@@ -34,6 +34,9 @@ namespace SpacerUnion
             //labelVobType.Text = Localizator.Get("labelVobType");
             labelRadius.Text = Localizator.Get("labelRadius") + ": " + trackBarRadius.Value;
             btnRemoveContainerVobs.Text = Localizator.Get("VOB_SEARCH_TYPE3");
+            buttonVobListSearch.Text = Localizator.Get("MSG_COMMON_SEARCH");
+
+            
         }
 
         [DllExport]
@@ -142,6 +145,7 @@ namespace SpacerUnion
         private void очиститьСписокToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listBoxVobs.Items.Clear();
+            vobList.Clear();
         }
 
         private void listBoxVobs_SelectedIndexChanged(object sender, EventArgs e)
@@ -181,7 +185,7 @@ namespace SpacerUnion
 
         private void buttonVobListSearch_Click(object sender, EventArgs e)
         {
-
+            Imports.Extern_SearchVobList();
         }
     }
 }

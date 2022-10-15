@@ -122,6 +122,8 @@ namespace SpacerUnion
             this.Text = Localizator.Get("WIN_INFO_TITLE");
             buttonInfoClear.Text = Localizator.Get("WIN_INFO_CLEAR");
             checkBoxInfoUseZSpy.Text = Localizator.Get("checkBoxInfoUseZSpy");
+
+            tabControlInfo.TabPages[0].Text = Localizator.Get("MSG_COMMON_COMMON");
         }
         
         public void AddText(string str)
