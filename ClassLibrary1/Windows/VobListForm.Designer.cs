@@ -34,24 +34,27 @@
             this.очиститьСписокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackBarRadius = new System.Windows.Forms.TrackBar();
             this.labelRadius = new System.Windows.Forms.Label();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.panelVobList = new System.Windows.Forms.Panel();
             this.btnRemoveContainerVobs = new System.Windows.Forms.Button();
             this.comboBoxVobList = new System.Windows.Forms.ComboBox();
+            this.panelVobListBottom = new System.Windows.Forms.Panel();
+            this.buttonVobListSearch = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRadius)).BeginInit();
             this.panelVobList.SuspendLayout();
+            this.panelVobListBottom.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBoxVobs
             // 
+            this.listBoxVobs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBoxVobs.ContextMenuStrip = this.contextMenuStrip1;
             this.listBoxVobs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxVobs.FormattingEnabled = true;
-            this.listBoxVobs.Location = new System.Drawing.Point(0, 66);
+            this.listBoxVobs.Location = new System.Drawing.Point(0, 0);
             this.listBoxVobs.Name = "listBoxVobs";
             this.listBoxVobs.ScrollAlwaysVisible = true;
-            this.listBoxVobs.Size = new System.Drawing.Size(307, 268);
+            this.listBoxVobs.Size = new System.Drawing.Size(301, 256);
             this.listBoxVobs.TabIndex = 0;
             this.listBoxVobs.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxVobs_MouseClick);
             this.listBoxVobs.SelectedIndexChanged += new System.EventHandler(this.listBoxVobs_SelectedIndexChanged);
@@ -94,21 +97,22 @@
             // 
             // panelVobList
             // 
+            this.panelVobList.Controls.Add(this.buttonVobListSearch);
             this.panelVobList.Controls.Add(this.btnRemoveContainerVobs);
             this.panelVobList.Controls.Add(this.comboBoxVobList);
             this.panelVobList.Controls.Add(this.labelRadius);
             this.panelVobList.Controls.Add(this.trackBarRadius);
             this.panelVobList.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelVobList.Location = new System.Drawing.Point(0, 0);
+            this.panelVobList.Location = new System.Drawing.Point(2, 2);
             this.panelVobList.Name = "panelVobList";
-            this.panelVobList.Size = new System.Drawing.Size(307, 66);
+            this.panelVobList.Size = new System.Drawing.Size(303, 72);
             this.panelVobList.TabIndex = 7;
             // 
             // btnRemoveContainerVobs
             // 
-            this.btnRemoveContainerVobs.Location = new System.Drawing.Point(174, 39);
+            this.btnRemoveContainerVobs.Location = new System.Drawing.Point(214, 38);
             this.btnRemoveContainerVobs.Name = "btnRemoveContainerVobs";
-            this.btnRemoveContainerVobs.Size = new System.Drawing.Size(107, 23);
+            this.btnRemoveContainerVobs.Size = new System.Drawing.Size(80, 23);
             this.btnRemoveContainerVobs.TabIndex = 6;
             this.btnRemoveContainerVobs.Text = "Удалить";
             this.btnRemoveContainerVobs.UseVisualStyleBackColor = true;
@@ -129,23 +133,45 @@
             "zCTrigger",
             "zCVobSpot",
             "oCMOB"});
-            this.comboBoxVobList.Location = new System.Drawing.Point(6, 39);
+            this.comboBoxVobList.Location = new System.Drawing.Point(0, 39);
             this.comboBoxVobList.Name = "comboBoxVobList";
-            this.comboBoxVobList.Size = new System.Drawing.Size(147, 21);
+            this.comboBoxVobList.Size = new System.Drawing.Size(122, 21);
             this.comboBoxVobList.TabIndex = 5;
             this.comboBoxVobList.SelectedIndexChanged += new System.EventHandler(this.comboBoxVobList_SelectedIndexChanged);
+            // 
+            // panelVobListBottom
+            // 
+            this.panelVobListBottom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelVobListBottom.Controls.Add(this.listBoxVobs);
+            this.panelVobListBottom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelVobListBottom.Location = new System.Drawing.Point(2, 74);
+            this.panelVobListBottom.Name = "panelVobListBottom";
+            this.panelVobListBottom.Size = new System.Drawing.Size(303, 258);
+            this.panelVobListBottom.TabIndex = 8;
+            // 
+            // buttonVobListSearch
+            // 
+            this.buttonVobListSearch.Location = new System.Drawing.Point(128, 38);
+            this.buttonVobListSearch.Name = "buttonVobListSearch";
+            this.buttonVobListSearch.Size = new System.Drawing.Size(80, 23);
+            this.buttonVobListSearch.TabIndex = 7;
+            this.buttonVobListSearch.Text = "Найти";
+            this.buttonVobListSearch.UseVisualStyleBackColor = true;
+            this.buttonVobListSearch.Click += new System.EventHandler(this.buttonVobListSearch_Click);
             // 
             // VobListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(307, 334);
-            this.Controls.Add(this.listBoxVobs);
+            this.Controls.Add(this.panelVobListBottom);
             this.Controls.Add(this.panelVobList);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(323, 373);
             this.Name = "VobListForm";
+            this.Padding = new System.Windows.Forms.Padding(2);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Контейнер вобов";
@@ -154,6 +180,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRadius)).EndInit();
             this.panelVobList.ResumeLayout(false);
             this.panelVobList.PerformLayout();
+            this.panelVobListBottom.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -164,9 +191,10 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem очиститьСписокToolStripMenuItem;
         public System.Windows.Forms.TrackBar trackBarRadius;
-        private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.Panel panelVobList;
         private System.Windows.Forms.ComboBox comboBoxVobList;
         private System.Windows.Forms.Button btnRemoveContainerVobs;
+        private System.Windows.Forms.Panel panelVobListBottom;
+        private System.Windows.Forms.Button buttonVobListSearch;
     }
 }

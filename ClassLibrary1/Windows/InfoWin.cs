@@ -11,16 +11,52 @@ using System.Windows.Forms;
 
 namespace SpacerUnion
 {
+
+
+    
+
     public partial class InfoWin : Form
     {
+        private List<SpyMessageEntry> listSpyMessages;
+        Timer msgTimer;
 
         public InfoWin()
         {
             InitializeComponent();
+            listSpyMessages = new List<SpyMessageEntry>();
+            msgTimer = new Timer();
+            msgTimer.Interval = 100;
+            msgTimer.Enabled = true;
+            msgTimer.Tick += MsgTimer_Tick;
         }
 
+        private void MsgTimer_Tick(object sender, EventArgs e)
+        {
+            if (!SpacerNET.isInit || listSpyMessages.Count == 0)
+            {
+                return;
+            }
 
+            
+            richTextBoxSpy.Visible = false;
 
+            for (int i = 0; i < listSpyMessages.Count; i++)
+            {
+                var entry = listSpyMessages[i];
+
+                AddText_SpyOnTime(entry.text, entry.color);
+            }
+
+            listSpyMessages.Clear();
+
+            
+
+            richTextBoxSpy.SelectionStart = richTextBoxSpy.Text.Length;
+            richTextBoxSpy.ScrollToCaret();
+            richTextBoxSpy.Visible = true;
+            Application.DoEvents();
+
+        }
 
         public void LoadSettings()
         {
@@ -43,6 +79,35 @@ namespace SpacerUnion
             SetColor(Color.Black);
         }
 
+
+        public void AddText_SpyOnTime(string str, Color color)
+        {
+            SetColorSpy(color);
+            this.richTextBoxSpy.AppendText(str);
+            SetColorSpy(Color.Black);
+        }
+        public void AddText_ExternalSpy(string str, Color color)
+        {
+            var entry = new SpyMessageEntry();
+
+            entry.color = color;
+            entry.text = str;
+
+            listSpyMessages.Add(entry);
+
+            if (listSpyMessages.Count >= 10)
+            {
+                MsgTimer_Tick(null, null);
+            }
+
+        }
+
+
+        public void SetColorSpy(Color color)
+        {
+            richTextBoxSpy.Select(richTextBoxSpy.TextLength, 0);
+            richTextBoxSpy.SelectionColor = color;
+        }
 
         public void SetColor(Color color)
         {
@@ -73,7 +138,7 @@ namespace SpacerUnion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            richTextBoxInfo.Clear();
+            richTextBoxSpy.Clear();
         }
 
         private void InfoWin_FormClosing(object sender, FormClosingEventArgs e)
@@ -114,5 +179,16 @@ namespace SpacerUnion
         {
 
         }
+
+        private void richTextBoxSpy_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+    }
+
+     class SpyMessageEntry
+    {
+        public Color color;
+        public string text;
     }
 }

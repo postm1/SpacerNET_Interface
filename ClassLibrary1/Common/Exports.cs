@@ -18,7 +18,8 @@ namespace SpacerUnion.Common
         UI_LIST_ITEMS,
         UI_ALL_VOBS_TREE_LIST,
         UI_MAT_LIST,
-        UI_LIST_SEARCH_RESULT
+        UI_LIST_SEARCH_RESULT,
+        UI_WIN_VOBLIST
     };
 
 
@@ -36,55 +37,60 @@ namespace SpacerUnion.Common
             switch (type)
             {
                 case UIElementType.UI_SOUND_LIST:
-                {
-                   obj = SpacerNET.soundWin.listBoxSound;
+                    {
+                        obj = SpacerNET.soundWin.listBoxSound;
 
-                }; break;
+                    }; break;
 
                 case UIElementType.UI_MUSIC_LIST:
-                {
-                    obj = SpacerNET.soundWin.listBoxMusic;
+                    {
+                        obj = SpacerNET.soundWin.listBoxMusic;
 
-                }; break;
+                    }; break;
 
                 case UIElementType.UI_LIST_PFX:
-                {
-                    obj = SpacerNET.objectsWin.listBoxParticles;
+                    {
+                        obj = SpacerNET.objectsWin.listBoxParticles;
 
-                }; break;
+                    }; break;
 
                 case UIElementType.UI_LIST_ITEMS:
-                {
-                    obj = SpacerNET.objectsWin.listBoxItems;
+                    {
+                        obj = SpacerNET.objectsWin.listBoxItems;
 
-                }; break;
+                    }; break;
 
                 case UIElementType.UI_ALL_VOBS_TREE_LIST:
-                {
-                    obj = SpacerNET.objTreeWin.globalTree;
+                    {
+                        obj = SpacerNET.objTreeWin.globalTree;
 
-                }; break;
+                    }; break;
 
 
                 case UIElementType.UI_MAIN_CLASSES:
-                {
-                    obj = SpacerNET.objectsWin.classesTreeView;
+                    {
+                        obj = SpacerNET.objectsWin.classesTreeView;
 
-                }; break;
+                    }; break;
 
                 case UIElementType.UI_MAT_LIST:
-                {
-                    obj = SpacerNET.objTreeWin.matTree;
+                    {
+                        obj = SpacerNET.objTreeWin.matTree;
 
-                }; break;
+                    }; break;
 
                 case UIElementType.UI_LIST_SEARCH_RESULT:
-                {
-                    obj = SpacerNET.objectsWin.listBoxSearchResult;
+                    {
+                        obj = SpacerNET.objectsWin.listBoxSearchResult;
 
-                }; break;
+                    }; break;
 
-                    
+                case UIElementType.UI_WIN_VOBLIST:
+                    {
+                        obj = SpacerNET.vobList.listBoxVobs;
+
+                    }; break;
+
             }
 
             if (obj != null)
@@ -176,7 +182,7 @@ namespace SpacerUnion.Common
 
             try
             {
-                entry =ObjTree.globalEntries
+                entry = ObjTree.globalEntries
                     .Where(x => x.Value.zCVob == ptr)
                     .Select(pair => pair.Value)
                     .FirstOrDefault();
@@ -230,6 +236,41 @@ namespace SpacerUnion.Common
                 SpacerNET.infoWin.AddText_External(str, Color.Black);
             }
 
+        }
+
+
+        // сообщение в окно zspy
+        [DllExport]
+        public static void InfoWin_AddTextZSPY()
+        {
+            string color_str = Imports.Stack_PeekString();
+            string str = Imports.Stack_PeekString();
+
+            color_str = color_str.ToUpper();
+
+            var lightGray = System.Drawing.ColorTranslator.FromHtml(color_str);
+
+            if (lightGray != Color.Empty)
+            {
+                //ConsoleEx.WriteLineYellow(lightGray.ToString());
+                SpacerNET.infoWin.AddText_ExternalSpy(str, lightGray);
+            }
+            else
+            {
+                //ConsoleEx.WriteLineYellow("No color, black");
+                SpacerNET.infoWin.AddText_ExternalSpy(str, Color.Black);
+            }
+
+        }
+
+
+        [DllExport]
+        public static void Export_GetSha256()
+        {
+            string input = Imports.Stack_PeekString();
+            string hash = Utils.sha256_hash(input);
+
+            Imports.Stack_PushString(hash);
         }
     }
 }

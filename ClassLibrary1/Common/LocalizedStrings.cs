@@ -144,7 +144,7 @@ namespace SpacerUnion.Common
             words.Add("UNION_MESH_LOADED", new List<string> { "Меш загружен", "Mesh is loaded", "Mesh geladen", "Mesh jest załadowany" });
             words.Add("UNION_MESH_READY", new List<string> { "Меш и вобы объединены. Скомпилируйте мир", "Mesh and vobs were merged. Compile the world", "Mesh und Vobs verbunden. Bitte Welt kompilieren!", "Mesh i voby zostały połączone. Skompiluj świat." });
             words.Add("UNION_EDITOR", new List<string> { "Редактор для ZenGin", "Editor for ZenGin", "Editor für ZenGin", "Edytor dla ZenGine" });
-            words.Add("UNION_TEAM", new List<string> { "Разработчик: Liker. Помогали: Haart & Saturas & Gratt", "Author: Liker. Assistance from: Haart & Saturas & Gratt", "Entwicklerteam: Liker & Haart & Saturas & Gratt", "Deweloperzy: Liker & Haart & Saturas & Gratt" });
+            words.Add("UNION_TEAM", new List<string> { "Разработчик: Liker. Помогали: Haart & Saturas & Gratt & Jr", "Author: Liker. Assistance from: Haart & Saturas & Gratt & Jr", "Entwicklerteam: Liker & Haart & Saturas & Gratt & Jr", "Deweloperzy: Liker & Haart & Saturas & Gratt & Jr" });
             words.Add("UNION_DATE_COMPILE", new List<string> { "Дата компиляции: ", "Compilation date: ", "Datum der Kompilation: ", "Data kompilacji: " });
             words.Add("UNION_RESOLUTION", new List<string> { "Разрешение рендера: ", "Render resolution: ", "Rendererauflösung: ", "Rozdzielczość renderowania: " });
             words.Add("UNION_NOWORLD", new List<string> { "Мир не загружен", "World is not loaded", "Welt wurde nicht geladen", "Świat nie został wczytany." });

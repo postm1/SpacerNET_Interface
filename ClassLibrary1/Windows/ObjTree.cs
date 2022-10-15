@@ -411,7 +411,7 @@ namespace SpacerUnion
                 if (entry.node != null)
                 {
                     SpacerNET.objTreeWin.globalTree.SelectedNode = entry.node;
-                    SpacerNET.objTreeWin.globalTree.SelectedNode.ExpandAll();
+                    SpacerNET.objTreeWin.globalTree.SelectedNode.Expand();
                 }
             }
         }
@@ -480,13 +480,11 @@ namespace SpacerUnion
             {
                 if (entry.node != null)
                 {
-                    var nodeSelected = SpacerNET.objTreeWin.globalTree.SelectedNode;
-
-                    nodeSelected = entry.node;
+                    SpacerNET.objTreeWin.globalTree.SelectedNode = entry.node;
 
                     if (SpacerNET.objTreeWin.globalTree.Visible)
                     {
-                        nodeSelected.EnsureVisible();
+                        SpacerNET.objTreeWin.globalTree.SelectedNode.EnsureVisible();
                     }
                     
                 }
@@ -1204,7 +1202,7 @@ namespace SpacerUnion
 
                 if (SpacerNET.objTreeWin.globalTree.SelectedNode != null)
                 {
-                    SpacerNET.objTreeWin.globalTree.SelectedNode.ExpandAll();
+                    SpacerNET.objTreeWin.globalTree.SelectedNode.Expand();
                 }
 
             }
