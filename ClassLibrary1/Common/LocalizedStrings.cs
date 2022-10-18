@@ -591,6 +591,12 @@ namespace SpacerUnion.Common
             words.Add("MSG_COMMON_SEARCH", new List<string> { "Поиск", "Search", "", "Szukaj" });
             words.Add("MSG_COMMON_COMMON", new List<string> { "Общее", "Common", "", "Ogólne" });
             words.Add("MSG_COMMON_MATSEACH", new List<string> { "Поиск материала:", "Material search:", "", "Szukaj materiał:" });
+
+
+            words.Add("MSG_MATFILTER_NEW_NAME", new List<string> { "Имя фильтра", "", "", "" });
+            words.Add("MSG_MATFILTER_RENAME", new List<string> { "Переименование фильтра", "", "", "" });
+
+            
         }
         
     }

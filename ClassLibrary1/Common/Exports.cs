@@ -1,6 +1,10 @@
-﻿using System;
+﻿using SpacerUnion.Windows;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -271,6 +275,158 @@ namespace SpacerUnion.Common
             string hash = Utils.sha256_hash(input);
 
             Imports.Stack_PushString(hash);
+        }
+
+
+
+        // фильтр материалов
+        [DllExport]
+        public static void Fill_MatFilter_Filters()
+        {
+            var listView = SpacerNET.matFilterWin.listBoxFilter;
+
+            int id = Imports.Stack_PeekInt();
+            string name = Imports.Stack_PeekString();
+
+            MatFilter mat = new MatFilter();
+
+            mat.id = id;
+            mat.name = name;
+
+            SpacerNET.matFilterWin.filters.Add(mat);
+
+            listView.Items.Add(name);
+        }
+
+        [DllExport]
+        public static void Clear_MatFilter_Filters()
+        {
+            var listView = SpacerNET.matFilterWin.listBoxFilter;
+            listView.Items.Clear();
+        }
+
+
+        [DllExport]
+        public static void AddMatByMatFilterName()
+        {
+            var listView = SpacerNET.matFilterWin.listBoxMatList;
+            uint addr = Imports.Stack_PeekUInt();
+            string name = Imports.Stack_PeekString();
+
+
+            SpacerNET.matFilterWin.matAddr.Add(name, addr);
+
+            listView.Items.Add(name);
+        }
+
+
+        [DllExport]
+        public static void MatFilter_SelectFilterByIndex()
+        {
+            var listView = SpacerNET.matFilterWin.listBoxFilter;
+            int index = Imports.Stack_PeekInt();
+
+            if (listView.Items.Count > 0 && listView.Items.Count > index)
+            {
+                listView.SelectedIndex = index;
+            }
+        }
+
+        [DllExport]
+        public static void MatFilter_SelectMaterialByAddr()
+        {
+            var listView = SpacerNET.matFilterWin.listBoxMatList;
+            var dict = SpacerNET.matFilterWin.matAddr;
+
+            uint addr = Imports.Stack_PeekUInt();
+
+            if (dict.ContainsValue(addr))
+            {
+                var myKey = dict.FirstOrDefault(x => x.Value == addr).Key;
+
+                listView.SelectedItem = myKey;
+            }
+        }
+
+        [DllExport]
+        public static void MatFilter_ToggleWindow()
+        {
+            bool toggle = Convert.ToBoolean(Imports.Stack_PeekInt());
+            bool blocked = Convert.ToBoolean(Imports.Stack_PeekInt());
+
+ 
+            SpacerNET.matFilterWin.groupBoxMatSettings.Enabled = SpacerNET.matFilterWin.listBoxFilter.SelectedIndex != -1;
+            SpacerNET.matFilterWin.panelFilters.Enabled = toggle;
+            
+
+            if (blocked)
+            {
+                SpacerNET.matFilterWin.labelMatBadFormat.Visible = blocked;
+            }
+        }
+
+
+        [DllExport]
+        public static void MatFilter_SetTextureColor()
+        {
+            int b = Imports.Stack_PeekInt();
+            int g = Imports.Stack_PeekInt();
+            int r = Imports.Stack_PeekInt();
+
+            Color color = Color.FromArgb(r, g, b);
+
+            SpacerNET.matFilterWin.pictureBoxTexture.BackColor = color;
+        }
+
+        [DllExport]
+        public static void MatFilter_SendTexture()
+        {
+            int size = Imports.Stack_PeekInt();
+            uint addr = Imports.Stack_PeekUInt();
+
+
+            //ConsoleEx.WriteLineYellow("size: " + size + " addr: " + addr);
+            var box = SpacerNET.matFilterWin.pictureBoxTexture;
+
+            const int IMAGE_SIZE = 128;
+
+            Bitmap myBitmap = new Bitmap(IMAGE_SIZE, IMAGE_SIZE, PixelFormat.Format32bppArgb);
+            byte[] pixels = new byte[IMAGE_SIZE * IMAGE_SIZE * 4];
+
+            IntPtr ptr = new IntPtr(addr);
+            
+
+            Marshal.Copy(ptr, pixels, 0, pixels.Length);
+
+
+            //Array.Reverse(pixels);
+
+
+            int count = 0;
+
+            for (int x = 0; x < IMAGE_SIZE; x++)
+            {
+                int row = x * IMAGE_SIZE * 4;
+
+                for (int y = 0; y < IMAGE_SIZE; y++)
+                {
+                    int col = row + (y * 4);
+                    byte r = pixels[col + 2];
+                    byte g = pixels[col + 1];
+                    byte b = pixels[col + 0];
+                    byte a = pixels[col + 3];
+
+                    Color c = Color.FromArgb(
+                           a, r, g, b
+                        );
+
+                    myBitmap.SetPixel(x, y, c);
+                }
+            }
+
+            box.BackColor = Color.Transparent;
+            box.Image = myBitmap;
+         
         }
     }
 }

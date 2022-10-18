@@ -69,7 +69,7 @@ namespace SpacerUnion
         private void CloseApp()
         {
             SpacerNET.macrosWin.macros.OnUpdateAndSave();
-
+            SpacerNET.matFilterWin.OnClose();
 
             Imports.Stack_PushString("askExitZen");
 
@@ -1679,8 +1679,8 @@ namespace SpacerUnion
                 SpacerNET.propWin.Location = new Point(0, 300);
                 SpacerNET.grassWin.Location = new Point(0, 300);
                 SpacerNET.macrosWin.Location = new Point(200, 300);
+                SpacerNET.matFilterWin.Location = new Point(200, 300);
 
-                
             }
         }
 
@@ -1702,6 +1702,8 @@ namespace SpacerUnion
                 SpacerNET.infoWin.Show();
                 SpacerNET.propWin.Show();
                 SpacerNET.macrosWin.Show();
+                SpacerNET.matFilterWin.Show();
+                
 
                 SpacerNET.objTreeWin.Location = new Point(1510, 550);
                 SpacerNET.objectsWin.Location = new Point(0, 622);
@@ -1710,6 +1712,8 @@ namespace SpacerUnion
                 SpacerNET.propWin.Location = new Point(1572, 28);
                 SpacerNET.grassWin.Location = new Point(1079, 603);
                 SpacerNET.macrosWin.Location = new Point(200, 300);
+                SpacerNET.matFilterWin.Location = new Point(200, 300);
+                
             }
         }
 
@@ -1894,6 +1898,29 @@ namespace SpacerUnion
 
 
             return result;
+        }
+
+        private void toolStripButtonFilter_Click(object sender, EventArgs e)
+        {
+            ToolStripButton btn = sender as ToolStripButton;
+
+            if (SpacerNET.matFilterWin.Visible)
+            {
+                btn.Checked = false;
+                SpacerNET.matFilterWin.Hide();
+            }
+            else
+            {
+                btn.Checked = true;
+                SpacerNET.matFilterWin.Show();
+            }
+
+
+
+            if (Properties.Settings.Default.MatFilterWinLocation != null)
+            {
+                SpacerNET.matFilterWin.Location = Properties.Settings.Default.MatFilterWinLocation;
+            }
         }
     }
 }

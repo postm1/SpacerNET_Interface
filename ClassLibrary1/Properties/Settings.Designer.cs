@@ -418,5 +418,41 @@ namespace SpacerUnion.Properties {
                 this["InfoWinSize"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool MatFilterWinShow {
+            get {
+                return ((bool)(this["MatFilterWinShow"]));
+            }
+            set {
+                this["MatFilterWinShow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool MatFilterWinShowNext {
+            get {
+                return ((bool)(this["MatFilterWinShowNext"]));
+            }
+            set {
+                this["MatFilterWinShowNext"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("200, 200")]
+        public global::System.Drawing.Point MatFilterWinLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["MatFilterWinLocation"]));
+            }
+            set {
+                this["MatFilterWinLocation"] = value;
+            }
+        }
     }
 }

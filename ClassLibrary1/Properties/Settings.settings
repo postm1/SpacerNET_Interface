@@ -101,5 +101,14 @@
     <Setting Name="InfoWinSize" Type="System.Drawing.Size" Scope="User">
       <Value Profile="(Default)">365, 430</Value>
     </Setting>
+    <Setting Name="MatFilterWinShow" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MatFilterWinShowNext" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="MatFilterWinLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">200, 200</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

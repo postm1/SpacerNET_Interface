@@ -52,6 +52,18 @@ namespace SpacerUnion.Windows
 
                 macros.OnNewMacro(text);
             }
+            else if (confType == "MATFILTER_NEWFILTER")
+            {
+                string text = textBoxValueEnter.Text.Trim();
+                SpacerNET.matFilterWin.OnCreateNewFilter(text);
+            }
+            else if (confType == "MATFILTER_RENAME_FILTER")
+            {
+                string text = textBoxValueEnter.Text.Trim();
+                SpacerNET.matFilterWin.OnRenameFilter(text);
+            }
+
+            
             this.Hide();
         }
 
@@ -64,6 +76,7 @@ namespace SpacerUnion.Windows
         private void ConfirmForm_Shown(object sender, EventArgs e)
         {
             this.textBoxValueEnter.Focus();
+            this.textBoxValueEnter.Clear();
         }
 
         private void textBoxValueEnter_KeyPress(object sender, KeyPressEventArgs e)

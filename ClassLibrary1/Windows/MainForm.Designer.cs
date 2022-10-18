@@ -110,6 +110,7 @@
             this.toolStripButtonMulti = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonNoGrass = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonMacros = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonFilter = new System.Windows.Forms.ToolStripButton();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -644,7 +645,8 @@
             this.toolStripButtonGrass,
             this.toolStripButtonMulti,
             this.toolStripButtonNoGrass,
-            this.toolStripButtonMacros});
+            this.toolStripButtonMacros,
+            this.toolStripButtonFilter});
             this.toolStripTop.Location = new System.Drawing.Point(0, 0);
             this.toolStripTop.Name = "toolStripTop";
             this.toolStripTop.Size = new System.Drawing.Size(1201, 25);
@@ -834,6 +836,16 @@
             this.toolStripButtonMacros.Text = "Macros";
             this.toolStripButtonMacros.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
+            // toolStripButtonFilter
+            // 
+            this.toolStripButtonFilter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonFilter.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonFilter.Image")));
+            this.toolStripButtonFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonFilter.Name = "toolStripButtonFilter";
+            this.toolStripButtonFilter.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonFilter.Text = "MatFilter";
+            this.toolStripButtonFilter.Click += new System.EventHandler(this.toolStripButtonFilter_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -946,5 +958,6 @@
         public System.Windows.Forms.ToolStripMenuItem stripSpecialFunctions;
         private System.Windows.Forms.ToolStripButton toolStripButtonNoGrass;
         private System.Windows.Forms.ToolStripButton toolStripButtonMacros;
+        private System.Windows.Forms.ToolStripButton toolStripButtonFilter;
     }
 }

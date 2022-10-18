@@ -37,6 +37,7 @@ namespace SpacerUnion
         public static PFXEditorWin pfxWin;
         public static GrassWin grassWin;
         public static MacrosForm macrosWin;
+        public static MaterialFilterForm matFilterWin;
 
         // Список скрытых окон
         static List<Form> windowsToHideList = null;
@@ -88,6 +89,7 @@ namespace SpacerUnion
             pfxWin = new PFXEditorWin();
             grassWin = new GrassWin();
             macrosWin = new MacrosForm();
+            matFilterWin = new MaterialFilterForm();
 
             windowsList.Add(objTreeWin);
             windowsList.Add(objectsWin);
@@ -105,9 +107,10 @@ namespace SpacerUnion
             windowsList.Add(keysWin);
             windowsList.Add(pfxWin);
             windowsList.Add(grassWin);
+            windowsList.Add(matFilterWin);
             windowsList.Add(macrosWin);
+           
             
-
             // каждому окну из списка задаем владельца: главную форму
             windowsList.ForEach(x => x.Owner = form);
 
@@ -219,7 +222,13 @@ namespace SpacerUnion
                 macrosWin.Show();
             }
 
+            if (Properties.Settings.Default.MatFilterWinShow || Properties.Settings.Default.MatFilterWinShowNext)
+            {
+                // ConsoleEx.WriteLineRed("Macro show");
+                matFilterWin.Show();
+            }
 
+            
 
             if (Properties.Settings.Default.TreeWinLocation != null)
             {
@@ -263,6 +272,10 @@ namespace SpacerUnion
                 macrosWin.Location = Properties.Settings.Default.MacrosWinLocation;
             }
 
+            if (Properties.Settings.Default.MatFilterWinLocation != null)
+            {
+                matFilterWin.Location = Properties.Settings.Default.MatFilterWinLocation;
+            }
             
 
 
@@ -290,7 +303,7 @@ namespace SpacerUnion
             LoadSettingsToInterface();
 
 
-
+           // matFilterWin.Show();
 
             form.Focus();
         }
@@ -399,6 +412,11 @@ namespace SpacerUnion
             btn = form.toolStripTop.Items[18] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(macrosWin.Visible);
 
+            btn = form.toolStripTop.Items[19] as ToolStripButton;
+            btn.Checked = Convert.ToBoolean(matFilterWin.Visible);
+
+            
+
 
             var some = form.freezeTimeToolStripMenuItem;
 
@@ -436,6 +454,9 @@ namespace SpacerUnion
             Properties.Settings.Default.SoundWinLocation = soundWin.Location;
             Properties.Settings.Default.GrassWinLocation = grassWin.Location;
             Properties.Settings.Default.MacrosWinLocation = macrosWin.Location;
+            Properties.Settings.Default.MatFilterWinLocation = matFilterWin.Location;
+
+            
 
             Properties.Settings.Default.InfoWinShow = infoWin.Visible;
             Properties.Settings.Default.ObjectWinShow = objectsWin.Visible;
@@ -445,6 +466,7 @@ namespace SpacerUnion
             Properties.Settings.Default.VobListWinShow = vobList.Visible;
             Properties.Settings.Default.GrassWinShow = grassWin.Visible;
             Properties.Settings.Default.MacrosWinShow = macrosWin.Visible;
+            Properties.Settings.Default.MatFilterWinShow = matFilterWin.Visible;
 
             Properties.Settings.Default.ObjWinShowNext = !objectsWin.Visible && windowsToHideList.Contains(objectsWin);
             Properties.Settings.Default.VobListWinShowNext = !vobList.Visible && windowsToHideList.Contains(vobList);
@@ -454,7 +476,7 @@ namespace SpacerUnion
             Properties.Settings.Default.InfoWinShowNext = !infoWin.Visible && windowsToHideList.Contains(infoWin);
             Properties.Settings.Default.GrassWinShowNext = !grassWin.Visible && windowsToHideList.Contains(grassWin);
             Properties.Settings.Default.MacrosWinShowNext = !macrosWin.Visible && windowsToHideList.Contains(macrosWin);
-
+            Properties.Settings.Default.MatFilterWinShowNext = !matFilterWin.Visible && windowsToHideList.Contains(matFilterWin);
             //ConsoleEx.WriteLineRed(Properties.Settings.Default.MacrosWinShowNext + "/" + Properties.Settings.Default.MacrosWinShowNext);
 
             Properties.Settings.Default.MainWindowPos = form.Location;
