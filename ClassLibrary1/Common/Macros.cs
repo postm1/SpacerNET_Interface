@@ -470,10 +470,8 @@ namespace SpacerUnion.Common
                 SpacerNET.form.saveZenToolStripMenuItem.Enabled = true;
                 SpacerNET.form.toolStripMenuExtractMesh.Enabled = true;
 
-                if (Imports.Extern_IsWorldCompiled() == 0)
-                {
-                    SpacerNET.form.compileWorldToolStrip.Enabled = true;
-                }
+                
+                SpacerNET.form.compileWorldToolStrip.Enabled = Imports.Extern_IsWorldCompiled() == 1 ? false : true;
 
                 SpacerNET.form.playHeroToolStrip.Enabled = true;
                 SpacerNET.form.analyseWaynetToolStripMenuItem.Enabled = true;

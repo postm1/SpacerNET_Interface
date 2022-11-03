@@ -153,7 +153,7 @@ namespace SpacerUnion
 
 
             cameraToolStripMenuItem.Text = Localizator.Get("MENU_TOP_CAM");
-            controlsToolStripMenuItem.Text = Localizator.Get("MENU_TOP_CONTROLS");
+            controlsToolStripMenuItem.Text = Localizator.Get("MENU_TOP_CONTROLS_VOBS");
             miscToolStripMenuItem.Text = Localizator.Get("MENU_TOP_MISC");
 
 
@@ -313,7 +313,7 @@ namespace SpacerUnion
             SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
             SpacerNET.form.dayTimeToolStrip.Enabled = true;
             SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
-            SpacerNET.form.compileWorldToolStrip.Enabled = true;
+            SpacerNET.form.compileWorldToolStrip.Enabled = Imports.Extern_IsWorldCompiled() == 1 ? false : true;
             SpacerNET.form.compileLightToolStrip.Enabled = true;
         }
 
@@ -431,7 +431,7 @@ namespace SpacerUnion
                 SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
                 SpacerNET.form.dayTimeToolStrip.Enabled = true;
                 SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
-                SpacerNET.form.compileWorldToolStrip.Enabled = true;
+                SpacerNET.form.compileWorldToolStrip.Enabled = Imports.Extern_IsWorldCompiled() == 1 ? false : true;
                 SpacerNET.form.compileLightToolStrip.Enabled = true;
 
 
@@ -850,7 +850,7 @@ namespace SpacerUnion
 
 
                 toolStripMenuItemMerge.Enabled = true;
-                compileWorldToolStrip.Enabled = true;
+                SpacerNET.form.compileWorldToolStrip.Enabled = Imports.Extern_IsWorldCompiled() == 1 ? false : true;
                 toolStripMenuResetWorld.Enabled = true;
 
                 openFileDialog.Multiselect = false;

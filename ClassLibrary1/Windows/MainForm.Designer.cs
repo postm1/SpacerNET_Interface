@@ -533,7 +533,7 @@
             // 
             this.controlsToolStripMenuItem.Name = "controlsToolStripMenuItem";
             this.controlsToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.controlsToolStripMenuItem.Text = "Управление";
+            this.controlsToolStripMenuItem.Text = "Вобы";
             this.controlsToolStripMenuItem.Click += new System.EventHandler(this.управлениеToolStripMenuItem_Click);
             // 
             // miscToolStripMenuItem

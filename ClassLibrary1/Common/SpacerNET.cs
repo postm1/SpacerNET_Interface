@@ -30,7 +30,7 @@ namespace SpacerUnion
         public static CompileWorldWin compWorldWin;
         public static LoadingForm loadForm;
         public static SettingsCamera settingsCam;
-        public static SettingsControls settingsControl;
+        public static SettingsVobs settingsControl;
         public static CameraCoords camCoordsWin;
         public static MiscSettingsWin miscSetWin;
         public static KeysForm keysWin;
@@ -80,7 +80,7 @@ namespace SpacerUnion
             soundWin = new SoundWin();
             comLightWin = new CompileLightWin();
             settingsCam = new SettingsCamera();
-            settingsControl = new SettingsControls();
+            settingsControl = new SettingsVobs();
             compWorldWin = new CompileWorldWin();
             loadForm = new LoadingForm();
             camCoordsWin = new CameraCoords();

@@ -1,6 +1,6 @@
 ﻿namespace SpacerUnion.Windows
 {
-    partial class SettingsControls
+    partial class SettingsVobs
     {
         /// <summary>
         /// Required designer variable.
@@ -37,6 +37,7 @@
             this.trackBarVobRotSpeed = new System.Windows.Forms.TrackBar();
             this.buttonVobControlApply = new System.Windows.Forms.Button();
             this.groupBoxSet = new System.Windows.Forms.GroupBox();
+            this.checkBoxShowVobTraceFloor = new System.Windows.Forms.CheckBox();
             this.checkBoxSelectMoveInsert = new System.Windows.Forms.CheckBox();
             this.labelRotWpFP = new System.Windows.Forms.Label();
             this.radioButtonWPTurnNone = new System.Windows.Forms.RadioButton();
@@ -45,7 +46,6 @@
             this.checkBoxVobInsertHierarchy = new System.Windows.Forms.CheckBox();
             this.checkBoxVobRotRandAngle = new System.Windows.Forms.CheckBox();
             this.checkBoxInsertVob = new System.Windows.Forms.CheckBox();
-            this.checkBoxShowVobTraceFloor = new System.Windows.Forms.CheckBox();
             this.groupBoxControlVob.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobRotSpeed)).BeginInit();
@@ -154,6 +154,17 @@
             this.groupBoxSet.TabStop = false;
             this.groupBoxSet.Text = "Вставка воба";
             // 
+            // checkBoxShowVobTraceFloor
+            // 
+            this.checkBoxShowVobTraceFloor.AutoSize = true;
+            this.checkBoxShowVobTraceFloor.Location = new System.Drawing.Point(9, 115);
+            this.checkBoxShowVobTraceFloor.Name = "checkBoxShowVobTraceFloor";
+            this.checkBoxShowVobTraceFloor.Size = new System.Drawing.Size(266, 17);
+            this.checkBoxShowVobTraceFloor.TabIndex = 8;
+            this.checkBoxShowVobTraceFloor.Text = "Подсвечивать положение воба на поверхности";
+            this.checkBoxShowVobTraceFloor.UseVisualStyleBackColor = true;
+            this.checkBoxShowVobTraceFloor.CheckedChanged += new System.EventHandler(this.checkBoxShowVobTraceFloor_CheckedChanged);
+            // 
             // checkBoxSelectMoveInsert
             // 
             this.checkBoxSelectMoveInsert.AutoSize = true;
@@ -248,18 +259,7 @@
             this.checkBoxInsertVob.UseVisualStyleBackColor = true;
             this.checkBoxInsertVob.CheckedChanged += new System.EventHandler(this.checkBoxInsertVob_CheckedChanged);
             // 
-            // checkBoxShowVobTraceFloor
-            // 
-            this.checkBoxShowVobTraceFloor.AutoSize = true;
-            this.checkBoxShowVobTraceFloor.Location = new System.Drawing.Point(9, 115);
-            this.checkBoxShowVobTraceFloor.Name = "checkBoxShowVobTraceFloor";
-            this.checkBoxShowVobTraceFloor.Size = new System.Drawing.Size(266, 17);
-            this.checkBoxShowVobTraceFloor.TabIndex = 8;
-            this.checkBoxShowVobTraceFloor.Text = "Подсвечивать положение воба на поверхности";
-            this.checkBoxShowVobTraceFloor.UseVisualStyleBackColor = true;
-            this.checkBoxShowVobTraceFloor.CheckedChanged += new System.EventHandler(this.checkBoxShowVobTraceFloor_CheckedChanged);
-            // 
-            // SettingsControls
+            // SettingsVobs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -269,11 +269,11 @@
             this.Controls.Add(this.groupBoxControlVob);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "SettingsControls";
+            this.Name = "SettingsVobs";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Настройки управления";
+            this.Text = "Настройки вобов";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsControls_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SettingsControls_KeyDown);
             this.groupBoxControlVob.ResumeLayout(false);

@@ -124,6 +124,7 @@
             this.textBoxFP = new System.Windows.Forms.TextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.groupBoxSearchClasses = new System.Windows.Forms.GroupBox();
+            this.checkBoxMatchNames = new System.Windows.Forms.CheckBox();
             this.panelRadioNumType = new System.Windows.Forms.Panel();
             this.radioButtonSearchEquals = new System.Windows.Forms.RadioButton();
             this.radioButtonSearchBiggerThan = new System.Windows.Forms.RadioButton();
@@ -208,6 +209,7 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.checkBoxSearchItem = new System.Windows.Forms.CheckBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -363,9 +365,9 @@
             this.groupBoxItemsLocator.Controls.Add(this.labelItemLocatorRadius);
             this.groupBoxItemsLocator.Controls.Add(this.trackBarLocatorRad);
             this.groupBoxItemsLocator.Controls.Add(this.checkBoxLocatorEnabled);
-            this.groupBoxItemsLocator.Location = new System.Drawing.Point(375, 140);
+            this.groupBoxItemsLocator.Location = new System.Drawing.Point(378, 144);
             this.groupBoxItemsLocator.Name = "groupBoxItemsLocator";
-            this.groupBoxItemsLocator.Size = new System.Drawing.Size(171, 207);
+            this.groupBoxItemsLocator.Size = new System.Drawing.Size(191, 207);
             this.groupBoxItemsLocator.TabIndex = 21;
             this.groupBoxItemsLocator.TabStop = false;
             this.groupBoxItemsLocator.Text = "Локатор предметов";
@@ -442,7 +444,7 @@
             this.groupBoxItemsCont.Controls.Add(this.labelItemsEditContCount);
             this.groupBoxItemsCont.Location = new System.Drawing.Point(378, 8);
             this.groupBoxItemsCont.Name = "groupBoxItemsCont";
-            this.groupBoxItemsCont.Size = new System.Drawing.Size(171, 126);
+            this.groupBoxItemsCont.Size = new System.Drawing.Size(191, 126);
             this.groupBoxItemsCont.TabIndex = 20;
             this.groupBoxItemsCont.TabStop = false;
             this.groupBoxItemsCont.Text = "Редактор сундука";
@@ -577,7 +579,7 @@
             this.groupBoxObjAllClasses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxObjAllClasses.Location = new System.Drawing.Point(0, 0);
             this.groupBoxObjAllClasses.Name = "groupBoxObjAllClasses";
-            this.groupBoxObjAllClasses.Size = new System.Drawing.Size(617, 379);
+            this.groupBoxObjAllClasses.Size = new System.Drawing.Size(623, 379);
             this.groupBoxObjAllClasses.TabIndex = 3;
             this.groupBoxObjAllClasses.TabStop = false;
             this.groupBoxObjAllClasses.Text = "Все классы вобов";
@@ -785,7 +787,7 @@
             this.tabControlObjects.Location = new System.Drawing.Point(0, 0);
             this.tabControlObjects.Name = "tabControlObjects";
             this.tabControlObjects.SelectedIndex = 0;
-            this.tabControlObjects.Size = new System.Drawing.Size(625, 405);
+            this.tabControlObjects.Size = new System.Drawing.Size(631, 405);
             this.tabControlObjects.TabIndex = 4;
             this.tabControlObjects.SelectedIndexChanged += new System.EventHandler(this.tabControlObjects_SelectedIndexChanged);
             // 
@@ -794,7 +796,7 @@
             this.tabPage3.Controls.Add(this.groupBoxObjAllClasses);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(617, 379);
+            this.tabPage3.Size = new System.Drawing.Size(623, 379);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Все классы";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -805,7 +807,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(617, 379);
+            this.tabPage2.Size = new System.Drawing.Size(623, 379);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Вещи";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -816,7 +818,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(617, 379);
+            this.tabPage1.Size = new System.Drawing.Size(623, 379);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Эффекты";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -834,7 +836,7 @@
             this.tabPage4.Controls.Add(this.groupBoxTriggersVob);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(617, 379);
+            this.tabPage4.Size = new System.Drawing.Size(623, 379);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Триггеры";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1078,7 +1080,7 @@
             this.tabPage5.Controls.Add(this.groupBoxWPFP);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(617, 379);
+            this.tabPage5.Size = new System.Drawing.Size(623, 379);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "WP/FP";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1089,7 +1091,7 @@
             this.groupBoxWPFP.Controls.Add(this.groupBox8);
             this.groupBoxWPFP.Location = new System.Drawing.Point(5, 10);
             this.groupBoxWPFP.Name = "groupBoxWPFP";
-            this.groupBoxWPFP.Size = new System.Drawing.Size(546, 340);
+            this.groupBoxWPFP.Size = new System.Drawing.Size(610, 361);
             this.groupBoxWPFP.TabIndex = 3;
             this.groupBoxWPFP.TabStop = false;
             this.groupBoxWPFP.Text = "Ключевые точки";
@@ -1104,7 +1106,7 @@
             this.groupBox9.Controls.Add(this.checkBoxWayNet);
             this.groupBox9.Controls.Add(this.buttonConnectWp);
             this.groupBox9.Controls.Add(this.buttonDisconnectWP);
-            this.groupBox9.Location = new System.Drawing.Point(6, 25);
+            this.groupBox9.Location = new System.Drawing.Point(17, 25);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(260, 309);
             this.groupBox9.TabIndex = 16;
@@ -1204,7 +1206,7 @@
             this.groupBox8.Controls.Add(this.checkBoxAutoNameFP);
             this.groupBox8.Controls.Add(this.buttonFPCreate);
             this.groupBox8.Controls.Add(this.textBoxFP);
-            this.groupBox8.Location = new System.Drawing.Point(278, 25);
+            this.groupBox8.Location = new System.Drawing.Point(331, 25);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(260, 309);
             this.groupBox8.TabIndex = 15;
@@ -1282,13 +1284,15 @@
             this.tabPage6.Controls.Add(this.groupBoxSearchClasses);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(617, 379);
+            this.tabPage6.Size = new System.Drawing.Size(623, 379);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Поиск";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // groupBoxSearchClasses
             // 
+            this.groupBoxSearchClasses.Controls.Add(this.checkBoxSearchItem);
+            this.groupBoxSearchClasses.Controls.Add(this.checkBoxMatchNames);
             this.groupBoxSearchClasses.Controls.Add(this.panelRadioNumType);
             this.groupBoxSearchClasses.Controls.Add(this.checkBoxSearchHasChildren);
             this.groupBoxSearchClasses.Controls.Add(this.checkBoxAutoNumerate);
@@ -1314,17 +1318,29 @@
             this.groupBoxSearchClasses.Controls.Add(this.textBoxSearchVobs);
             this.groupBoxSearchClasses.Location = new System.Drawing.Point(5, 3);
             this.groupBoxSearchClasses.Name = "groupBoxSearchClasses";
-            this.groupBoxSearchClasses.Size = new System.Drawing.Size(604, 356);
+            this.groupBoxSearchClasses.Size = new System.Drawing.Size(610, 373);
             this.groupBoxSearchClasses.TabIndex = 4;
             this.groupBoxSearchClasses.TabStop = false;
             this.groupBoxSearchClasses.Text = "Класс воба";
+            this.groupBoxSearchClasses.Enter += new System.EventHandler(this.groupBoxSearchClasses_Enter);
+            // 
+            // checkBoxMatchNames
+            // 
+            this.checkBoxMatchNames.AutoSize = true;
+            this.checkBoxMatchNames.Location = new System.Drawing.Point(431, 46);
+            this.checkBoxMatchNames.Name = "checkBoxMatchNames";
+            this.checkBoxMatchNames.Size = new System.Drawing.Size(116, 17);
+            this.checkBoxMatchNames.TabIndex = 29;
+            this.checkBoxMatchNames.Text = "Совпадение имен";
+            this.checkBoxMatchNames.UseVisualStyleBackColor = true;
+            this.checkBoxMatchNames.CheckedChanged += new System.EventHandler(this.checkBoxMatchNames_CheckedChanged);
             // 
             // panelRadioNumType
             // 
             this.panelRadioNumType.Controls.Add(this.radioButtonSearchEquals);
             this.panelRadioNumType.Controls.Add(this.radioButtonSearchBiggerThan);
             this.panelRadioNumType.Controls.Add(this.radioButtonSearchLessThan);
-            this.panelRadioNumType.Location = new System.Drawing.Point(332, 91);
+            this.panelRadioNumType.Location = new System.Drawing.Point(332, 110);
             this.panelRadioNumType.Name = "panelRadioNumType";
             this.panelRadioNumType.Size = new System.Drawing.Size(125, 20);
             this.panelRadioNumType.TabIndex = 28;
@@ -1370,19 +1386,20 @@
             // checkBoxSearchHasChildren
             // 
             this.checkBoxSearchHasChildren.AutoSize = true;
-            this.checkBoxSearchHasChildren.Location = new System.Drawing.Point(431, 69);
+            this.checkBoxSearchHasChildren.Location = new System.Drawing.Point(431, 67);
             this.checkBoxSearchHasChildren.Name = "checkBoxSearchHasChildren";
             this.checkBoxSearchHasChildren.Size = new System.Drawing.Size(113, 17);
             this.checkBoxSearchHasChildren.TabIndex = 24;
             this.checkBoxSearchHasChildren.Text = "У воба есть дети";
             this.checkBoxSearchHasChildren.UseVisualStyleBackColor = true;
+            this.checkBoxSearchHasChildren.CheckedChanged += new System.EventHandler(this.checkBoxSearchHasChildren_CheckedChanged);
             // 
             // checkBoxAutoNumerate
             // 
             this.checkBoxAutoNumerate.AutoSize = true;
             this.checkBoxAutoNumerate.Checked = true;
             this.checkBoxAutoNumerate.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxAutoNumerate.Location = new System.Drawing.Point(431, 46);
+            this.checkBoxAutoNumerate.Location = new System.Drawing.Point(431, 19);
             this.checkBoxAutoNumerate.Name = "checkBoxAutoNumerate";
             this.checkBoxAutoNumerate.Size = new System.Drawing.Size(137, 17);
             this.checkBoxAutoNumerate.TabIndex = 23;
@@ -1392,7 +1409,7 @@
             // labelRenameVob
             // 
             this.labelRenameVob.AutoSize = true;
-            this.labelRenameVob.Location = new System.Drawing.Point(242, 115);
+            this.labelRenameVob.Location = new System.Drawing.Point(56, 196);
             this.labelRenameVob.Name = "labelRenameVob";
             this.labelRenameVob.Size = new System.Drawing.Size(88, 13);
             this.labelRenameVob.TabIndex = 22;
@@ -1401,7 +1418,7 @@
             // 
             // textBoxRenameVob
             // 
-            this.textBoxRenameVob.Location = new System.Drawing.Point(336, 113);
+            this.textBoxRenameVob.Location = new System.Drawing.Point(47, 271);
             this.textBoxRenameVob.Name = "textBoxRenameVob";
             this.textBoxRenameVob.Size = new System.Drawing.Size(206, 20);
             this.textBoxRenameVob.TabIndex = 21;
@@ -1410,7 +1427,7 @@
             // radioButtonConvertNew
             // 
             this.radioButtonConvertNew.AutoSize = true;
-            this.radioButtonConvertNew.Location = new System.Drawing.Point(326, 113);
+            this.radioButtonConvertNew.Location = new System.Drawing.Point(163, 181);
             this.radioButtonConvertNew.Name = "radioButtonConvertNew";
             this.radioButtonConvertNew.Size = new System.Drawing.Size(59, 17);
             this.radioButtonConvertNew.TabIndex = 20;
@@ -1422,7 +1439,7 @@
             // radioButtonConvertOld
             // 
             this.radioButtonConvertOld.AutoSize = true;
-            this.radioButtonConvertOld.Location = new System.Drawing.Point(241, 113);
+            this.radioButtonConvertOld.Location = new System.Drawing.Point(81, 160);
             this.radioButtonConvertOld.Name = "radioButtonConvertOld";
             this.radioButtonConvertOld.Size = new System.Drawing.Size(63, 17);
             this.radioButtonConvertOld.TabIndex = 19;
@@ -1462,7 +1479,7 @@
             this.checkBoxSearchUseRegex.AutoSize = true;
             this.checkBoxSearchUseRegex.Checked = true;
             this.checkBoxSearchUseRegex.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxSearchUseRegex.Location = new System.Drawing.Point(242, 69);
+            this.checkBoxSearchUseRegex.Location = new System.Drawing.Point(242, 67);
             this.checkBoxSearchUseRegex.Name = "checkBoxSearchUseRegex";
             this.checkBoxSearchUseRegex.Size = new System.Drawing.Size(183, 17);
             this.checkBoxSearchUseRegex.TabIndex = 16;
@@ -1471,7 +1488,7 @@
             // 
             // textBoxVecSearch3
             // 
-            this.textBoxVecSearch3.Location = new System.Drawing.Point(471, 91);
+            this.textBoxVecSearch3.Location = new System.Drawing.Point(471, 110);
             this.textBoxVecSearch3.Name = "textBoxVecSearch3";
             this.textBoxVecSearch3.Size = new System.Drawing.Size(70, 20);
             this.textBoxVecSearch3.TabIndex = 14;
@@ -1481,7 +1498,7 @@
             // 
             // textBoxVecSearch2
             // 
-            this.textBoxVecSearch2.Location = new System.Drawing.Point(395, 91);
+            this.textBoxVecSearch2.Location = new System.Drawing.Point(395, 110);
             this.textBoxVecSearch2.Name = "textBoxVecSearch2";
             this.textBoxVecSearch2.Size = new System.Drawing.Size(70, 20);
             this.textBoxVecSearch2.TabIndex = 13;
@@ -1492,7 +1509,7 @@
             // labelSearchResult
             // 
             this.labelSearchResult.AutoSize = true;
-            this.labelSearchResult.Location = new System.Drawing.Point(243, 161);
+            this.labelSearchResult.Location = new System.Drawing.Point(243, 164);
             this.labelSearchResult.Name = "labelSearchResult";
             this.labelSearchResult.Size = new System.Drawing.Size(54, 13);
             this.labelSearchResult.TabIndex = 9;
@@ -1501,9 +1518,9 @@
             // listBoxSearchResult
             // 
             this.listBoxSearchResult.FormattingEnabled = true;
-            this.listBoxSearchResult.Location = new System.Drawing.Point(242, 177);
+            this.listBoxSearchResult.Location = new System.Drawing.Point(242, 181);
             this.listBoxSearchResult.Name = "listBoxSearchResult";
-            this.listBoxSearchResult.Size = new System.Drawing.Size(304, 173);
+            this.listBoxSearchResult.Size = new System.Drawing.Size(362, 186);
             this.listBoxSearchResult.TabIndex = 8;
             this.listBoxSearchResult.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxSearchResult_MouseClick);
             this.listBoxSearchResult.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxSearchResult_MouseDoubleClick);
@@ -1523,9 +1540,9 @@
             // 
             // buttonSearchVobsDo
             // 
-            this.buttonSearchVobsDo.Location = new System.Drawing.Point(241, 135);
+            this.buttonSearchVobsDo.Location = new System.Drawing.Point(241, 138);
             this.buttonSearchVobsDo.Name = "buttonSearchVobsDo";
-            this.buttonSearchVobsDo.Size = new System.Drawing.Size(148, 23);
+            this.buttonSearchVobsDo.Size = new System.Drawing.Size(172, 23);
             this.buttonSearchVobsDo.TabIndex = 5;
             this.buttonSearchVobsDo.Text = "Искать";
             this.buttonSearchVobsDo.UseVisualStyleBackColor = true;
@@ -1533,9 +1550,9 @@
             // 
             // buttonSearchVobsReset
             // 
-            this.buttonSearchVobsReset.Location = new System.Drawing.Point(398, 135);
+            this.buttonSearchVobsReset.Location = new System.Drawing.Point(431, 138);
             this.buttonSearchVobsReset.Name = "buttonSearchVobsReset";
-            this.buttonSearchVobsReset.Size = new System.Drawing.Size(148, 23);
+            this.buttonSearchVobsReset.Size = new System.Drawing.Size(173, 23);
             this.buttonSearchVobsReset.TabIndex = 4;
             this.buttonSearchVobsReset.Text = "Сбросить";
             this.buttonSearchVobsReset.UseVisualStyleBackColor = true;
@@ -1556,7 +1573,7 @@
             this.treeViewSearchClass.HideSelection = false;
             this.treeViewSearchClass.Location = new System.Drawing.Point(6, 73);
             this.treeViewSearchClass.Name = "treeViewSearchClass";
-            this.treeViewSearchClass.Size = new System.Drawing.Size(231, 277);
+            this.treeViewSearchClass.Size = new System.Drawing.Size(231, 294);
             this.treeViewSearchClass.TabIndex = 2;
             this.treeViewSearchClass.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewSearchClass_AfterSelect);
             this.treeViewSearchClass.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewSearchClass_NodeMouseDoubleClick);
@@ -1565,7 +1582,7 @@
             // 
             this.comboBoxPropsEnumSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPropsEnumSearch.FormattingEnabled = true;
-            this.comboBoxPropsEnumSearch.Location = new System.Drawing.Point(244, 90);
+            this.comboBoxPropsEnumSearch.Location = new System.Drawing.Point(242, 110);
             this.comboBoxPropsEnumSearch.Name = "comboBoxPropsEnumSearch";
             this.comboBoxPropsEnumSearch.Size = new System.Drawing.Size(110, 21);
             this.comboBoxPropsEnumSearch.TabIndex = 15;
@@ -1574,7 +1591,7 @@
             // 
             // textBoxVecSearch1
             // 
-            this.textBoxVecSearch1.Location = new System.Drawing.Point(319, 91);
+            this.textBoxVecSearch1.Location = new System.Drawing.Point(319, 110);
             this.textBoxVecSearch1.Name = "textBoxVecSearch1";
             this.textBoxVecSearch1.Size = new System.Drawing.Size(70, 20);
             this.textBoxVecSearch1.TabIndex = 12;
@@ -1584,7 +1601,7 @@
             // 
             // textBoxVecSearch0
             // 
-            this.textBoxVecSearch0.Location = new System.Drawing.Point(243, 90);
+            this.textBoxVecSearch0.Location = new System.Drawing.Point(243, 110);
             this.textBoxVecSearch0.Name = "textBoxVecSearch0";
             this.textBoxVecSearch0.Size = new System.Drawing.Size(70, 20);
             this.textBoxVecSearch0.TabIndex = 11;
@@ -1594,7 +1611,7 @@
             // 
             // textBoxSearchVobs
             // 
-            this.textBoxSearchVobs.Location = new System.Drawing.Point(243, 91);
+            this.textBoxSearchVobs.Location = new System.Drawing.Point(242, 110);
             this.textBoxSearchVobs.Name = "textBoxSearchVobs";
             this.textBoxSearchVobs.Size = new System.Drawing.Size(300, 20);
             this.textBoxSearchVobs.TabIndex = 6;
@@ -1608,7 +1625,7 @@
             this.tabPage7.Controls.Add(this.groupBoxCamKeys);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(617, 379);
+            this.tabPage7.Size = new System.Drawing.Size(623, 379);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Камера";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1664,7 +1681,7 @@
             this.groupBoxCamSettings.Controls.Add(this.buttonCamMinus);
             this.groupBoxCamSettings.Location = new System.Drawing.Point(402, 4);
             this.groupBoxCamSettings.Name = "groupBoxCamSettings";
-            this.groupBoxCamSettings.Size = new System.Drawing.Size(212, 367);
+            this.groupBoxCamSettings.Size = new System.Drawing.Size(213, 367);
             this.groupBoxCamSettings.TabIndex = 0;
             this.groupBoxCamSettings.TabStop = false;
             this.groupBoxCamSettings.Text = "Настройки";
@@ -1672,7 +1689,7 @@
             // labelCamGotoKey
             // 
             this.labelCamGotoKey.AutoSize = true;
-            this.labelCamGotoKey.Location = new System.Drawing.Point(13, 106);
+            this.labelCamGotoKey.Location = new System.Drawing.Point(58, 118);
             this.labelCamGotoKey.Name = "labelCamGotoKey";
             this.labelCamGotoKey.Size = new System.Drawing.Size(98, 13);
             this.labelCamGotoKey.TabIndex = 15;
@@ -1694,7 +1711,7 @@
             // 
             // labelCamKeyCurrent
             // 
-            this.labelCamKeyCurrent.Location = new System.Drawing.Point(37, 127);
+            this.labelCamKeyCurrent.Location = new System.Drawing.Point(82, 139);
             this.labelCamKeyCurrent.Name = "labelCamKeyCurrent";
             this.labelCamKeyCurrent.Size = new System.Drawing.Size(48, 13);
             this.labelCamKeyCurrent.TabIndex = 6;
@@ -1705,7 +1722,7 @@
             // 
             this.buttonCamPlay.Location = new System.Drawing.Point(14, 76);
             this.buttonCamPlay.Name = "buttonCamPlay";
-            this.buttonCamPlay.Size = new System.Drawing.Size(192, 23);
+            this.buttonCamPlay.Size = new System.Drawing.Size(193, 23);
             this.buttonCamPlay.TabIndex = 10;
             this.buttonCamPlay.Text = "Старт";
             this.buttonCamPlay.UseVisualStyleBackColor = true;
@@ -1724,7 +1741,7 @@
             // buttonCamPlus
             // 
             this.buttonCamPlus.Enabled = false;
-            this.buttonCamPlus.Location = new System.Drawing.Point(85, 122);
+            this.buttonCamPlus.Location = new System.Drawing.Point(130, 134);
             this.buttonCamPlus.Name = "buttonCamPlus";
             this.buttonCamPlus.Size = new System.Drawing.Size(24, 23);
             this.buttonCamPlus.TabIndex = 13;
@@ -1744,7 +1761,7 @@
             // buttonCamMinus
             // 
             this.buttonCamMinus.Enabled = false;
-            this.buttonCamMinus.Location = new System.Drawing.Point(14, 122);
+            this.buttonCamMinus.Location = new System.Drawing.Point(59, 134);
             this.buttonCamMinus.Name = "buttonCamMinus";
             this.buttonCamMinus.Size = new System.Drawing.Size(24, 23);
             this.buttonCamMinus.TabIndex = 12;
@@ -1868,7 +1885,7 @@
             this.tabPage8.Controls.Add(this.button10);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(617, 379);
+            this.tabPage8.Size = new System.Drawing.Size(623, 379);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Свет";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -2184,11 +2201,22 @@
             this.button10.Text = "Удалить";
             this.button10.UseVisualStyleBackColor = true;
             // 
+            // checkBoxSearchItem
+            // 
+            this.checkBoxSearchItem.AutoSize = true;
+            this.checkBoxSearchItem.Location = new System.Drawing.Point(242, 88);
+            this.checkBoxSearchItem.Name = "checkBoxSearchItem";
+            this.checkBoxSearchItem.Size = new System.Drawing.Size(190, 17);
+            this.checkBoxSearchItem.TabIndex = 30;
+            this.checkBoxSearchItem.Text = "Искать oCItem в oCMobContainer";
+            this.checkBoxSearchItem.UseVisualStyleBackColor = true;
+            this.checkBoxSearchItem.CheckedChanged += new System.EventHandler(this.checkBoxSearchItem_CheckedChanged);
+            // 
             // ObjectsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 405);
+            this.ClientSize = new System.Drawing.Size(631, 405);
             this.Controls.Add(this.tabControlObjects);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -2431,5 +2459,7 @@
         private System.Windows.Forms.Label labelHintFP;
         public System.Windows.Forms.TreeView classesTreeView;
         public System.Windows.Forms.ListBox listBoxSearchResult;
+        private System.Windows.Forms.CheckBox checkBoxMatchNames;
+        private System.Windows.Forms.CheckBox checkBoxSearchItem;
     }
 }

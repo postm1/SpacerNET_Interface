@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace SpacerUnion.Windows
 {
-    public partial class SettingsControls : Form
+    public partial class SettingsVobs : Form
     {
-        public SettingsControls()
+        public SettingsVobs()
         {
             InitializeComponent();
             this.KeyPreview = true;
@@ -22,7 +22,7 @@ namespace SpacerUnion.Windows
 
         public void UpdateLang()
         {
-            this.Text = Localizator.Get("WIN_CONTROLSET_TEXT");
+            this.Text = Localizator.Get("WIN_CONTROLSET_VOBS_TEXT");
             groupBoxControlVob.Text = Localizator.Get("WIN_CONTROLSET_GROUP0");
             groupBoxSet.Text = Localizator.Get("WIN_CONTROLSET_GROUP1");
             checkBoxInsertVob.Text = Localizator.Get("checkBoxInsertVob");

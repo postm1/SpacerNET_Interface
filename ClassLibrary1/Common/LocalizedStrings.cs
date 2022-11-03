@@ -179,7 +179,7 @@ namespace SpacerUnion.Common
             words.Add("WIN_INFO_CLEAR", new List<string> { "Очистить", "Clear", "Klar", "Wyczyść" });
             words.Add("IS_SAVING", new List<string> { "сохраняется...", "is saving...", "wird gespeichert...", "zapisywanie..." });
             words.Add("WIN_CAM_GETFROMBUFFER", new List<string> { "Взять из буфера", "Get from clipboard", "Wird aus der Zwischenablage geholt", "Pobierz ze schowka" });
-            words.Add("BTN_APPLY", new List<string> { "Применить", "Apply", "Anwenden", "Zapisz" });
+            words.Add("BTN_APPLY", new List<string> { "Применить", "Apply", "Anwenden", "Zastosuj" });
             words.Add("WIN_MISC_SET", new List<string> { "Прочие настройки", "Misc settings", "Verschiedene Einstellungen", "Inne ustawienia" });
             words.Add("checkBoxSetDatePrefix", new List<string> { "Добавлять префикс даты при сохранении зена", "Add DATE prefix to file when saving ZEN", "Füge Datum Präfix zu Datei hinzu wenn die ZEN gespeichert wird", "Dodaj prefix daty do nazwy zapisanego pliku" });
             words.Add("checkBoxMiscExitAsk", new List<string> { "Подтверждать выход если открыт зен", "Confirm exit if ZEN is opened", "Falls ZEN geöffnet ist, dann bestätige den Abbruch", "Potwierdź wyjście, gdy ZEN jest otwarty" });
@@ -515,7 +515,7 @@ namespace SpacerUnion.Common
             words.Add("MENU_TOP_CREATE_VOB_VISUALS_LIST", new List<string> { "Сформировать список визуалов локации", "Create a list of files which are used in the location", "", "Stwórz lisę plików, któresą używane w lokacji" });
             words.Add("labelFindVisualArchive", new List<string> { "Искать только в архиве (VDF)", "Search only in selected (VDF)", "", "Szukaj tylko w wybranych (VDF)" });
             words.Add("checkBoxLocatorByName", new List<string> { "Искать по имени:", "Search by name:", "", "Szukaj według nazwy:" });
-            words.Add("checkBoxSearchHasChildren", new List<string> { "У воба есть дети", "Vob has child(s)", "", "Vob ma dzieci" });
+            words.Add("checkBoxSearchHasChildren", new List<string> { "У воба есть дети", "Vob has children", "", "Vob ma dzieci" });
 
 
             words.Add("CONTEXTMENU_TREE_REPLACE_FROM_PARENT", new List<string> { "Переместить все вобы из родителя", "Move all vobs from the parent", "", "Przenieś wszystkie voby od rodzica" });
@@ -593,10 +593,39 @@ namespace SpacerUnion.Common
             words.Add("MSG_COMMON_MATSEACH", new List<string> { "Поиск материала:", "Material search:", "", "Szukaj materiał:" });
 
 
-            words.Add("MSG_MATFILTER_NEW_NAME", new List<string> { "Имя фильтра", "", "", "" });
-            words.Add("MSG_MATFILTER_RENAME", new List<string> { "Переименование фильтра", "", "", "" });
+            words.Add("MSG_MATFILTER_NEW_NAME", new List<string> { "Имя фильтра:", "Filter name:", "", "Nazwa filtra:" });
+            words.Add("MSG_MATFILTER_RENAME", new List<string> { "Переименование фильтра:", "Rename Filter:", "", "Zmień nazwę filtru:" });
 
-            
+            words.Add("checkBoxMatchNames", new List<string> { "Совпадение имен", "Match vobs names", "", "Dopasuj nazwy vobów" });
+            words.Add("checkBoxSearchItem", new List<string> { "Искать oCItem в oCMobContainer", "Search oCItem in oCMobContainer", "", "Szukaj oCItem w oCMobContainer" });
+
+            words.Add("VOBLIST_TYPE_ANY", new List<string> { "Любой тип", "Any type", "", "Dowolny typ" });
+
+            words.Add("MENU_TOP_CONTROLS_VOBS", new List<string> { "Вобы", "Vobs", "", "Voby" });
+            words.Add("WIN_CONTROLSET_VOBS_TEXT", new List<string> { "Настройки вобов", "Vobs settings", "", "Ustawienia vobów" });
+
+
+
+            words.Add("MSG_COMMON_NO_EMPTY_NAME", new List<string> {  "Имя не может быть пусты", "Name can't be empty!", "", "" });
+            words.Add("MSG_COMMON_NO_UNIQUE_NAME", new List<string> { "Такое имя уже есть", "The name already exists!", "", "" });
+            words.Add("WIN_MATFILTER_MATLIST", new List<string> { "Список материалов: ", "Materials list: ", "", "" });
+            words.Add("WIN_MATFILTER_FILTERLIST_FILES", new List<string> { "Список фильтров", "Filters list", "", "" });
+            words.Add("WIN_MATFILTER_FILTER_NEW", new List<string> { "Новый фильтр", "New filter", "", "" });
+            words.Add("WIN_MATFILTER_FILTERLIST_RENAME", new List<string> { "Переименовать выбранный", "Rename selected", "", "" });
+            words.Add("WIN_MATFILTER_FILTERLIST_SAVE", new List<string> { "Сохранить файл фильтров", "Save filters file", "", "" });
+
+            words.Add("WIN_MATFILTER_FILTER_TITLE", new List<string> { "Фильтр материалов", "Materials filter", "", "" });
+            words.Add("WIN_MATFILTER_FILTER_TAB_MESH", new List<string> { "Меш", "Mesh", "", "" });
+            words.Add("WIN_MATFILTER_FILTER_TAB_VOBS", new List<string> { "Вобы", "Vobs", "", "Voby" });
+
+
+            //add : in polish, filters too
+            words.Add("WIN_MATFILTER_FILTER_SEARCH_IN_MATS", new List<string> { "Поиск материала в фильтре:", "Search material in the filter:", "", "" });
+            words.Add("WIN_MATFILTER_FILTER_TEXTURE", new List<string> { "Текстура", "Texture", "", "" });
+            words.Add("WIN_MATFILTER_FILTER_SETTINGS", new List<string> { "Настройки выбранного материала", "Properties of selected material", "", "" });
+            words.Add("WIN_MATFILTER_FILTER_SET_FILTER", new List<string> { "Задать фильтр:", "Set filter:", "", "" });
+            words.Add("WIN_MATFILTER_FILTER_SET_GROUP", new List<string> { "Задать группу:", "Set group:", "", "" });
+            words.Add("WIN_MATFILTER_FILTER_SAVE_FILTER", new List<string> { "Сохранить текущий фильтр", "Save current filter", "", "" });
         }
         
     }

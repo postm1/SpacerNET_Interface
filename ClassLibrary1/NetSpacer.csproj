@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
     <RegisterForComInterop>false</RegisterForComInterop>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <DllExportIdent>C40E848E-31A0-48F8-AAC8-CF408940509B</DllExportIdent>
@@ -206,11 +206,11 @@
     <Compile Include="Windows\SettingsCamera.Designer.cs">
       <DependentUpon>SettingsCamera.cs</DependentUpon>
     </Compile>
-    <Compile Include="Windows\SettingsControls.cs">
+    <Compile Include="Windows\SettingsVobs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Windows\SettingsControls.Designer.cs">
-      <DependentUpon>SettingsControls.cs</DependentUpon>
+    <Compile Include="Windows\SettingsVobs.Designer.cs">
+      <DependentUpon>SettingsVobs.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\SoundWin.cs">
       <SubType>Form</SubType>
@@ -313,8 +313,8 @@
     <EmbeddedResource Include="Windows\SettingsCamera.resx">
       <DependentUpon>SettingsCamera.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Windows\SettingsControls.resx">
-      <DependentUpon>SettingsControls.cs</DependentUpon>
+    <EmbeddedResource Include="Windows\SettingsVobs.resx">
+      <DependentUpon>SettingsVobs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\SoundWin.resx">
       <DependentUpon>SoundWin.cs</DependentUpon>

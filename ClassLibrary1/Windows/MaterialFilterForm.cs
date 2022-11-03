@@ -22,6 +22,7 @@ namespace SpacerUnion.Windows
 
         public ConfirmForm formConf;
 
+
         public MaterialFilterForm()
         {
             InitializeComponent();
@@ -29,6 +30,35 @@ namespace SpacerUnion.Windows
             matAddr = new Dictionary<string, uint>();
 
             formConf = new ConfirmForm(null);
+
+        }
+
+        public void UpdateLang()
+        {
+            labelFilterListFiles.Text = Localizator.Get("WIN_MATFILTER_FILTERLIST_FILES");
+            buttonFilterNew.Text = Localizator.Get("WIN_MATFILTER_FILTER_NEW");
+            buttonFltRename.Text = Localizator.Get("WIN_MATFILTER_FILTERLIST_RENAME");
+            buttonMatFilterSaveFilters.Text = Localizator.Get("WIN_MATFILTER_FILTERLIST_SAVE");
+
+
+            this.Text = Localizator.Get("WIN_MATFILTER_FILTER_TITLE");
+            tabControlMatFilter.TabPages[0].Text = Localizator.Get("WIN_MATFILTER_FILTER_TAB_MESH");
+            tabControlMatFilter.TabPages[1].Text = Localizator.Get("WIN_MATFILTER_FILTER_TAB_VOBS");
+
+
+            labelMatCount.Text = Localizator.Get("WIN_MATFILTER_MATLIST") + listBoxMatList.Items.Count;
+
+
+
+            labelMatFilterSeachInMats.Text = Localizator.Get("WIN_MATFILTER_FILTER_SEARCH_IN_MATS");
+            groupBoxTexInfo.Text = Localizator.Get("WIN_MATFILTER_FILTER_TEXTURE");
+            groupBoxMatSettings.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS");
+            labelApplyFilter.Text = Localizator.Get("WIN_MATFILTER_FILTER_SET_FILTER");
+            labelFilterApplyGroup.Text = Localizator.Get("WIN_MATFILTER_FILTER_SET_GROUP");
+            buttonSavePML_File.Text = Localizator.Get("WIN_MATFILTER_FILTER_SAVE_FILTER");
+            buttonApplyMatSettings.Text = Localizator.Get("BTN_APPLY");
+
+
         }
 
         public void OnClose()
@@ -93,7 +123,8 @@ namespace SpacerUnion.Windows
                     {
                         groupBoxMatSettings.Enabled = false;
                     }
-                    labelMatCount.Text = "Список материалов: " + listBoxMatList.Items.Count.ToString();
+
+                    labelMatCount.Text = Localizator.Get("WIN_MATFILTER_MATLIST") + listBoxMatList.Items.Count.ToString();
                 }
                 
             }
@@ -101,31 +132,7 @@ namespace SpacerUnion.Windows
 
         private void ProcessUsingLockbitsAndUnsafeAndParallel(Bitmap processedBitmap)
         {
-            unsafe
-            {
-                BitmapData bitmapData = processedBitmap.LockBits(new Rectangle(0, 0, processedBitmap.Width, processedBitmap.Height), ImageLockMode.ReadWrite, processedBitmap.PixelFormat);
-
-                int bytesPerPixel = System.Drawing.Bitmap.GetPixelFormatSize(processedBitmap.PixelFormat) / 8;
-                int heightInPixels = bitmapData.Height;
-                int widthInBytes = bitmapData.Width * bytesPerPixel;
-                byte* PtrFirstPixel = (byte*)bitmapData.Scan0;
-
-                Parallel.For(0, heightInPixels, y =>
-                {
-                    byte* currentLine = PtrFirstPixel + (y * bitmapData.Stride);
-                    for (int x = 0; x < widthInBytes; x = x + bytesPerPixel)
-                    {
-                        int oldBlue = currentLine[x];
-                        int oldGreen = currentLine[x + 1];
-                        int oldRed = currentLine[x + 2];
-
-                        currentLine[x] = (byte)oldBlue;
-                        currentLine[x + 1] = (byte)oldGreen;
-                        currentLine[x + 2] = (byte)oldRed;
-                    }
-                });
-                processedBitmap.UnlockBits(bitmapData);
-            }
+           
         }
 
         private void listBoxMatList_SelectedIndexChanged(object sender, EventArgs e)
@@ -155,6 +162,8 @@ namespace SpacerUnion.Windows
 
 
                     comboBoxApplyFilter.EndUpdate();
+
+                   
 
                     groupBoxMatSettings.Enabled = true;
 
@@ -208,13 +217,13 @@ namespace SpacerUnion.Windows
 
             if (name.Length == 0)
             {
-                MessageBox.Show("Имя не может быть пустым!");
+                MessageBox.Show(Localizator.Get("MSG_COMMON_NO_EMPTY_NAME"));
                 return;
             }
 
             if (listBoxFilter.Items.Contains(name))
             {
-                MessageBox.Show("Такое имя уже есть!");
+                MessageBox.Show(Localizator.Get("MSG_COMMON_NO_UNIQUE_NAME"));
                 return;
             }
 
@@ -247,13 +256,13 @@ namespace SpacerUnion.Windows
 
             if (name.Length == 0)
             {
-                MessageBox.Show("Имя не может быть пустым!");
+                MessageBox.Show(Localizator.Get("MSG_COMMON_NO_EMPTY_NAME"));
                 return;
             }
 
             if (listBoxFilter.Items.Contains(name))
             {
-                MessageBox.Show("Такое имя уже есть!");
+                MessageBox.Show(Localizator.Get("MSG_COMMON_NO_UNIQUE_NAME"));
                 return;
             }
 
@@ -361,6 +370,27 @@ namespace SpacerUnion.Windows
                     listBoxMatList.SelectedItem = text;
                 }
             }
+        }
+
+        private void listBoxMatList_MouseDown(object sender, MouseEventArgs e)
+        {
+            ListBox lb = sender as ListBox;
+            if (e.Button == MouseButtons.Right && lb.SelectedIndex != -1)
+            {
+
+                    string visual = lb.GetItemText(lb.SelectedItem);
+                    Clipboard.SetText(visual);
+
+            
+                    Imports.Stack_PushString(Localizator.Get("COPYBUFFER") + ": " + visual);
+
+                    Imports.Extern_PrintGreen();
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

@@ -60,10 +60,10 @@ namespace SpacerUnion
             SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
             SpacerNET.form.toolStripMenuItemMergeMesh.Enabled = false;
 
-           
 
-            
-            SpacerNET.form.compileWorldToolStrip.Enabled = true;
+
+
+            SpacerNET.form.compileWorldToolStrip.Enabled = Imports.Extern_IsWorldCompiled() == 1 ? false : true;
         }
 
         private void button2_Click(object sender, EventArgs e)

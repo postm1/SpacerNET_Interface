@@ -136,6 +136,13 @@ namespace SpacerUnion
             groupBoxSearchClasses.Text = Localizator.Get("all_vobs_classes");
             checkBoxSearchDerived.Text = Localizator.Get("search_derived");
             checkBoxSearchHasChildren.Text = Localizator.Get("checkBoxSearchHasChildren");
+            checkBoxMatchNames.Text = Localizator.Get("checkBoxMatchNames");
+            checkBoxSearchItem.Text = Localizator.Get("checkBoxSearchItem");
+
+            
+
+
+
             checkBoxSearchUseRegex.Text = Localizator.Get("search_use_regex");
             buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE0");
             buttonSearchVobsReset.Text = Localizator.Get("BTN_RESET");
@@ -2528,6 +2535,12 @@ namespace SpacerUnion
                     e.Handled = true;
                 }
             }
+
+            if (e.KeyChar == (char)13)
+            {
+                e.Handled = true;
+                button9_Click(null, null);
+            }
         }
 
         private void textBoxVecSearch0_KeyPress(object sender, KeyPressEventArgs e)
@@ -2609,6 +2622,8 @@ namespace SpacerUnion
             onlyNameVisualSearch = 0;
             int countSelected = 0;
 
+            string searchName = "";
+
             for (int i = 0; i < searchProps.Count; i++)
             {
                 if (searchProps[i].selectedForSearch)
@@ -2619,6 +2634,7 @@ namespace SpacerUnion
                     if (searchProps[i].Name == "vobName")
                     {
                         onlyNameVisualSearchFoundName = true;
+                        searchName = searchProps[i].value;
                     }
                     else if (searchProps[i].Name == "visual")
                     {
@@ -2694,15 +2710,21 @@ namespace SpacerUnion
             listBoxSearchResult.Items.Clear();
             searchResultVobsAddr.Clear();
 
-            
-            if (comboBoxSearchType.SelectedIndex == 2)
-            {
-                Imports.Stack_PushString(replaceZenPath);
-            }
 
-            //ConsoleEx.WriteLineYellow("search");
+
+
+
+
+            //ConsoleEx.WriteLineYellow(searchName);
+
+            
+            Imports.Stack_PushString(searchName);
+            Imports.Stack_PushString(replaceZenPath);
+            Imports.Extern_SetSearchVobName();
 
             Imports.Stack_PushInt(countSelected);
+            Imports.Stack_PushInt(Convert.ToInt32(checkBoxSearchItem.Checked));
+            Imports.Stack_PushInt(Convert.ToInt32(checkBoxMatchNames.Checked));
             int result = Imports.Extern_SearchVobs(checkBoxSearchDerived.Checked, checkBoxSearchHasChildren.Checked, comboBoxSearchType.SelectedIndex, onlyNameVisualSearch);
 
 
@@ -3789,6 +3811,60 @@ namespace SpacerUnion
 
                     }
                 }
+            }
+        }
+
+        private void groupBoxSearchClasses_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxSearchItem_CheckedChanged(object sender, EventArgs e)
+        {
+            var box = sender as CheckBox;
+
+            
+            if (checkBoxSearchHasChildren.Checked && box.Checked)
+            {
+                checkBoxSearchHasChildren.Checked = false;
+            }
+
+            if (checkBoxMatchNames.Checked && box.Checked)
+            {
+                checkBoxMatchNames.Checked = false;
+            }
+            
+        }
+
+        private void checkBoxSearchHasChildren_CheckedChanged(object sender, EventArgs e)
+        {
+            var box = sender as CheckBox;
+
+
+            if (checkBoxSearchItem.Checked && box.Checked)
+            {
+                checkBoxSearchItem.Checked = false;
+            }
+
+            if (checkBoxMatchNames.Checked && box.Checked)
+            {
+                checkBoxMatchNames.Checked = false;
+            }
+        }
+
+        private void checkBoxMatchNames_CheckedChanged(object sender, EventArgs e)
+        {
+            var box = sender as CheckBox;
+
+
+            if (checkBoxSearchItem.Checked && box.Checked)
+            {
+                checkBoxSearchItem.Checked = false;
+            }
+
+            if (checkBoxSearchHasChildren.Checked && box.Checked)
+            {
+                checkBoxSearchHasChildren.Checked = false;
             }
         }
     }

@@ -35,10 +35,10 @@
             this.trackBarRadius = new System.Windows.Forms.TrackBar();
             this.labelRadius = new System.Windows.Forms.Label();
             this.panelVobList = new System.Windows.Forms.Panel();
+            this.buttonVobListSearch = new System.Windows.Forms.Button();
             this.btnRemoveContainerVobs = new System.Windows.Forms.Button();
             this.comboBoxVobList = new System.Windows.Forms.ComboBox();
             this.panelVobListBottom = new System.Windows.Forms.Panel();
-            this.buttonVobListSearch = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRadius)).BeginInit();
             this.panelVobList.SuspendLayout();
@@ -77,7 +77,7 @@
             // trackBarRadius
             // 
             this.trackBarRadius.Location = new System.Drawing.Point(114, 8);
-            this.trackBarRadius.Maximum = 3500;
+            this.trackBarRadius.Maximum = 5000;
             this.trackBarRadius.Minimum = 10;
             this.trackBarRadius.Name = "trackBarRadius";
             this.trackBarRadius.Size = new System.Drawing.Size(181, 45);
@@ -108,6 +108,16 @@
             this.panelVobList.Size = new System.Drawing.Size(303, 72);
             this.panelVobList.TabIndex = 7;
             // 
+            // buttonVobListSearch
+            // 
+            this.buttonVobListSearch.Location = new System.Drawing.Point(128, 38);
+            this.buttonVobListSearch.Name = "buttonVobListSearch";
+            this.buttonVobListSearch.Size = new System.Drawing.Size(80, 23);
+            this.buttonVobListSearch.TabIndex = 7;
+            this.buttonVobListSearch.Text = "Найти";
+            this.buttonVobListSearch.UseVisualStyleBackColor = true;
+            this.buttonVobListSearch.Click += new System.EventHandler(this.buttonVobListSearch_Click);
+            // 
             // btnRemoveContainerVobs
             // 
             this.btnRemoveContainerVobs.Location = new System.Drawing.Point(214, 38);
@@ -123,7 +133,7 @@
             this.comboBoxVobList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxVobList.FormattingEnabled = true;
             this.comboBoxVobList.Items.AddRange(new object[] {
-            "Any",
+            "Любой тип",
             "zCVob",
             "oCItem",
             "zCVobSpot",
@@ -148,16 +158,6 @@
             this.panelVobListBottom.Name = "panelVobListBottom";
             this.panelVobListBottom.Size = new System.Drawing.Size(303, 258);
             this.panelVobListBottom.TabIndex = 8;
-            // 
-            // buttonVobListSearch
-            // 
-            this.buttonVobListSearch.Location = new System.Drawing.Point(128, 38);
-            this.buttonVobListSearch.Name = "buttonVobListSearch";
-            this.buttonVobListSearch.Size = new System.Drawing.Size(80, 23);
-            this.buttonVobListSearch.TabIndex = 7;
-            this.buttonVobListSearch.Text = "Найти";
-            this.buttonVobListSearch.UseVisualStyleBackColor = true;
-            this.buttonVobListSearch.Click += new System.EventHandler(this.buttonVobListSearch_Click);
             // 
             // VobListForm
             // 

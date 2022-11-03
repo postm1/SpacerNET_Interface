@@ -357,8 +357,8 @@ namespace SpacerUnion.Common
  
             SpacerNET.matFilterWin.groupBoxMatSettings.Enabled = SpacerNET.matFilterWin.listBoxFilter.SelectedIndex != -1;
             SpacerNET.matFilterWin.panelFilters.Enabled = toggle;
+            SpacerNET.matFilterWin.textBoxFilterSearch.Enabled = toggle;
             
-
             if (blocked)
             {
                 SpacerNET.matFilterWin.labelMatBadFormat.Visible = blocked;
@@ -375,13 +375,135 @@ namespace SpacerUnion.Common
 
             Color color = Color.FromArgb(r, g, b);
 
+
+            if (SpacerNET.matFilterWin.pictureBoxTexture.Image != null)
+            {
+                SpacerNET.matFilterWin.pictureBoxTexture.Image.Dispose();
+                SpacerNET.matFilterWin.pictureBoxTexture.Image = null;
+            }
+            
+
             SpacerNET.matFilterWin.pictureBoxTexture.BackColor = color;
+
+            SpacerNET.matFilterWin.labelTexSize.Text = "Размер: " + "-";
+            SpacerNET.matFilterWin.labelTexBit.Text = "Битность: " + "-";
+            SpacerNET.matFilterWin.labelTexAlpha.Text = "Альфа-канал: " + "-";
+            SpacerNET.matFilterWin.textBoxTexName.Text = String.Empty;
+
+            
+        }
+
+        // labelTexSize.Text = "Размер: " 
+
+        [DllExport]
+        public static void MatFilter_UpdateTextureSize()
+        {
+            string size = Imports.Stack_PeekString();
+            string name = Imports.Stack_PeekString();
+
+            SpacerNET.matFilterWin.labelTexSize.Text = "Размер: " + size;
+            // SpacerNET.matFilterWin.labelTextureName.Text = "Текстура: " + name;
+            SpacerNET.matFilterWin.textBoxTexName.Text = name;
+
+        }
+
+        [DllExport]
+        public static void MatFilter_UpdateTextureBit()
+        {
+            int bit = Imports.Stack_PeekInt();
+            SpacerNET.matFilterWin.labelTexBit.Text = "Битность: " + bit.ToString();
+        }
+
+        [DllExport]
+        public static void MatFilter_UpdateTextureAlphaInfo()
+        {
+            bool isAlpha = Convert.ToBoolean(Imports.Stack_PeekInt());
+
+            if (isAlpha)
+            {
+                SpacerNET.matFilterWin.labelTexAlpha.Text = "Альфа-канал: да";
+            }
+            else
+            {
+                SpacerNET.matFilterWin.labelTexAlpha.Text = "Альфа-канал: нет";
+            }
+           
+        }
+
+        
+
+        [DllExport]
+        public static void MatFilter_Clear()
+        {
+            var win = SpacerNET.matFilterWin;
+
+            win.listBoxMatList.Items.Clear();
+            win.listBoxMatFilSearch.Items.Clear();
+            win.matAddr.Clear();
+
+            if (win.pictureBoxTexture.Image != null)
+            {
+                win.pictureBoxTexture.Image.Dispose();
+                win.pictureBoxTexture.Image = null;
+            }
+
+            win.listBoxFilter.Items.Clear();
+
+            win.labelTexSize.Text = "Размер: " + "0x0";
+
+
+            
+        }
+
+
+        private static void Fill_AlphaChannelLayer()
+        {
+            var box = SpacerNET.matFilterWin.pictureBoxTexture;
+
+            // создаём полотно для рисования из текущей картинки в pictureBox
+            Graphics g = Graphics.FromImage(box.Image);
+
+            // создаём серую кисть для закрашивания подкладки альфа-канала
+            using (SolidBrush gray = new SolidBrush(Color.FromArgb(255, 192, 192, 192)))
+            {
+
+                // смещение слева от начала закрашивания серых квадратов
+                // (пропадает(0) и появляется(4) с каждой новой закрашиваемой строкой)
+                int offsetX = 0;
+
+                // размеры элементов(квадратов) альфа-канала (в пикселях)
+                int fillBox = 8;
+
+                // очищаем полотно перед началом рисования
+                g.Clear(Color.White);
+
+                // пробегаемся по всей высоте бокса
+                // (каждую новую строку переключаем смещение от начала для имитации шахматной доски)
+                for (int y = 0; y < box.Height; y = y + fillBox)
+                {
+                    // и по всей ширине бокса
+                    // (блок закрашиваем, блок пропускаем и так по всему ряду)
+                    for (int x = offsetX; x < box.Width; x = x + fillBox * 2)
+                    {
+                        // закрашиваем серый квадрат заданным размером в "fillBox"
+                        g.FillRectangle(gray, x, y, fillBox, fillBox);
+                    }
+
+                    // если смещения не было
+                    if (offsetX == 0)
+                        // включаем
+                        offsetX = fillBox;
+                    else // иначе, смещение было
+                        // выключаем
+                        offsetX = 0;
+                }
+
+            } // end using gray brush
         }
 
         [DllExport]
         public static void MatFilter_SendTexture()
         {
-            int size = Imports.Stack_PeekInt();
             uint addr = Imports.Stack_PeekUInt();
 
 
@@ -390,43 +512,58 @@ namespace SpacerUnion.Common
 
             const int IMAGE_SIZE = 128;
 
-            Bitmap myBitmap = new Bitmap(IMAGE_SIZE, IMAGE_SIZE, PixelFormat.Format32bppArgb);
-            byte[] pixels = new byte[IMAGE_SIZE * IMAGE_SIZE * 4];
+            Bitmap myBitmap = new Bitmap(IMAGE_SIZE, IMAGE_SIZE, PixelFormat.Format32bppArgb); //Format24bppRgb
+            int[] pixels = new int[IMAGE_SIZE * IMAGE_SIZE];
 
             IntPtr ptr = new IntPtr(addr);
             
 
             Marshal.Copy(ptr, pixels, 0, pixels.Length);
 
+            //ConsoleEx.WriteLineYellow("==============");
 
-            //Array.Reverse(pixels);
-
-
-            int count = 0;
-
-            for (int x = 0; x < IMAGE_SIZE; x++)
+            if (box.Image != null)
             {
-                int row = x * IMAGE_SIZE * 4;
+                box.Image.Dispose();
+            }
+
+            box.Image = new Bitmap(IMAGE_SIZE, IMAGE_SIZE);
+
+
+            Fill_AlphaChannelLayer();
+
+            Graphics graph = Graphics.FromImage(box.Image);
+
+            using (SolidBrush brush = new SolidBrush(Color.FromArgb(128, 255, 0, 0)))
+            {
+
 
                 for (int y = 0; y < IMAGE_SIZE; y++)
                 {
-                    int col = row + (y * 4);
-                    byte r = pixels[col + 2];
-                    byte g = pixels[col + 1];
-                    byte b = pixels[col + 0];
-                    byte a = pixels[col + 3];
+                    for (int x = 0; x < IMAGE_SIZE; x++)
+                    {
+                        int pos = y * IMAGE_SIZE + x;
 
-                    Color c = Color.FromArgb(
-                           a, r, g, b
-                        );
+                        int col = pixels[pos];
+                        byte[] intBytes = BitConverter.GetBytes(col);
 
-                    myBitmap.SetPixel(x, y, c);
+
+                        byte r = intBytes[2];
+                        byte g = intBytes[1];
+                        byte b = intBytes[0];
+                        byte a = intBytes[3];
+
+                        Color c = Color.FromArgb(
+                               a, r, g, b
+                            );
+
+                        brush.Color = c;
+
+                        graph.FillRectangle(brush, x, y, 1, 1);
+                    }
                 }
             }
 
-            box.BackColor = Color.Transparent;
-            box.Image = myBitmap;
-         
         }
     }
 }
