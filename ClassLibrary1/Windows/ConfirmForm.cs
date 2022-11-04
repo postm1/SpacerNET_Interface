@@ -62,8 +62,15 @@ namespace SpacerUnion.Windows
                 string text = textBoxValueEnter.Text.Trim();
                 SpacerNET.matFilterWin.OnRenameFilter(text);
             }
+            else if (confType == "MATFILTER_NEWMATERIAL")
+            {
+                string text = textBoxValueEnter.Text.Trim();
 
-            
+                Imports.Stack_PushString(text);
+                Imports.Extern_Filter_CreateNewMaterial();
+            }
+
+
             this.Hide();
         }
 

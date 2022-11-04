@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,15 +23,20 @@ namespace SpacerUnion.Windows
 
         public ConfirmForm formConf;
 
+        public List<int> filderIndexToSaveList;
+
+
+        public Dictionary<string, int> foundMatList;
 
         public MaterialFilterForm()
         {
             InitializeComponent();
             filters = new List<MatFilter>();
             matAddr = new Dictionary<string, uint>();
-
+            filderIndexToSaveList = new List<int>();
+            foundMatList = new Dictionary<string, int>();
             formConf = new ConfirmForm(null);
-
+            
         }
 
         public void UpdateLang()
@@ -46,7 +52,7 @@ namespace SpacerUnion.Windows
             tabControlMatFilter.TabPages[1].Text = Localizator.Get("WIN_MATFILTER_FILTER_TAB_VOBS");
 
 
-            labelMatCount.Text = Localizator.Get("WIN_MATFILTER_MATLIST") + listBoxMatList.Items.Count;
+            labelMatCountCurrentFilter.Text = Localizator.Get("WIN_MATFILTER_MATLIST_CURRENT") + listBoxMatList.Items.Count;
 
 
 
@@ -58,6 +64,16 @@ namespace SpacerUnion.Windows
             buttonSavePML_File.Text = Localizator.Get("WIN_MATFILTER_FILTER_SAVE_FILTER");
             buttonApplyMatSettings.Text = Localizator.Get("BTN_APPLY");
 
+
+            groupBoxFilterTexShowSettings.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_NAME");
+            checkBoxTexImageUseAlpha.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_USE_ALPHA");
+            checkBoxTexImageAlwaysCenter.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_USE_CENTER");
+            checkBoxFilterTexAutoScale.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_USE_SCALE");
+
+
+            labelTexSize.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_SIZE") + " -";
+            labelTexAlpha.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_ALPHA") + " -";
+            textBoxTexName.Text = String.Empty;
 
         }
 
@@ -105,7 +121,7 @@ namespace SpacerUnion.Windows
                 {
                     listBoxMatList.BeginUpdate();
                     listBoxMatList.Items.Clear();
-                    listBoxMatFilSearch.Items.Clear();
+                    //listBoxMatFilSearch.Items.Clear();
                     matAddr.Clear();
 
                     Imports.Stack_PushString(listBox.SelectedItem.ToString());
@@ -118,13 +134,44 @@ namespace SpacerUnion.Windows
                     {
                         listBoxMatList.SelectedIndex = 0;
                         groupBoxMatSettings.Enabled = true;
+                        groupBoxFilterTexShowSettings.Enabled = true;
                     }
                     else
                     {
                         groupBoxMatSettings.Enabled = false;
+                        groupBoxFilterTexShowSettings.Enabled = false;
                     }
 
-                    labelMatCount.Text = Localizator.Get("WIN_MATFILTER_MATLIST") + listBoxMatList.Items.Count.ToString();
+                    labelMatCountCurrentFilter.Text = Localizator.Get("WIN_MATFILTER_MATLIST_CURRENT") + listBoxMatList.Items.Count.ToString();
+
+                    //SearchMatInMatList();
+
+                    if (listBoxMatList.Items.Count == 0)
+                    {
+                        if (pictureBoxTexture.Image != null)
+                        {
+                            pictureBoxTexture.Image.Dispose();
+                            pictureBoxTexture.Image = null;
+                        }
+
+                        pictureBoxTexture.BackColor = Color.White;
+                        labelTexSize.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_SIZE") + " -";
+                        labelTexAlpha.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_ALPHA") + " -";
+                        textBoxTexName.Text = String.Empty;
+                    }
+                }
+                else
+                {
+                    if (pictureBoxTexture.Image != null)
+                    {
+                        pictureBoxTexture.Image.Dispose();
+                        pictureBoxTexture.Image = null;
+                    }
+
+                    pictureBoxTexture.BackColor = Color.White;
+                    labelTexSize.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_SIZE") + " -";
+                    labelTexAlpha.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_ALPHA") + " -";
+                    textBoxTexName.Text = String.Empty;
                 }
                 
             }
@@ -135,7 +182,18 @@ namespace SpacerUnion.Windows
            
         }
 
-        private void listBoxMatList_SelectedIndexChanged(object sender, EventArgs e)
+        [DllExport]
+        public static void MatFilter_OnCreateNewMat()
+        {
+            string name = Imports.Stack_PeekString();
+
+            SpacerNET.matFilterWin.listBoxFilter.SelectedIndex = Imports.Stack_PeekInt();
+            SpacerNET.matFilterWin.listBoxFilter_SelectedIndexChanged(SpacerNET.matFilterWin.listBoxFilter, null);
+
+            SpacerNET.matFilterWin.listBoxMatList.SelectedItem = name;
+        }
+
+        public void listBoxMatList_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBoxMatList.SelectedItem != null)
             {
@@ -166,7 +224,7 @@ namespace SpacerUnion.Windows
                    
 
                     groupBoxMatSettings.Enabled = true;
-
+                    groupBoxFilterTexShowSettings.Enabled = true;
 
 
 
@@ -175,6 +233,7 @@ namespace SpacerUnion.Windows
             else
             {
                 groupBoxMatSettings.Enabled = false;
+                groupBoxFilterTexShowSettings.Enabled = false;
             }
             
         }
@@ -199,6 +258,23 @@ namespace SpacerUnion.Windows
         {
             int libFlag = comboBoxApplyFilter.SelectedIndex;
             int group = comboBoxApplyGroup.SelectedIndex;
+
+            int index = listBoxFilter.SelectedIndex;
+
+            if (index != -1)
+            {
+                if (!filderIndexToSaveList.Contains(index))
+                {
+                    filderIndexToSaveList.Add(index);
+                }
+
+                if (!filderIndexToSaveList.Contains(libFlag))
+                {
+                    filderIndexToSaveList.Add(libFlag);
+                }
+
+            }
+            
 
             Imports.Extern_FillMat_ApplyFilterAndGroup(libFlag, group);
 
@@ -309,13 +385,30 @@ namespace SpacerUnion.Windows
           formConf.ShowDialog();
         }
 
-        private void buttonSavePML_File_Click(object sender, EventArgs e)
+
+        public void SaveFilterChanges()
         {
             if (listBoxFilter.SelectedItem != null)
             {
-                Imports.Stack_PushInt(listBoxFilter.SelectedIndex);
-                Imports.Extern_MatFilter_SaveCurrentFilter();
+
+                for (int i = 0; i < filderIndexToSaveList.Count; i++)
+                {
+                    int index = filderIndexToSaveList[i];
+
+                    Imports.Stack_PushInt(index);
+                    Imports.Extern_MatFilter_SaveCurrentFilter();
+                    //ConsoleEx.WriteLineYellow("Save: " + index + " " + listBoxFilter.SelectedItem);
+                }
+
+                filderIndexToSaveList.Clear();
+
+
             }
+        }
+
+        private void buttonSavePML_File_Click(object sender, EventArgs e)
+        {
+            SaveFilterChanges();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -331,31 +424,41 @@ namespace SpacerUnion.Windows
             }
         }
 
+
+        public void SearchMatInMatList()
+        {
+            string text = textBoxFilterSearch.Text.Trim().ToUpper();
+
+            if (text.Length > 0)
+            {
+                listBoxMatFilSearch.BeginUpdate();
+                listBoxMatFilSearch.Items.Clear();
+                foundMatList.Clear();
+
+                Imports.Stack_PushString(text);
+                Imports.Exter_MatFilter_SearchMatByName();
+                /*
+                for (int i = 0; i < matAddr.Count; i++)
+                {
+                    var entry = matAddr.ElementAt(i);
+
+                    if (entry.Key == text || entry.Key.Contains(text))
+                    {
+                        listBoxMatFilSearch.Items.Add(entry.Key);
+                    }
+
+                }
+                */
+                listBoxMatFilSearch.Sorted = true;
+                listBoxMatFilSearch.EndUpdate();
+            }
+        }
         private void textBoxFilterSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
             {
                 e.Handled = true;
-                string text = textBoxFilterSearch.Text.Trim().ToUpper();
-
-                if (text.Length > 0)
-                {
-                    listBoxMatFilSearch.BeginUpdate();
-                    listBoxMatFilSearch.Items.Clear();
-
-                    for (int i = 0; i < matAddr.Count; i++)
-                    {
-                        var entry = matAddr.ElementAt(i);
-
-                        if (entry.Key == text || entry.Key.Contains(text))
-                        {
-                            listBoxMatFilSearch.Items.Add(entry.Key);
-                        }
-
-                    }
-
-                    listBoxMatFilSearch.EndUpdate();
-                }
+                SearchMatInMatList();
             }
         }
 
@@ -368,6 +471,34 @@ namespace SpacerUnion.Windows
                 if (listBoxMatList.Items.Contains(text))
                 {
                     listBoxMatList.SelectedItem = text;
+                }
+                else
+                {
+                    string key = listBoxMatFilSearch.SelectedItem.ToString();
+
+                    //foundMatList
+                    if (foundMatList.ContainsKey(key))
+                    {
+                        //ConsoleEx.WriteLineYellow("key found: " + key);
+                        int filterIndex = foundMatList[key];
+
+                        if (filterIndex >= 0 && filterIndex < listBoxFilter.Items.Count)
+                        {
+                           // ConsoleEx.WriteLineYellow("Set index: " + filterIndex);
+                            listBoxFilter.SelectedIndex = filterIndex;
+
+                            listBoxFilter_SelectedIndexChanged(listBoxFilter, null);
+
+
+                            if (listBoxMatList.Items.Contains(key))
+                            {
+                                listBoxMatList.SelectedItem = key;
+                            }
+                            
+
+                        }
+                    }
+
                 }
             }
         }
@@ -389,6 +520,48 @@ namespace SpacerUnion.Windows
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        void Filter_UpdateTextureShowSettings()
+        {
+            Imports.Stack_PushInt(Convert.ToInt32(checkBoxTexImageUseAlpha.Checked));
+            Imports.Stack_PushInt(Convert.ToInt32(checkBoxTexImageAlwaysCenter.Checked));
+            Imports.Stack_PushInt(Convert.ToInt32(checkBoxFilterTexAutoScale.Checked));
+            Imports.Extern_MatFilter_UpdateTextureShowSettings();
+
+        }
+        private void checkBoxTexImageUseAlpha_CheckedChanged(object sender, EventArgs e)
+        {
+            Filter_UpdateTextureShowSettings();
+        }
+
+        private void checkBoxTexImageAlwaysCenter_CheckedChanged(object sender, EventArgs e)
+        {
+            Filter_UpdateTextureShowSettings();
+        }
+
+        private void checkBoxFilterTexAutoScale_CheckStateChanged(object sender, EventArgs e)
+        {
+            Filter_UpdateTextureShowSettings();
+        }
+
+        private void buttonMatFilter_NewMat_Click(object sender, EventArgs e)
+        {
+
+            formConf.buttonConfirmNo.Text = Localizator.Get("WIN_COMPLIGHT_CLOSEBUTTON");
+            formConf.buttonConfirmYes.Text = Localizator.Get("WIN_BTN_CONFIRM");
+            formConf.labelTextShow.Text = Localizator.Get("MSG_MATFILTER_NEW_MAT_NAME");
+            formConf.confType = "MATFILTER_NEWMATERIAL";
+
+            formConf.ShowDialog();
+
+           
+        }
+
+        private void textBoxFilterSearch_KeyDown(object sender, KeyEventArgs e)
         {
 
         }

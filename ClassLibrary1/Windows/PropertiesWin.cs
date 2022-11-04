@@ -1593,7 +1593,7 @@ namespace SpacerUnion
 
             if (className == "zCMaterial")
             {
-                if (fieldName == "name" || fieldName == "texture" || fieldName == "matGroup")
+                if (fieldName == "name" || fieldName == "texture" || fieldName == "matGroup" || fieldName == "noCollDet")
                 {
                     node.NodeFont = new Font(tree.Font, style);
                 }

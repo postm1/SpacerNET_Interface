@@ -30,11 +30,15 @@
         {
             this.tabControlMatFilter = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.buttonMatFilter_NewMat = new System.Windows.Forms.Button();
             this.groupBoxTexInfo = new System.Windows.Forms.GroupBox();
+            this.groupBoxFilterTexShowSettings = new System.Windows.Forms.GroupBox();
+            this.checkBoxFilterTexAutoScale = new System.Windows.Forms.CheckBox();
+            this.checkBoxTexImageAlwaysCenter = new System.Windows.Forms.CheckBox();
+            this.checkBoxTexImageUseAlpha = new System.Windows.Forms.CheckBox();
             this.pictureBoxTexture = new System.Windows.Forms.PictureBox();
             this.textBoxTexName = new System.Windows.Forms.TextBox();
             this.labelTexAlpha = new System.Windows.Forms.Label();
-            this.labelTexBit = new System.Windows.Forms.Label();
             this.labelTexSize = new System.Windows.Forms.Label();
             this.textBoxFilterSearch = new System.Windows.Forms.TextBox();
             this.labelMatFilterSeachInMats = new System.Windows.Forms.Label();
@@ -51,17 +55,20 @@
             this.labelFilterApplyGroup = new System.Windows.Forms.Label();
             this.comboBoxApplyFilter = new System.Windows.Forms.ComboBox();
             this.comboBoxApplyGroup = new System.Windows.Forms.ComboBox();
-            this.labelMatCount = new System.Windows.Forms.Label();
+            this.labelMatCountCurrentFilter = new System.Windows.Forms.Label();
             this.listBoxMatList = new System.Windows.Forms.ListBox();
             this.listBoxFilter = new System.Windows.Forms.ListBox();
             this.labelFilterListFiles = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControlMatFilter.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBoxTexInfo.SuspendLayout();
+            this.groupBoxFilterTexShowSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTexture)).BeginInit();
             this.panelFilters.SuspendLayout();
             this.groupBoxMatSettings.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlMatFilter
@@ -71,11 +78,12 @@
             this.tabControlMatFilter.Location = new System.Drawing.Point(0, 0);
             this.tabControlMatFilter.Name = "tabControlMatFilter";
             this.tabControlMatFilter.SelectedIndex = 0;
-            this.tabControlMatFilter.Size = new System.Drawing.Size(809, 407);
+            this.tabControlMatFilter.Size = new System.Drawing.Size(1015, 407);
             this.tabControlMatFilter.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.buttonMatFilter_NewMat);
             this.tabPage1.Controls.Add(this.groupBoxTexInfo);
             this.tabPage1.Controls.Add(this.textBoxFilterSearch);
             this.tabPage1.Controls.Add(this.labelMatFilterSeachInMats);
@@ -83,31 +91,92 @@
             this.tabPage1.Controls.Add(this.listBoxMatFilSearch);
             this.tabPage1.Controls.Add(this.panelFilters);
             this.tabPage1.Controls.Add(this.groupBoxMatSettings);
-            this.tabPage1.Controls.Add(this.labelMatCount);
+            this.tabPage1.Controls.Add(this.labelMatCountCurrentFilter);
             this.tabPage1.Controls.Add(this.listBoxMatList);
             this.tabPage1.Controls.Add(this.listBoxFilter);
             this.tabPage1.Controls.Add(this.labelFilterListFiles);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(801, 381);
+            this.tabPage1.Size = new System.Drawing.Size(1007, 381);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Меш";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // buttonMatFilter_NewMat
+            // 
+            this.buttonMatFilter_NewMat.AutoSize = true;
+            this.buttonMatFilter_NewMat.Location = new System.Drawing.Point(783, 40);
+            this.buttonMatFilter_NewMat.Name = "buttonMatFilter_NewMat";
+            this.buttonMatFilter_NewMat.Size = new System.Drawing.Size(159, 23);
+            this.buttonMatFilter_NewMat.TabIndex = 13;
+            this.buttonMatFilter_NewMat.Text = "Новый материал";
+            this.buttonMatFilter_NewMat.UseVisualStyleBackColor = true;
+            this.buttonMatFilter_NewMat.Click += new System.EventHandler(this.buttonMatFilter_NewMat_Click);
+            // 
             // groupBoxTexInfo
             // 
+            this.groupBoxTexInfo.Controls.Add(this.groupBoxFilterTexShowSettings);
             this.groupBoxTexInfo.Controls.Add(this.pictureBoxTexture);
             this.groupBoxTexInfo.Controls.Add(this.textBoxTexName);
             this.groupBoxTexInfo.Controls.Add(this.labelTexAlpha);
-            this.groupBoxTexInfo.Controls.Add(this.labelTexBit);
             this.groupBoxTexInfo.Controls.Add(this.labelTexSize);
-            this.groupBoxTexInfo.Location = new System.Drawing.Point(401, 204);
+            this.groupBoxTexInfo.Location = new System.Drawing.Point(548, 202);
             this.groupBoxTexInfo.Name = "groupBoxTexInfo";
-            this.groupBoxTexInfo.Size = new System.Drawing.Size(396, 176);
+            this.groupBoxTexInfo.Size = new System.Drawing.Size(394, 179);
             this.groupBoxTexInfo.TabIndex = 21;
             this.groupBoxTexInfo.TabStop = false;
             this.groupBoxTexInfo.Text = "Текстура";
+            // 
+            // groupBoxFilterTexShowSettings
+            // 
+            this.groupBoxFilterTexShowSettings.Controls.Add(this.checkBoxFilterTexAutoScale);
+            this.groupBoxFilterTexShowSettings.Controls.Add(this.checkBoxTexImageAlwaysCenter);
+            this.groupBoxFilterTexShowSettings.Controls.Add(this.checkBoxTexImageUseAlpha);
+            this.groupBoxFilterTexShowSettings.Enabled = false;
+            this.groupBoxFilterTexShowSettings.Location = new System.Drawing.Point(150, 81);
+            this.groupBoxFilterTexShowSettings.Name = "groupBoxFilterTexShowSettings";
+            this.groupBoxFilterTexShowSettings.Size = new System.Drawing.Size(237, 90);
+            this.groupBoxFilterTexShowSettings.TabIndex = 21;
+            this.groupBoxFilterTexShowSettings.TabStop = false;
+            this.groupBoxFilterTexShowSettings.Text = "Настройки предпросмотра";
+            // 
+            // checkBoxFilterTexAutoScale
+            // 
+            this.checkBoxFilterTexAutoScale.AutoSize = true;
+            this.checkBoxFilterTexAutoScale.Location = new System.Drawing.Point(7, 61);
+            this.checkBoxFilterTexAutoScale.Name = "checkBoxFilterTexAutoScale";
+            this.checkBoxFilterTexAutoScale.Size = new System.Drawing.Size(173, 17);
+            this.checkBoxFilterTexAutoScale.TabIndex = 2;
+            this.checkBoxFilterTexAutoScale.Text = "Автомасштаб малых текстур";
+            this.checkBoxFilterTexAutoScale.UseVisualStyleBackColor = true;
+            this.checkBoxFilterTexAutoScale.CheckStateChanged += new System.EventHandler(this.checkBoxFilterTexAutoScale_CheckStateChanged);
+            // 
+            // checkBoxTexImageAlwaysCenter
+            // 
+            this.checkBoxTexImageAlwaysCenter.AutoSize = true;
+            this.checkBoxTexImageAlwaysCenter.Checked = true;
+            this.checkBoxTexImageAlwaysCenter.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxTexImageAlwaysCenter.Location = new System.Drawing.Point(7, 40);
+            this.checkBoxTexImageAlwaysCenter.Name = "checkBoxTexImageAlwaysCenter";
+            this.checkBoxTexImageAlwaysCenter.Size = new System.Drawing.Size(114, 17);
+            this.checkBoxTexImageAlwaysCenter.TabIndex = 1;
+            this.checkBoxTexImageAlwaysCenter.Text = "Всегда по центру";
+            this.checkBoxTexImageAlwaysCenter.UseVisualStyleBackColor = true;
+            this.checkBoxTexImageAlwaysCenter.CheckedChanged += new System.EventHandler(this.checkBoxTexImageAlwaysCenter_CheckedChanged);
+            // 
+            // checkBoxTexImageUseAlpha
+            // 
+            this.checkBoxTexImageUseAlpha.AutoSize = true;
+            this.checkBoxTexImageUseAlpha.Checked = true;
+            this.checkBoxTexImageUseAlpha.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxTexImageUseAlpha.Location = new System.Drawing.Point(7, 20);
+            this.checkBoxTexImageUseAlpha.Name = "checkBoxTexImageUseAlpha";
+            this.checkBoxTexImageUseAlpha.Size = new System.Drawing.Size(98, 17);
+            this.checkBoxTexImageUseAlpha.TabIndex = 0;
+            this.checkBoxTexImageUseAlpha.Text = "Прозрачность";
+            this.checkBoxTexImageUseAlpha.UseVisualStyleBackColor = true;
+            this.checkBoxTexImageUseAlpha.CheckedChanged += new System.EventHandler(this.checkBoxTexImageUseAlpha_CheckedChanged);
             // 
             // pictureBoxTexture
             // 
@@ -130,53 +199,45 @@
             // labelTexAlpha
             // 
             this.labelTexAlpha.AutoSize = true;
-            this.labelTexAlpha.Location = new System.Drawing.Point(147, 87);
+            this.labelTexAlpha.Location = new System.Drawing.Point(147, 63);
             this.labelTexAlpha.Name = "labelTexAlpha";
-            this.labelTexAlpha.Size = new System.Drawing.Size(91, 13);
+            this.labelTexAlpha.Size = new System.Drawing.Size(82, 13);
             this.labelTexAlpha.TabIndex = 19;
-            this.labelTexAlpha.Text = "Альфа-канал: да";
-            // 
-            // labelTexBit
-            // 
-            this.labelTexBit.AutoSize = true;
-            this.labelTexBit.Location = new System.Drawing.Point(147, 66);
-            this.labelTexBit.Name = "labelTexBit";
-            this.labelTexBit.Size = new System.Drawing.Size(66, 13);
-            this.labelTexBit.TabIndex = 18;
-            this.labelTexBit.Text = "Битность: 0";
+            this.labelTexAlpha.Text = "Альфа-канал: -";
             // 
             // labelTexSize
             // 
             this.labelTexSize.AutoSize = true;
             this.labelTexSize.Location = new System.Drawing.Point(147, 44);
             this.labelTexSize.Name = "labelTexSize";
-            this.labelTexSize.Size = new System.Drawing.Size(69, 13);
+            this.labelTexSize.Size = new System.Drawing.Size(55, 13);
             this.labelTexSize.TabIndex = 16;
-            this.labelTexSize.Text = "Размер: 0x0";
+            this.labelTexSize.Text = "Размер: -";
             // 
             // textBoxFilterSearch
             // 
-            this.textBoxFilterSearch.Location = new System.Drawing.Point(546, 28);
+            this.textBoxFilterSearch.Location = new System.Drawing.Point(186, 222);
             this.textBoxFilterSearch.Name = "textBoxFilterSearch";
-            this.textBoxFilterSearch.Size = new System.Drawing.Size(250, 20);
+            this.textBoxFilterSearch.Size = new System.Drawing.Size(356, 20);
             this.textBoxFilterSearch.TabIndex = 17;
+            this.textBoxFilterSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxFilterSearch_KeyDown);
             this.textBoxFilterSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxFilterSearch_KeyPress);
             // 
             // labelMatFilterSeachInMats
             // 
             this.labelMatFilterSeachInMats.AutoSize = true;
-            this.labelMatFilterSeachInMats.Location = new System.Drawing.Point(543, 12);
+            this.labelMatFilterSeachInMats.Location = new System.Drawing.Point(183, 206);
             this.labelMatFilterSeachInMats.Name = "labelMatFilterSeachInMats";
-            this.labelMatFilterSeachInMats.Size = new System.Drawing.Size(155, 13);
+            this.labelMatFilterSeachInMats.Size = new System.Drawing.Size(100, 13);
             this.labelMatFilterSeachInMats.TabIndex = 16;
-            this.labelMatFilterSeachInMats.Text = "Поиск материала в фильтре:";
+            this.labelMatFilterSeachInMats.Text = "Поиск материала:";
             // 
             // labelMatBadFormat
             // 
             this.labelMatBadFormat.AutoSize = true;
             this.labelMatBadFormat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelMatBadFormat.ForeColor = System.Drawing.Color.Red;
-            this.labelMatBadFormat.Location = new System.Drawing.Point(157, 116);
+            this.labelMatBadFormat.Location = new System.Drawing.Point(159, 125);
             this.labelMatBadFormat.Name = "labelMatBadFormat";
             this.labelMatBadFormat.Size = new System.Drawing.Size(477, 32);
             this.labelMatBadFormat.TabIndex = 13;
@@ -187,9 +248,9 @@
             // listBoxMatFilSearch
             // 
             this.listBoxMatFilSearch.FormattingEnabled = true;
-            this.listBoxMatFilSearch.Location = new System.Drawing.Point(546, 54);
+            this.listBoxMatFilSearch.Location = new System.Drawing.Point(186, 248);
             this.listBoxMatFilSearch.Name = "listBoxMatFilSearch";
-            this.listBoxMatFilSearch.Size = new System.Drawing.Size(250, 147);
+            this.listBoxMatFilSearch.Size = new System.Drawing.Size(356, 121);
             this.listBoxMatFilSearch.TabIndex = 15;
             this.listBoxMatFilSearch.SelectedIndexChanged += new System.EventHandler(this.listBoxMatFilSearch_SelectedIndexChanged);
             this.listBoxMatFilSearch.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxMatList_MouseDown);
@@ -201,9 +262,9 @@
             this.panelFilters.Controls.Add(this.buttonFltRename);
             this.panelFilters.Controls.Add(this.buttonMatFilterSaveFilters);
             this.panelFilters.Enabled = false;
-            this.panelFilters.Location = new System.Drawing.Point(11, 210);
+            this.panelFilters.Location = new System.Drawing.Point(7, 210);
             this.panelFilters.Name = "panelFilters";
-            this.panelFilters.Size = new System.Drawing.Size(170, 104);
+            this.panelFilters.Size = new System.Drawing.Size(170, 159);
             this.panelFilters.TabIndex = 14;
             // 
             // buttonFilterNew
@@ -248,7 +309,7 @@
             this.groupBoxMatSettings.Controls.Add(this.comboBoxApplyFilter);
             this.groupBoxMatSettings.Controls.Add(this.comboBoxApplyGroup);
             this.groupBoxMatSettings.Enabled = false;
-            this.groupBoxMatSettings.Location = new System.Drawing.Point(186, 204);
+            this.groupBoxMatSettings.Location = new System.Drawing.Point(551, 11);
             this.groupBoxMatSettings.Name = "groupBoxMatSettings";
             this.groupBoxMatSettings.Size = new System.Drawing.Size(209, 176);
             this.groupBoxMatSettings.TabIndex = 10;
@@ -262,7 +323,7 @@
             this.buttonSavePML_File.Name = "buttonSavePML_File";
             this.buttonSavePML_File.Size = new System.Drawing.Size(190, 23);
             this.buttonSavePML_File.TabIndex = 12;
-            this.buttonSavePML_File.Text = "Сохранить текущий фильтр";
+            this.buttonSavePML_File.Text = "Сохранить изменения в фильтрах";
             this.buttonSavePML_File.UseVisualStyleBackColor = true;
             this.buttonSavePML_File.Click += new System.EventHandler(this.buttonSavePML_File_Click);
             // 
@@ -322,19 +383,19 @@
             this.comboBoxApplyGroup.TabIndex = 7;
             this.comboBoxApplyGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxApplyGroup_SelectedIndexChanged);
             // 
-            // labelMatCount
+            // labelMatCountCurrentFilter
             // 
-            this.labelMatCount.AutoSize = true;
-            this.labelMatCount.Location = new System.Drawing.Point(183, 12);
-            this.labelMatCount.Name = "labelMatCount";
-            this.labelMatCount.Size = new System.Drawing.Size(120, 13);
-            this.labelMatCount.TabIndex = 4;
-            this.labelMatCount.Text = "Список материалов: 0";
+            this.labelMatCountCurrentFilter.AutoSize = true;
+            this.labelMatCountCurrentFilter.Location = new System.Drawing.Point(183, 3);
+            this.labelMatCountCurrentFilter.Name = "labelMatCountCurrentFilter";
+            this.labelMatCountCurrentFilter.Size = new System.Drawing.Size(120, 13);
+            this.labelMatCountCurrentFilter.TabIndex = 4;
+            this.labelMatCountCurrentFilter.Text = "Список материалов: 0";
             // 
             // listBoxMatList
             // 
             this.listBoxMatList.FormattingEnabled = true;
-            this.listBoxMatList.Location = new System.Drawing.Point(186, 28);
+            this.listBoxMatList.Location = new System.Drawing.Point(186, 18);
             this.listBoxMatList.Name = "listBoxMatList";
             this.listBoxMatList.Size = new System.Drawing.Size(356, 173);
             this.listBoxMatList.TabIndex = 3;
@@ -344,7 +405,7 @@
             // listBoxFilter
             // 
             this.listBoxFilter.FormattingEnabled = true;
-            this.listBoxFilter.Location = new System.Drawing.Point(11, 28);
+            this.listBoxFilter.Location = new System.Drawing.Point(6, 18);
             this.listBoxFilter.Name = "listBoxFilter";
             this.listBoxFilter.Size = new System.Drawing.Size(170, 173);
             this.listBoxFilter.TabIndex = 2;
@@ -353,7 +414,7 @@
             // labelFilterListFiles
             // 
             this.labelFilterListFiles.AutoSize = true;
-            this.labelFilterListFiles.Location = new System.Drawing.Point(8, 12);
+            this.labelFilterListFiles.Location = new System.Drawing.Point(5, 3);
             this.labelFilterListFiles.Name = "labelFilterListFiles";
             this.labelFilterListFiles.Size = new System.Drawing.Size(96, 13);
             this.labelFilterListFiles.TabIndex = 1;
@@ -361,19 +422,32 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(801, 381);
+            this.tabPage2.Size = new System.Drawing.Size(1007, 381);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Вобы";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(289, 181);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(193, 16);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Еще не готово / Not ready yet";
+            this.label1.Visible = false;
             // 
             // MaterialFilterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 407);
+            this.ClientSize = new System.Drawing.Size(1013, 407);
             this.Controls.Add(this.tabControlMatFilter);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -389,11 +463,15 @@
             this.tabPage1.PerformLayout();
             this.groupBoxTexInfo.ResumeLayout(false);
             this.groupBoxTexInfo.PerformLayout();
+            this.groupBoxFilterTexShowSettings.ResumeLayout(false);
+            this.groupBoxFilterTexShowSettings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTexture)).EndInit();
             this.panelFilters.ResumeLayout(false);
             this.panelFilters.PerformLayout();
             this.groupBoxMatSettings.ResumeLayout(false);
             this.groupBoxMatSettings.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -404,7 +482,7 @@
         private System.Windows.Forms.Label labelFilterListFiles;
         public System.Windows.Forms.ListBox listBoxFilter;
         public System.Windows.Forms.ListBox listBoxMatList;
-        private System.Windows.Forms.Label labelMatCount;
+        private System.Windows.Forms.Label labelMatCountCurrentFilter;
         private System.Windows.Forms.Label labelApplyFilter;
         private System.Windows.Forms.Label labelFilterApplyGroup;
         private System.Windows.Forms.ComboBox comboBoxApplyGroup;
@@ -423,9 +501,14 @@
         public System.Windows.Forms.ListBox listBoxMatFilSearch;
         public System.Windows.Forms.Label labelTexSize;
         public System.Windows.Forms.TextBox textBoxFilterSearch;
-        public System.Windows.Forms.Label labelTexBit;
         public System.Windows.Forms.Label labelTexAlpha;
         public System.Windows.Forms.TextBox textBoxTexName;
         private System.Windows.Forms.GroupBox groupBoxTexInfo;
+        private System.Windows.Forms.CheckBox checkBoxFilterTexAutoScale;
+        private System.Windows.Forms.CheckBox checkBoxTexImageAlwaysCenter;
+        public System.Windows.Forms.GroupBox groupBoxFilterTexShowSettings;
+        public System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonMatFilter_NewMat;
+        public System.Windows.Forms.CheckBox checkBoxTexImageUseAlpha;
     }
 }

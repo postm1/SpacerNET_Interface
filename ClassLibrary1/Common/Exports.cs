@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SpacerUnion.Common
@@ -321,6 +322,19 @@ namespace SpacerUnion.Common
 
 
         [DllExport]
+        public static void MatFilter_AddMatInSearchByName()
+        {
+            var listView = SpacerNET.matFilterWin.listBoxMatFilSearch;
+            
+            string name = Imports.Stack_PeekString();
+            int libFlag = Imports.Stack_PeekInt();
+            listView.Items.Add(name);
+
+            SpacerNET.matFilterWin.foundMatList.Add(name, libFlag);
+        }
+
+        
+        [DllExport]
         public static void MatFilter_SelectFilterByIndex()
         {
             var listView = SpacerNET.matFilterWin.listBoxFilter;
@@ -331,6 +345,33 @@ namespace SpacerUnion.Common
                 listView.SelectedIndex = index;
             }
         }
+
+        [DllExport]
+        public static void MatFilter_AddCurrentFilterIndexToSave()
+        {
+            var index = SpacerNET.matFilterWin.listBoxFilter.SelectedIndex;
+
+            if (index != -1)
+            {
+                if (!SpacerNET.matFilterWin.filderIndexToSaveList.Contains(index))
+                {
+                    SpacerNET.matFilterWin.filderIndexToSaveList.Add(index);
+                    //ConsoleEx.WriteLineRed("Save index by set params: " + index);
+                    SpacerNET.matFilterWin.SaveFilterChanges();
+
+                    var listBox = SpacerNET.matFilterWin.listBoxMatList;
+
+                    int indexPrev = listBox.SelectedIndex;
+
+                    if (indexPrev != -1)
+                    {
+                        SpacerNET.matFilterWin.listBoxMatList_SelectedIndexChanged(listBox, null);
+                    }
+                }
+            }
+        }
+
+        
 
         [DllExport]
         public static void MatFilter_SelectMaterialByAddr()
@@ -356,6 +397,7 @@ namespace SpacerUnion.Common
 
  
             SpacerNET.matFilterWin.groupBoxMatSettings.Enabled = SpacerNET.matFilterWin.listBoxFilter.SelectedIndex != -1;
+            SpacerNET.matFilterWin.groupBoxFilterTexShowSettings.Enabled = SpacerNET.matFilterWin.listBoxFilter.SelectedIndex != -1;
             SpacerNET.matFilterWin.panelFilters.Enabled = toggle;
             SpacerNET.matFilterWin.textBoxFilterSearch.Enabled = toggle;
             
@@ -385,9 +427,8 @@ namespace SpacerUnion.Common
 
             SpacerNET.matFilterWin.pictureBoxTexture.BackColor = color;
 
-            SpacerNET.matFilterWin.labelTexSize.Text = "Размер: " + "-";
-            SpacerNET.matFilterWin.labelTexBit.Text = "Битность: " + "-";
-            SpacerNET.matFilterWin.labelTexAlpha.Text = "Альфа-канал: " + "-";
+            SpacerNET.matFilterWin.labelTexSize.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_SIZE") + " -";
+            SpacerNET.matFilterWin.labelTexAlpha.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_ALPHA") + " -";
             SpacerNET.matFilterWin.textBoxTexName.Text = String.Empty;
 
             
@@ -401,18 +442,12 @@ namespace SpacerUnion.Common
             string size = Imports.Stack_PeekString();
             string name = Imports.Stack_PeekString();
 
-            SpacerNET.matFilterWin.labelTexSize.Text = "Размер: " + size;
+            SpacerNET.matFilterWin.labelTexSize.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_SIZE") + size + Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_BITS");
             // SpacerNET.matFilterWin.labelTextureName.Text = "Текстура: " + name;
             SpacerNET.matFilterWin.textBoxTexName.Text = name;
 
         }
 
-        [DllExport]
-        public static void MatFilter_UpdateTextureBit()
-        {
-            int bit = Imports.Stack_PeekInt();
-            SpacerNET.matFilterWin.labelTexBit.Text = "Битность: " + bit.ToString();
-        }
 
         [DllExport]
         public static void MatFilter_UpdateTextureAlphaInfo()
@@ -421,11 +456,11 @@ namespace SpacerUnion.Common
 
             if (isAlpha)
             {
-                SpacerNET.matFilterWin.labelTexAlpha.Text = "Альфа-канал: да";
+                SpacerNET.matFilterWin.labelTexAlpha.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_ALPHA_YES");
             }
             else
             {
-                SpacerNET.matFilterWin.labelTexAlpha.Text = "Альфа-канал: нет";
+                SpacerNET.matFilterWin.labelTexAlpha.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_ALPHA_NO");
             }
            
         }
@@ -440,6 +475,7 @@ namespace SpacerUnion.Common
             win.listBoxMatList.Items.Clear();
             win.listBoxMatFilSearch.Items.Clear();
             win.matAddr.Clear();
+            win.foundMatList.Clear();
 
             if (win.pictureBoxTexture.Image != null)
             {
@@ -447,14 +483,29 @@ namespace SpacerUnion.Common
                 win.pictureBoxTexture.Image = null;
             }
 
+            win.pictureBoxTexture.BackColor = Color.White;
+
             win.listBoxFilter.Items.Clear();
+            win.filderIndexToSaveList.Clear();
 
-            win.labelTexSize.Text = "Размер: " + "0x0";
+            SpacerNET.matFilterWin.labelTexSize.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_SIZE") + " -";
+            SpacerNET.matFilterWin.labelTexAlpha.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_ALPHA") + " -";
+            SpacerNET.matFilterWin.textBoxTexName.Text = String.Empty;
 
 
-            
+
         }
 
+        private static void Fill_BlackLayer()
+        {
+            var box = SpacerNET.matFilterWin.pictureBoxTexture;
+
+            Graphics g = Graphics.FromImage(box.Image);
+
+            SolidBrush blackBrush = new SolidBrush(Color.FromArgb(255, 0, 0, 0));
+
+            g.FillRectangle(blackBrush, 0, 0, 128, 128);
+        }
 
         private static void Fill_AlphaChannelLayer()
         {
@@ -505,14 +556,15 @@ namespace SpacerUnion.Common
         public static void MatFilter_SendTexture()
         {
             uint addr = Imports.Stack_PeekUInt();
+            bool hasAlpha = Convert.ToBoolean(Imports.Stack_PeekInt());
 
-
+            var watch = System.Diagnostics.Stopwatch.StartNew();
             //ConsoleEx.WriteLineYellow("size: " + size + " addr: " + addr);
             var box = SpacerNET.matFilterWin.pictureBoxTexture;
 
             const int IMAGE_SIZE = 128;
 
-            Bitmap myBitmap = new Bitmap(IMAGE_SIZE, IMAGE_SIZE, PixelFormat.Format32bppArgb); //Format24bppRgb
+           // Bitmap myBitmap = new Bitmap(IMAGE_SIZE, IMAGE_SIZE, PixelFormat.Format32bppArgb); //Format24bppRgb
             int[] pixels = new int[IMAGE_SIZE * IMAGE_SIZE];
 
             IntPtr ptr = new IntPtr(addr);
@@ -520,18 +572,48 @@ namespace SpacerUnion.Common
 
             Marshal.Copy(ptr, pixels, 0, pixels.Length);
 
-            //ConsoleEx.WriteLineYellow("==============");
+
+            watch.Stop();
+            //ConsoleEx.WriteLineYellow("Marshal: " + watch.ElapsedMilliseconds);
+
+
+
+
+            watch = System.Diagnostics.Stopwatch.StartNew();
 
             if (box.Image != null)
             {
                 box.Image.Dispose();
             }
 
-            box.Image = new Bitmap(IMAGE_SIZE, IMAGE_SIZE);
+
+            var bitMap = new Bitmap(IMAGE_SIZE, IMAGE_SIZE);
+            box.Image = bitMap;
 
 
-            Fill_AlphaChannelLayer();
+            if (!hasAlpha || !SpacerNET.matFilterWin.checkBoxTexImageUseAlpha.Checked)
+            {
+                Fill_BlackLayer();
+            }
+            else
+            {
+                Fill_AlphaChannelLayer();
+            }
+           
 
+
+            watch.Stop();
+          //  ConsoleEx.WriteLineYellow("Fill_AlphaChannelLayer: " + watch.ElapsedMilliseconds);
+
+
+            watch = System.Diagnostics.Stopwatch.StartNew();
+
+
+
+
+
+
+            
             Graphics graph = Graphics.FromImage(box.Image);
 
             using (SolidBrush brush = new SolidBrush(Color.FromArgb(128, 255, 0, 0)))
@@ -553,16 +635,17 @@ namespace SpacerUnion.Common
                         byte b = intBytes[0];
                         byte a = intBytes[3];
 
-                        Color c = Color.FromArgb(
+                        brush.Color = Color.FromArgb(
                                a, r, g, b
                             );
-
-                        brush.Color = c;
 
                         graph.FillRectangle(brush, x, y, 1, 1);
                     }
                 }
             }
+            
+            watch.Stop();
+           // ConsoleEx.WriteLineYellow("FillBrush: " + watch.ElapsedMilliseconds);
 
         }
     }
