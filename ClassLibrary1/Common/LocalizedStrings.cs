@@ -652,7 +652,7 @@ namespace SpacerUnion.Common
 
             words.Add("WIN_MATFILTER_ERR_NO", new List<string> { "Все готово к работе", "Everything is ready", "", "Wszystko jest gotowe" });
             words.Add("WIN_MATFILTER_ERR_WORK", new List<string> { "Для работы загрузите ZEN или 3DS файл", "Load any ZEN or 3DS to activate Materials Filter", "", "Załaduj dowolny ZEN lub 3DS, aby aktywować filtr materiałów" });
-            words.Add("WIN_MATFILTER_ERR_READONLY", new List<string> { "Файл MatLib.ini имеет аттрибут 'Только чтение'. Изменения в 'Библиотеке фильтров' не будут работать!", "File Matlib.ini has 'read only' attribute, no changes will be saved in 'Filters library'", "", "lik Matlib.ini ma atrybut 'tylko do odczytu', żadne zmiany nie zostaną zapisane w 'Bibliotece filtrów'" });
+            words.Add("WIN_MATFILTER_ERR_READONLY", new List<string> { "Файл MatLib.ini имеет аттрибут 'Только чтение'. Изменения в 'Библиотеке фильтров' не будут работать!", "File Matlib.ini has 'read only' attribute, no changes will be saved in 'Filters library'", "", "Plik Matlib.ini ma atrybut 'tylko do odczytu', żadne zmiany nie zostaną zapisane w 'Bibliotece filtrów'" });
             words.Add("WIN_MATFILTER_FILTERLIST_REMOVE", new List<string> { "Удалить фильтр", "Remove filter", "", "Usuń filtr" });
             words.Add("MSG_MATFILTER_REMOVE_ONLY_NONEMPTY", new List<string> { "Можно удалить только пустой фильтр!", "You can remove only empty filter!", "", "Możesz usunąć jedynie pusty filtr!" });
             words.Add("WIN_MATFILTER_FILTERS_MENU_MISC", new List<string> { "Прочее", "Misc", "", "Pozostałe" });
