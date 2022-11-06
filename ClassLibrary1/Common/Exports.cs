@@ -350,6 +350,8 @@ namespace SpacerUnion.Common
         public static void MatFilter_AddCurrentFilterIndexToSave()
         {
             var index = SpacerNET.matFilterWin.listBoxFilter.SelectedIndex;
+            var listBox = SpacerNET.matFilterWin.listBoxMatList;
+            string matName = Imports.Stack_PeekString();
 
             if (index != -1)
             {
@@ -357,21 +359,57 @@ namespace SpacerUnion.Common
                 {
                     SpacerNET.matFilterWin.filderIndexToSaveList.Add(index);
                     //ConsoleEx.WriteLineRed("Save index by set params: " + index);
-                    SpacerNET.matFilterWin.SaveFilterChanges();
+                    //SpacerNET.matFilterWin.SaveFilterChanges();
 
-                    var listBox = SpacerNET.matFilterWin.listBoxMatList;
+                    //int indexPrev = listBox.SelectedIndex;
 
-                    int indexPrev = listBox.SelectedIndex;
+                    
+                }
+                SpacerNET.matFilterWin.lastMaterialSelectIndex = -1;
+                SpacerNET.matFilterWin.buttonSavePML_File.Enabled = true;
+                SpacerNET.matFilterWin.listBoxMatList_SelectedIndexChanged(listBox, null);
 
-                    if (indexPrev != -1)
+                string currentName = SpacerNET.matFilterWin.listBoxMatList.SelectedItem.ToString();
+                ConsoleEx.WriteLineRed(currentName + " " + matName);
+
+                matName = matName.ToUpper();
+
+                if (currentName != matName)
+                {
+                    //ConsoleEx.WriteLineRed("Change name");
+                    if (SpacerNET.matFilterWin.matAddr.ContainsKey(currentName))
                     {
-                        SpacerNET.matFilterWin.listBoxMatList_SelectedIndexChanged(listBox, null);
+
+                       //ConsoleEx.WriteLineRed("Rename");
+
+                        uint addr = SpacerNET.matFilterWin.matAddr[currentName];
+
+                        SpacerNET.matFilterWin.matAddr.Remove(currentName);
+
+                        SpacerNET.matFilterWin.matAddr.Add(matName, addr);
+
+                        SpacerNET.matFilterWin.listBoxMatList.Items[SpacerNET.matFilterWin.listBoxMatList.SelectedIndex] = matName;
+
+
                     }
                 }
+                    
             }
         }
 
         
+        [DllExport]
+        public static void MatFilter_SetEmptyTexture()
+        {
+            string texName = Imports.Stack_PeekString();
+            SpacerNET.matFilterWin.pictureBoxTexture.Image = Properties.Resources.TEX_NOT_FOUND_V5;
+            SpacerNET.matFilterWin.textBoxTexName.Text = texName + " " + Localizator.Get("WIN_MATFILTER_TEXTURE_NOT_FOUND");
+            SpacerNET.matFilterWin.textBoxTexName.ForeColor = Color.Red;
+
+            SpacerNET.matFilterWin.labelTexSize.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_SIZE") + " -";
+            SpacerNET.matFilterWin.labelTexAlpha.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_ALPHA") + " -";
+
+        }
 
         [DllExport]
         public static void MatFilter_SelectMaterialByAddr()
@@ -393,18 +431,41 @@ namespace SpacerUnion.Common
         public static void MatFilter_ToggleWindow()
         {
             bool toggle = Convert.ToBoolean(Imports.Stack_PeekInt());
-            bool blocked = Convert.ToBoolean(Imports.Stack_PeekInt());
+            int blockedWin = Imports.Stack_PeekInt();
 
  
             SpacerNET.matFilterWin.groupBoxMatSettings.Enabled = SpacerNET.matFilterWin.listBoxFilter.SelectedIndex != -1;
             SpacerNET.matFilterWin.groupBoxFilterTexShowSettings.Enabled = SpacerNET.matFilterWin.listBoxFilter.SelectedIndex != -1;
-            SpacerNET.matFilterWin.panelFilters.Enabled = toggle;
+            SpacerNET.matFilterWin.groupBoxFilterMenu.Enabled = toggle;
             SpacerNET.matFilterWin.textBoxFilterSearch.Enabled = toggle;
+            SpacerNET.matFilterWin.groupBoxMatFilterMisc.Enabled = toggle;
             
-            if (blocked)
+
+            if (blockedWin == 0)
             {
-                SpacerNET.matFilterWin.labelMatBadFormat.Visible = blocked;
+                // SpacerNET.matFilterWin.labelMatBadFormat.Text = Localizator.Get("WIN_MATFILTER_ERR_FORMAT");
+                SpacerNET.matFilterWin.toolStripStatusFilterMat.Text = Localizator.Get("WIN_MATFILTER_ERR_NO");
+                SpacerNET.matFilterWin.toolStripStatusFilterMat.ForeColor = Color.Black;
+
+                if (!toggle)
+                {
+                    SpacerNET.matFilterWin.toolStripStatusFilterMat.Text = Localizator.Get("WIN_MATFILTER_ERR_WORK");
+                    
+                }
             }
+            else if (blockedWin == 1)
+            {
+               // SpacerNET.matFilterWin.labelMatBadFormat.Text = Localizator.Get("WIN_MATFILTER_ERR_FORMAT");
+                SpacerNET.matFilterWin.toolStripStatusFilterMat.Text = Localizator.Get("WIN_MATFILTER_ERR_FORMAT");
+                SpacerNET.matFilterWin.toolStripStatusFilterMat.ForeColor = Color.Red;
+            }
+            else if (blockedWin == 2)
+            {
+                SpacerNET.matFilterWin.toolStripStatusFilterMat.Text = Localizator.Get("WIN_MATFILTER_ERR_READONLY");
+                SpacerNET.matFilterWin.toolStripStatusFilterMat.ForeColor = Color.Red;
+            }
+
+           // SpacerNET.matFilterWin.labelMatBadFormat.Visible = blockedWin != 0;
         }
 
 
@@ -430,8 +491,8 @@ namespace SpacerUnion.Common
             SpacerNET.matFilterWin.labelTexSize.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_SIZE") + " -";
             SpacerNET.matFilterWin.labelTexAlpha.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_ALPHA") + " -";
             SpacerNET.matFilterWin.textBoxTexName.Text = String.Empty;
+            SpacerNET.matFilterWin.textBoxTexName.ForeColor = Color.Black;
 
-            
         }
 
         // labelTexSize.Text = "Размер: " 
@@ -445,7 +506,7 @@ namespace SpacerUnion.Common
             SpacerNET.matFilterWin.labelTexSize.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_SIZE") + size + Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_BITS");
             // SpacerNET.matFilterWin.labelTextureName.Text = "Текстура: " + name;
             SpacerNET.matFilterWin.textBoxTexName.Text = name;
-
+            SpacerNET.matFilterWin.textBoxTexName.ForeColor = Color.Black;
         }
 
 
@@ -487,13 +548,14 @@ namespace SpacerUnion.Common
 
             win.listBoxFilter.Items.Clear();
             win.filderIndexToSaveList.Clear();
+            win.buttonSavePML_File.Enabled = false;
 
-            SpacerNET.matFilterWin.labelTexSize.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_SIZE") + " -";
-            SpacerNET.matFilterWin.labelTexAlpha.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_ALPHA") + " -";
-            SpacerNET.matFilterWin.textBoxTexName.Text = String.Empty;
-
-
-
+            win.labelTexSize.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_SIZE") + " -";
+            win.labelTexAlpha.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_ALPHA") + " -";
+            win.textBoxTexName.Text = String.Empty;
+            win.textBoxTexName.ForeColor = Color.Black;
+    
+            win.labelMatCountCurrentFilter.Text = Localizator.Get("WIN_MATFILTER_MATLIST_CURRENT_EMPTY");
         }
 
         private static void Fill_BlackLayer()

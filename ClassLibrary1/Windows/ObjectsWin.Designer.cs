@@ -124,6 +124,7 @@
             this.textBoxFP = new System.Windows.Forms.TextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.groupBoxSearchClasses = new System.Windows.Forms.GroupBox();
+            this.checkBoxSearchItem = new System.Windows.Forms.CheckBox();
             this.checkBoxMatchNames = new System.Windows.Forms.CheckBox();
             this.panelRadioNumType = new System.Windows.Forms.Panel();
             this.radioButtonSearchEquals = new System.Windows.Forms.RadioButton();
@@ -209,7 +210,7 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.checkBoxSearchItem = new System.Windows.Forms.CheckBox();
+            this.comboBoxLocatorItemType = new System.Windows.Forms.ComboBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -359,6 +360,7 @@
             // 
             // groupBoxItemsLocator
             // 
+            this.groupBoxItemsLocator.Controls.Add(this.comboBoxLocatorItemType);
             this.groupBoxItemsLocator.Controls.Add(this.checkBoxLocatorByName);
             this.groupBoxItemsLocator.Controls.Add(this.textBoxLocatorByName);
             this.groupBoxItemsLocator.Controls.Add(this.checkBoxLocatorOnlySusp);
@@ -395,7 +397,7 @@
             // checkBoxLocatorOnlySusp
             // 
             this.checkBoxLocatorOnlySusp.AutoSize = true;
-            this.checkBoxLocatorOnlySusp.Location = new System.Drawing.Point(9, 105);
+            this.checkBoxLocatorOnlySusp.Location = new System.Drawing.Point(9, 127);
             this.checkBoxLocatorOnlySusp.Name = "checkBoxLocatorOnlySusp";
             this.checkBoxLocatorOnlySusp.Size = new System.Drawing.Size(147, 17);
             this.checkBoxLocatorOnlySusp.TabIndex = 3;
@@ -406,7 +408,7 @@
             // labelItemLocatorRadius
             // 
             this.labelItemLocatorRadius.AutoSize = true;
-            this.labelItemLocatorRadius.Location = new System.Drawing.Point(6, 49);
+            this.labelItemLocatorRadius.Location = new System.Drawing.Point(6, 41);
             this.labelItemLocatorRadius.Name = "labelItemLocatorRadius";
             this.labelItemLocatorRadius.Size = new System.Drawing.Size(118, 13);
             this.labelItemLocatorRadius.TabIndex = 2;
@@ -415,7 +417,7 @@
             // trackBarLocatorRad
             // 
             this.trackBarLocatorRad.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.trackBarLocatorRad.Location = new System.Drawing.Point(6, 65);
+            this.trackBarLocatorRad.Location = new System.Drawing.Point(6, 58);
             this.trackBarLocatorRad.Maximum = 30000;
             this.trackBarLocatorRad.Minimum = 500;
             this.trackBarLocatorRad.Name = "trackBarLocatorRad";
@@ -1324,6 +1326,17 @@
             this.groupBoxSearchClasses.Text = "Класс воба";
             this.groupBoxSearchClasses.Enter += new System.EventHandler(this.groupBoxSearchClasses_Enter);
             // 
+            // checkBoxSearchItem
+            // 
+            this.checkBoxSearchItem.AutoSize = true;
+            this.checkBoxSearchItem.Location = new System.Drawing.Point(242, 88);
+            this.checkBoxSearchItem.Name = "checkBoxSearchItem";
+            this.checkBoxSearchItem.Size = new System.Drawing.Size(190, 17);
+            this.checkBoxSearchItem.TabIndex = 30;
+            this.checkBoxSearchItem.Text = "Искать oCItem в oCMobContainer";
+            this.checkBoxSearchItem.UseVisualStyleBackColor = true;
+            this.checkBoxSearchItem.CheckedChanged += new System.EventHandler(this.checkBoxSearchItem_CheckedChanged);
+            // 
             // checkBoxMatchNames
             // 
             this.checkBoxMatchNames.AutoSize = true;
@@ -2201,16 +2214,29 @@
             this.button10.Text = "Удалить";
             this.button10.UseVisualStyleBackColor = true;
             // 
-            // checkBoxSearchItem
+            // comboBoxLocatorItemType
             // 
-            this.checkBoxSearchItem.AutoSize = true;
-            this.checkBoxSearchItem.Location = new System.Drawing.Point(242, 88);
-            this.checkBoxSearchItem.Name = "checkBoxSearchItem";
-            this.checkBoxSearchItem.Size = new System.Drawing.Size(190, 17);
-            this.checkBoxSearchItem.TabIndex = 30;
-            this.checkBoxSearchItem.Text = "Искать oCItem в oCMobContainer";
-            this.checkBoxSearchItem.UseVisualStyleBackColor = true;
-            this.checkBoxSearchItem.CheckedChanged += new System.EventHandler(this.checkBoxSearchItem_CheckedChanged);
+            this.comboBoxLocatorItemType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLocatorItemType.FormattingEnabled = true;
+            this.comboBoxLocatorItemType.Items.AddRange(new object[] {
+            "Любой тип",
+            "ITEM_KAT_NONE",
+            "ITEM_KAT_NF",
+            "ITEM_KAT_FF",
+            "ITEM_KAT_MUN",
+            "ITEM_KAT_ARMOR",
+            "ITEM_KAT_FOOD",
+            "ITEM_KAT_DOCS",
+            "ITEM_KAT_POTIONS",
+            "ITEM_KAT_LIGHT",
+            "ITEM_KAT_RUNE",
+            "ITEM_KAT_MAGIC",
+            "ITEM_KAT_KEYS"});
+            this.comboBoxLocatorItemType.Location = new System.Drawing.Point(9, 100);
+            this.comboBoxLocatorItemType.Name = "comboBoxLocatorItemType";
+            this.comboBoxLocatorItemType.Size = new System.Drawing.Size(155, 21);
+            this.comboBoxLocatorItemType.TabIndex = 12;
+            this.comboBoxLocatorItemType.SelectedIndexChanged += new System.EventHandler(this.comboBoxLocatorItemType_SelectedIndexChanged);
             // 
             // ObjectsWin
             // 
@@ -2461,5 +2487,6 @@
         public System.Windows.Forms.ListBox listBoxSearchResult;
         private System.Windows.Forms.CheckBox checkBoxMatchNames;
         private System.Windows.Forms.CheckBox checkBoxSearchItem;
+        private System.Windows.Forms.ComboBox comboBoxLocatorItemType;
     }
 }

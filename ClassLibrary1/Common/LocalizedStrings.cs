@@ -606,11 +606,11 @@ namespace SpacerUnion.Common
 
 
 
-            words.Add("MSG_COMMON_NO_EMPTY_NAME", new List<string> {  "Имя не может быть пусты", "Name can't be empty!", "", "Nazwa nie może być pusta!" });
+            words.Add("MSG_COMMON_NO_EMPTY_NAME", new List<string> {  "Имя не может быть пустым!", "Name can't be empty!", "", "Nazwa nie może być pusta!" });
             words.Add("MSG_COMMON_NO_UNIQUE_NAME", new List<string> { "Такое имя уже есть", "The name already exists!", "", "Nazwa już istnieje!" });
-            words.Add("WIN_MATFILTER_MATLIST_CURRENT", new List<string> { "Список материалов текущего фильтра: ", "Materials list of current filter: ", "", "ista materiałów w bieżącym filtrze: " });
-            words.Add("WIN_MATFILTER_FILTERLIST_FILES", new List<string> { "Список фильтров", "Filters list", "", "Lista filtrów" });
-            words.Add("WIN_MATFILTER_FILTER_NEW", new List<string> { "Новый фильтр", "New filter", "", " Nowy filtr" });
+        
+           
+            words.Add("WIN_MATFILTER_FILTER_NEW", new List<string> { "Создать новый", "New filter", "", " Nowy filtr" });
             words.Add("WIN_MATFILTER_FILTERLIST_RENAME", new List<string> { "Переименовать выбранный", "Rename selected", "", "Zmień nazwę wybranego" });
             words.Add("WIN_MATFILTER_FILTERLIST_SAVE", new List<string> { "Сохранить файл фильтров", "Save filters file", "", "Zapisz plik filtrów" });
 
@@ -625,7 +625,7 @@ namespace SpacerUnion.Common
             words.Add("WIN_MATFILTER_FILTER_SETTINGS", new List<string> { "Настройки выбранного материала", "Properties of selected material", "", "Właściwości wybranego materiału" });
             words.Add("WIN_MATFILTER_FILTER_SET_FILTER", new List<string> { "Задать фильтр:", "Set filter:", "", "Ustaw filtr:" });
             words.Add("WIN_MATFILTER_FILTER_SET_GROUP", new List<string> { "Задать группу:", "Set group:", "", "Ustaw grupę:" });
-            words.Add("WIN_MATFILTER_FILTER_SAVE_FILTER", new List<string> { "Сохранить изменения в фильтрах", "Save changes in filters", "", "Zapisz zmiany w filtrach" });
+            words.Add("WIN_MATFILTER_FILTER_SAVE_FILTER", new List<string> { "Сохранить изменения", "Save changes", "", "Zapisz zmiany" });
 
             words.Add("WIN_MATFILTER_FILTER_SETTINGS_SIZE", new List<string> { "Размер:", "Size:", "", "Rozmiar:" });
             words.Add("WIN_MATFILTER_FILTER_SETTINGS_ALPHA", new List<string> { "Альфа-канал:", "Alpha channel:", "", "Kanał alpha:" });
@@ -637,12 +637,27 @@ namespace SpacerUnion.Common
             words.Add("WIN_MATFILTER_FILTER_SETTINGS_NAME", new List<string> { "Настройки предпросмотра", "Preview settings", "", "Ustawienia podglądu" });
             words.Add("WIN_MATFILTER_FILTER_SETTINGS_USE_ALPHA", new List<string> { "Прозрачность", "Transparency", "", "Przezroczystość" });
             words.Add("WIN_MATFILTER_FILTER_SETTINGS_USE_CENTER", new List<string> { "Всегда по центру", "Always in center", "", "Zawsze na środku" });
-            words.Add("WIN_MATFILTER_FILTER_SETTINGS_USE_SCALE", new List<string> { "Автомасштаб малых текстур", "Autoscale little textures", "", "Automatyczne skalowanie małych tekstur" });
+            words.Add("WIN_MATFILTER_FILTER_SETTINGS_USE_SCALE", new List<string> { "Автомасштаб малых текстур", "Autoscale small textures", "", "Automatyczne skalowanie małych tekstur" });
 
 
 
-            words.Add("WIN_MATFILTER_FILTER_MAT_NAME_ALREADY_EXISTS", new List<string> { "Материал с таким именем уже существует!", "Material with this name already exists!", "", "" });
-            words.Add("MSG_MATFILTER_NEW_MAT_NAME", new List<string> { "Имя материала:", "Material name:", "", "" });
+            words.Add("WIN_MATFILTER_FILTER_MAT_NAME_ALREADY_EXISTS", new List<string> { "Материал с таким именем уже существует!", "Material with this name already exists!", "", "Materiał o tej nazwie już istnieje!" });
+            words.Add("MSG_MATFILTER_NEW_MAT_NAME", new List<string> { "Имя материала:", "Material name:", "", "Nazwa materiału:" });
+            words.Add("WIN_MATFILTER_TEXTURE_NOT_FOUND", new List<string> { "(Не найдена)", "(Not found)", "", "(Nie znaleziono)" });
+
+            words.Add("WIN_MATFILTER_FILTERS_MENU", new List<string> { "Меню фильтров", "Filters menu", "", "Menu filtrów" });
+
+            words.Add("WIN_MATFILTER_MATLIST_CURRENT", new List<string> { "Материалы {0} фильтра: ", "Materials of {0} filter: ", "", "Materiały {0} filtra: " });
+            words.Add("WIN_MATFILTER_MATLIST_CURRENT_EMPTY", new List<string> { "Материалы фильтра: (0) ", "Materials of the filter: (0) ", "", "Materiały filtra: (0)" });
+
+            words.Add("WIN_MATFILTER_ERR_NO", new List<string> { "Все готово к работе", "Everything is ready", "", "Wszystko jest gotowe" });
+            words.Add("WIN_MATFILTER_ERR_WORK", new List<string> { "Для работы загрузите ZEN или 3DS файл", "Load any ZEN or 3DS to activate Materials Filter", "", "Załaduj dowolny ZEN lub 3DS, aby aktywować filtr materiałów" });
+            words.Add("WIN_MATFILTER_ERR_READONLY", new List<string> { "Файл MatLib.ini имеет аттрибут 'Только чтение'. Изменения в 'Библиотеке фильтров' не будут работать!", "File Matlib.ini has 'read only' attribute, no changes will be saved in 'Filters library'", "", "lik Matlib.ini ma atrybut 'tylko do odczytu', żadne zmiany nie zostaną zapisane w 'Bibliotece filtrów'" });
+            words.Add("WIN_MATFILTER_FILTERLIST_REMOVE", new List<string> { "Удалить фильтр", "Remove filter", "", "Usuń filtr" });
+            words.Add("MSG_MATFILTER_REMOVE_ONLY_NONEMPTY", new List<string> { "Можно удалить только пустой фильтр!", "You can remove only empty filter!", "", "Możesz usunąć jedynie pusty filtr!" });
+            words.Add("WIN_MATFILTER_FILTERS_MENU_MISC", new List<string> { "Прочее", "Misc", "", "Pozostałe" });
+            words.Add("WIN_MATFILTER_NEW_MATERIAL", new List<string> { "Новый материал", "New material", "", "Nowy materiał" });
+            words.Add("WIN_MATFILTER_FILTERLIST_FILES", new List<string> { "Библиотека фильтров", "Filters library", "", "Biblioteka filtrów" });
         }
         
     }

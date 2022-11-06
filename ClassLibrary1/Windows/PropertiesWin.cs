@@ -739,7 +739,19 @@ namespace SpacerUnion
                             return;
                         }
                     }
+                    else if (prop.Name == "name")
+                    {
+                        string newName = prop.value;
 
+                        Imports.Stack_PushString(newName);
+
+                        if (Imports.Extern_CheckUniqueNameExist() == 1)
+                        {
+                            MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
+
+                            return;
+                        }
+                    }
                 }
             }
 
@@ -784,6 +796,8 @@ namespace SpacerUnion
                 
             }
 
+            int wasPositionChanged = 0;
+             
             for (int i = 0; i < props.Count; i++)
             {
                 if (props[i].Name == "vobName")
@@ -794,6 +808,13 @@ namespace SpacerUnion
                 if (props[i].Name == "visual")
                 {
                     visual = props[i].value;
+                }
+
+                // обновляем позицию воба из введенных данных
+                if (props[i].Name == "trafoOSToWSPos" && props[i].value != props[i].backup_value)
+                {
+                    wasPositionChanged = 1;
+                    //ConsoleEx.WriteLineYellow("Pos was changed");
                 }
             }
 
@@ -806,7 +827,7 @@ namespace SpacerUnion
             Imports.Stack_PushString(visual);
             Imports.Stack_PushString(nameValue);
             Imports.Stack_PushString(str.ToString());
-
+            Imports.Stack_PushInt(wasPositionChanged);
             Imports.Extern_ApplyProps();
             this.treeViewProp.Refresh();
         }

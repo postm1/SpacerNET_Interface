@@ -259,6 +259,10 @@ namespace SpacerUnion
             trackBarLocatorRad.Value = Imports.Extern_GetSetting();
 
             GetVdfArchivesList();
+
+
+
+            comboBoxLocatorItemType.SelectedIndex = 0;
         }
 
         public void GetVdfArchivesList()
@@ -3866,6 +3870,13 @@ namespace SpacerUnion
             {
                 checkBoxSearchHasChildren.Checked = false;
             }
+        }
+
+        private void comboBoxLocatorItemType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Imports.Stack_PushInt(comboBoxLocatorItemType.SelectedIndex);
+
+            Imports.Extern_SetLocatorItemType();
         }
     }
 }

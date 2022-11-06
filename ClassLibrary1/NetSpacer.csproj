@@ -347,6 +347,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\TEX_NOT_FOUND_V5.png" />
     <None Include="Resources\png-transparent-yellow-simple-star-yellow-simple-stars.png" />
     <None Include="Resources\v-ozhidanii-otveta_63203298_orig_.jpeg" />
     <None Include="Resources\uk-flag.png" />

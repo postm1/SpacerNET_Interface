@@ -27,6 +27,8 @@ namespace SpacerUnion.Windows
 
 
         public Dictionary<string, int> foundMatList;
+        private readonly object WIN_MATFILTER_FILTERS_MENU;
+        public int lastMaterialSelectIndex = -1;
 
         public MaterialFilterForm()
         {
@@ -36,7 +38,7 @@ namespace SpacerUnion.Windows
             filderIndexToSaveList = new List<int>();
             foundMatList = new Dictionary<string, int>();
             formConf = new ConfirmForm(null);
-            
+            textBoxTexName.BackColor = textBoxTexName.BackColor;
         }
 
         public void UpdateLang()
@@ -45,14 +47,23 @@ namespace SpacerUnion.Windows
             buttonFilterNew.Text = Localizator.Get("WIN_MATFILTER_FILTER_NEW");
             buttonFltRename.Text = Localizator.Get("WIN_MATFILTER_FILTERLIST_RENAME");
             buttonMatFilterSaveFilters.Text = Localizator.Get("WIN_MATFILTER_FILTERLIST_SAVE");
-
+            buttonMatFilter_RemoveFilter.Text = Localizator.Get("WIN_MATFILTER_FILTERLIST_REMOVE");
 
             this.Text = Localizator.Get("WIN_MATFILTER_FILTER_TITLE");
             tabControlMatFilter.TabPages[0].Text = Localizator.Get("WIN_MATFILTER_FILTER_TAB_MESH");
             tabControlMatFilter.TabPages[1].Text = Localizator.Get("WIN_MATFILTER_FILTER_TAB_VOBS");
 
 
-            labelMatCountCurrentFilter.Text = Localizator.Get("WIN_MATFILTER_MATLIST_CURRENT") + listBoxMatList.Items.Count;
+            if (listBoxFilter.SelectedItem != null)
+            {
+                labelMatCountCurrentFilter.Text = String.Format(Localizator.Get("WIN_MATFILTER_MATLIST_CURRENT"), "'" + listBoxFilter.SelectedItem.ToString() + "'") + "(" + listBoxMatList.Items.Count.ToString() + ")";
+                //Localizator.Get("WIN_MATFILTER_MATLIST_CURRENT") + "'" + listBoxFilter.SelectedItem.ToString() + "' фильтра: (" + listBoxMatList.Items.Count.ToString() + ")";
+            }
+            else
+            {
+                labelMatCountCurrentFilter.Text = Localizator.Get("WIN_MATFILTER_MATLIST_CURRENT_EMPTY");
+            }
+
 
 
 
@@ -75,6 +86,14 @@ namespace SpacerUnion.Windows
             labelTexAlpha.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_ALPHA") + " -";
             textBoxTexName.Text = String.Empty;
 
+
+            //groupBoxFilterMenu.Text = Localizator.Get("WIN_MATFILTER_FILTERS_MENU");
+            groupBoxMatFilterMisc.Text = Localizator.Get("WIN_MATFILTER_FILTERS_MENU_MISC");
+            buttonMatFilter_NewMat.Text = Localizator.Get("WIN_MATFILTER_NEW_MATERIAL");
+
+            toolStripStatusFilterMat.Text = Localizator.Get("WIN_MATFILTER_ERR_WORK");
+
+
         }
 
         public void OnClose()
@@ -93,12 +112,14 @@ namespace SpacerUnion.Windows
             if (index == 0)
             {
                 buttonFltRename.Enabled = false;
-                buttonSavePML_File.Enabled = false;
+                //buttonSavePML_File.Enabled = false;
+                buttonMatFilter_RemoveFilter.Enabled = false;
             }
             else if (index != -1)
             {
                 buttonFltRename.Enabled = true;
-                buttonSavePML_File.Enabled = true;
+                //buttonSavePML_File.Enabled = true;
+                buttonMatFilter_RemoveFilter.Enabled = true;
             }
             else
             {
@@ -112,7 +133,16 @@ namespace SpacerUnion.Windows
 
             if (listBox != null)
             {
+                // сбросы чтобы не было багов
+                lastMaterialSelectIndex = -1;
+
                 int index = listBox.SelectedIndex;
+
+                if (index == -1)
+                {
+                    buttonFltRename.Enabled = false;
+                    buttonMatFilter_RemoveFilter.Enabled = false;
+                }
 
 
                 OnFilterIndexChange(index);
@@ -142,7 +172,15 @@ namespace SpacerUnion.Windows
                         groupBoxFilterTexShowSettings.Enabled = false;
                     }
 
-                    labelMatCountCurrentFilter.Text = Localizator.Get("WIN_MATFILTER_MATLIST_CURRENT") + listBoxMatList.Items.Count.ToString();
+                    if (listBoxFilter.SelectedItem != null)
+                    {
+                        labelMatCountCurrentFilter.Text = String.Format(Localizator.Get("WIN_MATFILTER_MATLIST_CURRENT"), "'" + listBoxFilter.SelectedItem.ToString() + "'") + "(" + listBoxMatList.Items.Count.ToString() + ")";
+                        //Localizator.Get("WIN_MATFILTER_MATLIST_CURRENT") + "'" + listBoxFilter.SelectedItem.ToString() + "' фильтра: (" + listBoxMatList.Items.Count.ToString() + ")";
+                    }
+                    else
+                    {
+                        labelMatCountCurrentFilter.Text = Localizator.Get("WIN_MATFILTER_MATLIST_CURRENT_EMPTY");
+                    }
 
                     //SearchMatInMatList();
 
@@ -195,8 +233,26 @@ namespace SpacerUnion.Windows
 
         public void listBoxMatList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (lastMaterialSelectIndex == listBoxMatList.SelectedIndex)
+            {
+               // ConsoleEx.WriteLineRed("Prot!");
+                return;
+            }
+
+            lastMaterialSelectIndex = listBoxMatList.SelectedIndex;
+
+
+            if (pictureBoxTexture.Image != null)
+            {
+                pictureBoxTexture.Image.Dispose();
+                pictureBoxTexture.Image = null;
+            }
+
+            pictureBoxTexture.BackColor = Color.White;
+
             if (listBoxMatList.SelectedItem != null)
             {
+                //ConsoleEx.WriteLineYellow("Update!");
                 string text = listBoxMatList.GetItemText(listBoxMatList.SelectedItem);
 
                 if (matAddr.ContainsKey(text))
@@ -275,6 +331,10 @@ namespace SpacerUnion.Windows
 
             }
             
+            if (filderIndexToSaveList.Count > 0)
+            {
+                buttonSavePML_File.Enabled = true;
+            }
 
             Imports.Extern_FillMat_ApplyFilterAndGroup(libFlag, group);
 
@@ -288,25 +348,25 @@ namespace SpacerUnion.Windows
         }
 
         
-        public void OnRenameFilter(string name)
+        public bool OnRenameFilter(string name)
         {
 
             if (name.Length == 0)
             {
                 MessageBox.Show(Localizator.Get("MSG_COMMON_NO_EMPTY_NAME"));
-                return;
+                return false;
             }
 
             if (listBoxFilter.Items.Contains(name))
             {
                 MessageBox.Show(Localizator.Get("MSG_COMMON_NO_UNIQUE_NAME"));
-                return;
+                return false;
             }
 
-            if (!Utils.IsOnlyLatin(name) && Utils.IsOptionActive("checkBoxOnlyLatinInInput"))
+            if (!Utils.IsOnlyLatin(name))
             {
                 MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
-                return;
+                return false;
             }
 
             listBoxFilter.Items[listBoxFilter.SelectedIndex] = name;
@@ -325,27 +385,27 @@ namespace SpacerUnion.Windows
 
             listBoxFilter_SelectedIndexChanged(listBoxFilter, null);
 
-
+            return true;
         }
-        public void OnCreateNewFilter(string name)
+        public bool OnCreateNewFilter(string name)
         {
 
             if (name.Length == 0)
             {
                 MessageBox.Show(Localizator.Get("MSG_COMMON_NO_EMPTY_NAME"));
-                return;
+                return false;
             }
 
             if (listBoxFilter.Items.Contains(name))
             {
                 MessageBox.Show(Localizator.Get("MSG_COMMON_NO_UNIQUE_NAME"));
-                return;
+                return false;
             }
 
-            if (!Utils.IsOnlyLatin(name) && Utils.IsOptionActive("checkBoxOnlyLatinInInput"))
+            if (!Utils.IsOnlyLatin(name))
             {
                 MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
-                return;
+                return false;
             }
 
             listBoxFilter.Items.Add(name);
@@ -353,6 +413,9 @@ namespace SpacerUnion.Windows
             listBoxFilter.SelectedItem = name;
 
             Imports.Stack_PushString(name);
+
+
+            
             Imports.Extern_FillMat_AddNewFilter();
 
             comboBoxApplyFilter.BeginUpdate();
@@ -373,6 +436,8 @@ namespace SpacerUnion.Windows
 
             listBoxFilter.Focus();
 
+            buttonSavePML_File.Enabled = true;
+            return true;
         }
 
         private void buttonFilterNew_Click(object sender, EventArgs e)
@@ -381,7 +446,7 @@ namespace SpacerUnion.Windows
           formConf.buttonConfirmYes.Text = Localizator.Get("WIN_BTN_CONFIRM");
           formConf.labelTextShow.Text = Localizator.Get("MSG_MATFILTER_NEW_NAME");
           formConf.confType = "MATFILTER_NEWFILTER";
-
+          formConf.clearText = true;
           formConf.ShowDialog();
         }
 
@@ -402,13 +467,14 @@ namespace SpacerUnion.Windows
 
                 filderIndexToSaveList.Clear();
 
-
+                SpacerNET.matFilterWin.buttonSavePML_File.Enabled = false;
             }
         }
 
         private void buttonSavePML_File_Click(object sender, EventArgs e)
         {
             SaveFilterChanges();
+            Imports.Extern_FilterMat_SaveFilters();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -418,6 +484,12 @@ namespace SpacerUnion.Windows
                 formConf.buttonConfirmNo.Text = Localizator.Get("WIN_COMPLIGHT_CLOSEBUTTON");
                 formConf.buttonConfirmYes.Text = Localizator.Get("WIN_BTN_CONFIRM");
                 formConf.labelTextShow.Text = Localizator.Get("MSG_MATFILTER_RENAME");
+                formConf.textBoxValueEnter.Text = listBoxFilter.SelectedItem.ToString();
+
+                formConf.textBoxValueEnter.SelectionStart = formConf.textBoxValueEnter.Text.Length;
+                formConf.textBoxValueEnter.SelectionLength = 0;
+                formConf.clearText = false;
+
                 formConf.confType = "MATFILTER_RENAME_FILTER";
 
                 formConf.ShowDialog();
@@ -455,7 +527,7 @@ namespace SpacerUnion.Windows
         }
         private void textBoxFilterSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)13)
+            if (e.KeyChar == (char)13 && groupBoxFilterMenu.Enabled)
             {
                 e.Handled = true;
                 SearchMatInMatList();
@@ -509,13 +581,14 @@ namespace SpacerUnion.Windows
             if (e.Button == MouseButtons.Right && lb.SelectedIndex != -1)
             {
 
-                    string visual = lb.GetItemText(lb.SelectedItem);
-                    Clipboard.SetText(visual);
+
+                string visual = lb.GetItemText(lb.SelectedItem);
+                Clipboard.SetText(visual);
 
             
-                    Imports.Stack_PushString(Localizator.Get("COPYBUFFER") + ": " + visual);
+                Imports.Stack_PushString(Localizator.Get("COPYBUFFER") + ": " + visual);
 
-                    Imports.Extern_PrintGreen();
+                Imports.Extern_PrintGreen();
             }
         }
 
@@ -564,6 +637,29 @@ namespace SpacerUnion.Windows
         private void textBoxFilterSearch_KeyDown(object sender, KeyEventArgs e)
         {
 
+        }
+
+        private void buttonMatFilter_RemoveFilter_Click(object sender, EventArgs e)
+        {
+            if (listBoxFilter.SelectedIndex > 0)
+            {
+                if (listBoxMatList.Items.Count > 0)
+                {
+                    MessageBox.Show(Localizator.Get("MSG_MATFILTER_REMOVE_ONLY_NONEMPTY"));
+                    return;
+                }
+                else
+                {
+
+                    DialogResult dialogResult = MessageBox.Show(Localizator.Get("askSure"), Localizator.Get("confirmation"), MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        Imports.Stack_PushInt(listBoxFilter.SelectedIndex);
+                        Imports.Extern_MatFilter_RemoveFilterByIndex();
+                        listBoxFilter.Items.RemoveAt(listBoxFilter.SelectedIndex);
+                    }
+                }
+            }
         }
     }
 

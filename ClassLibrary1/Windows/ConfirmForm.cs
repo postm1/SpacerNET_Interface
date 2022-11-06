@@ -14,11 +14,13 @@ namespace SpacerUnion.Windows
     {
         public string confType;
         public Macros macros;
+        public bool clearText;
 
         public ConfirmForm(Macros mac)
         {
             InitializeComponent();
             macros = mac;
+            clearText = true;
         }
 
         private void buttonConfirmNo_Click(object sender, EventArgs e)
@@ -50,22 +52,46 @@ namespace SpacerUnion.Windows
             {
                 string text = textBoxValueEnter.Text.Trim();
 
+
+
+                if (!Utils.IsOnlyLatin(text))
+                {
+                    MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+                    return;
+                }
+
                 macros.OnNewMacro(text);
             }
             else if (confType == "MATFILTER_NEWFILTER")
             {
                 string text = textBoxValueEnter.Text.Trim();
-                SpacerNET.matFilterWin.OnCreateNewFilter(text);
+                if (!SpacerNET.matFilterWin.OnCreateNewFilter(text))
+                {
+                    return;
+                }
             }
             else if (confType == "MATFILTER_RENAME_FILTER")
             {
                 string text = textBoxValueEnter.Text.Trim();
-                SpacerNET.matFilterWin.OnRenameFilter(text);
+
+
+                if (!SpacerNET.matFilterWin.OnRenameFilter(text))
+                {
+                    return;
+                }
             }
             else if (confType == "MATFILTER_NEWMATERIAL")
             {
                 string text = textBoxValueEnter.Text.Trim();
 
+                if (!Utils.IsOnlyLatin(text))
+                {
+                    MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+                    return;
+                }
+
+
+                Imports.Stack_PushInt(SpacerNET.matFilterWin.listBoxFilter.SelectedIndex);
                 Imports.Stack_PushString(text);
                 Imports.Extern_Filter_CreateNewMaterial();
             }
@@ -83,7 +109,11 @@ namespace SpacerUnion.Windows
         private void ConfirmForm_Shown(object sender, EventArgs e)
         {
             this.textBoxValueEnter.Focus();
-            this.textBoxValueEnter.Clear();
+
+            if (clearText)
+            {
+                this.textBoxValueEnter.Clear();
+            }
         }
 
         private void textBoxValueEnter_KeyPress(object sender, KeyPressEventArgs e)
@@ -93,6 +123,12 @@ namespace SpacerUnion.Windows
                 e.Handled = true;
                 buttonConfirmYes_Click(null, null);
             }
+            else if (e.KeyChar == (char)Keys.Escape)
+            {
+                e.Handled = true;
+                this.Close();
+            }
+
         }
     }
 }
