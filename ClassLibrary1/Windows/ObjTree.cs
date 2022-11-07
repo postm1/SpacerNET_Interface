@@ -64,11 +64,11 @@ namespace SpacerUnion
             contextMenuQuick.Items[0].Text = Localizator.Get("CONTEXTMENU_TREE_REMOVE_PARENT");
             contextMenuQuick.Items[1].Text = Localizator.Get("CONTEXTMENU_FAST_REMOVE_VOB");
 
-
+            /*
             buttonCollapseMatTree.Text = Localizator.Get("buttonCollapse");
             buttonExpandMatTree.Text = Localizator.Get("buttonExpand");
             buttonSortMatTree.Text = Localizator.Get("buttonTreeSort");
-
+            */
         }
 
         
@@ -245,7 +245,7 @@ namespace SpacerUnion
         {
             SpacerNET.objTreeWin.globalTree.Nodes.Clear();
             SpacerNET.objTreeWin.quickTree.Nodes.Clear();
-            SpacerNET.objTreeWin.matTree.Nodes.Clear();
+           // SpacerNET.objTreeWin.matTree.Nodes.Clear();
             ObjTree.globalEntries.Clear();
             ObjTree.matEntries.Clear();
             ObjTree.quickVobMan.Clear();
@@ -421,6 +421,7 @@ namespace SpacerUnion
         [DllExport]
         public static void OnSelectMaterial(uint ptr)
         {
+            /*
             if (ptr == 0)
             {
                 return;
@@ -453,6 +454,7 @@ namespace SpacerUnion
             {
                 Utils.Error("OnSelectMaterial: No key/addr/vob found in matEntries. Key: " + Utils.ToHex(ptr));
             }
+            */
         }
 
         [DllExport]
@@ -1585,9 +1587,10 @@ namespace SpacerUnion
 
         //================================================================
 
-
+            /*
         public static int CreateAndGetFolderMat(string className)
         {
+
             TreeNodeCollection nodes = SpacerNET.objTreeWin.matTree.Nodes;
 
             int classNameFoundPos = -1;
@@ -1615,7 +1618,7 @@ namespace SpacerUnion
             return classNameFoundPos;
         }
 
-
+    */
 
 
        
@@ -1624,6 +1627,7 @@ namespace SpacerUnion
 
         private void matTree_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            /*
             TreeNode node = matTree.SelectedNode;
 
             if (node == null) return;
@@ -1641,26 +1645,27 @@ namespace SpacerUnion
 
             Imports.Extern_SelectMat(addr);
             SpacerNET.form.Focus();
+            */
         }
 
         private void buttonSortMatTree_Click(object sender, EventArgs e)
         {
-            matTree.Sort();
+           // matTree.Sort();
         }
 
         private void buttonCollapseMatTree_Click(object sender, EventArgs e)
         {
-            matTree.CollapseAll();
+           // matTree.CollapseAll();
         }
 
         private void buttonExpandMatTree_Click(object sender, EventArgs e)
         {
-            matTree.ExpandAll();
+           // matTree.ExpandAll();
         }
 
         private void matTree_MouseClick(object sender, MouseEventArgs e)
         {
-            matTree_MouseDoubleClick(null, e);
+            //matTree_MouseDoubleClick(null, e);
         }
 
         private void tempInvisibleToolStrip_Click(object sender, EventArgs e)

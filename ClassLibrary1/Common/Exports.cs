@@ -80,7 +80,7 @@ namespace SpacerUnion.Common
 
                 case UIElementType.UI_MAT_LIST:
                     {
-                        obj = SpacerNET.objTreeWin.matTree;
+                        //obj = SpacerNET.objTreeWin.matTree;
 
                     }; break;
 
@@ -141,6 +141,7 @@ namespace SpacerUnion.Common
         [DllExport]
         public static void AddGlobalEntryMat(uint mat)
         {
+            /*
             TreeNodeCollection nodes = SpacerNET.objTreeWin.matTree.Nodes;
 
 
@@ -172,6 +173,7 @@ namespace SpacerUnion.Common
 
                 Utils.Error("AddGlobalEntryMat: Key exists!: Key: " + Utils.ToHex(mat) + ", Name: " + name);
             }
+            */
         }
 
         // выбранный (picked) воб принудительно выделяем в списке

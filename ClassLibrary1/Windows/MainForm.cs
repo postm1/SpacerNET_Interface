@@ -98,7 +98,7 @@ namespace SpacerUnion
         {
             ObjTree.globalEntries.Clear();
             SpacerNET.objTreeWin.globalTree.Nodes.Clear();
-            SpacerNET.objTreeWin.matTree.Nodes.Clear();
+            //SpacerNET.objTreeWin.matTree.Nodes.Clear();
             SpacerNET.objTreeWin.quickTree.Nodes.Clear();
             SpacerNET.objectsWin.BlockInterfaceWhileCameraMoving(false);
 
