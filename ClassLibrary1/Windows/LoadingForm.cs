@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -19,8 +20,28 @@ namespace SpacerUnion
             InitializeComponent();
         }
 
+
+        [DllExport]
+        public static void LoadingForm_UpdateText()
+        {
+            string text = Imports.Stack_PeekString();
+            SpacerNET.loadForm.UpdateFormText(text);
+        }
+
+        public void UpdateFormText(string text)
+        {
+            labelLoading.Text = text;
+            //labelLoading.Refresh();
+            Application.DoEvents();
+        }
         public void UpdateText(int type)
         {
+
+            labelLoadingMiddle.Text = "";
+            labelLoadingMiddle.Visible = false;
+            pictureBoxLoading.Visible = true;
+            labelTexInfo.Visible = false;
+
             if (type == 0)
             {
                 labelLoading.Text = Localizator.Get("loadZen");
@@ -40,6 +61,19 @@ namespace SpacerUnion
             if (type == 3)
             {
                 labelLoading.Text = Localizator.Get("savingZen");
+            }
+
+            if (type == 4)
+            {
+                labelLoading.Text = String.Empty;
+                labelLoadingMiddle.Text = Localizator.Get("WIN_MATFILTER_CONV_WARNING");
+                labelTexInfo.Text = Localizator.Get("WIN_MATFILTER_CONV_INFO"); ;
+
+                labelLoadingMiddle.Visible = true;
+                pictureBoxLoading.Visible = false;
+                labelTexInfo.Visible = true;
+
+                return;
             }
 
             Random rnd = new Random();

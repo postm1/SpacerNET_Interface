@@ -25,6 +25,8 @@ namespace SpacerUnion.Windows
 
         public List<int> filderIndexToSaveList;
 
+        public int lastForceFilterIndex = -1;
+
 
         public Dictionary<string, int> foundMatList;
         private readonly object WIN_MATFILTER_FILTERS_MENU;
@@ -92,8 +94,8 @@ namespace SpacerUnion.Windows
             buttonMatFilter_NewMat.Text = Localizator.Get("WIN_MATFILTER_NEW_MATERIAL");
 
             toolStripStatusFilterMat.Text = Localizator.Get("WIN_MATFILTER_ERR_WORK");
-
-
+            checkBoxMatFilterGoApply.Text = Localizator.Get("WIN_MATFILTER_FOLLOW_MAT");
+            checkBoxMatFilter_ForceFilter.Text = Localizator.Get("WIN_MATFILTER_SAVE_LAST_FILTER");
         }
 
         public void OnClose()
@@ -271,9 +273,13 @@ namespace SpacerUnion.Windows
 
                     //ConsoleEx.WriteLineYellow("listBoxMatList_SelectedIndexChanged");
 
+
                     UpdateMatGroupAndFilter();
 
-
+                    if (lastForceFilterIndex != -1)
+                    {
+                        comboBoxApplyFilter.SelectedIndex = lastForceFilterIndex;
+                    }
 
                     comboBoxApplyFilter.EndUpdate();
 
@@ -281,8 +287,6 @@ namespace SpacerUnion.Windows
 
                     groupBoxMatSettings.Enabled = true;
                     groupBoxFilterTexShowSettings.Enabled = true;
-
-
 
                 }
             }
@@ -296,7 +300,7 @@ namespace SpacerUnion.Windows
 
         private void comboBoxApplyFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void comboBoxApplyGroup_SelectedIndexChanged(object sender, EventArgs e)
@@ -314,14 +318,36 @@ namespace SpacerUnion.Windows
         {
             int libFlag = comboBoxApplyFilter.SelectedIndex;
             int group = comboBoxApplyGroup.SelectedIndex;
+          
+            int filterIndex = listBoxFilter.SelectedIndex;
+            int selectedMatIndex = listBoxMatList.SelectedIndex;
 
-            int index = listBoxFilter.SelectedIndex;
 
-            if (index != -1)
+            if (checkBoxMatFilter_ForceFilter.Checked)
             {
-                if (!filderIndexToSaveList.Contains(index))
+                lastForceFilterIndex = comboBoxApplyFilter.SelectedIndex;
+            }
+            else
+            {
+                lastForceFilterIndex = -1;
+            }
+
+            bool bChangeFilter = false;
+            bool followFilter = checkBoxMatFilterGoApply.Checked;
+
+
+            // если мы меняем фильтр
+            if (filterIndex != libFlag)
+            {
+                bChangeFilter = true;
+            }
+
+
+            if (filterIndex != -1)
+            {
+                if (!filderIndexToSaveList.Contains(filterIndex))
                 {
-                    filderIndexToSaveList.Add(index);
+                    filderIndexToSaveList.Add(filterIndex);
                 }
 
                 if (!filderIndexToSaveList.Contains(libFlag))
@@ -335,10 +361,48 @@ namespace SpacerUnion.Windows
             {
                 buttonSavePML_File.Enabled = true;
             }
+            
+          
 
-            Imports.Extern_FillMat_ApplyFilterAndGroup(libFlag, group);
 
-            UpdateMatGroupAndFilter();
+            Imports.Extern_FillMat_ApplyFilterAndGroup(libFlag, group, Convert.ToInt32(followFilter), Convert.ToInt32(bChangeFilter));
+
+
+            if (followFilter || !bChangeFilter)
+            {
+                UpdateMatGroupAndFilter();
+            }
+
+            if (bChangeFilter && !followFilter)
+            {
+                listBoxMatList.Items.RemoveAt(selectedMatIndex);
+                //ConsoleEx.WriteLineRed("Remove: " + selectedMatIndex);
+
+                if (listBoxMatList.Items.Count > 0)
+                {
+                    if (listBoxMatList.Items.Count > selectedMatIndex)
+                    {
+                        listBoxMatList.SelectedIndex = selectedMatIndex;
+                    }
+                    else
+                    {
+                        listBoxMatList.SelectedIndex = 0;
+                    }
+                }
+                
+                
+
+                if (listBoxFilter.SelectedItem != null)
+                {
+                    labelMatCountCurrentFilter.Text = String.Format(Localizator.Get("WIN_MATFILTER_MATLIST_CURRENT"), "'" + listBoxFilter.SelectedItem.ToString() + "'") + "(" + listBoxMatList.Items.Count.ToString() + ")";
+                    //Localizator.Get("WIN_MATFILTER_MATLIST_CURRENT") + "'" + listBoxFilter.SelectedItem.ToString() + "' фильтра: (" + listBoxMatList.Items.Count.ToString() + ")";
+                }
+                else
+                {
+                    labelMatCountCurrentFilter.Text = Localizator.Get("WIN_MATFILTER_MATLIST_CURRENT_EMPTY");
+                }
+            }
+
         }
 
         private void buttonMatFilterSaveAll_Click(object sender, EventArgs e)
@@ -456,6 +520,10 @@ namespace SpacerUnion.Windows
             if (listBoxFilter.SelectedItem != null)
             {
 
+                SpacerNET.matFilterWin.buttonSavePML_File.Enabled = false;
+
+                // ConsoleEx.WriteLineRed("Save filters count: " + filderIndexToSaveList.Count);
+
                 for (int i = 0; i < filderIndexToSaveList.Count; i++)
                 {
                     int index = filderIndexToSaveList[i];
@@ -467,14 +535,16 @@ namespace SpacerUnion.Windows
 
                 filderIndexToSaveList.Clear();
 
-                SpacerNET.matFilterWin.buttonSavePML_File.Enabled = false;
+                
             }
         }
 
         private void buttonSavePML_File_Click(object sender, EventArgs e)
         {
+            this.Enabled = false;
             SaveFilterChanges();
             Imports.Extern_FilterMat_SaveFilters();
+            this.Enabled = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -659,6 +729,20 @@ namespace SpacerUnion.Windows
                         listBoxFilter.Items.RemoveAt(listBoxFilter.SelectedIndex);
                     }
                 }
+            }
+        }
+
+        private void checkBoxMatFilter_ForceFilter_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkBox = sender as CheckBox;
+
+            if (checkBox.Checked)
+            {
+                lastForceFilterIndex = comboBoxApplyFilter.SelectedIndex;
+            }
+            else
+            {
+                lastForceFilterIndex = -1;
             }
         }
     }

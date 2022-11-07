@@ -370,7 +370,7 @@ namespace SpacerUnion.Common
                 SpacerNET.matFilterWin.listBoxMatList_SelectedIndexChanged(listBox, null);
 
                 string currentName = SpacerNET.matFilterWin.listBoxMatList.SelectedItem.ToString();
-                ConsoleEx.WriteLineRed(currentName + " " + matName);
+               // ConsoleEx.WriteLineRed(currentName + " " + matName);
 
                 matName = matName.ToUpper();
 
@@ -549,6 +549,7 @@ namespace SpacerUnion.Common
             win.listBoxFilter.Items.Clear();
             win.filderIndexToSaveList.Clear();
             win.buttonSavePML_File.Enabled = false;
+            win.lastForceFilterIndex = -1;
 
             win.labelTexSize.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_SIZE") + " -";
             win.labelTexAlpha.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_ALPHA") + " -";
@@ -560,6 +561,7 @@ namespace SpacerUnion.Common
 
         private static void Fill_BlackLayer()
         {
+           // ConsoleEx.WriteLineYellow("black enter");
             var box = SpacerNET.matFilterWin.pictureBoxTexture;
 
             Graphics g = Graphics.FromImage(box.Image);
@@ -567,10 +569,12 @@ namespace SpacerUnion.Common
             SolidBrush blackBrush = new SolidBrush(Color.FromArgb(255, 0, 0, 0));
 
             g.FillRectangle(blackBrush, 0, 0, 128, 128);
+          //  ConsoleEx.WriteLineYellow("black end");
         }
 
         private static void Fill_AlphaChannelLayer()
         {
+           // ConsoleEx.WriteLineYellow("alpha enter");
             var box = SpacerNET.matFilterWin.pictureBoxTexture;
 
             // создаём полотно для рисования из текущей картинки в pictureBox
@@ -612,43 +616,41 @@ namespace SpacerUnion.Common
                 }
 
             } // end using gray brush
+
+            //ConsoleEx.WriteLineYellow("alpha end");
         }
 
         [DllExport]
         public static void MatFilter_SendTexture()
         {
+            //ConsoleEx.WriteLineYellow("MatFilter_SendTexture");
+
             uint addr = Imports.Stack_PeekUInt();
             bool hasAlpha = Convert.ToBoolean(Imports.Stack_PeekInt());
 
-            var watch = System.Diagnostics.Stopwatch.StartNew();
+           // var watch = System.Diagnostics.Stopwatch.StartNew();
             //ConsoleEx.WriteLineYellow("size: " + size + " addr: " + addr);
             var box = SpacerNET.matFilterWin.pictureBoxTexture;
 
             const int IMAGE_SIZE = 128;
 
-           // Bitmap myBitmap = new Bitmap(IMAGE_SIZE, IMAGE_SIZE, PixelFormat.Format32bppArgb); //Format24bppRgb
             int[] pixels = new int[IMAGE_SIZE * IMAGE_SIZE];
 
-            IntPtr ptr = new IntPtr(addr);
-            
 
-            Marshal.Copy(ptr, pixels, 0, pixels.Length);
+            UIntPtr ptr = new UIntPtr(addr);
 
+            IntPtr intPtr = (IntPtr)(int)(uint)ptr;
 
-            watch.Stop();
-            //ConsoleEx.WriteLineYellow("Marshal: " + watch.ElapsedMilliseconds);
+            Marshal.Copy(intPtr, pixels, 0, pixels.Length);
 
 
-
-
-            watch = System.Diagnostics.Stopwatch.StartNew();
 
             if (box.Image != null)
             {
                 box.Image.Dispose();
             }
 
-
+            //ConsoleEx.WriteLineYellow("3");
             var bitMap = new Bitmap(IMAGE_SIZE, IMAGE_SIZE);
             box.Image = bitMap;
 
@@ -661,14 +663,14 @@ namespace SpacerUnion.Common
             {
                 Fill_AlphaChannelLayer();
             }
-           
 
+            //ConsoleEx.WriteLineYellow("4");
 
-            watch.Stop();
+           // watch.Stop();
           //  ConsoleEx.WriteLineYellow("Fill_AlphaChannelLayer: " + watch.ElapsedMilliseconds);
 
 
-            watch = System.Diagnostics.Stopwatch.StartNew();
+           // watch = System.Diagnostics.Stopwatch.StartNew();
 
 
 
@@ -706,8 +708,9 @@ namespace SpacerUnion.Common
                 }
             }
             
-            watch.Stop();
-           // ConsoleEx.WriteLineYellow("FillBrush: " + watch.ElapsedMilliseconds);
+            //watch.Stop();
+           // ConsoleEx.WriteLineYellow("5");
+            // ConsoleEx.WriteLineYellow("FillBrush: " + watch.ElapsedMilliseconds);
 
         }
     }

@@ -408,7 +408,7 @@ namespace SpacerUnion.Common
 
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_FillMat_ApplyFilterAndGroup(int filter, int group);
+        public static extern void Extern_FillMat_ApplyFilterAndGroup(int filter, int group, int followFilter, int changeFilter);
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_FilterMat_SaveFilters();
