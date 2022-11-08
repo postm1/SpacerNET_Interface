@@ -63,13 +63,13 @@ namespace SpacerUnion
 
 
 
-            SpacerNET.form.compileWorldToolStrip.Enabled = Imports.Extern_IsWorldCompiled() == 1 ? false : true;
+            SpacerNET.form.compileWorldToolStrip.Enabled = SpacerNET.form.IsWorldCanBeCompiled();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
 
-            if (Imports.Extern_IsWorldCompiled() == 1)
+            if (!SpacerNET.form.IsWorldCanBeCompiled())
             {
                
                MessageBox.Show(Localizator.Get("WIN_COMPWORLD_ALREADY_COMP"));

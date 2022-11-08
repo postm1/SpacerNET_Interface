@@ -102,11 +102,11 @@ namespace SpacerUnion.Windows
         {
             Imports.Extern_FilterMat_SaveFilters();
         }
+
         private void MaterialFilterForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Hide();
             e.Cancel = true;
-            OnClose();
         }
 
         public void OnFilterIndexChange(int index)

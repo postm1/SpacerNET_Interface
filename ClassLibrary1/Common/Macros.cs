@@ -404,6 +404,7 @@ namespace SpacerUnion.Common
 
         }
 
+
         public void OnRun()
         {
             if (!IsActive()) return;
@@ -470,8 +471,8 @@ namespace SpacerUnion.Common
                 SpacerNET.form.saveZenToolStripMenuItem.Enabled = true;
                 SpacerNET.form.toolStripMenuExtractMesh.Enabled = true;
 
-                
-                SpacerNET.form.compileWorldToolStrip.Enabled = Imports.Extern_IsWorldCompiled() == 1 ? false : true;
+
+                SpacerNET.form.compileWorldToolStrip.Enabled = SpacerNET.form.IsWorldCanBeCompiled();
 
                 SpacerNET.form.playHeroToolStrip.Enabled = true;
                 SpacerNET.form.analyseWaynetToolStripMenuItem.Enabled = true;

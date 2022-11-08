@@ -48,6 +48,23 @@ namespace SpacerUnion
         }
 
 
+        public bool IsWorldCanBeCompiled()
+        {
+            bool result = false;
+
+            if (Imports.Extern_GetOption_CanCompileWorldAgain() == 1)
+            {
+                result = true;
+            }
+            else
+            {
+                result = Imports.Extern_IsWorldCompiled() == 1 ? false : true;
+            }
+
+            return result;
+        }
+
+
         [DllExport]
         public static void GetSpacerVersion()
         {
@@ -65,11 +82,17 @@ namespace SpacerUnion
 
             locationName = title;
         }
+
+        public void OnClosingSpacer()
+        {
+            //ConsoleEx.WriteLineYellow("OnClosingSpacer");
+            SpacerNET.macrosWin.macros.OnUpdateAndSave();
+            SpacerNET.matFilterWin.OnClose();
+        }
         
         private void CloseApp()
         {
-            SpacerNET.macrosWin.macros.OnUpdateAndSave();
-            SpacerNET.matFilterWin.OnClose();
+           
 
             Imports.Stack_PushString("askExitZen");
 
@@ -80,12 +103,13 @@ namespace SpacerUnion
 
                 if (res == DialogResult.OK)
                 {
-
+                    OnClosingSpacer();
                     SpacerNET.CloseApplication();
                 }
             }
             else
             {
+                OnClosingSpacer();
                 SpacerNET.CloseApplication();
             }
         }
@@ -313,7 +337,7 @@ namespace SpacerUnion
             SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
             SpacerNET.form.dayTimeToolStrip.Enabled = true;
             SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
-            SpacerNET.form.compileWorldToolStrip.Enabled = Imports.Extern_IsWorldCompiled() == 1 ? false : true;
+            SpacerNET.form.compileWorldToolStrip.Enabled = SpacerNET.form.IsWorldCanBeCompiled();
             SpacerNET.form.compileLightToolStrip.Enabled = true;
         }
 
@@ -431,7 +455,7 @@ namespace SpacerUnion
                 SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
                 SpacerNET.form.dayTimeToolStrip.Enabled = true;
                 SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
-                SpacerNET.form.compileWorldToolStrip.Enabled = Imports.Extern_IsWorldCompiled() == 1 ? false : true;
+                SpacerNET.form.compileWorldToolStrip.Enabled = SpacerNET.form.IsWorldCanBeCompiled();
                 SpacerNET.form.compileLightToolStrip.Enabled = true;
 
 
@@ -771,7 +795,7 @@ namespace SpacerUnion
                 SpacerNET.form.AddText(Localizator.Get("loadMeshTime") + " (" + timeSpend + ")", Color.Green);
 
                 SpacerNET.form.toolStripMenuItemMerge.Enabled = true;
-                SpacerNET.form.compileWorldToolStrip.Enabled = true;
+                SpacerNET.form.compileWorldToolStrip.Enabled = SpacerNET.form.IsWorldCanBeCompiled(); ;
                 SpacerNET.form.dayTimeToolStrip.Enabled = true;
                 SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
                 SpacerNET.form.toolStripMenuItemMergeMesh.Enabled = true;
@@ -850,7 +874,7 @@ namespace SpacerUnion
 
 
                 toolStripMenuItemMerge.Enabled = true;
-                SpacerNET.form.compileWorldToolStrip.Enabled = Imports.Extern_IsWorldCompiled() == 1 ? false : true;
+                SpacerNET.form.compileWorldToolStrip.Enabled = SpacerNET.form.IsWorldCanBeCompiled();
                 toolStripMenuResetWorld.Enabled = true;
 
                 openFileDialog.Multiselect = false;

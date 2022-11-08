@@ -658,17 +658,16 @@ namespace SpacerUnion.Common
             words.Add("WIN_MATFILTER_FILTERS_MENU_MISC", new List<string> { "Прочее", "Misc", "", "Pozostałe" });
             words.Add("WIN_MATFILTER_NEW_MATERIAL", new List<string> { "Новый материал", "New material", "", "Nowy materiał" });
             words.Add("WIN_MATFILTER_FILTERLIST_FILES", new List<string> { "Библиотека фильтров", "Filters library", "", "Biblioteka filtrów" });
-            words.Add("WIN_MATFILTER_TEXTURE_TOO_BIG", new List<string> { "Размер текстуры слишком большой для отображения", "Texture is too big for being shown", "", "" });
+            words.Add("WIN_MATFILTER_TEXTURE_TOO_BIG", new List<string> { "Размер текстуры слишком большой для отображения", "Texture is too big for being shown", "", "Tekstura jest za duża, by ją wyświetić" });
 
 
 
-            words.Add("WIN_MATFILTER_CONV_TGA", new List<string> { "Конвертация TGA текстур: ", "Convering TGA textures: ", "", "" });
-            words.Add("WIN_MATFILTER_CONV_WARNING", new List<string> { "Не выключайте SpacerNET!", "Don't shut down SpacerNET!", "", "" });
+            words.Add("WIN_MATFILTER_CONV_TGA", new List<string> { "Конвертация TGA текстур: ", "Convering TGA textures: ", "", "Konwersja tekstur TGA:" });
+            words.Add("WIN_MATFILTER_CONV_WARNING", new List<string> { "Не выключайте SpacerNET!", "Don't shut down SpacerNET!", "", "Nie wyłączaj SpacerNET!" });
 
-            //fixme
-            words.Add("WIN_MATFILTER_CONV_INFO", new List<string> { "Некоторые из ваших материалов используют текстуры, которые не скомпилированы в '-C.TEX'.\nДля сохранения фильтров необходимо скомпилировать эти текстуры из TGA текстур.\nВыполняю конвертацию...", "Some of your materials don't have a compiled '-C.TEX' version of texture. To save the filter such textures must be compiled from TGA textures. \n Converting...", "", "" });
-            words.Add("WIN_MATFILTER_FOLLOW_MAT", new List<string> { "Следовать за материалом при применении", "Follow material after applying", "", "" });
-            words.Add("WIN_MATFILTER_SAVE_LAST_FILTER", new List<string> { "Принудительно ставить последний фильтр", "Forcedly set last filter", "", "" });
+            words.Add("WIN_MATFILTER_CONV_INFO", new List<string> { "Некоторые из ваших материалов используют текстуры, которые не скомпилированы в '-C.TEX'.\nДля сохранения фильтров необходимо скомпилировать эти текстуры из TGA текстур.\nВыполняю конвертацию...", "Some of your materials don't have a compiled '-C.TEX' version of texture.\nTo save the filter such textures must be compiled from TGA textures.\nConverting...", "", "Niektóre z materiałów nie mają skompilowanej wersji tekstury '-C.TEX'.\nAby zapisać filtr, takie tekstury muszą być skompilowane z tekstur TGA.\nKonwersja..." });
+            words.Add("WIN_MATFILTER_FOLLOW_MAT", new List<string> { "Следовать за материалом при применении", "Follow material after applying", "", "Śledź materiał po zatwierdzeniu" });
+            words.Add("WIN_MATFILTER_SAVE_LAST_FILTER", new List<string> { "Принудительно ставить последний фильтр", "Forcedly set last filter", "", "Wymuś ustawienie ostatniego filtra" });
 
         }
         
