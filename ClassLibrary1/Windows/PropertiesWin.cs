@@ -519,7 +519,12 @@ namespace SpacerUnion
             if (Imports.Extern_CanEditBboxCurrentVob() == 0)
             {
                 EnableTab(SpacerNET.propWin.tabControlProps.TabPages[1], false);
-              ///  ConsoleEx.WriteLineYellow("Disable");
+                SpacerNET.propWin.buttonBbox.Enabled = false;
+                ///  ConsoleEx.WriteLineYellow("Disable");
+            }
+            else
+            {
+                SpacerNET.propWin.buttonBbox.Enabled = true;
             }
 
             // tree.Visible = true;
@@ -1656,6 +1661,26 @@ namespace SpacerUnion
                 }
                 e.SuppressKeyPress = true;
             }
+        }
+
+        private void ObjectsWindow_Resize(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ObjectsWindow_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible)
+            {
+               // this.Refresh();
+               // this.Update();
+            }
+           // MessageBox.Show("re2");
+        }
+
+        private void ObjectsWindow_Activated(object sender, EventArgs e)
+        {
+           // MessageBox.Show("re3");
         }
     }
 }

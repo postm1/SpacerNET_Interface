@@ -102,6 +102,7 @@ namespace SpacerUnion
             buttonTriggerCollectSources.Text = Localizator.Get("buttonTriggerCollectSources");
             buttonNewKey.Text = Localizator.Get("buttonNewKey");
             buttonRemoveKey.Text = Localizator.Get("buttonRemoveKey");
+            buttonTriggersJumpToKey.Text = Localizator.Get("Trigget_BTN_JUMPTOKEY");
             labelTriggerName.Text = Localizator.Get("labelTriggerName");
             labelTriggerCollision.Text = Localizator.Get("labelTriggerCollision");
             checkBoxDyn.Text = Localizator.Get("checkBoxDyn");
@@ -1120,6 +1121,9 @@ namespace SpacerUnion
                 buttonNewKey.Enabled = false;
                 buttonKeyMinus.Enabled = false;
                 buttonKeyPlus.Enabled = false;
+
+                buttonTriggersJumpToKey.Enabled = false;
+                textBoxTrigersJumpKey.Enabled = false;
             }
            
 
@@ -1164,6 +1168,8 @@ namespace SpacerUnion
             buttonNewKey.Enabled = true;
             buttonKeyMinus.Enabled = true;
             buttonKeyPlus.Enabled = true;
+            buttonTriggersJumpToKey.Enabled = true;
+            textBoxTrigersJumpKey.Enabled = true;
         }
 
         public static void ChangeTab(int num)
@@ -3877,6 +3883,32 @@ namespace SpacerUnion
             Imports.Stack_PushInt(comboBoxLocatorItemType.SelectedIndex);
 
             Imports.Extern_SetLocatorItemType();
+        }
+
+        private void textBoxTrigersJumpKey_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !Utils.IsNumberInput(e.KeyChar, false, false))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void buttonTriggersJumpToKey_Click(object sender, EventArgs e)
+        {
+            string text = textBoxTrigersJumpKey.Text.Trim();
+
+            if (text.Length == 0)
+            {
+                return;
+            }
+
+            int val = 0;
+
+            int.TryParse(textBoxTrigersJumpKey.Text.Trim(), out val);
+
+            Imports.Stack_PushInt(val);
+
+            Imports.Extern_SetMoverToKey();
         }
     }
 }

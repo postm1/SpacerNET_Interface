@@ -669,6 +669,11 @@ namespace SpacerUnion.Common
             words.Add("WIN_MATFILTER_FOLLOW_MAT", new List<string> { "Следовать за материалом при применении", "Follow material after applying", "", "Śledź materiał po zatwierdzeniu" });
             words.Add("WIN_MATFILTER_SAVE_LAST_FILTER", new List<string> { "Принудительно ставить последний фильтр", "Forcedly set last filter", "", "Wymuś ustawienie ostatniego filtra" });
 
+
+
+            words.Add("Trigget_BTN_JUMPTOKEY", new List<string> { "Прыгнуть на ключ", "Jump to key", "", "" });
+            words.Add("TOOL_BBOX_EDIT_MODE_SELECTED", new List<string> { "Режим изменения BBOX", "BBOX editing mode", "", "" });
+            
         }
         
     }

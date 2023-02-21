@@ -206,6 +206,12 @@
     <Compile Include="Windows\SettingsCamera.Designer.cs">
       <DependentUpon>SettingsCamera.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\SettingsMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\SettingsMain.Designer.cs">
+      <DependentUpon>SettingsMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\SettingsVobs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\SettingsCamera.resx">
       <DependentUpon>SettingsCamera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\SettingsMain.resx">
+      <DependentUpon>SettingsMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\SettingsVobs.resx">
       <DependentUpon>SettingsVobs.cs</DependentUpon>

@@ -40,6 +40,7 @@
             this.buttonParticles = new System.Windows.Forms.Button();
             this.groupBoxObjItems = new System.Windows.Forms.GroupBox();
             this.groupBoxItemsLocator = new System.Windows.Forms.GroupBox();
+            this.comboBoxLocatorItemType = new System.Windows.Forms.ComboBox();
             this.checkBoxLocatorByName = new System.Windows.Forms.CheckBox();
             this.textBoxLocatorByName = new System.Windows.Forms.TextBox();
             this.checkBoxLocatorOnlySusp = new System.Windows.Forms.CheckBox();
@@ -210,7 +211,8 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.comboBoxLocatorItemType = new System.Windows.Forms.ComboBox();
+            this.buttonTriggersJumpToKey = new System.Windows.Forms.Button();
+            this.textBoxTrigersJumpKey = new System.Windows.Forms.TextBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -373,6 +375,30 @@
             this.groupBoxItemsLocator.TabIndex = 21;
             this.groupBoxItemsLocator.TabStop = false;
             this.groupBoxItemsLocator.Text = "Локатор предметов";
+            // 
+            // comboBoxLocatorItemType
+            // 
+            this.comboBoxLocatorItemType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLocatorItemType.FormattingEnabled = true;
+            this.comboBoxLocatorItemType.Items.AddRange(new object[] {
+            "Любой тип",
+            "ITEM_KAT_NONE",
+            "ITEM_KAT_NF",
+            "ITEM_KAT_FF",
+            "ITEM_KAT_MUN",
+            "ITEM_KAT_ARMOR",
+            "ITEM_KAT_FOOD",
+            "ITEM_KAT_DOCS",
+            "ITEM_KAT_POTIONS",
+            "ITEM_KAT_LIGHT",
+            "ITEM_KAT_RUNE",
+            "ITEM_KAT_MAGIC",
+            "ITEM_KAT_KEYS"});
+            this.comboBoxLocatorItemType.Location = new System.Drawing.Point(9, 100);
+            this.comboBoxLocatorItemType.Name = "comboBoxLocatorItemType";
+            this.comboBoxLocatorItemType.Size = new System.Drawing.Size(155, 21);
+            this.comboBoxLocatorItemType.TabIndex = 12;
+            this.comboBoxLocatorItemType.SelectedIndexChanged += new System.EventHandler(this.comboBoxLocatorItemType_SelectedIndexChanged);
             // 
             // checkBoxLocatorByName
             // 
@@ -848,7 +874,7 @@
             this.buttonTriggerCollectSources.Location = new System.Drawing.Point(453, 160);
             this.buttonTriggerCollectSources.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTriggerCollectSources.Name = "buttonTriggerCollectSources";
-            this.buttonTriggerCollectSources.Size = new System.Drawing.Size(98, 22);
+            this.buttonTriggerCollectSources.Size = new System.Drawing.Size(114, 22);
             this.buttonTriggerCollectSources.TabIndex = 7;
             this.buttonTriggerCollectSources.Text = "Собрать";
             this.buttonTriggerCollectSources.UseVisualStyleBackColor = true;
@@ -869,13 +895,15 @@
             this.listBoxSources.FormattingEnabled = true;
             this.listBoxSources.Location = new System.Drawing.Point(336, 185);
             this.listBoxSources.Name = "listBoxSources";
-            this.listBoxSources.Size = new System.Drawing.Size(215, 134);
+            this.listBoxSources.Size = new System.Drawing.Size(231, 134);
             this.listBoxSources.TabIndex = 5;
             this.listBoxSources.SelectedIndexChanged += new System.EventHandler(this.listBoxSources_SelectedIndexChanged);
             this.listBoxSources.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxSources_MouseDoubleClick);
             // 
             // groupBoxTriggersKeys
             // 
+            this.groupBoxTriggersKeys.Controls.Add(this.textBoxTrigersJumpKey);
+            this.groupBoxTriggersKeys.Controls.Add(this.buttonTriggersJumpToKey);
             this.groupBoxTriggersKeys.Controls.Add(this.labelTriggerInsert);
             this.groupBoxTriggersKeys.Controls.Add(this.radioButtonBefore);
             this.groupBoxTriggersKeys.Controls.Add(this.radioButtonAfter);
@@ -887,7 +915,7 @@
             this.groupBoxTriggersKeys.Controls.Add(this.buttonKeyMinus);
             this.groupBoxTriggersKeys.Location = new System.Drawing.Point(236, 3);
             this.groupBoxTriggersKeys.Name = "groupBoxTriggersKeys";
-            this.groupBoxTriggersKeys.Size = new System.Drawing.Size(315, 137);
+            this.groupBoxTriggersKeys.Size = new System.Drawing.Size(331, 137);
             this.groupBoxTriggersKeys.TabIndex = 3;
             this.groupBoxTriggersKeys.TabStop = false;
             this.groupBoxTriggersKeys.Text = "Ключи";
@@ -935,7 +963,7 @@
             // 
             // buttonRemoveKey
             // 
-            this.buttonRemoveKey.Location = new System.Drawing.Point(211, 15);
+            this.buttonRemoveKey.Location = new System.Drawing.Point(227, 15);
             this.buttonRemoveKey.Name = "buttonRemoveKey";
             this.buttonRemoveKey.Size = new System.Drawing.Size(98, 23);
             this.buttonRemoveKey.TabIndex = 4;
@@ -945,7 +973,7 @@
             // 
             // buttonNewKey
             // 
-            this.buttonNewKey.Location = new System.Drawing.Point(114, 15);
+            this.buttonNewKey.Location = new System.Drawing.Point(130, 15);
             this.buttonNewKey.Name = "buttonNewKey";
             this.buttonNewKey.Size = new System.Drawing.Size(91, 23);
             this.buttonNewKey.TabIndex = 3;
@@ -955,16 +983,16 @@
             // 
             // labelCurrentKey
             // 
-            this.labelCurrentKey.Location = new System.Drawing.Point(33, 18);
+            this.labelCurrentKey.Location = new System.Drawing.Point(35, 18);
             this.labelCurrentKey.Name = "labelCurrentKey";
-            this.labelCurrentKey.Size = new System.Drawing.Size(42, 18);
+            this.labelCurrentKey.Size = new System.Drawing.Size(51, 18);
             this.labelCurrentKey.TabIndex = 2;
-            this.labelCurrentKey.Text = "0/0";
+            this.labelCurrentKey.Text = "999/999";
             this.labelCurrentKey.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonKeyPlus
             // 
-            this.buttonKeyPlus.Location = new System.Drawing.Point(76, 15);
+            this.buttonKeyPlus.Location = new System.Drawing.Point(88, 15);
             this.buttonKeyPlus.Name = "buttonKeyPlus";
             this.buttonKeyPlus.Size = new System.Drawing.Size(27, 23);
             this.buttonKeyPlus.TabIndex = 1;
@@ -2214,29 +2242,23 @@
             this.button10.Text = "Удалить";
             this.button10.UseVisualStyleBackColor = true;
             // 
-            // comboBoxLocatorItemType
+            // buttonTriggersJumpToKey
             // 
-            this.comboBoxLocatorItemType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxLocatorItemType.FormattingEnabled = true;
-            this.comboBoxLocatorItemType.Items.AddRange(new object[] {
-            "Любой тип",
-            "ITEM_KAT_NONE",
-            "ITEM_KAT_NF",
-            "ITEM_KAT_FF",
-            "ITEM_KAT_MUN",
-            "ITEM_KAT_ARMOR",
-            "ITEM_KAT_FOOD",
-            "ITEM_KAT_DOCS",
-            "ITEM_KAT_POTIONS",
-            "ITEM_KAT_LIGHT",
-            "ITEM_KAT_RUNE",
-            "ITEM_KAT_MAGIC",
-            "ITEM_KAT_KEYS"});
-            this.comboBoxLocatorItemType.Location = new System.Drawing.Point(9, 100);
-            this.comboBoxLocatorItemType.Name = "comboBoxLocatorItemType";
-            this.comboBoxLocatorItemType.Size = new System.Drawing.Size(155, 21);
-            this.comboBoxLocatorItemType.TabIndex = 12;
-            this.comboBoxLocatorItemType.SelectedIndexChanged += new System.EventHandler(this.comboBoxLocatorItemType_SelectedIndexChanged);
+            this.buttonTriggersJumpToKey.Location = new System.Drawing.Point(130, 49);
+            this.buttonTriggersJumpToKey.Name = "buttonTriggersJumpToKey";
+            this.buttonTriggersJumpToKey.Size = new System.Drawing.Size(120, 23);
+            this.buttonTriggersJumpToKey.TabIndex = 9;
+            this.buttonTriggersJumpToKey.Text = "Прыгнуть на ключ";
+            this.buttonTriggersJumpToKey.UseVisualStyleBackColor = true;
+            this.buttonTriggersJumpToKey.Click += new System.EventHandler(this.buttonTriggersJumpToKey_Click);
+            // 
+            // textBoxTrigersJumpKey
+            // 
+            this.textBoxTrigersJumpKey.Location = new System.Drawing.Point(255, 51);
+            this.textBoxTrigersJumpKey.Name = "textBoxTrigersJumpKey";
+            this.textBoxTrigersJumpKey.Size = new System.Drawing.Size(69, 20);
+            this.textBoxTrigersJumpKey.TabIndex = 10;
+            this.textBoxTrigersJumpKey.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTrigersJumpKey_KeyPress);
             // 
             // ObjectsWin
             // 
@@ -2488,5 +2510,7 @@
         private System.Windows.Forms.CheckBox checkBoxMatchNames;
         private System.Windows.Forms.CheckBox checkBoxSearchItem;
         private System.Windows.Forms.ComboBox comboBoxLocatorItemType;
+        private System.Windows.Forms.Button buttonTriggersJumpToKey;
+        private System.Windows.Forms.TextBox textBoxTrigersJumpKey;
     }
 }

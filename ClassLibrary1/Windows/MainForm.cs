@@ -1946,5 +1946,10 @@ namespace SpacerUnion
                 SpacerNET.matFilterWin.Location = Properties.Settings.Default.MatFilterWinLocation;
             }
         }
+
+        private void menuStripTopMain_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

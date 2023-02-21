@@ -130,6 +130,7 @@
             this.menuStripTopMain.Size = new System.Drawing.Size(1201, 24);
             this.menuStripTopMain.TabIndex = 0;
             this.menuStripTopMain.Text = "menuStrip1";
+            this.menuStripTopMain.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStripTopMain_ItemClicked);
             this.menuStripTopMain.Enter += new System.EventHandler(this.menuStripTopMain_Enter);
             this.menuStripTopMain.Leave += new System.EventHandler(this.menuStripTopMain_Leave);
             this.menuStripTopMain.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menuStripTopMain_MouseClick);

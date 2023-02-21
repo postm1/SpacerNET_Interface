@@ -240,6 +240,17 @@ namespace SpacerUnion
 
         }
 
+
+
+
+        [DllExport]
+
+        public static void ClearSelectedObjectInObjTree()
+        {
+            SpacerNET.objTreeWin.globalTree.SelectedNode = null;
+        }
+
+
         [DllExport]
         public static void ClearAllEntries()
         {

@@ -316,6 +316,8 @@ namespace SpacerUnion.Windows
 
         private void buttonApplyMatSettings_Click(object sender, EventArgs e)
         {
+            if (listBoxMatList.SelectedIndex == -1) return;
+
             int libFlag = comboBoxApplyFilter.SelectedIndex;
             int group = comboBoxApplyGroup.SelectedIndex;
           

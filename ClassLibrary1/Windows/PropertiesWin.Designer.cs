@@ -614,8 +614,11 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Окно свойств";
+            this.Activated += new System.EventHandler(this.ObjectsWindow_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ObjectsWindow_FormClosing);
             this.Shown += new System.EventHandler(this.ObjectsWindow_Shown);
+            this.VisibleChanged += new System.EventHandler(this.ObjectsWindow_VisibleChanged);
+            this.Resize += new System.EventHandler(this.ObjectsWindow_Resize);
             this.contextMenuStripContainer.ResumeLayout(false);
             this.dBufPanelMainTab.ResumeLayout(false);
             this.tabControlProps.ResumeLayout(false);
