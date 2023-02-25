@@ -87,6 +87,8 @@
             this.labelTriggersSources = new System.Windows.Forms.Label();
             this.listBoxSources = new System.Windows.Forms.ListBox();
             this.groupBoxTriggersKeys = new System.Windows.Forms.GroupBox();
+            this.textBoxTrigersJumpKey = new System.Windows.Forms.TextBox();
+            this.buttonTriggersJumpToKey = new System.Windows.Forms.Button();
             this.labelTriggerInsert = new System.Windows.Forms.Label();
             this.radioButtonBefore = new System.Windows.Forms.RadioButton();
             this.radioButtonAfter = new System.Windows.Forms.RadioButton();
@@ -211,8 +213,6 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.buttonTriggersJumpToKey = new System.Windows.Forms.Button();
-            this.textBoxTrigersJumpKey = new System.Windows.Forms.TextBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -392,8 +392,7 @@
             "ITEM_KAT_POTIONS",
             "ITEM_KAT_LIGHT",
             "ITEM_KAT_RUNE",
-            "ITEM_KAT_MAGIC",
-            "ITEM_KAT_KEYS"});
+            "ITEM_KAT_MAGIC"});
             this.comboBoxLocatorItemType.Location = new System.Drawing.Point(9, 100);
             this.comboBoxLocatorItemType.Name = "comboBoxLocatorItemType";
             this.comboBoxLocatorItemType.Size = new System.Drawing.Size(155, 21);
@@ -919,6 +918,24 @@
             this.groupBoxTriggersKeys.TabIndex = 3;
             this.groupBoxTriggersKeys.TabStop = false;
             this.groupBoxTriggersKeys.Text = "Ключи";
+            // 
+            // textBoxTrigersJumpKey
+            // 
+            this.textBoxTrigersJumpKey.Location = new System.Drawing.Point(255, 51);
+            this.textBoxTrigersJumpKey.Name = "textBoxTrigersJumpKey";
+            this.textBoxTrigersJumpKey.Size = new System.Drawing.Size(69, 20);
+            this.textBoxTrigersJumpKey.TabIndex = 10;
+            this.textBoxTrigersJumpKey.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTrigersJumpKey_KeyPress);
+            // 
+            // buttonTriggersJumpToKey
+            // 
+            this.buttonTriggersJumpToKey.Location = new System.Drawing.Point(130, 49);
+            this.buttonTriggersJumpToKey.Name = "buttonTriggersJumpToKey";
+            this.buttonTriggersJumpToKey.Size = new System.Drawing.Size(120, 23);
+            this.buttonTriggersJumpToKey.TabIndex = 9;
+            this.buttonTriggersJumpToKey.Text = "Прыгнуть на ключ";
+            this.buttonTriggersJumpToKey.UseVisualStyleBackColor = true;
+            this.buttonTriggersJumpToKey.Click += new System.EventHandler(this.buttonTriggersJumpToKey_Click);
             // 
             // labelTriggerInsert
             // 
@@ -2241,24 +2258,6 @@
             this.button10.TabIndex = 4;
             this.button10.Text = "Удалить";
             this.button10.UseVisualStyleBackColor = true;
-            // 
-            // buttonTriggersJumpToKey
-            // 
-            this.buttonTriggersJumpToKey.Location = new System.Drawing.Point(130, 49);
-            this.buttonTriggersJumpToKey.Name = "buttonTriggersJumpToKey";
-            this.buttonTriggersJumpToKey.Size = new System.Drawing.Size(120, 23);
-            this.buttonTriggersJumpToKey.TabIndex = 9;
-            this.buttonTriggersJumpToKey.Text = "Прыгнуть на ключ";
-            this.buttonTriggersJumpToKey.UseVisualStyleBackColor = true;
-            this.buttonTriggersJumpToKey.Click += new System.EventHandler(this.buttonTriggersJumpToKey_Click);
-            // 
-            // textBoxTrigersJumpKey
-            // 
-            this.textBoxTrigersJumpKey.Location = new System.Drawing.Point(255, 51);
-            this.textBoxTrigersJumpKey.Name = "textBoxTrigersJumpKey";
-            this.textBoxTrigersJumpKey.Size = new System.Drawing.Size(69, 20);
-            this.textBoxTrigersJumpKey.TabIndex = 10;
-            this.textBoxTrigersJumpKey.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTrigersJumpKey_KeyPress);
             // 
             // ObjectsWin
             // 
