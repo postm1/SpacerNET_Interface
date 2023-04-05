@@ -57,16 +57,12 @@
             this.contextMenuQuick = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripClearGlobalPar = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuRemoveQuickVob = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.comboBoxFilterVobsSelect = new System.Windows.Forms.ComboBox();
-            this.labelFilterVobsSelect = new System.Windows.Forms.Label();
             this.contextMenuStripTree.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.tabControlObjectList.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.contextMenuQuick.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // globalTree
@@ -242,7 +238,6 @@
             // 
             this.tabControlObjectList.Controls.Add(this.tabPage1);
             this.tabControlObjectList.Controls.Add(this.tabPage2);
-            this.tabControlObjectList.Controls.Add(this.tabPage3);
             this.tabControlObjectList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlObjectList.Location = new System.Drawing.Point(0, 0);
             this.tabControlObjectList.Name = "tabControlObjectList";
@@ -314,44 +309,6 @@
             this.toolStripMenuRemoveQuickVob.Text = "Удалить воб из быстрого доступа";
             this.toolStripMenuRemoveQuickVob.Click += new System.EventHandler(this.toolStripMenuRemoveQuickVob_Click);
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.labelFilterVobsSelect);
-            this.tabPage3.Controls.Add(this.comboBoxFilterVobsSelect);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(381, 427);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Фильтр выделения";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxFilterVobsSelect
-            // 
-            this.comboBoxFilterVobsSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFilterVobsSelect.FormattingEnabled = true;
-            this.comboBoxFilterVobsSelect.Items.AddRange(new object[] {
-            "NONE",
-            "ITEM",
-            "WP & FP",
-            "WP",
-            "FP",
-            "Trigger",
-            "VobLight"});
-            this.comboBoxFilterVobsSelect.Location = new System.Drawing.Point(30, 62);
-            this.comboBoxFilterVobsSelect.Name = "comboBoxFilterVobsSelect";
-            this.comboBoxFilterVobsSelect.Size = new System.Drawing.Size(167, 21);
-            this.comboBoxFilterVobsSelect.TabIndex = 0;
-            this.comboBoxFilterVobsSelect.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilterVobsSelect_SelectedIndexChanged);
-            // 
-            // labelFilterVobsSelect
-            // 
-            this.labelFilterVobsSelect.AutoSize = true;
-            this.labelFilterVobsSelect.Location = new System.Drawing.Point(30, 43);
-            this.labelFilterVobsSelect.Name = "labelFilterVobsSelect";
-            this.labelFilterVobsSelect.Size = new System.Drawing.Size(142, 13);
-            this.labelFilterVobsSelect.TabIndex = 1;
-            this.labelFilterVobsSelect.Text = "Фильтр выделения вобов:";
-            // 
             // ObjTree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,8 +334,6 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.contextMenuQuick.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -412,8 +367,5 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuRestorePos;
         private System.Windows.Forms.ToolStripMenuItem tempInvisibleToolStrip;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Label labelFilterVobsSelect;
-        private System.Windows.Forms.ComboBox comboBoxFilterVobsSelect;
     }
 }

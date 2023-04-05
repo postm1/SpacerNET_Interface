@@ -26,6 +26,7 @@ namespace SpacerUnion
         {
             InitializeComponent();
             this.comboBoxVobList.SelectedIndex = 0;
+            this.comboBoxFilterPick.SelectedIndex = 0;
         }
 
         public void UpdateLang()
@@ -36,7 +37,7 @@ namespace SpacerUnion
             btnRemoveContainerVobs.Text = Localizator.Get("VOB_SEARCH_TYPE3");
             buttonVobListSearch.Text = Localizator.Get("MSG_COMMON_SEARCH");
             comboBoxVobList.Items[0] = Localizator.Get("VOBLIST_TYPE_ANY");
-
+            labelFilterVobsPick.Text = Localizator.Get("OBJ_TAB_PICKFILTER");
 
         }
 
@@ -187,6 +188,16 @@ namespace SpacerUnion
         private void buttonVobListSearch_Click(object sender, EventArgs e)
         {
             Imports.Extern_SearchVobList();
+        }
+
+        private void comboBoxFilterPick_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox ch = sender as ComboBox;
+
+            int index = ch.SelectedIndex;
+
+            Imports.Extern_SetVobPickFilter(index);
+
         }
     }
 }

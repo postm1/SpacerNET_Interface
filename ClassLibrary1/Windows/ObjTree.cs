@@ -59,7 +59,6 @@ namespace SpacerUnion
 
             tabControlObjectList.TabPages[0].Text = Localizator.Get("TAB_PAGE_OBJECTS");
             tabControlObjectList.TabPages[1].Text = Localizator.Get("QUICKVOBS_ACCESS");
-            tabControlObjectList.TabPages[2].Text = Localizator.Get("OBJ_TAB_PICKFILTER");
             // tabControlObjectList.TabPages[2].Text = Localizator.Get("TAB_PAGE_MATERIALS");
 
             contextMenuQuick.Items[0].Text = Localizator.Get("CONTEXTMENU_TREE_REMOVE_PARENT");
@@ -1279,7 +1278,7 @@ namespace SpacerUnion
                 this.Location = Properties.Settings.Default.TreeWinLocation;
             }
 
-            comboBoxFilterVobsSelect.SelectedIndex = 0;
+            
 
         }
 
