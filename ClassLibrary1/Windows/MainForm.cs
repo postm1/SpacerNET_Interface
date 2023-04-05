@@ -262,6 +262,7 @@ namespace SpacerUnion
             renderTarget.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             renderTarget.Dock = DockStyle.Fill;
             renderTarget.Show();
+
             //toolStripTop.BringToFront();
         }
 

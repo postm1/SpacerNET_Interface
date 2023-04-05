@@ -74,7 +74,6 @@
             this.radioButtonWork = new System.Windows.Forms.RadioButton();
             this.radioButtonVdf = new System.Windows.Forms.RadioButton();
             this.buttonAllClassesClear = new System.Windows.Forms.Button();
-            this.listBoxVisuals = new System.Windows.Forms.ListBox();
             this.labelSearchVisual = new System.Windows.Forms.Label();
             this.textBoxVisuals = new System.Windows.Forms.TextBox();
             this.classesTreeView = new System.Windows.Forms.TreeView();
@@ -213,6 +212,7 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.listBoxVisuals = new System.Windows.Forms.ListBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -759,19 +759,6 @@
             this.buttonAllClassesClear.Text = "Очистить";
             this.buttonAllClassesClear.UseVisualStyleBackColor = true;
             this.buttonAllClassesClear.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // listBoxVisuals
-            // 
-            this.listBoxVisuals.FormattingEnabled = true;
-            this.listBoxVisuals.Location = new System.Drawing.Point(253, 255);
-            this.listBoxVisuals.Name = "listBoxVisuals";
-            this.listBoxVisuals.Size = new System.Drawing.Size(360, 121);
-            this.listBoxVisuals.TabIndex = 8;
-            this.listBoxVisuals.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxVisuals_MouseClick);
-            this.listBoxVisuals.SelectedIndexChanged += new System.EventHandler(this.listBoxVisuals_SelectedIndexChanged);
-            this.listBoxVisuals.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBoxVisuals_KeyDown);
-            this.listBoxVisuals.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBoxVisuals_KeyPress);
-            this.listBoxVisuals.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxVisuals_MouseDown);
             // 
             // labelSearchVisual
             // 
@@ -1525,7 +1512,8 @@
             "Конвертация",
             "Замена на VobTree",
             "Удаление",
-            "Динамическая коллизия"});
+            "Динамическая коллизия",
+            "Поиск несоединенных WP"});
             this.comboBoxSearchType.Location = new System.Drawing.Point(241, 19);
             this.comboBoxSearchType.Name = "comboBoxSearchType";
             this.comboBoxSearchType.Size = new System.Drawing.Size(166, 21);
@@ -2259,6 +2247,19 @@
             this.button10.Text = "Удалить";
             this.button10.UseVisualStyleBackColor = true;
             // 
+            // listBoxVisuals
+            // 
+            this.listBoxVisuals.FormattingEnabled = true;
+            this.listBoxVisuals.Location = new System.Drawing.Point(253, 255);
+            this.listBoxVisuals.Name = "listBoxVisuals";
+            this.listBoxVisuals.Size = new System.Drawing.Size(360, 121);
+            this.listBoxVisuals.TabIndex = 8;
+            this.listBoxVisuals.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxVisuals_MouseClick);
+            this.listBoxVisuals.SelectedIndexChanged += new System.EventHandler(this.listBoxVisuals_SelectedIndexChanged);
+            this.listBoxVisuals.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBoxVisuals_KeyDown);
+            this.listBoxVisuals.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBoxVisuals_KeyPress);
+            this.listBoxVisuals.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxVisuals_MouseDown);
+            // 
             // ObjectsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2375,7 +2376,6 @@
         private System.Windows.Forms.Label labelAllPfx;
         private System.Windows.Forms.Label labelSearchVisual;
         private System.Windows.Forms.TextBox textBoxVisuals;
-        private System.Windows.Forms.ListBox listBoxVisuals;
         private System.Windows.Forms.CheckBox checkBoxStaStat;
         private System.Windows.Forms.CheckBox checkBoxDynStat;
         private System.Windows.Forms.CheckBox checkBoxWayNet;
@@ -2511,5 +2511,6 @@
         private System.Windows.Forms.ComboBox comboBoxLocatorItemType;
         private System.Windows.Forms.Button buttonTriggersJumpToKey;
         private System.Windows.Forms.TextBox textBoxTrigersJumpKey;
+        private System.Windows.Forms.ListBox listBoxVisuals;
     }
 }

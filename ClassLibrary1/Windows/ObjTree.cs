@@ -59,7 +59,8 @@ namespace SpacerUnion
 
             tabControlObjectList.TabPages[0].Text = Localizator.Get("TAB_PAGE_OBJECTS");
             tabControlObjectList.TabPages[1].Text = Localizator.Get("QUICKVOBS_ACCESS");
-           // tabControlObjectList.TabPages[2].Text = Localizator.Get("TAB_PAGE_MATERIALS");
+            tabControlObjectList.TabPages[2].Text = Localizator.Get("OBJ_TAB_PICKFILTER");
+            // tabControlObjectList.TabPages[2].Text = Localizator.Get("TAB_PAGE_MATERIALS");
 
             contextMenuQuick.Items[0].Text = Localizator.Get("CONTEXTMENU_TREE_REMOVE_PARENT");
             contextMenuQuick.Items[1].Text = Localizator.Get("CONTEXTMENU_FAST_REMOVE_VOB");
@@ -1278,6 +1279,8 @@ namespace SpacerUnion
                 this.Location = Properties.Settings.Default.TreeWinLocation;
             }
 
+            comboBoxFilterVobsSelect.SelectedIndex = 0;
+
         }
 
         private void ObjTree_Shown(object sender, EventArgs e)
@@ -1700,6 +1703,15 @@ namespace SpacerUnion
             uint.TryParse(tag, out vob);
 
             Imports.Extern_RemoveAsParent(vob);
+        }
+
+        private void comboBoxFilterVobsSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox ch = sender as ComboBox;
+
+            int index = ch.SelectedIndex;
+
+            Imports.Extern_SetVobPickFilter(index);
         }
     }
 }

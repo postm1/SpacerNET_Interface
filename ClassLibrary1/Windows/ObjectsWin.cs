@@ -157,6 +157,7 @@ namespace SpacerUnion
             comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE2"));
             comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE3"));
             comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE_DYNAMIC"));
+            comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE_SINGLE_WP"));
             comboBoxSearchType.SelectedIndex = 0;
 
             radioButtonConvertOld.Text = Localizator.Get("VOB_SEARCH_CONVERT_RADIO0");
@@ -1526,6 +1527,11 @@ namespace SpacerUnion
         private void listBoxVisuals_MouseDown(object sender, MouseEventArgs e)
         {
             ListBox lb = sender as ListBox;
+            if (lb.Items.Count == 0)
+            {
+                return;
+            }
+
             if (e.Button == MouseButtons.Right)
             {
 
@@ -2699,7 +2705,7 @@ namespace SpacerUnion
                 return;
             }
 
-            if (comboBoxSearchType.SelectedIndex != 0)
+            if (comboBoxSearchType.SelectedIndex != 0 && comboBoxSearchType.SelectedIndex != 5)
             {
                 DialogResult res = MessageBox.Show(Localizator.Get("askSure"), Localizator.Get("confirmation"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
@@ -2745,7 +2751,7 @@ namespace SpacerUnion
             string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
 
    
-            if (comboBoxSearchType.SelectedIndex == 0)
+            if (comboBoxSearchType.SelectedIndex == 0 || comboBoxSearchType.SelectedIndex == 5)
             {
                 labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": " + listBoxSearchResult.Items.Count;
                 SpacerNET.form.AddText(Localizator.Get("VOB_SEARCH_STOP") + result.ToString() + " (" + timeSpend + ")");
@@ -3272,6 +3278,7 @@ namespace SpacerUnion
                 case 3: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE3"); break;
                 //case 4: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE4"); break;
                 case 4: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE_DYNAMIC"); break;
+                case 5: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE0"); break;
             }
 
             if (cb.SelectedIndex == 1)

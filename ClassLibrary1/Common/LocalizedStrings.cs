@@ -152,7 +152,7 @@ namespace SpacerUnion.Common
             words.Add("ENTER_NAME", new List<string> { "Введите имя воба!", "Enter the name!", "Name eingeben!", "Podaj nazwę!" });
             words.Add("CANT_DELETE_LEVELCOMPO", new List<string> { "Не могу удалить zCVobLevelCompo!", "Can't remove zCVobLevelCompo!", "zCVVobLevelCompo kann nicht entfernt werden!", "Nie można usunąć zCVobLevelCompo!" });
             words.Add("CANT_DELETE_CAM", new List<string> { "Не могу удалить основную камеру!", "Can't remove the camera!", "Kamera kann nicht entfernt werden", "Nie można usunąć kamery!" });
-            words.Add("UNION_NO_WAYPOINT", new List<string> { "Вейпоинт не выбран!", "No waypoint selected!", "Keinen Wegpunkt ausgewählt", @"Nie wybrano Waypoint'a!" });
+            words.Add("UNION_NO_WAYPOINT", new List<string> { "Вейпоинт не выбран!", "No waypoint selected!", "Keinen Wegpunkt ausgewählt", @"Nie wybrano Waypointa" });
             words.Add("UNION_NO_WAYPOINT_TEMPLATE", new List<string> { "Шаблон имени вейпоинта пуст!", "Waypoint name template is empty!", "Plakette für Wegpunkt Bezeichnung ist leer!", "Nazwa szablonu Waypointów jest pusta!" });
             words.Add("UNION_WP_INSERT", new List<string> { "Вейпоинт вставлен: ", "Waypoint inserted: ", "Wegpunkt hinzugefügt:", "Dodano Waypoint: " });
             words.Add("UNION_WORLD_ONCOMPILE", new List<string> { "Мир скомпилирован.", "World has been compiled.", "Welt wurde kompiliert.", "Świat został skompilowany." });
@@ -673,7 +673,10 @@ namespace SpacerUnion.Common
 
             words.Add("Trigget_BTN_JUMPTOKEY", new List<string> { "Прыгнуть на ключ", "Jump to key", "", "Przejdź do klucza" });
             words.Add("TOOL_BBOX_EDIT_MODE_SELECTED", new List<string> { "Режим изменения BBOX", "BBOX editing mode", "", "Tryb edycji BBOX" });
-            
+
+
+            words.Add("VOB_SEARCH_TYPE_SINGLE_WP", new List<string> { "Поиск несоединенных WP", "Search for unconnected WP", "", "Szukaj dla niepołączonych WP" });
+            words.Add("OBJ_TAB_PICKFILTER", new List<string> { "Фильтр выделения", "Select filter", "", "" });
         }
         
     }
