@@ -1254,6 +1254,22 @@ namespace SpacerUnion
         }
 
 
+        [DllExport]
+        public static void CreateTriggerFormEmpty()
+        {
+            string name = Imports.Stack_PeekString();
+
+            SpacerNET.objectsWin.triggerEntry.name = name;
+            SpacerNET.objectsWin.listBoxTargetList.Items.Clear();
+            SpacerNET.objectsWin.listBoxActionType.Items.Clear();
+            SpacerNET.objectsWin.triggerEntry.targetListAddr.Clear();
+            SpacerNET.objectsWin.listBoxSources.Items.Clear();
+            SpacerNET.objectsWin.triggerEntry.sourcesListAddr.Clear();
+
+            SpacerNET.objectsWin.UpdateTriggerWindow();
+            SpacerNET.objectsWin.EnableTriggerWindow();
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
             listBoxSources.Items.Clear();

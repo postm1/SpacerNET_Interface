@@ -186,7 +186,7 @@ namespace SpacerUnion
             WinPosMenu.Text = Localizator.Get("MENU_TOP_WIN_POS");
             resetWinAction.Text = Localizator.Get("MENU_TOP_WIN_POS_RESET");
             preset1ToolStripMenuItem.Text = Localizator.Get("MENU_TOP_WIN_POS_PRESET_1");
-            
+            preset2ToolStripMenuItem.Text = Localizator.Get("MENU_TOP_WIN_POS_PRESET_2");
 
 
 
@@ -1246,7 +1246,7 @@ namespace SpacerUnion
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Spacer.NET (version " + Constants.SPACER_VERSION + ") by Liker, 2020-2022", Localizator.Get("MENU_TOP_ABOUT"));
+            MessageBox.Show("Spacer.NET (version " + Constants.SPACER_VERSION + ") by Liker, 2020-2023", Localizator.Get("MENU_TOP_ABOUT"));
         }
 
         private void ввестиКоординатыToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1951,6 +1951,34 @@ namespace SpacerUnion
         private void menuStripTopMain_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void пресет2QuadHDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show(Localizator.Get("askSure"), Localizator.Get("confirmation"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+
+            if (res == DialogResult.OK)
+            {
+
+                SpacerNET.objTreeWin.Show();
+                SpacerNET.objectsWin.Show();
+                SpacerNET.vobList.Show();
+                SpacerNET.infoWin.Show();
+                SpacerNET.propWin.Show();
+                SpacerNET.macrosWin.Show();
+                SpacerNET.matFilterWin.Show();
+
+
+                SpacerNET.objTreeWin.Location = new Point(2159, 551);
+                SpacerNET.objectsWin.Location = new Point(2, 963);
+                SpacerNET.vobList.Location = new Point(645, 1028);
+                SpacerNET.infoWin.Location = new Point(957, 1002);
+                SpacerNET.propWin.Location = new Point(2212, 28);
+                SpacerNET.grassWin.Location = new Point(1079, 603);
+                SpacerNET.macrosWin.Location = new Point(200, 300);
+                SpacerNET.matFilterWin.Location = new Point(200, 300);
+            }
         }
     }
 }

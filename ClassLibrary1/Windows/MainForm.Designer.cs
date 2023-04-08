@@ -111,6 +111,7 @@
             this.toolStripButtonNoGrass = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonMacros = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFilter = new System.Windows.Forms.ToolStripButton();
+            this.preset2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -298,7 +299,8 @@
             // 
             this.WinPosMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.resetWinAction,
-            this.preset1ToolStripMenuItem});
+            this.preset1ToolStripMenuItem,
+            this.preset2ToolStripMenuItem});
             this.WinPosMenu.Name = "WinPosMenu";
             this.WinPosMenu.Size = new System.Drawing.Size(169, 22);
             this.WinPosMenu.Text = "Положение окон";
@@ -847,6 +849,13 @@
             this.toolStripButtonFilter.Text = "MatFilter";
             this.toolStripButtonFilter.Click += new System.EventHandler(this.toolStripButtonFilter_Click);
             // 
+            // preset2ToolStripMenuItem
+            // 
+            this.preset2ToolStripMenuItem.Name = "preset2ToolStripMenuItem";
+            this.preset2ToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.preset2ToolStripMenuItem.Text = "Пресет #2 (QuadHD)";
+            this.preset2ToolStripMenuItem.Click += new System.EventHandler(this.пресет2QuadHDToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -960,5 +969,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonNoGrass;
         private System.Windows.Forms.ToolStripButton toolStripButtonMacros;
         private System.Windows.Forms.ToolStripButton toolStripButtonFilter;
+        private System.Windows.Forms.ToolStripMenuItem preset2ToolStripMenuItem;
     }
 }

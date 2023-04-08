@@ -482,7 +482,7 @@ namespace SpacerUnion.Common
             words.Add("MENU_TOP_WIN_POS", new List<string> { "Положение окон", "Position of windows", "", "Pozycja okien" });
             words.Add("MENU_TOP_WIN_POS_RESET", new List<string> { "Сбросить положение окон", "Reset windows' position", "", "Zresetuj pozycje okien" });
             words.Add("MENU_TOP_WIN_POS_PRESET_1", new List<string> { "Использовать пресет #1 (FullHD)", "Use windows presets #1 (FullHD)", "", "Użyj ustawień dla okien #1 (FullHD)" });
-
+            words.Add("MENU_TOP_WIN_POS_PRESET_2", new List<string> { "Использовать пресет #2 (QuadHD)", "Use windows presets #2 (QuadHD)", "", "Użyj ustawień dla okien #2 (QuadHD)" });
 
 
             words.Add("checkBoxShutSounds", new List<string> { "Глушить звуки при загрузке", "Shut sounds after world loaded", "", "Wyłącz dźwięki po załadowaniu świata" });

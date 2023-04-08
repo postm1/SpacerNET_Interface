@@ -35,12 +35,12 @@
             this.trackBarRadius = new System.Windows.Forms.TrackBar();
             this.labelRadius = new System.Windows.Forms.Label();
             this.panelVobList = new System.Windows.Forms.Panel();
+            this.labelFilterVobsPick = new System.Windows.Forms.Label();
+            this.comboBoxFilterPick = new System.Windows.Forms.ComboBox();
             this.buttonVobListSearch = new System.Windows.Forms.Button();
             this.btnRemoveContainerVobs = new System.Windows.Forms.Button();
             this.comboBoxVobList = new System.Windows.Forms.ComboBox();
             this.panelVobListBottom = new System.Windows.Forms.Panel();
-            this.comboBoxFilterPick = new System.Windows.Forms.ComboBox();
-            this.labelFilterVobsPick = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRadius)).BeginInit();
             this.panelVobList.SuspendLayout();
@@ -112,6 +112,36 @@
             this.panelVobList.Size = new System.Drawing.Size(303, 111);
             this.panelVobList.TabIndex = 7;
             // 
+            // labelFilterVobsPick
+            // 
+            this.labelFilterVobsPick.AutoSize = true;
+            this.labelFilterVobsPick.Location = new System.Drawing.Point(155, 75);
+            this.labelFilterVobsPick.Name = "labelFilterVobsPick";
+            this.labelFilterVobsPick.Size = new System.Drawing.Size(139, 13);
+            this.labelFilterVobsPick.TabIndex = 9;
+            this.labelFilterVobsPick.Text = "Фильтр выделения вобов";
+            // 
+            // comboBoxFilterPick
+            // 
+            this.comboBoxFilterPick.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFilterPick.FormattingEnabled = true;
+            this.comboBoxFilterPick.Items.AddRange(new object[] {
+            "NONE",
+            "ITEM",
+            "WP & FP",
+            "WP",
+            "FP",
+            "oCMob",
+            "Ignore NoDyn collision",
+            "Trigger",
+            "VobLight",
+            "VobSound"});
+            this.comboBoxFilterPick.Location = new System.Drawing.Point(0, 72);
+            this.comboBoxFilterPick.Name = "comboBoxFilterPick";
+            this.comboBoxFilterPick.Size = new System.Drawing.Size(149, 21);
+            this.comboBoxFilterPick.TabIndex = 8;
+            this.comboBoxFilterPick.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilterPick_SelectedIndexChanged);
+            // 
             // buttonVobListSearch
             // 
             this.buttonVobListSearch.Location = new System.Drawing.Point(128, 38);
@@ -162,34 +192,6 @@
             this.panelVobListBottom.Name = "panelVobListBottom";
             this.panelVobListBottom.Size = new System.Drawing.Size(303, 297);
             this.panelVobListBottom.TabIndex = 8;
-            // 
-            // comboBoxFilterPick
-            // 
-            this.comboBoxFilterPick.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFilterPick.FormattingEnabled = true;
-            this.comboBoxFilterPick.Items.AddRange(new object[] {
-            "NONE",
-            "ITEM",
-            "WP & FP",
-            "WP",
-            "FP",
-            "Trigger",
-            "VobLight",
-            "VobSound"});
-            this.comboBoxFilterPick.Location = new System.Drawing.Point(0, 72);
-            this.comboBoxFilterPick.Name = "comboBoxFilterPick";
-            this.comboBoxFilterPick.Size = new System.Drawing.Size(122, 21);
-            this.comboBoxFilterPick.TabIndex = 8;
-            this.comboBoxFilterPick.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilterPick_SelectedIndexChanged);
-            // 
-            // labelFilterVobsPick
-            // 
-            this.labelFilterVobsPick.AutoSize = true;
-            this.labelFilterVobsPick.Location = new System.Drawing.Point(128, 77);
-            this.labelFilterVobsPick.Name = "labelFilterVobsPick";
-            this.labelFilterVobsPick.Size = new System.Drawing.Size(139, 13);
-            this.labelFilterVobsPick.TabIndex = 9;
-            this.labelFilterVobsPick.Text = "Фильтр выделения вобов";
             // 
             // VobListForm
             // 
