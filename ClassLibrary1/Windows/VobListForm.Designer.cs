@@ -135,7 +135,8 @@
             "Ignore NoDyn collision",
             "Trigger",
             "VobLight",
-            "VobSound"});
+            "VobSound",
+            "Ignore PFX"});
             this.comboBoxFilterPick.Location = new System.Drawing.Point(0, 72);
             this.comboBoxFilterPick.Name = "comboBoxFilterPick";
             this.comboBoxFilterPick.Size = new System.Drawing.Size(149, 21);

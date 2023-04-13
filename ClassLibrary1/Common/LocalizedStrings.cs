@@ -676,7 +676,7 @@ namespace SpacerUnion.Common
 
 
             words.Add("VOB_SEARCH_TYPE_SINGLE_WP", new List<string> { "Поиск несоединенных WP", "Search for unconnected WP", "", "Szukaj dla niepołączonych WP" });
-            words.Add("OBJ_TAB_PICKFILTER", new List<string> { "Фильтр выделения вобов", "Vob select filter", "", "" });
+            words.Add("OBJ_TAB_PICKFILTER", new List<string> { "Фильтр выделения вобов", "Vob select filter", "", "Wybierz filtr voba" });
         }
         
     }
