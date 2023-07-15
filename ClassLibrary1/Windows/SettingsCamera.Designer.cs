@@ -47,6 +47,7 @@
             this.textBoxWorldRange = new System.Windows.Forms.TextBox();
             this.btnSetCamApply = new System.Windows.Forms.Button();
             this.groupBoxInfo = new System.Windows.Forms.GroupBox();
+            this.checkBoxCamShowPortalsInfo = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.trackBarSpeedPreview = new System.Windows.Forms.TrackBar();
             this.labelSpeedPreview = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@
             this.checkBoxCamCoord = new System.Windows.Forms.CheckBox();
             this.checkBoxTris = new System.Windows.Forms.CheckBox();
             this.checkBoxFPS = new System.Windows.Forms.CheckBox();
-            this.checkBoxCamShowPortalsInfo = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRotSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobs)).BeginInit();
@@ -280,6 +280,17 @@
             this.groupBoxInfo.TabStop = false;
             this.groupBoxInfo.Text = "Информация";
             // 
+            // checkBoxCamShowPortalsInfo
+            // 
+            this.checkBoxCamShowPortalsInfo.AutoSize = true;
+            this.checkBoxCamShowPortalsInfo.Location = new System.Drawing.Point(9, 205);
+            this.checkBoxCamShowPortalsInfo.Name = "checkBoxCamShowPortalsInfo";
+            this.checkBoxCamShowPortalsInfo.Size = new System.Drawing.Size(216, 17);
+            this.checkBoxCamShowPortalsInfo.TabIndex = 11;
+            this.checkBoxCamShowPortalsInfo.Text = "Показывать информацию о порталах";
+            this.checkBoxCamShowPortalsInfo.UseVisualStyleBackColor = true;
+            this.checkBoxCamShowPortalsInfo.CheckedChanged += new System.EventHandler(this.checkBoxCamShowPortalsInfo_CheckedChanged);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.trackBarSpeedPreview);
@@ -377,9 +388,9 @@
             this.checkBoxCamCoord.AutoSize = true;
             this.checkBoxCamCoord.Location = new System.Drawing.Point(9, 65);
             this.checkBoxCamCoord.Name = "checkBoxCamCoord";
-            this.checkBoxCamCoord.Size = new System.Drawing.Size(196, 17);
+            this.checkBoxCamCoord.Size = new System.Drawing.Size(232, 17);
             this.checkBoxCamCoord.TabIndex = 2;
-            this.checkBoxCamCoord.Text = "Показывать координаты камеры";
+            this.checkBoxCamCoord.Text = "Показывать координаты камеры и воба";
             this.checkBoxCamCoord.UseVisualStyleBackColor = true;
             this.checkBoxCamCoord.CheckedChanged += new System.EventHandler(this.checkBoxCamCoord_CheckedChanged);
             // 
@@ -404,17 +415,6 @@
             this.checkBoxFPS.Text = "Показывать FPS";
             this.checkBoxFPS.UseVisualStyleBackColor = true;
             this.checkBoxFPS.CheckedChanged += new System.EventHandler(this.checkBoxFPS_CheckedChanged);
-            // 
-            // checkBoxCamShowPortalsInfo
-            // 
-            this.checkBoxCamShowPortalsInfo.AutoSize = true;
-            this.checkBoxCamShowPortalsInfo.Location = new System.Drawing.Point(9, 205);
-            this.checkBoxCamShowPortalsInfo.Name = "checkBoxCamShowPortalsInfo";
-            this.checkBoxCamShowPortalsInfo.Size = new System.Drawing.Size(216, 17);
-            this.checkBoxCamShowPortalsInfo.TabIndex = 11;
-            this.checkBoxCamShowPortalsInfo.Text = "Показывать информацию о порталах";
-            this.checkBoxCamShowPortalsInfo.UseVisualStyleBackColor = true;
-            this.checkBoxCamShowPortalsInfo.CheckedChanged += new System.EventHandler(this.checkBoxCamShowPortalsInfo_CheckedChanged);
             // 
             // SettingsCamera
             // 
