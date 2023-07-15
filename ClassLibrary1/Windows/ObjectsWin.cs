@@ -1187,9 +1187,17 @@ namespace SpacerUnion
         [DllExport]
         public static void SelectMoversTab()
         {
-           
+           // ConsoleEx.WriteLineRed("SelectMoversTab");
             ChangeTab(3);
         }
+
+        [DllExport]
+        public static void SelectWPTab()
+        {
+           // ConsoleEx.WriteLineRed("SelectWPTab");
+            ChangeTab(4);
+        }
+        
 
         [DllExport]
         public static void SelectCameraTab()

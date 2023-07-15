@@ -1399,7 +1399,16 @@ namespace SpacerUnion
             string path = Utils.FixPath(Imports.Stack_PeekString());
 
             //MessageBox.Show(path);
-            openFileDialogFileName.InitialDirectory = Utils.GetInitialDirectory(path);
+
+            try
+            {
+                openFileDialogFileName.InitialDirectory = Utils.GetInitialDirectory(path);
+            }
+            catch
+            {
+                MessageBox.Show("Wrong path! " + path);
+                return;
+            }
 
             openFileDialogFileName.RestoreDirectory = true;
 

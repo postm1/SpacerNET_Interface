@@ -208,7 +208,7 @@ namespace SpacerUnion.Common
             words.Add("groupBoxInfo", new List<string> { "Информация", "Information", "Information", "Informacje" });
             words.Add("checkBoxFPS", new List<string> { "Показывать FPS", "Show FPS", "Zeige FPS", "Pokaż FPS" });
             words.Add("checkBoxTris", new List<string> { "Показывать кол-во рисуемых треугольников", "Show rendered triangles", "Zeige die gerenderten Dreiecke", "Pokaż ilość renderowanych trójkątów" });
-            words.Add("checkBoxCamCoord", new List<string> { "Показывать координаты камеры", "Show camera coordinates", "Zeige die Kamera Koordinaten", "Pokaż koordynaty kamery" });
+            
             words.Add("checkBoxVobs", new List<string> { "Показывать кол-во вобов", "Show vobs count", "Zeige die Vobs Anzahl", "Pokaż ilość vobów" });
             words.Add("checkBoxWaypoints", new List<string> { "Показывать кол-во вейпоинтов", "Show waypoints count", "Zeige die Wegpunktanzahl", "Pokaż ilość Waypointów" });
             words.Add("checkBoxDistVob", new List<string> { "Показывать расстояние до выбранного воба", "Show distance to selected vob", "Zeige die Distanz zum ausgewählen Vob", "Pokaż dystans do zaznaczonego voba" });
@@ -677,6 +677,12 @@ namespace SpacerUnion.Common
 
             words.Add("VOB_SEARCH_TYPE_SINGLE_WP", new List<string> { "Поиск несоединенных WP", "Search for unconnected WP", "", "Szukaj dla niepołączonych WP" });
             words.Add("OBJ_TAB_PICKFILTER", new List<string> { "Фильтр выделения вобов", "Vob select filter", "", "Wybierz filtr voba" });
+
+
+
+            //=========================
+            words.Add("UNION_VOB_POS", new List<string> { "Позиция воба: ", "Vob pos: ", "", "" });
+            words.Add("checkBoxCamCoord", new List<string> { "Показывать координаты камеры и воба", "Show camera and vob coordinates", "", "" });
         }
         
     }
