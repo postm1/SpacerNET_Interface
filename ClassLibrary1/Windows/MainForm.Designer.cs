@@ -52,6 +52,7 @@
             this.WinPosMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.resetWinAction = new System.Windows.Forms.ToolStripMenuItem();
             this.preset1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.preset2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuWorld = new System.Windows.Forms.ToolStripMenuItem();
             this.compileLightToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.compileWorldToolStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,7 +97,7 @@
             this.toolStripButtonSound = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonTree = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonVobCont = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonVobs = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonWaynet = new System.Windows.Forms.ToolStripButton();
@@ -111,7 +112,6 @@
             this.toolStripButtonNoGrass = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonMacros = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFilter = new System.Windows.Forms.ToolStripButton();
-            this.preset2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -319,6 +319,13 @@
             this.preset1ToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.preset1ToolStripMenuItem.Text = "Пресет #1 (FullHD)";
             this.preset1ToolStripMenuItem.Click += new System.EventHandler(this.preset1ToolStripMenuItem_Click);
+            // 
+            // preset2ToolStripMenuItem
+            // 
+            this.preset2ToolStripMenuItem.Name = "preset2ToolStripMenuItem";
+            this.preset2ToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.preset2ToolStripMenuItem.Text = "Пресет #2 (QuadHD)";
+            this.preset2ToolStripMenuItem.Click += new System.EventHandler(this.пресет2QuadHDToolStripMenuItem_Click);
             // 
             // ToolStripMenuWorld
             // 
@@ -635,7 +642,7 @@
             this.toolStripButtonSound,
             this.toolStripButtonTree,
             this.toolStripButton8,
-            this.toolStripButton9,
+            this.toolStripButtonVobCont,
             this.toolStripSeparator1,
             this.toolStripButtonVobs,
             this.toolStripButtonWaynet,
@@ -708,15 +715,15 @@
             this.toolStripButton8.Text = "Окно свойств";
             this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click_1);
             // 
-            // toolStripButton9
+            // toolStripButtonVobCont
             // 
-            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
-            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton9.Text = "Окно воб-лист";
-            this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click_1);
+            this.toolStripButtonVobCont.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonVobCont.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonVobCont.Image")));
+            this.toolStripButtonVobCont.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonVobCont.Name = "toolStripButtonVobCont";
+            this.toolStripButtonVobCont.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonVobCont.Text = "Окно воб-лист";
+            this.toolStripButtonVobCont.Click += new System.EventHandler(this.toolStripButton9_Click_1);
             // 
             // toolStripSeparator1
             // 
@@ -849,13 +856,6 @@
             this.toolStripButtonFilter.Text = "MatFilter";
             this.toolStripButtonFilter.Click += new System.EventHandler(this.toolStripButtonFilter_Click);
             // 
-            // preset2ToolStripMenuItem
-            // 
-            this.preset2ToolStripMenuItem.Name = "preset2ToolStripMenuItem";
-            this.preset2ToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.preset2ToolStripMenuItem.Text = "Пресет #2 (QuadHD)";
-            this.preset2ToolStripMenuItem.Click += new System.EventHandler(this.пресет2QuadHDToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -915,7 +915,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonSound;
         private System.Windows.Forms.ToolStripButton toolStripButtonTree;
         private System.Windows.Forms.ToolStripButton toolStripButton8;
-        private System.Windows.Forms.ToolStripButton toolStripButton9;
+        private System.Windows.Forms.ToolStripButton toolStripButtonVobCont;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButtonVobs;
         private System.Windows.Forms.ToolStripButton toolStripButtonWaynet;

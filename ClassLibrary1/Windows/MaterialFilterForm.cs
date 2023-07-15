@@ -107,6 +107,8 @@ namespace SpacerUnion.Windows
         {
             this.Hide();
             e.Cancel = true;
+
+            SpacerNET.form.SetIconActive("matfilter", false);
         }
 
         public void OnFilterIndexChange(int index)

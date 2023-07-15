@@ -147,6 +147,7 @@ namespace SpacerUnion
         {
             Hide();
             e.Cancel = true;
+            SpacerNET.form.SetIconActive("info", false);
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)

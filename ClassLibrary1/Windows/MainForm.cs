@@ -219,7 +219,7 @@ namespace SpacerUnion
             toolStripButtonSound.Text = Localizator.Get("MENU_TOP_HOVER_WINSOUND");
             toolStripButtonTree.Text = Localizator.Get("MENU_TOP_HOVER_WINTREE");
             toolStripButton8.Text = Localizator.Get("MENU_TOP_HOVER_WINPROPS");
-            toolStripButton9.Text = Localizator.Get("MENU_TOP_HOVER_WINVOBLIST");
+            toolStripButtonVobCont.Text = Localizator.Get("MENU_TOP_HOVER_WINVOBLIST");
 
             toolStripButtonVobs.Text = Localizator.Get("MENU_TOP_VIEW_VOBS");
             toolStripButtonWaynet.Text = Localizator.Get("MENU_TOP_VIEW_WAYNET");
@@ -1978,6 +1978,39 @@ namespace SpacerUnion
                 SpacerNET.grassWin.Location = new Point(1079, 603);
                 SpacerNET.macrosWin.Location = new Point(200, 300);
                 SpacerNET.matFilterWin.Location = new Point(200, 300);
+            }
+        }
+
+
+        public void SetIconActive(string winName, bool active)
+        {
+            if (winName == "matfilter")
+            {
+                toolStripButtonFilter.Checked = active;
+            }
+            else if (winName == "macros")
+            {
+                toolStripButtonMacros.Checked = active;
+            }
+            else if (winName == "grass")
+            {
+                toolStripButtonGrass.Checked = active;
+            }
+            else if (winName == "sound")
+            {
+                toolStripButtonSound.Checked = active;
+            }
+            else if (winName == "info")
+            {
+                toolStripButtonInfo.Checked = active;
+            }
+            else if (winName == "object")
+            {
+                toolStripButtonBig.Checked = active;
+            }
+            else if (winName == "vobCont")
+            {
+                toolStripButtonVobCont.Checked = active;
             }
         }
     }

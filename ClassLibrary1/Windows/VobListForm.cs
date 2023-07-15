@@ -69,6 +69,8 @@ namespace SpacerUnion
         {
             this.Hide();
             e.Cancel = true;
+
+            SpacerNET.form.SetIconActive("vobCont", false);
         }
 
         private void listBoxVobs_MouseDoubleClick(object sender, MouseEventArgs e)

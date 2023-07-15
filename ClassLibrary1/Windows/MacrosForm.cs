@@ -26,6 +26,8 @@ namespace SpacerUnion.Windows
         {
             this.Hide();
             e.Cancel = true;
+
+            SpacerNET.form.SetIconActive("macros", false);
         }
         public void UpdateLang()
         {

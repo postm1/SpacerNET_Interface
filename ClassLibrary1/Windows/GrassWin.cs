@@ -22,6 +22,7 @@ namespace SpacerUnion.Windows
         {
             this.Hide();
             e.Cancel = true;
+            SpacerNET.form.SetIconActive("grass", false);
         }
 
         public void UpdateLang()
