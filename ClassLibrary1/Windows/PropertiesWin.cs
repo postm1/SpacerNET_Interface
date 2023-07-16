@@ -587,6 +587,7 @@ namespace SpacerUnion
         {
             Hide();
             e.Cancel = true;
+            SpacerNET.form.SetIconActive("props", false);
         }
 
         private void treeViewProp_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)

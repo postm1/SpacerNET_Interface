@@ -681,8 +681,8 @@ namespace SpacerUnion.Common
 
 
             //=========================
-            words.Add("UNION_VOB_POS", new List<string> { "Позиция воба: ", "Vob pos: ", "", "" });
-            words.Add("checkBoxCamCoord", new List<string> { "Показывать координаты камеры и воба", "Show camera and vob coordinates", "", "" });
+            words.Add("UNION_VOB_POS", new List<string> { "Позиция воба: ", "Vob pos: ", "", "Pozycja voba: " });
+            words.Add("checkBoxCamCoord", new List<string> { "Показывать координаты камеры и воба", "Show camera and vob coordinates", "", "Pokaż kamerę i współrzędne voba" });
         }
         
     }

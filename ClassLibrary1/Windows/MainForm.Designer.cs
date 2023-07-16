@@ -96,7 +96,7 @@
             this.toolStripButtonBig = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSound = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonTree = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonProps = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonVobCont = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonVobs = new System.Windows.Forms.ToolStripButton();
@@ -641,7 +641,7 @@
             this.toolStripButtonBig,
             this.toolStripButtonSound,
             this.toolStripButtonTree,
-            this.toolStripButton8,
+            this.toolStripButtonProps,
             this.toolStripButtonVobCont,
             this.toolStripSeparator1,
             this.toolStripButtonVobs,
@@ -705,15 +705,15 @@
             this.toolStripButtonTree.Text = "Окно списка вобов";
             this.toolStripButtonTree.Click += new System.EventHandler(this.toolStripButtonTree_Click);
             // 
-            // toolStripButton8
+            // toolStripButtonProps
             // 
-            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton8.Text = "Окно свойств";
-            this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click_1);
+            this.toolStripButtonProps.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonProps.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonProps.Image")));
+            this.toolStripButtonProps.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonProps.Name = "toolStripButtonProps";
+            this.toolStripButtonProps.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonProps.Text = "Окно свойств";
+            this.toolStripButtonProps.Click += new System.EventHandler(this.toolStripButton8_Click_1);
             // 
             // toolStripButtonVobCont
             // 
@@ -914,7 +914,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonBig;
         private System.Windows.Forms.ToolStripButton toolStripButtonSound;
         private System.Windows.Forms.ToolStripButton toolStripButtonTree;
-        private System.Windows.Forms.ToolStripButton toolStripButton8;
+        private System.Windows.Forms.ToolStripButton toolStripButtonProps;
         private System.Windows.Forms.ToolStripButton toolStripButtonVobCont;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButtonVobs;

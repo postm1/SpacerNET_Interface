@@ -964,6 +964,7 @@ namespace SpacerUnion
         {
             this.Hide();
             e.Cancel = true;
+            SpacerNET.form.SetIconActive("objlist", false);
         }
 
 

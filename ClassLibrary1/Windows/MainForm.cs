@@ -218,7 +218,7 @@ namespace SpacerUnion
             toolStripButtonBig.Text = Localizator.Get("MENU_TOP_HOVER_WINOBJ");
             toolStripButtonSound.Text = Localizator.Get("MENU_TOP_HOVER_WINSOUND");
             toolStripButtonTree.Text = Localizator.Get("MENU_TOP_HOVER_WINTREE");
-            toolStripButton8.Text = Localizator.Get("MENU_TOP_HOVER_WINPROPS");
+            toolStripButtonProps.Text = Localizator.Get("MENU_TOP_HOVER_WINPROPS");
             toolStripButtonVobCont.Text = Localizator.Get("MENU_TOP_HOVER_WINVOBLIST");
 
             toolStripButtonVobs.Text = Localizator.Get("MENU_TOP_VIEW_VOBS");
@@ -2012,6 +2012,16 @@ namespace SpacerUnion
             {
                 toolStripButtonVobCont.Checked = active;
             }
+            else if (winName == "props")
+            {
+                toolStripButtonProps.Checked = active;
+            }
+            else if (winName == "objlist")
+            {
+                toolStripButtonTree.Checked = active;
+            }
+
+            
         }
     }
 }
