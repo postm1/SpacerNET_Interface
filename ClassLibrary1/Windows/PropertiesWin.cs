@@ -649,6 +649,10 @@ namespace SpacerUnion
                 {
                     OpenVobContainer(prop, index);
                 }
+                else if (prop.Name == "visual")
+                {
+                    buttonFileOpen_Click(null, null);
+                }
             }
 
         }
@@ -1415,7 +1419,7 @@ namespace SpacerUnion
 
             if (openFileDialogFileName.ShowDialog() == DialogResult.OK)
             {
-                Imports.Stack_PushString(Path.GetDirectoryName(openFileDialogFileName.FileName));
+                Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(openFileDialogFileName.FileName)));
                 Imports.Stack_PushString("vobResPath");
                 Imports.Extern_SetSettingStr();
 
