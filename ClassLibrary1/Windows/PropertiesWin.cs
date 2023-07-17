@@ -33,7 +33,7 @@ namespace SpacerUnion
         static TreeNode containsNode;
         static bool vobHasContainer = false;
         static bool updateRenderWindow = false;
-        
+        static string classNameGlobal;
 
         public static string lastSelectedNodeName;
         static bool blockUpdateLastNodeName;
@@ -153,6 +153,8 @@ namespace SpacerUnion
             SpacerNET.propWin.buttonBbox.Enabled = false;
             SpacerNET.propWin.buttonFileOpen.Enabled = false;
 
+            classNameGlobal = "";
+
         }
 
         [DllExport]
@@ -221,6 +223,9 @@ namespace SpacerUnion
                 EnableTab(SpacerNET.propWin.tabControlProps.TabPages[1], false);
                 EnableTab(SpacerNET.propWin.tabControlProps.TabPages[2], false);
             }
+
+
+            classNameGlobal = className;
 
             CProperty.originalStrPropsWindow = inputStr;
 
@@ -389,6 +394,14 @@ namespace SpacerUnion
                     SpacerNET.propWin.buttonOpenContainer.Enabled = true;
                 }
 
+                if (props[i].Name == "color")
+                {
+                    var color = props[i].value;
+
+                    SpacerNET.propWin.SetColorPanelColor(color);
+
+                }
+
 
                 if (baseNode != null)
                 {
@@ -515,6 +528,11 @@ namespace SpacerUnion
             tree.Refresh();
 
 
+            if (className == "zCVobLight")
+            {
+                SpacerNET.propWin.colorPanel.Visible = true;
+            }
+
             //ConsoleEx.WriteLineYellow("AddProps End");
             if (Imports.Extern_CanEditBboxCurrentVob() == 0)
             {
@@ -526,6 +544,9 @@ namespace SpacerUnion
             {
                 SpacerNET.propWin.buttonBbox.Enabled = true;
             }
+
+
+
 
             // tree.Visible = true;
             //ConsoleEx.WriteLineYellow("AddProps End");
@@ -826,6 +847,11 @@ namespace SpacerUnion
                     wasPositionChanged = 1;
                     //ConsoleEx.WriteLineYellow("Pos was changed");
                 }
+
+                if (props[i].Name == "color")
+                {
+                    SpacerNET.propWin.SetColorPanelColor(props[i].value);
+                }
             }
 
             for (int j = 0; j < words.Length; j++)
@@ -862,6 +888,7 @@ namespace SpacerUnion
             buttonFileOpen.Enabled = false;
             comboBoxPropsEnum.Visible = false;
             buttonSelectColor.Visible = false;
+            colorPanel.Visible = false;
             DisableTabBBox();
 
         }
@@ -882,6 +909,13 @@ namespace SpacerUnion
                     
 
                     HideAllInput();
+
+
+                    if (classNameGlobal == "zCVobLight")
+                    {
+                        SpacerNET.propWin.colorPanel.Visible = true;
+                    }
+
 
                     CProperty prop = props[index];
 
@@ -1695,6 +1729,37 @@ namespace SpacerUnion
         private void ObjectsWindow_Activated(object sender, EventArgs e)
         {
            // MessageBox.Show("re3");
+        }
+
+
+        public void SetColorPanelColor(string input)
+        {
+            string[] colorValues = input.Split(' ');
+            Color color = Color.FromArgb(
+                int.Parse(colorValues[3]),
+                int.Parse(colorValues[0]),
+                int.Parse(colorValues[1]),
+                int.Parse(colorValues[2])
+            );
+
+            colorPanel.BackColor = color;
+        }
+
+        private void colorPanel_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (classNameGlobal == "zCVobLight")
+            {
+
+                for (int i = 0; i < props.Count; i++)
+                {
+                    if (props[i].Name == "color")
+                    {
+
+                        treeViewProp.SelectedNode = props[i].ownNode;
+                        return;
+                    }
+                }
+            }
         }
     }
 }

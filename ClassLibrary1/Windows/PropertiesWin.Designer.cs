@@ -40,6 +40,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.treeViewProp = new System.Windows.Forms.TreeView();
             this.panelButtons = new System.Windows.Forms.Panel();
+            this.colorPanel = new System.Windows.Forms.Panel();
             this.buttonSelectColor = new System.Windows.Forms.Button();
             this.comboBoxPropsEnum = new System.Windows.Forms.ComboBox();
             this.textBoxVec3 = new System.Windows.Forms.TextBox();
@@ -181,6 +182,7 @@
             // 
             this.panelButtons.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panelButtons.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelButtons.Controls.Add(this.colorPanel);
             this.panelButtons.Controls.Add(this.buttonSelectColor);
             this.panelButtons.Controls.Add(this.comboBoxPropsEnum);
             this.panelButtons.Controls.Add(this.textBoxVec3);
@@ -199,6 +201,16 @@
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.Size = new System.Drawing.Size(316, 106);
             this.panelButtons.TabIndex = 6;
+            // 
+            // colorPanel
+            // 
+            this.colorPanel.BackColor = System.Drawing.Color.Maroon;
+            this.colorPanel.Location = new System.Drawing.Point(234, 2);
+            this.colorPanel.Name = "colorPanel";
+            this.colorPanel.Size = new System.Drawing.Size(70, 13);
+            this.colorPanel.TabIndex = 7;
+            this.colorPanel.Visible = false;
+            this.colorPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.colorPanel_MouseClick);
             // 
             // buttonSelectColor
             // 
@@ -686,5 +698,6 @@
         private System.Windows.Forms.Label labelChangeFontStyleText;
         private Common.Extended.DBufPanel dBufPanelMainTab;
         public System.Windows.Forms.ImageList imageListProps;
+        public System.Windows.Forms.Panel colorPanel;
     }
 }

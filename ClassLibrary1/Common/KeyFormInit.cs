@@ -442,6 +442,9 @@ namespace SpacerUnion.Windows
             row = new string[] { "VOB_ROTATE", Localizator.Get("VOB_ROTATE"), "" };
             dataGridKeys.Rows.Add(row);
 
+            row = new string[] { "VOB_ONEMODE", Localizator.Get("VOB_ONEMODE"), "" };
+            dataGridKeys.Rows.Add(row);
+
             row = new string[] { "WP_TOGGLE", Localizator.Get("WP_TOGGLE"), "" };
             dataGridKeys.Rows.Add(row);
 
