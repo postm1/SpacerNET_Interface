@@ -1756,6 +1756,8 @@ namespace SpacerUnion
                     {
 
                         treeViewProp.SelectedNode = props[i].ownNode;
+
+                        treeViewProp.SelectedNode.EnsureVisible();
                         return;
                     }
                 }
