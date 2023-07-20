@@ -436,6 +436,9 @@ namespace SpacerUnion.Windows
             dataGridKeys.Rows.Add(row);
 
 
+            row = new string[] { "VOB_RESTORE_POS", Localizator.Get("CONTEXTMENU_TREE_RESTORE_POS"), "" };
+            dataGridKeys.Rows.Add(row);
+
             row = new string[] { "VOB_TRANSLATE", Localizator.Get("VOB_TRANSLATE"), "" };
             dataGridKeys.Rows.Add(row);
 
