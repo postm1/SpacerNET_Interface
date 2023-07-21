@@ -670,7 +670,7 @@ namespace SpacerUnion
                 {
                     OpenVobContainer(prop, index);
                 }
-                else if (prop.Name == "visual")
+                else if (prop.Name == "visual" || prop.Name == "texture")
                 {
                     buttonFileOpen_Click(null, null);
                 }
