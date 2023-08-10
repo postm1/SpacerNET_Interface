@@ -30,6 +30,7 @@
         {
             this.checkBoxSetDatePrefix = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxOnlyLatinInInput = new System.Windows.Forms.CheckBox();
             this.checkBoxShowPolysSort = new System.Windows.Forms.CheckBox();
             this.checkBoxSetNearestVobCam = new System.Windows.Forms.CheckBox();
             this.checkBoxAutoRemoveAllVisuals = new System.Windows.Forms.CheckBox();
@@ -41,7 +42,6 @@
             this.checkBoxLastZenAuto = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
             this.btnMiscSetApply = new System.Windows.Forms.Button();
-            this.checkBoxOnlyLatinInInput = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,9 +50,9 @@
             this.checkBoxSetDatePrefix.AutoSize = true;
             this.checkBoxSetDatePrefix.Location = new System.Drawing.Point(13, 19);
             this.checkBoxSetDatePrefix.Name = "checkBoxSetDatePrefix";
-            this.checkBoxSetDatePrefix.Size = new System.Drawing.Size(267, 17);
+            this.checkBoxSetDatePrefix.Size = new System.Drawing.Size(221, 17);
             this.checkBoxSetDatePrefix.TabIndex = 0;
-            this.checkBoxSetDatePrefix.Text = "Добавлять префикс даты при сохранении зена";
+            this.checkBoxSetDatePrefix.Text = "Add DATE prefix to file when saving ZEN";
             this.checkBoxSetDatePrefix.UseVisualStyleBackColor = true;
             // 
             // groupBox1
@@ -75,15 +75,26 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
+            // checkBoxOnlyLatinInInput
+            // 
+            this.checkBoxOnlyLatinInInput.AutoSize = true;
+            this.checkBoxOnlyLatinInInput.Checked = true;
+            this.checkBoxOnlyLatinInInput.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxOnlyLatinInInput.Location = new System.Drawing.Point(13, 262);
+            this.checkBoxOnlyLatinInInput.Name = "checkBoxOnlyLatinInInput";
+            this.checkBoxOnlyLatinInInput.Size = new System.Drawing.Size(213, 17);
+            this.checkBoxOnlyLatinInInput.TabIndex = 11;
+            this.checkBoxOnlyLatinInInput.Text = "Allow only Latin symbols as input values";
+            this.checkBoxOnlyLatinInInput.UseVisualStyleBackColor = true;
+            // 
             // checkBoxShowPolysSort
             // 
             this.checkBoxShowPolysSort.AutoSize = true;
             this.checkBoxShowPolysSort.Location = new System.Drawing.Point(13, 219);
             this.checkBoxShowPolysSort.Name = "checkBoxShowPolysSort";
-            this.checkBoxShowPolysSort.Size = new System.Drawing.Size(531, 17);
+            this.checkBoxShowPolysSort.Size = new System.Drawing.Size(389, 17);
             this.checkBoxShowPolysSort.TabIndex = 10;
-            this.checkBoxShowPolysSort.Text = "При сохранении больших локаций спрашивать о сортировке полигонов (более 200 тыс. " +
-    "полигонов)";
+            this.checkBoxShowPolysSort.Text = "Ask for sorting polygons while saving big locations (more than 200k polygons)";
             this.checkBoxShowPolysSort.UseVisualStyleBackColor = true;
             // 
             // checkBoxSetNearestVobCam
@@ -91,10 +102,10 @@
             this.checkBoxSetNearestVobCam.AutoSize = true;
             this.checkBoxSetNearestVobCam.Location = new System.Drawing.Point(13, 91);
             this.checkBoxSetNearestVobCam.Name = "checkBoxSetNearestVobCam";
-            this.checkBoxSetNearestVobCam.Size = new System.Drawing.Size(606, 17);
+            this.checkBoxSetNearestVobCam.Size = new System.Drawing.Size(556, 17);
             this.checkBoxSetNearestVobCam.TabIndex = 9;
-            this.checkBoxSetNearestVobCam.Text = "Устанавливать камеру на воб с именем VOB_SPACER_CAMERA_START или zCVobStartpoint " +
-    "после загрузки ZEN";
+            this.checkBoxSetNearestVobCam.Text = "Set the camera near the vob with name VOB_SPACER_CAMERA_START or zCVobStartpoint " +
+    "after loading ZEN";
             this.checkBoxSetNearestVobCam.UseVisualStyleBackColor = true;
             // 
             // checkBoxAutoRemoveAllVisuals
@@ -102,9 +113,9 @@
             this.checkBoxAutoRemoveAllVisuals.AutoSize = true;
             this.checkBoxAutoRemoveAllVisuals.Location = new System.Drawing.Point(13, 173);
             this.checkBoxAutoRemoveAllVisuals.Name = "checkBoxAutoRemoveAllVisuals";
-            this.checkBoxAutoRemoveAllVisuals.Size = new System.Drawing.Size(428, 17);
+            this.checkBoxAutoRemoveAllVisuals.Size = new System.Drawing.Size(334, 17);
             this.checkBoxAutoRemoveAllVisuals.TabIndex = 8;
-            this.checkBoxAutoRemoveAllVisuals.Text = "Автоматически очищать visual для всех zCVobLevelCompo при сохранении ZEN";
+            this.checkBoxAutoRemoveAllVisuals.Text = "Auto cleaning visual for all zCVobLevelCompo before saving ZEN";
             this.checkBoxAutoRemoveAllVisuals.UseVisualStyleBackColor = true;
             // 
             // showLightRadiusVob
@@ -112,9 +123,9 @@
             this.showLightRadiusVob.AutoSize = true;
             this.showLightRadiusVob.Location = new System.Drawing.Point(13, 196);
             this.showLightRadiusVob.Name = "showLightRadiusVob";
-            this.showLightRadiusVob.Size = new System.Drawing.Size(234, 17);
+            this.showLightRadiusVob.Size = new System.Drawing.Size(216, 17);
             this.showLightRadiusVob.TabIndex = 7;
-            this.showLightRadiusVob.Text = "Показывать радиус действия zCVobLight";
+            this.showLightRadiusVob.Text = "Show radius of light for zCVobLight vobs";
             this.showLightRadiusVob.UseVisualStyleBackColor = true;
             // 
             // autoRemoveLevelCompo
@@ -133,9 +144,9 @@
             this.checkBoxAutoCompileUncompiled.AutoSize = true;
             this.checkBoxAutoCompileUncompiled.Location = new System.Drawing.Point(13, 150);
             this.checkBoxAutoCompileUncompiled.Name = "checkBoxAutoCompileUncompiled";
-            this.checkBoxAutoCompileUncompiled.Size = new System.Drawing.Size(389, 17);
+            this.checkBoxAutoCompileUncompiled.Size = new System.Drawing.Size(298, 17);
             this.checkBoxAutoCompileUncompiled.TabIndex = 5;
-            this.checkBoxAutoCompileUncompiled.Text = "Автокомпиляция мира и света при загрузки некомпилированного ZEN";
+            this.checkBoxAutoCompileUncompiled.Text = "Autocompile world and light after loading uncompiled ZEN";
             this.checkBoxAutoCompileUncompiled.UseVisualStyleBackColor = true;
             // 
             // checkBoxMiscAutoCompile
@@ -143,9 +154,9 @@
             this.checkBoxMiscAutoCompile.AutoSize = true;
             this.checkBoxMiscAutoCompile.Location = new System.Drawing.Point(13, 127);
             this.checkBoxMiscAutoCompile.Name = "checkBoxMiscAutoCompile";
-            this.checkBoxMiscAutoCompile.Size = new System.Drawing.Size(366, 17);
+            this.checkBoxMiscAutoCompile.Size = new System.Drawing.Size(295, 17);
             this.checkBoxMiscAutoCompile.TabIndex = 4;
-            this.checkBoxMiscAutoCompile.Text = "Автокомпиляция мира и света после объединения меша с вобами";
+            this.checkBoxMiscAutoCompile.Text = "Autocompile world and light after merging mesh with vobs";
             this.checkBoxMiscAutoCompile.UseVisualStyleBackColor = true;
             // 
             // checkBoxMiscFullPath
@@ -153,9 +164,9 @@
             this.checkBoxMiscFullPath.AutoSize = true;
             this.checkBoxMiscFullPath.Location = new System.Drawing.Point(13, 68);
             this.checkBoxMiscFullPath.Name = "checkBoxMiscFullPath";
-            this.checkBoxMiscFullPath.Size = new System.Drawing.Size(205, 17);
+            this.checkBoxMiscFullPath.Size = new System.Drawing.Size(221, 17);
             this.checkBoxMiscFullPath.TabIndex = 3;
-            this.checkBoxMiscFullPath.Text = "Писать полный путь до ZEN в окне";
+            this.checkBoxMiscFullPath.Text = "Show full path to ZEN file in main window";
             this.checkBoxMiscFullPath.UseVisualStyleBackColor = true;
             this.checkBoxMiscFullPath.CheckedChanged += new System.EventHandler(this.checkBoxMiscFullPath_CheckedChanged);
             // 
@@ -177,9 +188,9 @@
             this.checkBoxMiscExitAsk.AutoSize = true;
             this.checkBoxMiscExitAsk.Location = new System.Drawing.Point(13, 42);
             this.checkBoxMiscExitAsk.Name = "checkBoxMiscExitAsk";
-            this.checkBoxMiscExitAsk.Size = new System.Drawing.Size(221, 17);
+            this.checkBoxMiscExitAsk.Size = new System.Drawing.Size(162, 17);
             this.checkBoxMiscExitAsk.TabIndex = 1;
-            this.checkBoxMiscExitAsk.Text = "Подтверждать выход если открыт зен";
+            this.checkBoxMiscExitAsk.Text = "Confirm exit if ZEN is opened";
             this.checkBoxMiscExitAsk.UseVisualStyleBackColor = true;
             this.checkBoxMiscExitAsk.CheckedChanged += new System.EventHandler(this.checkBoxMiscExitAsk_CheckedChanged);
             // 
@@ -189,21 +200,9 @@
             this.btnMiscSetApply.Name = "btnMiscSetApply";
             this.btnMiscSetApply.Size = new System.Drawing.Size(115, 23);
             this.btnMiscSetApply.TabIndex = 11;
-            this.btnMiscSetApply.Text = "Применить";
+            this.btnMiscSetApply.Text = "Apply";
             this.btnMiscSetApply.UseVisualStyleBackColor = true;
             this.btnMiscSetApply.Click += new System.EventHandler(this.btnMiscSetApply_Click);
-            // 
-            // checkBoxOnlyLatinInInput
-            // 
-            this.checkBoxOnlyLatinInInput.AutoSize = true;
-            this.checkBoxOnlyLatinInInput.Checked = true;
-            this.checkBoxOnlyLatinInInput.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxOnlyLatinInInput.Location = new System.Drawing.Point(13, 262);
-            this.checkBoxOnlyLatinInInput.Name = "checkBoxOnlyLatinInInput";
-            this.checkBoxOnlyLatinInInput.Size = new System.Drawing.Size(347, 17);
-            this.checkBoxOnlyLatinInInput.TabIndex = 11;
-            this.checkBoxOnlyLatinInInput.Text = "Допускать введение только латинских символов в поля ввода";
-            this.checkBoxOnlyLatinInInput.UseVisualStyleBackColor = true;
             // 
             // MiscSettingsWin
             // 
@@ -219,7 +218,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Прочие настройки";
+            this.Text = "Misc settings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MiscSettingsWin_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MiscSettingsWin_KeyDown);
             this.groupBox1.ResumeLayout(false);

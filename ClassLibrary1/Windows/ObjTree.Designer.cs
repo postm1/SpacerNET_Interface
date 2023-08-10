@@ -194,7 +194,7 @@
             this.buttonCollapse.Name = "buttonCollapse";
             this.buttonCollapse.Size = new System.Drawing.Size(112, 23);
             this.buttonCollapse.TabIndex = 1;
-            this.buttonCollapse.Text = "Свернуть все";
+            this.buttonCollapse.Text = "Collapse all";
             this.buttonCollapse.UseVisualStyleBackColor = true;
             this.buttonCollapse.Click += new System.EventHandler(this.buttonCollapse_Click);
             // 
@@ -204,7 +204,7 @@
             this.buttonExpand.Name = "buttonExpand";
             this.buttonExpand.Size = new System.Drawing.Size(112, 23);
             this.buttonExpand.TabIndex = 2;
-            this.buttonExpand.Text = "Развернуть все";
+            this.buttonExpand.Text = "Expand all";
             this.buttonExpand.UseVisualStyleBackColor = true;
             this.buttonExpand.Click += new System.EventHandler(this.buttonExpand_Click);
             // 
@@ -218,7 +218,7 @@
             this.buttonTreeSort.Name = "buttonTreeSort";
             this.buttonTreeSort.Size = new System.Drawing.Size(112, 23);
             this.buttonTreeSort.TabIndex = 3;
-            this.buttonTreeSort.Text = "Сортировать";
+            this.buttonTreeSort.Text = "Sort";
             this.buttonTreeSort.UseVisualStyleBackColor = true;
             this.buttonTreeSort.Click += new System.EventHandler(this.buttonTreeSort_Click);
             // 
@@ -238,6 +238,7 @@
             // 
             this.tabControlObjectList.Controls.Add(this.tabPage1);
             this.tabControlObjectList.Controls.Add(this.tabPage2);
+            this.tabControlObjectList.Cursor = System.Windows.Forms.Cursors.Cross;
             this.tabControlObjectList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlObjectList.Location = new System.Drawing.Point(0, 0);
             this.tabControlObjectList.Name = "tabControlObjectList";
@@ -255,7 +256,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(381, 427);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Объекты";
+            this.tabPage1.Text = "Objects";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
@@ -266,7 +267,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(381, 427);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Быстрый доступ";
+            this.tabPage2.Text = "Fast access";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // quickTree
@@ -323,7 +324,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Список объектов";
+            this.Text = "Objects list window";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ObjTree_FormClosing);
             this.Load += new System.EventHandler(this.ObjTree_Load);
             this.Shown += new System.EventHandler(this.ObjTree_Shown);

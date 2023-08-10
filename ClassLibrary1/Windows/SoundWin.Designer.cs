@@ -58,7 +58,7 @@
             this.buttonPlaySound.Name = "buttonPlaySound";
             this.buttonPlaySound.Size = new System.Drawing.Size(206, 32);
             this.buttonPlaySound.TabIndex = 0;
-            this.buttonPlaySound.Text = "Воспроизвести";
+            this.buttonPlaySound.Text = "Play";
             this.buttonPlaySound.UseVisualStyleBackColor = true;
             this.buttonPlaySound.Click += new System.EventHandler(this.buttonPlaySound_Click);
             // 
@@ -86,18 +86,18 @@
             this.labelSndList.AutoSize = true;
             this.labelSndList.Location = new System.Drawing.Point(233, 126);
             this.labelSndList.Name = "labelSndList";
-            this.labelSndList.Size = new System.Drawing.Size(140, 13);
+            this.labelSndList.Size = new System.Drawing.Size(98, 13);
             this.labelSndList.TabIndex = 6;
-            this.labelSndList.Text = "Поиск по рег. выражению";
+            this.labelSndList.Text = "Search using regex";
             // 
             // labelAllSounds
             // 
             this.labelAllSounds.AutoSize = true;
             this.labelAllSounds.Location = new System.Drawing.Point(9, 61);
             this.labelAllSounds.Name = "labelAllSounds";
-            this.labelAllSounds.Size = new System.Drawing.Size(86, 13);
+            this.labelAllSounds.Size = new System.Drawing.Size(96, 13);
             this.labelAllSounds.TabIndex = 7;
-            this.labelAllSounds.Text = "Все звуки игры";
+            this.labelAllSounds.Text = "All sound. Count: 0";
             // 
             // groupBoxSound
             // 
@@ -114,7 +114,7 @@
             this.groupBoxSound.Size = new System.Drawing.Size(460, 324);
             this.groupBoxSound.TabIndex = 8;
             this.groupBoxSound.TabStop = false;
-            this.groupBoxSound.Text = "Звуки";
+            this.groupBoxSound.Text = "Sounds";
             // 
             // panel1
             // 
@@ -130,9 +130,9 @@
             this.checkBoxShutSounds.AutoSize = true;
             this.checkBoxShutSounds.Location = new System.Drawing.Point(3, 4);
             this.checkBoxShutSounds.Name = "checkBoxShutSounds";
-            this.checkBoxShutSounds.Size = new System.Drawing.Size(170, 17);
+            this.checkBoxShutSounds.Size = new System.Drawing.Size(172, 17);
             this.checkBoxShutSounds.TabIndex = 13;
-            this.checkBoxShutSounds.Text = "Глушить звуки при загрузке";
+            this.checkBoxShutSounds.Text = "Shut sounds after world loaded";
             this.checkBoxShutSounds.UseVisualStyleBackColor = true;
             this.checkBoxShutSounds.CheckedChanged += new System.EventHandler(this.checkBoxShutSounds_CheckedChanged);
             // 
@@ -141,9 +141,9 @@
             this.checkBoxConstSound.AutoSize = true;
             this.checkBoxConstSound.Location = new System.Drawing.Point(3, 28);
             this.checkBoxConstSound.Name = "checkBoxConstSound";
-            this.checkBoxConstSound.Size = new System.Drawing.Size(157, 17);
+            this.checkBoxConstSound.Size = new System.Drawing.Size(132, 17);
             this.checkBoxConstSound.TabIndex = 14;
-            this.checkBoxConstSound.Text = "Постоянно глушить звуки";
+            this.checkBoxConstSound.Text = "Always shut all sounds";
             this.checkBoxConstSound.UseVisualStyleBackColor = true;
             this.checkBoxConstSound.CheckedChanged += new System.EventHandler(this.checkBoxConstSound_CheckedChanged);
             // 
@@ -163,7 +163,7 @@
             this.buttonStopAllSounds.Name = "buttonStopAllSounds";
             this.buttonStopAllSounds.Size = new System.Drawing.Size(215, 32);
             this.buttonStopAllSounds.TabIndex = 2;
-            this.buttonStopAllSounds.Text = "Заглушить все звуки";
+            this.buttonStopAllSounds.Text = "Turn off all sounds";
             this.buttonStopAllSounds.UseVisualStyleBackColor = true;
             this.buttonStopAllSounds.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -180,7 +180,7 @@
             this.groupBoxMusic.Size = new System.Drawing.Size(205, 324);
             this.groupBoxMusic.TabIndex = 9;
             this.groupBoxMusic.TabStop = false;
-            this.groupBoxMusic.Text = "Музыка";
+            this.groupBoxMusic.Text = "Music";
             // 
             // listBoxMusic
             // 
@@ -196,9 +196,9 @@
             this.checkBoxShutMusic.AutoSize = true;
             this.checkBoxShutMusic.Location = new System.Drawing.Point(10, 99);
             this.checkBoxShutMusic.Name = "checkBoxShutMusic";
-            this.checkBoxShutMusic.Size = new System.Drawing.Size(195, 17);
+            this.checkBoxShutMusic.Size = new System.Drawing.Size(165, 17);
             this.checkBoxShutMusic.TabIndex = 12;
-            this.checkBoxShutMusic.Text = "Отключать музыку при загрузке ";
+            this.checkBoxShutMusic.Text = "Shut music after world loaded";
             this.checkBoxShutMusic.UseVisualStyleBackColor = true;
             // 
             // buttonMusicOn
@@ -207,7 +207,7 @@
             this.buttonMusicOn.Name = "buttonMusicOn";
             this.buttonMusicOn.Size = new System.Drawing.Size(188, 32);
             this.buttonMusicOn.TabIndex = 11;
-            this.buttonMusicOn.Text = "Включить музыку";
+            this.buttonMusicOn.Text = "Turn on music";
             this.buttonMusicOn.UseVisualStyleBackColor = true;
             this.buttonMusicOn.Click += new System.EventHandler(this.buttonMusicOn_Click);
             // 
@@ -216,9 +216,9 @@
             this.labelMusicVolume.AutoSize = true;
             this.labelMusicVolume.Location = new System.Drawing.Point(7, 131);
             this.labelMusicVolume.Name = "labelMusicVolume";
-            this.labelMusicVolume.Size = new System.Drawing.Size(62, 13);
+            this.labelMusicVolume.Size = new System.Drawing.Size(59, 13);
             this.labelMusicVolume.TabIndex = 10;
-            this.labelMusicVolume.Text = "Громкость";
+            this.labelMusicVolume.Text = "Volume 0%";
             // 
             // trackBarMusicVolume
             // 
@@ -235,7 +235,7 @@
             this.buttonOffMusic.Name = "buttonOffMusic";
             this.buttonOffMusic.Size = new System.Drawing.Size(188, 32);
             this.buttonOffMusic.TabIndex = 8;
-            this.buttonOffMusic.Text = "Отключить музыку";
+            this.buttonOffMusic.Text = "Turn off music";
             this.buttonOffMusic.UseVisualStyleBackColor = true;
             this.buttonOffMusic.Click += new System.EventHandler(this.buttonOffMusic_Click);
             // 
@@ -253,7 +253,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Звуки и музыка";
+            this.Text = "Sounds and music window";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SoundWin_FormClosing);
             this.Shown += new System.EventHandler(this.SoundWin_Shown);
             this.groupBoxSound.ResumeLayout(false);

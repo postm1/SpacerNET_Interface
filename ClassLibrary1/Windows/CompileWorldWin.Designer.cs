@@ -46,7 +46,7 @@
             this.groupBoxTypeLoc.Size = new System.Drawing.Size(158, 67);
             this.groupBoxTypeLoc.TabIndex = 0;
             this.groupBoxTypeLoc.TabStop = false;
-            this.groupBoxTypeLoc.Text = "Тип локации";
+            this.groupBoxTypeLoc.Text = "World type";
             // 
             // radioButtonOutdoor
             // 
@@ -78,7 +78,7 @@
             this.buttonCompileCancel.Name = "buttonCompileCancel";
             this.buttonCompileCancel.Size = new System.Drawing.Size(157, 23);
             this.buttonCompileCancel.TabIndex = 1;
-            this.buttonCompileCancel.Text = "Отмена";
+            this.buttonCompileCancel.Text = "Cancel";
             this.buttonCompileCancel.UseVisualStyleBackColor = true;
             this.buttonCompileCancel.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -88,7 +88,7 @@
             this.buttonCompileWorld.Name = "buttonCompileWorld";
             this.buttonCompileWorld.Size = new System.Drawing.Size(157, 23);
             this.buttonCompileWorld.TabIndex = 2;
-            this.buttonCompileWorld.Text = "Компилировать";
+            this.buttonCompileWorld.Text = "Compile";
             this.buttonCompileWorld.UseVisualStyleBackColor = true;
             this.buttonCompileWorld.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -117,7 +117,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Компиляция мира";
+            this.Text = "World compilation";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CompileWorldWin_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CompileWorldWin_KeyDown);
             this.groupBoxTypeLoc.ResumeLayout(false);

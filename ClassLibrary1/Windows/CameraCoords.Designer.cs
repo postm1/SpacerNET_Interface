@@ -65,7 +65,7 @@
             this.buttonGetFrom.Name = "buttonGetFrom";
             this.buttonGetFrom.Size = new System.Drawing.Size(157, 23);
             this.buttonGetFrom.TabIndex = 16;
-            this.buttonGetFrom.Text = "Скопировать из буфера";
+            this.buttonGetFrom.Text = "Get from clipboard";
             this.buttonGetFrom.UseVisualStyleBackColor = true;
             this.buttonGetFrom.Click += new System.EventHandler(this.buttonGetFrom_Click);
             // 
@@ -76,9 +76,9 @@
             this.checkBoxCloseCamWin.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxCloseCamWin.Location = new System.Drawing.Point(69, 134);
             this.checkBoxCloseCamWin.Name = "checkBoxCloseCamWin";
-            this.checkBoxCloseCamWin.Size = new System.Drawing.Size(180, 17);
+            this.checkBoxCloseCamWin.Size = new System.Drawing.Size(176, 17);
             this.checkBoxCloseCamWin.TabIndex = 11;
-            this.checkBoxCloseCamWin.Text = "Закрывать окно при переходе";
+            this.checkBoxCloseCamWin.Text = "Close the window after the jump";
             this.checkBoxCloseCamWin.UseVisualStyleBackColor = true;
             // 
             // label3
@@ -141,7 +141,7 @@
             this.buttonCameraGo.Name = "buttonCameraGo";
             this.buttonCameraGo.Size = new System.Drawing.Size(157, 23);
             this.buttonCameraGo.TabIndex = 12;
-            this.buttonCameraGo.Text = "Перейти";
+            this.buttonCameraGo.Text = "Jump";
             this.buttonCameraGo.UseVisualStyleBackColor = true;
             this.buttonCameraGo.Click += new System.EventHandler(this.buttonCameraGo_Click);
             // 
@@ -160,7 +160,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Камера";
+            this.Text = "Camera";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CameraCoords_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CameraCoords_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CameraCoords_KeyPress);

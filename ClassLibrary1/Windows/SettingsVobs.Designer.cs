@@ -65,7 +65,7 @@
             this.groupBoxControlVob.Size = new System.Drawing.Size(413, 139);
             this.groupBoxControlVob.TabIndex = 9;
             this.groupBoxControlVob.TabStop = false;
-            this.groupBoxControlVob.Text = "Управление вобом";
+            this.groupBoxControlVob.Text = "Vob control";
             // 
             // textBoxVobRot
             // 
@@ -90,18 +90,18 @@
             this.labelVobTrans.AutoSize = true;
             this.labelVobTrans.Location = new System.Drawing.Point(6, 19);
             this.labelVobTrans.Name = "labelVobTrans";
-            this.labelVobTrans.Size = new System.Drawing.Size(129, 13);
+            this.labelVobTrans.Size = new System.Drawing.Size(110, 13);
             this.labelVobTrans.TabIndex = 1;
-            this.labelVobTrans.Text = "Скорость перемещения";
+            this.labelVobTrans.Text = "Moving speed: 10000";
             // 
             // labelVobRot
             // 
             this.labelVobRot.AutoSize = true;
             this.labelVobRot.Location = new System.Drawing.Point(6, 69);
             this.labelVobRot.Name = "labelVobRot";
-            this.labelVobRot.Size = new System.Drawing.Size(109, 13);
+            this.labelVobRot.Size = new System.Drawing.Size(97, 13);
             this.labelVobRot.TabIndex = 2;
-            this.labelVobRot.Text = "Скорость вращения";
+            this.labelVobRot.Text = "Rotation speed: 32";
             // 
             // trackBarVobTransSpeed
             // 
@@ -132,7 +132,7 @@
             this.buttonVobControlApply.Name = "buttonVobControlApply";
             this.buttonVobControlApply.Size = new System.Drawing.Size(115, 23);
             this.buttonVobControlApply.TabIndex = 11;
-            this.buttonVobControlApply.Text = "Применить";
+            this.buttonVobControlApply.Text = "Apply";
             this.buttonVobControlApply.UseVisualStyleBackColor = true;
             this.buttonVobControlApply.Click += new System.EventHandler(this.buttonVobControlApply_Click);
             // 
@@ -152,16 +152,16 @@
             this.groupBoxSet.Size = new System.Drawing.Size(412, 253);
             this.groupBoxSet.TabIndex = 10;
             this.groupBoxSet.TabStop = false;
-            this.groupBoxSet.Text = "Вставка воба";
+            this.groupBoxSet.Text = "Vob insertion";
             // 
             // checkBoxShowVobTraceFloor
             // 
             this.checkBoxShowVobTraceFloor.AutoSize = true;
             this.checkBoxShowVobTraceFloor.Location = new System.Drawing.Point(9, 115);
             this.checkBoxShowVobTraceFloor.Name = "checkBoxShowVobTraceFloor";
-            this.checkBoxShowVobTraceFloor.Size = new System.Drawing.Size(266, 17);
+            this.checkBoxShowVobTraceFloor.Size = new System.Drawing.Size(224, 17);
             this.checkBoxShowVobTraceFloor.TabIndex = 8;
-            this.checkBoxShowVobTraceFloor.Text = "Подсвечивать положение воба на поверхности";
+            this.checkBoxShowVobTraceFloor.Text = "Brighten selected vob position on the floor";
             this.checkBoxShowVobTraceFloor.UseVisualStyleBackColor = true;
             this.checkBoxShowVobTraceFloor.CheckedChanged += new System.EventHandler(this.checkBoxShowVobTraceFloor_CheckedChanged);
             // 
@@ -170,9 +170,9 @@
             this.checkBoxSelectMoveInsert.AutoSize = true;
             this.checkBoxSelectMoveInsert.Location = new System.Drawing.Point(9, 92);
             this.checkBoxSelectMoveInsert.Name = "checkBoxSelectMoveInsert";
-            this.checkBoxSelectMoveInsert.Size = new System.Drawing.Size(303, 17);
+            this.checkBoxSelectMoveInsert.Size = new System.Drawing.Size(210, 17);
             this.checkBoxSelectMoveInsert.TabIndex = 7;
-            this.checkBoxSelectMoveInsert.Text = "Включать инструмент перемещение при вставке воба";
+            this.checkBoxSelectMoveInsert.Text = "Select Moving tool after inserting a vob";
             this.checkBoxSelectMoveInsert.UseVisualStyleBackColor = true;
             this.checkBoxSelectMoveInsert.CheckedChanged += new System.EventHandler(this.checkBoxSelectMoveInsert_CheckedChanged);
             // 
@@ -181,20 +181,20 @@
             this.labelRotWpFP.AutoSize = true;
             this.labelRotWpFP.Location = new System.Drawing.Point(6, 164);
             this.labelRotWpFP.Name = "labelRotWpFP";
-            this.labelRotWpFP.Size = new System.Drawing.Size(188, 13);
+            this.labelRotWpFP.Size = new System.Drawing.Size(139, 13);
             this.labelRotWpFP.TabIndex = 6;
-            this.labelRotWpFP.Text = "Разворачивать WP/FP при вставке";
+            this.labelRotWpFP.Text = "Turn WP/FP when inserting";
             // 
             // radioButtonWPTurnNone
             // 
             this.radioButtonWPTurnNone.AutoSize = true;
             this.radioButtonWPTurnNone.Location = new System.Drawing.Point(9, 184);
             this.radioButtonWPTurnNone.Name = "radioButtonWPTurnNone";
-            this.radioButtonWPTurnNone.Size = new System.Drawing.Size(44, 17);
+            this.radioButtonWPTurnNone.Size = new System.Drawing.Size(51, 17);
             this.radioButtonWPTurnNone.TabIndex = 5;
             this.radioButtonWPTurnNone.TabStop = true;
             this.radioButtonWPTurnNone.Tag = "0";
-            this.radioButtonWPTurnNone.Text = "Нет";
+            this.radioButtonWPTurnNone.Text = "None";
             this.radioButtonWPTurnNone.UseVisualStyleBackColor = true;
             this.radioButtonWPTurnNone.CheckedChanged += new System.EventHandler(this.radioButtonWPTurnNone_CheckedChanged);
             // 
@@ -203,11 +203,11 @@
             this.radioButtonWPTurnAgainst.AutoSize = true;
             this.radioButtonWPTurnAgainst.Location = new System.Drawing.Point(9, 207);
             this.radioButtonWPTurnAgainst.Name = "radioButtonWPTurnAgainst";
-            this.radioButtonWPTurnAgainst.Size = new System.Drawing.Size(81, 17);
+            this.radioButtonWPTurnAgainst.Size = new System.Drawing.Size(104, 17);
             this.radioButtonWPTurnAgainst.TabIndex = 4;
             this.radioButtonWPTurnAgainst.TabStop = true;
             this.radioButtonWPTurnAgainst.Tag = "1";
-            this.radioButtonWPTurnAgainst.Text = "От камеры";
+            this.radioButtonWPTurnAgainst.Text = "From the camera";
             this.radioButtonWPTurnAgainst.UseVisualStyleBackColor = true;
             this.radioButtonWPTurnAgainst.CheckedChanged += new System.EventHandler(this.radioButtonWPTurnNone_CheckedChanged);
             // 
@@ -216,11 +216,11 @@
             this.radioButtonWPTurnOn.AutoSize = true;
             this.radioButtonWPTurnOn.Location = new System.Drawing.Point(9, 230);
             this.radioButtonWPTurnOn.Name = "radioButtonWPTurnOn";
-            this.radioButtonWPTurnOn.Size = new System.Drawing.Size(79, 17);
+            this.radioButtonWPTurnOn.Size = new System.Drawing.Size(91, 17);
             this.radioButtonWPTurnOn.TabIndex = 3;
             this.radioButtonWPTurnOn.TabStop = true;
             this.radioButtonWPTurnOn.Tag = "2";
-            this.radioButtonWPTurnOn.Text = "На камеру";
+            this.radioButtonWPTurnOn.Text = "At the camera";
             this.radioButtonWPTurnOn.UseVisualStyleBackColor = true;
             this.radioButtonWPTurnOn.CheckedChanged += new System.EventHandler(this.radioButtonWPTurnNone_CheckedChanged);
             // 
@@ -229,9 +229,9 @@
             this.checkBoxVobInsertHierarchy.AutoSize = true;
             this.checkBoxVobInsertHierarchy.Location = new System.Drawing.Point(8, 69);
             this.checkBoxVobInsertHierarchy.Name = "checkBoxVobInsertHierarchy";
-            this.checkBoxVobInsertHierarchy.Size = new System.Drawing.Size(223, 17);
+            this.checkBoxVobInsertHierarchy.Size = new System.Drawing.Size(160, 17);
             this.checkBoxVobInsertHierarchy.TabIndex = 2;
-            this.checkBoxVobInsertHierarchy.Text = "Учитывать иерархию при копировании";
+            this.checkBoxVobInsertHierarchy.Text = "Use hierarchy when copying";
             this.checkBoxVobInsertHierarchy.UseVisualStyleBackColor = true;
             this.checkBoxVobInsertHierarchy.CheckedChanged += new System.EventHandler(this.checkBoxVobInsertHierarchy_CheckedChanged);
             // 
@@ -240,9 +240,9 @@
             this.checkBoxVobRotRandAngle.AutoSize = true;
             this.checkBoxVobRotRandAngle.Location = new System.Drawing.Point(8, 46);
             this.checkBoxVobRotRandAngle.Name = "checkBoxVobRotRandAngle";
-            this.checkBoxVobRotRandAngle.Size = new System.Drawing.Size(216, 17);
+            this.checkBoxVobRotRandAngle.Size = new System.Drawing.Size(160, 17);
             this.checkBoxVobRotRandAngle.TabIndex = 1;
-            this.checkBoxVobRotRandAngle.Text = "Поворачивать воб на случайный угол";
+            this.checkBoxVobRotRandAngle.Text = "Turn vob on a random angle";
             this.checkBoxVobRotRandAngle.UseVisualStyleBackColor = true;
             this.checkBoxVobRotRandAngle.CheckedChanged += new System.EventHandler(this.checkBoxVobRotRandAngle_CheckedChanged);
             // 
@@ -253,9 +253,9 @@
             this.checkBoxInsertVob.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxInsertVob.Location = new System.Drawing.Point(8, 23);
             this.checkBoxInsertVob.Name = "checkBoxInsertVob";
-            this.checkBoxInsertVob.Size = new System.Drawing.Size(192, 17);
+            this.checkBoxInsertVob.Size = new System.Drawing.Size(173, 17);
             this.checkBoxInsertVob.TabIndex = 0;
-            this.checkBoxInsertVob.Text = "Вставлять воб на той же высоте";
+            this.checkBoxInsertVob.Text = "Insert vob on the source height";
             this.checkBoxInsertVob.UseVisualStyleBackColor = true;
             this.checkBoxInsertVob.CheckedChanged += new System.EventHandler(this.checkBoxInsertVob_CheckedChanged);
             // 
@@ -273,7 +273,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Настройки вобов";
+            this.Text = "Vobs settings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsControls_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SettingsControls_KeyDown);
             this.groupBoxControlVob.ResumeLayout(false);

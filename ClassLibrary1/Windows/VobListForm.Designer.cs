@@ -93,9 +93,9 @@
             this.labelRadius.AutoSize = true;
             this.labelRadius.Location = new System.Drawing.Point(3, 9);
             this.labelRadius.Name = "labelRadius";
-            this.labelRadius.Size = new System.Drawing.Size(106, 13);
+            this.labelRadius.Size = new System.Drawing.Size(96, 13);
             this.labelRadius.TabIndex = 4;
-            this.labelRadius.Text = "Радиус поиска: 200";
+            this.labelRadius.Text = "Search radius: 200";
             // 
             // panelVobList
             // 
@@ -117,9 +117,9 @@
             this.labelFilterVobsPick.AutoSize = true;
             this.labelFilterVobsPick.Location = new System.Drawing.Point(155, 75);
             this.labelFilterVobsPick.Name = "labelFilterVobsPick";
-            this.labelFilterVobsPick.Size = new System.Drawing.Size(139, 13);
+            this.labelFilterVobsPick.Size = new System.Drawing.Size(79, 13);
             this.labelFilterVobsPick.TabIndex = 9;
-            this.labelFilterVobsPick.Text = "Фильтр выделения вобов";
+            this.labelFilterVobsPick.Text = "Vob select filter";
             // 
             // comboBoxFilterPick
             // 
@@ -149,7 +149,7 @@
             this.buttonVobListSearch.Name = "buttonVobListSearch";
             this.buttonVobListSearch.Size = new System.Drawing.Size(80, 23);
             this.buttonVobListSearch.TabIndex = 7;
-            this.buttonVobListSearch.Text = "Найти";
+            this.buttonVobListSearch.Text = "Search";
             this.buttonVobListSearch.UseVisualStyleBackColor = true;
             this.buttonVobListSearch.Click += new System.EventHandler(this.buttonVobListSearch_Click);
             // 
@@ -159,7 +159,7 @@
             this.btnRemoveContainerVobs.Name = "btnRemoveContainerVobs";
             this.btnRemoveContainerVobs.Size = new System.Drawing.Size(80, 23);
             this.btnRemoveContainerVobs.TabIndex = 6;
-            this.btnRemoveContainerVobs.Text = "Удалить";
+            this.btnRemoveContainerVobs.Text = "Remove";
             this.btnRemoveContainerVobs.UseVisualStyleBackColor = true;
             this.btnRemoveContainerVobs.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -168,7 +168,7 @@
             this.comboBoxVobList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxVobList.FormattingEnabled = true;
             this.comboBoxVobList.Items.AddRange(new object[] {
-            "Любой тип",
+            "Any",
             "zCVob",
             "oCItem",
             "zCVobSpot",
@@ -209,7 +209,7 @@
             this.Padding = new System.Windows.Forms.Padding(2);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Контейнер вобов";
+            this.Text = "VobList window";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VobListForm_FormClosing);
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRadius)).EndInit();

@@ -66,8 +66,6 @@
             this.textBoxBbox0 = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridViewItems = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxContainer = new System.Windows.Forms.GroupBox();
             this.buttonRowDelete = new System.Windows.Forms.Button();
             this.buttonClearItems = new System.Windows.Forms.Button();
@@ -79,6 +77,8 @@
             this.buttonResetFontDefault = new System.Windows.Forms.Button();
             this.checkBoxBoldFontProps = new System.Windows.Forms.CheckBox();
             this.buttonSelectFontProps = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStripContainer.SuspendLayout();
             this.dBufPanelMainTab.SuspendLayout();
             this.tabControlProps.SuspendLayout();
@@ -159,7 +159,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(322, 464);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Редактирование";
+            this.tabPage1.Text = "Edit";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // treeViewProp
@@ -218,7 +218,7 @@
             this.buttonSelectColor.Name = "buttonSelectColor";
             this.buttonSelectColor.Size = new System.Drawing.Size(48, 23);
             this.buttonSelectColor.TabIndex = 14;
-            this.buttonSelectColor.Text = "Цвет";
+            this.buttonSelectColor.Text = "Color";
             this.buttonSelectColor.UseVisualStyleBackColor = true;
             this.buttonSelectColor.Visible = false;
             this.buttonSelectColor.Click += new System.EventHandler(this.buttonSelectColor_Click);
@@ -249,7 +249,7 @@
             this.buttonFileOpen.Name = "buttonFileOpen";
             this.buttonFileOpen.Size = new System.Drawing.Size(48, 23);
             this.buttonFileOpen.TabIndex = 11;
-            this.buttonFileOpen.Text = "Файл";
+            this.buttonFileOpen.Text = "File";
             this.buttonFileOpen.UseVisualStyleBackColor = true;
             this.buttonFileOpen.Click += new System.EventHandler(this.buttonFileOpen_Click);
             // 
@@ -290,7 +290,7 @@
             this.buttonOpenContainer.Name = "buttonOpenContainer";
             this.buttonOpenContainer.Size = new System.Drawing.Size(120, 23);
             this.buttonOpenContainer.TabIndex = 7;
-            this.buttonOpenContainer.Text = "Контейнер";
+            this.buttonOpenContainer.Text = "Container";
             this.buttonOpenContainer.UseVisualStyleBackColor = true;
             this.buttonOpenContainer.Click += new System.EventHandler(this.buttonOpenContainer_Click);
             // 
@@ -301,7 +301,7 @@
             this.buttonRestoreVobProp.Name = "buttonRestoreVobProp";
             this.buttonRestoreVobProp.Size = new System.Drawing.Size(120, 23);
             this.buttonRestoreVobProp.TabIndex = 6;
-            this.buttonRestoreVobProp.Text = "Восстановить";
+            this.buttonRestoreVobProp.Text = "Restore";
             this.buttonRestoreVobProp.UseVisualStyleBackColor = true;
             this.buttonRestoreVobProp.Click += new System.EventHandler(this.buttonRestore_Click);
             // 
@@ -331,9 +331,9 @@
             this.Label_Backup.ForeColor = System.Drawing.Color.DarkRed;
             this.Label_Backup.Location = new System.Drawing.Point(3, 4);
             this.Label_Backup.Name = "Label_Backup";
-            this.Label_Backup.Size = new System.Drawing.Size(96, 13);
+            this.Label_Backup.Size = new System.Drawing.Size(55, 13);
             this.Label_Backup.TabIndex = 5;
-            this.Label_Backup.Text = "Старое значение:";
+            this.Label_Backup.Text = "Old value:";
             this.Label_Backup.Visible = false;
             // 
             // buttonApplyOnVob
@@ -343,7 +343,7 @@
             this.buttonApplyOnVob.Name = "buttonApplyOnVob";
             this.buttonApplyOnVob.Size = new System.Drawing.Size(120, 23);
             this.buttonApplyOnVob.TabIndex = 2;
-            this.buttonApplyOnVob.Text = "Применить";
+            this.buttonApplyOnVob.Text = "Apply";
             this.buttonApplyOnVob.UseVisualStyleBackColor = true;
             this.buttonApplyOnVob.Click += new System.EventHandler(this.buttonApply_Click);
             // 
@@ -409,7 +409,7 @@
             this.buttonResetBbox.Name = "buttonResetBbox";
             this.buttonResetBbox.Size = new System.Drawing.Size(104, 23);
             this.buttonResetBbox.TabIndex = 3;
-            this.buttonResetBbox.Text = "Отмена";
+            this.buttonResetBbox.Text = "Cancel";
             this.buttonResetBbox.UseVisualStyleBackColor = true;
             this.buttonResetBbox.Click += new System.EventHandler(this.buttonResetBbox_Click_1);
             // 
@@ -437,7 +437,7 @@
             this.buttonApplyBbox.Name = "buttonApplyBbox";
             this.buttonApplyBbox.Size = new System.Drawing.Size(102, 23);
             this.buttonApplyBbox.TabIndex = 4;
-            this.buttonApplyBbox.Text = "Применить";
+            this.buttonApplyBbox.Text = "Apply";
             this.buttonApplyBbox.UseVisualStyleBackColor = true;
             this.buttonApplyBbox.Click += new System.EventHandler(this.buttonApplyBbox_Click_1);
             // 
@@ -457,7 +457,7 @@
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(322, 464);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Контейнер";
+            this.tabPage3.Text = "Container";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // dataGridViewItems
@@ -481,18 +481,6 @@
             this.dataGridViewItems.TabIndex = 4;
             this.dataGridViewItems.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Инстанция";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 236;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Кол-во";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 66;
-            // 
             // groupBoxContainer
             // 
             this.groupBoxContainer.Controls.Add(this.buttonRowDelete);
@@ -505,7 +493,7 @@
             this.groupBoxContainer.Size = new System.Drawing.Size(322, 76);
             this.groupBoxContainer.TabIndex = 6;
             this.groupBoxContainer.TabStop = false;
-            this.groupBoxContainer.Text = "Управление";
+            this.groupBoxContainer.Text = "Controls";
             // 
             // buttonRowDelete
             // 
@@ -513,7 +501,7 @@
             this.buttonRowDelete.Name = "buttonRowDelete";
             this.buttonRowDelete.Size = new System.Drawing.Size(111, 23);
             this.buttonRowDelete.TabIndex = 6;
-            this.buttonRowDelete.Text = "Удалить текущую";
+            this.buttonRowDelete.Text = "Remove current";
             this.buttonRowDelete.UseVisualStyleBackColor = true;
             this.buttonRowDelete.Click += new System.EventHandler(this.buttonRowDelete_Click);
             // 
@@ -523,7 +511,7 @@
             this.buttonClearItems.Name = "buttonClearItems";
             this.buttonClearItems.Size = new System.Drawing.Size(111, 23);
             this.buttonClearItems.TabIndex = 5;
-            this.buttonClearItems.Text = "Очистить все";
+            this.buttonClearItems.Text = "Clear all";
             this.buttonClearItems.UseVisualStyleBackColor = true;
             this.buttonClearItems.Click += new System.EventHandler(this.buttonClearItems_Click);
             // 
@@ -533,7 +521,7 @@
             this.buttonContainerCancel.Name = "buttonContainerCancel";
             this.buttonContainerCancel.Size = new System.Drawing.Size(111, 23);
             this.buttonContainerCancel.TabIndex = 2;
-            this.buttonContainerCancel.Text = "Отмена";
+            this.buttonContainerCancel.Text = "Cancel";
             this.buttonContainerCancel.UseVisualStyleBackColor = true;
             this.buttonContainerCancel.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -543,7 +531,7 @@
             this.buttonContainerApply.Name = "buttonContainerApply";
             this.buttonContainerApply.Size = new System.Drawing.Size(111, 23);
             this.buttonContainerApply.TabIndex = 3;
-            this.buttonContainerApply.Text = "Применить";
+            this.buttonContainerApply.Text = "Apply";
             this.buttonContainerApply.UseVisualStyleBackColor = true;
             this.buttonContainerApply.Click += new System.EventHandler(this.buttonContainerApply_Click);
             // 
@@ -558,7 +546,7 @@
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(322, 464);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Настройки";
+            this.tabPage4.Text = "Settings";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // labelChangeFontStyleText
@@ -566,18 +554,18 @@
             this.labelChangeFontStyleText.AutoSize = true;
             this.labelChangeFontStyleText.Location = new System.Drawing.Point(44, 131);
             this.labelChangeFontStyleText.Name = "labelChangeFontStyleText";
-            this.labelChangeFontStyleText.Size = new System.Drawing.Size(224, 13);
+            this.labelChangeFontStyleText.Size = new System.Drawing.Size(161, 13);
             this.labelChangeFontStyleText.TabIndex = 4;
-            this.labelChangeFontStyleText.Text = "* Для применения выберите объект снова";
+            this.labelChangeFontStyleText.Text = "* For applying reselect the object";
             // 
             // checkBoxFontUnderstroke
             // 
             this.checkBoxFontUnderstroke.AutoSize = true;
             this.checkBoxFontUnderstroke.Location = new System.Drawing.Point(17, 40);
             this.checkBoxFontUnderstroke.Name = "checkBoxFontUnderstroke";
-            this.checkBoxFontUnderstroke.Size = new System.Drawing.Size(282, 17);
+            this.checkBoxFontUnderstroke.Size = new System.Drawing.Size(192, 17);
             this.checkBoxFontUnderstroke.TabIndex = 3;
-            this.checkBoxFontUnderstroke.Text = "Выделять основные поля подчеркнутым шрифтом";
+            this.checkBoxFontUnderstroke.Text = "Use understroke font for main fields";
             this.checkBoxFontUnderstroke.UseVisualStyleBackColor = true;
             this.checkBoxFontUnderstroke.CheckedChanged += new System.EventHandler(this.checkBoxFontUnderstroke_CheckedChanged);
             // 
@@ -588,7 +576,7 @@
             this.buttonResetFontDefault.Name = "buttonResetFontDefault";
             this.buttonResetFontDefault.Size = new System.Drawing.Size(189, 23);
             this.buttonResetFontDefault.TabIndex = 2;
-            this.buttonResetFontDefault.Text = "Сбросить шрифт по умолчанию";
+            this.buttonResetFontDefault.Text = "Reset font by default";
             this.buttonResetFontDefault.UseVisualStyleBackColor = true;
             this.buttonResetFontDefault.Click += new System.EventHandler(this.buttonResetFontDefault_Click);
             // 
@@ -597,9 +585,9 @@
             this.checkBoxBoldFontProps.AutoSize = true;
             this.checkBoxBoldFontProps.Location = new System.Drawing.Point(17, 17);
             this.checkBoxBoldFontProps.Name = "checkBoxBoldFontProps";
-            this.checkBoxBoldFontProps.Size = new System.Drawing.Size(251, 17);
+            this.checkBoxBoldFontProps.Size = new System.Drawing.Size(156, 17);
             this.checkBoxBoldFontProps.TabIndex = 1;
-            this.checkBoxBoldFontProps.Text = "Выделять основные поля жирным шрифтом";
+            this.checkBoxBoldFontProps.Text = "Use bold font for main fields";
             this.checkBoxBoldFontProps.UseVisualStyleBackColor = true;
             this.checkBoxBoldFontProps.CheckedChanged += new System.EventHandler(this.checkBoxBoldFontProps_CheckedChanged);
             // 
@@ -609,9 +597,21 @@
             this.buttonSelectFontProps.Name = "buttonSelectFontProps";
             this.buttonSelectFontProps.Size = new System.Drawing.Size(189, 23);
             this.buttonSelectFontProps.TabIndex = 0;
-            this.buttonSelectFontProps.Text = "Выбрать шрифт для свойств";
+            this.buttonSelectFontProps.Text = "Select font for properties";
             this.buttonSelectFontProps.UseVisualStyleBackColor = true;
             this.buttonSelectFontProps.Click += new System.EventHandler(this.buttonSelectFontProps_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Instance";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 236;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Count";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 66;
             // 
             // ObjectsWindow
             // 
@@ -625,7 +625,7 @@
             this.Name = "ObjectsWindow";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Окно свойств";
+            this.Text = "Properties window";
             this.Activated += new System.EventHandler(this.ObjectsWindow_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ObjectsWindow_FormClosing);
             this.Shown += new System.EventHandler(this.ObjectsWindow_Shown);
@@ -682,8 +682,6 @@
         private System.Windows.Forms.TextBox textBoxBbox1;
         private System.Windows.Forms.Button buttonApplyBbox;
         private System.Windows.Forms.TextBox textBoxBbox0;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.Button buttonFileOpen;
         private System.Windows.Forms.OpenFileDialog openFileDialogFileName;
         private System.Windows.Forms.TextBox textBoxVec3;
@@ -699,5 +697,7 @@
         private Common.Extended.DBufPanel dBufPanelMainTab;
         public System.Windows.Forms.ImageList imageListProps;
         public System.Windows.Forms.Panel colorPanel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }
