@@ -329,7 +329,6 @@ namespace SpacerUnion.Common
             words.Add("checkBoxSearchOnly3DS", new List<string> { "Искать только 3DS", "Search only 3DS", "Suche nur in 3DS", "Szukaj tylko 3DS" });
             words.Add("buttonAllClassesClear", new List<string> { "Очистить", "Clear", "Klären", "Wyczyść" });
             words.Add("groupBoxObjItems", new List<string> { "Предметы", "Items", "Items", "Przedmioty" });
-            words.Add("TEST_NOT_READY", new List<string> { "ЕЩЕ НЕ СДЕЛАНО", "NOT READY YET", "Noch nicht bereit", "JESZCZE NIE GOTOWE" });
             words.Add("buttonItemsCreate", new List<string> { "Создать Item", "Create Item", "Item erschaffen", "Utwórz przedmiot" });
             words.Add("buttonAddContainer", new List<string> { "Добавить в контейнер->", "Add to container->", "Dem Contrainer hinzufügen->", "Dodaj do kontenera->" });
             words.Add("groupBoxItemsCont", new List<string> { "Редактор сундука", "Edit the container", "Den Container bearbeiten", "Edytuj kontener" });

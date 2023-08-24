@@ -130,10 +130,6 @@ namespace SpacerUnion
 
 
 
-            //labelNotReady0.Text = Localizator.Get("TEST_NOT_READY");
-            labelNotReady2.Text = Localizator.Get("TEST_NOT_READY");
-
-
             groupBoxSearchClasses.Text = Localizator.Get("all_vobs_classes");
             checkBoxSearchDerived.Text = Localizator.Get("search_derived");
             checkBoxSearchHasChildren.Text = Localizator.Get("checkBoxSearchHasChildren");

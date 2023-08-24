@@ -182,7 +182,6 @@
             this.buttonCamSpline = new System.Windows.Forms.Button();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.panelLight = new System.Windows.Forms.Panel();
-            this.labelNotReady2 = new System.Windows.Forms.Label();
             this.button17 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -1951,7 +1950,6 @@
             // 
             // panelLight
             // 
-            this.panelLight.Controls.Add(this.labelNotReady2);
             this.panelLight.Controls.Add(this.button17);
             this.panelLight.Controls.Add(this.button16);
             this.panelLight.Controls.Add(this.comboBox1);
@@ -1973,16 +1971,6 @@
             this.panelLight.Name = "panelLight";
             this.panelLight.Size = new System.Drawing.Size(316, 237);
             this.panelLight.TabIndex = 34;
-            // 
-            // labelNotReady2
-            // 
-            this.labelNotReady2.AutoSize = true;
-            this.labelNotReady2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelNotReady2.Location = new System.Drawing.Point(53, 7);
-            this.labelNotReady2.Name = "labelNotReady2";
-            this.labelNotReady2.Size = new System.Drawing.Size(220, 29);
-            this.labelNotReady2.TabIndex = 35;
-            this.labelNotReady2.Text = "NOT READY YET";
             // 
             // button17
             // 
@@ -2459,7 +2447,6 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label labelNotReady2;
         public System.Windows.Forms.CheckBox checkBoxShowPFXPreview;
         public System.Windows.Forms.CheckBox checkBoxItemShow;
         private System.Windows.Forms.GroupBox groupBoxItemsCont;
