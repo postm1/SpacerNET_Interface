@@ -172,7 +172,7 @@ namespace SpacerUnion
 
 
 
-            // камера
+            // camera
             groupBoxCameraNew.Text = Localizator.Get("groupBoxCameraNew");
             labelCamNewName.Text = Localizator.Get("FORM_COMMON_NAME");
             buttonCamInsert.Text = Localizator.Get("FORM_COMMON_CREATE");
@@ -204,7 +204,26 @@ namespace SpacerUnion
             contextMenuStripCamTarget.Items[0].Text = Localizator.Get("FORM_COMMON_DELETE");
             contextMenuStripCamTarget.Items[1].Text = Localizator.Get("FORM_CAMERA_INSERT_KEY_HERE");
 
-            
+            // light
+            groupBoxLightPresetProperties.Text = Localizator.Get("groupBoxLightPresetProperties");
+            labelLightPresetName.Text = Localizator.Get("labelLightPresetName");
+            buttonNewLightPreset.Text = Localizator.Get("buttonNewLightPreset");
+            buttonDeleteSelectedLightPreset.Text = Localizator.Get("buttonDeleteSelectedLightPreset");
+            buttonUpdateLightPresetOnLightVobs.Text = Localizator.Get("buttonUpdateLightPresetOnLightVobs");
+            buttonUpdateLightPresetFromVob.Text = Localizator.Get("buttonUpdateLightPresetFromVob");
+            buttonUsePresetOnLightVob.Text = Localizator.Get("buttonUsePresetOnLightVob");
+            groupBoxLightSelectedLightVob.Text = Localizator.Get("groupBoxLightSelectedLightVob");
+            labelLightVobName.Text = Localizator.Get("labelLightVobName");
+            groupBoxLightType.Text = Localizator.Get("groupBoxLightType");
+            checkBoxShowLightVobRadius.Text = Localizator.Get("checkBoxShowLightVobRadius");
+            checkBoxLightVobInstantCompile.Text = Localizator.Get("checkBoxLightVobInstantCompile");
+            buttonApplyToLightVob.Text = Localizator.Get("buttonApplyToLightVob");
+            radioButtonLightVobStatic.Text = Localizator.Get("radioButtonLightVobStatic");
+            radioButtonLightVobDynamic.Text = Localizator.Get("radioButtonLightVobDynamic");
+            groupBoxLightColorProperties.Text = Localizator.Get("groupBoxLightColorProperties");
+            groupBoxLightRangeProperties.Text = Localizator.Get("groupBoxLightRangeProperties");
+            buttonMoveLightPresetColorUp.Text = Localizator.Get("buttonMoveLightPresetColorUp");
+            buttonMoveLightPresetColorDown.Text = Localizator.Get("buttonMoveLightPresetColorDown");
         }
 
         public void SetHintWPFP()
@@ -1613,11 +1632,6 @@ namespace SpacerUnion
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label19_Click(object sender, EventArgs e)
         {
 
         }
@@ -3936,6 +3950,106 @@ namespace SpacerUnion
             Imports.Stack_PushInt(val);
 
             Imports.Extern_SetMoverToKey();
+        }
+
+        private void buttonAddLightPresetColor_Click(object sender, EventArgs e)
+        {
+            if (colorDialogLightPresetColor.ShowDialog() != DialogResult.OK)
+                return;
+
+            listBoxLightPresetColors.Items.Add(colorDialogLightPresetColor.Color);
+        }
+
+        private void buttonRemoveLightPresetColor_Click(object sender, EventArgs e)
+        {
+            if (listBoxLightPresetColors.Items.Count == 0)
+                return;
+
+            listBoxLightPresetColors.Items.RemoveAt((listBoxLightPresetColors.SelectedIndex != -1) ? listBoxLightPresetColors.SelectedIndex : listBoxLightPresetColors.Items.Count - 1);
+        }
+
+        private void buttonMoveLightPresetColorUp_Click(object sender, EventArgs e)
+        {
+            int index = listBoxLightPresetColors.SelectedIndex;
+
+            if (index == -1)
+                return;
+
+            var item = listBoxLightPresetColors.Items[index];
+            listBoxLightPresetColors.Items.RemoveAt(index);
+
+            index = Math.Min(Math.Max(index - 1, 0), listBoxLightPresetColors.Items.Count - 1);
+            listBoxLightPresetColors.Items.Insert(index, item);
+
+            listBoxLightPresetColors.SelectedIndex = index;
+        }
+
+        private void buttonMoveLightPresetColorDown_Click(object sender, EventArgs e)
+        {
+            int index = listBoxLightPresetColors.SelectedIndex;
+
+            if (index == -1)
+                return;
+
+            var item = listBoxLightPresetColors.Items[index];
+            listBoxLightPresetColors.Items.RemoveAt(index);
+
+            index = Math.Min(Math.Max(index + 1, 0), listBoxLightPresetColors.Items.Count);
+            listBoxLightPresetColors.Items.Insert(index, item);
+
+            listBoxLightPresetColors.SelectedIndex = index;
+        }
+
+        private void listBoxLightPresetColors_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index == -1)
+                return;
+
+            ListBox colorListBox = (ListBox)sender;
+            bool selected = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
+
+            e = new DrawItemEventArgs(
+                e.Graphics,
+                e.Font,
+                e.Bounds,
+                e.Index,
+                selected ? e.State ^ DrawItemState.Selected : e.State,
+                e.ForeColor,
+                selected ? Color.Red : Color.Black
+            );
+
+            e.DrawBackground();
+
+            e.Graphics.FillRectangle(new SolidBrush((Color)colorListBox.Items[e.Index]), new Rectangle(e.Bounds.X + 1, e.Bounds.Y + 1, e.Bounds.Width - 2, e.Bounds.Height - 2));
+
+            e.DrawFocusRectangle();
+        }
+
+        private void buttonNewLightPreset_Click(object sender, EventArgs e)
+        {
+            var presetName = textBoxLightPresetName.Text;
+
+            if (presetName.Length == 0)
+            {
+                MessageBox.Show(Localizator.Get("WIN_OBJ_NO_EMPTY_NAME"));
+                return;
+            }
+
+            if (presetName.Length > 0 && !Utils.IsOnlyLatin(presetName) && Utils.IsOptionActive("checkBoxOnlyLatinInInput"))
+            {
+                MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+                return;
+            }
+
+            listBoxLightPresets.Items.Add(presetName);
+        }
+
+        private void buttonDeleteSelectedLightPreset_Click(object sender, EventArgs e)
+        {
+            if (listBoxLightPresets.SelectedIndex == -1)
+                return;
+
+            listBoxLightPresets.Items.RemoveAt(listBoxLightPresets.SelectedIndex);
         }
     }
 }

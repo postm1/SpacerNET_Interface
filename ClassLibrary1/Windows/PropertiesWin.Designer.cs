@@ -694,7 +694,7 @@
         public System.Windows.Forms.CheckBox checkBoxFontUnderstroke;
         private System.Windows.Forms.Button buttonResetFontDefault;
         private System.Windows.Forms.Label labelChangeFontStyleText;
-        private Common.Extended.DBufPanel dBufPanelMainTab;
+        private SpacerUnion.Common.Extended.DBufPanel dBufPanelMainTab;
         public System.Windows.Forms.ImageList imageListProps;
         public System.Windows.Forms.Panel colorPanel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;

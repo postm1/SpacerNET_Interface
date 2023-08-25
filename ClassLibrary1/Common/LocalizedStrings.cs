@@ -572,6 +572,26 @@ namespace SpacerUnion.Common
             words.Add("checkBoxCameraHide", new List<string> { "Скрывать вобы в полете", "Hide vobs while camera active", "", "Ukryj voby, gdy kamera jest aktywna" });
             words.Add("labelCamGotoKey", new List<string> { "Перейти к ключу: ", "Go to key", "", "Przejdź do klatki" });
 
+            words.Add("groupBoxLightPresetProperties", new List<string> { "Предустановленные свойства", "Preset properties", "Preset eigenschaften", "Właściwości presetu" });
+            words.Add("labelLightPresetName", new List<string> { "Имя предустановки (обязательно)", "Preset name (mandatory)", "Preset name (verpflichtend)", "Nazwa presetu (obowiązkowa)" });
+            words.Add("buttonNewLightPreset", new List<string> { "Новый пресет", "New preset", "Neue preset", "Nowy preset" });
+            words.Add("buttonDeleteSelectedLightPreset", new List<string> { "Удалить выбранную предустановку", "Delete selected preset", "Löschen ausgewählte preset", "Usuń wybrany preset" });
+            words.Add("buttonUpdateLightPresetOnLightVobs", new List<string> { "Обновить пресет на lightvobs", "Update preset on lightvobs", "Preset auf lightvobs aktualisieren", "Zaktualizuj preset na lightvobach" });
+            words.Add("buttonUpdateLightPresetFromVob", new List<string> { "Обновить пресет из lightvob <<", "Update preset from lightvob <<", "Preset von lightvob aktualisieren <<", "Zaktualizuj preset z lightvoba <<" });
+            words.Add("buttonUsePresetOnLightVob", new List<string> { "Используйте пресет на lightvob >>", "Use preset on lightvob >>", "Preset auf lightvob verwenden >>", "Użyj presetu na lightvobie >>" });
+            words.Add("groupBoxLightSelectedLightVob", new List<string> { "Выбранный лайтвоб", "Selected lightvob", "Ausgewählter Lightvob", "Wybrany lightvob" });
+            words.Add("labelLightVobName", new List<string> { "Имя воба:", "Vob name:", "Vob name:", "Nazwa Voba:" });
+            words.Add("groupBoxLightType", new List<string> { "Тип света", "Light type", "Licht typ", "Rodzaj światła" });
+            words.Add("checkBoxShowLightVobRadius", new List<string> { "Показать радиус", "Show radius", "Radius anzeigen", "Pokaż zasięg" });
+            words.Add("checkBoxLightVobInstantCompile", new List<string> { "Мгновенная компиляция", "Instant compile", "Sofortige zusammenstellung", "Natychmiastowa kompilacja" });
+            words.Add("buttonApplyToLightVob", new List<string> { "Подать заявку на лайтвоб", "Apply to lightvob", "Bewerben Sie sich bei lightvob", "Zastosuj na lightvoba" });
+            words.Add("radioButtonLightVobStatic", new List<string> { "Статический", "Static", "Statisch", "Statyczne" });
+            words.Add("radioButtonLightVobDynamic", new List<string> { "Динамичный", "Dynamic", "Dynamisch", "Dynamiczne" });
+            words.Add("groupBoxLightColorProperties", new List<string> { "Свойства цвета", "Color properties", "Farbeigenschaften", "Właściwości koloru" });
+            words.Add("groupBoxLightRangeProperties", new List<string> { "Свойства диапазона", "Range properties", "Bereichseigenschaften", "Właściwości zasięgu" });
+            words.Add("buttonMoveLightPresetColorUp", new List<string> { "Вверх", "Up", "Hoch", "Góra" });
+            words.Add("buttonMoveLightPresetColorDown", new List<string> { "Вниз", "Down", "Runter", "Dół" });
+
 
             words.Add("FORM_COMMON_DELETE", new List<string> { "Удалить", "Delete", "", "Usuń" });
             words.Add("FORM_CAMERA_INSERT_KEY_HERE", new List<string> { "Вставить новый ключ сюда", "Insert a new key here", "", "Wstaw nową klatkę" });
