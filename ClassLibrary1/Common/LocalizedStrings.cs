@@ -98,6 +98,7 @@ namespace SpacerUnion.Common
             words.Add("WIN_COMPLIGHT_QUALITY", new List<string> { "Качество", "Quality", "Qualität", "Jakość" });
             words.Add("WIN_COMPLIGHT_COMPILEBUTTON", new List<string> { "Компилировать", "Compile", "Kompilieren", "Kompiluj" });
 
+            words.Add("WIN_INPUT", new List<string> { "Вход", "Input", "Eingabe", "Wejście" });
             words.Add("WIN_CANCEL_BUTTON", new List<string> { "Отмена", "Cancel", "Abbrechen", "Anuluj" });
             words.Add("WIN_COMPLIGHT_CLOSEBUTTON", new List<string> { "Закрыть", "Close", "Schließen", "Zamknij" });
             words.Add("WIN_COMPLIGHT_REGION", new List<string> { "Регион", "Region", "Region", "Region" });
@@ -471,7 +472,6 @@ namespace SpacerUnion.Common
             words.Add("CONTEXTMENU_FAST_REMOVE_VOB", new List<string> { " Удалить воб из быстрого доступа", "Remove the vob from fast access", "", "Usuń vob z szybkiego dostępu" });
             words.Add("QUICKVOBS_CANTBE_PARENT", new List<string> { "Данный воб не может быть родителем!", "Current vob can't be a parent!", "", "Obecny vob nie może być rodzicem!" });
 
-            words.Add("showLightRadiusVob", new List<string> { "Показывать радиус освещения zCVobLight", "Show radius of light for zCVobLight vobs", "", "Pokaż promień światła dla vobów zCVobLight" });
             words.Add("PROP_BUTTON_COLOR", new List<string> { "Цвет", "Color", "", "Kolor" });
             words.Add("labelItemLocatorRadius", new List<string> { "Радиус показа вещей: ", "Items show radius: ", "", "Pokaż promień: " });
             words.Add("groupBoxItemsLocator", new List<string> { "Локатор предметов: ", "Items locator: ", "", "Lokalizator przedmiotów" });
@@ -579,12 +579,13 @@ namespace SpacerUnion.Common
             words.Add("buttonUpdateLightPresetOnLightVobs", new List<string> { "Обновить пресет на lightvobs", "Update preset on lightvobs", "Preset auf lightvobs aktualisieren", "Zaktualizuj preset na lightvobach" });
             words.Add("buttonUpdateLightPresetFromVob", new List<string> { "Обновить пресет из lightvob <<", "Update preset from lightvob <<", "Preset von lightvob aktualisieren <<", "Zaktualizuj preset z lightvoba <<" });
             words.Add("buttonUsePresetOnLightVob", new List<string> { "Используйте пресет на lightvob >>", "Use preset on lightvob >>", "Preset auf lightvob verwenden >>", "Użyj presetu na lightvobie >>" });
-            words.Add("groupBoxLightSelectedLightVob", new List<string> { "Выбранный лайтвоб", "Selected lightvob", "Ausgewählter Lightvob", "Wybrany lightvob" });
+            words.Add("groupBoxLightSelected_Preset", new List<string> { "Выбранный пресет", "Selected preset", "Ausgewählter preset", "Wybrany preset" });
+            words.Add("groupBoxLightSelected_LightVob", new List<string> { "Выбранный лайтвоб", "Selected lightvob", "Ausgewählter lightvob", "Wybrany lightvob" });
             words.Add("labelLightVobName", new List<string> { "Имя воба:", "Vob name:", "Vob name:", "Nazwa Voba:" });
             words.Add("groupBoxLightType", new List<string> { "Тип света", "Light type", "Licht typ", "Rodzaj światła" });
             words.Add("checkBoxShowLightVobRadius", new List<string> { "Показать радиус", "Show radius", "Radius anzeigen", "Pokaż zasięg" });
             words.Add("checkBoxLightVobInstantCompile", new List<string> { "Мгновенная компиляция", "Instant compile", "Sofortige zusammenstellung", "Natychmiastowa kompilacja" });
-            words.Add("buttonApplyToLightVob", new List<string> { "Подать заявку на лайтвоб", "Apply to lightvob", "Bewerben Sie sich bei lightvob", "Zastosuj na lightvoba" });
+            words.Add("buttonApplyToLightVob", new List<string> { "Подать заявку на лайтвоб", "Apply to lightvob", "Bewerben sie sich bei lightvob", "Zastosuj na lightvoba" });
             words.Add("radioButtonLightVobStatic", new List<string> { "Статический", "Static", "Statisch", "Statyczne" });
             words.Add("radioButtonLightVobDynamic", new List<string> { "Динамичный", "Dynamic", "Dynamisch", "Dynamiczne" });
             words.Add("groupBoxLightColorProperties", new List<string> { "Свойства цвета", "Color properties", "Farbeigenschaften", "Właściwości koloru" });
@@ -610,6 +611,7 @@ namespace SpacerUnion.Common
             words.Add("MSG_COMMON_SEARCH", new List<string> { "Поиск", "Search", "", "Szukaj" });
             words.Add("MSG_COMMON_COMMON", new List<string> { "Общее", "Common", "", "Ogólne" });
             words.Add("MSG_COMMON_MATSEACH", new List<string> { "Поиск материала:", "Material search:", "", "Szukaj materiał:" });
+            words.Add("MSG_COMMON_SAVE_CHANGES", new List<string> { "Сохранить изменения", "Save changes", "Änderungen speichern", "Zapisz zmiany" });
 
 
             words.Add("MSG_MATFILTER_NEW_NAME", new List<string> { "Имя фильтра:", "Filter name:", "", "Nazwa filtra:" });
@@ -644,7 +646,6 @@ namespace SpacerUnion.Common
             words.Add("WIN_MATFILTER_FILTER_SETTINGS", new List<string> { "Настройки выбранного материала", "Properties of selected material", "", "Właściwości wybranego materiału" });
             words.Add("WIN_MATFILTER_FILTER_SET_FILTER", new List<string> { "Задать фильтр:", "Set filter:", "", "Ustaw filtr:" });
             words.Add("WIN_MATFILTER_FILTER_SET_GROUP", new List<string> { "Задать группу:", "Set group:", "", "Ustaw grupę:" });
-            words.Add("WIN_MATFILTER_FILTER_SAVE_FILTER", new List<string> { "Сохранить изменения", "Save changes", "", "Zapisz zmiany" });
 
             words.Add("WIN_MATFILTER_FILTER_SETTINGS_SIZE", new List<string> { "Размер:", "Size:", "", "Rozmiar:" });
             words.Add("WIN_MATFILTER_FILTER_SETTINGS_ALPHA", new List<string> { "Альфа-канал:", "Alpha channel:", "", "Kanał alpha:" });

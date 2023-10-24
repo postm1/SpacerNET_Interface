@@ -34,7 +34,6 @@
             this.checkBoxShowPolysSort = new System.Windows.Forms.CheckBox();
             this.checkBoxSetNearestVobCam = new System.Windows.Forms.CheckBox();
             this.checkBoxAutoRemoveAllVisuals = new System.Windows.Forms.CheckBox();
-            this.showLightRadiusVob = new System.Windows.Forms.CheckBox();
             this.autoRemoveLevelCompo = new System.Windows.Forms.CheckBox();
             this.checkBoxAutoCompileUncompiled = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscAutoCompile = new System.Windows.Forms.CheckBox();
@@ -61,7 +60,6 @@
             this.groupBox1.Controls.Add(this.checkBoxShowPolysSort);
             this.groupBox1.Controls.Add(this.checkBoxSetNearestVobCam);
             this.groupBox1.Controls.Add(this.checkBoxAutoRemoveAllVisuals);
-            this.groupBox1.Controls.Add(this.showLightRadiusVob);
             this.groupBox1.Controls.Add(this.autoRemoveLevelCompo);
             this.groupBox1.Controls.Add(this.checkBoxAutoCompileUncompiled);
             this.groupBox1.Controls.Add(this.checkBoxMiscAutoCompile);
@@ -80,7 +78,7 @@
             this.checkBoxOnlyLatinInInput.AutoSize = true;
             this.checkBoxOnlyLatinInInput.Checked = true;
             this.checkBoxOnlyLatinInInput.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxOnlyLatinInInput.Location = new System.Drawing.Point(13, 262);
+            this.checkBoxOnlyLatinInInput.Location = new System.Drawing.Point(13, 239);
             this.checkBoxOnlyLatinInInput.Name = "checkBoxOnlyLatinInInput";
             this.checkBoxOnlyLatinInInput.Size = new System.Drawing.Size(213, 17);
             this.checkBoxOnlyLatinInInput.TabIndex = 11;
@@ -90,7 +88,7 @@
             // checkBoxShowPolysSort
             // 
             this.checkBoxShowPolysSort.AutoSize = true;
-            this.checkBoxShowPolysSort.Location = new System.Drawing.Point(13, 219);
+            this.checkBoxShowPolysSort.Location = new System.Drawing.Point(13, 196);
             this.checkBoxShowPolysSort.Name = "checkBoxShowPolysSort";
             this.checkBoxShowPolysSort.Size = new System.Drawing.Size(389, 17);
             this.checkBoxShowPolysSort.TabIndex = 10;
@@ -117,16 +115,6 @@
             this.checkBoxAutoRemoveAllVisuals.TabIndex = 8;
             this.checkBoxAutoRemoveAllVisuals.Text = "Auto cleaning visual for all zCVobLevelCompo before saving ZEN";
             this.checkBoxAutoRemoveAllVisuals.UseVisualStyleBackColor = true;
-            // 
-            // showLightRadiusVob
-            // 
-            this.showLightRadiusVob.AutoSize = true;
-            this.showLightRadiusVob.Location = new System.Drawing.Point(13, 196);
-            this.showLightRadiusVob.Name = "showLightRadiusVob";
-            this.showLightRadiusVob.Size = new System.Drawing.Size(216, 17);
-            this.showLightRadiusVob.TabIndex = 7;
-            this.showLightRadiusVob.Text = "Show radius of light for zCVobLight vobs";
-            this.showLightRadiusVob.UseVisualStyleBackColor = true;
             // 
             // autoRemoveLevelCompo
             // 
@@ -237,7 +225,6 @@
         public System.Windows.Forms.CheckBox checkBoxMiscAutoCompile;
         public System.Windows.Forms.CheckBox checkBoxAutoCompileUncompiled;
         public System.Windows.Forms.CheckBox autoRemoveLevelCompo;
-        public System.Windows.Forms.CheckBox showLightRadiusVob;
         public System.Windows.Forms.CheckBox checkBoxAutoRemoveAllVisuals;
         public System.Windows.Forms.CheckBox checkBoxSetNearestVobCam;
         public System.Windows.Forms.CheckBox checkBoxShowPolysSort;
