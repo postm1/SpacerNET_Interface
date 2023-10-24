@@ -4197,7 +4197,7 @@ namespace SpacerUnion
 
         private void checkBoxShowLightVobInstantCompile_CheckedChanged(object sender, EventArgs e)
         {
-
+            Imports.Extern_Light_DynamicCompile(checkBoxLightVobInstantCompile.Checked);
         }
 
         private void buttonAddLightRangeScale_Click(object sender, EventArgs e)
