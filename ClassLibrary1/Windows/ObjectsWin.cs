@@ -48,6 +48,13 @@ namespace SpacerUnion
         }
 
 
+        public void Reset()
+        {
+            listBoxSearchResult.Items.Clear();
+            comboBoxSearchType.SelectedIndex = 0;
+            labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ":";
+        }
+
         public void UpdateLang()
         {
             //ConsoleEx.WriteLineRed("WinObj:UpdateLang");
@@ -168,8 +175,8 @@ namespace SpacerUnion
             groupBoxItemsLocator.Text = Localizator.Get("groupBoxItemsLocator");
             checkBoxLocatorEnabled.Text = Localizator.Get("checkBoxLocatorEnabled");
             checkBoxLocatorOnlySusp.Text = Localizator.Get("checkBoxLocatorOnlySusp");
+            comboBoxLocatorItemType.Items[0] = Localizator.Get("VOBLIST_TYPE_ANY");
 
-            
             checkBoxLocatorByName.Text = Localizator.Get("checkBoxLocatorByName");
             labelItemLocatorRadius.Text = Localizator.Get("labelItemLocatorRadius") + trackBarLocatorRad.Value;
 

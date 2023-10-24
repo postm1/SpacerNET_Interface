@@ -125,6 +125,7 @@ namespace SpacerUnion
             //SpacerNET.objTreeWin.matTree.Nodes.Clear();
             SpacerNET.objTreeWin.quickTree.Nodes.Clear();
             SpacerNET.objectsWin.BlockInterfaceWhileCameraMoving(false);
+            SpacerNET.objectsWin.Reset();
 
             SpacerNET.vobList.ClearListBox();
             ObjectsWindow.CleanProps();
