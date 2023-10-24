@@ -3978,6 +3978,7 @@ namespace SpacerUnion
             int range = Imports.Stack_PeekInt();
             SpacerNET.objectsWin.numericUpDownLightVobRange.Value = range;
 
+            SpacerNET.objectsWin.listBoxLightPresetColors.Items.Clear();
             int colorsCount = Imports.Stack_PeekInt();
             for (int i = 0; i < colorsCount; ++i)
             {
@@ -3991,6 +3992,7 @@ namespace SpacerUnion
             bool colorAniSmooth = Imports.Stack_PeekBool();
             SpacerNET.objectsWin.checkBoxLightVobColorAniSmooth.Checked = colorAniSmooth;
 
+            SpacerNET.objectsWin.listBoxLightPresetRangeAniScales.Items.Clear();
             int rangeAniScalesCount = Imports.Stack_PeekInt();
             for (int i = 0; i < rangeAniScalesCount; ++i)
             {
@@ -4068,8 +4070,6 @@ namespace SpacerUnion
             if (listBoxLightPresets.SelectedItem == null)
                 return;
 
-            listBoxLightPresetColors.Items.Clear();
-            listBoxLightPresetRangeAniScales.Items.Clear();
             Imports.Extern_Light_QueryPresetData(listBoxLightPresets.SelectedItem.ToString());
         }
 
