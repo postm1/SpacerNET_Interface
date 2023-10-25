@@ -74,7 +74,7 @@ namespace SpacerUnion.Windows
             groupBoxMatSettings.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS");
             labelApplyFilter.Text = Localizator.Get("WIN_MATFILTER_FILTER_SET_FILTER");
             labelFilterApplyGroup.Text = Localizator.Get("WIN_MATFILTER_FILTER_SET_GROUP");
-            buttonSavePML_File.Text = Localizator.Get("MSG_COMMON_SAVE_CHANGES");
+            buttonSavePML_File.Text = Localizator.Get("BTN_SAVE_CHANGES");
             buttonApplyMatSettings.Text = Localizator.Get("BTN_APPLY");
 
 

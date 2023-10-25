@@ -181,6 +181,9 @@ namespace SpacerUnion.Common
             words.Add("IS_SAVING", new List<string> { "сохраняется...", "is saving...", "wird gespeichert...", "zapisywanie..." });
             words.Add("WIN_CAM_GETFROMBUFFER", new List<string> { "Взять из буфера", "Get from clipboard", "Wird aus der Zwischenablage geholt", "Pobierz ze schowka" });
             words.Add("BTN_APPLY", new List<string> { "Применить", "Apply", "Anwenden", "Zastosuj" });
+            words.Add("BTN_SAVE_CHANGES", new List<string> { "Сохранить изменения", "Save changes", "Änderungen speichern", "Zapisz zmiany" });
+            words.Add("BTN_UP", new List<string> { "Вверх", "Up", "Hoch", "Góra" });
+            words.Add("BTN_DOWN", new List<string> { "Вниз", "Down", "Runter", "Dół" });
             words.Add("WIN_MISC_SET", new List<string> { "Прочие настройки", "Misc settings", "Verschiedene Einstellungen", "Inne ustawienia" });
             words.Add("checkBoxSetDatePrefix", new List<string> { "Добавлять префикс даты при сохранении зена", "Add DATE prefix to file when saving ZEN", "Füge Datum Präfix zu Datei hinzu wenn die ZEN gespeichert wird", "Dodaj prefix daty do nazwy zapisanego pliku" });
             words.Add("checkBoxMiscExitAsk", new List<string> { "Подтверждать выход если открыт зен", "Confirm exit if ZEN is opened", "Falls ZEN geöffnet ist, dann bestätige den Abbruch", "Potwierdź wyjście, gdy ZEN jest otwarty" });
@@ -585,13 +588,10 @@ namespace SpacerUnion.Common
             words.Add("groupBoxLightType", new List<string> { "Тип света", "Light type", "Licht typ", "Rodzaj światła" });
             words.Add("checkBoxShowLightVobRadius", new List<string> { "Показать радиус", "Show radius", "Radius anzeigen", "Pokaż zasięg" });
             words.Add("checkBoxLightVobInstantCompile", new List<string> { "Мгновенная компиляция", "Instant compile", "Sofortige zusammenstellung", "Natychmiastowa kompilacja" });
-            words.Add("buttonApplyToLightVob", new List<string> { "Подать заявку на лайтвоб", "Apply to lightvob", "Bewerben sie sich bei lightvob", "Zastosuj na lightvoba" });
             words.Add("radioButtonLightVobStatic", new List<string> { "Статический", "Static", "Statisch", "Statyczne" });
             words.Add("radioButtonLightVobDynamic", new List<string> { "Динамичный", "Dynamic", "Dynamisch", "Dynamiczne" });
             words.Add("groupBoxLightColorProperties", new List<string> { "Свойства цвета", "Color properties", "Farbeigenschaften", "Właściwości koloru" });
             words.Add("groupBoxLightRangeProperties", new List<string> { "Свойства диапазона", "Range properties", "Bereichseigenschaften", "Właściwości zasięgu" });
-            words.Add("buttonMoveLightPresetColorUp", new List<string> { "Вверх", "Up", "Hoch", "Góra" });
-            words.Add("buttonMoveLightPresetColorDown", new List<string> { "Вниз", "Down", "Runter", "Dół" });
 
 
             words.Add("FORM_COMMON_DELETE", new List<string> { "Удалить", "Delete", "", "Usuń" });
@@ -611,7 +611,6 @@ namespace SpacerUnion.Common
             words.Add("MSG_COMMON_SEARCH", new List<string> { "Поиск", "Search", "", "Szukaj" });
             words.Add("MSG_COMMON_COMMON", new List<string> { "Общее", "Common", "", "Ogólne" });
             words.Add("MSG_COMMON_MATSEACH", new List<string> { "Поиск материала:", "Material search:", "", "Szukaj materiał:" });
-            words.Add("MSG_COMMON_SAVE_CHANGES", new List<string> { "Сохранить изменения", "Save changes", "Änderungen speichern", "Zapisz zmiany" });
 
 
             words.Add("MSG_MATFILTER_NEW_NAME", new List<string> { "Имя фильтра:", "Filter name:", "", "Nazwa filtra:" });

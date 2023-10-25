@@ -1735,12 +1735,13 @@ namespace SpacerUnion
         public void SetColorPanelColor(string input)
         {
             string[] colorValues = input.Split(' ');
-            Color color = Color.FromArgb(
-                int.Parse(colorValues[3]),
-                int.Parse(colorValues[0]),
-                int.Parse(colorValues[1]),
-                int.Parse(colorValues[2])
-            );
+
+            int r = int.Parse(colorValues[0]);
+            int g = int.Parse(colorValues[1]);
+            int b = int.Parse(colorValues[2]);
+            int a = int.Parse(colorValues[3]);
+
+            Color color = Color.FromArgb(a, r, g, b);
 
             colorPanel.BackColor = color;
         }
