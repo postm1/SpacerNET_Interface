@@ -94,7 +94,7 @@
             this.buttonLoadingFormClose.Name = "buttonLoadingFormClose";
             this.buttonLoadingFormClose.Size = new System.Drawing.Size(75, 23);
             this.buttonLoadingFormClose.TabIndex = 2;
-            this.buttonLoadingFormClose.Text = "Закрыть";
+            this.buttonLoadingFormClose.Text = "Close";
             this.buttonLoadingFormClose.UseVisualStyleBackColor = true;
             this.buttonLoadingFormClose.Visible = false;
             this.buttonLoadingFormClose.Click += new System.EventHandler(this.buttonLoadingFormClose_Click);

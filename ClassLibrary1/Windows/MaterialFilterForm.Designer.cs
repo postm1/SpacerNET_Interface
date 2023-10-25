@@ -117,7 +117,7 @@
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(289, 181);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(193, 16);
+            this.label1.Size = new System.Drawing.Size(192, 16);
             this.label1.TabIndex = 14;
             this.label1.Text = "Еще не готово / Not ready yet";
             this.label1.Visible = false;
@@ -129,7 +129,7 @@
             this.buttonMatFilter_NewMat.Name = "buttonMatFilter_NewMat";
             this.buttonMatFilter_NewMat.Size = new System.Drawing.Size(141, 23);
             this.buttonMatFilter_NewMat.TabIndex = 13;
-            this.buttonMatFilter_NewMat.Text = "Новый материал";
+            this.buttonMatFilter_NewMat.Text = "New material";
             this.buttonMatFilter_NewMat.UseVisualStyleBackColor = true;
             this.buttonMatFilter_NewMat.Click += new System.EventHandler(this.buttonMatFilter_NewMat_Click);
             // 
@@ -145,7 +145,7 @@
             this.groupBoxTexInfo.Size = new System.Drawing.Size(412, 179);
             this.groupBoxTexInfo.TabIndex = 21;
             this.groupBoxTexInfo.TabStop = false;
-            this.groupBoxTexInfo.Text = "Текстура";
+            this.groupBoxTexInfo.Text = "Texture";
             // 
             // groupBoxFilterTexShowSettings
             // 
@@ -158,16 +158,16 @@
             this.groupBoxFilterTexShowSettings.Size = new System.Drawing.Size(237, 90);
             this.groupBoxFilterTexShowSettings.TabIndex = 21;
             this.groupBoxFilterTexShowSettings.TabStop = false;
-            this.groupBoxFilterTexShowSettings.Text = "Настройки предпросмотра";
+            this.groupBoxFilterTexShowSettings.Text = "Preview settings";
             // 
             // checkBoxFilterTexAutoScale
             // 
             this.checkBoxFilterTexAutoScale.AutoSize = true;
             this.checkBoxFilterTexAutoScale.Location = new System.Drawing.Point(7, 61);
             this.checkBoxFilterTexAutoScale.Name = "checkBoxFilterTexAutoScale";
-            this.checkBoxFilterTexAutoScale.Size = new System.Drawing.Size(173, 17);
+            this.checkBoxFilterTexAutoScale.Size = new System.Drawing.Size(139, 17);
             this.checkBoxFilterTexAutoScale.TabIndex = 2;
-            this.checkBoxFilterTexAutoScale.Text = "Автомасштаб малых текстур";
+            this.checkBoxFilterTexAutoScale.Text = "Autoscale small textures";
             this.checkBoxFilterTexAutoScale.UseVisualStyleBackColor = true;
             this.checkBoxFilterTexAutoScale.CheckStateChanged += new System.EventHandler(this.checkBoxFilterTexAutoScale_CheckStateChanged);
             // 
@@ -178,9 +178,9 @@
             this.checkBoxTexImageAlwaysCenter.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxTexImageAlwaysCenter.Location = new System.Drawing.Point(7, 40);
             this.checkBoxTexImageAlwaysCenter.Name = "checkBoxTexImageAlwaysCenter";
-            this.checkBoxTexImageAlwaysCenter.Size = new System.Drawing.Size(114, 17);
+            this.checkBoxTexImageAlwaysCenter.Size = new System.Drawing.Size(103, 17);
             this.checkBoxTexImageAlwaysCenter.TabIndex = 1;
-            this.checkBoxTexImageAlwaysCenter.Text = "Всегда по центру";
+            this.checkBoxTexImageAlwaysCenter.Text = "Always in center";
             this.checkBoxTexImageAlwaysCenter.UseVisualStyleBackColor = true;
             this.checkBoxTexImageAlwaysCenter.CheckedChanged += new System.EventHandler(this.checkBoxTexImageAlwaysCenter_CheckedChanged);
             // 
@@ -191,9 +191,9 @@
             this.checkBoxTexImageUseAlpha.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxTexImageUseAlpha.Location = new System.Drawing.Point(7, 20);
             this.checkBoxTexImageUseAlpha.Name = "checkBoxTexImageUseAlpha";
-            this.checkBoxTexImageUseAlpha.Size = new System.Drawing.Size(98, 17);
+            this.checkBoxTexImageUseAlpha.Size = new System.Drawing.Size(91, 17);
             this.checkBoxTexImageUseAlpha.TabIndex = 0;
-            this.checkBoxTexImageUseAlpha.Text = "Прозрачность";
+            this.checkBoxTexImageUseAlpha.Text = "Transparency";
             this.checkBoxTexImageUseAlpha.UseVisualStyleBackColor = true;
             this.checkBoxTexImageUseAlpha.CheckedChanged += new System.EventHandler(this.checkBoxTexImageUseAlpha_CheckedChanged);
             // 
@@ -220,18 +220,18 @@
             this.labelTexAlpha.AutoSize = true;
             this.labelTexAlpha.Location = new System.Drawing.Point(147, 63);
             this.labelTexAlpha.Name = "labelTexAlpha";
-            this.labelTexAlpha.Size = new System.Drawing.Size(82, 13);
+            this.labelTexAlpha.Size = new System.Drawing.Size(78, 13);
             this.labelTexAlpha.TabIndex = 19;
-            this.labelTexAlpha.Text = "Альфа-канал: -";
+            this.labelTexAlpha.Text = "Alpha channel:";
             // 
             // labelTexSize
             // 
             this.labelTexSize.AutoSize = true;
             this.labelTexSize.Location = new System.Drawing.Point(147, 44);
             this.labelTexSize.Name = "labelTexSize";
-            this.labelTexSize.Size = new System.Drawing.Size(55, 13);
+            this.labelTexSize.Size = new System.Drawing.Size(30, 13);
             this.labelTexSize.TabIndex = 16;
-            this.labelTexSize.Text = "Размер: -";
+            this.labelTexSize.Text = "Size:";
             // 
             // textBoxFilterSearch
             // 
@@ -247,9 +247,9 @@
             this.labelMatFilterSeachInMats.AutoSize = true;
             this.labelMatFilterSeachInMats.Location = new System.Drawing.Point(181, 211);
             this.labelMatFilterSeachInMats.Name = "labelMatFilterSeachInMats";
-            this.labelMatFilterSeachInMats.Size = new System.Drawing.Size(100, 13);
+            this.labelMatFilterSeachInMats.Size = new System.Drawing.Size(83, 13);
             this.labelMatFilterSeachInMats.TabIndex = 16;
-            this.labelMatFilterSeachInMats.Text = "Поиск материала:";
+            this.labelMatFilterSeachInMats.Text = "Search material:";
             // 
             // listBoxMatFilSearch
             // 
@@ -268,7 +268,7 @@
             this.buttonFilterNew.Name = "buttonFilterNew";
             this.buttonFilterNew.Size = new System.Drawing.Size(158, 23);
             this.buttonFilterNew.TabIndex = 11;
-            this.buttonFilterNew.Text = "Создать новый";
+            this.buttonFilterNew.Text = "New filter";
             this.buttonFilterNew.UseVisualStyleBackColor = true;
             this.buttonFilterNew.Click += new System.EventHandler(this.buttonFilterNew_Click);
             // 
@@ -280,7 +280,7 @@
             this.buttonFltRename.Name = "buttonFltRename";
             this.buttonFltRename.Size = new System.Drawing.Size(159, 23);
             this.buttonFltRename.TabIndex = 12;
-            this.buttonFltRename.Text = "Переименовать выбранный";
+            this.buttonFltRename.Text = "Rename selected";
             this.buttonFltRename.UseVisualStyleBackColor = true;
             this.buttonFltRename.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -291,7 +291,7 @@
             this.buttonMatFilterSaveFilters.Name = "buttonMatFilterSaveFilters";
             this.buttonMatFilterSaveFilters.Size = new System.Drawing.Size(159, 23);
             this.buttonMatFilterSaveFilters.TabIndex = 10;
-            this.buttonMatFilterSaveFilters.Text = "Сохранить файл фильтров";
+            this.buttonMatFilterSaveFilters.Text = "Save filters file";
             this.buttonMatFilterSaveFilters.UseVisualStyleBackColor = true;
             this.buttonMatFilterSaveFilters.Click += new System.EventHandler(this.buttonMatFilterSaveAll_Click);
             // 
@@ -310,16 +310,16 @@
             this.groupBoxMatSettings.Size = new System.Drawing.Size(260, 176);
             this.groupBoxMatSettings.TabIndex = 10;
             this.groupBoxMatSettings.TabStop = false;
-            this.groupBoxMatSettings.Text = "Настройки выбранного материала";
+            this.groupBoxMatSettings.Text = "Properties of selected material";
             // 
             // checkBoxMatFilter_ForceFilter
             // 
             this.checkBoxMatFilter_ForceFilter.AutoSize = true;
             this.checkBoxMatFilter_ForceFilter.Location = new System.Drawing.Point(10, 124);
             this.checkBoxMatFilter_ForceFilter.Name = "checkBoxMatFilter_ForceFilter";
-            this.checkBoxMatFilter_ForceFilter.Size = new System.Drawing.Size(244, 17);
+            this.checkBoxMatFilter_ForceFilter.Size = new System.Drawing.Size(124, 17);
             this.checkBoxMatFilter_ForceFilter.TabIndex = 11;
-            this.checkBoxMatFilter_ForceFilter.Text = "Принудительно ставить последний фильтр";
+            this.checkBoxMatFilter_ForceFilter.Text = "Forcedly set last filter";
             this.checkBoxMatFilter_ForceFilter.UseVisualStyleBackColor = true;
             this.checkBoxMatFilter_ForceFilter.CheckedChanged += new System.EventHandler(this.checkBoxMatFilter_ForceFilter_CheckedChanged);
             // 
@@ -330,9 +330,9 @@
             this.checkBoxMatFilterGoApply.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxMatFilterGoApply.Location = new System.Drawing.Point(10, 106);
             this.checkBoxMatFilterGoApply.Name = "checkBoxMatFilterGoApply";
-            this.checkBoxMatFilterGoApply.Size = new System.Drawing.Size(247, 17);
+            this.checkBoxMatFilterGoApply.Size = new System.Drawing.Size(161, 17);
             this.checkBoxMatFilterGoApply.TabIndex = 10;
-            this.checkBoxMatFilterGoApply.Text = "Следовать за материалом при применении";
+            this.checkBoxMatFilterGoApply.Text = "Follow material after applying";
             this.checkBoxMatFilterGoApply.UseVisualStyleBackColor = true;
             // 
             // buttonApplyMatSettings
@@ -341,7 +341,7 @@
             this.buttonApplyMatSettings.Name = "buttonApplyMatSettings";
             this.buttonApplyMatSettings.Size = new System.Drawing.Size(247, 23);
             this.buttonApplyMatSettings.TabIndex = 5;
-            this.buttonApplyMatSettings.Text = "Применить";
+            this.buttonApplyMatSettings.Text = "Apply";
             this.buttonApplyMatSettings.UseVisualStyleBackColor = true;
             this.buttonApplyMatSettings.Click += new System.EventHandler(this.buttonApplyMatSettings_Click);
             // 
@@ -350,18 +350,18 @@
             this.labelApplyFilter.AutoSize = true;
             this.labelApplyFilter.Location = new System.Drawing.Point(6, 20);
             this.labelApplyFilter.Name = "labelApplyFilter";
-            this.labelApplyFilter.Size = new System.Drawing.Size(83, 13);
+            this.labelApplyFilter.Size = new System.Drawing.Size(48, 13);
             this.labelApplyFilter.TabIndex = 9;
-            this.labelApplyFilter.Text = "Задать фильтр";
+            this.labelApplyFilter.Text = "Set filter:";
             // 
             // labelFilterApplyGroup
             // 
             this.labelFilterApplyGroup.AutoSize = true;
             this.labelFilterApplyGroup.Location = new System.Drawing.Point(6, 62);
             this.labelFilterApplyGroup.Name = "labelFilterApplyGroup";
-            this.labelFilterApplyGroup.Size = new System.Drawing.Size(79, 13);
+            this.labelFilterApplyGroup.Size = new System.Drawing.Size(56, 13);
             this.labelFilterApplyGroup.TabIndex = 8;
-            this.labelFilterApplyGroup.Text = "Задать группу";
+            this.labelFilterApplyGroup.Text = "Set group:";
             // 
             // comboBoxApplyFilter
             // 
@@ -400,7 +400,7 @@
             this.buttonSavePML_File.Name = "buttonSavePML_File";
             this.buttonSavePML_File.Size = new System.Drawing.Size(141, 23);
             this.buttonSavePML_File.TabIndex = 12;
-            this.buttonSavePML_File.Text = "Сохранить изменения";
+            this.buttonSavePML_File.Text = "Save changes";
             this.buttonSavePML_File.UseVisualStyleBackColor = true;
             this.buttonSavePML_File.Click += new System.EventHandler(this.buttonSavePML_File_Click);
             // 
@@ -409,9 +409,9 @@
             this.labelMatCountCurrentFilter.AutoSize = true;
             this.labelMatCountCurrentFilter.Location = new System.Drawing.Point(180, 8);
             this.labelMatCountCurrentFilter.Name = "labelMatCountCurrentFilter";
-            this.labelMatCountCurrentFilter.Size = new System.Drawing.Size(123, 13);
+            this.labelMatCountCurrentFilter.Size = new System.Drawing.Size(119, 13);
             this.labelMatCountCurrentFilter.TabIndex = 4;
-            this.labelMatCountCurrentFilter.Text = "Материалы фильтра: 0";
+            this.labelMatCountCurrentFilter.Text = "Materials of the filter: (0)";
             // 
             // listBoxMatList
             // 
@@ -437,9 +437,9 @@
             this.labelFilterListFiles.AutoSize = true;
             this.labelFilterListFiles.Location = new System.Drawing.Point(3, 8);
             this.labelFilterListFiles.Name = "labelFilterListFiles";
-            this.labelFilterListFiles.Size = new System.Drawing.Size(119, 13);
+            this.labelFilterListFiles.Size = new System.Drawing.Size(64, 13);
             this.labelFilterListFiles.TabIndex = 1;
-            this.labelFilterListFiles.Text = "Библиотека фильтров";
+            this.labelFilterListFiles.Text = "Filters library";
             // 
             // panelMatFilterMain
             // 
@@ -472,7 +472,7 @@
             this.groupBoxMatFilterMisc.Size = new System.Drawing.Size(149, 111);
             this.groupBoxMatFilterMisc.TabIndex = 11;
             this.groupBoxMatFilterMisc.TabStop = false;
-            this.groupBoxMatFilterMisc.Text = "Прочее";
+            this.groupBoxMatFilterMisc.Text = "Misc";
             // 
             // statusStrip1
             // 
@@ -487,8 +487,8 @@
             // 
             this.toolStripStatusFilterMat.BackColor = System.Drawing.Color.Transparent;
             this.toolStripStatusFilterMat.Name = "toolStripStatusFilterMat";
-            this.toolStripStatusFilterMat.Size = new System.Drawing.Size(234, 17);
-            this.toolStripStatusFilterMat.Text = "Для работы загрузите ZEN или 3DS файл.";
+            this.toolStripStatusFilterMat.Size = new System.Drawing.Size(255, 17);
+            this.toolStripStatusFilterMat.Text = "Load any ZEN or 3DS to activate Materials Filter";
             // 
             // groupBoxFilterMenu
             // 
@@ -511,7 +511,7 @@
             this.buttonMatFilter_RemoveFilter.Name = "buttonMatFilter_RemoveFilter";
             this.buttonMatFilter_RemoveFilter.Size = new System.Drawing.Size(159, 23);
             this.buttonMatFilter_RemoveFilter.TabIndex = 13;
-            this.buttonMatFilter_RemoveFilter.Text = "Удалить фильтр";
+            this.buttonMatFilter_RemoveFilter.Text = "Remove filter";
             this.buttonMatFilter_RemoveFilter.UseVisualStyleBackColor = true;
             this.buttonMatFilter_RemoveFilter.Click += new System.EventHandler(this.buttonMatFilter_RemoveFilter_Click);
             // 
@@ -529,7 +529,7 @@
             this.Name = "MaterialFilterForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Фильтр материалов";
+            this.Text = "Materials filter";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MaterialFilterForm_FormClosing);
             this.tabControlMatFilter.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
