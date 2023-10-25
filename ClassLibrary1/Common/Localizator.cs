@@ -29,7 +29,7 @@ namespace SpacerUnion.Common
         {
             if (curLang == lang)
             {
-                dontUpdateNext = true;
+               // dontUpdateNext = true;
             }
             curLang = lang;
             Imports.Extern_ClearLangStrings();

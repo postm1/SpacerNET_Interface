@@ -126,6 +126,7 @@ namespace SpacerUnion
             //SpacerNET.objTreeWin.matTree.Nodes.Clear();
             SpacerNET.objTreeWin.quickTree.Nodes.Clear();
             SpacerNET.objectsWin.BlockInterfaceWhileCameraMoving(false);
+            SpacerNET.objectsWin.Reset();
 
             SpacerNET.vobList.ClearListBox();
             ObjectsWindow.CleanProps();
@@ -2022,6 +2023,55 @@ namespace SpacerUnion
                 toolStripButtonTree.Checked = active;
             }
 
+            
+        }
+
+        private void dayTimeToolStrip_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void toolStripTextTimeSet_TextChanged(object sender, EventArgs e)
+        {
+
+            
+        }
+
+        private void toolStripTextTimeSet_KeyDown(object sender, KeyEventArgs e)
+        {
+
+           
+        }
+
+        private void toolStripTextTimeSet_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                var box = sender as ToolStripTextBox;
+
+
+                string text = box.Text.Trim();
+
+                if (text.Contains(' '))
+                {
+                    var split = text.Split(' ');
+
+                    if (split.Length == 2)
+                    {
+                        int h = 0;
+                        int m = 0;
+
+                        if (int.TryParse(split[0], out h))
+                        {
+                            if (int.TryParse(split[1], out m))
+                            {
+                                Imports.Extern_SetTime(h, m);
+                            }
+                        }
+                    }
+
+                }
+            }
             
         }
     }

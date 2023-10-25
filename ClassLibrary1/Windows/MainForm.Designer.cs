@@ -112,6 +112,7 @@
             this.toolStripButtonNoGrass = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonMacros = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFilter = new System.Windows.Forms.ToolStripButton();
+            this.toolStripTextTimeSet = new System.Windows.Forms.ToolStripTextBox();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -393,10 +394,12 @@
             this.ToolStripMenuTimeDay,
             this.ToolStripMenuTimeEvening,
             this.ToolStripMenuTimeNight,
-            this.freezeTimeToolStripMenuItem});
+            this.freezeTimeToolStripMenuItem,
+            this.toolStripTextTimeSet});
             this.dayTimeToolStrip.Name = "dayTimeToolStrip";
-            this.dayTimeToolStrip.Size = new System.Drawing.Size(180, 22);
+            this.dayTimeToolStrip.Size = new System.Drawing.Size(202, 22);
             this.dayTimeToolStrip.Text = "Day time";
+            this.dayTimeToolStrip.TextChanged += new System.EventHandler(this.dayTimeToolStrip_TextChanged);
             // 
             // ToolStripMenuTimeMorning
             // 
@@ -856,6 +859,15 @@
             this.toolStripButtonFilter.Text = "MatFilter";
             this.toolStripButtonFilter.Click += new System.EventHandler(this.toolStripButtonFilter_Click);
             // 
+            // toolStripTextTimeSet
+            // 
+            this.toolStripTextTimeSet.Name = "toolStripTextTimeSet";
+            this.toolStripTextTimeSet.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextTimeSet.Text = "06 00";
+            this.toolStripTextTimeSet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextTimeSet_KeyDown);
+            this.toolStripTextTimeSet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripTextTimeSet_KeyPress);
+            this.toolStripTextTimeSet.TextChanged += new System.EventHandler(this.toolStripTextTimeSet_TextChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -970,5 +982,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonMacros;
         private System.Windows.Forms.ToolStripButton toolStripButtonFilter;
         private System.Windows.Forms.ToolStripMenuItem preset2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextTimeSet;
     }
 }
