@@ -4042,7 +4042,10 @@ namespace SpacerUnion
             SpacerNET.objectsWin.textBoxLightVobPresetName.Text = "";
 
             if (SpacerNET.objectsWin.listBoxLightPresets.SelectedItem != null)
-                Imports.Extern_Light_QueryPresetData(SpacerNET.objectsWin.listBoxLightPresets.SelectedItem.ToString());
+            {
+                Imports.Stack_PushString(SpacerNET.objectsWin.listBoxLightPresets.SelectedItem.ToString());
+                Imports.Extern_Light_QueryPresetData();
+            }
         }
 
         private void PushLightPresetData()
@@ -4091,7 +4094,8 @@ namespace SpacerUnion
             PushLightPresetData();
             Imports.Stack_PushString(textBoxLightVobName.Text);
 
-            if (Imports.Extern_Light_ApplyChanges(listBoxLightPresets.SelectedItem != null ? listBoxLightPresets.SelectedItem.ToString() : "") == 1)
+            Imports.Stack_PushString(listBoxLightPresets.SelectedItem != null ? listBoxLightPresets.SelectedItem.ToString() : "");
+            if (Imports.Extern_Light_ApplyChanges() == 1)
                 buttonSaveChangesLight.Enabled = true;
         }
         private void buttonSaveChangesLight_Click(object sender, EventArgs e)
@@ -4151,7 +4155,8 @@ namespace SpacerUnion
             if (listBoxLightPresets.SelectedItem == null)
                 return;
 
-            Imports.Extern_Light_QueryPresetData(listBoxLightPresets.SelectedItem.ToString());
+            Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
+            Imports.Extern_Light_QueryPresetData();
         }
 
         private void listBoxLightPresetColors_DrawItem(object sender, DrawItemEventArgs e)
@@ -4281,7 +4286,8 @@ namespace SpacerUnion
             buttonSaveChangesLight.Enabled = true;
 
             PushLightPresetData();
-            Imports.Extern_Light_AddPreset(presetName);
+            Imports.Stack_PushString(presetName);
+            Imports.Extern_Light_AddPreset();
         }
 
         private void buttonDeleteSelectedLightPreset_Click(object sender, EventArgs e)
@@ -4289,7 +4295,8 @@ namespace SpacerUnion
             if (listBoxLightPresets.SelectedIndex == -1)
                 return;
 
-            Imports.Extern_Light_DeletePreset(listBoxLightPresets.SelectedItem.ToString());
+            Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
+            Imports.Extern_Light_DeletePreset();
             listBoxLightPresets.Items.RemoveAt(listBoxLightPresets.SelectedIndex);
 
             buttonSaveChangesLight.Enabled = true;
@@ -4324,7 +4331,9 @@ namespace SpacerUnion
                 return;
             }
 
-            Imports.Extern_Light_UpdatePresetName(listBoxLightPresets.Items[index].ToString(), text);
+            Imports.Stack_PushString(text);
+            Imports.Stack_PushString(listBoxLightPresets.Items[index].ToString());
+            Imports.Extern_Light_UpdatePresetName();
             listBoxLightPresets.Items[index] = text;
         }
         private void buttonUpdateLightPresetOnLightVobs_Click(object sender, EventArgs e)
@@ -4332,7 +4341,8 @@ namespace SpacerUnion
             if (listBoxLightPresets.SelectedItem == null)
                 return;
 
-            Imports.Extern_Light_ApplyPresetOnLightVobs(listBoxLightPresets.SelectedItem.ToString());
+            Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
+            Imports.Extern_Light_ApplyPresetOnLightVobs();
         }
 
         private void buttonUpdateLightPresetFromLightVob_Click(object sender, EventArgs e)
@@ -4340,7 +4350,8 @@ namespace SpacerUnion
             if (listBoxLightPresets.SelectedItem == null)
                 return;
 
-            if (Imports.Extern_Light_UpdatePresetFromLightVob(listBoxLightPresets.SelectedItem.ToString()) == 1)
+            Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
+            if (Imports.Extern_Light_UpdatePresetFromLightVob() == 1)
                 buttonSaveChangesLight.Enabled = true;
         }
 
@@ -4349,7 +4360,8 @@ namespace SpacerUnion
             if (listBoxLightPresets.SelectedItem == null)
                 return;
 
-            Imports.Extern_Light_UsePresetOnLightVob(listBoxLightPresets.SelectedItem.ToString());
+            Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
+            Imports.Extern_Light_UsePresetOnLightVob();
         }
 
         private void checkBoxShowLightVobRadius_CheckedChanged(object sender, EventArgs e)
