@@ -4340,7 +4340,7 @@ namespace SpacerUnion
             if (listBoxLightPresets.SelectedItem == null)
                 return;
 
-            if (Imports.Extern_Light_UpdatePresetFromLightVob() == 1)
+            if (Imports.Extern_Light_UpdatePresetFromLightVob(listBoxLightPresets.SelectedItem.ToString()) == 1)
                 buttonSaveChangesLight.Enabled = true;
         }
 

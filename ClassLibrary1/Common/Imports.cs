@@ -465,7 +465,7 @@ namespace SpacerUnion.Common
         public static extern void Extern_Light_ApplyPresetOnLightVobs(string presetName);
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int Extern_Light_UpdatePresetFromLightVob();
+        public static extern int Extern_Light_UpdatePresetFromLightVob(string presetName);
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_Light_UsePresetOnLightVob(string presetName);
