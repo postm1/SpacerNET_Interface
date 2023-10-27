@@ -579,9 +579,11 @@ namespace SpacerUnion.Common
             words.Add("labelLightPresetName", new List<string> { "Имя пресета (обязательно)", "Preset name (mandatory)", "Preset name (verpflichtend)", "Nazwa presetu (obowiązkowa)" });
             words.Add("buttonNewLightPreset", new List<string> { "Новый пресет", "New preset", "Neue preset", "Nowy preset" });
             words.Add("buttonDeleteSelectedLightPreset", new List<string> { "Удалить выбранный пресет", "Delete selected preset", "Löschen ausgewählte preset", "Usuń wybrany preset" });
+            words.Add("buttonSaveLightPresets", new List<string> { "Сохранить пресеты", "Save presets", "Presets speichern", "Zapisz presety" });
             words.Add("buttonUpdateLightPresetOnLightVobs", new List<string> { "Обновить пресет на все lightvobs", "Update preset on lightvobs", "Preset auf lightvobs aktualisieren", "Zaktualizuj preset na lightvobach" });
             words.Add("buttonUpdateLightPresetFromVob", new List<string> { "Обновить пресет из lightvob <<", "Update preset from lightvob <<", "Preset von lightvob aktualisieren <<", "Zaktualizuj preset z lightvoba <<" });
             words.Add("buttonUsePresetOnLightVob", new List<string> { "Применить пресет на lightvob >>", "Use preset on lightvob >>", "Preset auf lightvob verwenden >>", "Użyj presetu na lightvobie >>" });
+            words.Add("buttonCreateLightVob", new List<string> { "Создать LightVob", "Create LightVob", "LightVob erschaffen", "Utwórz LightVob" });
             words.Add("groupBoxLightSelected_Preset", new List<string> { "Выбранный пресет", "Selected preset", "Ausgewählter preset", "Wybrany preset" });
             words.Add("groupBoxLightSelected_LightVob", new List<string> { "Выбранный lightvob", "Selected lightvob", "Ausgewählter lightvob", "Wybrany lightvob" });
             words.Add("labelLightVobName", new List<string> { "Имя воба:", "Vob name:", "Vob name:", "Nazwa Voba:" });
