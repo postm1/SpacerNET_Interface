@@ -4097,6 +4097,7 @@ namespace SpacerUnion
         }
         private void buttonCreateLightVob_Click(object sender, EventArgs e)
         {
+            Imports.Stack_PushString(listBoxLightPresets.SelectedItem != null ? listBoxLightPresets.SelectedItem.ToString() : "");
             Imports.Stack_PushString(textBoxLightVobName.Text);
             Imports.Extern_Light_CreateVob();
         }
