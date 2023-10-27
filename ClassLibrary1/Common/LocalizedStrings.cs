@@ -98,7 +98,7 @@ namespace SpacerUnion.Common
             words.Add("WIN_COMPLIGHT_QUALITY", new List<string> { "Качество", "Quality", "Qualität", "Jakość" });
             words.Add("WIN_COMPLIGHT_COMPILEBUTTON", new List<string> { "Компилировать", "Compile", "Kompilieren", "Kompiluj" });
 
-            words.Add("WIN_INPUT", new List<string> { "Вход", "Input", "Eingabe", "Wejście" });
+            words.Add("WIN_INPUT", new List<string> { "Ввод", "Input", "Eingabe", "Wejście" });
             words.Add("WIN_CANCEL_BUTTON", new List<string> { "Отмена", "Cancel", "Abbrechen", "Anuluj" });
             words.Add("WIN_COMPLIGHT_CLOSEBUTTON", new List<string> { "Закрыть", "Close", "Schließen", "Zamknij" });
             words.Add("WIN_COMPLIGHT_REGION", new List<string> { "Регион", "Region", "Region", "Region" });
@@ -145,7 +145,7 @@ namespace SpacerUnion.Common
             words.Add("UNION_MESH_LOADED", new List<string> { "Меш загружен", "Mesh is loaded", "Mesh geladen", "Mesh jest załadowany" });
             words.Add("UNION_MESH_READY", new List<string> { "Меш и вобы объединены. Скомпилируйте мир", "Mesh and vobs were merged. Compile the world", "Mesh und Vobs verbunden. Bitte Welt kompilieren!", "Mesh i voby zostały połączone. Skompiluj świat." });
             words.Add("UNION_EDITOR", new List<string> { "Редактор для ZenGin", "Editor for ZenGin", "Editor für ZenGin", "Edytor dla ZenGine" });
-            words.Add("UNION_TEAM", new List<string> { "Разработчик: Liker. Помогали: Haart & Saturas & Gratt & Jr", "Author: Liker. Assistance from: Haart & Saturas & Gratt & Jr", "Entwicklerteam: Liker & Haart & Saturas & Gratt & Jr", "Deweloperzy: Liker & Haart & Saturas & Gratt & Jr" });
+            words.Add("UNION_TEAM", new List<string> { "Разработчик: Liker. Помогали: Patrix & Haart & Saturas & Gratt & Jr", "Author: Liker. Assistance from: Patrix & Haart & Saturas & Gratt & Jr", "Entwicklerteam: Liker & Patrix &Haart & Saturas & Gratt & Jr", "Deweloperzy: Liker & Patrix & Haart & Saturas & Gratt & Jr" });
             words.Add("UNION_DATE_COMPILE", new List<string> { "Дата компиляции: ", "Compilation date: ", "Datum der Kompilation: ", "Data kompilacji: " });
             words.Add("UNION_RESOLUTION", new List<string> { "Разрешение рендера: ", "Render resolution: ", "Rendererauflösung: ", "Rozdzielczość renderowania: " });
             words.Add("UNION_NOWORLD", new List<string> { "Мир не загружен", "World is not loaded", "Welt wurde nicht geladen", "Świat nie został wczytany." });
@@ -575,15 +575,15 @@ namespace SpacerUnion.Common
             words.Add("checkBoxCameraHide", new List<string> { "Скрывать вобы в полете", "Hide vobs while camera active", "", "Ukryj voby, gdy kamera jest aktywna" });
             words.Add("labelCamGotoKey", new List<string> { "Перейти к ключу: ", "Go to key", "", "Przejdź do klatki" });
 
-            words.Add("groupBoxLightPresetProperties", new List<string> { "Предустановленные свойства", "Preset properties", "Preset eigenschaften", "Właściwości presetu" });
-            words.Add("labelLightPresetName", new List<string> { "Имя предустановки (обязательно)", "Preset name (mandatory)", "Preset name (verpflichtend)", "Nazwa presetu (obowiązkowa)" });
+            words.Add("groupBoxLightPresetProperties", new List<string> { "Свойства пресета", "Preset properties", "Preset eigenschaften", "Właściwości presetu" });
+            words.Add("labelLightPresetName", new List<string> { "Имя пресета (обязательно)", "Preset name (mandatory)", "Preset name (verpflichtend)", "Nazwa presetu (obowiązkowa)" });
             words.Add("buttonNewLightPreset", new List<string> { "Новый пресет", "New preset", "Neue preset", "Nowy preset" });
-            words.Add("buttonDeleteSelectedLightPreset", new List<string> { "Удалить выбранную предустановку", "Delete selected preset", "Löschen ausgewählte preset", "Usuń wybrany preset" });
-            words.Add("buttonUpdateLightPresetOnLightVobs", new List<string> { "Обновить пресет на lightvobs", "Update preset on lightvobs", "Preset auf lightvobs aktualisieren", "Zaktualizuj preset na lightvobach" });
+            words.Add("buttonDeleteSelectedLightPreset", new List<string> { "Удалить выбранный пресет", "Delete selected preset", "Löschen ausgewählte preset", "Usuń wybrany preset" });
+            words.Add("buttonUpdateLightPresetOnLightVobs", new List<string> { "Обновить пресет на все lightvobs", "Update preset on lightvobs", "Preset auf lightvobs aktualisieren", "Zaktualizuj preset na lightvobach" });
             words.Add("buttonUpdateLightPresetFromVob", new List<string> { "Обновить пресет из lightvob <<", "Update preset from lightvob <<", "Preset von lightvob aktualisieren <<", "Zaktualizuj preset z lightvoba <<" });
-            words.Add("buttonUsePresetOnLightVob", new List<string> { "Используйте пресет на lightvob >>", "Use preset on lightvob >>", "Preset auf lightvob verwenden >>", "Użyj presetu na lightvobie >>" });
+            words.Add("buttonUsePresetOnLightVob", new List<string> { "Применить пресет на lightvob >>", "Use preset on lightvob >>", "Preset auf lightvob verwenden >>", "Użyj presetu na lightvobie >>" });
             words.Add("groupBoxLightSelected_Preset", new List<string> { "Выбранный пресет", "Selected preset", "Ausgewählter preset", "Wybrany preset" });
-            words.Add("groupBoxLightSelected_LightVob", new List<string> { "Выбранный лайтвоб", "Selected lightvob", "Ausgewählter lightvob", "Wybrany lightvob" });
+            words.Add("groupBoxLightSelected_LightVob", new List<string> { "Выбранный lightvob", "Selected lightvob", "Ausgewählter lightvob", "Wybrany lightvob" });
             words.Add("labelLightVobName", new List<string> { "Имя воба:", "Vob name:", "Vob name:", "Nazwa Voba:" });
             words.Add("groupBoxLightType", new List<string> { "Тип света", "Light type", "Licht typ", "Rodzaj światła" });
             words.Add("checkBoxShowLightVobRadius", new List<string> { "Показать радиус", "Show radius", "Radius anzeigen", "Pokaż zasięg" });
