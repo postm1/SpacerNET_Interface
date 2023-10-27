@@ -2156,9 +2156,9 @@
             this.comboBoxLightVobLightQuality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxLightVobLightQuality.FormattingEnabled = true;
             this.comboBoxLightVobLightQuality.Items.AddRange(new object[] {
-            "quality",
-            "mid",
-            "speed"});
+            "HIGH",
+            "MEDIUM",
+            "LOW_FASTEST"});
             this.comboBoxLightVobLightQuality.Location = new System.Drawing.Point(260, 90);
             this.comboBoxLightVobLightQuality.Name = "comboBoxLightVobLightQuality";
             this.comboBoxLightVobLightQuality.Size = new System.Drawing.Size(129, 21);
