@@ -88,18 +88,18 @@
             this.labelTrans.AutoSize = true;
             this.labelTrans.Location = new System.Drawing.Point(6, 19);
             this.labelTrans.Name = "labelTrans";
-            this.labelTrans.Size = new System.Drawing.Size(93, 13);
+            this.labelTrans.Size = new System.Drawing.Size(86, 13);
             this.labelTrans.TabIndex = 1;
-            this.labelTrans.Text = "Скорость полета";
+            this.labelTrans.Text = "Moving speed: 0";
             // 
             // labelRot
             // 
             this.labelRot.AutoSize = true;
             this.labelRot.Location = new System.Drawing.Point(6, 69);
             this.labelRot.Name = "labelRot";
-            this.labelRot.Size = new System.Drawing.Size(105, 13);
+            this.labelRot.Size = new System.Drawing.Size(91, 13);
             this.labelRot.TabIndex = 2;
-            this.labelRot.Text = "Скорость поворота";
+            this.labelRot.Text = "Rotation speed: 0";
             // 
             // trackBarRotSpeed
             // 
@@ -117,9 +117,9 @@
             this.labelWorld.AutoSize = true;
             this.labelWorld.Location = new System.Drawing.Point(9, 19);
             this.labelWorld.Name = "labelWorld";
-            this.labelWorld.Size = new System.Drawing.Size(28, 13);
+            this.labelWorld.Size = new System.Drawing.Size(65, 13);
             this.labelWorld.TabIndex = 4;
-            this.labelWorld.Text = "Мир";
+            this.labelWorld.Text = "World: 1000";
             // 
             // trackBarVobs
             // 
@@ -138,9 +138,9 @@
             this.labelVobs.AutoSize = true;
             this.labelVobs.Location = new System.Drawing.Point(9, 76);
             this.labelVobs.Name = "labelVobs";
-            this.labelVobs.Size = new System.Drawing.Size(34, 13);
+            this.labelVobs.Size = new System.Drawing.Size(61, 13);
             this.labelVobs.TabIndex = 6;
-            this.labelVobs.Text = "Вобы";
+            this.labelVobs.Text = "Vobs: 1000";
             // 
             // trackBarWorld
             // 
@@ -170,7 +170,7 @@
             this.groupBoxCam.Size = new System.Drawing.Size(298, 213);
             this.groupBoxCam.TabIndex = 8;
             this.groupBoxCam.TabStop = false;
-            this.groupBoxCam.Text = "Камера";
+            this.groupBoxCam.Text = "Camera";
             // 
             // textBoxCamSlerp
             // 
@@ -185,9 +185,9 @@
             this.labelCamSetSlerp.AutoSize = true;
             this.labelCamSetSlerp.Location = new System.Drawing.Point(6, 124);
             this.labelCamSetSlerp.Name = "labelCamSetSlerp";
-            this.labelCamSetSlerp.Size = new System.Drawing.Size(155, 13);
+            this.labelCamSetSlerp.Size = new System.Drawing.Size(144, 13);
             this.labelCamSetSlerp.TabIndex = 9;
-            this.labelCamSetSlerp.Text = "Плавность поворота камеры";
+            this.labelCamSetSlerp.Text = "Camera rotation smoothing: 0";
             // 
             // textBoxCamRot
             // 
@@ -230,7 +230,7 @@
             this.groupBoxRange.Size = new System.Drawing.Size(298, 144);
             this.groupBoxRange.TabIndex = 9;
             this.groupBoxRange.TabStop = false;
-            this.groupBoxRange.Text = "Прорисовка";
+            this.groupBoxRange.Text = "Rendering range";
             // 
             // textBoxVobsRange
             // 
@@ -256,7 +256,7 @@
             this.btnSetCamApply.Name = "btnSetCamApply";
             this.btnSetCamApply.Size = new System.Drawing.Size(115, 23);
             this.btnSetCamApply.TabIndex = 10;
-            this.btnSetCamApply.Text = "Применить";
+            this.btnSetCamApply.Text = "Apply";
             this.btnSetCamApply.UseVisualStyleBackColor = true;
             this.btnSetCamApply.Click += new System.EventHandler(this.Применить_Click);
             // 
@@ -278,16 +278,16 @@
             this.groupBoxInfo.Size = new System.Drawing.Size(301, 363);
             this.groupBoxInfo.TabIndex = 10;
             this.groupBoxInfo.TabStop = false;
-            this.groupBoxInfo.Text = "Информация";
+            this.groupBoxInfo.Text = "Information";
             // 
             // checkBoxCamShowPortalsInfo
             // 
             this.checkBoxCamShowPortalsInfo.AutoSize = true;
             this.checkBoxCamShowPortalsInfo.Location = new System.Drawing.Point(9, 205);
             this.checkBoxCamShowPortalsInfo.Name = "checkBoxCamShowPortalsInfo";
-            this.checkBoxCamShowPortalsInfo.Size = new System.Drawing.Size(216, 17);
+            this.checkBoxCamShowPortalsInfo.Size = new System.Drawing.Size(107, 17);
             this.checkBoxCamShowPortalsInfo.TabIndex = 11;
-            this.checkBoxCamShowPortalsInfo.Text = "Показывать информацию о порталах";
+            this.checkBoxCamShowPortalsInfo.Text = "Show portals info";
             this.checkBoxCamShowPortalsInfo.UseVisualStyleBackColor = true;
             this.checkBoxCamShowPortalsInfo.CheckedChanged += new System.EventHandler(this.checkBoxCamShowPortalsInfo_CheckedChanged);
             // 
@@ -317,18 +317,18 @@
             this.labelSpeedPreview.AutoSize = true;
             this.labelSpeedPreview.Location = new System.Drawing.Point(9, 19);
             this.labelSpeedPreview.Name = "labelSpeedPreview";
-            this.labelSpeedPreview.Size = new System.Drawing.Size(191, 13);
+            this.labelSpeedPreview.Size = new System.Drawing.Size(164, 13);
             this.labelSpeedPreview.TabIndex = 4;
-            this.labelSpeedPreview.Text = "Скорость вращение превью-модели";
+            this.labelSpeedPreview.Text = "Model preview rotation speed: 10";
             // 
             // labelLimitFPS
             // 
             this.labelLimitFPS.AutoSize = true;
             this.labelLimitFPS.Location = new System.Drawing.Point(7, 183);
             this.labelLimitFPS.Name = "labelLimitFPS";
-            this.labelLimitFPS.Size = new System.Drawing.Size(89, 13);
+            this.labelLimitFPS.Size = new System.Drawing.Size(51, 13);
             this.labelLimitFPS.TabIndex = 8;
-            this.labelLimitFPS.Text = "Ограничить FPS";
+            this.labelLimitFPS.Text = "FPS Limit";
             // 
             // textBoxLimitFPS
             // 
@@ -344,9 +344,9 @@
             this.checkBoxCameraHideWins.AutoSize = true;
             this.checkBoxCameraHideWins.Location = new System.Drawing.Point(9, 157);
             this.checkBoxCameraHideWins.Name = "checkBoxCameraHideWins";
-            this.checkBoxCameraHideWins.Size = new System.Drawing.Size(205, 17);
+            this.checkBoxCameraHideWins.Size = new System.Drawing.Size(196, 17);
             this.checkBoxCameraHideWins.TabIndex = 6;
-            this.checkBoxCameraHideWins.Text = "Скрывать окна при полете камеры";
+            this.checkBoxCameraHideWins.Text = "Hide windows when moving camera";
             this.checkBoxCameraHideWins.UseVisualStyleBackColor = true;
             this.checkBoxCameraHideWins.CheckedChanged += new System.EventHandler(this.checkBoxCameraHideWins_CheckedChanged);
             // 
@@ -355,9 +355,9 @@
             this.checkBoxDistVob.AutoSize = true;
             this.checkBoxDistVob.Location = new System.Drawing.Point(9, 134);
             this.checkBoxDistVob.Name = "checkBoxDistVob";
-            this.checkBoxDistVob.Size = new System.Drawing.Size(257, 17);
+            this.checkBoxDistVob.Size = new System.Drawing.Size(172, 17);
             this.checkBoxDistVob.TabIndex = 5;
-            this.checkBoxDistVob.Text = "Показывать расстояние до выбранного воба";
+            this.checkBoxDistVob.Text = "Show distance to selected vob";
             this.checkBoxDistVob.UseVisualStyleBackColor = true;
             this.checkBoxDistVob.CheckedChanged += new System.EventHandler(this.checkBoxDistVob_CheckedChanged);
             // 
@@ -366,9 +366,9 @@
             this.checkBoxWaypoints.AutoSize = true;
             this.checkBoxWaypoints.Location = new System.Drawing.Point(9, 111);
             this.checkBoxWaypoints.Name = "checkBoxWaypoints";
-            this.checkBoxWaypoints.Size = new System.Drawing.Size(187, 17);
+            this.checkBoxWaypoints.Size = new System.Drawing.Size(133, 17);
             this.checkBoxWaypoints.TabIndex = 4;
-            this.checkBoxWaypoints.Text = "Показывать кол-во вейпоинтов";
+            this.checkBoxWaypoints.Text = "Show waypoints count";
             this.checkBoxWaypoints.UseVisualStyleBackColor = true;
             this.checkBoxWaypoints.CheckedChanged += new System.EventHandler(this.checkBoxWaypoints_CheckedChanged);
             // 
@@ -377,9 +377,9 @@
             this.checkBoxVobs.AutoSize = true;
             this.checkBoxVobs.Location = new System.Drawing.Point(9, 88);
             this.checkBoxVobs.Name = "checkBoxVobs";
-            this.checkBoxVobs.Size = new System.Drawing.Size(158, 17);
+            this.checkBoxVobs.Size = new System.Drawing.Size(109, 17);
             this.checkBoxVobs.TabIndex = 3;
-            this.checkBoxVobs.Text = "Показывать кол-во вобов";
+            this.checkBoxVobs.Text = "Show vobs count";
             this.checkBoxVobs.UseVisualStyleBackColor = true;
             this.checkBoxVobs.CheckedChanged += new System.EventHandler(this.checkBoxVobs_CheckedChanged);
             // 
@@ -388,9 +388,9 @@
             this.checkBoxCamCoord.AutoSize = true;
             this.checkBoxCamCoord.Location = new System.Drawing.Point(9, 65);
             this.checkBoxCamCoord.Name = "checkBoxCamCoord";
-            this.checkBoxCamCoord.Size = new System.Drawing.Size(232, 17);
+            this.checkBoxCamCoord.Size = new System.Drawing.Size(149, 17);
             this.checkBoxCamCoord.TabIndex = 2;
-            this.checkBoxCamCoord.Text = "Показывать координаты камеры и воба";
+            this.checkBoxCamCoord.Text = "Show camera coordinates";
             this.checkBoxCamCoord.UseVisualStyleBackColor = true;
             this.checkBoxCamCoord.CheckedChanged += new System.EventHandler(this.checkBoxCamCoord_CheckedChanged);
             // 
@@ -399,9 +399,9 @@
             this.checkBoxTris.AutoSize = true;
             this.checkBoxTris.Location = new System.Drawing.Point(9, 42);
             this.checkBoxTris.Name = "checkBoxTris";
-            this.checkBoxTris.Size = new System.Drawing.Size(256, 17);
+            this.checkBoxTris.Size = new System.Drawing.Size(140, 17);
             this.checkBoxTris.TabIndex = 1;
-            this.checkBoxTris.Text = "Показывать кол-во рисуемых треугольников";
+            this.checkBoxTris.Text = "Show rendered triangles";
             this.checkBoxTris.UseVisualStyleBackColor = true;
             this.checkBoxTris.CheckedChanged += new System.EventHandler(this.checkBoxTris_CheckedChanged);
             // 
@@ -410,9 +410,9 @@
             this.checkBoxFPS.AutoSize = true;
             this.checkBoxFPS.Location = new System.Drawing.Point(9, 19);
             this.checkBoxFPS.Name = "checkBoxFPS";
-            this.checkBoxFPS.Size = new System.Drawing.Size(112, 17);
+            this.checkBoxFPS.Size = new System.Drawing.Size(76, 17);
             this.checkBoxFPS.TabIndex = 0;
-            this.checkBoxFPS.Text = "Показывать FPS";
+            this.checkBoxFPS.Text = "Show FPS";
             this.checkBoxFPS.UseVisualStyleBackColor = true;
             this.checkBoxFPS.CheckedChanged += new System.EventHandler(this.checkBoxFPS_CheckedChanged);
             // 
@@ -433,7 +433,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Настройки камеры";
+            this.Text = "Camera settings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsCamera_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SettingsCamera_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SettingsCamera_KeyPress);

@@ -47,9 +47,9 @@
             this.labelTextShow.AutoSize = true;
             this.labelTextShow.Location = new System.Drawing.Point(12, 26);
             this.labelTextShow.Name = "labelTextShow";
-            this.labelTextShow.Size = new System.Drawing.Size(75, 13);
+            this.labelTextShow.Size = new System.Drawing.Size(82, 13);
             this.labelTextShow.TabIndex = 1;
-            this.labelTextShow.Text = "Введите имя:";
+            this.labelTextShow.Text = "Enter the name:";
             // 
             // buttonConfirmYes
             // 
@@ -57,7 +57,7 @@
             this.buttonConfirmYes.Name = "buttonConfirmYes";
             this.buttonConfirmYes.Size = new System.Drawing.Size(94, 23);
             this.buttonConfirmYes.TabIndex = 2;
-            this.buttonConfirmYes.Text = "Подтвердить";
+            this.buttonConfirmYes.Text = "Confirm";
             this.buttonConfirmYes.UseVisualStyleBackColor = true;
             this.buttonConfirmYes.Click += new System.EventHandler(this.buttonConfirmYes_Click);
             // 
@@ -67,7 +67,7 @@
             this.buttonConfirmNo.Name = "buttonConfirmNo";
             this.buttonConfirmNo.Size = new System.Drawing.Size(95, 23);
             this.buttonConfirmNo.TabIndex = 3;
-            this.buttonConfirmNo.Text = "Закрыть";
+            this.buttonConfirmNo.Text = "Close";
             this.buttonConfirmNo.UseVisualStyleBackColor = true;
             this.buttonConfirmNo.Click += new System.EventHandler(this.buttonConfirmNo_Click);
             // 

@@ -43,7 +43,7 @@
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(101, 23);
             this.buttonClose.TabIndex = 0;
-            this.buttonClose.Text = "Применить";
+            this.buttonClose.Text = "Apply";
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
@@ -80,14 +80,14 @@
             // 
             // Column1
             // 
-            this.Column1.HeaderText = "Описание";
+            this.Column1.HeaderText = "Description";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Width = 350;
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Сочетание";
+            this.Column2.HeaderText = "Bind";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             this.Column2.Width = 190;
@@ -98,7 +98,7 @@
             this.buttonKeysResetDefault.Name = "buttonKeysResetDefault";
             this.buttonKeysResetDefault.Size = new System.Drawing.Size(170, 23);
             this.buttonKeysResetDefault.TabIndex = 6;
-            this.buttonKeysResetDefault.Text = "Сбросить по-умолчанию";
+            this.buttonKeysResetDefault.Text = "Reset default";
             this.buttonKeysResetDefault.UseVisualStyleBackColor = true;
             this.buttonKeysResetDefault.Click += new System.EventHandler(this.buttonKeysResetDefault_Click);
             // 
@@ -119,7 +119,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Сочетания клавиш";
+            this.Text = "Keys binding";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.KeysForm_FormClosing);
             this.Shown += new System.EventHandler(this.KeysForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridKeys)).EndInit();

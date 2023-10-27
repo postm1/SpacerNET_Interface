@@ -55,17 +55,17 @@
             this.groupBoxQuality.Size = new System.Drawing.Size(177, 200);
             this.groupBoxQuality.TabIndex = 0;
             this.groupBoxQuality.TabStop = false;
-            this.groupBoxQuality.Text = "Качество";
+            this.groupBoxQuality.Text = "Quality";
             // 
             // radioButtonHigh
             // 
             this.radioButtonHigh.AutoSize = true;
             this.radioButtonHigh.Location = new System.Drawing.Point(18, 138);
             this.radioButtonHigh.Name = "radioButtonHigh";
-            this.radioButtonHigh.Size = new System.Drawing.Size(126, 17);
+            this.radioButtonHigh.Size = new System.Drawing.Size(102, 17);
             this.radioButtonHigh.TabIndex = 3;
             this.radioButtonHigh.TabStop = true;
-            this.radioButtonHigh.Text = "Lightmaps (высокое)";
+            this.radioButtonHigh.Text = "Lightmaps (high)";
             this.radioButtonHigh.UseVisualStyleBackColor = true;
             // 
             // radioButtonMiddle
@@ -73,10 +73,10 @@
             this.radioButtonMiddle.AutoSize = true;
             this.radioButtonMiddle.Location = new System.Drawing.Point(18, 115);
             this.radioButtonMiddle.Name = "radioButtonMiddle";
-            this.radioButtonMiddle.Size = new System.Drawing.Size(124, 17);
+            this.radioButtonMiddle.Size = new System.Drawing.Size(118, 17);
             this.radioButtonMiddle.TabIndex = 2;
             this.radioButtonMiddle.TabStop = true;
-            this.radioButtonMiddle.Text = "Lightmaps (среднее)";
+            this.radioButtonMiddle.Text = "Lightmaps (medium)";
             this.radioButtonMiddle.UseVisualStyleBackColor = true;
             // 
             // radioButtonLow
@@ -84,10 +84,10 @@
             this.radioButtonLow.AutoSize = true;
             this.radioButtonLow.Location = new System.Drawing.Point(18, 92);
             this.radioButtonLow.Name = "radioButtonLow";
-            this.radioButtonLow.Size = new System.Drawing.Size(118, 17);
+            this.radioButtonLow.Size = new System.Drawing.Size(98, 17);
             this.radioButtonLow.TabIndex = 1;
             this.radioButtonLow.TabStop = true;
-            this.radioButtonLow.Text = "Lightmaps (низкое)";
+            this.radioButtonLow.Text = "Lightmaps (low)";
             this.radioButtonLow.UseVisualStyleBackColor = true;
             // 
             // radioButtonVertex
@@ -96,10 +96,10 @@
             this.radioButtonVertex.Checked = true;
             this.radioButtonVertex.Location = new System.Drawing.Point(18, 37);
             this.radioButtonVertex.Name = "radioButtonVertex";
-            this.radioButtonVertex.Size = new System.Drawing.Size(111, 17);
+            this.radioButtonVertex.Size = new System.Drawing.Size(85, 17);
             this.radioButtonVertex.TabIndex = 0;
             this.radioButtonVertex.TabStop = true;
-            this.radioButtonVertex.Text = "Только вершины";
+            this.radioButtonVertex.Text = "Vertices only";
             this.radioButtonVertex.UseVisualStyleBackColor = true;
             // 
             // buttonCompileLight
@@ -108,7 +108,7 @@
             this.buttonCompileLight.Name = "buttonCompileLight";
             this.buttonCompileLight.Size = new System.Drawing.Size(194, 27);
             this.buttonCompileLight.TabIndex = 1;
-            this.buttonCompileLight.Text = "Компилировать";
+            this.buttonCompileLight.Text = "Compile";
             this.buttonCompileLight.UseVisualStyleBackColor = true;
             this.buttonCompileLight.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -118,7 +118,7 @@
             this.buttonCompileLightClose.Name = "buttonCompileLightClose";
             this.buttonCompileLightClose.Size = new System.Drawing.Size(194, 26);
             this.buttonCompileLightClose.TabIndex = 2;
-            this.buttonCompileLightClose.Text = "Закрыть окно";
+            this.buttonCompileLightClose.Text = "Close";
             this.buttonCompileLightClose.UseVisualStyleBackColor = true;
             this.buttonCompileLightClose.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -133,16 +133,16 @@
             this.groupBoxRegion.Size = new System.Drawing.Size(194, 109);
             this.groupBoxRegion.TabIndex = 3;
             this.groupBoxRegion.TabStop = false;
-            this.groupBoxRegion.Text = "Регион";
+            this.groupBoxRegion.Text = "Region";
             // 
             // labelMeters
             // 
             this.labelMeters.AutoSize = true;
             this.labelMeters.Location = new System.Drawing.Point(91, 48);
             this.labelMeters.Name = "labelMeters";
-            this.labelMeters.Size = new System.Drawing.Size(44, 13);
+            this.labelMeters.Size = new System.Drawing.Size(38, 13);
             this.labelMeters.TabIndex = 3;
-            this.labelMeters.Text = "метров";
+            this.labelMeters.Text = "meters";
             // 
             // textBoxRadius
             // 
@@ -159,18 +159,18 @@
             this.labelAroundCamera.AutoSize = true;
             this.labelAroundCamera.Location = new System.Drawing.Point(15, 74);
             this.labelAroundCamera.Name = "labelAroundCamera";
-            this.labelAroundCamera.Size = new System.Drawing.Size(84, 13);
+            this.labelAroundCamera.Size = new System.Drawing.Size(96, 13);
             this.labelAroundCamera.TabIndex = 1;
-            this.labelAroundCamera.Text = "вокруг камеры";
+            this.labelAroundCamera.Text = "around the camera";
             // 
             // checkBoxCompileRegion
             // 
             this.checkBoxCompileRegion.AutoSize = true;
             this.checkBoxCompileRegion.Location = new System.Drawing.Point(18, 22);
             this.checkBoxCompileRegion.Name = "checkBoxCompileRegion";
-            this.checkBoxCompileRegion.Size = new System.Drawing.Size(144, 17);
+            this.checkBoxCompileRegion.Size = new System.Drawing.Size(95, 17);
             this.checkBoxCompileRegion.TabIndex = 0;
-            this.checkBoxCompileRegion.Text = "Компилировать регион";
+            this.checkBoxCompileRegion.Text = "Compile region";
             this.checkBoxCompileRegion.UseVisualStyleBackColor = true;
             this.checkBoxCompileRegion.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
@@ -191,7 +191,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Компиляция света";
+            this.Text = "Light compilation";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CompileLightWin_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CompileLightWin_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CompileLightWin_KeyPress);

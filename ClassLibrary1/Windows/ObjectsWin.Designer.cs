@@ -74,6 +74,7 @@
             this.radioButtonWork = new System.Windows.Forms.RadioButton();
             this.radioButtonVdf = new System.Windows.Forms.RadioButton();
             this.buttonAllClassesClear = new System.Windows.Forms.Button();
+            this.listBoxVisuals = new System.Windows.Forms.ListBox();
             this.labelSearchVisual = new System.Windows.Forms.Label();
             this.textBoxVisuals = new System.Windows.Forms.TextBox();
             this.classesTreeView = new System.Windows.Forms.TreeView();
@@ -180,39 +181,50 @@
             this.buttonCamTargetSpline = new System.Windows.Forms.Button();
             this.buttonCamSpline = new System.Windows.Forms.Button();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.panelLight = new System.Windows.Forms.Panel();
-            this.labelNotReady2 = new System.Windows.Forms.Label();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.listBox4 = new System.Windows.Forms.ListBox();
-            this.button21 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.button15 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.listBoxVisuals = new System.Windows.Forms.ListBox();
+            this.groupBoxLightRangeProperties = new System.Windows.Forms.GroupBox();
+            this.buttonMoveLightPresetRangeAniScaleUp = new System.Windows.Forms.Button();
+            this.buttonMoveLightPresetRangeAniScaleDown = new System.Windows.Forms.Button();
+            this.textBoxLightVobRangeAniFPS = new System.Windows.Forms.TextBox();
+            this.listBoxLightPresetRangeAniScales = new System.Windows.Forms.ListBox();
+            this.buttonAddLightRangeScale = new System.Windows.Forms.Button();
+            this.buttonRemoveLightRangeScale = new System.Windows.Forms.Button();
+            this.labelLightVobRangeAniFPS = new System.Windows.Forms.Label();
+            this.checkBoxLightVobRangeAniSmooth = new System.Windows.Forms.CheckBox();
+            this.groupBoxLightSelected = new System.Windows.Forms.GroupBox();
+            this.buttonSaveChangesLight = new System.Windows.Forms.Button();
+            this.numericUpDownLightVobRange = new System.Windows.Forms.NumericUpDown();
+            this.labelLightVobLightQuality = new System.Windows.Forms.Label();
+            this.labelLightVobRange = new System.Windows.Forms.Label();
+            this.groupBoxLightType = new System.Windows.Forms.GroupBox();
+            this.radioButtonLightVobStatic = new System.Windows.Forms.RadioButton();
+            this.radioButtonLightVobDynamic = new System.Windows.Forms.RadioButton();
+            this.comboBoxLightVobLightQuality = new System.Windows.Forms.ComboBox();
+            this.textBoxLightVobName = new System.Windows.Forms.TextBox();
+            this.checkBoxLightVobInstantCompile = new System.Windows.Forms.CheckBox();
+            this.checkBoxShowLightVobRadius = new System.Windows.Forms.CheckBox();
+            this.labelLightVobName = new System.Windows.Forms.Label();
+            this.buttonApplyChangesLight = new System.Windows.Forms.Button();
+            this.labelLightVobPresetInUse = new System.Windows.Forms.Label();
+            this.textBoxLightVobPresetName = new System.Windows.Forms.TextBox();
+            this.groupBoxLightColorProperties = new System.Windows.Forms.GroupBox();
+            this.textBoxLightVobColorAniFPS = new System.Windows.Forms.TextBox();
+            this.listBoxLightPresetColors = new System.Windows.Forms.ListBox();
+            this.buttonAddLightPresetColor = new System.Windows.Forms.Button();
+            this.buttonRemoveLightPresetColor = new System.Windows.Forms.Button();
+            this.buttonMoveLightPresetColorUp = new System.Windows.Forms.Button();
+            this.buttonMoveLightPresetColorDown = new System.Windows.Forms.Button();
+            this.labelLightVobColorAniFPS = new System.Windows.Forms.Label();
+            this.checkBoxLightVobColorAniSmooth = new System.Windows.Forms.CheckBox();
+            this.groupBoxLightPresetProperties = new System.Windows.Forms.GroupBox();
+            this.textBoxLightPresetName = new System.Windows.Forms.TextBox();
+            this.labelLightPresetName = new System.Windows.Forms.Label();
+            this.buttonNewLightPreset = new System.Windows.Forms.Button();
+            this.listBoxLightPresets = new System.Windows.Forms.ListBox();
+            this.buttonDeleteSelectedLightPreset = new System.Windows.Forms.Button();
+            this.buttonUpdateLightPresetOnLightVobs = new System.Windows.Forms.Button();
+            this.buttonUsePresetOnLightVob = new System.Windows.Forms.Button();
+            this.buttonUpdateLightPresetFromLightVob = new System.Windows.Forms.Button();
+            this.colorDialogLightPresetColor = new System.Windows.Forms.ColorDialog();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -241,7 +253,12 @@
             this.contextMenuStripCamTarget.SuspendLayout();
             this.contextMenuStripCam.SuspendLayout();
             this.tabPage8.SuspendLayout();
-            this.panelLight.SuspendLayout();
+            this.groupBoxLightRangeProperties.SuspendLayout();
+            this.groupBoxLightSelected.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLightVobRange)).BeginInit();
+            this.groupBoxLightType.SuspendLayout();
+            this.groupBoxLightColorProperties.SuspendLayout();
+            this.groupBoxLightPresetProperties.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxPFX
@@ -259,7 +276,7 @@
             this.groupBoxPFX.Size = new System.Drawing.Size(549, 347);
             this.groupBoxPFX.TabIndex = 0;
             this.groupBoxPFX.TabStop = false;
-            this.groupBoxPFX.Text = "Эффекты частиц";
+            this.groupBoxPFX.Text = "Particles, count: 0";
             // 
             // checkBoxShowPFXPreview
             // 
@@ -268,9 +285,9 @@
             this.checkBoxShowPFXPreview.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxShowPFXPreview.Location = new System.Drawing.Point(9, 65);
             this.checkBoxShowPFXPreview.Name = "checkBoxShowPFXPreview";
-            this.checkBoxShowPFXPreview.Size = new System.Drawing.Size(184, 17);
+            this.checkBoxShowPFXPreview.Size = new System.Drawing.Size(116, 17);
             this.checkBoxShowPFXPreview.TabIndex = 18;
-            this.checkBoxShowPFXPreview.Text = "Отображать эффект на экране";
+            this.checkBoxShowPFXPreview.Text = "Show PFX preview";
             this.checkBoxShowPFXPreview.UseVisualStyleBackColor = true;
             this.checkBoxShowPFXPreview.CheckedChanged += new System.EventHandler(this.checkBoxShowPFXPreview_CheckedChanged);
             // 
@@ -279,9 +296,9 @@
             this.labelSearchRegPFx.AutoSize = true;
             this.labelSearchRegPFx.Location = new System.Drawing.Point(279, 89);
             this.labelSearchRegPFx.Name = "labelSearchRegPFx";
-            this.labelSearchRegPFx.Size = new System.Drawing.Size(140, 13);
+            this.labelSearchRegPFx.Size = new System.Drawing.Size(98, 13);
             this.labelSearchRegPFx.TabIndex = 10;
-            this.labelSearchRegPFx.Text = "Поиск по рег. выражению";
+            this.labelSearchRegPFx.Text = "Search using regex";
             this.labelSearchRegPFx.Click += new System.EventHandler(this.label10_Click);
             // 
             // textBoxPfxReg
@@ -309,7 +326,7 @@
             this.buttonCreatePFXReg.Name = "buttonCreatePFXReg";
             this.buttonCreatePFXReg.Size = new System.Drawing.Size(263, 30);
             this.buttonCreatePFXReg.TabIndex = 7;
-            this.buttonCreatePFXReg.Text = "Создать PFX";
+            this.buttonCreatePFXReg.Text = "Create PFX";
             this.buttonCreatePFXReg.UseVisualStyleBackColor = true;
             this.buttonCreatePFXReg.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -318,9 +335,9 @@
             this.labelAllPfx.AutoSize = true;
             this.labelAllPfx.Location = new System.Drawing.Point(7, 89);
             this.labelAllPfx.Name = "labelAllPfx";
-            this.labelAllPfx.Size = new System.Drawing.Size(104, 13);
+            this.labelAllPfx.Size = new System.Drawing.Size(81, 13);
             this.labelAllPfx.TabIndex = 6;
-            this.labelAllPfx.Text = "Все эффекты игры";
+            this.labelAllPfx.Text = "All game PFXes";
             // 
             // listBoxParticles
             // 
@@ -337,7 +354,7 @@
             this.buttonParticles.Name = "buttonParticles";
             this.buttonParticles.Size = new System.Drawing.Size(263, 30);
             this.buttonParticles.TabIndex = 0;
-            this.buttonParticles.Text = "Создать PFX";
+            this.buttonParticles.Text = "Create PFX";
             this.buttonParticles.UseVisualStyleBackColor = true;
             this.buttonParticles.Click += new System.EventHandler(this.buttonParticles_Click);
             // 
@@ -358,7 +375,7 @@
             this.groupBoxObjItems.Size = new System.Drawing.Size(609, 403);
             this.groupBoxObjItems.TabIndex = 2;
             this.groupBoxObjItems.TabStop = false;
-            this.groupBoxObjItems.Text = "Предметы";
+            this.groupBoxObjItems.Text = "Items, count: 0";
             // 
             // groupBoxItemsLocator
             // 
@@ -374,7 +391,7 @@
             this.groupBoxItemsLocator.Size = new System.Drawing.Size(191, 207);
             this.groupBoxItemsLocator.TabIndex = 21;
             this.groupBoxItemsLocator.TabStop = false;
-            this.groupBoxItemsLocator.Text = "Локатор предметов";
+            this.groupBoxItemsLocator.Text = "Items locator:";
             // 
             // comboBoxLocatorItemType
             // 
@@ -404,9 +421,9 @@
             this.checkBoxLocatorByName.AutoSize = true;
             this.checkBoxLocatorByName.Location = new System.Drawing.Point(9, 147);
             this.checkBoxLocatorByName.Name = "checkBoxLocatorByName";
-            this.checkBoxLocatorByName.Size = new System.Drawing.Size(116, 17);
+            this.checkBoxLocatorByName.Size = new System.Drawing.Size(106, 17);
             this.checkBoxLocatorByName.TabIndex = 11;
-            this.checkBoxLocatorByName.Text = "Искать по имени:";
+            this.checkBoxLocatorByName.Text = "Search by name:";
             this.checkBoxLocatorByName.UseVisualStyleBackColor = true;
             this.checkBoxLocatorByName.CheckedChanged += new System.EventHandler(this.checkBoxLocatorByName_CheckedChanged);
             // 
@@ -424,9 +441,9 @@
             this.checkBoxLocatorOnlySusp.AutoSize = true;
             this.checkBoxLocatorOnlySusp.Location = new System.Drawing.Point(9, 127);
             this.checkBoxLocatorOnlySusp.Name = "checkBoxLocatorOnlySusp";
-            this.checkBoxLocatorOnlySusp.Size = new System.Drawing.Size(147, 17);
+            this.checkBoxLocatorOnlySusp.Size = new System.Drawing.Size(108, 17);
             this.checkBoxLocatorOnlySusp.TabIndex = 3;
-            this.checkBoxLocatorOnlySusp.Text = "Только \"плохие\" oCItem";
+            this.checkBoxLocatorOnlySusp.Text = "Only \'bad\' oCItem";
             this.checkBoxLocatorOnlySusp.UseVisualStyleBackColor = true;
             this.checkBoxLocatorOnlySusp.CheckedChanged += new System.EventHandler(this.checkBoxLocatorOnlySusp_CheckedChanged);
             // 
@@ -435,9 +452,9 @@
             this.labelItemLocatorRadius.AutoSize = true;
             this.labelItemLocatorRadius.Location = new System.Drawing.Point(6, 41);
             this.labelItemLocatorRadius.Name = "labelItemLocatorRadius";
-            this.labelItemLocatorRadius.Size = new System.Drawing.Size(118, 13);
+            this.labelItemLocatorRadius.Size = new System.Drawing.Size(121, 13);
             this.labelItemLocatorRadius.TabIndex = 2;
-            this.labelItemLocatorRadius.Text = "Радиус показа вещей";
+            this.labelItemLocatorRadius.Text = "Items show radius: 3000";
             // 
             // trackBarLocatorRad
             // 
@@ -458,9 +475,9 @@
             this.checkBoxLocatorEnabled.AutoSize = true;
             this.checkBoxLocatorEnabled.Location = new System.Drawing.Point(9, 19);
             this.checkBoxLocatorEnabled.Name = "checkBoxLocatorEnabled";
-            this.checkBoxLocatorEnabled.Size = new System.Drawing.Size(75, 17);
+            this.checkBoxLocatorEnabled.Size = new System.Drawing.Size(65, 17);
             this.checkBoxLocatorEnabled.TabIndex = 0;
-            this.checkBoxLocatorEnabled.Text = "Включить";
+            this.checkBoxLocatorEnabled.Text = "Enabled";
             this.checkBoxLocatorEnabled.UseVisualStyleBackColor = true;
             this.checkBoxLocatorEnabled.CheckedChanged += new System.EventHandler(this.checkBoxLocatorEnabled_CheckedChanged);
             // 
@@ -474,7 +491,7 @@
             this.groupBoxItemsCont.Size = new System.Drawing.Size(191, 126);
             this.groupBoxItemsCont.TabIndex = 20;
             this.groupBoxItemsCont.TabStop = false;
-            this.groupBoxItemsCont.Text = "Редактор сундука";
+            this.groupBoxItemsCont.Text = "Edit the container";
             // 
             // buttonAddContainer
             // 
@@ -482,7 +499,7 @@
             this.buttonAddContainer.Name = "buttonAddContainer";
             this.buttonAddContainer.Size = new System.Drawing.Size(165, 30);
             this.buttonAddContainer.TabIndex = 7;
-            this.buttonAddContainer.Text = "Добавить в контейнер->";
+            this.buttonAddContainer.Text = "Add to container->";
             this.buttonAddContainer.UseVisualStyleBackColor = true;
             this.buttonAddContainer.Click += new System.EventHandler(this.button10_Click);
             // 
@@ -501,9 +518,9 @@
             this.labelItemsEditContCount.AutoSize = true;
             this.labelItemsEditContCount.Location = new System.Drawing.Point(3, 57);
             this.labelItemsEditContCount.Name = "labelItemsEditContCount";
-            this.labelItemsEditContCount.Size = new System.Drawing.Size(66, 13);
+            this.labelItemsEditContCount.Size = new System.Drawing.Size(35, 13);
             this.labelItemsEditContCount.TabIndex = 9;
-            this.labelItemsEditContCount.Text = "Количество";
+            this.labelItemsEditContCount.Text = "Count";
             // 
             // checkBoxItemShow
             // 
@@ -512,9 +529,9 @@
             this.checkBoxItemShow.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxItemShow.Location = new System.Drawing.Point(9, 63);
             this.checkBoxItemShow.Name = "checkBoxItemShow";
-            this.checkBoxItemShow.Size = new System.Drawing.Size(172, 17);
+            this.checkBoxItemShow.Size = new System.Drawing.Size(124, 17);
             this.checkBoxItemShow.TabIndex = 19;
-            this.checkBoxItemShow.Text = "Отображать вещь на экране";
+            this.checkBoxItemShow.Text = "Show model preview";
             this.checkBoxItemShow.UseVisualStyleBackColor = true;
             this.checkBoxItemShow.CheckedChanged += new System.EventHandler(this.checkBoxItemShow_CheckedChanged);
             // 
@@ -524,7 +541,7 @@
             this.buttonItemsCreateReg.Name = "buttonItemsCreateReg";
             this.buttonItemsCreateReg.Size = new System.Drawing.Size(180, 30);
             this.buttonItemsCreateReg.TabIndex = 6;
-            this.buttonItemsCreateReg.Text = "Создать Item";
+            this.buttonItemsCreateReg.Text = "Create Item";
             this.buttonItemsCreateReg.UseVisualStyleBackColor = true;
             this.buttonItemsCreateReg.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -533,9 +550,9 @@
             this.labelItemsAllItems.AutoSize = true;
             this.labelItemsAllItems.Location = new System.Drawing.Point(6, 92);
             this.labelItemsAllItems.Name = "labelItemsAllItems";
-            this.labelItemsAllItems.Size = new System.Drawing.Size(84, 13);
+            this.labelItemsAllItems.Size = new System.Drawing.Size(74, 13);
             this.labelItemsAllItems.TabIndex = 5;
-            this.labelItemsAllItems.Text = "Все вещи игры";
+            this.labelItemsAllItems.Text = "All game items";
             this.labelItemsAllItems.Click += new System.EventHandler(this.label8_Click);
             // 
             // labelItemsFindReg
@@ -543,9 +560,9 @@
             this.labelItemsFindReg.AutoSize = true;
             this.labelItemsFindReg.Location = new System.Drawing.Point(189, 92);
             this.labelItemsFindReg.Name = "labelItemsFindReg";
-            this.labelItemsFindReg.Size = new System.Drawing.Size(140, 13);
+            this.labelItemsFindReg.Size = new System.Drawing.Size(98, 13);
             this.labelItemsFindReg.TabIndex = 4;
-            this.labelItemsFindReg.Text = "Поиск по рег. выражению";
+            this.labelItemsFindReg.Text = "Search using regex";
             // 
             // listBoxResultItems
             // 
@@ -584,7 +601,7 @@
             this.buttonItemsCreate.Name = "buttonItemsCreate";
             this.buttonItemsCreate.Size = new System.Drawing.Size(180, 30);
             this.buttonItemsCreate.TabIndex = 0;
-            this.buttonItemsCreate.Text = "Создать Item";
+            this.buttonItemsCreate.Text = "Create Item";
             this.buttonItemsCreate.UseVisualStyleBackColor = true;
             this.buttonItemsCreate.Click += new System.EventHandler(this.buttonItems_Click);
             // 
@@ -609,7 +626,7 @@
             this.groupBoxObjAllClasses.Size = new System.Drawing.Size(623, 379);
             this.groupBoxObjAllClasses.TabIndex = 3;
             this.groupBoxObjAllClasses.TabStop = false;
-            this.groupBoxObjAllClasses.Text = "Все классы вобов";
+            this.groupBoxObjAllClasses.Text = "All vob classes";
             // 
             // comboBoxArchiveList
             // 
@@ -625,9 +642,9 @@
             this.labelFindVisualArchive.AutoSize = true;
             this.labelFindVisualArchive.Location = new System.Drawing.Point(252, 231);
             this.labelFindVisualArchive.Name = "labelFindVisualArchive";
-            this.labelFindVisualArchive.Size = new System.Drawing.Size(159, 13);
+            this.labelFindVisualArchive.Size = new System.Drawing.Size(147, 13);
             this.labelFindVisualArchive.TabIndex = 21;
-            this.labelFindVisualArchive.Text = "Искать только в архиве (VDF)";
+            this.labelFindVisualArchive.Text = "Search only in selected (VDF)";
             // 
             // checkBoxSearchOnly3DS
             // 
@@ -636,9 +653,9 @@
             this.checkBoxSearchOnly3DS.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxSearchOnly3DS.Location = new System.Drawing.Point(391, 180);
             this.checkBoxSearchOnly3DS.Name = "checkBoxSearchOnly3DS";
-            this.checkBoxSearchOnly3DS.Size = new System.Drawing.Size(125, 17);
+            this.checkBoxSearchOnly3DS.Size = new System.Drawing.Size(106, 17);
             this.checkBoxSearchOnly3DS.TabIndex = 19;
-            this.checkBoxSearchOnly3DS.Text = "Искать только 3DS";
+            this.checkBoxSearchOnly3DS.Text = "Search only 3DS";
             this.checkBoxSearchOnly3DS.UseVisualStyleBackColor = true;
             this.checkBoxSearchOnly3DS.CheckedChanged += new System.EventHandler(this.checkBoxSearchOnly3DS_CheckedChanged);
             // 
@@ -654,16 +671,16 @@
             this.groupBoxObjPropVobs.Size = new System.Drawing.Size(363, 115);
             this.groupBoxObjPropVobs.TabIndex = 18;
             this.groupBoxObjPropVobs.TabStop = false;
-            this.groupBoxObjPropVobs.Text = "Свойства воба";
+            this.groupBoxObjPropVobs.Text = "Vob properties";
             // 
             // labelObjAllClassesNameVob
             // 
             this.labelObjAllClassesNameVob.AutoSize = true;
             this.labelObjAllClassesNameVob.Location = new System.Drawing.Point(6, 16);
             this.labelObjAllClassesNameVob.Name = "labelObjAllClassesNameVob";
-            this.labelObjAllClassesNameVob.Size = new System.Drawing.Size(56, 13);
+            this.labelObjAllClassesNameVob.Size = new System.Drawing.Size(55, 13);
             this.labelObjAllClassesNameVob.TabIndex = 4;
-            this.labelObjAllClassesNameVob.Text = "Имя воба";
+            this.labelObjAllClassesNameVob.Text = "Vob name";
             this.labelObjAllClassesNameVob.Click += new System.EventHandler(this.label1_Click);
             // 
             // buttonAllClassesCreateVob
@@ -672,7 +689,7 @@
             this.buttonAllClassesCreateVob.Name = "buttonAllClassesCreateVob";
             this.buttonAllClassesCreateVob.Size = new System.Drawing.Size(348, 26);
             this.buttonAllClassesCreateVob.TabIndex = 0;
-            this.buttonAllClassesCreateVob.Text = "Создать Vob";
+            this.buttonAllClassesCreateVob.Text = "Create Vob";
             this.buttonAllClassesCreateVob.UseVisualStyleBackColor = true;
             this.buttonAllClassesCreateVob.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -691,9 +708,9 @@
             this.checkBoxDynStat.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDynStat.Location = new System.Drawing.Point(9, 93);
             this.checkBoxDynStat.Name = "checkBoxDynStat";
-            this.checkBoxDynStat.Size = new System.Drawing.Size(126, 17);
+            this.checkBoxDynStat.Size = new System.Drawing.Size(107, 17);
             this.checkBoxDynStat.TabIndex = 10;
-            this.checkBoxDynStat.Text = "Динамич. коллизия";
+            this.checkBoxDynStat.Text = "Dynamic collision";
             this.checkBoxDynStat.UseVisualStyleBackColor = true;
             // 
             // checkBoxStaStat
@@ -701,9 +718,9 @@
             this.checkBoxStaStat.AutoSize = true;
             this.checkBoxStaStat.Location = new System.Drawing.Point(166, 93);
             this.checkBoxStaStat.Name = "checkBoxStaStat";
-            this.checkBoxStaStat.Size = new System.Drawing.Size(103, 17);
+            this.checkBoxStaStat.Size = new System.Drawing.Size(93, 17);
             this.checkBoxStaStat.TabIndex = 11;
-            this.checkBoxStaStat.Text = "Стат. коллизия";
+            this.checkBoxStaStat.Text = "Static collision";
             this.checkBoxStaStat.UseVisualStyleBackColor = true;
             // 
             // checkBoxShowPreview
@@ -713,9 +730,9 @@
             this.checkBoxShowPreview.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxShowPreview.Location = new System.Drawing.Point(255, 180);
             this.checkBoxShowPreview.Name = "checkBoxShowPreview";
-            this.checkBoxShowPreview.Size = new System.Drawing.Size(130, 17);
+            this.checkBoxShowPreview.Size = new System.Drawing.Size(124, 17);
             this.checkBoxShowPreview.TabIndex = 17;
-            this.checkBoxShowPreview.Text = "Показывать модель";
+            this.checkBoxShowPreview.Text = "Show model preview";
             this.checkBoxShowPreview.UseVisualStyleBackColor = true;
             this.checkBoxShowPreview.CheckedChanged += new System.EventHandler(this.checkBoxShowPreview_CheckedChanged);
             // 
@@ -724,9 +741,9 @@
             this.labelAllModels.AutoSize = true;
             this.labelAllModels.Location = new System.Drawing.Point(373, 136);
             this.labelAllModels.Name = "labelAllModels";
-            this.labelAllModels.Size = new System.Drawing.Size(87, 13);
+            this.labelAllModels.Size = new System.Drawing.Size(93, 13);
             this.labelAllModels.TabIndex = 15;
-            this.labelAllModels.Text = "Всего моделей:";
+            this.labelAllModels.Text = "Visual search: 0/0";
             // 
             // radioButtonWork
             // 
@@ -756,18 +773,31 @@
             this.buttonAllClassesClear.Name = "buttonAllClassesClear";
             this.buttonAllClassesClear.Size = new System.Drawing.Size(73, 25);
             this.buttonAllClassesClear.TabIndex = 12;
-            this.buttonAllClassesClear.Text = "Очистить";
+            this.buttonAllClassesClear.Text = "Clear";
             this.buttonAllClassesClear.UseVisualStyleBackColor = true;
             this.buttonAllClassesClear.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // listBoxVisuals
+            // 
+            this.listBoxVisuals.FormattingEnabled = true;
+            this.listBoxVisuals.Location = new System.Drawing.Point(253, 255);
+            this.listBoxVisuals.Name = "listBoxVisuals";
+            this.listBoxVisuals.Size = new System.Drawing.Size(360, 121);
+            this.listBoxVisuals.TabIndex = 8;
+            this.listBoxVisuals.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxVisuals_MouseClick);
+            this.listBoxVisuals.SelectedIndexChanged += new System.EventHandler(this.listBoxVisuals_SelectedIndexChanged);
+            this.listBoxVisuals.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBoxVisuals_KeyDown);
+            this.listBoxVisuals.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBoxVisuals_KeyPress);
+            this.listBoxVisuals.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxVisuals_MouseDown);
             // 
             // labelSearchVisual
             // 
             this.labelSearchVisual.AutoSize = true;
             this.labelSearchVisual.Location = new System.Drawing.Point(252, 158);
             this.labelSearchVisual.Name = "labelSearchVisual";
-            this.labelSearchVisual.Size = new System.Drawing.Size(109, 13);
+            this.labelSearchVisual.Size = new System.Drawing.Size(70, 13);
             this.labelSearchVisual.TabIndex = 7;
-            this.labelSearchVisual.Text = "Визуал воба (поиск)";
+            this.labelSearchVisual.Text = "Visual search";
             // 
             // textBoxVisuals
             // 
@@ -812,7 +842,7 @@
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(623, 379);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Все классы";
+            this.tabPage3.Text = "All classes";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage2
@@ -823,7 +853,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(623, 379);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Вещи";
+            this.tabPage2.Text = "Items";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabPage1
@@ -834,7 +864,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(623, 379);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Эффекты";
+            this.tabPage1.Text = "Particles";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage4
@@ -852,7 +882,7 @@
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(623, 379);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Триггеры";
+            this.tabPage4.Text = "Triggers";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // buttonTriggerCollectSources
@@ -862,7 +892,7 @@
             this.buttonTriggerCollectSources.Name = "buttonTriggerCollectSources";
             this.buttonTriggerCollectSources.Size = new System.Drawing.Size(114, 22);
             this.buttonTriggerCollectSources.TabIndex = 7;
-            this.buttonTriggerCollectSources.Text = "Собрать";
+            this.buttonTriggerCollectSources.Text = "Collect";
             this.buttonTriggerCollectSources.UseVisualStyleBackColor = true;
             this.buttonTriggerCollectSources.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -871,9 +901,9 @@
             this.labelTriggersSources.AutoSize = true;
             this.labelTriggersSources.Location = new System.Drawing.Point(334, 166);
             this.labelTriggersSources.Name = "labelTriggersSources";
-            this.labelTriggersSources.Size = new System.Drawing.Size(107, 13);
+            this.labelTriggersSources.Size = new System.Drawing.Size(46, 13);
             this.labelTriggersSources.TabIndex = 6;
-            this.labelTriggersSources.Text = "Источники (sources)";
+            this.labelTriggersSources.Text = "Sources";
             this.labelTriggersSources.Click += new System.EventHandler(this.labelTriggersSources_Click);
             // 
             // listBoxSources
@@ -904,7 +934,7 @@
             this.groupBoxTriggersKeys.Size = new System.Drawing.Size(331, 137);
             this.groupBoxTriggersKeys.TabIndex = 3;
             this.groupBoxTriggersKeys.TabStop = false;
-            this.groupBoxTriggersKeys.Text = "Ключи";
+            this.groupBoxTriggersKeys.Text = "Keys";
             // 
             // textBoxTrigersJumpKey
             // 
@@ -920,7 +950,7 @@
             this.buttonTriggersJumpToKey.Name = "buttonTriggersJumpToKey";
             this.buttonTriggersJumpToKey.Size = new System.Drawing.Size(120, 23);
             this.buttonTriggersJumpToKey.TabIndex = 9;
-            this.buttonTriggersJumpToKey.Text = "Прыгнуть на ключ";
+            this.buttonTriggersJumpToKey.Text = "Jump to key";
             this.buttonTriggersJumpToKey.UseVisualStyleBackColor = true;
             this.buttonTriggersJumpToKey.Click += new System.EventHandler(this.buttonTriggersJumpToKey_Click);
             // 
@@ -929,18 +959,18 @@
             this.labelTriggerInsert.AutoSize = true;
             this.labelTriggerInsert.Location = new System.Drawing.Point(6, 49);
             this.labelTriggerInsert.Name = "labelTriggerInsert";
-            this.labelTriggerInsert.Size = new System.Drawing.Size(57, 13);
+            this.labelTriggerInsert.Size = new System.Drawing.Size(53, 13);
             this.labelTriggerInsert.TabIndex = 8;
-            this.labelTriggerInsert.Text = "Вставить:";
+            this.labelTriggerInsert.Text = "Insert key";
             // 
             // radioButtonBefore
             // 
             this.radioButtonBefore.AutoSize = true;
             this.radioButtonBefore.Location = new System.Drawing.Point(9, 111);
             this.radioButtonBefore.Name = "radioButtonBefore";
-            this.radioButtonBefore.Size = new System.Drawing.Size(37, 17);
+            this.radioButtonBefore.Size = new System.Drawing.Size(55, 17);
             this.radioButtonBefore.TabIndex = 7;
-            this.radioButtonBefore.Text = "до";
+            this.radioButtonBefore.Text = "before";
             this.radioButtonBefore.UseVisualStyleBackColor = true;
             // 
             // radioButtonAfter
@@ -949,10 +979,10 @@
             this.radioButtonAfter.Checked = true;
             this.radioButtonAfter.Location = new System.Drawing.Point(9, 90);
             this.radioButtonAfter.Name = "radioButtonAfter";
-            this.radioButtonAfter.Size = new System.Drawing.Size(55, 17);
+            this.radioButtonAfter.Size = new System.Drawing.Size(46, 17);
             this.radioButtonAfter.TabIndex = 6;
             this.radioButtonAfter.TabStop = true;
-            this.radioButtonAfter.Text = "после";
+            this.radioButtonAfter.Text = "after";
             this.radioButtonAfter.UseVisualStyleBackColor = true;
             // 
             // radioButtonOverwrite
@@ -960,9 +990,9 @@
             this.radioButtonOverwrite.AutoSize = true;
             this.radioButtonOverwrite.Location = new System.Drawing.Point(9, 68);
             this.radioButtonOverwrite.Name = "radioButtonOverwrite";
-            this.radioButtonOverwrite.Size = new System.Drawing.Size(96, 17);
+            this.radioButtonOverwrite.Size = new System.Drawing.Size(68, 17);
             this.radioButtonOverwrite.TabIndex = 5;
-            this.radioButtonOverwrite.Text = "перезаписать";
+            this.radioButtonOverwrite.Text = "overwrite";
             this.radioButtonOverwrite.UseVisualStyleBackColor = true;
             // 
             // buttonRemoveKey
@@ -971,7 +1001,7 @@
             this.buttonRemoveKey.Name = "buttonRemoveKey";
             this.buttonRemoveKey.Size = new System.Drawing.Size(98, 23);
             this.buttonRemoveKey.TabIndex = 4;
-            this.buttonRemoveKey.Text = "Удалить ключ";
+            this.buttonRemoveKey.Text = "Remove key";
             this.buttonRemoveKey.UseVisualStyleBackColor = true;
             this.buttonRemoveKey.Click += new System.EventHandler(this.buttonRemoveKey_Click);
             // 
@@ -981,7 +1011,7 @@
             this.buttonNewKey.Name = "buttonNewKey";
             this.buttonNewKey.Size = new System.Drawing.Size(91, 23);
             this.buttonNewKey.TabIndex = 3;
-            this.buttonNewKey.Text = "Новый ключ";
+            this.buttonNewKey.Text = "New key";
             this.buttonNewKey.UseVisualStyleBackColor = true;
             this.buttonNewKey.Click += new System.EventHandler(this.buttonNewKey_Click);
             // 
@@ -1019,9 +1049,9 @@
             this.labelTriggerTargets.AutoSize = true;
             this.labelTriggerTargets.Location = new System.Drawing.Point(123, 166);
             this.labelTriggerTargets.Name = "labelTriggerTargets";
-            this.labelTriggerTargets.Size = new System.Drawing.Size(74, 13);
+            this.labelTriggerTargets.Size = new System.Drawing.Size(43, 13);
             this.labelTriggerTargets.TabIndex = 4;
-            this.labelTriggerTargets.Text = "Цели (targets)";
+            this.labelTriggerTargets.Text = "Targets";
             this.labelTriggerTargets.Click += new System.EventHandler(this.labelTriggerTargets_Click);
             // 
             // listBoxTargetList
@@ -1041,7 +1071,7 @@
             this.buttonSendTrigger.Name = "buttonSendTrigger";
             this.buttonSendTrigger.Size = new System.Drawing.Size(120, 23);
             this.buttonSendTrigger.TabIndex = 2;
-            this.buttonSendTrigger.Text = "Запустить >>>";
+            this.buttonSendTrigger.Text = "Run >>>";
             this.buttonSendTrigger.UseVisualStyleBackColor = true;
             this.buttonSendTrigger.Click += new System.EventHandler(this.buttonSend_Click);
             // 
@@ -1067,34 +1097,34 @@
             this.groupBoxTriggersVob.Size = new System.Drawing.Size(227, 137);
             this.groupBoxTriggersVob.TabIndex = 0;
             this.groupBoxTriggersVob.TabStop = false;
-            this.groupBoxTriggersVob.Text = "Выбранный воб";
+            this.groupBoxTriggersVob.Text = "Selected vob";
             // 
             // labelTriggerName
             // 
             this.labelTriggerName.AutoSize = true;
             this.labelTriggerName.Location = new System.Drawing.Point(7, 20);
             this.labelTriggerName.Name = "labelTriggerName";
-            this.labelTriggerName.Size = new System.Drawing.Size(51, 13);
+            this.labelTriggerName.Size = new System.Drawing.Size(127, 13);
             this.labelTriggerName.TabIndex = 3;
-            this.labelTriggerName.Text = "Триггер:";
+            this.labelTriggerName.Text = "VOB_NAME (className)";
             // 
             // labelTriggerCollision
             // 
             this.labelTriggerCollision.AutoSize = true;
             this.labelTriggerCollision.Location = new System.Drawing.Point(7, 68);
             this.labelTriggerCollision.Name = "labelTriggerCollision";
-            this.labelTriggerCollision.Size = new System.Drawing.Size(59, 13);
+            this.labelTriggerCollision.Size = new System.Drawing.Size(45, 13);
             this.labelTriggerCollision.TabIndex = 2;
-            this.labelTriggerCollision.Text = "Коллизия:";
+            this.labelTriggerCollision.Text = "Collision";
             // 
             // checkBoxStat
             // 
             this.checkBoxStat.AutoSize = true;
             this.checkBoxStat.Location = new System.Drawing.Point(10, 111);
             this.checkBoxStat.Name = "checkBoxStat";
-            this.checkBoxStat.Size = new System.Drawing.Size(62, 17);
+            this.checkBoxStat.Size = new System.Drawing.Size(51, 17);
             this.checkBoxStat.TabIndex = 1;
-            this.checkBoxStat.Text = "статич.";
+            this.checkBoxStat.Text = "static";
             this.checkBoxStat.UseVisualStyleBackColor = true;
             this.checkBoxStat.CheckedChanged += new System.EventHandler(this.checkBoxStat_CheckedChanged);
             // 
@@ -1103,9 +1133,9 @@
             this.checkBoxDyn.AutoSize = true;
             this.checkBoxDyn.Location = new System.Drawing.Point(10, 88);
             this.checkBoxDyn.Name = "checkBoxDyn";
-            this.checkBoxDyn.Size = new System.Drawing.Size(72, 17);
+            this.checkBoxDyn.Size = new System.Drawing.Size(65, 17);
             this.checkBoxDyn.TabIndex = 0;
-            this.checkBoxDyn.Text = "динамич.";
+            this.checkBoxDyn.Text = "dynamic";
             this.checkBoxDyn.UseVisualStyleBackColor = true;
             this.checkBoxDyn.CheckedChanged += new System.EventHandler(this.checkBoxDyn_CheckedChanged);
             // 
@@ -1128,7 +1158,7 @@
             this.groupBoxWPFP.Size = new System.Drawing.Size(610, 361);
             this.groupBoxWPFP.TabIndex = 3;
             this.groupBoxWPFP.TabStop = false;
-            this.groupBoxWPFP.Text = "Ключевые точки";
+            this.groupBoxWPFP.Text = "World points";
             // 
             // groupBox9
             // 
@@ -1152,9 +1182,9 @@
             this.labelHintWP.AutoSize = true;
             this.labelHintWP.Location = new System.Drawing.Point(8, 268);
             this.labelHintWP.Name = "labelHintWP";
-            this.labelHintWP.Size = new System.Drawing.Size(200, 13);
+            this.labelHintWP.Size = new System.Drawing.Size(178, 13);
             this.labelHintWP.TabIndex = 14;
-            this.labelHintWP.Text = "Кнопка F2, чтобы вставить новый воб";
+            this.labelHintWP.Text = "*Press F2 button to insert a new vob";
             // 
             // labelNameWPMandatory
             // 
@@ -1163,9 +1193,9 @@
             this.labelNameWPMandatory.ForeColor = System.Drawing.Color.Red;
             this.labelNameWPMandatory.Location = new System.Drawing.Point(10, 17);
             this.labelNameWPMandatory.Name = "labelNameWPMandatory";
-            this.labelNameWPMandatory.Size = new System.Drawing.Size(151, 13);
+            this.labelNameWPMandatory.Size = new System.Drawing.Size(139, 13);
             this.labelNameWPMandatory.TabIndex = 6;
-            this.labelNameWPMandatory.Text = "Имя Waypoint (обязательно)";
+            this.labelNameWPMandatory.Text = "Waypoint name (mandatory)";
             // 
             // buttonWPCreate
             // 
@@ -1173,7 +1203,7 @@
             this.buttonWPCreate.Name = "buttonWPCreate";
             this.buttonWPCreate.Size = new System.Drawing.Size(232, 30);
             this.buttonWPCreate.TabIndex = 3;
-            this.buttonWPCreate.Text = "Создать Waypoint";
+            this.buttonWPCreate.Text = "Create Waypoint";
             this.buttonWPCreate.UseVisualStyleBackColor = true;
             this.buttonWPCreate.Click += new System.EventHandler(this.buttonWP_Click);
             // 
@@ -1184,9 +1214,9 @@
             this.checkBoxWPAutoName.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxWPAutoName.Location = new System.Drawing.Point(9, 90);
             this.checkBoxWPAutoName.Name = "checkBoxWPAutoName";
-            this.checkBoxWPAutoName.Size = new System.Drawing.Size(138, 17);
+            this.checkBoxWPAutoName.Size = new System.Drawing.Size(128, 17);
             this.checkBoxWPAutoName.TabIndex = 13;
-            this.checkBoxWPAutoName.Text = "Автогенерация имени";
+            this.checkBoxWPAutoName.Text = "Auto-generated name";
             this.checkBoxWPAutoName.UseVisualStyleBackColor = true;
             this.checkBoxWPAutoName.CheckedChanged += new System.EventHandler(this.checkBoxWPAutoName_CheckedChanged);
             // 
@@ -1206,9 +1236,9 @@
             this.checkBoxWayNet.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxWayNet.Location = new System.Drawing.Point(9, 67);
             this.checkBoxWayNet.Name = "checkBoxWayNet";
-            this.checkBoxWayNet.Size = new System.Drawing.Size(147, 17);
+            this.checkBoxWayNet.Size = new System.Drawing.Size(154, 17);
             this.checkBoxWayNet.TabIndex = 12;
-            this.checkBoxWayNet.Text = "Сразу соединять в сеть";
+            this.checkBoxWayNet.Text = "Connect to waynet at once";
             this.checkBoxWayNet.UseVisualStyleBackColor = true;
             this.checkBoxWayNet.CheckedChanged += new System.EventHandler(this.checkBoxWayNet_CheckedChanged);
             // 
@@ -1218,7 +1248,7 @@
             this.buttonConnectWp.Name = "buttonConnectWp";
             this.buttonConnectWp.Size = new System.Drawing.Size(232, 30);
             this.buttonConnectWp.TabIndex = 10;
-            this.buttonConnectWp.Text = "Соединить WP";
+            this.buttonConnectWp.Text = "Connect waypoints";
             this.buttonConnectWp.UseVisualStyleBackColor = true;
             this.buttonConnectWp.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -1228,7 +1258,7 @@
             this.buttonDisconnectWP.Name = "buttonDisconnectWP";
             this.buttonDisconnectWP.Size = new System.Drawing.Size(232, 30);
             this.buttonDisconnectWP.TabIndex = 11;
-            this.buttonDisconnectWP.Text = "Разъединить WP";
+            this.buttonDisconnectWP.Text = "Disconnect waypoints";
             this.buttonDisconnectWP.UseVisualStyleBackColor = true;
             this.buttonDisconnectWP.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -1252,9 +1282,9 @@
             this.labelHintFP.AutoSize = true;
             this.labelHintFP.Location = new System.Drawing.Point(9, 268);
             this.labelHintFP.Name = "labelHintFP";
-            this.labelHintFP.Size = new System.Drawing.Size(200, 13);
+            this.labelHintFP.Size = new System.Drawing.Size(178, 13);
             this.labelHintFP.TabIndex = 16;
-            this.labelHintFP.Text = "Кнопка F2, чтобы вставить новый воб";
+            this.labelHintFP.Text = "*Press F2 button to insert a new vob";
             // 
             // checkBoxFPGround
             // 
@@ -1263,9 +1293,9 @@
             this.checkBoxFPGround.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxFPGround.Location = new System.Drawing.Point(9, 67);
             this.checkBoxFPGround.Name = "checkBoxFPGround";
-            this.checkBoxFPGround.Size = new System.Drawing.Size(129, 17);
+            this.checkBoxFPGround.Size = new System.Drawing.Size(111, 17);
             this.checkBoxFPGround.TabIndex = 15;
-            this.checkBoxFPGround.Text = "Прижимать к земле";
+            this.checkBoxFPGround.Text = "Floor the freepoint";
             this.checkBoxFPGround.UseVisualStyleBackColor = true;
             this.checkBoxFPGround.CheckedChanged += new System.EventHandler(this.checkBoxFPGround_CheckedChanged);
             // 
@@ -1276,9 +1306,9 @@
             this.labelFreepointMandatory.ForeColor = System.Drawing.Color.Red;
             this.labelFreepointMandatory.Location = new System.Drawing.Point(6, 17);
             this.labelFreepointMandatory.Name = "labelFreepointMandatory";
-            this.labelFreepointMandatory.Size = new System.Drawing.Size(150, 13);
+            this.labelFreepointMandatory.Size = new System.Drawing.Size(138, 13);
             this.labelFreepointMandatory.TabIndex = 9;
-            this.labelFreepointMandatory.Text = "Имя Freepoint (обязательно)";
+            this.labelFreepointMandatory.Text = "Freepoint name (mandatory)";
             // 
             // checkBoxAutoNameFP
             // 
@@ -1287,9 +1317,9 @@
             this.checkBoxAutoNameFP.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxAutoNameFP.Location = new System.Drawing.Point(9, 91);
             this.checkBoxAutoNameFP.Name = "checkBoxAutoNameFP";
-            this.checkBoxAutoNameFP.Size = new System.Drawing.Size(138, 17);
+            this.checkBoxAutoNameFP.Size = new System.Drawing.Size(128, 17);
             this.checkBoxAutoNameFP.TabIndex = 14;
-            this.checkBoxAutoNameFP.Text = "Автогенерация имени";
+            this.checkBoxAutoNameFP.Text = "Auto-generated name";
             this.checkBoxAutoNameFP.UseVisualStyleBackColor = true;
             this.checkBoxAutoNameFP.CheckedChanged += new System.EventHandler(this.checkBoxAutoNameFP_CheckedChanged);
             // 
@@ -1299,7 +1329,7 @@
             this.buttonFPCreate.Name = "buttonFPCreate";
             this.buttonFPCreate.Size = new System.Drawing.Size(232, 30);
             this.buttonFPCreate.TabIndex = 7;
-            this.buttonFPCreate.Text = "Создать Freepoint";
+            this.buttonFPCreate.Text = "Create Freepoint";
             this.buttonFPCreate.UseVisualStyleBackColor = true;
             this.buttonFPCreate.Click += new System.EventHandler(this.buttonFP_Click_1);
             // 
@@ -1320,7 +1350,7 @@
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Size = new System.Drawing.Size(623, 379);
             this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Поиск";
+            this.tabPage6.Text = "Search";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // groupBoxSearchClasses
@@ -1355,7 +1385,7 @@
             this.groupBoxSearchClasses.Size = new System.Drawing.Size(610, 373);
             this.groupBoxSearchClasses.TabIndex = 4;
             this.groupBoxSearchClasses.TabStop = false;
-            this.groupBoxSearchClasses.Text = "Класс воба";
+            this.groupBoxSearchClasses.Text = "Vob classes";
             this.groupBoxSearchClasses.Enter += new System.EventHandler(this.groupBoxSearchClasses_Enter);
             // 
             // checkBoxSearchItem
@@ -1363,9 +1393,9 @@
             this.checkBoxSearchItem.AutoSize = true;
             this.checkBoxSearchItem.Location = new System.Drawing.Point(242, 88);
             this.checkBoxSearchItem.Name = "checkBoxSearchItem";
-            this.checkBoxSearchItem.Size = new System.Drawing.Size(190, 17);
+            this.checkBoxSearchItem.Size = new System.Drawing.Size(189, 17);
             this.checkBoxSearchItem.TabIndex = 30;
-            this.checkBoxSearchItem.Text = "Искать oCItem в oCMobContainer";
+            this.checkBoxSearchItem.Text = "Search oCItem in oCMobContainer";
             this.checkBoxSearchItem.UseVisualStyleBackColor = true;
             this.checkBoxSearchItem.CheckedChanged += new System.EventHandler(this.checkBoxSearchItem_CheckedChanged);
             // 
@@ -1376,7 +1406,7 @@
             this.checkBoxMatchNames.Name = "checkBoxMatchNames";
             this.checkBoxMatchNames.Size = new System.Drawing.Size(116, 17);
             this.checkBoxMatchNames.TabIndex = 29;
-            this.checkBoxMatchNames.Text = "Совпадение имен";
+            this.checkBoxMatchNames.Text = "Match vobs names";
             this.checkBoxMatchNames.UseVisualStyleBackColor = true;
             this.checkBoxMatchNames.CheckedChanged += new System.EventHandler(this.checkBoxMatchNames_CheckedChanged);
             // 
@@ -1433,9 +1463,9 @@
             this.checkBoxSearchHasChildren.AutoSize = true;
             this.checkBoxSearchHasChildren.Location = new System.Drawing.Point(431, 67);
             this.checkBoxSearchHasChildren.Name = "checkBoxSearchHasChildren";
-            this.checkBoxSearchHasChildren.Size = new System.Drawing.Size(113, 17);
+            this.checkBoxSearchHasChildren.Size = new System.Drawing.Size(105, 17);
             this.checkBoxSearchHasChildren.TabIndex = 24;
-            this.checkBoxSearchHasChildren.Text = "У воба есть дети";
+            this.checkBoxSearchHasChildren.Text = "Vob has children";
             this.checkBoxSearchHasChildren.UseVisualStyleBackColor = true;
             this.checkBoxSearchHasChildren.CheckedChanged += new System.EventHandler(this.checkBoxSearchHasChildren_CheckedChanged);
             // 
@@ -1446,9 +1476,9 @@
             this.checkBoxAutoNumerate.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxAutoNumerate.Location = new System.Drawing.Point(431, 19);
             this.checkBoxAutoNumerate.Name = "checkBoxAutoNumerate";
-            this.checkBoxAutoNumerate.Size = new System.Drawing.Size(137, 17);
+            this.checkBoxAutoNumerate.Size = new System.Drawing.Size(149, 17);
             this.checkBoxAutoNumerate.TabIndex = 23;
-            this.checkBoxAutoNumerate.Text = "Авто-нумерация имен";
+            this.checkBoxAutoNumerate.Text = "Auto numeration of names";
             this.checkBoxAutoNumerate.UseVisualStyleBackColor = true;
             // 
             // labelRenameVob
@@ -1508,12 +1538,12 @@
             this.comboBoxSearchType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSearchType.FormattingEnabled = true;
             this.comboBoxSearchType.Items.AddRange(new object[] {
-            "Поиск",
-            "Конвертация",
-            "Замена на VobTree",
-            "Удаление",
-            "Динамическая коллизия",
-            "Поиск несоединенных WP"});
+            "Search",
+            "Convert",
+            "Replace with VobTree",
+            "Remove",
+            "Toggle dynamic collision",
+            "Search for unconnected WP"});
             this.comboBoxSearchType.Location = new System.Drawing.Point(241, 19);
             this.comboBoxSearchType.Name = "comboBoxSearchType";
             this.comboBoxSearchType.Size = new System.Drawing.Size(166, 21);
@@ -1527,9 +1557,9 @@
             this.checkBoxSearchUseRegex.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxSearchUseRegex.Location = new System.Drawing.Point(242, 67);
             this.checkBoxSearchUseRegex.Name = "checkBoxSearchUseRegex";
-            this.checkBoxSearchUseRegex.Size = new System.Drawing.Size(183, 17);
+            this.checkBoxSearchUseRegex.Size = new System.Drawing.Size(133, 17);
             this.checkBoxSearchUseRegex.TabIndex = 16;
-            this.checkBoxSearchUseRegex.Text = "Использовать рег. выражение";
+            this.checkBoxSearchUseRegex.Text = "Use regular expression";
             this.checkBoxSearchUseRegex.UseVisualStyleBackColor = true;
             // 
             // textBoxVecSearch3
@@ -1557,9 +1587,9 @@
             this.labelSearchResult.AutoSize = true;
             this.labelSearchResult.Location = new System.Drawing.Point(243, 164);
             this.labelSearchResult.Name = "labelSearchResult";
-            this.labelSearchResult.Size = new System.Drawing.Size(54, 13);
+            this.labelSearchResult.Size = new System.Drawing.Size(40, 13);
             this.labelSearchResult.TabIndex = 9;
-            this.labelSearchResult.Text = "Найдено:";
+            this.labelSearchResult.Text = "Found:";
             // 
             // listBoxSearchResult
             // 
@@ -1579,9 +1609,9 @@
             this.checkBoxSearchDerived.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxSearchDerived.Location = new System.Drawing.Point(242, 46);
             this.checkBoxSearchDerived.Name = "checkBoxSearchDerived";
-            this.checkBoxSearchDerived.Size = new System.Drawing.Size(165, 17);
+            this.checkBoxSearchDerived.Size = new System.Drawing.Size(147, 17);
             this.checkBoxSearchDerived.TabIndex = 7;
-            this.checkBoxSearchDerived.Text = "Искать в дочерних классах";
+            this.checkBoxSearchDerived.Text = "Search in derived classes";
             this.checkBoxSearchDerived.UseVisualStyleBackColor = true;
             // 
             // buttonSearchVobsDo
@@ -1590,7 +1620,7 @@
             this.buttonSearchVobsDo.Name = "buttonSearchVobsDo";
             this.buttonSearchVobsDo.Size = new System.Drawing.Size(172, 23);
             this.buttonSearchVobsDo.TabIndex = 5;
-            this.buttonSearchVobsDo.Text = "Искать";
+            this.buttonSearchVobsDo.Text = "Search";
             this.buttonSearchVobsDo.UseVisualStyleBackColor = true;
             this.buttonSearchVobsDo.Click += new System.EventHandler(this.button9_Click);
             // 
@@ -1600,7 +1630,7 @@
             this.buttonSearchVobsReset.Name = "buttonSearchVobsReset";
             this.buttonSearchVobsReset.Size = new System.Drawing.Size(173, 23);
             this.buttonSearchVobsReset.TabIndex = 4;
-            this.buttonSearchVobsReset.Text = "Сбросить";
+            this.buttonSearchVobsReset.Text = "Reset";
             this.buttonSearchVobsReset.UseVisualStyleBackColor = true;
             this.buttonSearchVobsReset.Click += new System.EventHandler(this.button8_Click);
             // 
@@ -1673,7 +1703,7 @@
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Size = new System.Drawing.Size(623, 379);
             this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "Камера";
+            this.tabPage7.Text = "Camera";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // groupBoxCameraNew
@@ -1686,16 +1716,16 @@
             this.groupBoxCameraNew.Size = new System.Drawing.Size(390, 50);
             this.groupBoxCameraNew.TabIndex = 15;
             this.groupBoxCameraNew.TabStop = false;
-            this.groupBoxCameraNew.Text = "Новая камера";
+            this.groupBoxCameraNew.Text = "New camera";
             // 
             // labelCamNewName
             // 
             this.labelCamNewName.AutoSize = true;
             this.labelCamNewName.Location = new System.Drawing.Point(6, 21);
             this.labelCamNewName.Name = "labelCamNewName";
-            this.labelCamNewName.Size = new System.Drawing.Size(32, 13);
+            this.labelCamNewName.Size = new System.Drawing.Size(35, 13);
             this.labelCamNewName.TabIndex = 0;
-            this.labelCamNewName.Text = "Имя:";
+            this.labelCamNewName.Text = "Name";
             // 
             // buttonCamInsert
             // 
@@ -1703,7 +1733,7 @@
             this.buttonCamInsert.Name = "buttonCamInsert";
             this.buttonCamInsert.Size = new System.Drawing.Size(143, 23);
             this.buttonCamInsert.TabIndex = 3;
-            this.buttonCamInsert.Text = "Создать";
+            this.buttonCamInsert.Text = "Create";
             this.buttonCamInsert.UseVisualStyleBackColor = true;
             this.buttonCamInsert.Click += new System.EventHandler(this.buttonCamInsert_Click);
             // 
@@ -1730,16 +1760,16 @@
             this.groupBoxCamSettings.Size = new System.Drawing.Size(213, 367);
             this.groupBoxCamSettings.TabIndex = 0;
             this.groupBoxCamSettings.TabStop = false;
-            this.groupBoxCamSettings.Text = "Настройки";
+            this.groupBoxCamSettings.Text = "Settings";
             // 
             // labelCamGotoKey
             // 
             this.labelCamGotoKey.AutoSize = true;
             this.labelCamGotoKey.Location = new System.Drawing.Point(58, 118);
             this.labelCamGotoKey.Name = "labelCamGotoKey";
-            this.labelCamGotoKey.Size = new System.Drawing.Size(98, 13);
+            this.labelCamGotoKey.Size = new System.Drawing.Size(53, 13);
             this.labelCamGotoKey.TabIndex = 15;
-            this.labelCamGotoKey.Text = "Перейти к ключу: ";
+            this.labelCamGotoKey.Text = "Go to key";
             this.labelCamGotoKey.Click += new System.EventHandler(this.labelCamGotoKey_Click);
             // 
             // checkBoxCameraHide
@@ -1749,9 +1779,9 @@
             this.checkBoxCameraHide.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxCameraHide.Location = new System.Drawing.Point(14, 49);
             this.checkBoxCameraHide.Name = "checkBoxCameraHide";
-            this.checkBoxCameraHide.Size = new System.Drawing.Size(152, 17);
+            this.checkBoxCameraHide.Size = new System.Drawing.Size(171, 17);
             this.checkBoxCameraHide.TabIndex = 14;
-            this.checkBoxCameraHide.Text = "Скрывать вобы в полете";
+            this.checkBoxCameraHide.Text = "Hide vobs while camera active";
             this.checkBoxCameraHide.UseVisualStyleBackColor = true;
             this.checkBoxCameraHide.CheckedChanged += new System.EventHandler(this.checkBoxCameraHide_CheckedChanged);
             // 
@@ -1770,7 +1800,7 @@
             this.buttonCamPlay.Name = "buttonCamPlay";
             this.buttonCamPlay.Size = new System.Drawing.Size(193, 23);
             this.buttonCamPlay.TabIndex = 10;
-            this.buttonCamPlay.Text = "Старт";
+            this.buttonCamPlay.Text = "Start";
             this.buttonCamPlay.UseVisualStyleBackColor = true;
             this.buttonCamPlay.Click += new System.EventHandler(this.buttonCamPlay_Click);
             // 
@@ -1800,9 +1830,9 @@
             this.labelCamTimeSec.AutoSize = true;
             this.labelCamTimeSec.Location = new System.Drawing.Point(11, 26);
             this.labelCamTimeSec.Name = "labelCamTimeSec";
-            this.labelCamTimeSec.Size = new System.Drawing.Size(81, 13);
+            this.labelCamTimeSec.Size = new System.Drawing.Size(45, 13);
             this.labelCamTimeSec.TabIndex = 6;
-            this.labelCamTimeSec.Text = "Время полета:";
+            this.labelCamTimeSec.Text = "Fly time:";
             // 
             // buttonCamMinus
             // 
@@ -1826,7 +1856,7 @@
             this.groupBoxCamKeys.Size = new System.Drawing.Size(390, 311);
             this.groupBoxCamKeys.TabIndex = 1;
             this.groupBoxCamKeys.TabStop = false;
-            this.groupBoxCamKeys.Text = "Ключи";
+            this.groupBoxCamKeys.Text = "Keyframes";
             // 
             // listBoxCameraTarget
             // 
@@ -1899,7 +1929,7 @@
             this.buttonCamTargetSpline.Name = "buttonCamTargetSpline";
             this.buttonCamTargetSpline.Size = new System.Drawing.Size(166, 23);
             this.buttonCamTargetSpline.TabIndex = 8;
-            this.buttonCamTargetSpline.Text = "Добавить цель";
+            this.buttonCamTargetSpline.Text = "Add a target";
             this.buttonCamTargetSpline.UseVisualStyleBackColor = true;
             this.buttonCamTargetSpline.Click += new System.EventHandler(this.buttonCamTargetSpline_Click);
             // 
@@ -1909,356 +1939,485 @@
             this.buttonCamSpline.Name = "buttonCamSpline";
             this.buttonCamSpline.Size = new System.Drawing.Size(166, 23);
             this.buttonCamSpline.TabIndex = 7;
-            this.buttonCamSpline.Text = "Добавить позицию";
+            this.buttonCamSpline.Text = "Add a position";
             this.buttonCamSpline.UseVisualStyleBackColor = true;
             this.buttonCamSpline.Click += new System.EventHandler(this.buttonCamSpline_Click);
             // 
             // tabPage8
             // 
-            this.tabPage8.Controls.Add(this.panelLight);
-            this.tabPage8.Controls.Add(this.textBox5);
-            this.tabPage8.Controls.Add(this.label19);
-            this.tabPage8.Controls.Add(this.checkBox4);
-            this.tabPage8.Controls.Add(this.checkBox3);
-            this.tabPage8.Controls.Add(this.textBox2);
-            this.tabPage8.Controls.Add(this.label16);
-            this.tabPage8.Controls.Add(this.button15);
-            this.tabPage8.Controls.Add(this.listBox1);
-            this.tabPage8.Controls.Add(this.button14);
-            this.tabPage8.Controls.Add(this.button13);
-            this.tabPage8.Controls.Add(this.button12);
-            this.tabPage8.Controls.Add(this.button11);
-            this.tabPage8.Controls.Add(this.button10);
+            this.tabPage8.Controls.Add(this.groupBoxLightRangeProperties);
+            this.tabPage8.Controls.Add(this.groupBoxLightSelected);
+            this.tabPage8.Controls.Add(this.groupBoxLightColorProperties);
+            this.tabPage8.Controls.Add(this.groupBoxLightPresetProperties);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Size = new System.Drawing.Size(623, 379);
             this.tabPage8.TabIndex = 7;
-            this.tabPage8.Text = "Свет";
+            this.tabPage8.Text = "Light";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // panelLight
+            // groupBoxLightRangeProperties
             // 
-            this.panelLight.Controls.Add(this.labelNotReady2);
-            this.panelLight.Controls.Add(this.button17);
-            this.panelLight.Controls.Add(this.button16);
-            this.panelLight.Controls.Add(this.comboBox1);
-            this.panelLight.Controls.Add(this.label18);
-            this.panelLight.Controls.Add(this.checkBox2);
-            this.panelLight.Controls.Add(this.textBox4);
-            this.panelLight.Controls.Add(this.listBox4);
-            this.panelLight.Controls.Add(this.button21);
-            this.panelLight.Controls.Add(this.button20);
-            this.panelLight.Controls.Add(this.button19);
-            this.panelLight.Controls.Add(this.button18);
-            this.panelLight.Controls.Add(this.label17);
-            this.panelLight.Controls.Add(this.checkBox1);
-            this.panelLight.Controls.Add(this.textBox3);
-            this.panelLight.Controls.Add(this.listBox2);
-            this.panelLight.Controls.Add(this.radioButton2);
-            this.panelLight.Controls.Add(this.radioButton1);
-            this.panelLight.Location = new System.Drawing.Point(194, 106);
-            this.panelLight.Name = "panelLight";
-            this.panelLight.Size = new System.Drawing.Size(316, 237);
-            this.panelLight.TabIndex = 34;
+            this.groupBoxLightRangeProperties.Controls.Add(this.buttonMoveLightPresetRangeAniScaleUp);
+            this.groupBoxLightRangeProperties.Controls.Add(this.buttonMoveLightPresetRangeAniScaleDown);
+            this.groupBoxLightRangeProperties.Controls.Add(this.textBoxLightVobRangeAniFPS);
+            this.groupBoxLightRangeProperties.Controls.Add(this.listBoxLightPresetRangeAniScales);
+            this.groupBoxLightRangeProperties.Controls.Add(this.buttonAddLightRangeScale);
+            this.groupBoxLightRangeProperties.Controls.Add(this.buttonRemoveLightRangeScale);
+            this.groupBoxLightRangeProperties.Controls.Add(this.labelLightVobRangeAniFPS);
+            this.groupBoxLightRangeProperties.Controls.Add(this.checkBoxLightVobRangeAniSmooth);
+            this.groupBoxLightRangeProperties.Location = new System.Drawing.Point(431, 192);
+            this.groupBoxLightRangeProperties.Name = "groupBoxLightRangeProperties";
+            this.groupBoxLightRangeProperties.Size = new System.Drawing.Size(192, 184);
+            this.groupBoxLightRangeProperties.TabIndex = 49;
+            this.groupBoxLightRangeProperties.TabStop = false;
+            this.groupBoxLightRangeProperties.Text = "Range properties";
             // 
-            // labelNotReady2
+            // buttonMoveLightPresetRangeAniScaleUp
             // 
-            this.labelNotReady2.AutoSize = true;
-            this.labelNotReady2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelNotReady2.Location = new System.Drawing.Point(53, 7);
-            this.labelNotReady2.Name = "labelNotReady2";
-            this.labelNotReady2.Size = new System.Drawing.Size(239, 29);
-            this.labelNotReady2.TabIndex = 35;
-            this.labelNotReady2.Text = "ЕЩЕ НЕ СДЕЛАНО";
+            this.buttonMoveLightPresetRangeAniScaleUp.Location = new System.Drawing.Point(142, 72);
+            this.buttonMoveLightPresetRangeAniScaleUp.Name = "buttonMoveLightPresetRangeAniScaleUp";
+            this.buttonMoveLightPresetRangeAniScaleUp.Size = new System.Drawing.Size(47, 23);
+            this.buttonMoveLightPresetRangeAniScaleUp.TabIndex = 42;
+            this.buttonMoveLightPresetRangeAniScaleUp.Text = "Up";
+            this.buttonMoveLightPresetRangeAniScaleUp.UseVisualStyleBackColor = true;
+            this.buttonMoveLightPresetRangeAniScaleUp.Click += new System.EventHandler(this.buttonMoveLightPresetRangeAniScaleUp_Click);
             // 
-            // button17
+            // buttonMoveLightPresetRangeAniScaleDown
             // 
-            this.button17.Location = new System.Drawing.Point(265, 83);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(27, 23);
-            this.button17.TabIndex = 46;
-            this.button17.Text = "-";
-            this.button17.UseVisualStyleBackColor = true;
+            this.buttonMoveLightPresetRangeAniScaleDown.Location = new System.Drawing.Point(142, 101);
+            this.buttonMoveLightPresetRangeAniScaleDown.Name = "buttonMoveLightPresetRangeAniScaleDown";
+            this.buttonMoveLightPresetRangeAniScaleDown.Size = new System.Drawing.Size(47, 23);
+            this.buttonMoveLightPresetRangeAniScaleDown.TabIndex = 43;
+            this.buttonMoveLightPresetRangeAniScaleDown.Text = "Down";
+            this.buttonMoveLightPresetRangeAniScaleDown.UseVisualStyleBackColor = true;
+            this.buttonMoveLightPresetRangeAniScaleDown.Click += new System.EventHandler(this.buttonMoveLightPresetRangeAniScaleDown_Click);
             // 
-            // button16
+            // textBoxLightVobRangeAniFPS
             // 
-            this.button16.Location = new System.Drawing.Point(265, 54);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(27, 23);
-            this.button16.TabIndex = 45;
-            this.button16.Text = "+";
-            this.button16.UseVisualStyleBackColor = true;
+            this.textBoxLightVobRangeAniFPS.Location = new System.Drawing.Point(83, 132);
+            this.textBoxLightVobRangeAniFPS.Name = "textBoxLightVobRangeAniFPS";
+            this.textBoxLightVobRangeAniFPS.Size = new System.Drawing.Size(106, 20);
+            this.textBoxLightVobRangeAniFPS.TabIndex = 42;
             // 
-            // comboBox1
+            // listBoxLightPresetRangeAniScales
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.listBoxLightPresetRangeAniScales.FormattingEnabled = true;
+            this.listBoxLightPresetRangeAniScales.Location = new System.Drawing.Point(6, 16);
+            this.listBoxLightPresetRangeAniScales.Name = "listBoxLightPresetRangeAniScales";
+            this.listBoxLightPresetRangeAniScales.Size = new System.Drawing.Size(130, 108);
+            this.listBoxLightPresetRangeAniScales.TabIndex = 40;
+            this.listBoxLightPresetRangeAniScales.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxLightPresetRangeAniScales_MouseDoubleClick);
+            // 
+            // buttonAddLightRangeScale
+            // 
+            this.buttonAddLightRangeScale.Location = new System.Drawing.Point(142, 16);
+            this.buttonAddLightRangeScale.Name = "buttonAddLightRangeScale";
+            this.buttonAddLightRangeScale.Size = new System.Drawing.Size(47, 23);
+            this.buttonAddLightRangeScale.TabIndex = 45;
+            this.buttonAddLightRangeScale.Text = "+";
+            this.buttonAddLightRangeScale.UseVisualStyleBackColor = true;
+            this.buttonAddLightRangeScale.Click += new System.EventHandler(this.buttonAddLightRangeScale_Click);
+            // 
+            // buttonRemoveLightRangeScale
+            // 
+            this.buttonRemoveLightRangeScale.Location = new System.Drawing.Point(142, 43);
+            this.buttonRemoveLightRangeScale.Name = "buttonRemoveLightRangeScale";
+            this.buttonRemoveLightRangeScale.Size = new System.Drawing.Size(47, 23);
+            this.buttonRemoveLightRangeScale.TabIndex = 46;
+            this.buttonRemoveLightRangeScale.Text = "-";
+            this.buttonRemoveLightRangeScale.UseVisualStyleBackColor = true;
+            this.buttonRemoveLightRangeScale.Click += new System.EventHandler(this.buttonRemoveLightRangeScale_Click);
+            // 
+            // labelLightVobRangeAniFPS
+            // 
+            this.labelLightVobRangeAniFPS.AutoSize = true;
+            this.labelLightVobRangeAniFPS.Location = new System.Drawing.Point(6, 135);
+            this.labelLightVobRangeAniFPS.Name = "labelLightVobRangeAniFPS";
+            this.labelLightVobRangeAniFPS.Size = new System.Drawing.Size(72, 13);
+            this.labelLightVobRangeAniFPS.TabIndex = 43;
+            this.labelLightVobRangeAniFPS.Text = "rangeAniFPS:";
+            // 
+            // checkBoxLightVobRangeAniSmooth
+            // 
+            this.checkBoxLightVobRangeAniSmooth.AutoSize = true;
+            this.checkBoxLightVobRangeAniSmooth.Location = new System.Drawing.Point(7, 159);
+            this.checkBoxLightVobRangeAniSmooth.Name = "checkBoxLightVobRangeAniSmooth";
+            this.checkBoxLightVobRangeAniSmooth.Size = new System.Drawing.Size(104, 17);
+            this.checkBoxLightVobRangeAniSmooth.TabIndex = 42;
+            this.checkBoxLightVobRangeAniSmooth.Text = "rangeAniSmooth";
+            this.checkBoxLightVobRangeAniSmooth.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxLightSelected
+            // 
+            this.groupBoxLightSelected.Controls.Add(this.buttonSaveChangesLight);
+            this.groupBoxLightSelected.Controls.Add(this.numericUpDownLightVobRange);
+            this.groupBoxLightSelected.Controls.Add(this.labelLightVobLightQuality);
+            this.groupBoxLightSelected.Controls.Add(this.labelLightVobRange);
+            this.groupBoxLightSelected.Controls.Add(this.groupBoxLightType);
+            this.groupBoxLightSelected.Controls.Add(this.comboBoxLightVobLightQuality);
+            this.groupBoxLightSelected.Controls.Add(this.textBoxLightVobName);
+            this.groupBoxLightSelected.Controls.Add(this.checkBoxLightVobInstantCompile);
+            this.groupBoxLightSelected.Controls.Add(this.checkBoxShowLightVobRadius);
+            this.groupBoxLightSelected.Controls.Add(this.labelLightVobName);
+            this.groupBoxLightSelected.Controls.Add(this.buttonApplyChangesLight);
+            this.groupBoxLightSelected.Controls.Add(this.labelLightVobPresetInUse);
+            this.groupBoxLightSelected.Controls.Add(this.textBoxLightVobPresetName);
+            this.groupBoxLightSelected.Location = new System.Drawing.Point(231, 7);
+            this.groupBoxLightSelected.Name = "groupBoxLightSelected";
+            this.groupBoxLightSelected.Size = new System.Drawing.Size(392, 179);
+            this.groupBoxLightSelected.TabIndex = 49;
+            this.groupBoxLightSelected.TabStop = false;
+            this.groupBoxLightSelected.Text = "Selected preset";
+            // 
+            // buttonSaveChangesLight
+            // 
+            this.buttonSaveChangesLight.Enabled = false;
+            this.buttonSaveChangesLight.Location = new System.Drawing.Point(260, 149);
+            this.buttonSaveChangesLight.Name = "buttonSaveChangesLight";
+            this.buttonSaveChangesLight.Size = new System.Drawing.Size(129, 24);
+            this.buttonSaveChangesLight.TabIndex = 53;
+            this.buttonSaveChangesLight.Text = "Save changes";
+            this.buttonSaveChangesLight.UseVisualStyleBackColor = true;
+            this.buttonSaveChangesLight.Click += new System.EventHandler(this.buttonSaveChangesLight_Click);
+            // 
+            // numericUpDownLightVobRange
+            // 
+            this.numericUpDownLightVobRange.Location = new System.Drawing.Point(6, 120);
+            this.numericUpDownLightVobRange.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.numericUpDownLightVobRange.Minimum = new decimal(new int[] {
+            -2147483648,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDownLightVobRange.Name = "numericUpDownLightVobRange";
+            this.numericUpDownLightVobRange.Size = new System.Drawing.Size(97, 20);
+            this.numericUpDownLightVobRange.TabIndex = 52;
+            // 
+            // labelLightVobLightQuality
+            // 
+            this.labelLightVobLightQuality.AutoSize = true;
+            this.labelLightVobLightQuality.Location = new System.Drawing.Point(257, 74);
+            this.labelLightVobLightQuality.Name = "labelLightVobLightQuality";
+            this.labelLightVobLightQuality.Size = new System.Drawing.Size(61, 13);
+            this.labelLightVobLightQuality.TabIndex = 47;
+            this.labelLightVobLightQuality.Text = "lightQuality:";
+            // 
+            // labelLightVobRange
+            // 
+            this.labelLightVobRange.AutoSize = true;
+            this.labelLightVobRange.Location = new System.Drawing.Point(6, 103);
+            this.labelLightVobRange.Name = "labelLightVobRange";
+            this.labelLightVobRange.Size = new System.Drawing.Size(37, 13);
+            this.labelLightVobRange.TabIndex = 50;
+            this.labelLightVobRange.Text = "range:";
+            // 
+            // groupBoxLightType
+            // 
+            this.groupBoxLightType.Controls.Add(this.radioButtonLightVobStatic);
+            this.groupBoxLightType.Controls.Add(this.radioButtonLightVobDynamic);
+            this.groupBoxLightType.Location = new System.Drawing.Point(260, 13);
+            this.groupBoxLightType.Name = "groupBoxLightType";
+            this.groupBoxLightType.Size = new System.Drawing.Size(129, 58);
+            this.groupBoxLightType.TabIndex = 49;
+            this.groupBoxLightType.TabStop = false;
+            this.groupBoxLightType.Text = "light type";
+            // 
+            // radioButtonLightVobStatic
+            // 
+            this.radioButtonLightVobStatic.AutoSize = true;
+            this.radioButtonLightVobStatic.Location = new System.Drawing.Point(6, 17);
+            this.radioButtonLightVobStatic.Name = "radioButtonLightVobStatic";
+            this.radioButtonLightVobStatic.Size = new System.Drawing.Size(52, 17);
+            this.radioButtonLightVobStatic.TabIndex = 30;
+            this.radioButtonLightVobStatic.TabStop = true;
+            this.radioButtonLightVobStatic.Text = "Static";
+            this.radioButtonLightVobStatic.UseVisualStyleBackColor = true;
+            this.radioButtonLightVobStatic.CheckedChanged += new System.EventHandler(this.radioButtonLightVobStatic_CheckedChanged);
+            // 
+            // radioButtonLightVobDynamic
+            // 
+            this.radioButtonLightVobDynamic.AutoSize = true;
+            this.radioButtonLightVobDynamic.Location = new System.Drawing.Point(6, 35);
+            this.radioButtonLightVobDynamic.Name = "radioButtonLightVobDynamic";
+            this.radioButtonLightVobDynamic.Size = new System.Drawing.Size(66, 17);
+            this.radioButtonLightVobDynamic.TabIndex = 31;
+            this.radioButtonLightVobDynamic.TabStop = true;
+            this.radioButtonLightVobDynamic.Text = "Dynamic";
+            this.radioButtonLightVobDynamic.UseVisualStyleBackColor = true;
+            this.radioButtonLightVobDynamic.CheckedChanged += new System.EventHandler(this.radioButtonLightVobDynamic_CheckedChanged);
+            // 
+            // comboBoxLightVobLightQuality
+            // 
+            this.comboBoxLightVobLightQuality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLightVobLightQuality.FormattingEnabled = true;
+            this.comboBoxLightVobLightQuality.Items.AddRange(new object[] {
+            "quality",
+            "mid",
             "speed"});
-            this.comboBox1.Location = new System.Drawing.Point(170, 30);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(89, 21);
-            this.comboBox1.TabIndex = 44;
+            this.comboBoxLightVobLightQuality.Location = new System.Drawing.Point(260, 90);
+            this.comboBoxLightVobLightQuality.Name = "comboBoxLightVobLightQuality";
+            this.comboBoxLightVobLightQuality.Size = new System.Drawing.Size(129, 21);
+            this.comboBoxLightVobLightQuality.TabIndex = 44;
             // 
-            // label18
+            // textBoxLightVobName
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(229, 184);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(30, 13);
-            this.label18.TabIndex = 43;
-            this.label18.Text = "/сек";
+            this.textBoxLightVobName.Location = new System.Drawing.Point(6, 32);
+            this.textBoxLightVobName.Name = "textBoxLightVobName";
+            this.textBoxLightVobName.ReadOnly = true;
+            this.textBoxLightVobName.Size = new System.Drawing.Size(227, 20);
+            this.textBoxLightVobName.TabIndex = 12;
             // 
-            // checkBox2
+            // checkBoxLightVobInstantCompile
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(170, 212);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(73, 17);
-            this.checkBox2.TabIndex = 42;
-            this.checkBox2.Text = "Сгладить";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBoxLightVobInstantCompile.AutoSize = true;
+            this.checkBoxLightVobInstantCompile.Location = new System.Drawing.Point(6, 162);
+            this.checkBoxLightVobInstantCompile.Name = "checkBoxLightVobInstantCompile";
+            this.checkBoxLightVobInstantCompile.Size = new System.Drawing.Size(97, 17);
+            this.checkBoxLightVobInstantCompile.TabIndex = 31;
+            this.checkBoxLightVobInstantCompile.Text = "Instant compile";
+            this.checkBoxLightVobInstantCompile.UseVisualStyleBackColor = true;
+            this.checkBoxLightVobInstantCompile.CheckedChanged += new System.EventHandler(this.checkBoxShowLightVobInstantCompile_CheckedChanged);
             // 
-            // textBox4
+            // checkBoxShowLightVobRadius
             // 
-            this.textBox4.Location = new System.Drawing.Point(170, 181);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(53, 20);
-            this.textBox4.TabIndex = 41;
-            this.textBox4.Text = "2";
+            this.checkBoxShowLightVobRadius.AutoSize = true;
+            this.checkBoxShowLightVobRadius.Location = new System.Drawing.Point(6, 146);
+            this.checkBoxShowLightVobRadius.Name = "checkBoxShowLightVobRadius";
+            this.checkBoxShowLightVobRadius.Size = new System.Drawing.Size(84, 17);
+            this.checkBoxShowLightVobRadius.TabIndex = 30;
+            this.checkBoxShowLightVobRadius.Text = "Show radius";
+            this.checkBoxShowLightVobRadius.UseVisualStyleBackColor = true;
+            this.checkBoxShowLightVobRadius.CheckedChanged += new System.EventHandler(this.checkBoxShowLightVobRadius_CheckedChanged);
             // 
-            // listBox4
+            // labelLightVobName
             // 
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.Location = new System.Drawing.Point(170, 54);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(89, 108);
-            this.listBox4.TabIndex = 40;
+            this.labelLightVobName.AutoSize = true;
+            this.labelLightVobName.Location = new System.Drawing.Point(6, 16);
+            this.labelLightVobName.Name = "labelLightVobName";
+            this.labelLightVobName.Size = new System.Drawing.Size(58, 13);
+            this.labelLightVobName.TabIndex = 11;
+            this.labelLightVobName.Text = "Vob name:";
             // 
-            // button21
+            // buttonApplyChangesLight
             // 
-            this.button21.Location = new System.Drawing.Point(98, 141);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(47, 23);
-            this.button21.TabIndex = 39;
-            this.button21.Text = "Down";
-            this.button21.UseVisualStyleBackColor = true;
+            this.buttonApplyChangesLight.Location = new System.Drawing.Point(260, 120);
+            this.buttonApplyChangesLight.Name = "buttonApplyChangesLight";
+            this.buttonApplyChangesLight.Size = new System.Drawing.Size(129, 24);
+            this.buttonApplyChangesLight.TabIndex = 8;
+            this.buttonApplyChangesLight.Text = "Apply";
+            this.buttonApplyChangesLight.UseVisualStyleBackColor = true;
+            this.buttonApplyChangesLight.Click += new System.EventHandler(this.buttonApplyChangesLight_Click);
             // 
-            // button20
+            // labelLightVobPresetInUse
             // 
-            this.button20.Location = new System.Drawing.Point(98, 112);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(47, 23);
-            this.button20.TabIndex = 38;
-            this.button20.Text = "Up";
-            this.button20.UseVisualStyleBackColor = true;
+            this.labelLightVobPresetInUse.AutoSize = true;
+            this.labelLightVobPresetInUse.Location = new System.Drawing.Point(6, 58);
+            this.labelLightVobPresetInUse.Name = "labelLightVobPresetInUse";
+            this.labelLightVobPresetInUse.Size = new System.Drawing.Size(87, 13);
+            this.labelLightVobPresetInUse.TabIndex = 32;
+            this.labelLightVobPresetInUse.Text = "lightPresetInUse:";
             // 
-            // button19
+            // textBoxLightVobPresetName
             // 
-            this.button19.Location = new System.Drawing.Point(98, 83);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(27, 23);
-            this.button19.TabIndex = 37;
-            this.button19.Text = "-";
-            this.button19.UseVisualStyleBackColor = true;
+            this.textBoxLightVobPresetName.Location = new System.Drawing.Point(6, 76);
+            this.textBoxLightVobPresetName.Name = "textBoxLightVobPresetName";
+            this.textBoxLightVobPresetName.ReadOnly = true;
+            this.textBoxLightVobPresetName.Size = new System.Drawing.Size(227, 20);
+            this.textBoxLightVobPresetName.TabIndex = 33;
             // 
-            // button18
+            // groupBoxLightColorProperties
             // 
-            this.button18.Location = new System.Drawing.Point(98, 54);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(27, 23);
-            this.button18.TabIndex = 36;
-            this.button18.Text = "+";
-            this.button18.UseVisualStyleBackColor = true;
+            this.groupBoxLightColorProperties.Controls.Add(this.textBoxLightVobColorAniFPS);
+            this.groupBoxLightColorProperties.Controls.Add(this.listBoxLightPresetColors);
+            this.groupBoxLightColorProperties.Controls.Add(this.buttonAddLightPresetColor);
+            this.groupBoxLightColorProperties.Controls.Add(this.buttonRemoveLightPresetColor);
+            this.groupBoxLightColorProperties.Controls.Add(this.buttonMoveLightPresetColorUp);
+            this.groupBoxLightColorProperties.Controls.Add(this.buttonMoveLightPresetColorDown);
+            this.groupBoxLightColorProperties.Controls.Add(this.labelLightVobColorAniFPS);
+            this.groupBoxLightColorProperties.Controls.Add(this.checkBoxLightVobColorAniSmooth);
+            this.groupBoxLightColorProperties.Location = new System.Drawing.Point(231, 192);
+            this.groupBoxLightColorProperties.Name = "groupBoxLightColorProperties";
+            this.groupBoxLightColorProperties.Size = new System.Drawing.Size(194, 184);
+            this.groupBoxLightColorProperties.TabIndex = 48;
+            this.groupBoxLightColorProperties.TabStop = false;
+            this.groupBoxLightColorProperties.Text = "Color properites";
             // 
-            // label17
+            // textBoxLightVobColorAniFPS
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(62, 184);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(30, 13);
-            this.label17.TabIndex = 35;
-            this.label17.Text = "/сек";
+            this.textBoxLightVobColorAniFPS.Location = new System.Drawing.Point(80, 132);
+            this.textBoxLightVobColorAniFPS.Name = "textBoxLightVobColorAniFPS";
+            this.textBoxLightVobColorAniFPS.Size = new System.Drawing.Size(108, 20);
+            this.textBoxLightVobColorAniFPS.TabIndex = 41;
             // 
-            // checkBox1
+            // listBoxLightPresetColors
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(3, 212);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(73, 17);
-            this.checkBox1.TabIndex = 34;
-            this.checkBox1.Text = "Сгладить";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.listBoxLightPresetColors.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.listBoxLightPresetColors.FormattingEnabled = true;
+            this.listBoxLightPresetColors.Location = new System.Drawing.Point(6, 19);
+            this.listBoxLightPresetColors.Name = "listBoxLightPresetColors";
+            this.listBoxLightPresetColors.Size = new System.Drawing.Size(130, 108);
+            this.listBoxLightPresetColors.TabIndex = 32;
+            this.listBoxLightPresetColors.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBoxLightPresetColors_DrawItem);
+            this.listBoxLightPresetColors.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxLightPresetColors_MouseDoubleClick);
             // 
-            // textBox3
+            // buttonAddLightPresetColor
             // 
-            this.textBox3.Location = new System.Drawing.Point(3, 181);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(47, 20);
-            this.textBox3.TabIndex = 33;
-            this.textBox3.Text = "2";
+            this.buttonAddLightPresetColor.Location = new System.Drawing.Point(142, 19);
+            this.buttonAddLightPresetColor.Name = "buttonAddLightPresetColor";
+            this.buttonAddLightPresetColor.Size = new System.Drawing.Size(46, 23);
+            this.buttonAddLightPresetColor.TabIndex = 36;
+            this.buttonAddLightPresetColor.Text = "+";
+            this.buttonAddLightPresetColor.UseVisualStyleBackColor = true;
+            this.buttonAddLightPresetColor.Click += new System.EventHandler(this.buttonAddLightPresetColor_Click);
             // 
-            // listBox2
+            // buttonRemoveLightPresetColor
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(3, 54);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(89, 108);
-            this.listBox2.TabIndex = 32;
+            this.buttonRemoveLightPresetColor.Location = new System.Drawing.Point(142, 45);
+            this.buttonRemoveLightPresetColor.Name = "buttonRemoveLightPresetColor";
+            this.buttonRemoveLightPresetColor.Size = new System.Drawing.Size(46, 23);
+            this.buttonRemoveLightPresetColor.TabIndex = 37;
+            this.buttonRemoveLightPresetColor.Text = "-";
+            this.buttonRemoveLightPresetColor.UseVisualStyleBackColor = true;
+            this.buttonRemoveLightPresetColor.Click += new System.EventHandler(this.buttonRemoveLightPresetColor_Click);
             // 
-            // radioButton2
+            // buttonMoveLightPresetColorUp
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(3, 30);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(101, 17);
-            this.radioButton2.TabIndex = 31;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Динамический";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.buttonMoveLightPresetColorUp.Location = new System.Drawing.Point(142, 74);
+            this.buttonMoveLightPresetColorUp.Name = "buttonMoveLightPresetColorUp";
+            this.buttonMoveLightPresetColorUp.Size = new System.Drawing.Size(46, 23);
+            this.buttonMoveLightPresetColorUp.TabIndex = 38;
+            this.buttonMoveLightPresetColorUp.Text = "Up";
+            this.buttonMoveLightPresetColorUp.UseVisualStyleBackColor = true;
+            this.buttonMoveLightPresetColorUp.Click += new System.EventHandler(this.buttonMoveLightPresetColorUp_Click);
             // 
-            // radioButton1
+            // buttonMoveLightPresetColorDown
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(3, 7);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(89, 17);
-            this.radioButton1.TabIndex = 30;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Статический";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.buttonMoveLightPresetColorDown.Location = new System.Drawing.Point(142, 104);
+            this.buttonMoveLightPresetColorDown.Name = "buttonMoveLightPresetColorDown";
+            this.buttonMoveLightPresetColorDown.Size = new System.Drawing.Size(46, 23);
+            this.buttonMoveLightPresetColorDown.TabIndex = 39;
+            this.buttonMoveLightPresetColorDown.Text = "Down";
+            this.buttonMoveLightPresetColorDown.UseVisualStyleBackColor = true;
+            this.buttonMoveLightPresetColorDown.Click += new System.EventHandler(this.buttonMoveLightPresetColorDown_Click);
             // 
-            // textBox5
+            // labelLightVobColorAniFPS
             // 
-            this.textBox5.Location = new System.Drawing.Point(194, 79);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(165, 20);
-            this.textBox5.TabIndex = 33;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.labelLightVobColorAniFPS.AutoSize = true;
+            this.labelLightVobColorAniFPS.Location = new System.Drawing.Point(6, 135);
+            this.labelLightVobColorAniFPS.Name = "labelLightVobColorAniFPS";
+            this.labelLightVobColorAniFPS.Size = new System.Drawing.Size(68, 13);
+            this.labelLightVobColorAniFPS.TabIndex = 35;
+            this.labelLightVobColorAniFPS.Text = "colorAniFPS:";
             // 
-            // label19
+            // checkBoxLightVobColorAniSmooth
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(191, 58);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(154, 13);
-            this.label19.TabIndex = 32;
-            this.label19.Text = "Имя пресета текущего воба:";
-            this.label19.Click += new System.EventHandler(this.label19_Click);
+            this.checkBoxLightVobColorAniSmooth.AutoSize = true;
+            this.checkBoxLightVobColorAniSmooth.Location = new System.Drawing.Point(6, 159);
+            this.checkBoxLightVobColorAniSmooth.Name = "checkBoxLightVobColorAniSmooth";
+            this.checkBoxLightVobColorAniSmooth.Size = new System.Drawing.Size(100, 17);
+            this.checkBoxLightVobColorAniSmooth.TabIndex = 34;
+            this.checkBoxLightVobColorAniSmooth.Text = "colorAniSmooth";
+            this.checkBoxLightVobColorAniSmooth.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // groupBoxLightPresetProperties
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(378, 58);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(138, 17);
-            this.checkBox4.TabIndex = 31;
-            this.checkBox4.Text = "Компилировать сразу";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            this.groupBoxLightPresetProperties.Controls.Add(this.textBoxLightPresetName);
+            this.groupBoxLightPresetProperties.Controls.Add(this.labelLightPresetName);
+            this.groupBoxLightPresetProperties.Controls.Add(this.buttonNewLightPreset);
+            this.groupBoxLightPresetProperties.Controls.Add(this.listBoxLightPresets);
+            this.groupBoxLightPresetProperties.Controls.Add(this.buttonDeleteSelectedLightPreset);
+            this.groupBoxLightPresetProperties.Controls.Add(this.buttonUpdateLightPresetOnLightVobs);
+            this.groupBoxLightPresetProperties.Controls.Add(this.buttonUsePresetOnLightVob);
+            this.groupBoxLightPresetProperties.Controls.Add(this.buttonUpdateLightPresetFromLightVob);
+            this.groupBoxLightPresetProperties.Location = new System.Drawing.Point(8, 7);
+            this.groupBoxLightPresetProperties.Name = "groupBoxLightPresetProperties";
+            this.groupBoxLightPresetProperties.Size = new System.Drawing.Size(214, 369);
+            this.groupBoxLightPresetProperties.TabIndex = 48;
+            this.groupBoxLightPresetProperties.TabStop = false;
+            this.groupBoxLightPresetProperties.Text = "Preset properites";
             // 
-            // checkBox3
+            // textBoxLightPresetName
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(378, 35);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(127, 17);
-            this.checkBox3.TabIndex = 30;
-            this.checkBox3.Text = "Показывать радиус";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.textBoxLightPresetName.Location = new System.Drawing.Point(7, 32);
+            this.textBoxLightPresetName.Name = "textBoxLightPresetName";
+            this.textBoxLightPresetName.Size = new System.Drawing.Size(201, 20);
+            this.textBoxLightPresetName.TabIndex = 7;
             // 
-            // textBox2
+            // labelLightPresetName
             // 
-            this.textBox2.Location = new System.Drawing.Point(194, 35);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(165, 20);
-            this.textBox2.TabIndex = 12;
+            this.labelLightPresetName.AutoSize = true;
+            this.labelLightPresetName.ForeColor = System.Drawing.Color.Red;
+            this.labelLightPresetName.Location = new System.Drawing.Point(6, 16);
+            this.labelLightPresetName.Name = "labelLightPresetName";
+            this.labelLightPresetName.Size = new System.Drawing.Size(124, 13);
+            this.labelLightPresetName.TabIndex = 6;
+            this.labelLightPresetName.Text = "Preset name (mandatory)";
             // 
-            // label16
+            // buttonNewLightPreset
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(191, 14);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(59, 13);
-            this.label16.TabIndex = 11;
-            this.label16.Text = "Имя воба:";
+            this.buttonNewLightPreset.Location = new System.Drawing.Point(7, 58);
+            this.buttonNewLightPreset.Name = "buttonNewLightPreset";
+            this.buttonNewLightPreset.Size = new System.Drawing.Size(201, 23);
+            this.buttonNewLightPreset.TabIndex = 5;
+            this.buttonNewLightPreset.Text = "Create preset";
+            this.buttonNewLightPreset.UseVisualStyleBackColor = true;
+            this.buttonNewLightPreset.Click += new System.EventHandler(this.buttonNewLightPreset_Click);
             // 
-            // button15
+            // listBoxLightPresets
             // 
-            this.button15.Location = new System.Drawing.Point(5, 43);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(180, 23);
-            this.button15.TabIndex = 10;
-            this.button15.Text = "Обновить пресет из vobLight <<";
-            this.button15.UseVisualStyleBackColor = true;
+            this.listBoxLightPresets.FormattingEnabled = true;
+            this.listBoxLightPresets.Location = new System.Drawing.Point(9, 116);
+            this.listBoxLightPresets.Name = "listBoxLightPresets";
+            this.listBoxLightPresets.Size = new System.Drawing.Size(199, 160);
+            this.listBoxLightPresets.Sorted = true;
+            this.listBoxLightPresets.TabIndex = 9;
+            this.listBoxLightPresets.SelectedIndexChanged += new System.EventHandler(this.listBoxLightPresets_SelectedIndexChanged);
+            this.listBoxLightPresets.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxLightPresets_MouseDoubleClick);
             // 
-            // listBox1
+            // buttonDeleteSelectedLightPreset
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(5, 72);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(180, 134);
-            this.listBox1.TabIndex = 9;
+            this.buttonDeleteSelectedLightPreset.Location = new System.Drawing.Point(7, 87);
+            this.buttonDeleteSelectedLightPreset.Name = "buttonDeleteSelectedLightPreset";
+            this.buttonDeleteSelectedLightPreset.Size = new System.Drawing.Size(201, 23);
+            this.buttonDeleteSelectedLightPreset.TabIndex = 4;
+            this.buttonDeleteSelectedLightPreset.Text = "Delete selected preset";
+            this.buttonDeleteSelectedLightPreset.UseVisualStyleBackColor = true;
+            this.buttonDeleteSelectedLightPreset.Click += new System.EventHandler(this.buttonDeleteSelectedLightPreset_Click);
             // 
-            // button14
+            // buttonUpdateLightPresetOnLightVobs
             // 
-            this.button14.Location = new System.Drawing.Point(378, 77);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(132, 23);
-            this.button14.TabIndex = 8;
-            this.button14.Text = "Применить на вобе";
-            this.button14.UseVisualStyleBackColor = true;
+            this.buttonUpdateLightPresetOnLightVobs.Location = new System.Drawing.Point(9, 286);
+            this.buttonUpdateLightPresetOnLightVobs.Name = "buttonUpdateLightPresetOnLightVobs";
+            this.buttonUpdateLightPresetOnLightVobs.Size = new System.Drawing.Size(199, 23);
+            this.buttonUpdateLightPresetOnLightVobs.TabIndex = 6;
+            this.buttonUpdateLightPresetOnLightVobs.Text = "Update preset on lightvobs";
+            this.buttonUpdateLightPresetOnLightVobs.UseVisualStyleBackColor = true;
+            this.buttonUpdateLightPresetOnLightVobs.Click += new System.EventHandler(this.buttonUpdateLightPresetOnLightVobs_Click);
             // 
-            // button13
+            // buttonUsePresetOnLightVob
             // 
-            this.button13.Location = new System.Drawing.Point(5, 246);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(180, 23);
-            this.button13.TabIndex = 7;
-            this.button13.Text = "Использовать пресет >>";
-            this.button13.UseVisualStyleBackColor = true;
+            this.buttonUsePresetOnLightVob.Location = new System.Drawing.Point(9, 344);
+            this.buttonUsePresetOnLightVob.Name = "buttonUsePresetOnLightVob";
+            this.buttonUsePresetOnLightVob.Size = new System.Drawing.Size(199, 23);
+            this.buttonUsePresetOnLightVob.TabIndex = 7;
+            this.buttonUsePresetOnLightVob.Text = "Use preset on lightvob >>";
+            this.buttonUsePresetOnLightVob.UseVisualStyleBackColor = true;
+            this.buttonUsePresetOnLightVob.Click += new System.EventHandler(this.buttonUsePresetOnLightVob_Click);
             // 
-            // button12
+            // buttonUpdateLightPresetFromLightVob
             // 
-            this.button12.Location = new System.Drawing.Point(5, 217);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(180, 23);
-            this.button12.TabIndex = 6;
-            this.button12.Text = "Применить";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(86, 14);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(99, 23);
-            this.button11.TabIndex = 5;
-            this.button11.Text = "Создать новый";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(5, 14);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 4;
-            this.button10.Text = "Удалить";
-            this.button10.UseVisualStyleBackColor = true;
-            // 
-            // listBoxVisuals
-            // 
-            this.listBoxVisuals.FormattingEnabled = true;
-            this.listBoxVisuals.Location = new System.Drawing.Point(253, 255);
-            this.listBoxVisuals.Name = "listBoxVisuals";
-            this.listBoxVisuals.Size = new System.Drawing.Size(360, 121);
-            this.listBoxVisuals.TabIndex = 8;
-            this.listBoxVisuals.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxVisuals_MouseClick);
-            this.listBoxVisuals.SelectedIndexChanged += new System.EventHandler(this.listBoxVisuals_SelectedIndexChanged);
-            this.listBoxVisuals.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBoxVisuals_KeyDown);
-            this.listBoxVisuals.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBoxVisuals_KeyPress);
-            this.listBoxVisuals.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxVisuals_MouseDown);
+            this.buttonUpdateLightPresetFromLightVob.Location = new System.Drawing.Point(9, 315);
+            this.buttonUpdateLightPresetFromLightVob.Name = "buttonUpdateLightPresetFromLightVob";
+            this.buttonUpdateLightPresetFromLightVob.Size = new System.Drawing.Size(199, 23);
+            this.buttonUpdateLightPresetFromLightVob.TabIndex = 10;
+            this.buttonUpdateLightPresetFromLightVob.Text = "Update preset from lightvob <<";
+            this.buttonUpdateLightPresetFromLightVob.UseVisualStyleBackColor = true;
+            this.buttonUpdateLightPresetFromLightVob.Click += new System.EventHandler(this.buttonUpdateLightPresetFromLightVob_Click);
             // 
             // ObjectsWin
             // 
@@ -2272,7 +2431,7 @@
             this.Name = "ObjectsWin";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Окно объектов";
+            this.Text = "Objects window";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ParticleWin_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ObjectsWin_FormClosed);
             this.Shown += new System.EventHandler(this.ParticleWin_Shown);
@@ -2319,9 +2478,17 @@
             this.contextMenuStripCamTarget.ResumeLayout(false);
             this.contextMenuStripCam.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
-            this.tabPage8.PerformLayout();
-            this.panelLight.ResumeLayout(false);
-            this.panelLight.PerformLayout();
+            this.groupBoxLightRangeProperties.ResumeLayout(false);
+            this.groupBoxLightRangeProperties.PerformLayout();
+            this.groupBoxLightSelected.ResumeLayout(false);
+            this.groupBoxLightSelected.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLightVobRange)).EndInit();
+            this.groupBoxLightType.ResumeLayout(false);
+            this.groupBoxLightType.PerformLayout();
+            this.groupBoxLightColorProperties.ResumeLayout(false);
+            this.groupBoxLightColorProperties.PerformLayout();
+            this.groupBoxLightPresetProperties.ResumeLayout(false);
+            this.groupBoxLightPresetProperties.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2428,38 +2595,22 @@
         private System.Windows.Forms.Button buttonCamPlay;
         private System.Windows.Forms.Button buttonCamPlus;
         private System.Windows.Forms.Button buttonCamMinus;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Panel panelLight;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.ListBox listBox4;
-        private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label labelNotReady2;
+        private System.Windows.Forms.Button buttonUpdateLightPresetFromLightVob;
+        private System.Windows.Forms.ListBox listBoxLightPresets;
+        private System.Windows.Forms.Button buttonApplyChangesLight;
+        private System.Windows.Forms.Button buttonUsePresetOnLightVob;
+        private System.Windows.Forms.Button buttonUpdateLightPresetOnLightVobs;
+        private System.Windows.Forms.Button buttonNewLightPreset;
+        private System.Windows.Forms.Button buttonDeleteSelectedLightPreset;
+        private System.Windows.Forms.TextBox textBoxLightVobName;
+        private System.Windows.Forms.Label labelLightVobName;
+        private System.Windows.Forms.CheckBox checkBoxLightVobInstantCompile;
+        private System.Windows.Forms.CheckBox checkBoxShowLightVobRadius;
+        private System.Windows.Forms.TextBox textBoxLightVobPresetName;
+        private System.Windows.Forms.Label labelLightVobPresetInUse;
+        private System.Windows.Forms.ComboBox comboBoxLightVobLightQuality;
+        private System.Windows.Forms.RadioButton radioButtonLightVobDynamic;
+        private System.Windows.Forms.RadioButton radioButtonLightVobStatic;
         public System.Windows.Forms.CheckBox checkBoxShowPFXPreview;
         public System.Windows.Forms.CheckBox checkBoxItemShow;
         private System.Windows.Forms.GroupBox groupBoxItemsCont;
@@ -2512,5 +2663,33 @@
         private System.Windows.Forms.Button buttonTriggersJumpToKey;
         private System.Windows.Forms.TextBox textBoxTrigersJumpKey;
         private System.Windows.Forms.ListBox listBoxVisuals;
+        private System.Windows.Forms.ColorDialog colorDialogLightPresetColor;
+        private System.Windows.Forms.Label labelLightVobLightQuality;
+        private System.Windows.Forms.GroupBox groupBoxLightPresetProperties;
+        private System.Windows.Forms.Label labelLightPresetName;
+        private System.Windows.Forms.TextBox textBoxLightPresetName;
+        private System.Windows.Forms.GroupBox groupBoxLightSelected;
+        private System.Windows.Forms.GroupBox groupBoxLightType;
+        private System.Windows.Forms.GroupBox groupBoxLightRangeProperties;
+        private System.Windows.Forms.ListBox listBoxLightPresetRangeAniScales;
+        private System.Windows.Forms.Button buttonAddLightRangeScale;
+        private System.Windows.Forms.Button buttonRemoveLightRangeScale;
+        private System.Windows.Forms.Label labelLightVobRangeAniFPS;
+        private System.Windows.Forms.CheckBox checkBoxLightVobRangeAniSmooth;
+        private System.Windows.Forms.Label labelLightVobRange;
+        private System.Windows.Forms.GroupBox groupBoxLightColorProperties;
+        private System.Windows.Forms.ListBox listBoxLightPresetColors;
+        private System.Windows.Forms.Button buttonAddLightPresetColor;
+        private System.Windows.Forms.Button buttonRemoveLightPresetColor;
+        private System.Windows.Forms.Button buttonMoveLightPresetColorUp;
+        private System.Windows.Forms.Button buttonMoveLightPresetColorDown;
+        private System.Windows.Forms.Label labelLightVobColorAniFPS;
+        private System.Windows.Forms.CheckBox checkBoxLightVobColorAniSmooth;
+        private System.Windows.Forms.NumericUpDown numericUpDownLightVobRange;
+        private System.Windows.Forms.Button buttonSaveChangesLight;
+        private System.Windows.Forms.TextBox textBoxLightVobRangeAniFPS;
+        private System.Windows.Forms.TextBox textBoxLightVobColorAniFPS;
+        private System.Windows.Forms.Button buttonMoveLightPresetRangeAniScaleUp;
+        private System.Windows.Forms.Button buttonMoveLightPresetRangeAniScaleDown;
     }
 }

@@ -28,7 +28,6 @@ namespace SpacerUnion.Windows
             checkBoxMiscAutoCompile.Text = Localizator.Get("checkBoxMiscAutoCompile");
             checkBoxAutoCompileUncompiled.Text = Localizator.Get("checkBoxMiscAutoCompileUncZen");
             autoRemoveLevelCompo.Text = Localizator.Get("autoRemoveLevelCompo");
-            showLightRadiusVob.Text = Localizator.Get("showLightRadiusVob");
             checkBoxAutoRemoveAllVisuals.Text = Localizator.Get("checkBoxAutoRemoveAllVisuals");
             checkBoxSetNearestVobCam.Text = Localizator.Get("checkBoxSetNearestVobCam");
             checkBoxShowPolysSort.Text = Localizator.Get("checkBoxShowPolysSort");
@@ -68,11 +67,6 @@ namespace SpacerUnion.Windows
 
 
 
-            Imports.Stack_PushString("showLightRadiusVob");
-            int showLightRadiusVob = Imports.Extern_GetSetting();
-            SpacerNET.miscSetWin.showLightRadiusVob.Checked = Convert.ToBoolean(showLightRadiusVob);
-
-
             Imports.Stack_PushString("checkBoxAutoRemoveAllVisuals");
             SpacerNET.miscSetWin.checkBoxAutoRemoveAllVisuals.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
@@ -107,11 +101,7 @@ namespace SpacerUnion.Windows
             Imports.Extern_SetSetting(Convert.ToInt32(autoRemoveLevelCompo.Checked));
 
 
-            Imports.Stack_PushString("showLightRadiusVob");
-            Imports.Extern_SetSetting(Convert.ToInt32(showLightRadiusVob.Checked));
-
-
-
+      
             Imports.Stack_PushString("checkBoxAutoRemoveAllVisuals");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxAutoRemoveAllVisuals.Checked));
 

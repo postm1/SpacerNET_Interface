@@ -10,10 +10,12 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static SpacerUnion.ObjTree;
 
 namespace SpacerUnion
@@ -137,10 +139,6 @@ namespace SpacerUnion
 
 
 
-            //labelNotReady0.Text = Localizator.Get("TEST_NOT_READY");
-            labelNotReady2.Text = Localizator.Get("TEST_NOT_READY");
-
-
             groupBoxSearchClasses.Text = Localizator.Get("all_vobs_classes");
             checkBoxSearchDerived.Text = Localizator.Get("search_derived");
             checkBoxSearchHasChildren.Text = Localizator.Get("checkBoxSearchHasChildren");
@@ -183,7 +181,7 @@ namespace SpacerUnion
 
 
 
-            // камера
+            // camera
             groupBoxCameraNew.Text = Localizator.Get("groupBoxCameraNew");
             labelCamNewName.Text = Localizator.Get("FORM_COMMON_NAME");
             buttonCamInsert.Text = Localizator.Get("FORM_COMMON_CREATE");
@@ -215,7 +213,35 @@ namespace SpacerUnion
             contextMenuStripCamTarget.Items[0].Text = Localizator.Get("FORM_COMMON_DELETE");
             contextMenuStripCamTarget.Items[1].Text = Localizator.Get("FORM_CAMERA_INSERT_KEY_HERE");
 
-            
+            // light
+            groupBoxLightPresetProperties.Text = Localizator.Get("groupBoxLightPresetProperties");
+            labelLightPresetName.Text = Localizator.Get("labelLightPresetName");
+            buttonNewLightPreset.Text = Localizator.Get("buttonNewLightPreset");
+            buttonDeleteSelectedLightPreset.Text = Localizator.Get("buttonDeleteSelectedLightPreset");
+            buttonUpdateLightPresetOnLightVobs.Text = Localizator.Get("buttonUpdateLightPresetOnLightVobs");
+            buttonUpdateLightPresetFromLightVob.Text = Localizator.Get("buttonUpdateLightPresetFromVob");
+            buttonUsePresetOnLightVob.Text = Localizator.Get("buttonUsePresetOnLightVob");
+            groupBoxLightSelected.Text = Localizator.Get("groupBoxLightSelected_Preset");
+            labelLightVobName.Text = Localizator.Get("labelLightVobName");
+            groupBoxLightType.Text = Localizator.Get("groupBoxLightType");
+            checkBoxShowLightVobRadius.Text = Localizator.Get("checkBoxShowLightVobRadius");
+            checkBoxLightVobInstantCompile.Text = Localizator.Get("checkBoxLightVobInstantCompile");
+            buttonApplyChangesLight.Text = Localizator.Get("BTN_APPLY");
+            buttonSaveChangesLight.Text = Localizator.Get("BTN_SAVE_CHANGES");
+            radioButtonLightVobStatic.Text = Localizator.Get("radioButtonLightVobStatic");
+            radioButtonLightVobDynamic.Text = Localizator.Get("radioButtonLightVobDynamic");
+            groupBoxLightColorProperties.Text = Localizator.Get("groupBoxLightColorProperties");
+            groupBoxLightRangeProperties.Text = Localizator.Get("groupBoxLightRangeProperties");
+            buttonMoveLightPresetColorUp.Text = Localizator.Get("BTN_UP");
+            buttonMoveLightPresetColorDown.Text = Localizator.Get("BTN_DOWN");
+            buttonMoveLightPresetRangeAniScaleUp.Text = Localizator.Get("BTN_UP");
+            buttonMoveLightPresetRangeAniScaleDown.Text = Localizator.Get("BTN_DOWN");
+        }
+
+
+        public void OnClose()
+        {
+            Imports.Extern_Light_SavePresets();
         }
 
         public void SetHintWPFP()
@@ -232,23 +258,22 @@ namespace SpacerUnion
 
         public void LoadSettings()
         {
-
-
-            Imports.Stack_PushString("addFPAutoName");
-            Imports.Stack_PushString("downFPToGround");
-            Imports.Stack_PushString("addWPAutoName");
-            Imports.Stack_PushString("addWPToNet");
-            Imports.Stack_PushString("searchOnly3DS");
             Imports.Stack_PushString("showModelPreview");
-
-
             checkBoxShowPreview.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("searchOnly3DS");
             checkBoxSearchOnly3DS.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
-
+            Imports.Stack_PushString("addWPToNet");
             checkBoxWayNet.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("addWPAutoName");
             checkBoxWPAutoName.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("downFPToGround");
             checkBoxFPGround.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("addFPAutoName");
             checkBoxAutoNameFP.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
             Imports.Stack_PushString("itemLocatorEnabled");
@@ -260,18 +285,15 @@ namespace SpacerUnion
             Imports.Stack_PushString("itemLocatorOnlyByName");
             checkBoxLocatorByName.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
-            
-
-
-
             Imports.Stack_PushString("itemLocatorRadius");
             trackBarLocatorRad.Value = Imports.Extern_GetSetting();
 
             GetVdfArchivesList();
 
-
-
             comboBoxLocatorItemType.SelectedIndex = 0;
+
+            Imports.Stack_PushString("showLightRadiusVob");
+            SpacerNET.objectsWin.checkBoxShowLightVobRadius.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
         }
 
         public void GetVdfArchivesList()
@@ -292,7 +314,6 @@ namespace SpacerUnion
 
             comboBoxArchiveList.SelectedIndex = 0;
         }
-
 
         [DllExport]
         public static void AddPacticleToList()
@@ -1205,7 +1226,6 @@ namespace SpacerUnion
             ChangeTab(4);
         }
         
-
         [DllExport]
         public static void SelectCameraTab()
         {
@@ -1213,6 +1233,12 @@ namespace SpacerUnion
             ChangeTab(6);
         }
 
+        [DllExport]
+        public static void SelectLightTab()
+        {
+
+            ChangeTab(7);
+        }
 
         [DllExport]
         public static void AddActionTypeMover()
@@ -1588,16 +1614,6 @@ namespace SpacerUnion
             }
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonCamSpline_Click(object sender, EventArgs e)
         {
             Button bt = sender as Button;
@@ -1607,38 +1623,6 @@ namespace SpacerUnion
 
             listBoxCameraSpline.SelectedIndex = listBoxCameraSpline.Items.Count - 1;
         }
-
-        private void textBox4_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label18_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label19_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox4_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        
 
         private void checkBoxWayNet_CheckedChanged(object sender, EventArgs e)
         {
@@ -3947,6 +3931,448 @@ namespace SpacerUnion
             Imports.Stack_PushInt(val);
 
             Imports.Extern_SetMoverToKey();
+        }
+
+        public static DialogResult ShowInputDialog(ref string text)
+        {
+            Form prompt = new Form();
+            prompt.ShowIcon = false;
+            prompt.MinimizeBox = false;
+            prompt.MaximizeBox = false;
+            prompt.FormBorderStyle = FormBorderStyle.FixedSingle;
+            prompt.StartPosition = FormStartPosition.CenterScreen;
+            prompt.Width = 225;
+            prompt.Height = 122;
+            prompt.Text = Localizator.Get("WIN_INPUT");
+
+            TextBox inputBox = new TextBox() { Text = text, Left = 10, Top = 27, Width = 200 };
+            prompt.Controls.Add(inputBox);
+
+            Button buttonOK = new Button() { Text = "OK", Left = 10, Top = 60, Width = 75 };
+            buttonOK.Click += (sender, e) => {
+                prompt.DialogResult = DialogResult.OK;
+                prompt.Close();
+            };
+            prompt.Controls.Add(buttonOK);
+            prompt.AcceptButton = buttonOK;
+
+            Button buttonCancel = new Button() { Text = Localizator.Get("WIN_CANCEL_BUTTON"), Left = 95, Top = 60, Width = 75 };
+            buttonCancel.Click += (sender, e) => {
+                prompt.DialogResult = DialogResult.Cancel;
+                prompt.Close();
+            };
+            prompt.Controls.Add(buttonCancel);
+
+            DialogResult result = prompt.ShowDialog();
+            text = inputBox.Text;
+
+            return result;
+        }
+
+        [DllExport]
+        public static void AddLightPresetToList()
+        {
+            string presetName = Imports.Stack_PeekString();
+            SpacerNET.objectsWin.listBoxLightPresets.Items.Add(presetName);
+        }
+
+        [DllExport]
+        public static void UpdateLightPresetView()
+        {
+            bool staticLight = Imports.Stack_PeekBool();
+            if (staticLight)
+                SpacerNET.objectsWin.radioButtonLightVobStatic.Checked = true;
+            else
+                SpacerNET.objectsWin.radioButtonLightVobDynamic.Checked = true;
+
+            int lightQuality = Imports.Stack_PeekInt();
+            SpacerNET.objectsWin.comboBoxLightVobLightQuality.SelectedIndex = lightQuality;
+            SpacerNET.objectsWin.comboBoxLightVobLightQuality.Enabled = !staticLight;
+
+            int range = Imports.Stack_PeekInt();
+            SpacerNET.objectsWin.numericUpDownLightVobRange.Value = range;
+
+            SpacerNET.objectsWin.listBoxLightPresetColors.Items.Clear();
+            int colorsCount = Imports.Stack_PeekInt();
+            for (int i = 0; i < colorsCount; ++i)
+            {
+                int argb = Imports.Stack_PeekInt();
+                SpacerNET.objectsWin.listBoxLightPresetColors.Items.Add(Color.FromArgb(argb));
+            }
+
+            float colorAniFPS = Imports.Stack_PeekFloat() * 1000.0f;
+            SpacerNET.objectsWin.textBoxLightVobColorAniFPS.Text = colorAniFPS.ToString(CultureInfo.InvariantCulture);
+
+            bool colorAniSmooth = Imports.Stack_PeekBool();
+            SpacerNET.objectsWin.checkBoxLightVobColorAniSmooth.Checked = colorAniSmooth;
+
+            SpacerNET.objectsWin.listBoxLightPresetRangeAniScales.Items.Clear();
+            int rangeAniScalesCount = Imports.Stack_PeekInt();
+            for (int i = 0; i < rangeAniScalesCount; ++i)
+            {
+                float rangeAniScale = Imports.Stack_PeekFloat();
+                SpacerNET.objectsWin.listBoxLightPresetRangeAniScales.Items.Add(rangeAniScale.ToString(CultureInfo.InvariantCulture));
+            }
+
+            float rangeAniFPS = Imports.Stack_PeekFloat() * 1000.0f;
+            SpacerNET.objectsWin.textBoxLightVobRangeAniFPS.Text = rangeAniFPS.ToString(CultureInfo.InvariantCulture);
+
+            bool rangeAniSmooth = Imports.Stack_PeekBool();
+            SpacerNET.objectsWin.checkBoxLightVobRangeAniSmooth.Checked = rangeAniSmooth;
+        }
+
+        [DllExport]
+        public static void OnSelectLightVob()
+        {
+            string vobName = Imports.Stack_PeekString();
+            string presetName = Imports.Stack_PeekString();
+
+            SpacerNET.objectsWin.textBoxLightVobName.Text = vobName;
+            SpacerNET.objectsWin.textBoxLightVobName.ReadOnly = false;
+
+            SpacerNET.objectsWin.textBoxLightVobPresetName.Text = presetName;
+        }
+
+        [DllExport]
+        public static void OnDeselectLightVob()
+        {
+            SpacerNET.objectsWin.textBoxLightVobName.Text = "";
+            SpacerNET.objectsWin.textBoxLightVobName.ReadOnly = true;
+
+            SpacerNET.objectsWin.textBoxLightVobPresetName.Text = "";
+
+            if (SpacerNET.objectsWin.listBoxLightPresets.SelectedItem != null)
+            {
+                Imports.Stack_PushString(SpacerNET.objectsWin.listBoxLightPresets.SelectedItem.ToString());
+                Imports.Extern_Light_QueryPresetData();
+            }
+        }
+
+        private void PushLightPresetData()
+        {
+            Imports.Stack_PushBool(checkBoxLightVobRangeAniSmooth.Checked);
+
+            float value = 0.0f;
+            float.TryParse(textBoxLightVobRangeAniFPS.Text, NumberStyles.Float, CultureInfo.InvariantCulture, out value);
+            Imports.Stack_PushFloat(value * 0.001f);
+
+            foreach (string item in listBoxLightPresetRangeAniScales.Items)
+            {
+                value = 0.0f;
+                float.TryParse(item, NumberStyles.Float, CultureInfo.InvariantCulture, out value);
+                Imports.Stack_PushFloat(value);
+            }
+
+            Imports.Stack_PushInt(listBoxLightPresetRangeAniScales.Items.Count);
+
+            Imports.Stack_PushBool(checkBoxLightVobColorAniSmooth.Checked);
+
+            value = 0.0f;
+            float.TryParse(textBoxLightVobColorAniFPS.Text, NumberStyles.Float, CultureInfo.InvariantCulture, out value);
+            Imports.Stack_PushFloat(value * 0.001f);
+
+            foreach (Color item in listBoxLightPresetColors.Items)
+                Imports.Stack_PushInt(item.ToArgb());
+
+            Imports.Stack_PushInt(listBoxLightPresetColors.Items.Count);
+
+            Imports.Stack_PushInt((int)numericUpDownLightVobRange.Value);
+            Imports.Stack_PushInt(comboBoxLightVobLightQuality.SelectedIndex);
+            Imports.Stack_PushBool(radioButtonLightVobStatic.Checked);
+        }
+        private void radioButtonLightVobStatic_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBoxLightVobLightQuality.Enabled = false;
+        }
+
+        private void radioButtonLightVobDynamic_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBoxLightVobLightQuality.Enabled = true;
+        }
+        private void buttonApplyChangesLight_Click(object sender, EventArgs e)
+        {
+            PushLightPresetData();
+            Imports.Stack_PushString(textBoxLightVobName.Text);
+
+            Imports.Stack_PushString(listBoxLightPresets.SelectedItem != null ? listBoxLightPresets.SelectedItem.ToString() : "");
+            if (Imports.Extern_Light_ApplyChanges() == 1)
+                buttonSaveChangesLight.Enabled = true;
+        }
+        private void buttonSaveChangesLight_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_Light_SavePresets();
+            buttonSaveChangesLight.Enabled = false;
+        }
+
+        private void buttonAddLightPresetColor_Click(object sender, EventArgs e)
+        {
+            if (colorDialogLightPresetColor.ShowDialog() != DialogResult.OK)
+                return;
+
+            listBoxLightPresetColors.Items.Add(colorDialogLightPresetColor.Color);
+        }
+
+        private void buttonRemoveLightPresetColor_Click(object sender, EventArgs e)
+        {
+            if (listBoxLightPresetColors.Items.Count == 1)
+                return;
+
+            listBoxLightPresetColors.Items.RemoveAt((listBoxLightPresetColors.SelectedIndex != -1) ? listBoxLightPresetColors.SelectedIndex : listBoxLightPresetColors.Items.Count - 1);
+        }
+
+        private void buttonMoveLightPresetColorUp_Click(object sender, EventArgs e)
+        {
+            int index = listBoxLightPresetColors.SelectedIndex;
+            if (index == -1)
+                return;
+
+            var item = listBoxLightPresetColors.Items[index];
+            listBoxLightPresetColors.Items.RemoveAt(index);
+
+            index = Math.Min(Math.Max(index - 1, 0), Math.Max(listBoxLightPresetColors.Items.Count - 1, 0));
+            listBoxLightPresetColors.Items.Insert(index, item);
+
+            listBoxLightPresetColors.SelectedIndex = index;
+        }
+
+        private void buttonMoveLightPresetColorDown_Click(object sender, EventArgs e)
+        {
+            int index = listBoxLightPresetColors.SelectedIndex;
+            if (index == -1)
+                return;
+
+            var item = listBoxLightPresetColors.Items[index];
+            listBoxLightPresetColors.Items.RemoveAt(index);
+
+            index = Math.Min(Math.Max(index + 1, 0), listBoxLightPresetColors.Items.Count);
+            listBoxLightPresetColors.Items.Insert(index, item);
+
+            listBoxLightPresetColors.SelectedIndex = index;
+        }
+
+        private void listBoxLightPresets_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxLightPresets.SelectedItem == null)
+                return;
+
+            Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
+            Imports.Extern_Light_QueryPresetData();
+        }
+
+        private void listBoxLightPresetColors_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index == -1)
+                return;
+
+            ListBox colorListBox = (ListBox)sender;
+            bool selected = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
+
+            e = new DrawItemEventArgs(
+                e.Graphics,
+                e.Font,
+                e.Bounds,
+                e.Index,
+                selected ? e.State ^ DrawItemState.Selected : e.State,
+                e.ForeColor,
+                selected ? Color.Red : Color.Black
+            );
+
+            e.DrawBackground();
+
+            e.Graphics.FillRectangle(new SolidBrush((Color)colorListBox.Items[e.Index]), new Rectangle(e.Bounds.X + 1, e.Bounds.Y + 1, e.Bounds.Width - 2, e.Bounds.Height - 2));
+
+            e.DrawFocusRectangle();
+        }
+
+        private void listBoxLightPresetColors_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int index = listBoxLightPresetColors.IndexFromPoint(e.Location);
+            if (index == -1)
+                return;
+
+            if (colorDialogLightPresetColor.ShowDialog() != DialogResult.OK)
+                return;
+
+            listBoxLightPresetColors.Items[index] = colorDialogLightPresetColor.Color;
+        }
+
+        private void buttonAddLightRangeScale_Click(object sender, EventArgs e)
+        {
+            string text = "";
+            if (ShowInputDialog(ref text) != DialogResult.OK)
+                return;
+
+            float value = 0.0f;
+            if (!float.TryParse(text, NumberStyles.Float, CultureInfo.InvariantCulture, out value))
+                return;
+
+            listBoxLightPresetRangeAniScales.Items.Add(value.ToString(CultureInfo.InvariantCulture));
+        }
+
+        private void buttonRemoveLightRangeScale_Click(object sender, EventArgs e)
+        {
+            if (listBoxLightPresetRangeAniScales.Items.Count == 0)
+                return;
+
+            listBoxLightPresetRangeAniScales.Items.RemoveAt((listBoxLightPresetRangeAniScales.SelectedIndex != -1) ? listBoxLightPresetRangeAniScales.SelectedIndex : listBoxLightPresetRangeAniScales.Items.Count - 1);
+        }
+
+        private void buttonMoveLightPresetRangeAniScaleUp_Click(object sender, EventArgs e)
+        {
+            int index = listBoxLightPresetRangeAniScales.SelectedIndex;
+            if (index == -1)
+                return;
+
+            var item = listBoxLightPresetRangeAniScales.Items[index];
+            listBoxLightPresetRangeAniScales.Items.RemoveAt(index);
+
+            index = Math.Min(Math.Max(index - 1, 0), Math.Max(listBoxLightPresetRangeAniScales.Items.Count - 1, 0));
+            listBoxLightPresetRangeAniScales.Items.Insert(index, item);
+
+            listBoxLightPresetRangeAniScales.SelectedIndex = index;
+        }
+
+        private void buttonMoveLightPresetRangeAniScaleDown_Click(object sender, EventArgs e)
+        {
+            int index = listBoxLightPresetRangeAniScales.SelectedIndex;
+            if (index == -1)
+                return;
+
+            var item = listBoxLightPresetRangeAniScales.Items[index];
+            listBoxLightPresetRangeAniScales.Items.RemoveAt(index);
+
+            index = Math.Min(Math.Max(index + 1, 0), listBoxLightPresetRangeAniScales.Items.Count);
+            listBoxLightPresetRangeAniScales.Items.Insert(index, item);
+
+            listBoxLightPresetRangeAniScales.SelectedIndex = index;
+        }
+
+        private void listBoxLightPresetRangeAniScales_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int index = listBoxLightPresetRangeAniScales.IndexFromPoint(e.Location);
+            if (index == -1)
+                return;
+
+            string text = listBoxLightPresetRangeAniScales.Items[index].ToString();
+            if (ShowInputDialog(ref text) != DialogResult.OK)
+                return;
+
+            listBoxLightPresetRangeAniScales.Items[index] = text;
+        }
+
+        private void buttonNewLightPreset_Click(object sender, EventArgs e)
+        {
+            var presetName = textBoxLightPresetName.Text.ToUpper();
+
+            if (presetName.Length == 0)
+            {
+                MessageBox.Show(Localizator.Get("WIN_OBJ_NO_EMPTY_NAME"));
+                return;
+            }
+
+            if (listBoxLightPresets.Items.Contains(presetName))
+            {
+                MessageBox.Show(Localizator.Get("MSG_COMMON_NO_UNIQUE_NAME"));
+                return;
+            }
+
+            if (!Utils.IsOnlyLatin(presetName) && Utils.IsOptionActive("checkBoxOnlyLatinInInput"))
+            {
+                MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+                return;
+            }
+
+            listBoxLightPresets.Items.Add(presetName);
+            buttonSaveChangesLight.Enabled = true;
+
+            PushLightPresetData();
+            Imports.Stack_PushString(presetName);
+            Imports.Extern_Light_AddPreset();
+        }
+
+        private void buttonDeleteSelectedLightPreset_Click(object sender, EventArgs e)
+        {
+            if (listBoxLightPresets.SelectedIndex == -1)
+                return;
+
+            Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
+            Imports.Extern_Light_DeletePreset();
+            listBoxLightPresets.Items.RemoveAt(listBoxLightPresets.SelectedIndex);
+
+            buttonSaveChangesLight.Enabled = true;
+        }
+
+        private void listBoxLightPresets_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int index = listBoxLightPresets.IndexFromPoint(e.Location);
+            if (index == -1)
+                return;
+
+            string text = listBoxLightPresets.Items[index].ToString();
+            if (ShowInputDialog(ref text) != DialogResult.OK)
+                return;
+
+            text = text.ToUpper();
+            if (text.Length == 0)
+            {
+                MessageBox.Show(Localizator.Get("WIN_OBJ_NO_EMPTY_NAME"));
+                return;
+            }
+
+            if (listBoxLightPresets.Items.Contains(text))
+            {
+                MessageBox.Show(Localizator.Get("MSG_COMMON_NO_UNIQUE_NAME"));
+                return;
+            }
+
+            if (!Utils.IsOnlyLatin(text) && Utils.IsOptionActive("checkBoxOnlyLatinInInput"))
+            {
+                MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+                return;
+            }
+
+            Imports.Stack_PushString(text);
+            Imports.Stack_PushString(listBoxLightPresets.Items[index].ToString());
+            Imports.Extern_Light_UpdatePresetName();
+            listBoxLightPresets.Items[index] = text;
+        }
+        private void buttonUpdateLightPresetOnLightVobs_Click(object sender, EventArgs e)
+        {
+            if (listBoxLightPresets.SelectedItem == null)
+                return;
+
+            Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
+            Imports.Extern_Light_ApplyPresetOnLightVobs();
+        }
+
+        private void buttonUpdateLightPresetFromLightVob_Click(object sender, EventArgs e)
+        {
+            if (listBoxLightPresets.SelectedItem == null)
+                return;
+
+            Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
+            if (Imports.Extern_Light_UpdatePresetFromLightVob() == 1)
+                buttonSaveChangesLight.Enabled = true;
+        }
+
+        private void buttonUsePresetOnLightVob_Click(object sender, EventArgs e)
+        {
+            if (listBoxLightPresets.SelectedItem == null)
+                return;
+
+            Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
+            Imports.Extern_Light_UsePresetOnLightVob();
+        }
+
+        private void checkBoxShowLightVobRadius_CheckedChanged(object sender, EventArgs e)
+        {
+            Imports.Stack_PushString("showLightRadiusVob");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxShowLightVobRadius.Checked));
+        }
+
+        private void checkBoxShowLightVobInstantCompile_CheckedChanged(object sender, EventArgs e)
+        {
+            Imports.Extern_Light_DynamicCompile(checkBoxLightVobInstantCompile.Checked);
         }
     }
 }

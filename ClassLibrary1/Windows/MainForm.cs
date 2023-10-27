@@ -88,6 +88,7 @@ namespace SpacerUnion
             //ConsoleEx.WriteLineYellow("OnClosingSpacer");
             SpacerNET.macrosWin.macros.OnUpdateAndSave();
             SpacerNET.matFilterWin.OnClose();
+            SpacerNET.objectsWin.OnClose();
         }
         
         private void CloseApp()

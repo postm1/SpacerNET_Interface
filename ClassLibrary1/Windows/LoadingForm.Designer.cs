@@ -30,10 +30,10 @@
         {
             this.labelLoading = new System.Windows.Forms.Label();
             this.panelLoadingFront = new System.Windows.Forms.Panel();
+            this.labelTexInfo = new System.Windows.Forms.Label();
             this.labelLoadingMiddle = new System.Windows.Forms.Label();
             this.buttonLoadingFormClose = new System.Windows.Forms.Button();
             this.pictureBoxLoading = new System.Windows.Forms.PictureBox();
-            this.labelTexInfo = new System.Windows.Forms.Label();
             this.panelLoadingFront.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoading)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +46,7 @@
             this.labelLoading.Name = "labelLoading";
             this.labelLoading.Size = new System.Drawing.Size(454, 23);
             this.labelLoading.TabIndex = 0;
-            this.labelLoading.Text = "Идет загрузка... Подождите...";
+            this.labelLoading.Text = "ZEN is loading...";
             this.labelLoading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelLoadingFront
@@ -64,6 +64,18 @@
             this.panelLoadingFront.Size = new System.Drawing.Size(457, 341);
             this.panelLoadingFront.TabIndex = 2;
             // 
+            // labelTexInfo
+            // 
+            this.labelTexInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelTexInfo.ForeColor = System.Drawing.Color.Black;
+            this.labelTexInfo.Location = new System.Drawing.Point(26, 122);
+            this.labelTexInfo.Margin = new System.Windows.Forms.Padding(5);
+            this.labelTexInfo.Name = "labelTexInfo";
+            this.labelTexInfo.Size = new System.Drawing.Size(409, 123);
+            this.labelTexInfo.TabIndex = 5;
+            this.labelTexInfo.Text = "Some of your materials don\'t have a compiled \'-C.TEX\' version of texture.\r\nTo sav" +
+    "e the filter such textures must be compiled from TGA textures.\r\nConverting...";
+            // 
             // labelLoadingMiddle
             // 
             this.labelLoadingMiddle.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -72,7 +84,7 @@
             this.labelLoadingMiddle.Name = "labelLoadingMiddle";
             this.labelLoadingMiddle.Size = new System.Drawing.Size(454, 23);
             this.labelLoadingMiddle.TabIndex = 3;
-            this.labelLoadingMiddle.Text = "Не выключайте спейсер!";
+            this.labelLoadingMiddle.Text = "Don\'t shut down SpacerNET!";
             this.labelLoadingMiddle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonLoadingFormClose
@@ -82,7 +94,7 @@
             this.buttonLoadingFormClose.Name = "buttonLoadingFormClose";
             this.buttonLoadingFormClose.Size = new System.Drawing.Size(75, 23);
             this.buttonLoadingFormClose.TabIndex = 2;
-            this.buttonLoadingFormClose.Text = "Закрыть";
+            this.buttonLoadingFormClose.Text = "Close";
             this.buttonLoadingFormClose.UseVisualStyleBackColor = true;
             this.buttonLoadingFormClose.Visible = false;
             this.buttonLoadingFormClose.Click += new System.EventHandler(this.buttonLoadingFormClose_Click);
@@ -97,19 +109,6 @@
             this.pictureBoxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBoxLoading.TabIndex = 1;
             this.pictureBoxLoading.TabStop = false;
-            // 
-            // labelTexInfo
-            // 
-            this.labelTexInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTexInfo.ForeColor = System.Drawing.Color.Black;
-            this.labelTexInfo.Location = new System.Drawing.Point(26, 122);
-            this.labelTexInfo.Margin = new System.Windows.Forms.Padding(5);
-            this.labelTexInfo.Name = "labelTexInfo";
-            this.labelTexInfo.Size = new System.Drawing.Size(409, 123);
-            this.labelTexInfo.TabIndex = 5;
-            this.labelTexInfo.Text = "Некоторые из ваших материалов используют текстуры, которые не скомпилированы в \'-" +
-    "C.TEX\'. \r\nДля сохранения фильтров необходимо скомпилировать эти текстуры из TGA " +
-    "текстур. \r\nВыполняю конвертацию...";
             // 
             // LoadingForm
             // 

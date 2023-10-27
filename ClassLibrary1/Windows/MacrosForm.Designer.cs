@@ -57,7 +57,7 @@
             this.buttonMacrosRun.Name = "buttonMacrosRun";
             this.buttonMacrosRun.Size = new System.Drawing.Size(287, 23);
             this.buttonMacrosRun.TabIndex = 8;
-            this.buttonMacrosRun.Text = "Выполнить";
+            this.buttonMacrosRun.Text = "Run";
             this.buttonMacrosRun.UseVisualStyleBackColor = true;
             this.buttonMacrosRun.Click += new System.EventHandler(this.buttonMacrosRun_Click);
             // 
@@ -73,7 +73,7 @@
             this.groupBoxMacrosButtons.Size = new System.Drawing.Size(289, 169);
             this.groupBoxMacrosButtons.TabIndex = 7;
             this.groupBoxMacrosButtons.TabStop = false;
-            this.groupBoxMacrosButtons.Text = "Действия";
+            this.groupBoxMacrosButtons.Text = "Actions";
             // 
             // buttonMacrosReloadFromFile
             // 
@@ -81,7 +81,7 @@
             this.buttonMacrosReloadFromFile.Name = "buttonMacrosReloadFromFile";
             this.buttonMacrosReloadFromFile.Size = new System.Drawing.Size(266, 23);
             this.buttonMacrosReloadFromFile.TabIndex = 4;
-            this.buttonMacrosReloadFromFile.Text = "Перезагрузить всё из файла";
+            this.buttonMacrosReloadFromFile.Text = "Reload all from the file";
             this.buttonMacrosReloadFromFile.UseVisualStyleBackColor = true;
             this.buttonMacrosReloadFromFile.Click += new System.EventHandler(this.buttonMacrosReloadFromFile_Click);
             // 
@@ -91,7 +91,7 @@
             this.buttonCreateNewMacros.Name = "buttonCreateNewMacros";
             this.buttonCreateNewMacros.Size = new System.Drawing.Size(266, 23);
             this.buttonCreateNewMacros.TabIndex = 3;
-            this.buttonCreateNewMacros.Text = "Создать новый макрос";
+            this.buttonCreateNewMacros.Text = "Create a new macros";
             this.buttonCreateNewMacros.UseVisualStyleBackColor = true;
             this.buttonCreateNewMacros.Click += new System.EventHandler(this.buttonCreateNewMacros_Click);
             // 
@@ -101,7 +101,7 @@
             this.buttonMacrosRemoveCurrent.Name = "buttonMacrosRemoveCurrent";
             this.buttonMacrosRemoveCurrent.Size = new System.Drawing.Size(266, 23);
             this.buttonMacrosRemoveCurrent.TabIndex = 2;
-            this.buttonMacrosRemoveCurrent.Text = "Удалить";
+            this.buttonMacrosRemoveCurrent.Text = "Delete";
             this.buttonMacrosRemoveCurrent.UseVisualStyleBackColor = true;
             this.buttonMacrosRemoveCurrent.Click += new System.EventHandler(this.buttonMacrosRemoveCurrent_Click);
             // 
@@ -111,7 +111,7 @@
             this.buttonMacrosRenameCurrent.Name = "buttonMacrosRenameCurrent";
             this.buttonMacrosRenameCurrent.Size = new System.Drawing.Size(266, 23);
             this.buttonMacrosRenameCurrent.TabIndex = 1;
-            this.buttonMacrosRenameCurrent.Text = "Переименовать";
+            this.buttonMacrosRenameCurrent.Text = "Rename";
             this.buttonMacrosRenameCurrent.UseVisualStyleBackColor = true;
             this.buttonMacrosRenameCurrent.Click += new System.EventHandler(this.buttonMacrosRenameCurrent_Click);
             // 
@@ -121,7 +121,7 @@
             this.buttonMacrosSaveAll.Name = "buttonMacrosSaveAll";
             this.buttonMacrosSaveAll.Size = new System.Drawing.Size(267, 23);
             this.buttonMacrosSaveAll.TabIndex = 0;
-            this.buttonMacrosSaveAll.Text = "Сохранить всё в файл";
+            this.buttonMacrosSaveAll.Text = "Save all to the file";
             this.buttonMacrosSaveAll.UseVisualStyleBackColor = true;
             this.buttonMacrosSaveAll.Click += new System.EventHandler(this.buttonMacrosSaveAll_Click);
             // 
@@ -152,7 +152,7 @@
             this.Name = "MacrosForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Макросы";
+            this.Text = "Macros";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MacrosForm_FormClosing);
             this.groupBoxMacrosButtons.ResumeLayout(false);
             this.ResumeLayout(false);
