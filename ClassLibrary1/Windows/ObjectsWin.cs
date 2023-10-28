@@ -46,6 +46,7 @@ namespace SpacerUnion
         {
             InitializeComponent();
             comboBoxSearchType.SelectedIndex = 0;
+            comboBoxLightVobLightQuality.SelectedIndex = 1;
             camEntry = new CameraKeyEntry(this);
         }
 
