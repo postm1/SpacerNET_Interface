@@ -662,6 +662,7 @@
             this.toolStripButtonFilter});
             this.toolStripTop.Location = new System.Drawing.Point(0, 0);
             this.toolStripTop.Name = "toolStripTop";
+            this.toolStripTop.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStripTop.Size = new System.Drawing.Size(1201, 25);
             this.toolStripTop.TabIndex = 3;
             this.toolStripTop.MouseClick += new System.Windows.Forms.MouseEventHandler(this.toolStripTop_MouseClick);
