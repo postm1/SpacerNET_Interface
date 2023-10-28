@@ -286,7 +286,7 @@ namespace SpacerUnion.Common
             words.Add("labelSndList", new List<string> { "Поиск по рег. выражению", "Search using regex", "Suche mit regex", "Wyszukaj za pomocą wyrażenia regularnego" });
             words.Add("buttonOffMusic", new List<string> { "Отключить музыку", "Turn off music", "Musik abschalten", "Wyłącz muzykę" });
             words.Add("buttonMusicOn", new List<string> { "Включить музыку", "Turn on music", "Musik anschalten", "Włącz muzykę" });
-            words.Add("checkBoxShutMusic", new List<string> { "Отключать музыку при загрузке", "Shut music after world loaded", "Musik schließen nachdem die Welt geladen worden ist", "Wyłącz muzykę po wczytaniu świata" });
+            words.Add("checkBoxShutMusic", new List<string> { "Отключать музыку при загрузке", "Shut music after world loaded", "Musik nach Welt laden Stummen", "Wyłącz muzykę po wczytaniu świata" });
             words.Add("labelMusicVolume", new List<string> { "Громкость", "Volume", "Lautstärke", "Głośność" });
 
             words.Add("WIN_PROPS_TITLE", new List<string> { "Окно свойств", "Properties window", "Eigenschaftenfenster", "Okno właściwości" });
@@ -326,7 +326,7 @@ namespace SpacerUnion.Common
             words.Add("groupBoxObjAllClasses", new List<string> { "Все классы вобов", "All vobs classes", "Alle Vob Klassen", "Wszystkie klasy vobów" });
             words.Add("groupBoxObjPropVobs", new List<string> { "Свойства воба", "Vob properties", "Vob Eigenschaften", "Właściwości voba" });
             words.Add("labelObjAllClassesNameVob", new List<string> { "Имя воба", "Vob name", "Vob Name", "Nazwa voba" });
-            words.Add("buttonAllClassesCreateVob", new List<string> { "Создать Vob", "Create Vob", "Vob erschaffen", "Utwórz voba" });
+            words.Add("buttonAllClassesCreateVob", new List<string> { "Создать Vob", "Create Vob", "Vob erstellen", "Utwórz voba" });
             words.Add("checkBoxDynStat", new List<string> { "Динамич. коллизия", "Dynamic collision", "Dynamische Kollision", "Kolizja dynamiczna" });
             words.Add("checkBoxStaStat", new List<string> { "Стат. коллизия", "Static collision", "Statische Kollision", "Kolizja statyczna" });
             words.Add("checkBoxShowPreview", new List<string> { "Показывать модель", "Show model preview", "Zeige Modelvorschau", "Pokaż podgląd modelu" });
@@ -352,8 +352,8 @@ namespace SpacerUnion.Common
             words.Add("buttonRemoveKey", new List<string> { "Удалить ключ", "Remove key", "Key entfernen", "Usuń klawisz" });
             words.Add("labelTriggerName", new List<string> { "Триггер", "Trigger", "Trigger", "Wyzwalacze" });
             words.Add("labelTriggerCollision", new List<string> { "Коллизия", "Collision", "Kollision", "Kolizja" });
-            words.Add("checkBoxDyn", new List<string> { "динамическая", "dynamic", "dynamisch", "dynamiczna" });
-            words.Add("checkBoxStat", new List<string> { "статическая", "static", "statisch", "statyczna" });
+            words.Add("checkBoxDyn", new List<string> { "динамическая", "dynamic", "Dynamisch", "dynamiczna" });
+            words.Add("checkBoxStat", new List<string> { "статическая", "static", "Statisch", "statyczna" });
             words.Add("radioButtonOverwrite", new List<string> { "перезаписать", "overwrite", "überschreiben", "nadpisz" });
             words.Add("labelTriggerInsert", new List<string> { "Вставить", "Insert key", "Taste einfügen", "Dodaj klawisz" });
             words.Add("radioButtonAfter", new List<string> { "после", "after", "danach", "przed" });
@@ -362,12 +362,12 @@ namespace SpacerUnion.Common
             words.Add("labelTriggersSources", new List<string> { "Источники (sources)", "Sources", "Quellen", "Źródła" });
             words.Add("groupBoxWPFP", new List<string> { "Мировые точки", "World points", "Weltpunkte", "Punkty świata" });
             words.Add("labelNameWPMandatory", new List<string> { "Имя Waypoint (обязательно)", "Waypoint name (mandatory)", "Wegpunktname (verpflichtend)", "Nazwa waypointa (obowiązkowa)" });
-            words.Add("labelFreepointMandatory", new List<string> { "Имя Freepoint (обязательно)", "Freepoint name (mandatory)", "Freierpunktname (verpflichtend)", "Nazwa freepointa (obowiązkowa)" });
-            words.Add("checkBoxWayNet", new List<string> { "Сразу соединять в сеть", "Connect to waynet at once", "Einmalig dem Wegnetzwerk hinzufügen", "Połącz natychmiast z waynetem" });
+            words.Add("labelFreepointMandatory", new List<string> { "Имя Freepoint (обязательно)", "Freepoint name (mandatory)", "Freepoint Name (verpflichtend)", "Nazwa freepointa (obowiązkowa)" });
+            words.Add("checkBoxWayNet", new List<string> { "Сразу соединять в сеть", "Connect to waynet at once", "Einmalig dem Wegenetzwerk hinzufügen", "Połącz natychmiast z waynetem" });
             words.Add("checkBoxWPAutoName", new List<string> { "Автогенерация имени", "Auto-generated name", "Automatischer Namengenerator", "Nazwa wygenerowana automatycznie" });
             words.Add("checkBoxFPGround", new List<string> { "Прижимать к земле", "Floor the freepoint", "Den Freepoint an den Boden haften", @"Połóż freepoint'a na podłodze" });
             words.Add("checkBoxAutoNameFP", new List<string> { "Автогенерация имени", "Auto-generated name", "Automatischer Namengenerator", "Nazwa wygenerowana automatycznie" });
-            words.Add("buttonWPCreate", new List<string> { "Создать Waypoint", "Create Waypoint", "Wegpunkt erschaffen", "Utwórz Waypoint" });
+            words.Add("buttonWPCreate", new List<string> { "Создать Waypoint", "Create Waypoint", "Wegpunkt erstellen", "Utwórz Waypoint" });
             words.Add("buttonConnectWp", new List<string> { "Соединить WP", "Connect waypoints", "Wegpunkte verbinden", "Połącz Waypointy" });
             words.Add("buttonDisconnectWP", new List<string> { "Разъединить WP", "Disconnect waypoints", "Wegpunkte trennen", "Rozłącz Waypointy" });
             words.Add("buttonFPCreate", new List<string> { "Создать Freepoint", "Create Freepoint", "Freepoint erstellen", "Utwórz Freepoint" });
@@ -435,17 +435,17 @@ namespace SpacerUnion.Common
             words.Add("WIN_GRASS_TITLE", new List<string> { "Сеятель объектов", "Objects sewer", "Objektgenerator", "Generator obiektów" });
             words.Add("WIN_GRASS_VOBMODEL", new List<string> { "Название модели воба:", "Vob's model:", "Vob Modell: ", "Model voba:" });
             words.Add("WIN_GRASS_VERTOFFSET", new List<string> { "Смещение воба по вертикали: ", "Vob's vertical offset: ", "Vertikaler Versatz vom Vob: ", "Przesunięcie pionowe voba:" });
-            words.Add("WIN_GRASS_MINRADIUS", new List<string> { "Мин. расстояние между вобами: ", "Minimal distance between vobs: ", "Minimale Distanz zwischen Vobs", "Minimalny dystans pomiędzy vobami:" });
+            words.Add("WIN_GRASS_MINRADIUS", new List<string> { "Мин. расстояние между вобами: ", "Minimal distance between vobs: ", "Minimale Distanz zwischen Vobs: ", "Minimalny dystans pomiędzy vobami:" });
             words.Add("VOB_SEARCH_TYPE_DYNAMIC", new List<string> { "Сменить динамич. коллизию", "Toggle dynamic collision", "Dynamische Kollision umschalten", "Przełącz dynamiczną kolizję" });
             words.Add("VOB_SEARCH_DYNCOLL_VOBS", new List<string> { "Проставлено коллизий: ", "Collisions set: ", "Kollision eingestellt: ", "Ustawione kolizje:" });
-            words.Add("MENU_TOP_SAVEZENUNC", new List<string> { "Сохранить Vobs", "Save Vobs", "Speichere Vobs", "Zapisz Voby" });
+            words.Add("MENU_TOP_SAVEZENUNC", new List<string> { "Сохранить Vobs", "Save Vobs", "Vobs Speichern", "Zapisz Voby" });
 
 
             words.Add("WIN_GRASS_COPYNAME", new List<string> { "При выделении модели в поиске копировать ее сюда", "Copy model name from another window", "Modellnamen aus einem anderen Fenster kopieren", "Skopiuj nazwę modelu z innego okna" });
             words.Add("WIN_GRASS_REMOVE", new List<string> { "Режим удаления вобов", "Removing vob mod", "Entfernen der Vob modifikation", "Usuwanie vobów z moda" });
-            words.Add("WIN_GRASS_ISITEM", new List<string> { "Воб - это oCItem", "Inserted vob is oCItem", "Vob in oCItem eingefügt", "Dodany vob to oCItem" });
+            words.Add("WIN_GRASS_ISITEM", new List<string> { "Воб - это oCItem", "Inserted vob is oCItem", "Vob als oCItem einfügen", "Dodany vob to oCItem" });
             words.Add("WIN_GRASS_PROTECT", new List<string> { "Защита от зажатия левой кнопки мыши", "Protect from left mouse button pushing", "Schutz vor Drücken der linken Maustaste", "Ochrona przed naciśnięciem lewego przycisku myszki" });
-            words.Add("WIN_GRASS_DYNCOLL", new List<string> { "Ставить вобу динамическую коллизию", "Set dynamic collision for vob", "Dynamische Kollision für Vob einstellen", "Ustaw dynamiczną kolizję dla voba" });
+            words.Add("WIN_GRASS_DYNCOLL", new List<string> { "Ставить вобу динамическую коллизию", "Set dynamic collision for vob", "Anschalten der Dynamischen Kollision", "Ustaw dynamiczną kolizję dla voba" });
             words.Add("WIN_GRASS_RANDANGLE", new List<string> { "Поворачивать воб на случайный угол вокруг вертикальной оси", "Rotate vob on random angle above vertical axis", "Drehen des Vobs um einen zufälligen Winkel über der vertikalen Achse", "Obróć vob o losowy kąt powyżej osi pionowej" });
             words.Add("WIN_GRASS_NORMALPOLYGON", new List<string> { "Ставить воб перпендикулярно полигону", "Set vob perpendicular to the polygon", "Vob rechtwinklig zum Polygon setzen", "Ustaw vob prostopadle do polygona" });
             words.Add("checkBoxMiscAutoCompile", new List<string> { "Автокомпиляция мира и света после объединения меша с вобами", "Autocompile world and light after merging mesh with vobs", "Autokompilieren von Welt und Licht nach dem Zusammenführen des Mesh mit Vobs", "Autokompilacja świata i światła po połączeniu mesha z vobami" });
@@ -460,7 +460,7 @@ namespace SpacerUnion.Common
             words.Add("CANT_APPLY_PARENT_VOB", new List<string> { "Данный тип воба не может быть родителем!", "This type of vob can't be a parent!", "Diese Art von Vob kann keine Übergeordung sein!", "Ten typ voba nie może być zapisany jako rodzic!" });
 
             words.Add("saveMeshTime", new List<string> { "Сохранение MESH выполнено за", "Saving MESH time...", "Speichern der MESH dauerte", @"Czas zapisywania MESH'a..." });
-            words.Add("MENU_TOP_SAVEMESH", new List<string> { "Сохранить MESH", "Save MESH", "Speichern MESH", "Zapisz MESH" });
+            words.Add("MENU_TOP_SAVEMESH", new List<string> { "Сохранить MESH", "Save MESH", "MESH Speichern", "Zapisz MESH" });
 
             words.Add("WIN_MSG_CONFIRM", new List<string> { "Подтвердите действие", "Confirm the action", "Bestätige die Aktion", "Potwierdź akcję" });
             words.Add("WIN_MSG_CONFIRM_PLACENEARCAM", new List<string> { "Вставить Vobtree перед камерой?", "Do insert vobtree near the camera?", "Vobtree in der Nähe der Kamera einfügen?", "Czy wstawiasz vobtree w pobliżu kamery?" });
@@ -487,7 +487,7 @@ namespace SpacerUnion.Common
             words.Add("MENU_TOP_WIN_POS_PRESET_2", new List<string> { "Использовать пресет #2 (QuadHD)", "Use windows presets #2 (QuadHD)", "Fenstervoreinstellungen #2 (QuadHD) verwenden", "Użyj ustawień dla okien #2 (QuadHD)" });
 
 
-            words.Add("checkBoxShutSounds", new List<string> { "Глушить звуки при загрузке", "Shut sounds after world loaded", "Sounds nach Welt laden Stumm schalten", "Wyłącz dźwięki po załadowaniu świata" });
+            words.Add("checkBoxShutSounds", new List<string> { "Глушить звуки при загрузке", "Shut sounds after world loaded", "Sounds nach Welt laden Stummen", "Wyłącz dźwięki po załadowaniu świata" });
             words.Add("checkBoxConstSound", new List<string> { "Постоянно глушить звуки", "Always shut all sounds", "Immer alle Sounds stummen", "Zawsze wyłączaj wszystkie dźwięki" });
             words.Add("OnlyOneVobCanBe", new List<string> { "Воб такого типа может быть на карте ТОЛЬКО ОДИН!", "Only ONE vob like this can be on the map!", "Nur EIN Vob wie dieses kann auf der Karte sein!", "Tylko jeden vob takiego typu może znajdować się na mapie!" });
 
@@ -623,7 +623,7 @@ namespace SpacerUnion.Common
 
             words.Add("VOBLIST_TYPE_ANY", new List<string> { "Любой тип", "Any type", "Jeder Typ", "Dowolny typ" });
 
-            words.Add("MENU_TOP_CONTROLS_VOBS", new List<string> { "Вобы", "Vobs", "Vobs", "Voby" });
+            words.Add("MENU_TOP_CONTROLS_VOBS", new List<string> { "Вобы", "Vobs", "Vob", "Voby" });
             words.Add("WIN_CONTROLSET_VOBS_TEXT", new List<string> { "Настройки вобов", "Vobs settings", "Vob Einstellungen", "Ustawienia vobów" });
 
 
