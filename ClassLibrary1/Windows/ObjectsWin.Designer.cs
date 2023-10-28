@@ -191,7 +191,7 @@
             this.labelLightVobRangeAniFPS = new System.Windows.Forms.Label();
             this.checkBoxLightVobRangeAniSmooth = new System.Windows.Forms.CheckBox();
             this.groupBoxLightSelected = new System.Windows.Forms.GroupBox();
-            this.buttonSaveChangesLight = new System.Windows.Forms.Button();
+            this.buttonCreateLightVob = new System.Windows.Forms.Button();
             this.numericUpDownLightVobRange = new System.Windows.Forms.NumericUpDown();
             this.labelLightVobLightQuality = new System.Windows.Forms.Label();
             this.labelLightVobRange = new System.Windows.Forms.Label();
@@ -217,6 +217,7 @@
             this.checkBoxLightVobColorAniSmooth = new System.Windows.Forms.CheckBox();
             this.groupBoxLightPresetProperties = new System.Windows.Forms.GroupBox();
             this.textBoxLightPresetName = new System.Windows.Forms.TextBox();
+            this.buttonSaveLightPresets = new System.Windows.Forms.Button();
             this.labelLightPresetName = new System.Windows.Forms.Label();
             this.buttonNewLightPreset = new System.Windows.Forms.Button();
             this.listBoxLightPresets = new System.Windows.Forms.ListBox();
@@ -2050,7 +2051,7 @@
             // 
             // groupBoxLightSelected
             // 
-            this.groupBoxLightSelected.Controls.Add(this.buttonSaveChangesLight);
+            this.groupBoxLightSelected.Controls.Add(this.buttonCreateLightVob);
             this.groupBoxLightSelected.Controls.Add(this.numericUpDownLightVobRange);
             this.groupBoxLightSelected.Controls.Add(this.labelLightVobLightQuality);
             this.groupBoxLightSelected.Controls.Add(this.labelLightVobRange);
@@ -2070,16 +2071,15 @@
             this.groupBoxLightSelected.TabStop = false;
             this.groupBoxLightSelected.Text = "Selected preset";
             // 
-            // buttonSaveChangesLight
+            // buttonCreateLightVob
             // 
-            this.buttonSaveChangesLight.Enabled = false;
-            this.buttonSaveChangesLight.Location = new System.Drawing.Point(260, 149);
-            this.buttonSaveChangesLight.Name = "buttonSaveChangesLight";
-            this.buttonSaveChangesLight.Size = new System.Drawing.Size(129, 24);
-            this.buttonSaveChangesLight.TabIndex = 53;
-            this.buttonSaveChangesLight.Text = "Save changes";
-            this.buttonSaveChangesLight.UseVisualStyleBackColor = true;
-            this.buttonSaveChangesLight.Click += new System.EventHandler(this.buttonSaveChangesLight_Click);
+            this.buttonCreateLightVob.Location = new System.Drawing.Point(260, 126);
+            this.buttonCreateLightVob.Name = "buttonCreateLightVob";
+            this.buttonCreateLightVob.Size = new System.Drawing.Size(129, 24);
+            this.buttonCreateLightVob.TabIndex = 54;
+            this.buttonCreateLightVob.Text = "Create LightVob";
+            this.buttonCreateLightVob.UseVisualStyleBackColor = true;
+            this.buttonCreateLightVob.Click += new System.EventHandler(this.buttonCreateLightVob_Click);
             // 
             // numericUpDownLightVobRange
             // 
@@ -2101,7 +2101,7 @@
             // labelLightVobLightQuality
             // 
             this.labelLightVobLightQuality.AutoSize = true;
-            this.labelLightVobLightQuality.Location = new System.Drawing.Point(257, 74);
+            this.labelLightVobLightQuality.Location = new System.Drawing.Point(257, 76);
             this.labelLightVobLightQuality.Name = "labelLightVobLightQuality";
             this.labelLightVobLightQuality.Size = new System.Drawing.Size(61, 13);
             this.labelLightVobLightQuality.TabIndex = 47;
@@ -2159,7 +2159,7 @@
             "HIGH",
             "MEDIUM",
             "LOW_FASTEST"});
-            this.comboBoxLightVobLightQuality.Location = new System.Drawing.Point(260, 90);
+            this.comboBoxLightVobLightQuality.Location = new System.Drawing.Point(260, 92);
             this.comboBoxLightVobLightQuality.Name = "comboBoxLightVobLightQuality";
             this.comboBoxLightVobLightQuality.Size = new System.Drawing.Size(129, 21);
             this.comboBoxLightVobLightQuality.TabIndex = 44;
@@ -2168,7 +2168,6 @@
             // 
             this.textBoxLightVobName.Location = new System.Drawing.Point(6, 32);
             this.textBoxLightVobName.Name = "textBoxLightVobName";
-            this.textBoxLightVobName.ReadOnly = true;
             this.textBoxLightVobName.Size = new System.Drawing.Size(227, 20);
             this.textBoxLightVobName.TabIndex = 12;
             // 
@@ -2205,7 +2204,7 @@
             // 
             // buttonApplyChangesLight
             // 
-            this.buttonApplyChangesLight.Location = new System.Drawing.Point(260, 120);
+            this.buttonApplyChangesLight.Location = new System.Drawing.Point(260, 152);
             this.buttonApplyChangesLight.Name = "buttonApplyChangesLight";
             this.buttonApplyChangesLight.Size = new System.Drawing.Size(129, 24);
             this.buttonApplyChangesLight.TabIndex = 8;
@@ -2327,6 +2326,7 @@
             // groupBoxLightPresetProperties
             // 
             this.groupBoxLightPresetProperties.Controls.Add(this.textBoxLightPresetName);
+            this.groupBoxLightPresetProperties.Controls.Add(this.buttonSaveLightPresets);
             this.groupBoxLightPresetProperties.Controls.Add(this.labelLightPresetName);
             this.groupBoxLightPresetProperties.Controls.Add(this.buttonNewLightPreset);
             this.groupBoxLightPresetProperties.Controls.Add(this.listBoxLightPresets);
@@ -2343,10 +2343,21 @@
             // 
             // textBoxLightPresetName
             // 
-            this.textBoxLightPresetName.Location = new System.Drawing.Point(7, 32);
+            this.textBoxLightPresetName.Location = new System.Drawing.Point(6, 32);
             this.textBoxLightPresetName.Name = "textBoxLightPresetName";
-            this.textBoxLightPresetName.Size = new System.Drawing.Size(201, 20);
+            this.textBoxLightPresetName.Size = new System.Drawing.Size(202, 20);
             this.textBoxLightPresetName.TabIndex = 7;
+            // 
+            // buttonSaveLightPresets
+            // 
+            this.buttonSaveLightPresets.Enabled = false;
+            this.buttonSaveLightPresets.Location = new System.Drawing.Point(6, 106);
+            this.buttonSaveLightPresets.Name = "buttonSaveLightPresets";
+            this.buttonSaveLightPresets.Size = new System.Drawing.Size(202, 24);
+            this.buttonSaveLightPresets.TabIndex = 53;
+            this.buttonSaveLightPresets.Text = "Save presets";
+            this.buttonSaveLightPresets.UseVisualStyleBackColor = true;
+            this.buttonSaveLightPresets.Click += new System.EventHandler(this.buttonSaveLightPresets_Click);
             // 
             // labelLightPresetName
             // 
@@ -2360,9 +2371,9 @@
             // 
             // buttonNewLightPreset
             // 
-            this.buttonNewLightPreset.Location = new System.Drawing.Point(7, 58);
+            this.buttonNewLightPreset.Location = new System.Drawing.Point(6, 56);
             this.buttonNewLightPreset.Name = "buttonNewLightPreset";
-            this.buttonNewLightPreset.Size = new System.Drawing.Size(201, 23);
+            this.buttonNewLightPreset.Size = new System.Drawing.Size(202, 23);
             this.buttonNewLightPreset.TabIndex = 5;
             this.buttonNewLightPreset.Text = "Create preset";
             this.buttonNewLightPreset.UseVisualStyleBackColor = true;
@@ -2371,9 +2382,9 @@
             // listBoxLightPresets
             // 
             this.listBoxLightPresets.FormattingEnabled = true;
-            this.listBoxLightPresets.Location = new System.Drawing.Point(9, 116);
+            this.listBoxLightPresets.Location = new System.Drawing.Point(6, 132);
             this.listBoxLightPresets.Name = "listBoxLightPresets";
-            this.listBoxLightPresets.Size = new System.Drawing.Size(199, 160);
+            this.listBoxLightPresets.Size = new System.Drawing.Size(202, 160);
             this.listBoxLightPresets.Sorted = true;
             this.listBoxLightPresets.TabIndex = 9;
             this.listBoxLightPresets.SelectedIndexChanged += new System.EventHandler(this.listBoxLightPresets_SelectedIndexChanged);
@@ -2381,9 +2392,9 @@
             // 
             // buttonDeleteSelectedLightPreset
             // 
-            this.buttonDeleteSelectedLightPreset.Location = new System.Drawing.Point(7, 87);
+            this.buttonDeleteSelectedLightPreset.Location = new System.Drawing.Point(6, 81);
             this.buttonDeleteSelectedLightPreset.Name = "buttonDeleteSelectedLightPreset";
-            this.buttonDeleteSelectedLightPreset.Size = new System.Drawing.Size(201, 23);
+            this.buttonDeleteSelectedLightPreset.Size = new System.Drawing.Size(202, 23);
             this.buttonDeleteSelectedLightPreset.TabIndex = 4;
             this.buttonDeleteSelectedLightPreset.Text = "Delete selected preset";
             this.buttonDeleteSelectedLightPreset.UseVisualStyleBackColor = true;
@@ -2391,9 +2402,9 @@
             // 
             // buttonUpdateLightPresetOnLightVobs
             // 
-            this.buttonUpdateLightPresetOnLightVobs.Location = new System.Drawing.Point(9, 286);
+            this.buttonUpdateLightPresetOnLightVobs.Location = new System.Drawing.Point(6, 294);
             this.buttonUpdateLightPresetOnLightVobs.Name = "buttonUpdateLightPresetOnLightVobs";
-            this.buttonUpdateLightPresetOnLightVobs.Size = new System.Drawing.Size(199, 23);
+            this.buttonUpdateLightPresetOnLightVobs.Size = new System.Drawing.Size(202, 23);
             this.buttonUpdateLightPresetOnLightVobs.TabIndex = 6;
             this.buttonUpdateLightPresetOnLightVobs.Text = "Update preset on lightvobs";
             this.buttonUpdateLightPresetOnLightVobs.UseVisualStyleBackColor = true;
@@ -2401,9 +2412,9 @@
             // 
             // buttonUsePresetOnLightVob
             // 
-            this.buttonUsePresetOnLightVob.Location = new System.Drawing.Point(9, 344);
+            this.buttonUsePresetOnLightVob.Location = new System.Drawing.Point(6, 344);
             this.buttonUsePresetOnLightVob.Name = "buttonUsePresetOnLightVob";
-            this.buttonUsePresetOnLightVob.Size = new System.Drawing.Size(199, 23);
+            this.buttonUsePresetOnLightVob.Size = new System.Drawing.Size(202, 23);
             this.buttonUsePresetOnLightVob.TabIndex = 7;
             this.buttonUsePresetOnLightVob.Text = "Use preset on lightvob >>";
             this.buttonUsePresetOnLightVob.UseVisualStyleBackColor = true;
@@ -2411,9 +2422,9 @@
             // 
             // buttonUpdateLightPresetFromLightVob
             // 
-            this.buttonUpdateLightPresetFromLightVob.Location = new System.Drawing.Point(9, 315);
+            this.buttonUpdateLightPresetFromLightVob.Location = new System.Drawing.Point(6, 319);
             this.buttonUpdateLightPresetFromLightVob.Name = "buttonUpdateLightPresetFromLightVob";
-            this.buttonUpdateLightPresetFromLightVob.Size = new System.Drawing.Size(199, 23);
+            this.buttonUpdateLightPresetFromLightVob.Size = new System.Drawing.Size(202, 23);
             this.buttonUpdateLightPresetFromLightVob.TabIndex = 10;
             this.buttonUpdateLightPresetFromLightVob.Text = "Update preset from lightvob <<";
             this.buttonUpdateLightPresetFromLightVob.UseVisualStyleBackColor = true;
@@ -2686,10 +2697,11 @@
         private System.Windows.Forms.Label labelLightVobColorAniFPS;
         private System.Windows.Forms.CheckBox checkBoxLightVobColorAniSmooth;
         private System.Windows.Forms.NumericUpDown numericUpDownLightVobRange;
-        private System.Windows.Forms.Button buttonSaveChangesLight;
+        private System.Windows.Forms.Button buttonSaveLightPresets;
         private System.Windows.Forms.TextBox textBoxLightVobRangeAniFPS;
         private System.Windows.Forms.TextBox textBoxLightVobColorAniFPS;
         private System.Windows.Forms.Button buttonMoveLightPresetRangeAniScaleUp;
         private System.Windows.Forms.Button buttonMoveLightPresetRangeAniScaleDown;
+        private System.Windows.Forms.Button buttonCreateLightVob;
     }
 }

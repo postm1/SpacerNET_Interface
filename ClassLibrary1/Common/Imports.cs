@@ -459,6 +459,9 @@ namespace SpacerUnion.Common
         public static extern void Extern_Light_DeletePreset();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_Light_SavePresets();
+
+        [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_Light_UpdatePresetName();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
@@ -477,7 +480,7 @@ namespace SpacerUnion.Common
         public static extern int Extern_Light_ApplyChanges();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Extern_Light_SavePresets();
+        public static extern int Extern_Light_CreateVob();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_Light_DynamicCompile(bool toggle);

@@ -46,6 +46,7 @@ namespace SpacerUnion
         {
             InitializeComponent();
             comboBoxSearchType.SelectedIndex = 0;
+            comboBoxLightVobLightQuality.SelectedIndex = 1;
             camEntry = new CameraKeyEntry(this);
         }
 
@@ -218,6 +219,7 @@ namespace SpacerUnion
             labelLightPresetName.Text = Localizator.Get("labelLightPresetName");
             buttonNewLightPreset.Text = Localizator.Get("buttonNewLightPreset");
             buttonDeleteSelectedLightPreset.Text = Localizator.Get("buttonDeleteSelectedLightPreset");
+            buttonSaveLightPresets.Text = Localizator.Get("buttonSaveLightPresets");
             buttonUpdateLightPresetOnLightVobs.Text = Localizator.Get("buttonUpdateLightPresetOnLightVobs");
             buttonUpdateLightPresetFromLightVob.Text = Localizator.Get("buttonUpdateLightPresetFromVob");
             buttonUsePresetOnLightVob.Text = Localizator.Get("buttonUsePresetOnLightVob");
@@ -226,8 +228,8 @@ namespace SpacerUnion
             groupBoxLightType.Text = Localizator.Get("groupBoxLightType");
             checkBoxShowLightVobRadius.Text = Localizator.Get("checkBoxShowLightVobRadius");
             checkBoxLightVobInstantCompile.Text = Localizator.Get("checkBoxLightVobInstantCompile");
+            buttonCreateLightVob.Text = Localizator.Get("buttonCreateLightVob");
             buttonApplyChangesLight.Text = Localizator.Get("BTN_APPLY");
-            buttonSaveChangesLight.Text = Localizator.Get("BTN_SAVE_CHANGES");
             radioButtonLightVobStatic.Text = Localizator.Get("radioButtonLightVobStatic");
             radioButtonLightVobDynamic.Text = Localizator.Get("radioButtonLightVobDynamic");
             groupBoxLightColorProperties.Text = Localizator.Get("groupBoxLightColorProperties");
@@ -4028,8 +4030,6 @@ namespace SpacerUnion
             string presetName = Imports.Stack_PeekString();
 
             SpacerNET.objectsWin.textBoxLightVobName.Text = vobName;
-            SpacerNET.objectsWin.textBoxLightVobName.ReadOnly = false;
-
             SpacerNET.objectsWin.textBoxLightVobPresetName.Text = presetName;
         }
 
@@ -4037,8 +4037,6 @@ namespace SpacerUnion
         public static void OnDeselectLightVob()
         {
             SpacerNET.objectsWin.textBoxLightVobName.Text = "";
-            SpacerNET.objectsWin.textBoxLightVobName.ReadOnly = true;
-
             SpacerNET.objectsWin.textBoxLightVobPresetName.Text = "";
 
             if (SpacerNET.objectsWin.listBoxLightPresets.SelectedItem != null)
@@ -4096,12 +4094,13 @@ namespace SpacerUnion
 
             Imports.Stack_PushString(listBoxLightPresets.SelectedItem != null ? listBoxLightPresets.SelectedItem.ToString() : "");
             if (Imports.Extern_Light_ApplyChanges() == 1)
-                buttonSaveChangesLight.Enabled = true;
+                buttonSaveLightPresets.Enabled = true;
         }
-        private void buttonSaveChangesLight_Click(object sender, EventArgs e)
+        private void buttonCreateLightVob_Click(object sender, EventArgs e)
         {
-            Imports.Extern_Light_SavePresets();
-            buttonSaveChangesLight.Enabled = false;
+            Imports.Stack_PushString(listBoxLightPresets.SelectedItem != null ? listBoxLightPresets.SelectedItem.ToString() : "");
+            Imports.Stack_PushString(textBoxLightVobName.Text);
+            Imports.Extern_Light_CreateVob();
         }
 
         private void buttonAddLightPresetColor_Click(object sender, EventArgs e)
@@ -4283,7 +4282,7 @@ namespace SpacerUnion
             }
 
             listBoxLightPresets.Items.Add(presetName);
-            buttonSaveChangesLight.Enabled = true;
+            buttonSaveLightPresets.Enabled = true;
 
             PushLightPresetData();
             Imports.Stack_PushString(presetName);
@@ -4299,7 +4298,12 @@ namespace SpacerUnion
             Imports.Extern_Light_DeletePreset();
             listBoxLightPresets.Items.RemoveAt(listBoxLightPresets.SelectedIndex);
 
-            buttonSaveChangesLight.Enabled = true;
+            buttonSaveLightPresets.Enabled = true;
+        }
+        private void buttonSaveLightPresets_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_Light_SavePresets();
+            buttonSaveLightPresets.Enabled = false;
         }
 
         private void listBoxLightPresets_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -4352,7 +4356,7 @@ namespace SpacerUnion
 
             Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
             if (Imports.Extern_Light_UpdatePresetFromLightVob() == 1)
-                buttonSaveChangesLight.Enabled = true;
+                buttonSaveLightPresets.Enabled = true;
         }
 
         private void buttonUsePresetOnLightVob_Click(object sender, EventArgs e)
