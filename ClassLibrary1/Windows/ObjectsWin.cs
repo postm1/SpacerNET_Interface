@@ -4087,6 +4087,16 @@ namespace SpacerUnion
         {
             comboBoxLightVobLightQuality.Enabled = true;
         }
+
+        private void buttonCreateLightVob_Click(object sender, EventArgs e)
+        {
+            if (listBoxLightPresets.SelectedItem == null)
+                PushLightPresetData();
+
+            Imports.Stack_PushString(listBoxLightPresets.SelectedItem != null ? listBoxLightPresets.SelectedItem.ToString() : "");
+            Imports.Stack_PushString(textBoxLightVobName.Text);
+            Imports.Extern_Light_CreateVob();
+        }
         private void buttonApplyChangesLight_Click(object sender, EventArgs e)
         {
             PushLightPresetData();
@@ -4095,12 +4105,6 @@ namespace SpacerUnion
             Imports.Stack_PushString(listBoxLightPresets.SelectedItem != null ? listBoxLightPresets.SelectedItem.ToString() : "");
             if (Imports.Extern_Light_ApplyChanges() == 1)
                 buttonSaveLightPresets.Enabled = true;
-        }
-        private void buttonCreateLightVob_Click(object sender, EventArgs e)
-        {
-            Imports.Stack_PushString(listBoxLightPresets.SelectedItem != null ? listBoxLightPresets.SelectedItem.ToString() : "");
-            Imports.Stack_PushString(textBoxLightVobName.Text);
-            Imports.Extern_Light_CreateVob();
         }
 
         private void buttonAddLightPresetColor_Click(object sender, EventArgs e)
@@ -4149,13 +4153,19 @@ namespace SpacerUnion
             listBoxLightPresetColors.SelectedIndex = index;
         }
 
+        private object listBoxLightPresetsPreviouslySelectedItem = null;
         private void listBoxLightPresets_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBoxLightPresets.SelectedItem == null)
-                return;
+            if (listBoxLightPresets.SelectedItem == listBoxLightPresetsPreviouslySelectedItem)
+                listBoxLightPresets.SelectedItem = null;
 
-            Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
-            Imports.Extern_Light_QueryPresetData();
+            if (listBoxLightPresets.SelectedItem != null)
+            {
+                Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
+                Imports.Extern_Light_QueryPresetData();
+            }
+
+            listBoxLightPresetsPreviouslySelectedItem = listBoxLightPresets.SelectedItem;
         }
 
         private void listBoxLightPresetColors_DrawItem(object sender, DrawItemEventArgs e)
