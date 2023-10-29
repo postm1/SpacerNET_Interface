@@ -3996,8 +3996,8 @@ namespace SpacerUnion
             int colorsCount = Imports.Stack_PeekInt();
             for (int i = 0; i < colorsCount; ++i)
             {
-                int argb = Imports.Stack_PeekInt();
-                SpacerNET.objectsWin.listBoxLightPresetColors.Items.Add(Color.FromArgb(argb));
+                Color color = Color.FromArgb(Imports.Stack_PeekInt());
+                SpacerNET.objectsWin.listBoxLightPresetColors.Items.Add(color);
             }
 
             float colorAniFPS = Imports.Stack_PeekFloat() * 1000.0f;
@@ -4167,6 +4167,10 @@ namespace SpacerUnion
             ListBox colorListBox = (ListBox)sender;
             bool selected = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
 
+            uint color = (uint)((Color)colorListBox.Items[e.Index]).ToArgb();
+            color = color & 0x00FFFFFFu;
+            color = color | 0xFF000000u;
+
             e = new DrawItemEventArgs(
                 e.Graphics,
                 e.Font,
@@ -4179,7 +4183,7 @@ namespace SpacerUnion
 
             e.DrawBackground();
 
-            e.Graphics.FillRectangle(new SolidBrush((Color)colorListBox.Items[e.Index]), new Rectangle(e.Bounds.X + 1, e.Bounds.Y + 1, e.Bounds.Width - 2, e.Bounds.Height - 2));
+            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb((int)color)), new Rectangle(e.Bounds.X + 1, e.Bounds.Y + 1, e.Bounds.Width - 2, e.Bounds.Height - 2));
 
             e.DrawFocusRectangle();
         }
