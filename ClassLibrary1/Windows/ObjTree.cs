@@ -671,6 +671,20 @@ namespace SpacerUnion
                     Utils.Error("Warning! I found more than 1 entries with same Vob addr! Count: " + entries.Count);
                 }
             }
+            
+            // if we have this vob in search result, remove it from list / interface
+            if (ObjectsWin.searchResultVobsAddr.Contains(vob))
+            {
+                int index = ObjectsWin.searchResultVobsAddr.IndexOf(vob);
+
+                if (index >= 0)
+                {
+                    //ConsoleEx.WriteLineRed("Remove vob at index: " + index);
+
+                    ObjectsWin.searchResultVobsAddr.RemoveAt(index);
+                    SpacerNET.objectsWin.listBoxSearchResult.Items.RemoveAt(index);
+                }
+            }
 
             SpacerNET.vobList.ClearListBox();
             ObjectsWindow.CleanProps();

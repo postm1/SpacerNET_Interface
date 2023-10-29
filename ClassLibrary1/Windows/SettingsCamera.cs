@@ -43,7 +43,7 @@ namespace SpacerUnion
             checkBoxCameraHideWins.Text = Localizator.Get("checkBoxCameraHideWins");
             labelCamSetSlerp.Text = Localizator.Get("labelCamSetSlerp");
             checkBoxCamShowPortalsInfo.Text = Localizator.Get("checkBoxCamShowPortalsInfo");
-
+            labelSpeedPreview.Text = Localizator.Get("labelSpeedPreview") + ": " + trackBarSpeedPreview.Value;
 
         }
 
