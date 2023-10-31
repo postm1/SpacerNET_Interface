@@ -14,7 +14,7 @@ namespace SpacerUnion
 {
     public class Constants
     {
-        public const string SPACER_VERSION = "0.42";
+        public const string SPACER_VERSION = "0.43";
 
 
         public const string FILE_FILTER_OPEN_ZEN = "Compiled ZEN (*.zen)|*.zen|Uncompiled ZEN (*.zen)|*.zen";
@@ -176,7 +176,7 @@ namespace SpacerUnion
 
         public static bool IsOnlyLatin(string text)
         {
-            return Regex.IsMatch(text, @"^[a-zA-Z0-9_\-\=\.\,\;\:\\\/\(\)\]\[ ]+$");
+            return Regex.IsMatch(text, @"^[a-zA-Z0-9_\-\+\=\.\,\;\:\\\/\(\)\]\[ ]+$");
         }
 
         public static bool IsOptionActive(string text)

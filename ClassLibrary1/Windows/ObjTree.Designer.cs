@@ -238,7 +238,7 @@
             // 
             this.tabControlObjectList.Controls.Add(this.tabPage1);
             this.tabControlObjectList.Controls.Add(this.tabPage2);
-            this.tabControlObjectList.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.tabControlObjectList.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.tabControlObjectList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlObjectList.Location = new System.Drawing.Point(0, 0);
             this.tabControlObjectList.Name = "tabControlObjectList";

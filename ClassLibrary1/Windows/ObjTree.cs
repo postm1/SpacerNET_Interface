@@ -1727,5 +1727,39 @@ namespace SpacerUnion
 
             Imports.Extern_SetVobPickFilter(index);
         }
+
+
+
+        [DllExport]
+        public static void AddVobToFastList()
+        {
+            var globalTree = SpacerNET.objTreeWin.globalTree;
+
+            if (globalTree.SelectedNode == null)
+            {
+                return;
+            }
+
+            TreeNode node = globalTree.SelectedNode;
+
+            string tag = node.Tag.ToString();
+
+            if (tag.Length == 0 || tag == Constants.TAG_FOLDER)
+            {
+                return;
+            }
+
+
+            uint vob = Imports.Stack_PeekUInt();
+
+            uint.TryParse(tag, out vob);
+
+            if (vob == 0)
+            {
+                return;
+            }
+
+            SpacerNET.objTreeWin.AddVobInQuickList(node, vob);
+        }
     }
 }

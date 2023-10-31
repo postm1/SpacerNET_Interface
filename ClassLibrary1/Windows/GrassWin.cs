@@ -23,6 +23,10 @@ namespace SpacerUnion.Windows
             this.Hide();
             e.Cancel = true;
             SpacerNET.form.SetIconActive("grass", false);
+
+            // turn off Grass placer
+            Imports.Stack_PushString("bToggleWorkMode");
+            Imports.Extern_SetSetting(0);
         }
 
         public void UpdateLang()

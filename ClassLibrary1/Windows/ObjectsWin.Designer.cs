@@ -2097,6 +2097,11 @@
             this.numericUpDownLightVobRange.Name = "numericUpDownLightVobRange";
             this.numericUpDownLightVobRange.Size = new System.Drawing.Size(97, 20);
             this.numericUpDownLightVobRange.TabIndex = 52;
+            this.numericUpDownLightVobRange.Value = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             // 
             // labelLightVobLightQuality
             // 
@@ -2134,7 +2139,6 @@
             this.radioButtonLightVobStatic.Name = "radioButtonLightVobStatic";
             this.radioButtonLightVobStatic.Size = new System.Drawing.Size(52, 17);
             this.radioButtonLightVobStatic.TabIndex = 30;
-            this.radioButtonLightVobStatic.TabStop = true;
             this.radioButtonLightVobStatic.Text = "Static";
             this.radioButtonLightVobStatic.UseVisualStyleBackColor = true;
             this.radioButtonLightVobStatic.CheckedChanged += new System.EventHandler(this.radioButtonLightVobStatic_CheckedChanged);
@@ -2142,6 +2146,7 @@
             // radioButtonLightVobDynamic
             // 
             this.radioButtonLightVobDynamic.AutoSize = true;
+            this.radioButtonLightVobDynamic.Checked = true;
             this.radioButtonLightVobDynamic.Location = new System.Drawing.Point(6, 35);
             this.radioButtonLightVobDynamic.Name = "radioButtonLightVobDynamic";
             this.radioButtonLightVobDynamic.Size = new System.Drawing.Size(66, 17);

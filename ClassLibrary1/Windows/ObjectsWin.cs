@@ -1326,6 +1326,9 @@ namespace SpacerUnion
 
             triggerEntry.m_kf_pos = Imports.Extern_GetCurrentKey();
             triggerEntry.maxKey = Imports.Extern_GetMaxKey();
+
+            //ConsoleEx.WriteLineRed(triggerEntry.m_kf_pos + "/" + triggerEntry.maxKey);
+
             UpdateTriggerWindow(false);
         }
 
@@ -1338,8 +1341,7 @@ namespace SpacerUnion
             {
                 mode = 2;
             }
-            else
-            if (radioButtonAfter.Checked)
+            else if (radioButtonAfter.Checked)
             {
                 mode = 0;
             }
@@ -1357,6 +1359,8 @@ namespace SpacerUnion
 
             //ConsoleEx.WriteLineRed("CurrentKey: " + triggerEntry.m_kf_pos + "/" + triggerEntry.maxKey);
             UpdateTriggerWindow(false);
+
+            SpacerNET.form.Focus();
         }
 
         private void buttonSend_Click(object sender, EventArgs e)
@@ -3998,8 +4002,8 @@ namespace SpacerUnion
             int colorsCount = Imports.Stack_PeekInt();
             for (int i = 0; i < colorsCount; ++i)
             {
-                int argb = Imports.Stack_PeekInt();
-                SpacerNET.objectsWin.listBoxLightPresetColors.Items.Add(Color.FromArgb(argb));
+                Color color = Color.FromArgb(Imports.Stack_PeekInt());
+                SpacerNET.objectsWin.listBoxLightPresetColors.Items.Add(color);
             }
 
             float colorAniFPS = Imports.Stack_PeekFloat() * 1000.0f;
@@ -4087,6 +4091,16 @@ namespace SpacerUnion
         {
             comboBoxLightVobLightQuality.Enabled = true;
         }
+
+        private void buttonCreateLightVob_Click(object sender, EventArgs e)
+        {
+            if (listBoxLightPresets.SelectedItem == null)
+                PushLightPresetData();
+
+            Imports.Stack_PushString(listBoxLightPresets.SelectedItem != null ? listBoxLightPresets.SelectedItem.ToString() : "");
+            Imports.Stack_PushString(textBoxLightVobName.Text);
+            Imports.Extern_Light_CreateVob();
+        }
         private void buttonApplyChangesLight_Click(object sender, EventArgs e)
         {
             PushLightPresetData();
@@ -4095,12 +4109,6 @@ namespace SpacerUnion
             Imports.Stack_PushString(listBoxLightPresets.SelectedItem != null ? listBoxLightPresets.SelectedItem.ToString() : "");
             if (Imports.Extern_Light_ApplyChanges() == 1)
                 buttonSaveLightPresets.Enabled = true;
-        }
-        private void buttonCreateLightVob_Click(object sender, EventArgs e)
-        {
-            Imports.Stack_PushString(listBoxLightPresets.SelectedItem != null ? listBoxLightPresets.SelectedItem.ToString() : "");
-            Imports.Stack_PushString(textBoxLightVobName.Text);
-            Imports.Extern_Light_CreateVob();
         }
 
         private void buttonAddLightPresetColor_Click(object sender, EventArgs e)
@@ -4149,13 +4157,19 @@ namespace SpacerUnion
             listBoxLightPresetColors.SelectedIndex = index;
         }
 
+        private object listBoxLightPresetsPreviouslySelectedItem = null;
         private void listBoxLightPresets_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBoxLightPresets.SelectedItem == null)
-                return;
+            if (listBoxLightPresets.SelectedItem == listBoxLightPresetsPreviouslySelectedItem)
+                listBoxLightPresets.SelectedItem = null;
 
-            Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
-            Imports.Extern_Light_QueryPresetData();
+            if (listBoxLightPresets.SelectedItem != null)
+            {
+                Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
+                Imports.Extern_Light_QueryPresetData();
+            }
+
+            listBoxLightPresetsPreviouslySelectedItem = listBoxLightPresets.SelectedItem;
         }
 
         private void listBoxLightPresetColors_DrawItem(object sender, DrawItemEventArgs e)
@@ -4165,6 +4179,10 @@ namespace SpacerUnion
 
             ListBox colorListBox = (ListBox)sender;
             bool selected = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
+
+            uint color = (uint)((Color)colorListBox.Items[e.Index]).ToArgb();
+            color = color & 0x00FFFFFFu;
+            color = color | 0xFF000000u;
 
             e = new DrawItemEventArgs(
                 e.Graphics,
@@ -4178,7 +4196,7 @@ namespace SpacerUnion
 
             e.DrawBackground();
 
-            e.Graphics.FillRectangle(new SolidBrush((Color)colorListBox.Items[e.Index]), new Rectangle(e.Bounds.X + 1, e.Bounds.Y + 1, e.Bounds.Width - 2, e.Bounds.Height - 2));
+            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb((int)color)), new Rectangle(e.Bounds.X + 1, e.Bounds.Y + 1, e.Bounds.Width - 2, e.Bounds.Height - 2));
 
             e.DrawFocusRectangle();
         }

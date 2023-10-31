@@ -264,7 +264,7 @@ namespace SpacerUnion
 
         private void textBoxCamTrans_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
         private void textBoxCamTrans_TextChanged(object sender, EventArgs e)
@@ -408,6 +408,11 @@ namespace SpacerUnion
             CheckBox cb = sender as CheckBox;
             Imports.Stack_PushString("showPortalsInfo");
             Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
+        }
+
+        private void textBoxCamSlerp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }
