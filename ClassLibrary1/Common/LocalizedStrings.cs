@@ -706,7 +706,11 @@ namespace SpacerUnion.Common
             words.Add("checkBoxCamCoord", new List<string> { "Показывать координаты камеры и воба", "Show camera and vob coordinates", "Kamera- und Vob-Koordinaten anzeigen", "Pokaż kamerę i współrzędne voba" });
             words.Add("VOB_ONEMODE", new List<string> { "Единый режим перемещения воба", "United mod of vob moving", "United mod of vob moving", "Wspólny tryb poruszania vobem" });
             words.Add("VOB_ONEMODE_OFF", new List<string> { "Единый режим отключен", "United mod disabled", "United Mod deaktiviert", "Wspólny tryb wyłączony" });
-            
+
+
+
+            words.Add("MSG_VOB_FAV_ADD", new List<string> { "Воб добавлен в быстрый доступ", "Vob added to fast access list", "Vob ist zur Schellzugriffsliste hinzugefügt", "Vob dodany do listy szybkiego dostępu" });
+            words.Add("KEYS_VOB_FAV_ADD", new List<string> { "Добавить воб в быстрый доступ", "Add vob to fast access list", "Vob zur Schellzugriffsliste hinzufügen", "Dodaj voba do listy szybkiego dostępu" });
         }
         
     }
