@@ -179,6 +179,7 @@
             this.textBoxCamSlerp.Size = new System.Drawing.Size(48, 20);
             this.textBoxCamSlerp.TabIndex = 10;
             this.textBoxCamSlerp.TextChanged += new System.EventHandler(this.textBoxCamSlerp_TextChanged);
+            this.textBoxCamSlerp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamSlerp_KeyPress);
             // 
             // labelCamSetSlerp
             // 
