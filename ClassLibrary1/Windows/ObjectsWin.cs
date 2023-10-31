@@ -1326,6 +1326,9 @@ namespace SpacerUnion
 
             triggerEntry.m_kf_pos = Imports.Extern_GetCurrentKey();
             triggerEntry.maxKey = Imports.Extern_GetMaxKey();
+
+            //ConsoleEx.WriteLineRed(triggerEntry.m_kf_pos + "/" + triggerEntry.maxKey);
+
             UpdateTriggerWindow(false);
         }
 
@@ -1338,8 +1341,7 @@ namespace SpacerUnion
             {
                 mode = 2;
             }
-            else
-            if (radioButtonAfter.Checked)
+            else if (radioButtonAfter.Checked)
             {
                 mode = 0;
             }
@@ -1357,6 +1359,8 @@ namespace SpacerUnion
 
             //ConsoleEx.WriteLineRed("CurrentKey: " + triggerEntry.m_kf_pos + "/" + triggerEntry.maxKey);
             UpdateTriggerWindow(false);
+
+            SpacerNET.form.Focus();
         }
 
         private void buttonSend_Click(object sender, EventArgs e)
