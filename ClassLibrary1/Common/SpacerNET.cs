@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -396,10 +397,10 @@ namespace SpacerUnion
 
 
             Imports.Stack_PushString("grassToolvisualAniModeStrengthValue");
-            grassWin.textBoxVisualAniModeStrength.Text = Convert.ToString(Imports.Extern_GetSettingFloat());
+            grassWin.textBoxVisualAniModeStrength.Text = Convert.ToString(Imports.Extern_GetSettingFloat(), new CultureInfo("en-US"));
 
             Imports.Stack_PushString("grassToolVobFarClipZScaleValue");
-            grassWin.textBoxVobFarClipZScale.Text = Convert.ToString(Imports.Extern_GetSettingFloat());
+            grassWin.textBoxVobFarClipZScale.Text = Convert.ToString(Imports.Extern_GetSettingFloat(), new CultureInfo("en-US"));
 
 
 
