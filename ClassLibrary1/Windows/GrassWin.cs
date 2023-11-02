@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -114,8 +115,8 @@ namespace SpacerUnion.Windows
             int comboBoxVisualCamAlignValue = comboBoxVisualCamAlign.SelectedIndex;
             int comboBoxVisualAniModeValue = comboBoxVisualAniMode.SelectedIndex;
 
-            float visualAniModeStrengthValue = Convert.ToSingle(textBoxVisualAniModeStrength.Text.Trim());
-            float VobFarClipZScaleValue = Convert.ToSingle(textBoxVobFarClipZScale.Text.Trim());
+            float visualAniModeStrengthValue = Convert.ToSingle(textBoxVisualAniModeStrength.Text.Trim(), new CultureInfo("en-US"));
+            float VobFarClipZScaleValue = Convert.ToSingle(textBoxVobFarClipZScale.Text.Trim(), new CultureInfo("en-US"));
 
             bool cdStaticValue = checkBoxcdStatic.Checked;
             bool staticVobValue = checkBoxstaticVob.Checked;
