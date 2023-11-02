@@ -42,8 +42,22 @@
             this.checkBoxGrassWinDynColl = new System.Windows.Forms.CheckBox();
             this.checkBoxGrassWinRotRand = new System.Windows.Forms.CheckBox();
             this.checkBoxGrassWinSetNormal = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.comboBoxVisualCamAlign = new System.Windows.Forms.ComboBox();
+            this.labelVisualCamAlign = new System.Windows.Forms.Label();
+            this.visualAniMode = new System.Windows.Forms.Label();
+            this.comboBoxVisualAniMode = new System.Windows.Forms.ComboBox();
+            this.labelVisualAniModeStrength = new System.Windows.Forms.Label();
+            this.textBoxVisualAniModeStrength = new System.Windows.Forms.TextBox();
+            this.labelvobFarClipZScale = new System.Windows.Forms.Label();
+            this.textBoxVobFarClipZScale = new System.Windows.Forms.TextBox();
+            this.checkBoxcdStatic = new System.Windows.Forms.CheckBox();
+            this.checkBoxstaticVob = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarWinGrassMinRadius)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarGrassWinVertical)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelGrassWinVobName
@@ -66,7 +80,7 @@
             // 
             // trackBarWinGrassMinRadius
             // 
-            this.trackBarWinGrassMinRadius.Location = new System.Drawing.Point(12, 87);
+            this.trackBarWinGrassMinRadius.Location = new System.Drawing.Point(12, 79);
             this.trackBarWinGrassMinRadius.Maximum = 3000;
             this.trackBarWinGrassMinRadius.Name = "trackBarWinGrassMinRadius";
             this.trackBarWinGrassMinRadius.Size = new System.Drawing.Size(409, 45);
@@ -77,7 +91,7 @@
             // labelWinGrassMinRadius
             // 
             this.labelWinGrassMinRadius.AutoSize = true;
-            this.labelWinGrassMinRadius.Location = new System.Drawing.Point(12, 71);
+            this.labelWinGrassMinRadius.Location = new System.Drawing.Point(12, 63);
             this.labelWinGrassMinRadius.Name = "labelWinGrassMinRadius";
             this.labelWinGrassMinRadius.Size = new System.Drawing.Size(179, 13);
             this.labelWinGrassMinRadius.TabIndex = 3;
@@ -85,7 +99,7 @@
             // 
             // buttonGrassWinApply
             // 
-            this.buttonGrassWinApply.Location = new System.Drawing.Point(163, 376);
+            this.buttonGrassWinApply.Location = new System.Drawing.Point(280, 439);
             this.buttonGrassWinApply.Name = "buttonGrassWinApply";
             this.buttonGrassWinApply.Size = new System.Drawing.Size(107, 23);
             this.buttonGrassWinApply.TabIndex = 4;
@@ -95,7 +109,7 @@
             // 
             // trackBarGrassWinVertical
             // 
-            this.trackBarGrassWinVertical.Location = new System.Drawing.Point(12, 160);
+            this.trackBarGrassWinVertical.Location = new System.Drawing.Point(12, 149);
             this.trackBarGrassWinVertical.Maximum = 300;
             this.trackBarGrassWinVertical.Minimum = -300;
             this.trackBarGrassWinVertical.Name = "trackBarGrassWinVertical";
@@ -107,7 +121,7 @@
             // labelWinGrassVertOffset
             // 
             this.labelWinGrassVertOffset.AutoSize = true;
-            this.labelWinGrassVertOffset.Location = new System.Drawing.Point(12, 144);
+            this.labelWinGrassVertOffset.Location = new System.Drawing.Point(12, 132);
             this.labelWinGrassVertOffset.Name = "labelWinGrassVertOffset";
             this.labelWinGrassVertOffset.Size = new System.Drawing.Size(111, 13);
             this.labelWinGrassVertOffset.TabIndex = 6;
@@ -118,7 +132,7 @@
             this.checkBoxGrassWinCopyName.AutoSize = true;
             this.checkBoxGrassWinCopyName.Checked = true;
             this.checkBoxGrassWinCopyName.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxGrassWinCopyName.Location = new System.Drawing.Point(15, 203);
+            this.checkBoxGrassWinCopyName.Location = new System.Drawing.Point(3, 11);
             this.checkBoxGrassWinCopyName.Name = "checkBoxGrassWinCopyName";
             this.checkBoxGrassWinCopyName.Size = new System.Drawing.Size(211, 17);
             this.checkBoxGrassWinCopyName.TabIndex = 7;
@@ -130,7 +144,7 @@
             this.checkBoxGrassWinRemove.AutoSize = true;
             this.checkBoxGrassWinRemove.Checked = true;
             this.checkBoxGrassWinRemove.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxGrassWinRemove.Location = new System.Drawing.Point(15, 226);
+            this.checkBoxGrassWinRemove.Location = new System.Drawing.Point(3, 34);
             this.checkBoxGrassWinRemove.Name = "checkBoxGrassWinRemove";
             this.checkBoxGrassWinRemove.Size = new System.Drawing.Size(118, 17);
             this.checkBoxGrassWinRemove.TabIndex = 8;
@@ -143,7 +157,7 @@
             this.checkBoxGrassWinIsItem.AutoSize = true;
             this.checkBoxGrassWinIsItem.Checked = true;
             this.checkBoxGrassWinIsItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxGrassWinIsItem.Location = new System.Drawing.Point(15, 249);
+            this.checkBoxGrassWinIsItem.Location = new System.Drawing.Point(3, 57);
             this.checkBoxGrassWinIsItem.Name = "checkBoxGrassWinIsItem";
             this.checkBoxGrassWinIsItem.Size = new System.Drawing.Size(131, 17);
             this.checkBoxGrassWinIsItem.TabIndex = 9;
@@ -156,7 +170,7 @@
             this.checkBoxGrassWinClickOnce.AutoSize = true;
             this.checkBoxGrassWinClickOnce.Checked = true;
             this.checkBoxGrassWinClickOnce.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxGrassWinClickOnce.Location = new System.Drawing.Point(15, 272);
+            this.checkBoxGrassWinClickOnce.Location = new System.Drawing.Point(3, 80);
             this.checkBoxGrassWinClickOnce.Name = "checkBoxGrassWinClickOnce";
             this.checkBoxGrassWinClickOnce.Size = new System.Drawing.Size(207, 17);
             this.checkBoxGrassWinClickOnce.TabIndex = 10;
@@ -169,7 +183,7 @@
             this.checkBoxGrassWinDynColl.AutoSize = true;
             this.checkBoxGrassWinDynColl.Checked = true;
             this.checkBoxGrassWinDynColl.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxGrassWinDynColl.Location = new System.Drawing.Point(15, 295);
+            this.checkBoxGrassWinDynColl.Location = new System.Drawing.Point(3, 103);
             this.checkBoxGrassWinDynColl.Name = "checkBoxGrassWinDynColl";
             this.checkBoxGrassWinDynColl.Size = new System.Drawing.Size(160, 17);
             this.checkBoxGrassWinDynColl.TabIndex = 11;
@@ -182,7 +196,7 @@
             this.checkBoxGrassWinRotRand.AutoSize = true;
             this.checkBoxGrassWinRotRand.Checked = true;
             this.checkBoxGrassWinRotRand.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxGrassWinRotRand.Location = new System.Drawing.Point(15, 318);
+            this.checkBoxGrassWinRotRand.Location = new System.Drawing.Point(3, 126);
             this.checkBoxGrassWinRotRand.Name = "checkBoxGrassWinRotRand";
             this.checkBoxGrassWinRotRand.Size = new System.Drawing.Size(252, 17);
             this.checkBoxGrassWinRotRand.TabIndex = 12;
@@ -195,7 +209,7 @@
             this.checkBoxGrassWinSetNormal.AutoSize = true;
             this.checkBoxGrassWinSetNormal.Checked = true;
             this.checkBoxGrassWinSetNormal.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxGrassWinSetNormal.Location = new System.Drawing.Point(15, 341);
+            this.checkBoxGrassWinSetNormal.Location = new System.Drawing.Point(3, 149);
             this.checkBoxGrassWinSetNormal.Name = "checkBoxGrassWinSetNormal";
             this.checkBoxGrassWinSetNormal.Size = new System.Drawing.Size(200, 17);
             this.checkBoxGrassWinSetNormal.TabIndex = 13;
@@ -203,18 +217,152 @@
             this.checkBoxGrassWinSetNormal.UseVisualStyleBackColor = true;
             this.checkBoxGrassWinSetNormal.CheckedChanged += new System.EventHandler(this.checkBoxGrassWinSetNormal_CheckedChanged);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.checkBoxGrassWinRemove);
+            this.panel1.Controls.Add(this.checkBoxGrassWinSetNormal);
+            this.panel1.Controls.Add(this.checkBoxGrassWinCopyName);
+            this.panel1.Controls.Add(this.checkBoxGrassWinRotRand);
+            this.panel1.Controls.Add(this.checkBoxGrassWinIsItem);
+            this.panel1.Controls.Add(this.checkBoxGrassWinDynColl);
+            this.panel1.Controls.Add(this.checkBoxGrassWinClickOnce);
+            this.panel1.Location = new System.Drawing.Point(13, 200);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(406, 169);
+            this.panel1.TabIndex = 14;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.checkBoxstaticVob);
+            this.panel2.Controls.Add(this.checkBoxcdStatic);
+            this.panel2.Controls.Add(this.textBoxVobFarClipZScale);
+            this.panel2.Controls.Add(this.labelvobFarClipZScale);
+            this.panel2.Controls.Add(this.textBoxVisualAniModeStrength);
+            this.panel2.Controls.Add(this.labelVisualAniModeStrength);
+            this.panel2.Controls.Add(this.comboBoxVisualAniMode);
+            this.panel2.Controls.Add(this.visualAniMode);
+            this.panel2.Controls.Add(this.labelVisualCamAlign);
+            this.panel2.Controls.Add(this.comboBoxVisualCamAlign);
+            this.panel2.Location = new System.Drawing.Point(12, 373);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(240, 163);
+            this.panel2.TabIndex = 15;
+            // 
+            // comboBoxVisualCamAlign
+            // 
+            this.comboBoxVisualCamAlign.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxVisualCamAlign.FormattingEnabled = true;
+            this.comboBoxVisualCamAlign.Items.AddRange(new object[] {
+            "NONE",
+            "YAW",
+            "FULL"});
+            this.comboBoxVisualCamAlign.Location = new System.Drawing.Point(131, 10);
+            this.comboBoxVisualCamAlign.Name = "comboBoxVisualCamAlign";
+            this.comboBoxVisualCamAlign.Size = new System.Drawing.Size(102, 21);
+            this.comboBoxVisualCamAlign.TabIndex = 0;
+            this.comboBoxVisualCamAlign.SelectedIndexChanged += new System.EventHandler(this.comboBoxVisualCamAlign_SelectedIndexChanged);
+            // 
+            // labelVisualCamAlign
+            // 
+            this.labelVisualCamAlign.AutoSize = true;
+            this.labelVisualCamAlign.Location = new System.Drawing.Point(8, 14);
+            this.labelVisualCamAlign.Name = "labelVisualCamAlign";
+            this.labelVisualCamAlign.Size = new System.Drawing.Size(78, 13);
+            this.labelVisualCamAlign.TabIndex = 1;
+            this.labelVisualCamAlign.Text = "visualCamAlign";
+            // 
+            // visualAniMode
+            // 
+            this.visualAniMode.AutoSize = true;
+            this.visualAniMode.Location = new System.Drawing.Point(9, 40);
+            this.visualAniMode.Name = "visualAniMode";
+            this.visualAniMode.Size = new System.Drawing.Size(76, 13);
+            this.visualAniMode.TabIndex = 2;
+            this.visualAniMode.Text = "visualAniMode";
+            // 
+            // comboBoxVisualAniMode
+            // 
+            this.comboBoxVisualAniMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxVisualAniMode.FormattingEnabled = true;
+            this.comboBoxVisualAniMode.Items.AddRange(new object[] {
+            "NONE",
+            "WIND",
+            "WIND2"});
+            this.comboBoxVisualAniMode.Location = new System.Drawing.Point(131, 37);
+            this.comboBoxVisualAniMode.Name = "comboBoxVisualAniMode";
+            this.comboBoxVisualAniMode.Size = new System.Drawing.Size(102, 21);
+            this.comboBoxVisualAniMode.TabIndex = 3;
+            this.comboBoxVisualAniMode.SelectedIndexChanged += new System.EventHandler(this.comboBoxVisualAniMode_SelectedIndexChanged);
+            // 
+            // labelVisualAniModeStrength
+            // 
+            this.labelVisualAniModeStrength.AutoSize = true;
+            this.labelVisualAniModeStrength.Location = new System.Drawing.Point(9, 66);
+            this.labelVisualAniModeStrength.Name = "labelVisualAniModeStrength";
+            this.labelVisualAniModeStrength.Size = new System.Drawing.Size(116, 13);
+            this.labelVisualAniModeStrength.TabIndex = 4;
+            this.labelVisualAniModeStrength.Text = "visualAniModeStrength";
+            // 
+            // textBoxVisualAniModeStrength
+            // 
+            this.textBoxVisualAniModeStrength.Location = new System.Drawing.Point(131, 66);
+            this.textBoxVisualAniModeStrength.Name = "textBoxVisualAniModeStrength";
+            this.textBoxVisualAniModeStrength.Size = new System.Drawing.Size(55, 20);
+            this.textBoxVisualAniModeStrength.TabIndex = 5;
+            this.textBoxVisualAniModeStrength.Text = "0";
+            this.textBoxVisualAniModeStrength.TextChanged += new System.EventHandler(this.textBoxVisualAniModeStrength_TextChanged);
+            this.textBoxVisualAniModeStrength.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVisualAniModeStrength_KeyPress);
+            // 
+            // labelvobFarClipZScale
+            // 
+            this.labelvobFarClipZScale.AutoSize = true;
+            this.labelvobFarClipZScale.Location = new System.Drawing.Point(8, 92);
+            this.labelvobFarClipZScale.Name = "labelvobFarClipZScale";
+            this.labelvobFarClipZScale.Size = new System.Drawing.Size(91, 13);
+            this.labelvobFarClipZScale.TabIndex = 6;
+            this.labelvobFarClipZScale.Text = "vobFarClipZScale";
+            // 
+            // textBoxVobFarClipZScale
+            // 
+            this.textBoxVobFarClipZScale.Location = new System.Drawing.Point(131, 89);
+            this.textBoxVobFarClipZScale.Name = "textBoxVobFarClipZScale";
+            this.textBoxVobFarClipZScale.Size = new System.Drawing.Size(55, 20);
+            this.textBoxVobFarClipZScale.TabIndex = 7;
+            this.textBoxVobFarClipZScale.Text = "1";
+            this.textBoxVobFarClipZScale.TextChanged += new System.EventHandler(this.textBoxVobFarClipZScale_TextChanged);
+            this.textBoxVobFarClipZScale.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVobFarClipZScale_KeyPress);
+            // 
+            // checkBoxcdStatic
+            // 
+            this.checkBoxcdStatic.AutoSize = true;
+            this.checkBoxcdStatic.Location = new System.Drawing.Point(12, 112);
+            this.checkBoxcdStatic.Name = "checkBoxcdStatic";
+            this.checkBoxcdStatic.Size = new System.Drawing.Size(65, 17);
+            this.checkBoxcdStatic.TabIndex = 14;
+            this.checkBoxcdStatic.Text = "cdStatic";
+            this.checkBoxcdStatic.UseVisualStyleBackColor = true;
+            this.checkBoxcdStatic.CheckedChanged += new System.EventHandler(this.checkBoxcdStatic_CheckedChanged);
+            // 
+            // checkBoxstaticVob
+            // 
+            this.checkBoxstaticVob.AutoSize = true;
+            this.checkBoxstaticVob.Location = new System.Drawing.Point(12, 133);
+            this.checkBoxstaticVob.Name = "checkBoxstaticVob";
+            this.checkBoxstaticVob.Size = new System.Drawing.Size(70, 17);
+            this.checkBoxstaticVob.TabIndex = 15;
+            this.checkBoxstaticVob.Text = "staticVob";
+            this.checkBoxstaticVob.UseVisualStyleBackColor = true;
+            this.checkBoxstaticVob.CheckedChanged += new System.EventHandler(this.checkBoxstaticVob_CheckedChanged);
+            this.checkBoxstaticVob.ChangeUICues += new System.Windows.Forms.UICuesEventHandler(this.checkBoxstaticVob_ChangeUICues);
+            // 
             // GrassWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(433, 411);
-            this.Controls.Add(this.checkBoxGrassWinSetNormal);
-            this.Controls.Add(this.checkBoxGrassWinRotRand);
-            this.Controls.Add(this.checkBoxGrassWinDynColl);
-            this.Controls.Add(this.checkBoxGrassWinClickOnce);
-            this.Controls.Add(this.checkBoxGrassWinIsItem);
-            this.Controls.Add(this.checkBoxGrassWinRemove);
-            this.Controls.Add(this.checkBoxGrassWinCopyName);
+            this.ClientSize = new System.Drawing.Size(429, 539);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelWinGrassVertOffset);
             this.Controls.Add(this.trackBarGrassWinVertical);
             this.Controls.Add(this.buttonGrassWinApply);
@@ -233,6 +381,10 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GrassWin_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarWinGrassMinRadius)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarGrassWinVertical)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,5 +406,17 @@
         public System.Windows.Forms.CheckBox checkBoxGrassWinDynColl;
         public System.Windows.Forms.CheckBox checkBoxGrassWinRotRand;
         public System.Windows.Forms.CheckBox checkBoxGrassWinSetNormal;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        public System.Windows.Forms.CheckBox checkBoxstaticVob;
+        public System.Windows.Forms.CheckBox checkBoxcdStatic;
+        private System.Windows.Forms.Label labelvobFarClipZScale;
+        private System.Windows.Forms.Label labelVisualAniModeStrength;
+        private System.Windows.Forms.Label visualAniMode;
+        private System.Windows.Forms.Label labelVisualCamAlign;
+        public System.Windows.Forms.TextBox textBoxVobFarClipZScale;
+        public System.Windows.Forms.TextBox textBoxVisualAniModeStrength;
+        public System.Windows.Forms.ComboBox comboBoxVisualAniMode;
+        public System.Windows.Forms.ComboBox comboBoxVisualCamAlign;
     }
 }

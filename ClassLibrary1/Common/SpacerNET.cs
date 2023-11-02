@@ -352,7 +352,7 @@ namespace SpacerUnion
             btn = form.toolStripTop.Items[12] as ToolStripButton;
             btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
-            //====================================================================================
+            //==================================================================================== GRASS WIN SETTINGS
 
             Imports.Stack_PushString("grassMinDist");
             grassWin.trackBarWinGrassMinRadius.Value = Imports.Extern_GetSetting();
@@ -384,7 +384,31 @@ namespace SpacerUnion
             Imports.Stack_PushString("grassToolSetNormal");
             grassWin.checkBoxGrassWinSetNormal.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
-            
+
+
+
+            Imports.Stack_PushString("grassToolcomboBoxVisualCamAlignValue");
+            grassWin.comboBoxVisualCamAlign.SelectedIndex = Imports.Extern_GetSetting();
+
+
+            Imports.Stack_PushString("grassToolcomboBoxVisualAniModeValue");
+            grassWin.comboBoxVisualAniMode.SelectedIndex = Imports.Extern_GetSetting();
+
+
+            Imports.Stack_PushString("grassToolvisualAniModeStrengthValue");
+            grassWin.textBoxVisualAniModeStrength.Text = Convert.ToString(Imports.Extern_GetSettingFloat());
+
+            Imports.Stack_PushString("grassToolVobFarClipZScaleValue");
+            grassWin.textBoxVobFarClipZScale.Text = Convert.ToString(Imports.Extern_GetSettingFloat());
+
+
+
+            Imports.Stack_PushString("grassToolcdStaticValue");
+            grassWin.checkBoxcdStatic.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("grassToolStaticVobValue");
+            grassWin.checkBoxstaticVob.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
             grassWin.UpdateLang();
             //==========================================================
 

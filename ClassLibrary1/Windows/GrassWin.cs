@@ -16,6 +16,10 @@ namespace SpacerUnion.Windows
         {
             InitializeComponent();
             UpdateLang();
+
+            comboBoxVisualCamAlign.SelectedIndex = 0;
+            comboBoxVisualAniMode.SelectedIndex = 0;
+            OnSettingsChanged();
         }
 
         private void GrassWin_FormClosing(object sender, FormClosingEventArgs e)
@@ -50,6 +54,8 @@ namespace SpacerUnion.Windows
 
 
             this.buttonGrassWinApply.Text = Localizator.Get("BTN_APPLY");
+
+            
         }
 
         private void trackBarWinGrassMinRadius_ValueChanged(object sender, EventArgs e)
@@ -98,6 +104,41 @@ namespace SpacerUnion.Windows
             this.UpdateLang();
         }
 
+        public void OnSettingsChanged()
+        {
+            if (!SpacerNET.isInit)
+            {
+                return;
+            }
+
+            int comboBoxVisualCamAlignValue = comboBoxVisualCamAlign.SelectedIndex;
+            int comboBoxVisualAniModeValue = comboBoxVisualAniMode.SelectedIndex;
+
+            float visualAniModeStrengthValue = Convert.ToSingle(textBoxVisualAniModeStrength.Text.Trim());
+            float VobFarClipZScaleValue = Convert.ToSingle(textBoxVobFarClipZScale.Text.Trim());
+
+            bool cdStaticValue = checkBoxcdStatic.Checked;
+            bool staticVobValue = checkBoxstaticVob.Checked;
+
+            Imports.Stack_PushString("grassToolcomboBoxVisualCamAlignValue");
+            Imports.Extern_SetSetting(comboBoxVisualCamAlignValue);
+
+            Imports.Stack_PushString("grassToolcomboBoxVisualAniModeValue");
+            Imports.Extern_SetSetting(comboBoxVisualAniModeValue);
+
+            Imports.Stack_PushString("grassToolvisualAniModeStrengthValue");
+            Imports.Extern_SetSettingFloat(visualAniModeStrengthValue);
+
+            Imports.Stack_PushString("grassToolVobFarClipZScaleValue");
+            Imports.Extern_SetSettingFloat(VobFarClipZScaleValue);
+
+            Imports.Stack_PushString("grassToolcdStaticValue");
+            Imports.Extern_SetSetting(Convert.ToInt32(cdStaticValue));
+
+            Imports.Stack_PushString("grassToolStaticVobValue");
+            Imports.Extern_SetSetting(Convert.ToInt32(staticVobValue));
+        }
+
         public void buttonGrassWinApply_Click(object sender, EventArgs e)
         {
 
@@ -112,6 +153,9 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString(textBoxGrassWinModel.Text.Trim());
             Imports.Stack_PushString("grassModelName");
             Imports.Extern_SetSettingStr();
+
+
+
         }
 
         private void checkBoxGrassWinRemove_CheckedChanged(object sender, EventArgs e)
@@ -160,6 +204,69 @@ namespace SpacerUnion.Windows
 
             Imports.Stack_PushString("grassToolSetNormal");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBox.Checked));
+        }
+
+        private void textBoxVisualAniModeStrength_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !Utils.IsNumberInput(e.KeyChar, true, false))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxVobFarClipZScale_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !Utils.IsNumberInput(e.KeyChar, true, false))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void comboBoxVisualCamAlign_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            OnSettingsChanged();
+        }
+
+        private void comboBoxVisualAniMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            OnSettingsChanged();
+        }
+
+        private void textBoxVisualAniModeStrength_TextChanged(object sender, EventArgs e)
+        {
+            OnSettingsChanged();
+        }
+
+        private void textBoxVobFarClipZScale_TextChanged(object sender, EventArgs e)
+        {
+            OnSettingsChanged();
+        }
+
+        private void checkBoxcdStatic_CheckedChanged(object sender, EventArgs e)
+        {
+            OnSettingsChanged();
+        }
+
+        private void checkBoxstaticVob_CheckedChanged(object sender, EventArgs e)
+        {
+            OnSettingsChanged();
+        }
+
+        private void checkBoxstaticVob_ChangeUICues(object sender, UICuesEventArgs e)
+        {
+
         }
     }
 }
