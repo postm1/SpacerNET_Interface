@@ -13,7 +13,7 @@
 ### Spacer.NET
 
 **Spacer.NET** is a world editor for **Gothic II: Night of the Raven** that allows you to edit .ZEN world files.  
-It's mainly inspired by the original **Spacer** editor, it offers the same functionallity from the original editor and some additional features. The main purpose of it is to give a better vobbing experience without many inconveniences of original editor.
+It's mainly inspired by the original **Spacer** editor, it offers almost the same functionallity from the original editor and some additional features. The main purpose of it is to give a better vobbing experience without many inconveniences of original editor.
 
 ### NetSpacerCSharp
 
