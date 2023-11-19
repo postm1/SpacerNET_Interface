@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetSpacer", "ClassLibrary1\NetSpacer.csproj", "{2C1AC3D5-B261-4B02-8FED-DFD263516347}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetSpacerCSharp", "NetSpacerCSharp\NetSpacerCSharp.csproj", "{2C1AC3D5-B261-4B02-8FED-DFD263516347}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
