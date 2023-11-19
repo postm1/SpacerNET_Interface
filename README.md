@@ -28,7 +28,9 @@ You can download the latest release of Spacer.NET from [worldofplayers.de](https
 
 In order to use this project you need'll to install:
 - **.NET Framework 4.0**
-- **Union 1.0l or newer**
+
+- **Union 1.0l or newer**  
+    Install it via [Union Resource Manager](https://worldofplayers.ru/threads/41415/).
 
 ## Build requirements
 
