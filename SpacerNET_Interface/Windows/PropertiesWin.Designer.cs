@@ -35,7 +35,7 @@
             this.openFileDialogFileName = new System.Windows.Forms.OpenFileDialog();
             this.fontDialogSelect = new System.Windows.Forms.FontDialog();
             this.imageListProps = new System.Windows.Forms.ImageList(this.components);
-            this.dBufPanelMainTab = new SpacerUnion.Common.Extended.DBufPanel();
+            this.dBufPanelMainTab = new System.Windows.Forms.Panel();
             this.tabControlProps = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.treeViewProp = new System.Windows.Forms.TreeView();
@@ -694,7 +694,7 @@
         public System.Windows.Forms.CheckBox checkBoxFontUnderstroke;
         private System.Windows.Forms.Button buttonResetFontDefault;
         private System.Windows.Forms.Label labelChangeFontStyleText;
-        private SpacerUnion.Common.Extended.DBufPanel dBufPanelMainTab;
+        private System.Windows.Forms.Panel dBufPanelMainTab;
         public System.Windows.Forms.ImageList imageListProps;
         public System.Windows.Forms.Panel colorPanel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;

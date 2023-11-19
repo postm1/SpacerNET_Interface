@@ -1,4 +1,4 @@
-# NetSpacerCSharp
+# SpacerNET_Interface
 
 ## Table of contents
 
@@ -15,7 +15,7 @@
 **Spacer.NET** is a world editor for **Gothic II: Night of the Raven** that allows you to edit .ZEN world files.  
 It's mainly inspired by the original **Spacer** editor, it offers almost the same functionallity from the original editor and some additional features. The main purpose of it is to give a better vobbing experience without many inconveniences of original editor.
 
-### NetSpacerCSharp
+### SpacerNET_Interface
 
 This project is a front-end plugin written in **C#** for **Spacer.NET** editor.  
 It's responsibility is to display the UI and interact with the game via **SpacerUnionNet** back-end plugin.
