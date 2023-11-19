@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace SpacerUnion
 {
-    //push check
+
     public static class SpacerNET
     {
 
