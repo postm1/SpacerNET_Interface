@@ -22,11 +22,6 @@ bld/
 [Bb]in/
 [Oo]bj/
 
-ClassLibrary1/SpacerUnionInterface.dll
-ClassLibrary1/SpacerUnionInterface.dll.config
-ClassLibrary1/SpacerUnionInterface.exp
-ClassLibrary1/SpacerUnionInterface.lib
-
 # Visual Studio 2015 cache/options directory
 .vs/
 # Uncomment if you have tasks that create the project's static files in wwwroot
