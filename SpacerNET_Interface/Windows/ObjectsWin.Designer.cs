@@ -1018,6 +1018,7 @@
             // 
             // labelCurrentKey
             // 
+            this.labelCurrentKey.Enabled = false;
             this.labelCurrentKey.Location = new System.Drawing.Point(35, 18);
             this.labelCurrentKey.Name = "labelCurrentKey";
             this.labelCurrentKey.Size = new System.Drawing.Size(51, 18);

@@ -1187,8 +1187,12 @@ namespace SpacerUnion
             SpacerNET.objectsWin.listBoxActionType.Items.Clear();
             SpacerNET.objectsWin.triggerEntry.targetListAddr.Clear();
             SpacerNET.objectsWin.triggerEntry.sourcesListAddr.Clear();
+            SpacerNET.objectsWin.labelCurrentKey.Enabled = false;
 
-            
+
+
+
+
             SpacerNET.objectsWin.UpdateTriggerWindow();
 
         }
@@ -1201,6 +1205,8 @@ namespace SpacerUnion
             buttonKeyPlus.Enabled = true;
             buttonTriggersJumpToKey.Enabled = true;
             textBoxTrigersJumpKey.Enabled = true;
+
+            labelCurrentKey.Enabled = true;
         }
 
         public static void ChangeTab(int num)
