@@ -1266,6 +1266,15 @@ namespace SpacerUnion
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
+
+            //dont manage keys while is in game mode (controlling the player)
+            if (Imports.Extern_IsGameModActive() != 0)
+            {
+                ConsoleEx.WriteLineRed(e.KeyCode.ToString());
+                e.Handled = true;
+                e.SuppressKeyPress = e.Alt;
+            }
+   
             /*
             if (e.KeyCode == Keys.S && e.Control)
             {
@@ -2073,6 +2082,11 @@ namespace SpacerUnion
                 }
             }
             
+        }
+
+        private void menuStripTopMain_KeyDown(object sender, KeyEventArgs e)
+        {
+
         }
     }
 }

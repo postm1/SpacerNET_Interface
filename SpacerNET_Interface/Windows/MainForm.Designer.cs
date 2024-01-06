@@ -65,6 +65,7 @@
             this.ToolStripMenuTimeEvening = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuTimeNight = new System.Windows.Forms.ToolStripMenuItem();
             this.freezeTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextTimeSet = new System.Windows.Forms.ToolStripTextBox();
             this.renderModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.normalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mATERIALWIREToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -112,7 +113,6 @@
             this.toolStripButtonNoGrass = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonMacros = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFilter = new System.Windows.Forms.ToolStripButton();
-            this.toolStripTextTimeSet = new System.Windows.Forms.ToolStripTextBox();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -134,6 +134,7 @@
             this.menuStripTopMain.Text = "menuStrip1";
             this.menuStripTopMain.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStripTopMain_ItemClicked);
             this.menuStripTopMain.Enter += new System.EventHandler(this.menuStripTopMain_Enter);
+            this.menuStripTopMain.KeyDown += new System.Windows.Forms.KeyEventHandler(this.menuStripTopMain_KeyDown);
             this.menuStripTopMain.Leave += new System.EventHandler(this.menuStripTopMain_Leave);
             this.menuStripTopMain.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menuStripTopMain_MouseClick);
             this.menuStripTopMain.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menuStripTopMain_MouseDoubleClick);
@@ -276,14 +277,14 @@
             this.toolStripMenuItem5.Checked = true;
             this.toolStripMenuItem5.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(127, 22);
             this.toolStripMenuItem5.Text = "Vobs";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(127, 22);
             this.toolStripMenuItem6.Text = "Waynet";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
             // 
@@ -292,7 +293,7 @@
             this.toolStripMenuItem7.Checked = true;
             this.toolStripMenuItem7.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(127, 22);
             this.toolStripMenuItem7.Text = "Help vobs";
             this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
             // 
@@ -353,14 +354,14 @@
             // compileLightToolStrip
             // 
             this.compileLightToolStrip.Name = "compileLightToolStrip";
-            this.compileLightToolStrip.Size = new System.Drawing.Size(180, 22);
+            this.compileLightToolStrip.Size = new System.Drawing.Size(164, 22);
             this.compileLightToolStrip.Text = "Compile light";
             this.compileLightToolStrip.Click += new System.EventHandler(this.здрастеToolStripMenuItem_Click);
             // 
             // compileWorldToolStrip
             // 
             this.compileWorldToolStrip.Name = "compileWorldToolStrip";
-            this.compileWorldToolStrip.Size = new System.Drawing.Size(180, 22);
+            this.compileWorldToolStrip.Size = new System.Drawing.Size(164, 22);
             this.compileWorldToolStrip.Text = "Compile world";
             this.compileWorldToolStrip.Click += new System.EventHandler(this.компиляцияМираToolStripMenuItem_Click);
             // 
@@ -370,7 +371,7 @@
             this.прыгнутьНа000КоординатыToolStripMenuItem,
             this.ввестиКоординатыToolStripMenuItem});
             this.cameraCoordsToolStrip.Name = "cameraCoordsToolStrip";
-            this.cameraCoordsToolStrip.Size = new System.Drawing.Size(180, 22);
+            this.cameraCoordsToolStrip.Size = new System.Drawing.Size(164, 22);
             this.cameraCoordsToolStrip.Text = "Camera";
             // 
             // прыгнутьНа000КоординатыToolStripMenuItem
@@ -397,44 +398,54 @@
             this.freezeTimeToolStripMenuItem,
             this.toolStripTextTimeSet});
             this.dayTimeToolStrip.Name = "dayTimeToolStrip";
-            this.dayTimeToolStrip.Size = new System.Drawing.Size(202, 22);
+            this.dayTimeToolStrip.Size = new System.Drawing.Size(164, 22);
             this.dayTimeToolStrip.Text = "Day time";
             this.dayTimeToolStrip.TextChanged += new System.EventHandler(this.dayTimeToolStrip_TextChanged);
             // 
             // ToolStripMenuTimeMorning
             // 
             this.ToolStripMenuTimeMorning.Name = "ToolStripMenuTimeMorning";
-            this.ToolStripMenuTimeMorning.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuTimeMorning.Size = new System.Drawing.Size(160, 22);
             this.ToolStripMenuTimeMorning.Text = "Morning (07:00)";
             this.ToolStripMenuTimeMorning.Click += new System.EventHandler(this.ToolStripMenuTimeMorning_Click);
             // 
             // ToolStripMenuTimeDay
             // 
             this.ToolStripMenuTimeDay.Name = "ToolStripMenuTimeDay";
-            this.ToolStripMenuTimeDay.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuTimeDay.Size = new System.Drawing.Size(160, 22);
             this.ToolStripMenuTimeDay.Text = "Midday (12:00)";
             this.ToolStripMenuTimeDay.Click += new System.EventHandler(this.ToolStripMenuTimeDay_Click);
             // 
             // ToolStripMenuTimeEvening
             // 
             this.ToolStripMenuTimeEvening.Name = "ToolStripMenuTimeEvening";
-            this.ToolStripMenuTimeEvening.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuTimeEvening.Size = new System.Drawing.Size(160, 22);
             this.ToolStripMenuTimeEvening.Text = "Evening (17:00)";
             this.ToolStripMenuTimeEvening.Click += new System.EventHandler(this.ToolStripMenuTimeEvening_Click);
             // 
             // ToolStripMenuTimeNight
             // 
             this.ToolStripMenuTimeNight.Name = "ToolStripMenuTimeNight";
-            this.ToolStripMenuTimeNight.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuTimeNight.Size = new System.Drawing.Size(160, 22);
             this.ToolStripMenuTimeNight.Text = "Night (00:00)";
             this.ToolStripMenuTimeNight.Click += new System.EventHandler(this.ToolStripMenuTimeNight_Click);
             // 
             // freezeTimeToolStripMenuItem
             // 
             this.freezeTimeToolStripMenuItem.Name = "freezeTimeToolStripMenuItem";
-            this.freezeTimeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.freezeTimeToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.freezeTimeToolStripMenuItem.Text = "Freeze time";
             this.freezeTimeToolStripMenuItem.Click += new System.EventHandler(this.freezeTimeToolStripMenuItem_Click);
+            // 
+            // toolStripTextTimeSet
+            // 
+            this.toolStripTextTimeSet.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextTimeSet.Name = "toolStripTextTimeSet";
+            this.toolStripTextTimeSet.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextTimeSet.Text = "06 00";
+            this.toolStripTextTimeSet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextTimeSet_KeyDown);
+            this.toolStripTextTimeSet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripTextTimeSet_KeyPress);
+            this.toolStripTextTimeSet.TextChanged += new System.EventHandler(this.toolStripTextTimeSet_TextChanged);
             // 
             // renderModeToolStripMenuItem
             // 
@@ -444,7 +455,7 @@
             this.fLATToolStripMenuItem,
             this.wIREToolStripMenuItem});
             this.renderModeToolStripMenuItem.Name = "renderModeToolStripMenuItem";
-            this.renderModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.renderModeToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.renderModeToolStripMenuItem.Text = "Render mode";
             // 
             // normalToolStripMenuItem
@@ -452,42 +463,42 @@
             this.normalToolStripMenuItem.Checked = true;
             this.normalToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.normalToolStripMenuItem.Name = "normalToolStripMenuItem";
-            this.normalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.normalToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.normalToolStripMenuItem.Text = "NORMAL";
             this.normalToolStripMenuItem.Click += new System.EventHandler(this.normalToolStripMenuItem_Click);
             // 
             // mATERIALWIREToolStripMenuItem
             // 
             this.mATERIALWIREToolStripMenuItem.Name = "mATERIALWIREToolStripMenuItem";
-            this.mATERIALWIREToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mATERIALWIREToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.mATERIALWIREToolStripMenuItem.Text = "MATERIAL_WIRE";
             this.mATERIALWIREToolStripMenuItem.Click += new System.EventHandler(this.mATERIALWIREToolStripMenuItem_Click);
             // 
             // fLATToolStripMenuItem
             // 
             this.fLATToolStripMenuItem.Name = "fLATToolStripMenuItem";
-            this.fLATToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fLATToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.fLATToolStripMenuItem.Text = "FLAT";
             this.fLATToolStripMenuItem.Click += new System.EventHandler(this.fLATToolStripMenuItem_Click);
             // 
             // wIREToolStripMenuItem
             // 
             this.wIREToolStripMenuItem.Name = "wIREToolStripMenuItem";
-            this.wIREToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wIREToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.wIREToolStripMenuItem.Text = "WIRE";
             this.wIREToolStripMenuItem.Click += new System.EventHandler(this.wIREToolStripMenuItem_Click);
             // 
             // analyseWaynetToolStripMenuItem
             // 
             this.analyseWaynetToolStripMenuItem.Name = "analyseWaynetToolStripMenuItem";
-            this.analyseWaynetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.analyseWaynetToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.analyseWaynetToolStripMenuItem.Text = "Analyze Waynet";
             this.analyseWaynetToolStripMenuItem.Click += new System.EventHandler(this.анализWaynetToolStripMenuItem_Click);
             // 
             // playHeroToolStrip
             // 
             this.playHeroToolStrip.Name = "playHeroToolStrip";
-            this.playHeroToolStrip.Size = new System.Drawing.Size(180, 22);
+            this.playHeroToolStrip.Size = new System.Drawing.Size(164, 22);
             this.playHeroToolStrip.Text = "Play the hero";
             this.playHeroToolStrip.Click += new System.EventHandler(this.игратьЗаГерояToolStripMenuItem_Click);
             // 
@@ -495,7 +506,7 @@
             // 
             this.pfxEditorToolStrip.Enabled = false;
             this.pfxEditorToolStrip.Name = "pfxEditorToolStrip";
-            this.pfxEditorToolStrip.Size = new System.Drawing.Size(180, 22);
+            this.pfxEditorToolStrip.Size = new System.Drawing.Size(164, 22);
             this.pfxEditorToolStrip.Text = "Редактор PFX";
             this.pfxEditorToolStrip.Visible = false;
             this.pfxEditorToolStrip.Click += new System.EventHandler(this.pfxEditorToolStrip_Click);
@@ -503,7 +514,7 @@
             // testCoordsToolStripMenuItem
             // 
             this.testCoordsToolStripMenuItem.Name = "testCoordsToolStripMenuItem";
-            this.testCoordsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.testCoordsToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.testCoordsToolStripMenuItem.Text = "TestCoords";
             this.testCoordsToolStripMenuItem.Visible = false;
             this.testCoordsToolStripMenuItem.Click += new System.EventHandler(this.testCoordsToolStripMenuItem_Click);
@@ -513,7 +524,7 @@
             this.stripSpecialFunctions.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.stripSpecialFormVobsVisuals});
             this.stripSpecialFunctions.Name = "stripSpecialFunctions";
-            this.stripSpecialFunctions.Size = new System.Drawing.Size(180, 22);
+            this.stripSpecialFunctions.Size = new System.Drawing.Size(164, 22);
             this.stripSpecialFunctions.Text = "Special functions";
             // 
             // stripSpecialFormVobsVisuals
@@ -538,28 +549,28 @@
             // cameraToolStripMenuItem
             // 
             this.cameraToolStripMenuItem.Name = "cameraToolStripMenuItem";
-            this.cameraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cameraToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.cameraToolStripMenuItem.Text = "Camera";
             this.cameraToolStripMenuItem.Click += new System.EventHandler(this.камераToolStripMenuItem_Click);
             // 
             // controlsToolStripMenuItem
             // 
             this.controlsToolStripMenuItem.Name = "controlsToolStripMenuItem";
-            this.controlsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.controlsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.controlsToolStripMenuItem.Text = "Controls";
             this.controlsToolStripMenuItem.Click += new System.EventHandler(this.управлениеToolStripMenuItem_Click);
             // 
             // miscToolStripMenuItem
             // 
             this.miscToolStripMenuItem.Name = "miscToolStripMenuItem";
-            this.miscToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.miscToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.miscToolStripMenuItem.Text = "Misc";
             this.miscToolStripMenuItem.Click += new System.EventHandler(this.прочееToolStripMenuItem_Click);
             // 
             // keyBindsToolStripMenuItem
             // 
             this.keyBindsToolStripMenuItem.Name = "keyBindsToolStripMenuItem";
-            this.keyBindsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.keyBindsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.keyBindsToolStripMenuItem.Text = "Keys bindings";
             this.keyBindsToolStripMenuItem.Click += new System.EventHandler(this.сочетанияКлавишToolStripMenuItem_Click);
             // 
@@ -579,7 +590,7 @@
             // 
             this.russianToolStrip.Image = global::SpacerUnion.Properties.Resources.Flag_Russia;
             this.russianToolStrip.Name = "russianToolStrip";
-            this.russianToolStrip.Size = new System.Drawing.Size(180, 22);
+            this.russianToolStrip.Size = new System.Drawing.Size(119, 22);
             this.russianToolStrip.Text = "Русский";
             this.russianToolStrip.Click += new System.EventHandler(this.русскийToolStripMenuItem1_Click);
             // 
@@ -587,7 +598,7 @@
             // 
             this.englishToolStripMenuItem1.Image = global::SpacerUnion.Properties.Resources.Flag_Eng;
             this.englishToolStripMenuItem1.Name = "englishToolStripMenuItem1";
-            this.englishToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.englishToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
             this.englishToolStripMenuItem1.Text = "English";
             this.englishToolStripMenuItem1.Click += new System.EventHandler(this.englishToolStripMenuItem1_Click);
             // 
@@ -595,7 +606,7 @@
             // 
             this.deutscheToolStripMenuItem.Image = global::SpacerUnion.Properties.Resources.Flag_Germany;
             this.deutscheToolStripMenuItem.Name = "deutscheToolStripMenuItem";
-            this.deutscheToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deutscheToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.deutscheToolStripMenuItem.Text = "Deutsch";
             this.deutscheToolStripMenuItem.Click += new System.EventHandler(this.deutscheToolStripMenuItem_Click);
             // 
@@ -603,7 +614,7 @@
             // 
             this.polskiToolStripMenuItem.Image = global::SpacerUnion.Properties.Resources.Flag_Poland;
             this.polskiToolStripMenuItem.Name = "polskiToolStripMenuItem";
-            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.polskiToolStripMenuItem.Text = "Polski";
             this.polskiToolStripMenuItem.Click += new System.EventHandler(this.polskiToolStripMenuItem_Click);
             // 
@@ -619,7 +630,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
@@ -859,15 +870,6 @@
             this.toolStripButtonFilter.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonFilter.Text = "MatFilter";
             this.toolStripButtonFilter.Click += new System.EventHandler(this.toolStripButtonFilter_Click);
-            // 
-            // toolStripTextTimeSet
-            // 
-            this.toolStripTextTimeSet.Name = "toolStripTextTimeSet";
-            this.toolStripTextTimeSet.Size = new System.Drawing.Size(100, 23);
-            this.toolStripTextTimeSet.Text = "06 00";
-            this.toolStripTextTimeSet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextTimeSet_KeyDown);
-            this.toolStripTextTimeSet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripTextTimeSet_KeyPress);
-            this.toolStripTextTimeSet.TextChanged += new System.EventHandler(this.toolStripTextTimeSet_TextChanged);
             // 
             // MainForm
             // 
