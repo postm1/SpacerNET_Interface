@@ -446,8 +446,8 @@ namespace SpacerUnion.Common
             words.Add("WIN_GRASS_ISITEM", new List<string> { "Воб - это oCItem", "Inserted vob is oCItem", "Vob als oCItem einfügen", "Dodany vob to oCItem" });
             words.Add("WIN_GRASS_PROTECT", new List<string> { "Защита от зажатия левой кнопки мыши", "Protect from left mouse button pushing", "Schutz vor Drücken der linken Maustaste", "Ochrona przed naciśnięciem lewego przycisku myszki" });
             words.Add("WIN_GRASS_DYNCOLL", new List<string> { "Ставить вобу динамическую коллизию", "Set dynamic collision for vob", "Anschalten der Dynamischen Kollision", "Ustaw dynamiczną kolizję dla voba" });
-            words.Add("WIN_GRASS_RANDANGLE", new List<string> { "Поворачивать воб на случайный угол вокруг вертикальной оси", "Rotate vob on random angle above vertical axis", "Drehen des Vobs um einen zufälligen Winkel über der vertikalen Achse", "Obróć vob o losowy kąt powyżej osi pionowej" });
-            words.Add("WIN_GRASS_NORMALPOLYGON", new List<string> { "Ставить воб перпендикулярно полигону", "Set vob perpendicular to the polygon", "Vob rechtwinklig zum Polygon setzen", "Ustaw vob prostopadle do polygona" });
+            words.Add("WIN_GRASS_RANDANGLE", new List<string> { "Поворачивать воб на случайный угол вокруг вертикальной оси", "Rotate vob on random angle about vertical axis", "Drehen des Vobs um einen zufälligen Winkel über der vertikalen Achse", "Obróć vob o losowy kąt powyżej osi pionowej" });
+            words.Add("WIN_GRASS_NORMALPOLYGON", new List<string> { "Ставить воб перпендикулярно полигону", "Set vob perpendicular to the polygon", "Vob rechtwinklig zum Polygon setzen", "Ustaw vob prostopadle do poligona" });
             words.Add("checkBoxMiscAutoCompile", new List<string> { "Автокомпиляция мира и света после объединения меша с вобами", "Autocompile world and light after merging mesh with vobs", "Autokompilieren von Welt und Licht nach dem Zusammenführen des Mesh mit Vobs", "Autokompilacja świata i światła po połączeniu mesha z vobami" });
             words.Add("checkBoxMiscAutoCompileUncZen", new List<string> { "Автокомпиляция мира и света при загрузки некомпилированного ZEN", "Autocompile world and light after loading uncompiled ZEN", "Autokompilieren von Welt und Licht nach dem Laden von nicht kompilierter ZEN", "Autokompilacja świata i światła po załadowaniu nieskompilowanego ZENA" });
             words.Add("autoRemoveLevelCompo", new List<string> { "Автоматически удалять лишний zCVobLevelCompo после объединения MESH с вобами", "Auto removing zCVobLevelCompo after merging mesh with vobs", "Automatisches Entfernen von zCVobLevelCompo nach dem Zusammenführen des Mesh mit Vobs", "Automatyczne usuwanie zCVobLevelCompo po połączeniu mesha z vobami" });
@@ -713,8 +713,8 @@ namespace SpacerUnion.Common
             words.Add("KEYS_VOB_FAV_ADD", new List<string> { "Добавить воб в быстрый доступ", "Add vob to fast access list", "Vob zur Schellzugriffsliste hinzufügen", "Dodaj voba do listy szybkiego dostępu" });
 
 
-            words.Add("BTN_SET_DEFAULT_VALUES", new List<string> { "Сбросить настройки", "Set default settings", "Standardwerte festlegen", "" });
-            words.Add("VOB_FILTER_SHOW_ONLY_INVISIBLE", new List<string> { "Только невидимые", "Only invisible", "Nur unsichtbare", "" });
+            words.Add("BTN_SET_DEFAULT_VALUES", new List<string> { "Сбросить настройки", "Set default settings", "Option zurücksetzen", "Ustaw domyślne wartości" });
+            words.Add("VOB_FILTER_SHOW_ONLY_INVISIBLE", new List<string> { "Только невидимые", "Only invisible", "Nur unsichtbare", "Tylko niewidoczne" });
         }
         
     }

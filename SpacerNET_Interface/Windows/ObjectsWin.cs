@@ -302,8 +302,7 @@ namespace SpacerUnion
         {
             DirectoryInfo d = new DirectoryInfo(@"./Data/"); 
 
-            FileInfo[] Files = d.GetFiles("*.vdf"); 
-            string str = "";
+            FileInfo[] Files = d.GetFiles("*.vdf");
 
             comboBoxArchiveList.Items.Clear();
 

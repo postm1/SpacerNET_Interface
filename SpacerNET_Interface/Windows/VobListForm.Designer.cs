@@ -136,7 +136,8 @@
             "Trigger",
             "VobLight",
             "VobSound",
-            "Ignore PFX"});
+            "Ignore PFX",
+            "Invisible only"});
             this.comboBoxFilterPick.Location = new System.Drawing.Point(0, 72);
             this.comboBoxFilterPick.Name = "comboBoxFilterPick";
             this.comboBoxFilterPick.Size = new System.Drawing.Size(149, 21);
@@ -177,7 +178,8 @@
             "zCDecal (.TGA)",
             "zCTrigger",
             "zCVobSpot",
-            "oCMOB"});
+            "oCMOB",
+            "Invisible only"});
             this.comboBoxVobList.Location = new System.Drawing.Point(0, 39);
             this.comboBoxVobList.Name = "comboBoxVobList";
             this.comboBoxVobList.Size = new System.Drawing.Size(122, 21);

@@ -36,9 +36,12 @@ namespace SpacerUnion
             labelRadius.Text = Localizator.Get("labelRadius") + ": " + trackBarRadius.Value;
             btnRemoveContainerVobs.Text = Localizator.Get("VOB_SEARCH_TYPE3");
             buttonVobListSearch.Text = Localizator.Get("MSG_COMMON_SEARCH");
-            comboBoxVobList.Items[0] = Localizator.Get("VOBLIST_TYPE_ANY");
+            
             labelFilterVobsPick.Text = Localizator.Get("OBJ_TAB_PICKFILTER");
 
+            comboBoxVobList.Items[0] = Localizator.Get("VOBLIST_TYPE_ANY");
+            comboBoxVobList.Items[10] = Localizator.Get("VOB_FILTER_SHOW_ONLY_INVISIBLE");
+            comboBoxFilterPick.Items[11] = Localizator.Get("VOB_FILTER_SHOW_ONLY_INVISIBLE");
         }
 
         [DllExport]
