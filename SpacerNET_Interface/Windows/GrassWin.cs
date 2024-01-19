@@ -55,7 +55,7 @@ namespace SpacerUnion.Windows
 
 
             this.buttonGrassWinApply.Text = Localizator.Get("BTN_APPLY");
-
+            this.buttonSetDefaultValue.Text = Localizator.Get("BTN_SET_DEFAULT_VALUES");
             
         }
 
@@ -268,6 +268,21 @@ namespace SpacerUnion.Windows
         private void checkBoxstaticVob_ChangeUICues(object sender, UICuesEventArgs e)
         {
 
+        }
+
+        private void buttonSetDefaultValue_Click(object sender, EventArgs e)
+        {
+            checkBoxGrassWinRemove.Checked = false;
+            checkBoxGrassWinIsItem.Checked = false;
+            checkBoxGrassWinClickOnce.Checked = true;
+            checkBoxGrassWinDynColl.Checked = true;
+            comboBoxVisualCamAlign.SelectedIndex = 0;
+            comboBoxVisualAniMode.SelectedIndex = 0;
+            textBoxVisualAniModeStrength.Text = "0";
+            textBoxVobFarClipZScale.Text = "1";
+
+            checkBoxcdStatic.Checked = false;
+            checkBoxstaticVob.Checked = false;
         }
     }
 }

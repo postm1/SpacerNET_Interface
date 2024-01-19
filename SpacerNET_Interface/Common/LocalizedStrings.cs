@@ -711,6 +711,10 @@ namespace SpacerUnion.Common
 
             words.Add("MSG_VOB_FAV_ADD", new List<string> { "Воб добавлен в быстрый доступ", "Vob added to fast access list", "Vob ist zur Schellzugriffsliste hinzugefügt", "Vob dodany do listy szybkiego dostępu" });
             words.Add("KEYS_VOB_FAV_ADD", new List<string> { "Добавить воб в быстрый доступ", "Add vob to fast access list", "Vob zur Schellzugriffsliste hinzufügen", "Dodaj voba do listy szybkiego dostępu" });
+
+
+            words.Add("BTN_SET_DEFAULT_VALUES", new List<string> { "Сбросить настройки", "Set default settings", "Standardwerte festlegen", "" });
+            words.Add("VOB_FILTER_SHOW_ONLY_INVISIBLE", new List<string> { "Только невидимые", "Only invisible", "Nur unsichtbare", "" });
         }
         
     }

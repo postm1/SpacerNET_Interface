@@ -44,16 +44,17 @@
             this.checkBoxGrassWinSetNormal = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBoxVisualCamAlign = new System.Windows.Forms.ComboBox();
-            this.labelVisualCamAlign = new System.Windows.Forms.Label();
-            this.visualAniMode = new System.Windows.Forms.Label();
-            this.comboBoxVisualAniMode = new System.Windows.Forms.ComboBox();
-            this.labelVisualAniModeStrength = new System.Windows.Forms.Label();
-            this.textBoxVisualAniModeStrength = new System.Windows.Forms.TextBox();
-            this.labelvobFarClipZScale = new System.Windows.Forms.Label();
-            this.textBoxVobFarClipZScale = new System.Windows.Forms.TextBox();
-            this.checkBoxcdStatic = new System.Windows.Forms.CheckBox();
             this.checkBoxstaticVob = new System.Windows.Forms.CheckBox();
+            this.checkBoxcdStatic = new System.Windows.Forms.CheckBox();
+            this.textBoxVobFarClipZScale = new System.Windows.Forms.TextBox();
+            this.labelvobFarClipZScale = new System.Windows.Forms.Label();
+            this.textBoxVisualAniModeStrength = new System.Windows.Forms.TextBox();
+            this.labelVisualAniModeStrength = new System.Windows.Forms.Label();
+            this.comboBoxVisualAniMode = new System.Windows.Forms.ComboBox();
+            this.visualAniMode = new System.Windows.Forms.Label();
+            this.labelVisualCamAlign = new System.Windows.Forms.Label();
+            this.comboBoxVisualCamAlign = new System.Windows.Forms.ComboBox();
+            this.buttonSetDefaultValue = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarWinGrassMinRadius)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarGrassWinVertical)).BeginInit();
             this.panel1.SuspendLayout();
@@ -101,7 +102,7 @@
             // 
             this.buttonGrassWinApply.Location = new System.Drawing.Point(280, 500);
             this.buttonGrassWinApply.Name = "buttonGrassWinApply";
-            this.buttonGrassWinApply.Size = new System.Drawing.Size(107, 23);
+            this.buttonGrassWinApply.Size = new System.Drawing.Size(137, 23);
             this.buttonGrassWinApply.TabIndex = 4;
             this.buttonGrassWinApply.Text = "Apply";
             this.buttonGrassWinApply.UseVisualStyleBackColor = true;
@@ -249,37 +250,66 @@
             this.panel2.Size = new System.Drawing.Size(240, 163);
             this.panel2.TabIndex = 15;
             // 
-            // comboBoxVisualCamAlign
+            // checkBoxstaticVob
             // 
-            this.comboBoxVisualCamAlign.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxVisualCamAlign.FormattingEnabled = true;
-            this.comboBoxVisualCamAlign.Items.AddRange(new object[] {
-            "NONE",
-            "YAW",
-            "FULL"});
-            this.comboBoxVisualCamAlign.Location = new System.Drawing.Point(131, 10);
-            this.comboBoxVisualCamAlign.Name = "comboBoxVisualCamAlign";
-            this.comboBoxVisualCamAlign.Size = new System.Drawing.Size(102, 21);
-            this.comboBoxVisualCamAlign.TabIndex = 0;
-            this.comboBoxVisualCamAlign.SelectedIndexChanged += new System.EventHandler(this.comboBoxVisualCamAlign_SelectedIndexChanged);
+            this.checkBoxstaticVob.AutoSize = true;
+            this.checkBoxstaticVob.Location = new System.Drawing.Point(12, 133);
+            this.checkBoxstaticVob.Name = "checkBoxstaticVob";
+            this.checkBoxstaticVob.Size = new System.Drawing.Size(70, 17);
+            this.checkBoxstaticVob.TabIndex = 15;
+            this.checkBoxstaticVob.Text = "staticVob";
+            this.checkBoxstaticVob.UseVisualStyleBackColor = true;
+            this.checkBoxstaticVob.CheckedChanged += new System.EventHandler(this.checkBoxstaticVob_CheckedChanged);
+            this.checkBoxstaticVob.ChangeUICues += new System.Windows.Forms.UICuesEventHandler(this.checkBoxstaticVob_ChangeUICues);
             // 
-            // labelVisualCamAlign
+            // checkBoxcdStatic
             // 
-            this.labelVisualCamAlign.AutoSize = true;
-            this.labelVisualCamAlign.Location = new System.Drawing.Point(8, 14);
-            this.labelVisualCamAlign.Name = "labelVisualCamAlign";
-            this.labelVisualCamAlign.Size = new System.Drawing.Size(78, 13);
-            this.labelVisualCamAlign.TabIndex = 1;
-            this.labelVisualCamAlign.Text = "visualCamAlign";
+            this.checkBoxcdStatic.AutoSize = true;
+            this.checkBoxcdStatic.Location = new System.Drawing.Point(12, 112);
+            this.checkBoxcdStatic.Name = "checkBoxcdStatic";
+            this.checkBoxcdStatic.Size = new System.Drawing.Size(65, 17);
+            this.checkBoxcdStatic.TabIndex = 14;
+            this.checkBoxcdStatic.Text = "cdStatic";
+            this.checkBoxcdStatic.UseVisualStyleBackColor = true;
+            this.checkBoxcdStatic.CheckedChanged += new System.EventHandler(this.checkBoxcdStatic_CheckedChanged);
             // 
-            // visualAniMode
+            // textBoxVobFarClipZScale
             // 
-            this.visualAniMode.AutoSize = true;
-            this.visualAniMode.Location = new System.Drawing.Point(9, 40);
-            this.visualAniMode.Name = "visualAniMode";
-            this.visualAniMode.Size = new System.Drawing.Size(76, 13);
-            this.visualAniMode.TabIndex = 2;
-            this.visualAniMode.Text = "visualAniMode";
+            this.textBoxVobFarClipZScale.Location = new System.Drawing.Point(131, 89);
+            this.textBoxVobFarClipZScale.Name = "textBoxVobFarClipZScale";
+            this.textBoxVobFarClipZScale.Size = new System.Drawing.Size(55, 20);
+            this.textBoxVobFarClipZScale.TabIndex = 7;
+            this.textBoxVobFarClipZScale.Text = "1";
+            this.textBoxVobFarClipZScale.TextChanged += new System.EventHandler(this.textBoxVobFarClipZScale_TextChanged);
+            this.textBoxVobFarClipZScale.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVobFarClipZScale_KeyPress);
+            // 
+            // labelvobFarClipZScale
+            // 
+            this.labelvobFarClipZScale.AutoSize = true;
+            this.labelvobFarClipZScale.Location = new System.Drawing.Point(8, 92);
+            this.labelvobFarClipZScale.Name = "labelvobFarClipZScale";
+            this.labelvobFarClipZScale.Size = new System.Drawing.Size(91, 13);
+            this.labelvobFarClipZScale.TabIndex = 6;
+            this.labelvobFarClipZScale.Text = "vobFarClipZScale";
+            // 
+            // textBoxVisualAniModeStrength
+            // 
+            this.textBoxVisualAniModeStrength.Location = new System.Drawing.Point(131, 66);
+            this.textBoxVisualAniModeStrength.Name = "textBoxVisualAniModeStrength";
+            this.textBoxVisualAniModeStrength.Size = new System.Drawing.Size(55, 20);
+            this.textBoxVisualAniModeStrength.TabIndex = 5;
+            this.textBoxVisualAniModeStrength.Text = "0";
+            this.textBoxVisualAniModeStrength.TextChanged += new System.EventHandler(this.textBoxVisualAniModeStrength_TextChanged);
+            this.textBoxVisualAniModeStrength.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVisualAniModeStrength_KeyPress);
+            // 
+            // labelVisualAniModeStrength
+            // 
+            this.labelVisualAniModeStrength.AutoSize = true;
+            this.labelVisualAniModeStrength.Location = new System.Drawing.Point(9, 66);
+            this.labelVisualAniModeStrength.Name = "labelVisualAniModeStrength";
+            this.labelVisualAniModeStrength.Size = new System.Drawing.Size(116, 13);
+            this.labelVisualAniModeStrength.TabIndex = 4;
+            this.labelVisualAniModeStrength.Text = "visualAniModeStrength";
             // 
             // comboBoxVisualAniMode
             // 
@@ -295,72 +325,54 @@
             this.comboBoxVisualAniMode.TabIndex = 3;
             this.comboBoxVisualAniMode.SelectedIndexChanged += new System.EventHandler(this.comboBoxVisualAniMode_SelectedIndexChanged);
             // 
-            // labelVisualAniModeStrength
+            // visualAniMode
             // 
-            this.labelVisualAniModeStrength.AutoSize = true;
-            this.labelVisualAniModeStrength.Location = new System.Drawing.Point(9, 66);
-            this.labelVisualAniModeStrength.Name = "labelVisualAniModeStrength";
-            this.labelVisualAniModeStrength.Size = new System.Drawing.Size(116, 13);
-            this.labelVisualAniModeStrength.TabIndex = 4;
-            this.labelVisualAniModeStrength.Text = "visualAniModeStrength";
+            this.visualAniMode.AutoSize = true;
+            this.visualAniMode.Location = new System.Drawing.Point(9, 40);
+            this.visualAniMode.Name = "visualAniMode";
+            this.visualAniMode.Size = new System.Drawing.Size(76, 13);
+            this.visualAniMode.TabIndex = 2;
+            this.visualAniMode.Text = "visualAniMode";
             // 
-            // textBoxVisualAniModeStrength
+            // labelVisualCamAlign
             // 
-            this.textBoxVisualAniModeStrength.Location = new System.Drawing.Point(131, 66);
-            this.textBoxVisualAniModeStrength.Name = "textBoxVisualAniModeStrength";
-            this.textBoxVisualAniModeStrength.Size = new System.Drawing.Size(55, 20);
-            this.textBoxVisualAniModeStrength.TabIndex = 5;
-            this.textBoxVisualAniModeStrength.Text = "0";
-            this.textBoxVisualAniModeStrength.TextChanged += new System.EventHandler(this.textBoxVisualAniModeStrength_TextChanged);
-            this.textBoxVisualAniModeStrength.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVisualAniModeStrength_KeyPress);
+            this.labelVisualCamAlign.AutoSize = true;
+            this.labelVisualCamAlign.Location = new System.Drawing.Point(8, 14);
+            this.labelVisualCamAlign.Name = "labelVisualCamAlign";
+            this.labelVisualCamAlign.Size = new System.Drawing.Size(78, 13);
+            this.labelVisualCamAlign.TabIndex = 1;
+            this.labelVisualCamAlign.Text = "visualCamAlign";
             // 
-            // labelvobFarClipZScale
+            // comboBoxVisualCamAlign
             // 
-            this.labelvobFarClipZScale.AutoSize = true;
-            this.labelvobFarClipZScale.Location = new System.Drawing.Point(8, 92);
-            this.labelvobFarClipZScale.Name = "labelvobFarClipZScale";
-            this.labelvobFarClipZScale.Size = new System.Drawing.Size(91, 13);
-            this.labelvobFarClipZScale.TabIndex = 6;
-            this.labelvobFarClipZScale.Text = "vobFarClipZScale";
+            this.comboBoxVisualCamAlign.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxVisualCamAlign.FormattingEnabled = true;
+            this.comboBoxVisualCamAlign.Items.AddRange(new object[] {
+            "NONE",
+            "YAW",
+            "FULL"});
+            this.comboBoxVisualCamAlign.Location = new System.Drawing.Point(131, 10);
+            this.comboBoxVisualCamAlign.Name = "comboBoxVisualCamAlign";
+            this.comboBoxVisualCamAlign.Size = new System.Drawing.Size(102, 21);
+            this.comboBoxVisualCamAlign.TabIndex = 0;
+            this.comboBoxVisualCamAlign.SelectedIndexChanged += new System.EventHandler(this.comboBoxVisualCamAlign_SelectedIndexChanged);
             // 
-            // textBoxVobFarClipZScale
+            // buttonSetDefaultValue
             // 
-            this.textBoxVobFarClipZScale.Location = new System.Drawing.Point(131, 89);
-            this.textBoxVobFarClipZScale.Name = "textBoxVobFarClipZScale";
-            this.textBoxVobFarClipZScale.Size = new System.Drawing.Size(55, 20);
-            this.textBoxVobFarClipZScale.TabIndex = 7;
-            this.textBoxVobFarClipZScale.Text = "1";
-            this.textBoxVobFarClipZScale.TextChanged += new System.EventHandler(this.textBoxVobFarClipZScale_TextChanged);
-            this.textBoxVobFarClipZScale.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVobFarClipZScale_KeyPress);
-            // 
-            // checkBoxcdStatic
-            // 
-            this.checkBoxcdStatic.AutoSize = true;
-            this.checkBoxcdStatic.Location = new System.Drawing.Point(12, 112);
-            this.checkBoxcdStatic.Name = "checkBoxcdStatic";
-            this.checkBoxcdStatic.Size = new System.Drawing.Size(65, 17);
-            this.checkBoxcdStatic.TabIndex = 14;
-            this.checkBoxcdStatic.Text = "cdStatic";
-            this.checkBoxcdStatic.UseVisualStyleBackColor = true;
-            this.checkBoxcdStatic.CheckedChanged += new System.EventHandler(this.checkBoxcdStatic_CheckedChanged);
-            // 
-            // checkBoxstaticVob
-            // 
-            this.checkBoxstaticVob.AutoSize = true;
-            this.checkBoxstaticVob.Location = new System.Drawing.Point(12, 133);
-            this.checkBoxstaticVob.Name = "checkBoxstaticVob";
-            this.checkBoxstaticVob.Size = new System.Drawing.Size(70, 17);
-            this.checkBoxstaticVob.TabIndex = 15;
-            this.checkBoxstaticVob.Text = "staticVob";
-            this.checkBoxstaticVob.UseVisualStyleBackColor = true;
-            this.checkBoxstaticVob.CheckedChanged += new System.EventHandler(this.checkBoxstaticVob_CheckedChanged);
-            this.checkBoxstaticVob.ChangeUICues += new System.Windows.Forms.UICuesEventHandler(this.checkBoxstaticVob_ChangeUICues);
+            this.buttonSetDefaultValue.Location = new System.Drawing.Point(280, 381);
+            this.buttonSetDefaultValue.Name = "buttonSetDefaultValue";
+            this.buttonSetDefaultValue.Size = new System.Drawing.Size(137, 23);
+            this.buttonSetDefaultValue.TabIndex = 16;
+            this.buttonSetDefaultValue.Text = "Set default settings";
+            this.buttonSetDefaultValue.UseVisualStyleBackColor = true;
+            this.buttonSetDefaultValue.Click += new System.EventHandler(this.buttonSetDefaultValue_Click);
             // 
             // GrassWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(429, 539);
+            this.Controls.Add(this.buttonSetDefaultValue);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelWinGrassVertOffset);
@@ -418,5 +430,6 @@
         public System.Windows.Forms.TextBox textBoxVisualAniModeStrength;
         public System.Windows.Forms.ComboBox comboBoxVisualAniMode;
         public System.Windows.Forms.ComboBox comboBoxVisualCamAlign;
+        private System.Windows.Forms.Button buttonSetDefaultValue;
     }
 }
