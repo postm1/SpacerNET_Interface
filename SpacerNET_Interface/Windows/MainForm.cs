@@ -1248,7 +1248,7 @@ namespace SpacerUnion
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Spacer.NET (version " + Constants.SPACER_VERSION + ") by Liker, 2020-2023", Localizator.Get("MENU_TOP_ABOUT"));
+            MessageBox.Show("Spacer.NET (version " + Constants.SPACER_VERSION + ") by Liker, 2020-2024", Localizator.Get("MENU_TOP_ABOUT"));
         }
 
         private void ввестиКоординатыToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1532,6 +1532,11 @@ namespace SpacerUnion
 
             Imports.Stack_PushString("bToggleWorkMode");
             Imports.Extern_SetSetting(mode);
+
+            if (Properties.Settings.Default.GrassWinLocation != null)
+            {
+                SpacerNET.grassWin.Location = Properties.Settings.Default.GrassWinLocation;
+            }
         }
 
         private void toolStripButtonGratt_Click(object sender, EventArgs e)
