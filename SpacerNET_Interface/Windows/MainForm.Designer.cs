@@ -828,7 +828,7 @@
             this.toolStripButtonGrass.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonGrass.Name = "toolStripButtonGrass";
             this.toolStripButtonGrass.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonGrass.Text = "Objects sewer";
+            this.toolStripButtonGrass.Text = "Objects sower";
             this.toolStripButtonGrass.Click += new System.EventHandler(this.toolStripButtonGrass_Click);
             // 
             // toolStripButtonMulti

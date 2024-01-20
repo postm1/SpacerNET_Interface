@@ -432,7 +432,7 @@ namespace SpacerUnion.Common
 
             words.Add("CHECK_BADPLUGINS_MSG", new List<string> { "У вас есть плагины, которые могут помешать работе Spacer.net!", "You have plugins which may not work with Spacer.net!", "Möglicherweise sind Plugins installiert, welche nicht mit Spacer.net kompatibel sind!", "Masz pluginy, które mogą nie działać poprawnie z Spacer.net" });
 
-            words.Add("WIN_GRASS_TITLE", new List<string> { "Сеятель объектов", "Objects sewer", "Objektgenerator", "Generator obiektów" });
+            words.Add("WIN_GRASS_TITLE", new List<string> { "Сеятель объектов", "Objects sower", "Objektgenerator", "Generator obiektów" });
             words.Add("WIN_GRASS_VOBMODEL", new List<string> { "Название модели воба:", "Vob's model:", "Vob Modell: ", "Model voba:" });
             words.Add("WIN_GRASS_VERTOFFSET", new List<string> { "Смещение воба по вертикали: ", "Vob's vertical offset: ", "Vertikaler Versatz vom Vob: ", "Przesunięcie pionowe voba:" });
             words.Add("WIN_GRASS_MINRADIUS", new List<string> { "Мин. расстояние между вобами: ", "Minimal distance between vobs: ", "Minimale Distanz zwischen Vobs: ", "Minimalny dystans pomiędzy vobami:" });
@@ -454,7 +454,7 @@ namespace SpacerUnion.Common
 
 
 
-            words.Add("MENU_TOP_VIEW_GRASS", new List<string> { "Сеятель объектов", "Objects sewer", "Objektgenerator", "Generator obiektów" });
+            words.Add("MENU_TOP_VIEW_GRASS", new List<string> { "Сеятель объектов", "Objects sower", "Objektgenerator", "Generator obiektów" });
             words.Add("MENU_TOP_VIEW_ALTCONTROLLER", new List<string> { "Альтернативное управление", "Alternative controller", "Alternativer Controller", "Alternatywna kamera" });
 
             words.Add("CANT_APPLY_PARENT_VOB", new List<string> { "Данный тип воба не может быть родителем!", "This type of vob can't be a parent!", "Diese Art von Vob kann keine Übergeordung sein!", "Ten typ voba nie może być zapisany jako rodzic!" });
@@ -715,6 +715,10 @@ namespace SpacerUnion.Common
 
             words.Add("BTN_SET_DEFAULT_VALUES", new List<string> { "Сбросить настройки", "Set default settings", "Option zurücksetzen", "Ustaw domyślne wartości" });
             words.Add("VOB_FILTER_SHOW_ONLY_INVISIBLE", new List<string> { "Только невидимые", "Only invisible", "Nur unsichtbare", "Tylko niewidoczne" });
+            words.Add("UNION_NO_WP_FP", new List<string> { "Сначала выберите и скопируйте WP или FP!", "First select and copy WP or FP", "", "" });
+            words.Add("BTN_OPEN_FILE", new List<string> { "Выбрать файл...", "Load file...", "", "" });
+
+
         }
         
     }

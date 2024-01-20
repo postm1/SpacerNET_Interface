@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -56,7 +57,7 @@ namespace SpacerUnion.Windows
 
             this.buttonGrassWinApply.Text = Localizator.Get("BTN_APPLY");
             this.buttonSetDefaultValue.Text = Localizator.Get("BTN_SET_DEFAULT_VALUES");
-            
+            this.buttonOpenFile.Text = Localizator.Get("BTN_OPEN_FILE");
         }
 
         private void trackBarWinGrassMinRadius_ValueChanged(object sender, EventArgs e)
@@ -283,6 +284,30 @@ namespace SpacerUnion.Windows
 
             checkBoxcdStatic.Checked = false;
             checkBoxstaticVob.Checked = false;
+        }
+
+        private void buttonOpenFile_Click(object sender, EventArgs e)
+        {
+
+            Imports.Stack_PushString("grassWinFilePath");
+            Imports.Extern_GetSettingStr();
+            string path = Utils.FixPath(Imports.Stack_PeekString());
+
+
+            openFileDialog.InitialDirectory = Utils.GetInitialDirectory(path);
+
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.FileName = String.Empty;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                textBoxGrassWinModel.Text = openFileDialog.SafeFileName;
+
+
+                Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(openFileDialog.FileName))));
+                Imports.Stack_PushString("grassWinFilePath");
+                Imports.Extern_SetSettingStr();
+            }
         }
     }
 }

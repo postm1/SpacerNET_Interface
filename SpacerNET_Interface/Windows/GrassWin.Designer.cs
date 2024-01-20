@@ -55,6 +55,8 @@
             this.labelVisualCamAlign = new System.Windows.Forms.Label();
             this.comboBoxVisualCamAlign = new System.Windows.Forms.ComboBox();
             this.buttonSetDefaultValue = new System.Windows.Forms.Button();
+            this.buttonOpenFile = new System.Windows.Forms.Button();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarWinGrassMinRadius)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarGrassWinVertical)).BeginInit();
             this.panel1.SuspendLayout();
@@ -72,16 +74,16 @@
             // 
             // textBoxGrassWinModel
             // 
-            this.textBoxGrassWinModel.Location = new System.Drawing.Point(12, 30);
+            this.textBoxGrassWinModel.Location = new System.Drawing.Point(15, 31);
             this.textBoxGrassWinModel.Name = "textBoxGrassWinModel";
-            this.textBoxGrassWinModel.Size = new System.Drawing.Size(409, 20);
+            this.textBoxGrassWinModel.Size = new System.Drawing.Size(402, 20);
             this.textBoxGrassWinModel.TabIndex = 1;
             this.textBoxGrassWinModel.Text = "NW_NATURE_GRASSGROUP_01.3DS";
             this.textBoxGrassWinModel.TextChanged += new System.EventHandler(this.textBoxGrassWinModel_TextChanged);
             // 
             // trackBarWinGrassMinRadius
             // 
-            this.trackBarWinGrassMinRadius.Location = new System.Drawing.Point(12, 79);
+            this.trackBarWinGrassMinRadius.Location = new System.Drawing.Point(12, 117);
             this.trackBarWinGrassMinRadius.Maximum = 3000;
             this.trackBarWinGrassMinRadius.Name = "trackBarWinGrassMinRadius";
             this.trackBarWinGrassMinRadius.Size = new System.Drawing.Size(409, 45);
@@ -92,7 +94,7 @@
             // labelWinGrassMinRadius
             // 
             this.labelWinGrassMinRadius.AutoSize = true;
-            this.labelWinGrassMinRadius.Location = new System.Drawing.Point(12, 63);
+            this.labelWinGrassMinRadius.Location = new System.Drawing.Point(12, 101);
             this.labelWinGrassMinRadius.Name = "labelWinGrassMinRadius";
             this.labelWinGrassMinRadius.Size = new System.Drawing.Size(179, 13);
             this.labelWinGrassMinRadius.TabIndex = 3;
@@ -100,7 +102,7 @@
             // 
             // buttonGrassWinApply
             // 
-            this.buttonGrassWinApply.Location = new System.Drawing.Point(280, 500);
+            this.buttonGrassWinApply.Location = new System.Drawing.Point(280, 568);
             this.buttonGrassWinApply.Name = "buttonGrassWinApply";
             this.buttonGrassWinApply.Size = new System.Drawing.Size(137, 23);
             this.buttonGrassWinApply.TabIndex = 4;
@@ -110,7 +112,7 @@
             // 
             // trackBarGrassWinVertical
             // 
-            this.trackBarGrassWinVertical.Location = new System.Drawing.Point(12, 149);
+            this.trackBarGrassWinVertical.Location = new System.Drawing.Point(12, 187);
             this.trackBarGrassWinVertical.Maximum = 300;
             this.trackBarGrassWinVertical.Minimum = -300;
             this.trackBarGrassWinVertical.Name = "trackBarGrassWinVertical";
@@ -122,7 +124,7 @@
             // labelWinGrassVertOffset
             // 
             this.labelWinGrassVertOffset.AutoSize = true;
-            this.labelWinGrassVertOffset.Location = new System.Drawing.Point(12, 132);
+            this.labelWinGrassVertOffset.Location = new System.Drawing.Point(12, 170);
             this.labelWinGrassVertOffset.Name = "labelWinGrassVertOffset";
             this.labelWinGrassVertOffset.Size = new System.Drawing.Size(111, 13);
             this.labelWinGrassVertOffset.TabIndex = 6;
@@ -228,7 +230,7 @@
             this.panel1.Controls.Add(this.checkBoxGrassWinIsItem);
             this.panel1.Controls.Add(this.checkBoxGrassWinDynColl);
             this.panel1.Controls.Add(this.checkBoxGrassWinClickOnce);
-            this.panel1.Location = new System.Drawing.Point(13, 200);
+            this.panel1.Location = new System.Drawing.Point(12, 243);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(406, 169);
             this.panel1.TabIndex = 14;
@@ -245,7 +247,7 @@
             this.panel2.Controls.Add(this.visualAniMode);
             this.panel2.Controls.Add(this.labelVisualCamAlign);
             this.panel2.Controls.Add(this.comboBoxVisualCamAlign);
-            this.panel2.Location = new System.Drawing.Point(12, 373);
+            this.panel2.Location = new System.Drawing.Point(12, 428);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(240, 163);
             this.panel2.TabIndex = 15;
@@ -359,7 +361,7 @@
             // 
             // buttonSetDefaultValue
             // 
-            this.buttonSetDefaultValue.Location = new System.Drawing.Point(280, 381);
+            this.buttonSetDefaultValue.Location = new System.Drawing.Point(280, 428);
             this.buttonSetDefaultValue.Name = "buttonSetDefaultValue";
             this.buttonSetDefaultValue.Size = new System.Drawing.Size(137, 23);
             this.buttonSetDefaultValue.TabIndex = 16;
@@ -367,11 +369,26 @@
             this.buttonSetDefaultValue.UseVisualStyleBackColor = true;
             this.buttonSetDefaultValue.Click += new System.EventHandler(this.buttonSetDefaultValue_Click);
             // 
+            // buttonOpenFile
+            // 
+            this.buttonOpenFile.Location = new System.Drawing.Point(15, 58);
+            this.buttonOpenFile.Name = "buttonOpenFile";
+            this.buttonOpenFile.Size = new System.Drawing.Size(137, 23);
+            this.buttonOpenFile.TabIndex = 17;
+            this.buttonOpenFile.Text = "Open file";
+            this.buttonOpenFile.UseVisualStyleBackColor = true;
+            this.buttonOpenFile.Click += new System.EventHandler(this.buttonOpenFile_Click);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
+            // 
             // GrassWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(429, 539);
+            this.ClientSize = new System.Drawing.Size(446, 603);
+            this.Controls.Add(this.buttonOpenFile);
             this.Controls.Add(this.buttonSetDefaultValue);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -389,7 +406,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Objects sewer";
+            this.Text = "Objects sower";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GrassWin_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarWinGrassMinRadius)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarGrassWinVertical)).EndInit();
@@ -431,5 +448,7 @@
         public System.Windows.Forms.ComboBox comboBoxVisualAniMode;
         public System.Windows.Forms.ComboBox comboBoxVisualCamAlign;
         private System.Windows.Forms.Button buttonSetDefaultValue;
+        private System.Windows.Forms.Button buttonOpenFile;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
