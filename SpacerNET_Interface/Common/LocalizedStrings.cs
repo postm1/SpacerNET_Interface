@@ -715,8 +715,8 @@ namespace SpacerUnion.Common
 
             words.Add("BTN_SET_DEFAULT_VALUES", new List<string> { "Сбросить настройки", "Set default settings", "Option zurücksetzen", "Ustaw domyślne wartości" });
             words.Add("VOB_FILTER_SHOW_ONLY_INVISIBLE", new List<string> { "Только невидимые", "Only invisible", "Nur unsichtbare", "Tylko niewidoczne" });
-            words.Add("UNION_NO_WP_FP", new List<string> { "Сначала выберите и скопируйте WP или FP!", "First select and copy WP or FP", "", "" });
-            words.Add("BTN_OPEN_FILE", new List<string> { "Выбрать файл...", "Load file...", "", "" });
+            words.Add("UNION_NO_WP_FP", new List<string> { "Сначала выберите и скопируйте WP или FP!", "First select and copy WP or FP", "Markiere und kopiere zuerst WP oder FP", "Zaznacz i skopiuj WP lub FP" });
+            words.Add("BTN_OPEN_FILE", new List<string> { "Выбрать файл...", "Load file...", "Lade Datei", "Wczytaj plik..." });
 
 
         }
