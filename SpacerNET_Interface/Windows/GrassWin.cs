@@ -26,6 +26,10 @@ namespace SpacerUnion.Windows
 
         private void GrassWin_FormClosing(object sender, FormClosingEventArgs e)
         {
+
+            Properties.Settings.Default.GrassWinLocation = SpacerNET.grassWin.Location;
+
+
             this.Hide();
             e.Cancel = true;
             SpacerNET.form.SetIconActive("grass", false);
