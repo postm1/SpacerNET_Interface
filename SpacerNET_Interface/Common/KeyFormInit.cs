@@ -536,7 +536,8 @@ namespace SpacerUnion.Windows
             row = new string[] { "TOGGLE_INVIS", Localizator.Get("TOGGLE_INVIS"), "" };
             dataGridKeys.Rows.Add(row);
 
-
+            row = new string[] { "TOGGLE_MUSIC", Localizator.Get("TOGGLE_MUSIC"), "" };
+            dataGridKeys.Rows.Add(row);
 
             row = new string[] { "LIGHT_RAD_INC", Localizator.Get("LIGHT_RAD_INC"), "" };
             dataGridKeys.Rows.Add(row);
