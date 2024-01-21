@@ -1760,13 +1760,19 @@ namespace SpacerUnion
 
         private void stripSpecialFormVobsVisuals_Click(object sender, EventArgs e)
         {
+
+            string fileName = currentWorldName;
+
+            fileName = fileName.Replace(".ZEN", "");
+            fileName = fileName.Replace(".3DS", "");
+
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
             saveFileDialog1.Filter = "HTML file (*.html)|*.html|All files (*.*)|*.*";
             saveFileDialog1.FilterIndex = 1;
             saveFileDialog1.RestoreDirectory = true;
             saveFileDialog1.InitialDirectory = "./";
-            saveFileDialog1.FileName = "LOCATION_VOBS_VISUALS_FILES.html";
+            saveFileDialog1.FileName = "_REPORT_" + fileName + ".html";
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
