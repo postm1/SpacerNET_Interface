@@ -66,6 +66,8 @@
             this.textBoxBbox0 = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridViewItems = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxContainer = new System.Windows.Forms.GroupBox();
             this.buttonRowDelete = new System.Windows.Forms.Button();
             this.buttonClearItems = new System.Windows.Forms.Button();
@@ -77,8 +79,6 @@
             this.buttonResetFontDefault = new System.Windows.Forms.Button();
             this.checkBoxBoldFontProps = new System.Windows.Forms.CheckBox();
             this.buttonSelectFontProps = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStripContainer.SuspendLayout();
             this.dBufPanelMainTab.SuspendLayout();
             this.tabControlProps.SuspendLayout();
@@ -149,6 +149,7 @@
             this.tabControlProps.TabIndex = 0;
             this.tabControlProps.SelectedIndexChanged += new System.EventHandler(this.tabControlProps_SelectedIndexChanged);
             this.tabControlProps.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
+            this.tabControlProps.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabControlProps_MouseDown);
             // 
             // tabPage1
             // 
@@ -177,6 +178,7 @@
             this.treeViewProp.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.treeViewProp_DrawNode);
             this.treeViewProp.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewProp_AfterSelect);
             this.treeViewProp.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewProp_NodeMouseDoubleClick);
+            this.treeViewProp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeViewProp_MouseDown);
             // 
             // panelButtons
             // 
@@ -481,6 +483,18 @@
             this.dataGridViewItems.TabIndex = 4;
             this.dataGridViewItems.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Instance";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 236;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Count";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 66;
+            // 
             // groupBoxContainer
             // 
             this.groupBoxContainer.Controls.Add(this.buttonRowDelete);
@@ -600,18 +614,6 @@
             this.buttonSelectFontProps.Text = "Select font for properties";
             this.buttonSelectFontProps.UseVisualStyleBackColor = true;
             this.buttonSelectFontProps.Click += new System.EventHandler(this.buttonSelectFontProps_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Instance";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 236;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Count";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 66;
             // 
             // ObjectsWindow
             // 

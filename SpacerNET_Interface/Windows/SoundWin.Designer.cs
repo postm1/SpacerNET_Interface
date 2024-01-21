@@ -72,6 +72,7 @@
             this.listBoxSound.Size = new System.Drawing.Size(223, 238);
             this.listBoxSound.TabIndex = 1;
             this.listBoxSound.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxSound_MouseDoubleClick);
+            this.listBoxSound.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxSound_MouseDown);
             // 
             // textBoxSnd
             // 
@@ -156,6 +157,7 @@
             this.listBoxSndResult.TabIndex = 15;
             this.listBoxSndResult.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBoxSndResult_KeyPress_1);
             this.listBoxSndResult.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxSndResult_MouseDoubleClick);
+            this.listBoxSndResult.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxSndResult_MouseDown);
             // 
             // buttonStopAllSounds
             // 

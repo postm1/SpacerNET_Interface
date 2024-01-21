@@ -1761,5 +1761,35 @@ namespace SpacerUnion
 
             SpacerNET.objTreeWin.AddVobInQuickList(node, vob);
         }
+
+        private void globalTree_MouseDown(object sender, MouseEventArgs e)
+        {
+
+
+
+            switch (e.Button)
+            {
+                case MouseButtons.Middle:
+                {
+
+                        TreeNode node = globalTree.GetNodeAt(e.Location);
+
+                        if (node != null)
+                        {
+                            // fix proper name for selected node
+                            string text = node.Text;
+                            int index = text.LastIndexOf('(');
+
+                            text = text.Substring(0, index - 1);
+                            text = text.Trim();
+
+                            Utils.SetCopyText(text);
+                        }
+                        
+                }
+                    
+                break;
+            }
+        }
     }
 }

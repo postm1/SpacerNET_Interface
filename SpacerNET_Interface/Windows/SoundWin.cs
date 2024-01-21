@@ -295,5 +295,41 @@ namespace SpacerUnion
                
             }
         }
+
+        private void listBoxSound_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Middle)
+            {
+                ListBox lb = sender as ListBox;
+
+                int index = lb.IndexFromPoint(e.Location);
+                {
+                    if (index >= 0)
+                    {
+                        string name = listBoxSound.GetItemText(listBoxSound.Items[index]);
+
+                        Utils.SetCopyText(name);
+                    }
+                }
+            }
+        }
+
+        private void listBoxSndResult_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Middle)
+            {
+                ListBox lb = sender as ListBox;
+
+                int index = lb.IndexFromPoint(e.Location);
+                {
+                    if (index >= 0)
+                    {
+                        string name = listBoxSndResult.GetItemText(listBoxSndResult.Items[index]);
+
+                        Utils.SetCopyText(name);
+                    }
+                }
+            }
+        }
     }
 }

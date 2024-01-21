@@ -84,6 +84,7 @@
             this.globalTree.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.globalTree_NodeMouseDoubleClick);
             this.globalTree.KeyDown += new System.Windows.Forms.KeyEventHandler(this.globalTree_KeyDown);
             this.globalTree.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.globalTree_KeyPress);
+            this.globalTree.MouseDown += new System.Windows.Forms.MouseEventHandler(this.globalTree_MouseDown);
             // 
             // contextMenuStripTree
             // 

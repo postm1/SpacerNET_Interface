@@ -3807,6 +3807,28 @@ namespace SpacerUnion
                     }
                 }
             }
+
+            if (e.Button == MouseButtons.Middle)
+            {
+                ListBox lbMiddle = sender as ListBox;
+
+                int index = lbMiddle.IndexFromPoint(e.Location);
+                {
+                    if (index >= 0)
+                    {
+                        string name = listBoxSearchResult.GetItemText(listBoxSearchResult.Items[index]);
+
+
+                        string text = name;
+                        int indexMiddle = text.LastIndexOf('(');
+
+                        text = text.Substring(0, indexMiddle - 1);
+                        text = text.Trim();
+
+                        Utils.SetCopyText(text);
+                    }
+                }
+            }
         }
 
         private void listBoxItems_MouseDown(object sender, MouseEventArgs e)

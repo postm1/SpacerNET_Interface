@@ -14,7 +14,7 @@ namespace SpacerUnion
 {
     public class Constants
     {
-        public const string SPACER_VERSION = "0.45";
+        public const string SPACER_VERSION = "0.46";
 
 
         public const string FILE_FILTER_OPEN_ZEN = "Compiled ZEN (*.zen)|*.zen|Uncompiled ZEN (*.zen)|*.zen";
@@ -223,6 +223,15 @@ namespace SpacerUnion
         }
 
 
+        public static void SetCopyText(string text)
+        {
+            Clipboard.SetText(text);
+
+            Imports.Stack_PushString(Localizator.Get("COPYBUFFER") + ": " + text);
+
+            Imports.Extern_PrintGreen();
+        }
+
     }
 
     public static class Helper
@@ -239,5 +248,6 @@ namespace SpacerUnion
         [DllImport("user32.dll")]
         private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
     }
+
 }
 

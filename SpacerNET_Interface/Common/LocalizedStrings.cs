@@ -718,9 +718,9 @@ namespace SpacerUnion.Common
             words.Add("UNION_NO_WP_FP", new List<string> { "Сначала выберите и скопируйте WP или FP!", "First select and copy WP or FP", "Markiere und kopiere zuerst WP oder FP", "Zaznacz i skopiuj WP lub FP" });
             words.Add("BTN_OPEN_FILE", new List<string> { "Выбрать файл...", "Load file...", "Lade Datei", "Wczytaj plik..." });
 
-            words.Add("TOGGLE_MUSIC", new List<string> { "Включить/отключить музыку", "Toggle music", "", "" });
-            words.Add("UNION_MUSIC_ON", new List<string> { "Музыка включена", "Music is ON", "", "" });
-            words.Add("UNION_MUSIC_OFF", new List<string> { "Музыка отключена", "Music is OFF", "", "" });
+            words.Add("TOGGLE_MUSIC", new List<string> { "Включить/отключить музыку", "Toggle music", "Musik umschalten", "" });
+            words.Add("UNION_MUSIC_ON", new List<string> { "Музыка включена", "Music is ON", "Musik EIN", "" });
+            words.Add("UNION_MUSIC_OFF", new List<string> { "Музыка отключена", "Music is OFF", "Musik AUS", "" });
 
             
         }

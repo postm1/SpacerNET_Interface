@@ -1764,5 +1764,42 @@ namespace SpacerUnion
                 }
             }
         }
+
+        private void tabControlProps_MouseDown(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void treeViewProp_MouseDown(object sender, MouseEventArgs e)
+        {
+            TreeNode node = treeViewProp.GetNodeAt(e.Location);
+            int index = 0;
+
+            if (node != null && node.Tag.ToString() != Constants.TAG_FOLDER)
+            {
+
+                int.TryParse(node.Tag.ToString(), out index);
+
+                if (index >= 0)
+                {
+
+                    CProperty prop = props[index];
+
+                    if (prop.value == String.Empty)
+                    {
+                        return;
+                    }
+
+                    if (prop.Name == "visual" || prop.Name == "vobName" || prop.Name == "texture" || prop.Name == "name")
+                    {
+                        if (e.Button == MouseButtons.Middle)
+                        {
+                            Utils.SetCopyText(node.Text);
+                        }
+                    }
+
+                }
+            }
+        }
     }
 }
