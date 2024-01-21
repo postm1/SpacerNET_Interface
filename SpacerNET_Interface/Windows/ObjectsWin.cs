@@ -123,7 +123,7 @@ namespace SpacerUnion
             radioButtonBefore.Text = Localizator.Get("radioButtonBefore");
             labelTriggerTargets.Text = Localizator.Get("labelTriggerTargets");
             labelTriggersSources.Text = Localizator.Get("labelTriggersSources");
-
+            checkBoxShowMoverKeys.Text = Localizator.Get("checkBoxShowMoverKeys");
 
 
             groupBoxWPFP.Text = Localizator.Get("groupBoxWPFP");
@@ -296,6 +296,10 @@ namespace SpacerUnion
 
             Imports.Stack_PushString("showLightRadiusVob");
             SpacerNET.objectsWin.checkBoxShowLightVobRadius.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+
+            Imports.Stack_PushString("showMoverKeysVisually");
+            checkBoxShowMoverKeys.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
         }
 
         public void GetVdfArchivesList()
@@ -4422,6 +4426,13 @@ namespace SpacerUnion
         private void checkBoxShowLightVobInstantCompile_CheckedChanged(object sender, EventArgs e)
         {
             Imports.Extern_Light_DynamicCompile(checkBoxLightVobInstantCompile.Checked);
+        }
+
+        private void checkBoxShowMoverKeys_CheckedChanged(object sender, EventArgs e)
+        {
+
+            Imports.Stack_PushString("showMoverKeysVisually");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxShowMoverKeys.Checked));
         }
     }
 }

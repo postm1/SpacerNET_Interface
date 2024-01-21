@@ -226,6 +226,7 @@
             this.buttonUsePresetOnLightVob = new System.Windows.Forms.Button();
             this.buttonUpdateLightPresetFromLightVob = new System.Windows.Forms.Button();
             this.colorDialogLightPresetColor = new System.Windows.Forms.ColorDialog();
+            this.checkBoxShowMoverKeys = new System.Windows.Forms.CheckBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -919,6 +920,7 @@
             // 
             // groupBoxTriggersKeys
             // 
+            this.groupBoxTriggersKeys.Controls.Add(this.checkBoxShowMoverKeys);
             this.groupBoxTriggersKeys.Controls.Add(this.textBoxTrigersJumpKey);
             this.groupBoxTriggersKeys.Controls.Add(this.buttonTriggersJumpToKey);
             this.groupBoxTriggersKeys.Controls.Add(this.labelTriggerInsert);
@@ -2436,6 +2438,19 @@
             this.buttonUpdateLightPresetFromLightVob.UseVisualStyleBackColor = true;
             this.buttonUpdateLightPresetFromLightVob.Click += new System.EventHandler(this.buttonUpdateLightPresetFromLightVob_Click);
             // 
+            // checkBoxShowMoverKeys
+            // 
+            this.checkBoxShowMoverKeys.AutoSize = true;
+            this.checkBoxShowMoverKeys.Checked = true;
+            this.checkBoxShowMoverKeys.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxShowMoverKeys.Location = new System.Drawing.Point(130, 111);
+            this.checkBoxShowMoverKeys.Name = "checkBoxShowMoverKeys";
+            this.checkBoxShowMoverKeys.Size = new System.Drawing.Size(115, 17);
+            this.checkBoxShowMoverKeys.TabIndex = 11;
+            this.checkBoxShowMoverKeys.Text = "Show keys visually";
+            this.checkBoxShowMoverKeys.UseVisualStyleBackColor = true;
+            this.checkBoxShowMoverKeys.CheckedChanged += new System.EventHandler(this.checkBoxShowMoverKeys_CheckedChanged);
+            // 
             // ObjectsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2709,5 +2724,6 @@
         private System.Windows.Forms.Button buttonMoveLightPresetRangeAniScaleUp;
         private System.Windows.Forms.Button buttonMoveLightPresetRangeAniScaleDown;
         private System.Windows.Forms.Button buttonCreateLightVob;
+        private System.Windows.Forms.CheckBox checkBoxShowMoverKeys;
     }
 }

@@ -721,8 +721,12 @@ namespace SpacerUnion.Common
             words.Add("TOGGLE_MUSIC", new List<string> { "Включить/отключить музыку", "Toggle music", "Musik umschalten", "" });
             words.Add("UNION_MUSIC_ON", new List<string> { "Музыка включена", "Music is ON", "Musik EIN", "" });
             words.Add("UNION_MUSIC_OFF", new List<string> { "Музыка отключена", "Music is OFF", "Musik AUS", "" });
+            words.Add("checkBoxShowMoverKeys", new List<string> { "Показать ключи визуально", "Show keys visually", "", "" });
 
             
+
+
+
         }
         
     }
