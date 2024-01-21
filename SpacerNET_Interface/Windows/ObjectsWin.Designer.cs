@@ -945,6 +945,7 @@
             this.textBoxTrigersJumpKey.Name = "textBoxTrigersJumpKey";
             this.textBoxTrigersJumpKey.Size = new System.Drawing.Size(69, 20);
             this.textBoxTrigersJumpKey.TabIndex = 10;
+            this.textBoxTrigersJumpKey.Text = "0";
             this.textBoxTrigersJumpKey.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTrigersJumpKey_KeyPress);
             // 
             // buttonTriggersJumpToKey

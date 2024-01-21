@@ -718,10 +718,10 @@ namespace SpacerUnion.Common
             words.Add("UNION_NO_WP_FP", new List<string> { "Сначала выберите и скопируйте WP или FP!", "First select and copy WP or FP", "Markiere und kopiere zuerst WP oder FP", "Zaznacz i skopiuj WP lub FP" });
             words.Add("BTN_OPEN_FILE", new List<string> { "Выбрать файл...", "Load file...", "Lade Datei", "Wczytaj plik..." });
 
-            words.Add("TOGGLE_MUSIC", new List<string> { "Включить/отключить музыку", "Toggle music", "Musik umschalten", "" });
-            words.Add("UNION_MUSIC_ON", new List<string> { "Музыка включена", "Music is ON", "Musik EIN", "" });
-            words.Add("UNION_MUSIC_OFF", new List<string> { "Музыка отключена", "Music is OFF", "Musik AUS", "" });
-            words.Add("checkBoxShowMoverKeys", new List<string> { "Показать ключи визуально", "Show keys visually", "", "" });
+            words.Add("TOGGLE_MUSIC", new List<string> { "Включить/отключить музыку", "Toggle music", "Musik umschalten", "Przełącz muzykę" });
+            words.Add("UNION_MUSIC_ON", new List<string> { "Музыка включена", "Music is ON", "Musik EIN", "Muzyka jest włączona" });
+            words.Add("UNION_MUSIC_OFF", new List<string> { "Музыка отключена", "Music is OFF", "Musik AUS", "Muzyka jest wyłączona" });
+            words.Add("checkBoxShowMoverKeys", new List<string> { "Показать ключи визуально", "Show keys visually", "Tasten visuell anzeigen", "Pokaż wizualizacje klawiszy"});
 
             
 
