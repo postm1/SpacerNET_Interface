@@ -1794,7 +1794,7 @@ namespace SpacerUnion
                     {
                         if (e.Button == MouseButtons.Middle)
                         {
-                            Utils.SetCopyText(node.Text);
+                            Utils.SetCopyText(prop.ShowValue());
                         }
                     }
 
