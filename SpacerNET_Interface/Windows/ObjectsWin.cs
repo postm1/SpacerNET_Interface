@@ -98,6 +98,7 @@ namespace SpacerUnion
             buttonParticles.Text = Localizator.Get("buttonParticles");
             buttonCreatePFXReg.Text = Localizator.Get("buttonParticles");
             checkBoxShowPFXPreview.Text = Localizator.Get("checkBoxShowPFXPreview");
+            checkBoxAddPFX.Text = Localizator.Get("checkBoxAddPFX");
             labelAllPfx.Text = Localizator.Get("labelAllPfx");
             labelSearchRegPFx.Text = Localizator.Get("labelItemsFindReg");
 
@@ -4403,7 +4404,12 @@ namespace SpacerUnion
                 {
                     string visual = lb.GetItemText(lb.Items[index]);
 
-                    Utils.SetCopyText(visual + ".pfx");
+                    if (checkBoxAddPFX.Checked)
+                    {
+                        visual += ".pfx";
+                    }
+
+                    Utils.SetCopyText(visual);
                 }
 
             }
@@ -4422,7 +4428,12 @@ namespace SpacerUnion
                 {
                     string visual = lb.GetItemText(lb.Items[index]);
 
-                    Utils.SetCopyText(visual + ".pfx");
+                    if (checkBoxAddPFX.Checked)
+                    {
+                        visual += ".pfx";
+                    }
+
+                    Utils.SetCopyText(visual);
                 }
 
             }

@@ -721,12 +721,12 @@ namespace SpacerUnion.Common
             words.Add("TOGGLE_MUSIC", new List<string> { "Включить/отключить музыку", "Toggle music", "Musik umschalten", "Przełącz muzykę" });
             words.Add("UNION_MUSIC_ON", new List<string> { "Музыка включена", "Music is ON", "Musik EIN", "Muzyka jest włączona" });
             words.Add("UNION_MUSIC_OFF", new List<string> { "Музыка отключена", "Music is OFF", "Musik AUS", "Muzyka jest wyłączona" });
-            words.Add("checkBoxShowMoverKeys", new List<string> { "Показать ключи визуально", "Show keys visually", "Tasten visuell anzeigen", "Pokaż wizualizacje klawiszy"});
+            words.Add("checkBoxShowMoverKeys", new List<string> { "Показать ключи визуально", "Show keys visually", "Tasten visuell anzeigen", "Pokaż wizualizacje kluczy" });
+
+
+            words.Add("checkBoxAddPFX", new List<string> { "Добавлять .pfx при копировании", "Add .pfx when copy", "", "" });
 
             
-
-
-
         }
         
     }

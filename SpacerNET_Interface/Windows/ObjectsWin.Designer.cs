@@ -227,6 +227,7 @@
             this.buttonUsePresetOnLightVob = new System.Windows.Forms.Button();
             this.buttonUpdateLightPresetFromLightVob = new System.Windows.Forms.Button();
             this.colorDialogLightPresetColor = new System.Windows.Forms.ColorDialog();
+            this.checkBoxAddPFX = new System.Windows.Forms.CheckBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -265,6 +266,7 @@
             // 
             // groupBoxPFX
             // 
+            this.groupBoxPFX.Controls.Add(this.checkBoxAddPFX);
             this.groupBoxPFX.Controls.Add(this.checkBoxShowPFXPreview);
             this.groupBoxPFX.Controls.Add(this.labelSearchRegPFx);
             this.groupBoxPFX.Controls.Add(this.textBoxPfxReg);
@@ -275,7 +277,7 @@
             this.groupBoxPFX.Controls.Add(this.buttonParticles);
             this.groupBoxPFX.Location = new System.Drawing.Point(6, 6);
             this.groupBoxPFX.Name = "groupBoxPFX";
-            this.groupBoxPFX.Size = new System.Drawing.Size(549, 347);
+            this.groupBoxPFX.Size = new System.Drawing.Size(580, 365);
             this.groupBoxPFX.TabIndex = 0;
             this.groupBoxPFX.TabStop = false;
             this.groupBoxPFX.Text = "Particles, count: 0";
@@ -285,7 +287,7 @@
             this.checkBoxShowPFXPreview.AutoSize = true;
             this.checkBoxShowPFXPreview.Checked = true;
             this.checkBoxShowPFXPreview.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxShowPFXPreview.Location = new System.Drawing.Point(9, 65);
+            this.checkBoxShowPFXPreview.Location = new System.Drawing.Point(10, 55);
             this.checkBoxShowPFXPreview.Name = "checkBoxShowPFXPreview";
             this.checkBoxShowPFXPreview.Size = new System.Drawing.Size(116, 17);
             this.checkBoxShowPFXPreview.TabIndex = 18;
@@ -296,7 +298,7 @@
             // labelSearchRegPFx
             // 
             this.labelSearchRegPFx.AutoSize = true;
-            this.labelSearchRegPFx.Location = new System.Drawing.Point(279, 89);
+            this.labelSearchRegPFx.Location = new System.Drawing.Point(279, 114);
             this.labelSearchRegPFx.Name = "labelSearchRegPFx";
             this.labelSearchRegPFx.Size = new System.Drawing.Size(98, 13);
             this.labelSearchRegPFx.TabIndex = 10;
@@ -306,7 +308,7 @@
             // textBoxPfxReg
             // 
             this.textBoxPfxReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxPfxReg.Location = new System.Drawing.Point(282, 107);
+            this.textBoxPfxReg.Location = new System.Drawing.Point(282, 132);
             this.textBoxPfxReg.Name = "textBoxPfxReg";
             this.textBoxPfxReg.Size = new System.Drawing.Size(263, 22);
             this.textBoxPfxReg.TabIndex = 9;
@@ -316,7 +318,7 @@
             // listBoxPfxResult
             // 
             this.listBoxPfxResult.FormattingEnabled = true;
-            this.listBoxPfxResult.Location = new System.Drawing.Point(282, 133);
+            this.listBoxPfxResult.Location = new System.Drawing.Point(282, 158);
             this.listBoxPfxResult.Name = "listBoxPfxResult";
             this.listBoxPfxResult.Size = new System.Drawing.Size(263, 199);
             this.listBoxPfxResult.TabIndex = 8;
@@ -336,7 +338,7 @@
             // labelAllPfx
             // 
             this.labelAllPfx.AutoSize = true;
-            this.labelAllPfx.Location = new System.Drawing.Point(7, 89);
+            this.labelAllPfx.Location = new System.Drawing.Point(7, 114);
             this.labelAllPfx.Name = "labelAllPfx";
             this.labelAllPfx.Size = new System.Drawing.Size(81, 13);
             this.labelAllPfx.TabIndex = 6;
@@ -345,7 +347,7 @@
             // listBoxParticles
             // 
             this.listBoxParticles.FormattingEnabled = true;
-            this.listBoxParticles.Location = new System.Drawing.Point(9, 107);
+            this.listBoxParticles.Location = new System.Drawing.Point(9, 132);
             this.listBoxParticles.Name = "listBoxParticles";
             this.listBoxParticles.Size = new System.Drawing.Size(263, 225);
             this.listBoxParticles.TabIndex = 1;
@@ -2454,6 +2456,18 @@
             this.buttonUpdateLightPresetFromLightVob.UseVisualStyleBackColor = true;
             this.buttonUpdateLightPresetFromLightVob.Click += new System.EventHandler(this.buttonUpdateLightPresetFromLightVob_Click);
             // 
+            // checkBoxAddPFX
+            // 
+            this.checkBoxAddPFX.AutoSize = true;
+            this.checkBoxAddPFX.Checked = true;
+            this.checkBoxAddPFX.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxAddPFX.Location = new System.Drawing.Point(9, 78);
+            this.checkBoxAddPFX.Name = "checkBoxAddPFX";
+            this.checkBoxAddPFX.Size = new System.Drawing.Size(168, 17);
+            this.checkBoxAddPFX.TabIndex = 19;
+            this.checkBoxAddPFX.Text = "Add \".pfx\" when copy a value";
+            this.checkBoxAddPFX.UseVisualStyleBackColor = true;
+            // 
             // ObjectsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2728,5 +2742,6 @@
         private System.Windows.Forms.Button buttonMoveLightPresetRangeAniScaleDown;
         private System.Windows.Forms.Button buttonCreateLightVob;
         private System.Windows.Forms.CheckBox checkBoxShowMoverKeys;
+        public System.Windows.Forms.CheckBox checkBoxAddPFX;
     }
 }
