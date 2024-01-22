@@ -1599,33 +1599,18 @@ namespace SpacerUnion
         private void listBoxVisuals_MouseDown(object sender, MouseEventArgs e)
         {
             ListBox lb = sender as ListBox;
-            if (lb.Items.Count == 0)
-            {
-                return;
-            }
 
-            if (e.Button == MouseButtons.Right)
+            if (e.Button == MouseButtons.Middle && lb != null)
             {
 
                 int index = lb.IndexFromPoint(e.Location);
+
+                if (index >= 0 && lb.Items.Count > 0)
                 {
-                    if (index == lb.SelectedIndex)
-                    {
-                        string visual = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
-                        Clipboard.SetText(visual);
-
-
-                        Imports.Stack_PushString(Localizator.Get("COPYBUFFER")  + ": " + visual);
-
-                        Imports.Extern_PrintGreen();
-
-                        
-                    }
+                    string visual = lb.GetItemText(lb.Items[index]);
+                    Utils.SetCopyText(visual);
                 }
-
-
                 
-
             }
         }
 
@@ -3792,35 +3777,15 @@ namespace SpacerUnion
         private void listBoxSearchResult_MouseDown(object sender, MouseEventArgs e)
         {
             ListBox lb = sender as ListBox;
-            if (e.Button == MouseButtons.Right)
+
+            if (e.Button == MouseButtons.Middle)
             {
 
                 int index = lb.IndexFromPoint(e.Location);
                 {
-                    if (index == lb.SelectedIndex)
+                    if (index >= 0 && lb.Items.Count > 0)
                     {
-                        string visual = listBoxSearchResult.GetItemText(listBoxSearchResult.SelectedItem);
-                        Clipboard.SetText(visual);
-
-
-                        Imports.Stack_PushString(Localizator.Get("COPYBUFFER") + ": " + visual);
-
-                        Imports.Extern_PrintGreen();
-
-
-                    }
-                }
-            }
-
-            if (e.Button == MouseButtons.Middle)
-            {
-                ListBox lbMiddle = sender as ListBox;
-
-                int index = lbMiddle.IndexFromPoint(e.Location);
-                {
-                    if (index >= 0)
-                    {
-                        string name = listBoxSearchResult.GetItemText(listBoxSearchResult.Items[index]);
+                        string name = lb.GetItemText(lb.Items[index]);
 
 
                         string text = name;
@@ -3838,48 +3803,38 @@ namespace SpacerUnion
         private void listBoxItems_MouseDown(object sender, MouseEventArgs e)
         {
             ListBox lb = sender as ListBox;
-            if (e.Button == MouseButtons.Right)
+
+            if (e.Button == MouseButtons.Middle && lb != null)
             {
 
                 int index = lb.IndexFromPoint(e.Location);
+
+                if (index >= 0 && lb.Items.Count > 0)
                 {
-                    if (index == lb.SelectedIndex)
-                    {
-                        string visual = listBoxItems.GetItemText(listBoxItems.SelectedItem);
-                        Clipboard.SetText(visual);
+                    string visual = lb.GetItemText(lb.Items[index]);
 
-
-                        Imports.Stack_PushString(Localizator.Get("COPYBUFFER") + ": " + visual);
-
-                        Imports.Extern_PrintGreen();
-
-
-                    }
+                    Utils.SetCopyText(visual);
                 }
+
             }
         }
 
         private void listBoxResultItems_MouseDown(object sender, MouseEventArgs e)
         {
             ListBox lb = sender as ListBox;
-            if (e.Button == MouseButtons.Right)
+
+            if (e.Button == MouseButtons.Middle && lb != null)
             {
 
                 int index = lb.IndexFromPoint(e.Location);
+
+                if (index >= 0 && lb.Items.Count > 0)
                 {
-                    if (index == lb.SelectedIndex)
-                    {
-                        string visual = listBoxResultItems.GetItemText(listBoxResultItems.SelectedItem);
-                        Clipboard.SetText(visual);
+                    string visual = lb.GetItemText(lb.Items[index]);
 
-
-                        Imports.Stack_PushString(Localizator.Get("COPYBUFFER") + ": " + visual);
-
-                        Imports.Extern_PrintGreen();
-
-
-                    }
+                    Utils.SetCopyText(visual);
                 }
+
             }
         }
 
@@ -4437,37 +4392,39 @@ namespace SpacerUnion
 
         private void listBoxParticles_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Middle)
+            ListBox lb = sender as ListBox;
+
+            if (e.Button == MouseButtons.Middle && lb != null)
             {
-                ListBox lb = sender as ListBox;
 
                 int index = lb.IndexFromPoint(e.Location);
-                {
-                    if (index >= 0)
-                    {
-                        string name = listBoxParticles.GetItemText(listBoxParticles.Items[index]);
 
-                        Utils.SetCopyText(name + ".pfx");
-                    }
+                if (index >= 0 && lb.Items.Count > 0)
+                {
+                    string visual = lb.GetItemText(lb.Items[index]);
+
+                    Utils.SetCopyText(visual + ".pfx");
                 }
+
             }
         }
 
         private void listBoxPfxResult_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Middle)
+            ListBox lb = sender as ListBox;
+
+            if (e.Button == MouseButtons.Middle && lb != null)
             {
-                ListBox lb = sender as ListBox;
 
                 int index = lb.IndexFromPoint(e.Location);
-                {
-                    if (index >= 0)
-                    {
-                        string name = listBoxPfxResult.GetItemText(listBoxPfxResult.Items[index]);
 
-                        Utils.SetCopyText(name + ".pfx");
-                    }
+                if (index >= 0 && lb.Items.Count > 0)
+                {
+                    string visual = lb.GetItemText(lb.Items[index]);
+
+                    Utils.SetCopyText(visual + ".pfx");
                 }
+
             }
         }
     }

@@ -652,17 +652,19 @@ namespace SpacerUnion.Windows
         private void listBoxMatList_MouseDown(object sender, MouseEventArgs e)
         {
             ListBox lb = sender as ListBox;
-            if (e.Button == MouseButtons.Right && lb.SelectedIndex != -1)
+
+            if (e.Button == MouseButtons.Middle && lb != null)
             {
 
+                int index = lb.IndexFromPoint(e.Location);
 
-                string visual = lb.GetItemText(lb.SelectedItem);
-                Clipboard.SetText(visual);
+                if (index >= 0 && lb.Items.Count > 0)
+                {
+                    string visual = lb.GetItemText(lb.Items[index]);
 
-            
-                Imports.Stack_PushString(Localizator.Get("COPYBUFFER") + ": " + visual);
-
-                Imports.Extern_PrintGreen();
+                    Utils.SetCopyText(visual);
+                }
+                
             }
         }
 
