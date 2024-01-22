@@ -1525,6 +1525,7 @@ namespace SpacerUnion
             }
             else
             {
+                Properties.Settings.Default.GrassWinLocation = SpacerNET.grassWin.Location;
                 SpacerNET.grassWin.Hide();
             }
 
