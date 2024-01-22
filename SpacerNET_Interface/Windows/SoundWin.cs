@@ -331,5 +331,23 @@ namespace SpacerUnion
                 }
             }
         }
+
+        private void listBoxMusic_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Middle)
+            {
+                ListBox lb = sender as ListBox;
+
+                int index = lb.IndexFromPoint(e.Location);
+                {
+                    if (index >= 0)
+                    {
+                        string name = listBoxMusic.GetItemText(listBoxMusic.Items[index]);
+
+                        Utils.SetCopyText(name);
+                    }
+                }
+            }
+        }
     }
 }

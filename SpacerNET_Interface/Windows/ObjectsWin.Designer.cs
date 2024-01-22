@@ -87,6 +87,7 @@
             this.labelTriggersSources = new System.Windows.Forms.Label();
             this.listBoxSources = new System.Windows.Forms.ListBox();
             this.groupBoxTriggersKeys = new System.Windows.Forms.GroupBox();
+            this.checkBoxShowMoverKeys = new System.Windows.Forms.CheckBox();
             this.textBoxTrigersJumpKey = new System.Windows.Forms.TextBox();
             this.buttonTriggersJumpToKey = new System.Windows.Forms.Button();
             this.labelTriggerInsert = new System.Windows.Forms.Label();
@@ -226,7 +227,6 @@
             this.buttonUsePresetOnLightVob = new System.Windows.Forms.Button();
             this.buttonUpdateLightPresetFromLightVob = new System.Windows.Forms.Button();
             this.colorDialogLightPresetColor = new System.Windows.Forms.ColorDialog();
-            this.checkBoxShowMoverKeys = new System.Windows.Forms.CheckBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -321,6 +321,7 @@
             this.listBoxPfxResult.Size = new System.Drawing.Size(263, 199);
             this.listBoxPfxResult.TabIndex = 8;
             this.listBoxPfxResult.SelectedIndexChanged += new System.EventHandler(this.listBoxPfxResult_SelectedIndexChanged);
+            this.listBoxPfxResult.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxPfxResult_MouseDown);
             // 
             // buttonCreatePFXReg
             // 
@@ -349,6 +350,7 @@
             this.listBoxParticles.Size = new System.Drawing.Size(263, 225);
             this.listBoxParticles.TabIndex = 1;
             this.listBoxParticles.SelectedIndexChanged += new System.EventHandler(this.listBoxParticles_SelectedIndexChanged);
+            this.listBoxParticles.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxParticles_MouseDown);
             // 
             // buttonParticles
             // 
@@ -938,6 +940,19 @@
             this.groupBoxTriggersKeys.TabIndex = 3;
             this.groupBoxTriggersKeys.TabStop = false;
             this.groupBoxTriggersKeys.Text = "Keys";
+            // 
+            // checkBoxShowMoverKeys
+            // 
+            this.checkBoxShowMoverKeys.AutoSize = true;
+            this.checkBoxShowMoverKeys.Checked = true;
+            this.checkBoxShowMoverKeys.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxShowMoverKeys.Location = new System.Drawing.Point(130, 111);
+            this.checkBoxShowMoverKeys.Name = "checkBoxShowMoverKeys";
+            this.checkBoxShowMoverKeys.Size = new System.Drawing.Size(115, 17);
+            this.checkBoxShowMoverKeys.TabIndex = 11;
+            this.checkBoxShowMoverKeys.Text = "Show keys visually";
+            this.checkBoxShowMoverKeys.UseVisualStyleBackColor = true;
+            this.checkBoxShowMoverKeys.CheckedChanged += new System.EventHandler(this.checkBoxShowMoverKeys_CheckedChanged);
             // 
             // textBoxTrigersJumpKey
             // 
@@ -2438,19 +2453,6 @@
             this.buttonUpdateLightPresetFromLightVob.Text = "Update preset from lightvob <<";
             this.buttonUpdateLightPresetFromLightVob.UseVisualStyleBackColor = true;
             this.buttonUpdateLightPresetFromLightVob.Click += new System.EventHandler(this.buttonUpdateLightPresetFromLightVob_Click);
-            // 
-            // checkBoxShowMoverKeys
-            // 
-            this.checkBoxShowMoverKeys.AutoSize = true;
-            this.checkBoxShowMoverKeys.Checked = true;
-            this.checkBoxShowMoverKeys.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxShowMoverKeys.Location = new System.Drawing.Point(130, 111);
-            this.checkBoxShowMoverKeys.Name = "checkBoxShowMoverKeys";
-            this.checkBoxShowMoverKeys.Size = new System.Drawing.Size(115, 17);
-            this.checkBoxShowMoverKeys.TabIndex = 11;
-            this.checkBoxShowMoverKeys.Text = "Show keys visually";
-            this.checkBoxShowMoverKeys.UseVisualStyleBackColor = true;
-            this.checkBoxShowMoverKeys.CheckedChanged += new System.EventHandler(this.checkBoxShowMoverKeys_CheckedChanged);
             // 
             // ObjectsWin
             // 

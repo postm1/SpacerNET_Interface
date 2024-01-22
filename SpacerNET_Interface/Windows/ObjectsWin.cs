@@ -4434,5 +4434,41 @@ namespace SpacerUnion
             Imports.Stack_PushString("showMoverKeysVisually");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxShowMoverKeys.Checked));
         }
+
+        private void listBoxParticles_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Middle)
+            {
+                ListBox lb = sender as ListBox;
+
+                int index = lb.IndexFromPoint(e.Location);
+                {
+                    if (index >= 0)
+                    {
+                        string name = listBoxParticles.GetItemText(listBoxParticles.Items[index]);
+
+                        Utils.SetCopyText(name + ".pfx");
+                    }
+                }
+            }
+        }
+
+        private void listBoxPfxResult_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Middle)
+            {
+                ListBox lb = sender as ListBox;
+
+                int index = lb.IndexFromPoint(e.Location);
+                {
+                    if (index >= 0)
+                    {
+                        string name = listBoxPfxResult.GetItemText(listBoxPfxResult.Items[index]);
+
+                        Utils.SetCopyText(name + ".pfx");
+                    }
+                }
+            }
+        }
     }
 }

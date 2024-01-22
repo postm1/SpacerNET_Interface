@@ -192,6 +192,7 @@
             this.listBoxMusic.Size = new System.Drawing.Size(188, 147);
             this.listBoxMusic.TabIndex = 8;
             this.listBoxMusic.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxMusic_MouseDoubleClick);
+            this.listBoxMusic.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxMusic_MouseDown);
             // 
             // checkBoxShutMusic
             // 
