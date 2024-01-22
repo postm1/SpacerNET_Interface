@@ -724,7 +724,9 @@ namespace SpacerUnion.Common
             words.Add("checkBoxShowMoverKeys", new List<string> { "Показать ключи визуально", "Show keys visually", "Tasten visuell anzeigen", "Pokaż wizualizacje kluczy" });
 
 
-            words.Add("checkBoxAddPFX", new List<string> { "Добавлять .pfx при копировании", "Add .pfx when copy", "", "" });
+            words.Add("checkBoxAddPFX", new List<string> { "Добавлять .pfx при копировании", "Add .pfx when copy", "Beim kopieren .pfx hinzufügen", "Dodaj .pfx przy kopiowaniu" });
+            words.Add("buttonRemoveMoverAllKeys", new List<string> { "Удалить все (сохранив позицию воба)", "Remove all (save vob position)", "Alle entfernen (vob-Position speichern)", "Usuń wszystko (zapisz pozycje voba)" });
+            words.Add("buttonMoverResetKeyTo0", new List<string> { "Удалить все (поставить воб на 0 ключ)", "Remove all (set vob on 0 key)", "Alle entfernen (vob auf Taste 0 setzen)", "Usuń wszystko (ustaw voba na 0 klucz)" });
 
             
         }

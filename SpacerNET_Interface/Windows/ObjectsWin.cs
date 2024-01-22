@@ -113,6 +113,11 @@ namespace SpacerUnion
             buttonTriggerCollectSources.Text = Localizator.Get("buttonTriggerCollectSources");
             buttonNewKey.Text = Localizator.Get("buttonNewKey");
             buttonRemoveKey.Text = Localizator.Get("buttonRemoveKey");
+
+            buttonRemoveMoverAllKeys.Text = Localizator.Get("buttonRemoveMoverAllKeys");
+            buttonMoverResetKeyTo0.Text = Localizator.Get("buttonMoverResetKeyTo0");
+
+
             buttonTriggersJumpToKey.Text = Localizator.Get("Trigget_BTN_JUMPTOKEY");
             labelTriggerName.Text = Localizator.Get("labelTriggerName");
             labelTriggerCollision.Text = Localizator.Get("labelTriggerCollision");
@@ -1159,6 +1164,7 @@ namespace SpacerUnion
 
                 buttonTriggersJumpToKey.Enabled = false;
                 textBoxTrigersJumpKey.Enabled = false;
+                checkBoxShowMoverKeys.Enabled = false;
             }
            
 
@@ -1192,9 +1198,11 @@ namespace SpacerUnion
             SpacerNET.objectsWin.triggerEntry.targetListAddr.Clear();
             SpacerNET.objectsWin.triggerEntry.sourcesListAddr.Clear();
             SpacerNET.objectsWin.labelCurrentKey.Enabled = false;
+            SpacerNET.objectsWin.checkBoxShowMoverKeys.Enabled = false;
 
-
-
+            SpacerNET.objectsWin.buttonRemoveMoverAllKeys.Enabled = false;
+            SpacerNET.objectsWin.buttonMoverResetKeyTo0.Enabled = false;
+            
 
 
             SpacerNET.objectsWin.UpdateTriggerWindow();
@@ -1209,8 +1217,12 @@ namespace SpacerUnion
             buttonKeyPlus.Enabled = true;
             buttonTriggersJumpToKey.Enabled = true;
             textBoxTrigersJumpKey.Enabled = true;
+            checkBoxShowMoverKeys.Enabled = true;
 
             labelCurrentKey.Enabled = true;
+
+            buttonRemoveMoverAllKeys.Enabled = true;
+            buttonMoverResetKeyTo0.Enabled = true;
         }
 
         public static void ChangeTab(int num)
@@ -1320,7 +1332,7 @@ namespace SpacerUnion
             SpacerNET.objectsWin.triggerEntry.sourcesListAddr.Clear();
 
             SpacerNET.objectsWin.UpdateTriggerWindow();
-            SpacerNET.objectsWin.EnableTriggerWindow();
+            //SpacerNET.objectsWin.EnableTriggerWindow();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -1340,6 +1352,7 @@ namespace SpacerUnion
             //ConsoleEx.WriteLineRed(triggerEntry.m_kf_pos + "/" + triggerEntry.maxKey);
 
             UpdateTriggerWindow(false);
+            SpacerNET.form.Focus();
         }
 
         private void buttonNewKey_Click(object sender, EventArgs e)
@@ -4437,6 +4450,30 @@ namespace SpacerUnion
                 }
 
             }
+        }
+
+        private void buttonRemoveMoverAllKeys_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_RemoveAllMoverKeysWithSavePosition();
+
+            triggerEntry.m_kf_pos = Imports.Extern_GetCurrentKey();
+            triggerEntry.maxKey = Imports.Extern_GetMaxKey();
+
+            //ConsoleEx.WriteLineRed(triggerEntry.m_kf_pos + "/" + triggerEntry.maxKey);
+
+            UpdateTriggerWindow(false);
+        }
+
+        private void buttonMoverResetKeyTo0_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_RemoveAllMoverKeysWithSetZero();
+
+            triggerEntry.m_kf_pos = Imports.Extern_GetCurrentKey();
+            triggerEntry.maxKey = Imports.Extern_GetMaxKey();
+
+            //ConsoleEx.WriteLineRed(triggerEntry.m_kf_pos + "/" + triggerEntry.maxKey);
+
+            UpdateTriggerWindow(false);
         }
     }
 }

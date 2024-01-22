@@ -228,6 +228,8 @@
             this.buttonUpdateLightPresetFromLightVob = new System.Windows.Forms.Button();
             this.colorDialogLightPresetColor = new System.Windows.Forms.ColorDialog();
             this.checkBoxAddPFX = new System.Windows.Forms.CheckBox();
+            this.buttonRemoveMoverAllKeys = new System.Windows.Forms.Button();
+            this.buttonMoverResetKeyTo0 = new System.Windows.Forms.Button();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -893,10 +895,10 @@
             // 
             // buttonTriggerCollectSources
             // 
-            this.buttonTriggerCollectSources.Location = new System.Drawing.Point(453, 160);
+            this.buttonTriggerCollectSources.Location = new System.Drawing.Point(458, 197);
             this.buttonTriggerCollectSources.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTriggerCollectSources.Name = "buttonTriggerCollectSources";
-            this.buttonTriggerCollectSources.Size = new System.Drawing.Size(114, 22);
+            this.buttonTriggerCollectSources.Size = new System.Drawing.Size(157, 22);
             this.buttonTriggerCollectSources.TabIndex = 7;
             this.buttonTriggerCollectSources.Text = "Collect";
             this.buttonTriggerCollectSources.UseVisualStyleBackColor = true;
@@ -905,7 +907,7 @@
             // labelTriggersSources
             // 
             this.labelTriggersSources.AutoSize = true;
-            this.labelTriggersSources.Location = new System.Drawing.Point(334, 166);
+            this.labelTriggersSources.Location = new System.Drawing.Point(339, 203);
             this.labelTriggersSources.Name = "labelTriggersSources";
             this.labelTriggersSources.Size = new System.Drawing.Size(46, 13);
             this.labelTriggersSources.TabIndex = 6;
@@ -915,16 +917,17 @@
             // listBoxSources
             // 
             this.listBoxSources.FormattingEnabled = true;
-            this.listBoxSources.Location = new System.Drawing.Point(336, 185);
+            this.listBoxSources.Location = new System.Drawing.Point(341, 222);
             this.listBoxSources.Name = "listBoxSources";
-            this.listBoxSources.Size = new System.Drawing.Size(231, 134);
+            this.listBoxSources.Size = new System.Drawing.Size(274, 134);
             this.listBoxSources.TabIndex = 5;
             this.listBoxSources.SelectedIndexChanged += new System.EventHandler(this.listBoxSources_SelectedIndexChanged);
             this.listBoxSources.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxSources_MouseDoubleClick);
             // 
             // groupBoxTriggersKeys
             // 
-            this.groupBoxTriggersKeys.Controls.Add(this.checkBoxShowMoverKeys);
+            this.groupBoxTriggersKeys.Controls.Add(this.buttonMoverResetKeyTo0);
+            this.groupBoxTriggersKeys.Controls.Add(this.buttonRemoveMoverAllKeys);
             this.groupBoxTriggersKeys.Controls.Add(this.textBoxTrigersJumpKey);
             this.groupBoxTriggersKeys.Controls.Add(this.buttonTriggersJumpToKey);
             this.groupBoxTriggersKeys.Controls.Add(this.labelTriggerInsert);
@@ -938,7 +941,7 @@
             this.groupBoxTriggersKeys.Controls.Add(this.buttonKeyMinus);
             this.groupBoxTriggersKeys.Location = new System.Drawing.Point(236, 3);
             this.groupBoxTriggersKeys.Name = "groupBoxTriggersKeys";
-            this.groupBoxTriggersKeys.Size = new System.Drawing.Size(331, 137);
+            this.groupBoxTriggersKeys.Size = new System.Drawing.Size(379, 164);
             this.groupBoxTriggersKeys.TabIndex = 3;
             this.groupBoxTriggersKeys.TabStop = false;
             this.groupBoxTriggersKeys.Text = "Keys";
@@ -948,7 +951,7 @@
             this.checkBoxShowMoverKeys.AutoSize = true;
             this.checkBoxShowMoverKeys.Checked = true;
             this.checkBoxShowMoverKeys.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxShowMoverKeys.Location = new System.Drawing.Point(130, 111);
+            this.checkBoxShowMoverKeys.Location = new System.Drawing.Point(10, 45);
             this.checkBoxShowMoverKeys.Name = "checkBoxShowMoverKeys";
             this.checkBoxShowMoverKeys.Size = new System.Drawing.Size(115, 17);
             this.checkBoxShowMoverKeys.TabIndex = 11;
@@ -958,7 +961,7 @@
             // 
             // textBoxTrigersJumpKey
             // 
-            this.textBoxTrigersJumpKey.Location = new System.Drawing.Point(255, 51);
+            this.textBoxTrigersJumpKey.Location = new System.Drawing.Point(304, 51);
             this.textBoxTrigersJumpKey.Name = "textBoxTrigersJumpKey";
             this.textBoxTrigersJumpKey.Size = new System.Drawing.Size(69, 20);
             this.textBoxTrigersJumpKey.TabIndex = 10;
@@ -969,7 +972,7 @@
             // 
             this.buttonTriggersJumpToKey.Location = new System.Drawing.Point(130, 49);
             this.buttonTriggersJumpToKey.Name = "buttonTriggersJumpToKey";
-            this.buttonTriggersJumpToKey.Size = new System.Drawing.Size(120, 23);
+            this.buttonTriggersJumpToKey.Size = new System.Drawing.Size(168, 23);
             this.buttonTriggersJumpToKey.TabIndex = 9;
             this.buttonTriggersJumpToKey.Text = "Jump to key";
             this.buttonTriggersJumpToKey.UseVisualStyleBackColor = true;
@@ -1018,7 +1021,7 @@
             // 
             // buttonRemoveKey
             // 
-            this.buttonRemoveKey.Location = new System.Drawing.Point(227, 15);
+            this.buttonRemoveKey.Location = new System.Drawing.Point(275, 15);
             this.buttonRemoveKey.Name = "buttonRemoveKey";
             this.buttonRemoveKey.Size = new System.Drawing.Size(98, 23);
             this.buttonRemoveKey.TabIndex = 4;
@@ -1030,7 +1033,7 @@
             // 
             this.buttonNewKey.Location = new System.Drawing.Point(130, 15);
             this.buttonNewKey.Name = "buttonNewKey";
-            this.buttonNewKey.Size = new System.Drawing.Size(91, 23);
+            this.buttonNewKey.Size = new System.Drawing.Size(131, 23);
             this.buttonNewKey.TabIndex = 3;
             this.buttonNewKey.Text = "New key";
             this.buttonNewKey.UseVisualStyleBackColor = true;
@@ -1069,7 +1072,7 @@
             // labelTriggerTargets
             // 
             this.labelTriggerTargets.AutoSize = true;
-            this.labelTriggerTargets.Location = new System.Drawing.Point(123, 166);
+            this.labelTriggerTargets.Location = new System.Drawing.Point(128, 203);
             this.labelTriggerTargets.Name = "labelTriggerTargets";
             this.labelTriggerTargets.Size = new System.Drawing.Size(43, 13);
             this.labelTriggerTargets.TabIndex = 4;
@@ -1079,7 +1082,7 @@
             // listBoxTargetList
             // 
             this.listBoxTargetList.FormattingEnabled = true;
-            this.listBoxTargetList.Location = new System.Drawing.Point(124, 185);
+            this.listBoxTargetList.Location = new System.Drawing.Point(129, 222);
             this.listBoxTargetList.Name = "listBoxTargetList";
             this.listBoxTargetList.Size = new System.Drawing.Size(206, 134);
             this.listBoxTargetList.TabIndex = 3;
@@ -1089,7 +1092,7 @@
             // 
             // buttonSendTrigger
             // 
-            this.buttonSendTrigger.Location = new System.Drawing.Point(0, 156);
+            this.buttonSendTrigger.Location = new System.Drawing.Point(5, 193);
             this.buttonSendTrigger.Name = "buttonSendTrigger";
             this.buttonSendTrigger.Size = new System.Drawing.Size(120, 23);
             this.buttonSendTrigger.TabIndex = 2;
@@ -1101,7 +1104,7 @@
             // 
             this.listBoxActionType.DisplayMember = "TRIGGER";
             this.listBoxActionType.FormattingEnabled = true;
-            this.listBoxActionType.Location = new System.Drawing.Point(0, 185);
+            this.listBoxActionType.Location = new System.Drawing.Point(5, 222);
             this.listBoxActionType.Name = "listBoxActionType";
             this.listBoxActionType.Size = new System.Drawing.Size(120, 134);
             this.listBoxActionType.TabIndex = 1;
@@ -1112,11 +1115,12 @@
             // 
             this.groupBoxTriggersVob.Controls.Add(this.labelTriggerName);
             this.groupBoxTriggersVob.Controls.Add(this.labelTriggerCollision);
+            this.groupBoxTriggersVob.Controls.Add(this.checkBoxShowMoverKeys);
             this.groupBoxTriggersVob.Controls.Add(this.checkBoxStat);
             this.groupBoxTriggersVob.Controls.Add(this.checkBoxDyn);
             this.groupBoxTriggersVob.Location = new System.Drawing.Point(3, 3);
             this.groupBoxTriggersVob.Name = "groupBoxTriggersVob";
-            this.groupBoxTriggersVob.Size = new System.Drawing.Size(227, 137);
+            this.groupBoxTriggersVob.Size = new System.Drawing.Size(227, 164);
             this.groupBoxTriggersVob.TabIndex = 0;
             this.groupBoxTriggersVob.TabStop = false;
             this.groupBoxTriggersVob.Text = "Selected vob";
@@ -1133,7 +1137,7 @@
             // labelTriggerCollision
             // 
             this.labelTriggerCollision.AutoSize = true;
-            this.labelTriggerCollision.Location = new System.Drawing.Point(7, 68);
+            this.labelTriggerCollision.Location = new System.Drawing.Point(7, 69);
             this.labelTriggerCollision.Name = "labelTriggerCollision";
             this.labelTriggerCollision.Size = new System.Drawing.Size(45, 13);
             this.labelTriggerCollision.TabIndex = 2;
@@ -1142,7 +1146,7 @@
             // checkBoxStat
             // 
             this.checkBoxStat.AutoSize = true;
-            this.checkBoxStat.Location = new System.Drawing.Point(10, 111);
+            this.checkBoxStat.Location = new System.Drawing.Point(10, 112);
             this.checkBoxStat.Name = "checkBoxStat";
             this.checkBoxStat.Size = new System.Drawing.Size(51, 17);
             this.checkBoxStat.TabIndex = 1;
@@ -1153,7 +1157,7 @@
             // checkBoxDyn
             // 
             this.checkBoxDyn.AutoSize = true;
-            this.checkBoxDyn.Location = new System.Drawing.Point(10, 88);
+            this.checkBoxDyn.Location = new System.Drawing.Point(10, 89);
             this.checkBoxDyn.Name = "checkBoxDyn";
             this.checkBoxDyn.Size = new System.Drawing.Size(65, 17);
             this.checkBoxDyn.TabIndex = 0;
@@ -2468,6 +2472,26 @@
             this.checkBoxAddPFX.Text = "Add \".pfx\" when copy a value";
             this.checkBoxAddPFX.UseVisualStyleBackColor = true;
             // 
+            // buttonRemoveMoverAllKeys
+            // 
+            this.buttonRemoveMoverAllKeys.Location = new System.Drawing.Point(130, 101);
+            this.buttonRemoveMoverAllKeys.Name = "buttonRemoveMoverAllKeys";
+            this.buttonRemoveMoverAllKeys.Size = new System.Drawing.Size(243, 23);
+            this.buttonRemoveMoverAllKeys.TabIndex = 12;
+            this.buttonRemoveMoverAllKeys.Text = "Remove all (save vob position)";
+            this.buttonRemoveMoverAllKeys.UseVisualStyleBackColor = true;
+            this.buttonRemoveMoverAllKeys.Click += new System.EventHandler(this.buttonRemoveMoverAllKeys_Click);
+            // 
+            // buttonMoverResetKeyTo0
+            // 
+            this.buttonMoverResetKeyTo0.Location = new System.Drawing.Point(130, 130);
+            this.buttonMoverResetKeyTo0.Name = "buttonMoverResetKeyTo0";
+            this.buttonMoverResetKeyTo0.Size = new System.Drawing.Size(243, 23);
+            this.buttonMoverResetKeyTo0.TabIndex = 13;
+            this.buttonMoverResetKeyTo0.Text = "Remove all (set vob on 0 key)";
+            this.buttonMoverResetKeyTo0.UseVisualStyleBackColor = true;
+            this.buttonMoverResetKeyTo0.Click += new System.EventHandler(this.buttonMoverResetKeyTo0_Click);
+            // 
             // ObjectsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2743,5 +2767,7 @@
         private System.Windows.Forms.Button buttonCreateLightVob;
         private System.Windows.Forms.CheckBox checkBoxShowMoverKeys;
         public System.Windows.Forms.CheckBox checkBoxAddPFX;
+        private System.Windows.Forms.Button buttonMoverResetKeyTo0;
+        private System.Windows.Forms.Button buttonRemoveMoverAllKeys;
     }
 }
