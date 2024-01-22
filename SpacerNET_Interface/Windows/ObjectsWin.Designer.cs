@@ -378,7 +378,7 @@
             this.groupBoxObjItems.Controls.Add(this.buttonItemsCreate);
             this.groupBoxObjItems.Location = new System.Drawing.Point(6, 6);
             this.groupBoxObjItems.Name = "groupBoxObjItems";
-            this.groupBoxObjItems.Size = new System.Drawing.Size(609, 403);
+            this.groupBoxObjItems.Size = new System.Drawing.Size(609, 365);
             this.groupBoxObjItems.TabIndex = 2;
             this.groupBoxObjItems.TabStop = false;
             this.groupBoxObjItems.Text = "Items, count: 0";
@@ -392,7 +392,7 @@
             this.groupBoxItemsLocator.Controls.Add(this.labelItemLocatorRadius);
             this.groupBoxItemsLocator.Controls.Add(this.trackBarLocatorRad);
             this.groupBoxItemsLocator.Controls.Add(this.checkBoxLocatorEnabled);
-            this.groupBoxItemsLocator.Location = new System.Drawing.Point(378, 144);
+            this.groupBoxItemsLocator.Location = new System.Drawing.Point(412, 144);
             this.groupBoxItemsLocator.Name = "groupBoxItemsLocator";
             this.groupBoxItemsLocator.Size = new System.Drawing.Size(191, 207);
             this.groupBoxItemsLocator.TabIndex = 21;
@@ -492,7 +492,7 @@
             this.groupBoxItemsCont.Controls.Add(this.buttonAddContainer);
             this.groupBoxItemsCont.Controls.Add(this.textBoxItemCount);
             this.groupBoxItemsCont.Controls.Add(this.labelItemsEditContCount);
-            this.groupBoxItemsCont.Location = new System.Drawing.Point(378, 8);
+            this.groupBoxItemsCont.Location = new System.Drawing.Point(412, 8);
             this.groupBoxItemsCont.Name = "groupBoxItemsCont";
             this.groupBoxItemsCont.Size = new System.Drawing.Size(191, 126);
             this.groupBoxItemsCont.TabIndex = 20;
@@ -543,9 +543,9 @@
             // 
             // buttonItemsCreateReg
             // 
-            this.buttonItemsCreateReg.Location = new System.Drawing.Point(192, 27);
+            this.buttonItemsCreateReg.Location = new System.Drawing.Point(206, 27);
             this.buttonItemsCreateReg.Name = "buttonItemsCreateReg";
-            this.buttonItemsCreateReg.Size = new System.Drawing.Size(180, 30);
+            this.buttonItemsCreateReg.Size = new System.Drawing.Size(200, 30);
             this.buttonItemsCreateReg.TabIndex = 6;
             this.buttonItemsCreateReg.Text = "Create Item";
             this.buttonItemsCreateReg.UseVisualStyleBackColor = true;
@@ -564,7 +564,7 @@
             // labelItemsFindReg
             // 
             this.labelItemsFindReg.AutoSize = true;
-            this.labelItemsFindReg.Location = new System.Drawing.Point(189, 92);
+            this.labelItemsFindReg.Location = new System.Drawing.Point(203, 92);
             this.labelItemsFindReg.Name = "labelItemsFindReg";
             this.labelItemsFindReg.Size = new System.Drawing.Size(98, 13);
             this.labelItemsFindReg.TabIndex = 4;
@@ -573,9 +573,9 @@
             // listBoxResultItems
             // 
             this.listBoxResultItems.FormattingEnabled = true;
-            this.listBoxResultItems.Location = new System.Drawing.Point(192, 138);
+            this.listBoxResultItems.Location = new System.Drawing.Point(206, 138);
             this.listBoxResultItems.Name = "listBoxResultItems";
-            this.listBoxResultItems.Size = new System.Drawing.Size(180, 212);
+            this.listBoxResultItems.Size = new System.Drawing.Size(200, 212);
             this.listBoxResultItems.TabIndex = 3;
             this.listBoxResultItems.SelectedIndexChanged += new System.EventHandler(this.listBoxResultItems_SelectedIndexChanged);
             this.listBoxResultItems.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxResultItems_MouseDown);
@@ -583,9 +583,9 @@
             // textBoxItems
             // 
             this.textBoxItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxItems.Location = new System.Drawing.Point(192, 112);
+            this.textBoxItems.Location = new System.Drawing.Point(206, 112);
             this.textBoxItems.Name = "textBoxItems";
-            this.textBoxItems.Size = new System.Drawing.Size(180, 22);
+            this.textBoxItems.Size = new System.Drawing.Size(200, 22);
             this.textBoxItems.TabIndex = 2;
             this.textBoxItems.TextChanged += new System.EventHandler(this.textBoxItems_TextChanged);
             this.textBoxItems.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxItems_KeyDown);
@@ -596,7 +596,7 @@
             this.listBoxItems.FormattingEnabled = true;
             this.listBoxItems.Location = new System.Drawing.Point(6, 112);
             this.listBoxItems.Name = "listBoxItems";
-            this.listBoxItems.Size = new System.Drawing.Size(180, 238);
+            this.listBoxItems.Size = new System.Drawing.Size(194, 238);
             this.listBoxItems.TabIndex = 1;
             this.listBoxItems.SelectedIndexChanged += new System.EventHandler(this.listBoxItems_SelectedIndexChanged);
             this.listBoxItems.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxItems_MouseDown);
@@ -605,7 +605,7 @@
             // 
             this.buttonItemsCreate.Location = new System.Drawing.Point(6, 27);
             this.buttonItemsCreate.Name = "buttonItemsCreate";
-            this.buttonItemsCreate.Size = new System.Drawing.Size(180, 30);
+            this.buttonItemsCreate.Size = new System.Drawing.Size(194, 30);
             this.buttonItemsCreate.TabIndex = 0;
             this.buttonItemsCreate.Text = "Create Item";
             this.buttonItemsCreate.UseVisualStyleBackColor = true;
