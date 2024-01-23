@@ -17,6 +17,8 @@ namespace SpacerUnion
 
         public string name;
 
+        public string className;
+
         //текущее действие (TRIGGER, UNTRIGGER...)
         public int currentActionIndex;
 

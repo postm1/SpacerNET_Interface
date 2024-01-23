@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBoxPFX = new System.Windows.Forms.GroupBox();
+            this.checkBoxAddPFX = new System.Windows.Forms.CheckBox();
             this.checkBoxShowPFXPreview = new System.Windows.Forms.CheckBox();
             this.labelSearchRegPFx = new System.Windows.Forms.Label();
             this.textBoxPfxReg = new System.Windows.Forms.TextBox();
@@ -87,7 +88,8 @@
             this.labelTriggersSources = new System.Windows.Forms.Label();
             this.listBoxSources = new System.Windows.Forms.ListBox();
             this.groupBoxTriggersKeys = new System.Windows.Forms.GroupBox();
-            this.checkBoxShowMoverKeys = new System.Windows.Forms.CheckBox();
+            this.buttonMoverResetKeyTo0 = new System.Windows.Forms.Button();
+            this.buttonRemoveMoverAllKeys = new System.Windows.Forms.Button();
             this.textBoxTrigersJumpKey = new System.Windows.Forms.TextBox();
             this.buttonTriggersJumpToKey = new System.Windows.Forms.Button();
             this.labelTriggerInsert = new System.Windows.Forms.Label();
@@ -106,6 +108,7 @@
             this.groupBoxTriggersVob = new System.Windows.Forms.GroupBox();
             this.labelTriggerName = new System.Windows.Forms.Label();
             this.labelTriggerCollision = new System.Windows.Forms.Label();
+            this.checkBoxShowMoverKeys = new System.Windows.Forms.CheckBox();
             this.checkBoxStat = new System.Windows.Forms.CheckBox();
             this.checkBoxDyn = new System.Windows.Forms.CheckBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -227,9 +230,7 @@
             this.buttonUsePresetOnLightVob = new System.Windows.Forms.Button();
             this.buttonUpdateLightPresetFromLightVob = new System.Windows.Forms.Button();
             this.colorDialogLightPresetColor = new System.Windows.Forms.ColorDialog();
-            this.checkBoxAddPFX = new System.Windows.Forms.CheckBox();
-            this.buttonRemoveMoverAllKeys = new System.Windows.Forms.Button();
-            this.buttonMoverResetKeyTo0 = new System.Windows.Forms.Button();
+            this.labelTriggerClassName = new System.Windows.Forms.Label();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -283,6 +284,18 @@
             this.groupBoxPFX.TabIndex = 0;
             this.groupBoxPFX.TabStop = false;
             this.groupBoxPFX.Text = "Particles, count: 0";
+            // 
+            // checkBoxAddPFX
+            // 
+            this.checkBoxAddPFX.AutoSize = true;
+            this.checkBoxAddPFX.Checked = true;
+            this.checkBoxAddPFX.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxAddPFX.Location = new System.Drawing.Point(9, 78);
+            this.checkBoxAddPFX.Name = "checkBoxAddPFX";
+            this.checkBoxAddPFX.Size = new System.Drawing.Size(168, 17);
+            this.checkBoxAddPFX.TabIndex = 19;
+            this.checkBoxAddPFX.Text = "Add \".pfx\" when copy a value";
+            this.checkBoxAddPFX.UseVisualStyleBackColor = true;
             // 
             // checkBoxShowPFXPreview
             // 
@@ -946,18 +959,25 @@
             this.groupBoxTriggersKeys.TabStop = false;
             this.groupBoxTriggersKeys.Text = "Keys";
             // 
-            // checkBoxShowMoverKeys
+            // buttonMoverResetKeyTo0
             // 
-            this.checkBoxShowMoverKeys.AutoSize = true;
-            this.checkBoxShowMoverKeys.Checked = true;
-            this.checkBoxShowMoverKeys.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxShowMoverKeys.Location = new System.Drawing.Point(10, 45);
-            this.checkBoxShowMoverKeys.Name = "checkBoxShowMoverKeys";
-            this.checkBoxShowMoverKeys.Size = new System.Drawing.Size(115, 17);
-            this.checkBoxShowMoverKeys.TabIndex = 11;
-            this.checkBoxShowMoverKeys.Text = "Show keys visually";
-            this.checkBoxShowMoverKeys.UseVisualStyleBackColor = true;
-            this.checkBoxShowMoverKeys.CheckedChanged += new System.EventHandler(this.checkBoxShowMoverKeys_CheckedChanged);
+            this.buttonMoverResetKeyTo0.Location = new System.Drawing.Point(130, 130);
+            this.buttonMoverResetKeyTo0.Name = "buttonMoverResetKeyTo0";
+            this.buttonMoverResetKeyTo0.Size = new System.Drawing.Size(243, 23);
+            this.buttonMoverResetKeyTo0.TabIndex = 13;
+            this.buttonMoverResetKeyTo0.Text = "Remove all (set vob on 0 key)";
+            this.buttonMoverResetKeyTo0.UseVisualStyleBackColor = true;
+            this.buttonMoverResetKeyTo0.Click += new System.EventHandler(this.buttonMoverResetKeyTo0_Click);
+            // 
+            // buttonRemoveMoverAllKeys
+            // 
+            this.buttonRemoveMoverAllKeys.Location = new System.Drawing.Point(130, 101);
+            this.buttonRemoveMoverAllKeys.Name = "buttonRemoveMoverAllKeys";
+            this.buttonRemoveMoverAllKeys.Size = new System.Drawing.Size(243, 23);
+            this.buttonRemoveMoverAllKeys.TabIndex = 12;
+            this.buttonRemoveMoverAllKeys.Text = "Remove all (save vob position)";
+            this.buttonRemoveMoverAllKeys.UseVisualStyleBackColor = true;
+            this.buttonRemoveMoverAllKeys.Click += new System.EventHandler(this.buttonRemoveMoverAllKeys_Click);
             // 
             // textBoxTrigersJumpKey
             // 
@@ -1113,6 +1133,7 @@
             // 
             // groupBoxTriggersVob
             // 
+            this.groupBoxTriggersVob.Controls.Add(this.labelTriggerClassName);
             this.groupBoxTriggersVob.Controls.Add(this.labelTriggerName);
             this.groupBoxTriggersVob.Controls.Add(this.labelTriggerCollision);
             this.groupBoxTriggersVob.Controls.Add(this.checkBoxShowMoverKeys);
@@ -1130,39 +1151,55 @@
             this.labelTriggerName.AutoSize = true;
             this.labelTriggerName.Location = new System.Drawing.Point(7, 20);
             this.labelTriggerName.Name = "labelTriggerName";
-            this.labelTriggerName.Size = new System.Drawing.Size(127, 13);
+            this.labelTriggerName.Size = new System.Drawing.Size(66, 13);
             this.labelTriggerName.TabIndex = 3;
-            this.labelTriggerName.Text = "VOB_NAME (className)";
+            this.labelTriggerName.Text = "VOB_NAME";
             // 
             // labelTriggerCollision
             // 
             this.labelTriggerCollision.AutoSize = true;
-            this.labelTriggerCollision.Location = new System.Drawing.Point(7, 69);
+            this.labelTriggerCollision.Location = new System.Drawing.Point(141, 87);
             this.labelTriggerCollision.Name = "labelTriggerCollision";
             this.labelTriggerCollision.Size = new System.Drawing.Size(45, 13);
             this.labelTriggerCollision.TabIndex = 2;
             this.labelTriggerCollision.Text = "Collision";
+            this.labelTriggerCollision.Visible = false;
+            // 
+            // checkBoxShowMoverKeys
+            // 
+            this.checkBoxShowMoverKeys.AutoSize = true;
+            this.checkBoxShowMoverKeys.Checked = true;
+            this.checkBoxShowMoverKeys.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxShowMoverKeys.Location = new System.Drawing.Point(10, 69);
+            this.checkBoxShowMoverKeys.Name = "checkBoxShowMoverKeys";
+            this.checkBoxShowMoverKeys.Size = new System.Drawing.Size(115, 17);
+            this.checkBoxShowMoverKeys.TabIndex = 11;
+            this.checkBoxShowMoverKeys.Text = "Show keys visually";
+            this.checkBoxShowMoverKeys.UseVisualStyleBackColor = true;
+            this.checkBoxShowMoverKeys.CheckedChanged += new System.EventHandler(this.checkBoxShowMoverKeys_CheckedChanged);
             // 
             // checkBoxStat
             // 
             this.checkBoxStat.AutoSize = true;
-            this.checkBoxStat.Location = new System.Drawing.Point(10, 112);
+            this.checkBoxStat.Location = new System.Drawing.Point(144, 130);
             this.checkBoxStat.Name = "checkBoxStat";
             this.checkBoxStat.Size = new System.Drawing.Size(51, 17);
             this.checkBoxStat.TabIndex = 1;
             this.checkBoxStat.Text = "static";
             this.checkBoxStat.UseVisualStyleBackColor = true;
+            this.checkBoxStat.Visible = false;
             this.checkBoxStat.CheckedChanged += new System.EventHandler(this.checkBoxStat_CheckedChanged);
             // 
             // checkBoxDyn
             // 
             this.checkBoxDyn.AutoSize = true;
-            this.checkBoxDyn.Location = new System.Drawing.Point(10, 89);
+            this.checkBoxDyn.Location = new System.Drawing.Point(144, 107);
             this.checkBoxDyn.Name = "checkBoxDyn";
             this.checkBoxDyn.Size = new System.Drawing.Size(65, 17);
             this.checkBoxDyn.TabIndex = 0;
             this.checkBoxDyn.Text = "dynamic";
             this.checkBoxDyn.UseVisualStyleBackColor = true;
+            this.checkBoxDyn.Visible = false;
             this.checkBoxDyn.CheckedChanged += new System.EventHandler(this.checkBoxDyn_CheckedChanged);
             // 
             // tabPage5
@@ -2460,37 +2497,14 @@
             this.buttonUpdateLightPresetFromLightVob.UseVisualStyleBackColor = true;
             this.buttonUpdateLightPresetFromLightVob.Click += new System.EventHandler(this.buttonUpdateLightPresetFromLightVob_Click);
             // 
-            // checkBoxAddPFX
+            // labelTriggerClassName
             // 
-            this.checkBoxAddPFX.AutoSize = true;
-            this.checkBoxAddPFX.Checked = true;
-            this.checkBoxAddPFX.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxAddPFX.Location = new System.Drawing.Point(9, 78);
-            this.checkBoxAddPFX.Name = "checkBoxAddPFX";
-            this.checkBoxAddPFX.Size = new System.Drawing.Size(168, 17);
-            this.checkBoxAddPFX.TabIndex = 19;
-            this.checkBoxAddPFX.Text = "Add \".pfx\" when copy a value";
-            this.checkBoxAddPFX.UseVisualStyleBackColor = true;
-            // 
-            // buttonRemoveMoverAllKeys
-            // 
-            this.buttonRemoveMoverAllKeys.Location = new System.Drawing.Point(130, 101);
-            this.buttonRemoveMoverAllKeys.Name = "buttonRemoveMoverAllKeys";
-            this.buttonRemoveMoverAllKeys.Size = new System.Drawing.Size(243, 23);
-            this.buttonRemoveMoverAllKeys.TabIndex = 12;
-            this.buttonRemoveMoverAllKeys.Text = "Remove all (save vob position)";
-            this.buttonRemoveMoverAllKeys.UseVisualStyleBackColor = true;
-            this.buttonRemoveMoverAllKeys.Click += new System.EventHandler(this.buttonRemoveMoverAllKeys_Click);
-            // 
-            // buttonMoverResetKeyTo0
-            // 
-            this.buttonMoverResetKeyTo0.Location = new System.Drawing.Point(130, 130);
-            this.buttonMoverResetKeyTo0.Name = "buttonMoverResetKeyTo0";
-            this.buttonMoverResetKeyTo0.Size = new System.Drawing.Size(243, 23);
-            this.buttonMoverResetKeyTo0.TabIndex = 13;
-            this.buttonMoverResetKeyTo0.Text = "Remove all (set vob on 0 key)";
-            this.buttonMoverResetKeyTo0.UseVisualStyleBackColor = true;
-            this.buttonMoverResetKeyTo0.Click += new System.EventHandler(this.buttonMoverResetKeyTo0_Click);
+            this.labelTriggerClassName.AutoSize = true;
+            this.labelTriggerClassName.Location = new System.Drawing.Point(7, 42);
+            this.labelTriggerClassName.Name = "labelTriggerClassName";
+            this.labelTriggerClassName.Size = new System.Drawing.Size(82, 13);
+            this.labelTriggerClassName.TabIndex = 12;
+            this.labelTriggerClassName.Text = "(zCTriggerBase)";
             // 
             // ObjectsWin
             // 
@@ -2769,5 +2783,6 @@
         public System.Windows.Forms.CheckBox checkBoxAddPFX;
         private System.Windows.Forms.Button buttonMoverResetKeyTo0;
         private System.Windows.Forms.Button buttonRemoveMoverAllKeys;
+        private System.Windows.Forms.Label labelTriggerClassName;
     }
 }

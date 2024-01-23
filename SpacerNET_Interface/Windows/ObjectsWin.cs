@@ -1146,6 +1146,8 @@ namespace SpacerUnion
         public void UpdateTriggerWindow(bool block=true, bool collisionBlock = true)
         {
             labelTriggerName.Text = triggerEntry.name;
+            labelTriggerClassName.Text = triggerEntry.className;
+
             UpdateCurrentKeyLabel();
             checkBoxDyn.Checked = triggerEntry.dynColl;
             checkBoxStat.Checked = triggerEntry.statColl;
@@ -1169,10 +1171,11 @@ namespace SpacerUnion
                 buttonRemoveMoverAllKeys.Enabled = false;
                 buttonMoverResetKeyTo0.Enabled = false;
                 labelCurrentKey.Enabled = false;
+                labelCurrentKey.Text = "0/0";
 
 
-                
-                
+
+
             }
 
             if (collisionBlock)
@@ -1207,6 +1210,7 @@ namespace SpacerUnion
             SpacerNET.objectsWin.triggerEntry.m_kf_pos = 0;
             SpacerNET.objectsWin.triggerEntry.maxKey = 0;
             SpacerNET.objectsWin.triggerEntry.name = "";
+            SpacerNET.objectsWin.triggerEntry.className = "";
             SpacerNET.objectsWin.triggerEntry.dynColl = false;
             SpacerNET.objectsWin.triggerEntry.statColl = false;
             SpacerNET.objectsWin.listBoxTargetList.Items.Clear();
@@ -1214,7 +1218,10 @@ namespace SpacerUnion
             SpacerNET.objectsWin.listBoxActionType.Items.Clear();
             SpacerNET.objectsWin.triggerEntry.targetListAddr.Clear();
             SpacerNET.objectsWin.triggerEntry.sourcesListAddr.Clear();
+           
+            SpacerNET.objectsWin.labelCurrentKey.Text = "0/0";
             SpacerNET.objectsWin.labelCurrentKey.Enabled = false;
+
             SpacerNET.objectsWin.checkBoxShowMoverKeys.Enabled = false;
 
             SpacerNET.objectsWin.buttonRemoveMoverAllKeys.Enabled = false;
@@ -1326,10 +1333,12 @@ namespace SpacerUnion
         public static void CreateTriggerForm(int keyCurrent, int keyMax, int dyn, int stat)
         {
             string name = Imports.Stack_PeekString();
+            string className = Imports.Stack_PeekString();
 
             SpacerNET.objectsWin.triggerEntry.m_kf_pos = keyCurrent;
             SpacerNET.objectsWin.triggerEntry.maxKey = keyMax;
             SpacerNET.objectsWin.triggerEntry.name = name;
+            SpacerNET.objectsWin.triggerEntry.className = className;
             SpacerNET.objectsWin.triggerEntry.dynColl = Convert.ToBoolean(dyn);
             SpacerNET.objectsWin.triggerEntry.statColl = Convert.ToBoolean(stat);
             SpacerNET.objectsWin.listBoxTargetList.Items.Clear();
@@ -1347,8 +1356,10 @@ namespace SpacerUnion
         public static void CreateTriggerFormEmptyRealTrigger()
         {
             string name = Imports.Stack_PeekString();
+            string className = Imports.Stack_PeekString();
 
             SpacerNET.objectsWin.triggerEntry.name = name;
+            SpacerNET.objectsWin.triggerEntry.className = className;
             SpacerNET.objectsWin.listBoxTargetList.Items.Clear();
             SpacerNET.objectsWin.listBoxActionType.Items.Clear();
             SpacerNET.objectsWin.triggerEntry.targetListAddr.Clear();
@@ -1363,8 +1374,10 @@ namespace SpacerUnion
         public static void CreateTriggerFormEmpty()
         {
             string name = Imports.Stack_PeekString();
+            string className = Imports.Stack_PeekString();
 
             SpacerNET.objectsWin.triggerEntry.name = name;
+            SpacerNET.objectsWin.triggerEntry.className = className;
             SpacerNET.objectsWin.listBoxTargetList.Items.Clear();
             SpacerNET.objectsWin.listBoxActionType.Items.Clear();
             SpacerNET.objectsWin.triggerEntry.targetListAddr.Clear();
