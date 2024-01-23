@@ -1180,6 +1180,11 @@ namespace SpacerUnion
                 checkBoxDyn.Enabled = false;
                 checkBoxStat.Enabled = false;
             }
+            else
+            {
+                checkBoxDyn.Enabled = true;
+                checkBoxStat.Enabled = true;
+            }
 
         }
 
