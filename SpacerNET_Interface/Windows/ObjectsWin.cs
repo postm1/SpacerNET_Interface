@@ -1143,7 +1143,7 @@ namespace SpacerUnion
         }
 
 
-        public void UpdateTriggerWindow(bool block=true)
+        public void UpdateTriggerWindow(bool block=true, bool collisionBlock = true)
         {
             labelTriggerName.Text = triggerEntry.name;
             UpdateCurrentKeyLabel();
@@ -1165,9 +1165,21 @@ namespace SpacerUnion
                 buttonTriggersJumpToKey.Enabled = false;
                 textBoxTrigersJumpKey.Enabled = false;
                 checkBoxShowMoverKeys.Enabled = false;
-            }
-           
 
+                buttonRemoveMoverAllKeys.Enabled = false;
+                buttonMoverResetKeyTo0.Enabled = false;
+                labelCurrentKey.Enabled = false;
+
+
+                
+                
+            }
+
+            if (collisionBlock)
+            {
+                checkBoxDyn.Enabled = false;
+                checkBoxStat.Enabled = false;
+            }
 
         }
 
@@ -1179,7 +1191,7 @@ namespace SpacerUnion
             SpacerNET.objectsWin.triggerEntry.m_kf_pos = cur;
             SpacerNET.objectsWin.triggerEntry.maxKey = max;
 
-            SpacerNET.objectsWin.UpdateTriggerWindow(false);
+            SpacerNET.objectsWin.UpdateTriggerWindow(false, false);
 
         }
 
@@ -1202,7 +1214,11 @@ namespace SpacerUnion
 
             SpacerNET.objectsWin.buttonRemoveMoverAllKeys.Enabled = false;
             SpacerNET.objectsWin.buttonMoverResetKeyTo0.Enabled = false;
-            
+
+            SpacerNET.objectsWin.checkBoxDyn.Enabled = false;
+            SpacerNET.objectsWin.checkBoxStat.Enabled = false;
+     
+
 
 
             SpacerNET.objectsWin.UpdateTriggerWindow();
@@ -1223,6 +1239,9 @@ namespace SpacerUnion
 
             buttonRemoveMoverAllKeys.Enabled = true;
             buttonMoverResetKeyTo0.Enabled = true;
+
+            checkBoxDyn.Enabled = true;
+            checkBoxStat.Enabled = true;
         }
 
         public static void ChangeTab(int num)
@@ -1320,6 +1339,22 @@ namespace SpacerUnion
 
 
         [DllExport]
+        public static void CreateTriggerFormEmptyRealTrigger()
+        {
+            string name = Imports.Stack_PeekString();
+
+            SpacerNET.objectsWin.triggerEntry.name = name;
+            SpacerNET.objectsWin.listBoxTargetList.Items.Clear();
+            SpacerNET.objectsWin.listBoxActionType.Items.Clear();
+            SpacerNET.objectsWin.triggerEntry.targetListAddr.Clear();
+            SpacerNET.objectsWin.listBoxSources.Items.Clear();
+            SpacerNET.objectsWin.triggerEntry.sourcesListAddr.Clear();
+
+            SpacerNET.objectsWin.UpdateTriggerWindow(true, false);
+            //SpacerNET.objectsWin.EnableTriggerWindow();
+        }
+
+        [DllExport]
         public static void CreateTriggerFormEmpty()
         {
             string name = Imports.Stack_PeekString();
@@ -1331,7 +1366,7 @@ namespace SpacerUnion
             SpacerNET.objectsWin.listBoxSources.Items.Clear();
             SpacerNET.objectsWin.triggerEntry.sourcesListAddr.Clear();
 
-            SpacerNET.objectsWin.UpdateTriggerWindow();
+            SpacerNET.objectsWin.UpdateTriggerWindow(true, true);
             //SpacerNET.objectsWin.EnableTriggerWindow();
         }
 
