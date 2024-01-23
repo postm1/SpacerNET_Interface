@@ -24,6 +24,7 @@ namespace SpacerUnion.Windows
 
         private void MacrosForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Properties.Settings.Default.MacrosWinLocation = SpacerNET.macrosWin.Location;
             this.Hide();
             e.Cancel = true;
 

@@ -976,6 +976,7 @@ namespace SpacerUnion
             if (SpacerNET.soundWin.Visible)
             {
                 btn.Checked = false;
+                Properties.Settings.Default.SoundWinLocation = SpacerNET.soundWin.Location;
                 SpacerNET.soundWin.Hide();
             }
             else
@@ -1802,6 +1803,7 @@ namespace SpacerUnion
             if (SpacerNET.macrosWin.Visible)
             {
                 btn.Checked = false;
+                Properties.Settings.Default.MacrosWinLocation = SpacerNET.macrosWin.Location;
                 SpacerNET.macrosWin.Hide();
             }
             else
@@ -1955,6 +1957,7 @@ namespace SpacerUnion
             if (SpacerNET.matFilterWin.Visible)
             {
                 btn.Checked = false;
+                Properties.Settings.Default.MatFilterWinLocation = SpacerNET.matFilterWin.Location;
                 SpacerNET.matFilterWin.Hide();
             }
             else

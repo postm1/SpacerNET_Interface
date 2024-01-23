@@ -105,6 +105,7 @@ namespace SpacerUnion.Windows
 
         private void MaterialFilterForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Properties.Settings.Default.MatFilterWinLocation = SpacerNET.matFilterWin.Location;
             this.Hide();
             e.Cancel = true;
 

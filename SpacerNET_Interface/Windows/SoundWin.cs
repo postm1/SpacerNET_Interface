@@ -91,6 +91,7 @@ namespace SpacerUnion
 
         private void SoundWin_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Properties.Settings.Default.SoundWinLocation = this.Location;
             this.Hide();
             e.Cancel = true;
             SpacerNET.form.SetIconActive("sound", false);
