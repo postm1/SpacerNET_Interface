@@ -1883,6 +1883,11 @@ namespace SpacerUnion
             return c.ClientRectangle.Contains(c.PointToClient(Cursor.Position));
         }
 
+        [DllExport]
+        public static void TogglePickMaterialIcon(int val)
+        {
+            SpacerNET.form.toolStripButtonMaterial.Checked = Convert.ToBoolean(val);
+        }
 
         // блок прокликивания окон
         [DllExport]
