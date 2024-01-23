@@ -203,6 +203,7 @@
             this.checkBoxShutMusic.TabIndex = 12;
             this.checkBoxShutMusic.Text = "Shut music after world loaded";
             this.checkBoxShutMusic.UseVisualStyleBackColor = true;
+            this.checkBoxShutMusic.CheckedChanged += new System.EventHandler(this.checkBoxShutMusic_CheckedChanged);
             // 
             // buttonMusicOn
             // 
