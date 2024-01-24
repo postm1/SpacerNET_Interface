@@ -117,7 +117,7 @@
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(289, 181);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(192, 16);
+            this.label1.Size = new System.Drawing.Size(193, 16);
             this.label1.TabIndex = 14;
             this.label1.Text = "Еще не готово / Not ready yet";
             this.label1.Visible = false;
@@ -531,6 +531,8 @@
             this.ShowInTaskbar = false;
             this.Text = "Materials filter";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MaterialFilterForm_FormClosing);
+            this.Shown += new System.EventHandler(this.MaterialFilterForm_Shown);
+            this.VisibleChanged += new System.EventHandler(this.MaterialFilterForm_VisibleChanged);
             this.tabControlMatFilter.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();

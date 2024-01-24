@@ -1491,6 +1491,14 @@ namespace SpacerUnion
         {
             ToolStripButton item = sender as ToolStripButton;
 
+            if (SpacerNET.matFilterWin.Visible)
+            {
+                Imports.Stack_PushString(Localizator.Get("noSelectToolNowFilterMat"));
+                Imports.Extern_PrintRed();
+                return;
+            }
+
+
             item.Checked = !item.Checked;
 
             Imports.Stack_PushString("bToggleWorkMode");
@@ -1501,16 +1509,28 @@ namespace SpacerUnion
                 toolStripButtonGrass.Checked = false;
                 toolStripButtonMulti.Checked = false;
             }
-
-
+   
 
             int mode = item.Checked ? 1 : 0;
             Imports.Extern_SetSetting(mode);
+
+            if (!item.Checked)
+            { 
+                Imports.Extern_OnExitPolySelectMod();
+            }
+            
         }
 
         private void toolStripButtonGrass_Click(object sender, EventArgs e)
         {
             ToolStripButton item = sender as ToolStripButton;
+
+            if (SpacerNET.matFilterWin.Visible)
+            {
+                Imports.Stack_PushString(Localizator.Get("noSelectToolNowFilterMat"));
+                Imports.Extern_PrintRed();
+                return;
+            }
 
             item.Checked = !item.Checked;
 
@@ -1622,6 +1642,13 @@ namespace SpacerUnion
         {
             ToolStripButton item = sender as ToolStripButton;
 
+            if (SpacerNET.matFilterWin.Visible)
+            {
+                Imports.Stack_PushString(Localizator.Get("noSelectToolNowFilterMat"));
+                Imports.Extern_PrintRed();
+                return;
+            }
+
             item.Checked = !item.Checked;
 
             int mode = item.Checked ? 3 : 0;
@@ -1631,8 +1658,6 @@ namespace SpacerUnion
                 toolStripButtonMaterial.Checked = false;
                 toolStripButtonGrass.Checked = false;
             }
-
-
 
             Imports.Stack_PushString("bToggleWorkMode");
             Imports.Extern_SetSetting(mode);
@@ -1964,11 +1989,14 @@ namespace SpacerUnion
                 btn.Checked = false;
                 Properties.Settings.Default.MatFilterWinLocation = SpacerNET.matFilterWin.Location;
                 SpacerNET.matFilterWin.Hide();
+                Imports.Extern_SetFilterMatActive(false);
             }
             else
             {
                 btn.Checked = true;
+                Imports.Extern_SetFilterMatActive(true);
                 SpacerNET.matFilterWin.Show();
+                
             }
 
 

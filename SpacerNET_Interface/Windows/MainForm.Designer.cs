@@ -961,7 +961,6 @@
         public System.Windows.Forms.ToolStripMenuItem toolStripMenuResetWorld;
         public System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMergeMesh;
         private System.Windows.Forms.ToolStripMenuItem pfxEditorToolStrip;
-        private System.Windows.Forms.ToolStripButton toolStripButtonMaterial;
         public System.Windows.Forms.ToolStripMenuItem freezeTimeToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem renderModeToolStripMenuItem;
@@ -986,5 +985,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonFilter;
         private System.Windows.Forms.ToolStripMenuItem preset2ToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextTimeSet;
+        public System.Windows.Forms.ToolStripButton toolStripButtonMaterial;
     }
 }

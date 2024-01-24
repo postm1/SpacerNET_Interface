@@ -109,7 +109,19 @@ namespace SpacerUnion.Windows
             this.Hide();
             e.Cancel = true;
 
-            SpacerNET.form.SetIconActive("matfilter", false);
+            
+            // if user close window with X button
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+
+                //Imports.Stack_PushString("CLOSE");
+                //Imports.Extern_PrintRed();
+
+                Imports.Extern_SetFilterMatActive(false);
+                SpacerNET.form.SetIconActive("matfilter", false);
+            }
+
+            
         }
 
         public void OnFilterIndexChange(int index)
@@ -751,6 +763,16 @@ namespace SpacerUnion.Windows
             {
                 lastForceFilterIndex = -1;
             }
+        }
+
+        private void MaterialFilterForm_VisibleChanged(object sender, EventArgs e)
+        {
+ 
+        }
+
+        private void MaterialFilterForm_Shown(object sender, EventArgs e)
+        {
+            Imports.Extern_SetFilterMatActive(true);
         }
     }
 
