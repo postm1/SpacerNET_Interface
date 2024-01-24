@@ -36,7 +36,7 @@ namespace SpacerUnion.Windows
 
 
 
-            if (!SpacerNET.form.toolStripButtonMaterial.Enabled)
+            if (!SpacerNET.form.toolStripButtonMaterial.Checked)
             {
                 // turn off Grass placer
                 Imports.Stack_PushString("bToggleWorkMode");
