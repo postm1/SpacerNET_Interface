@@ -1271,7 +1271,7 @@ namespace SpacerUnion
             //dont manage keys while is in game mode (controlling the player)
             if (Imports.Extern_IsGameModActive() != 0)
             {
-                ConsoleEx.WriteLineRed(e.KeyCode.ToString());
+                //ConsoleEx.WriteLineRed(e.KeyCode.ToString());
                 e.Handled = true;
                 e.SuppressKeyPress = e.Alt;
             }
