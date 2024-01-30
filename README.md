@@ -43,7 +43,7 @@ In order to build this project, you'll need to install:
     Install it via **Visual Studio Installer**.
 
 ## Download
-Last version: [Link to google drive](https://drive.google.com/drive/folders/1shwV7oFBP2vQfxZkBCw9KjScDlx-Wueq)
+Last version: [Google drive](https://drive.google.com/drive/folders/1shwV7oFBP2vQfxZkBCw9KjScDlx-Wueq)
 
 ## Contributing
 
