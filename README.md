@@ -23,6 +23,7 @@ It's responsibility is to display the UI and interact with the game via **Spacer
 ## Download
 
 You can download the latest release of Spacer.NET from [worldofplayers.de](https://forum.worldofplayers.de/forum/threads/1557793-WORLD-EDITOR-Spacer-NET) forum.  
+Or you can use Google drive: [Link](https://drive.google.com/drive/folders/1shwV7oFBP2vQfxZkBCw9KjScDlx-Wueq)
 
 ## Usage requirements
 
@@ -41,9 +42,6 @@ In order to build this project, you'll need to install:
     This is because 2019 release is the last one to support **.NET Framework 4.0**.
 - **.NET Framework 4.0**  
     Install it via **Visual Studio Installer**.
-
-## Download
-Last version: [Google drive](https://drive.google.com/drive/folders/1shwV7oFBP2vQfxZkBCw9KjScDlx-Wueq)
 
 ## Contributing
 
