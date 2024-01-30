@@ -729,6 +729,10 @@ namespace SpacerUnion.Common
             words.Add("buttonMoverResetKeyTo0", new List<string> { "Удалить все (поставить воб на 0 ключ)", "Remove all (set vob on 0 key)", "Alle entfernen (vob auf Taste 0 setzen)", "Usuń wszystko (ustaw voba na 0 klucz)" });
             words.Add("noSelectToolNowFilterMat", new List<string> { "Пока активно окно Фильтра материалов нельзя выключить выделение полигонов!", "You can't turn off polygons select tool while Material filter window is active!", "Du kannst das Polygonauswahlwerkzeug nicht ausschalten, während das Materialfilterfenster aktiv ist!", "Nie możesz wyłączyć narzędzia do zaznaczania poligonów gdy okno filtru materiałów jest aktywne!" });
 
+
+
+            words.Add("TOGGLE_SCREENINFO", new List<string> { "Включить/отключить информацию на экране", "Toggle screen info", "", "" });
+            
         }
         
     }
