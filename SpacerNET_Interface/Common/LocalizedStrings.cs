@@ -731,7 +731,7 @@ namespace SpacerUnion.Common
 
 
 
-            words.Add("TOGGLE_SCREENINFO", new List<string> { "Включить/отключить информацию на экране", "Toggle screen info", "", "" });
+            words.Add("TOGGLE_SCREENINFO", new List<string> { "Включить/отключить информацию на экране", "Toggle screen info", "Bildschirminfo umschalten", "Włącz/wyłącz informacje wyświetlane na ekranie" });
             
         }
         
