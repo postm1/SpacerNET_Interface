@@ -42,8 +42,8 @@ In order to build this project, you'll need to install:
 - **.NET Framework 4.0**  
     Install it via **Visual Studio Installer**.
 
-**Download**
-Last version: [Link](https://drive.google.com/drive/folders/1shwV7oFBP2vQfxZkBCw9KjScDlx-Wueq)
+## Download
+Last version: [Link to google drive](https://drive.google.com/drive/folders/1shwV7oFBP2vQfxZkBCw9KjScDlx-Wueq)
 
 ## Contributing
 
