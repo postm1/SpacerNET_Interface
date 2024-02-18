@@ -162,7 +162,7 @@ namespace SpacerUnion.Common
             words.Add("UNION_SHOW_TRIS", new List<string> { "Кол-во треугольников: ", "Tris amount: ", "Anzahl Tris: ", "Ilość trisów: " });
             words.Add("UNION_CAM_POS", new List<string> { "Позиция камеры: ", "Camera pos: ", "Kameraposition: ", "Pozycja kamery: " });
             words.Add("UNION_VOB_COUNT", new List<string> { "Кол-во вобов: ", "Vobs amount: ", "Anzahl der Vobs: ", "Ilość vobów: " });
-            words.Add("UNION_WP_COUNT", new List<string> { "Кол-во вейпоинтов: ", "Waypoint amount: ", "Anzahl der Wegpunkte: ", "Ilość Waypointów: " });
+            words.Add("UNION_WP_COUNT", new List<string> { "Кол-во вейпоинтов: ", "Waypoint amount: ", "Anzahl der Wegpunkte: ", "Ilość waypointów: " });
             words.Add("UNION_DIST", new List<string> { "Дистанция: ", "Distance: ", "Entfernung: ", "Dystans: " });
             //NEW
             words.Add("WIN_COMPLIGHT_NOWORLD", new List<string> { "Мир не загружен!", "World is not loaded!", "Welt ist nicht geladen!", "Świat nie jest załadowany!" });
@@ -194,9 +194,9 @@ namespace SpacerUnion.Common
             words.Add("WIN_CONTROLSET_ROTSPEED", new List<string> { "Скорость вращения: ", "Rotation speed: ", "Rotationsgeschiwndigkeit: ", "Szybkość rotacji: " });
             words.Add("WIN_CONTROLSET_GROUP0", new List<string> { "Управление вобом", "Vob control", "Vob Kontrolle", "Kontrola Voba" });
             words.Add("WIN_CONTROLSET_GROUP1", new List<string> { "Вставка воба", "Vob insertion", "Vob Einfügung", "Wstawianie Voba" });
-            words.Add("checkBoxInsertVob", new List<string> { "Вставлять воб на той же высоте", "Insert vob on the source height", "Füge Vob in der Höhe der Quelle ein", "Wstaw Voba na wysokości kamery" });
+            words.Add("checkBoxInsertVob", new List<string> { "Вставлять воб на той же высоте", "Insert vob on the source height", "Füge Vob in der Höhe der Quelle ein", "Wstaw voba na wysokości kamery" });
             words.Add("checkBoxVobRotRandAngle", new List<string> { "Поворачивать воб на случайный угол", "Turn vob on a random angle", "Versetze den Vob in einen zufälligen Winkel", "Obróć voba pod dowolnym kątem" });
-            words.Add("checkBoxVobInsertHierarchy", new List<string> { "Учитывать иерархию при копировании", "Use hierarchy when copying", "Nutze die Hierachie beim Kopieren", "Użyj hierarchi podczas kopiowania" });
+            words.Add("checkBoxVobInsertHierarchy", new List<string> { "Учитывать иерархию при копировании", "Use hierarchy when copying", "Nutze die Hierachie beim Kopieren", "Użyj hierarchii podczas kopiowania" });
             words.Add("labelRotWpFP", new List<string> { "Разворачивать WP/FP при вставке", "Turn WP/FP when inserting", "WP/FP beim Einfügen drehen", "Obróć WP/FP podczas dodawania" });
             words.Add("radioButtonWPTurnNone", new List<string> { "Нет", "None ", "Keine ", "Brak" });
             words.Add("radioButtonWPTurnAgainst", new List<string> { "От камеры", "From the camera", "Von der Kamera aus", "Z kamery" });
@@ -214,7 +214,7 @@ namespace SpacerUnion.Common
             words.Add("checkBoxTris", new List<string> { "Показывать кол-во рисуемых треугольников", "Show rendered triangles", "Zeige Anzahl gerenderter Tris.", "Pokaż ilość renderowanych trójkątów" });
             
             words.Add("checkBoxVobs", new List<string> { "Показывать кол-во вобов", "Show vobs count", "Zeige die Vobs Anzahl", "Pokaż ilość vobów" });
-            words.Add("checkBoxWaypoints", new List<string> { "Показывать кол-во вейпоинтов", "Show waypoints count", "Zeige die Wegpunktanzahl", "Pokaż ilość Waypointów" });
+            words.Add("checkBoxWaypoints", new List<string> { "Показывать кол-во вейпоинтов", "Show waypoints count", "Zeige die Wegpunktanzahl", "Pokaż ilość waypointów" });
             words.Add("checkBoxDistVob", new List<string> { "Показывать расстояние до выбранного воба", "Show distance to selected vob", "Zeige die Distanz zum ausgewählen Vob", "Pokaż dystans do zaznaczonego voba" });
             words.Add("checkBoxCameraHideWins", new List<string> { "Скрывать окна при полете камеры", "Hide windows when moving camera", "Verstecke die Menüs während der Kamerabewegung", "Ukryj okna podczas poruszania kamerą" });
             words.Add("WIN_KEYSBIND_TEXT", new List<string> { "Сочетания клавиш", "Keys binding", "Tasteneinstellungen", "Przypisanie klawiszy" });
@@ -599,7 +599,7 @@ namespace SpacerUnion.Common
             words.Add("FORM_COMMON_DELETE", new List<string> { "Удалить", "Delete", "Löschen", "Usuń" });
             words.Add("FORM_CAMERA_INSERT_KEY_HERE", new List<string> { "Вставить новый ключ сюда", "Insert a new key here", "", "Wstaw nową klatkę" });
             words.Add("TOOL_BBOX_CHANGE", new List<string> { "Режим 'Изменение Bbox'", "Bbox change mode", "Bbox Änderungs-Modus", "Tryb zmiany BBoxa" });
-            words.Add("TOOL_BBOX_CHANGE_LEAVE", new List<string> { "Выход из режима 'Изменение Bbox'", "Bbox Änderungs-Modus verlassen", "", "Opuszczenie trybu zmiany Bboxa" });
+            words.Add("TOOL_BBOX_CHANGE_LEAVE", new List<string> { "Выход из режима 'Изменение Bbox'", "Exit from bbox editing", "Bbox Änderungs-Modus verlassen", "Opuszczenie trybu zmiany Bboxa" });
 
             words.Add("TOOL_BBOX_MAXS", new List<string> { "Изменение bbox maxs", "Changing bbox maxs", "Bbox max ändern", "Zmiana maks. bbox" });
             words.Add("TOOL_BBOX_MINS", new List<string> { "Изменение bbox mins", "Changing bbox mins", "Bbox min ändern", "Zmiana min. bbox" });
@@ -732,7 +732,7 @@ namespace SpacerUnion.Common
 
 
             words.Add("TOGGLE_SCREENINFO", new List<string> { "Включить/отключить информацию на экране", "Toggle screen info", "Bildschirminfo umschalten", "Włącz/wyłącz informacje wyświetlane na ekranie" });
-            
+            words.Add("RESTART_REQUIRED", new List<string> { "*требуется перезапуск", "*restart required", "*Neustart erforderlich", "*wymagany restart" });
         }
         
     }

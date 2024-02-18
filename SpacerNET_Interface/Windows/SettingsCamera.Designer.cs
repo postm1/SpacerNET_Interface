@@ -60,6 +60,7 @@
             this.checkBoxCamCoord = new System.Windows.Forms.CheckBox();
             this.checkBoxTris = new System.Windows.Forms.CheckBox();
             this.checkBoxFPS = new System.Windows.Forms.CheckBox();
+            this.labelRestartRequired = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRotSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobs)).BeginInit();
@@ -263,6 +264,7 @@
             // 
             // groupBoxInfo
             // 
+            this.groupBoxInfo.Controls.Add(this.labelRestartRequired);
             this.groupBoxInfo.Controls.Add(this.checkBoxCamShowPortalsInfo);
             this.groupBoxInfo.Controls.Add(this.groupBox1);
             this.groupBoxInfo.Controls.Add(this.labelLimitFPS);
@@ -417,6 +419,15 @@
             this.checkBoxFPS.UseVisualStyleBackColor = true;
             this.checkBoxFPS.CheckedChanged += new System.EventHandler(this.checkBoxFPS_CheckedChanged);
             // 
+            // labelRestartRequired
+            // 
+            this.labelRestartRequired.AutoSize = true;
+            this.labelRestartRequired.Location = new System.Drawing.Point(137, 183);
+            this.labelRestartRequired.Name = "labelRestartRequired";
+            this.labelRestartRequired.Size = new System.Drawing.Size(81, 13);
+            this.labelRestartRequired.TabIndex = 12;
+            this.labelRestartRequired.Text = "*restart required";
+            // 
             // SettingsCamera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -489,5 +500,6 @@
         public System.Windows.Forms.TrackBar trackBarSpeedPreview;
         private System.Windows.Forms.Label labelSpeedPreview;
         public System.Windows.Forms.CheckBox checkBoxCamShowPortalsInfo;
+        private System.Windows.Forms.Label labelRestartRequired;
     }
 }
