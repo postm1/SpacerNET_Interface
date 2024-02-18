@@ -460,6 +460,7 @@ namespace SpacerUnion.Common
 
                 SpacerNET.form.ResetInterface();
 
+
                 Imports.Extern_RunMacrosCmd();
 
 
@@ -471,6 +472,8 @@ namespace SpacerUnion.Common
                 SpacerNET.form.saveZenToolStripMenuItem.Enabled = true;
                 SpacerNET.form.toolStripMenuExtractMesh.Enabled = true;
 
+               
+
 
                 SpacerNET.form.compileWorldToolStrip.Enabled = SpacerNET.form.IsWorldCanBeCompiled();
 
@@ -479,7 +482,10 @@ namespace SpacerUnion.Common
                 SpacerNET.form.stripSpecialFunctions.Enabled = true;
                 SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
 
+   
                 isMacrosRun = false;
+
+                Application.DoEvents();
             }
         }
 

@@ -2136,5 +2136,15 @@ namespace SpacerUnion
         {
 
         }
+
+        [DllExport]
+        public static void UpdateSpacerTitle()
+        {
+            string name = Imports.Stack_PeekString();
+
+            SpacerNET.form.UpdateSpacerCaption(name);
+        }
+
+
     }
 }

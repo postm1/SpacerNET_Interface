@@ -915,7 +915,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.ToolStripMenuItem cameraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuOpenMESH;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
@@ -986,5 +985,6 @@
         private System.Windows.Forms.ToolStripMenuItem preset2ToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextTimeSet;
         public System.Windows.Forms.ToolStripButton toolStripButtonMaterial;
+        public System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }

@@ -541,7 +541,7 @@ namespace SpacerUnion.Common
             words.Add("buttonMacrosRenameCurrent", new List<string> { "Переименовать", "Rename", "Umbenennen", "Zmień nazwę" });
             words.Add("buttonMacrosRemoveCurrent", new List<string> { "Удалить", "Delete", "Löschen", "Usuń" });
             words.Add("buttonMacrosReloadFromFile", new List<string> { "Перезагрузить всё из файла", "Reload all from the file", "Alles aus der Datei neu laden", "Załaduj ponownie wszystko z pliku" });
-            words.Add("buttonMacrosSaveAll", new List<string> { "Сохранить всё в файла", "Save all to the file", "Alles in die Datei speichern", "Zapisz wszystko do pliku" });
+            words.Add("buttonMacrosSaveAll", new List<string> { "Сохранить всё в файл", "Save all to the file", "Alles in die Datei speichern", "Zapisz wszystko do pliku" });
             words.Add("buttonMacrosRun", new List<string> { "Выполнить", "Run", "Ausführen", "Uruchom" });
             words.Add("buttonMacrosParse", new List<string> { "Парсить и сохранить текущий текст", "Parse and save current text", "Parse und speichere aktuellen Text", "Parsuj i zapisz aktualny tekst" });
             words.Add("groupBoxMacrosButtons", new List<string> { "Действия", "Actions", "Aktionen", "Akcje" });
