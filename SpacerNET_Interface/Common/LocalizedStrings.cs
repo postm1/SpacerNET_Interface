@@ -738,6 +738,14 @@ namespace SpacerUnion.Common
             words.Add("MOD_CAMERA_SYNC_ON", new List<string> { "Включен режим синхронизации камеры с вобом", "Camera sync mod is ON", "Kamera Sync Mod ist AN", "Tryb synchronizacji kamery jest WŁĄCZONY" });
             words.Add("MOD_CAMERA_SYNC_OFF", new List<string> { "Отключен режим синхронизации камеры с вобом", "Camera sync mod is OFF", "Kamera Sync Mod ist AUS", "Tryb synchronizacji kamery jest WYŁĄCZONY" });
             words.Add("KEYS_MOD_CAMERA_SYNC", new List<string> { "Режим синхронизации камеры с вобом", "Camera sync mod with selected vob", "Kamera Sync Mod mit ausgewähltem vob", "Tryb synchronizacji kamery z wybranym vobem" });
+
+            words.Add("CONTEXTMENU_SAVE_VISUAL_TO_FILE", new List<string> { "Сохранить визуал для импорта в 3DMAX/Blender", "Save visual for importing in 3DMAX/Blender", "Visuelles zum Importieren in 3DMAX/Blender speichern", "" });
+            words.Add("CONTEXTMENU_SAVE_VISUAL_TO_FILE_CHILDREN", new List<string> { "Включая дочерние вобы", "Including children vobs", "Einschließlich Innere VOBs", "" });
+            words.Add("CONTEXTMENU_SAVE_VISUAL_TO_FILE_ONLY_PARENT", new List<string> { "Только родительский воб", "Only parent vob", "Nur Haupt VOBs", "" });
+
+
+            words.Add("VOB_VISUAL_SAVE_SUCCESS", new List<string> { "Успешно сохранено!", "Saved successfully!", "Erfolgreich gespeichert!", "" });
+            words.Add("VOB_VISUAL_SAVE_FAIL", new List<string> { "Не удалось сохранить!", "Fail to save file!", "Datei konnte nicht gespeichert werden!", "" });
         }
         
     }

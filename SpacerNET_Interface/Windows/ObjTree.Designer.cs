@@ -57,6 +57,10 @@
             this.contextMenuQuick = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripClearGlobalPar = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuRemoveQuickVob = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.SaveVisualTofileCommon = new System.Windows.Forms.ToolStripMenuItem();
+            this.onlyParentVobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allChildrenVobsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripTree.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.tabControlObjectList.SuspendLayout();
@@ -99,9 +103,11 @@
             this.AddQuickVobToolStripMenuItem,
             this.toolStripSeparator2,
             this.toolStripMenuRestorePos,
-            this.tempInvisibleToolStrip});
+            this.tempInvisibleToolStrip,
+            this.toolStripSeparator3,
+            this.SaveVisualTofileCommon});
             this.contextMenuStripTree.Name = "contextMenuStrip1";
-            this.contextMenuStripTree.Size = new System.Drawing.Size(283, 214);
+            this.contextMenuStripTree.Size = new System.Drawing.Size(283, 264);
             this.contextMenuStripTree.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripTree_Opening);
             // 
             // toolStripMenuItem2
@@ -311,6 +317,34 @@
             this.toolStripMenuRemoveQuickVob.Text = "Удалить воб из быстрого доступа";
             this.toolStripMenuRemoveQuickVob.Click += new System.EventHandler(this.toolStripMenuRemoveQuickVob_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(279, 6);
+            // 
+            // SaveVisualTofileCommon
+            // 
+            this.SaveVisualTofileCommon.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.onlyParentVobToolStripMenuItem,
+            this.allChildrenVobsToolStripMenuItem});
+            this.SaveVisualTofileCommon.Name = "SaveVisualTofileCommon";
+            this.SaveVisualTofileCommon.Size = new System.Drawing.Size(282, 22);
+            this.SaveVisualTofileCommon.Text = "Save visual as MSH for Blender/3DMAX";
+            // 
+            // onlyParentVobToolStripMenuItem
+            // 
+            this.onlyParentVobToolStripMenuItem.Name = "onlyParentVobToolStripMenuItem";
+            this.onlyParentVobToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.onlyParentVobToolStripMenuItem.Text = "Only parent vob";
+            this.onlyParentVobToolStripMenuItem.Click += new System.EventHandler(this.onlyParentVobToolStripMenuItem_Click);
+            // 
+            // allChildrenVobsToolStripMenuItem
+            // 
+            this.allChildrenVobsToolStripMenuItem.Name = "allChildrenVobsToolStripMenuItem";
+            this.allChildrenVobsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.allChildrenVobsToolStripMenuItem.Text = "All children vobs";
+            this.allChildrenVobsToolStripMenuItem.Click += new System.EventHandler(this.allChildrenVobsToolStripMenuItem_Click);
+            // 
             // ObjTree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,5 +403,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuRestorePos;
         private System.Windows.Forms.ToolStripMenuItem tempInvisibleToolStrip;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem SaveVisualTofileCommon;
+        private System.Windows.Forms.ToolStripMenuItem onlyParentVobToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem allChildrenVobsToolStripMenuItem;
     }
 }

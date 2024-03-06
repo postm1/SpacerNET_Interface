@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
@@ -56,6 +57,13 @@ namespace SpacerUnion
             //---------------------------------
             contextMenuStripTree.Items[9].Text = Localizator.Get("CONTEXTMENU_TREE_RESTORE_POS");
             contextMenuStripTree.Items[10].Text = Localizator.Get("CONTEXTMENU_TREE_REPLACE_FROM_PARENT");
+
+
+            contextMenuStripTree.Items[12].Text = Localizator.Get("CONTEXTMENU_SAVE_VISUAL_TO_FILE");
+            allChildrenVobsToolStripMenuItem.Text = Localizator.Get("CONTEXTMENU_SAVE_VISUAL_TO_FILE_CHILDREN");
+            onlyParentVobToolStripMenuItem.Text = Localizator.Get("CONTEXTMENU_SAVE_VISUAL_TO_FILE_ONLY_PARENT");
+
+
 
             tabControlObjectList.TabPages[0].Text = Localizator.Get("TAB_PAGE_OBJECTS");
             tabControlObjectList.TabPages[1].Text = Localizator.Get("QUICKVOBS_ACCESS");
@@ -1790,6 +1798,100 @@ namespace SpacerUnion
                     
                 break;
             }
+        }
+
+        public void SaveVisualDialog(bool includeChildren)
+        {
+            if (globalTree.SelectedNode == null)
+            {
+                return;
+            }
+
+            TreeNode node = globalTree.SelectedNode;
+
+            string tag = node.Tag.ToString();
+
+            if (tag.Length == 0 || tag == Constants.TAG_FOLDER)
+            {
+                return;
+            }
+
+
+            uint vob = 0;
+
+
+            uint.TryParse(tag, out vob);
+
+            if (vob == 0)
+            {
+                return;
+            }
+
+
+            saveFileDialogVobTree.Filter = Constants.FILE_FILTER_SAVE_ONLY_MESH;
+
+            Imports.Stack_PushString("savedVobsVisualPath");
+            Imports.Extern_GetSettingStr();
+            string path = Imports.Stack_PeekString();
+
+            string fileName = SpacerNET.objTreeWin.globalTree.SelectedNode.Text;
+
+            fileName = fileName.Replace(" (zCVob)", "");
+            fileName = fileName.Replace(".3DS", "");
+
+            if (fileName.Length == 0)
+            {
+                fileName = "VOBNAME";
+            }
+
+            if (path.Length == 0)
+            {
+
+                path = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "..\\_work\\data\\meshes\\_compiled"));
+
+                ConsoleEx.WriteLineRed(path);
+            }
+
+
+            saveFileDialogVobTree.InitialDirectory = Utils.GetInitialDirectory(path);
+
+
+            saveFileDialogVobTree.RestoreDirectory = true;
+            saveFileDialogVobTree.FileName = fileName + ".MSH";
+
+            //Imports.Extern_BlockMouse(true);
+
+            if (saveFileDialogVobTree.ShowDialog() == DialogResult.OK)
+            {
+
+
+
+                Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(saveFileDialogVobTree.FileName))));
+                Imports.Stack_PushString("savedVobsVisualPath");
+                Imports.Extern_SetSettingStr();
+
+
+
+
+                FileInfo fi = new FileInfo(saveFileDialogVobTree.FileName);
+                string filePath = fi.Name;
+
+                Imports.Stack_PushString(filePath);
+
+                Imports.Extern_SaveVobsVisualToFile(vob, includeChildren);
+            }
+        }
+        private void allChildrenVobsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            SaveVisualDialog(true);
+
+
+        }
+
+        private void onlyParentVobToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveVisualDialog(false);
         }
     }
 }
