@@ -442,7 +442,10 @@ namespace SpacerUnion.Windows
             row = new string[] { "VOB_ADD_FAV", Localizator.Get("KEYS_VOB_FAV_ADD"), "" };
             dataGridKeys.Rows.Add(row);
 
+            row = new string[] { "CAMERA_SYNC_VOB_MOD", Localizator.Get("KEYS_MOD_CAMERA_SYNC"), "" };
+            dataGridKeys.Rows.Add(row);
             
+
 
             row = new string[] { "VOB_TRANSLATE", Localizator.Get("VOB_TRANSLATE"), "" };
             dataGridKeys.Rows.Add(row);

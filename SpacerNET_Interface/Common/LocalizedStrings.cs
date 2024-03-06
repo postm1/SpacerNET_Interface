@@ -732,7 +732,12 @@ namespace SpacerUnion.Common
 
 
             words.Add("TOGGLE_SCREENINFO", new List<string> { "Включить/отключить информацию на экране", "Toggle screen info", "Bildschirminfo umschalten", "Włącz/wyłącz informacje wyświetlane na ekranie" });
-            words.Add("RESTART_REQUIRED", new List<string> { "*требуется перезапуск", "*restart required", "*Neustart erforderlich", "*wymagany restart" });
+            words.Add("RESTART_REQUIRED", new List<string> { "*требуется перезапуск", "*restart required", "*Neustart erforderlich", "*Wymagany restart" });
+
+
+            words.Add("MOD_CAMERA_SYNC_ON", new List<string> { "Включен режим синхронизации камеры с вобом", "Camera sync mod is ON", "Kamera Sync Mod ist AN", "Tryb synchronizacji kamery jest WŁĄCZONY" });
+            words.Add("MOD_CAMERA_SYNC_OFF", new List<string> { "Отключен режим синхронизации камеры с вобом", "Camera sync mod is OFF", "Kamera Sync Mod ist AUS", "Tryb synchronizacji kamery jest WYŁĄCZONY" });
+            words.Add("KEYS_MOD_CAMERA_SYNC", new List<string> { "Режим синхронизации камеры с вобом", "Camera sync mod with selected vob", "Kamera Sync Mod mit ausgewähltem vob", "Tryb synchronizacji kamery z wybranym vobem" });
         }
         
     }
