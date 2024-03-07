@@ -432,6 +432,10 @@ namespace SpacerUnion.Windows
             row = new string[] { "VOB_RESET_AXIS", Localizator.Get("VOB_RESET_AXIS"), "" };
             dataGridKeys.Rows.Add(row);
 
+            row = new string[] { "ROT_MOD_CHANGE", Localizator.Get("ROT_MOD_CHANGE"), "" };
+            dataGridKeys.Rows.Add(row);
+            
+
             row = new string[] { "VOB_DELETE", Localizator.Get("VOB_DELETE"), "" };
             dataGridKeys.Rows.Add(row);
 
@@ -445,6 +449,7 @@ namespace SpacerUnion.Windows
             row = new string[] { "CAMERA_SYNC_VOB_MOD", Localizator.Get("KEYS_MOD_CAMERA_SYNC"), "" };
             dataGridKeys.Rows.Add(row);
             
+
 
 
             row = new string[] { "VOB_TRANSLATE", Localizator.Get("VOB_TRANSLATE"), "" };
