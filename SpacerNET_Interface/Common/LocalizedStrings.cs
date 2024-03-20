@@ -747,6 +747,8 @@ namespace SpacerUnion.Common
             words.Add("VOB_VISUAL_SAVE_SUCCESS", new List<string> { "Успешно сохранено!", "Saved successfully!", "Erfolgreich gespeichert!", "Zapisano pomyślnie!" });
             words.Add("VOB_VISUAL_SAVE_FAIL", new List<string> { "Не удалось сохранить!", "Fail to save file!", "Datei konnte nicht gespeichert werden!", "Nie udało się zapisać pliku!" });
             words.Add("ROT_MOD_CHANGE", new List<string> { "Сменить режим вращения воба (WORLD/LOCAL/CAMERA)", "Change rotation mod (WORLD/LOCAL/CAMERA)", "Rotationsmodus ändern (WORLD/LOCAL/CAMERA)", "Zmiana trybu rotacji (WORLD/LOCAL/CAMERA)" });
+
+            words.Add("ACTION_FORBIDDEN", new List<string> { "Недопустимое действие!", "This action is forbidden!", "Diese Aktion ist verboten!", "To działanie jest zakazane!" });
         }
         
     }
