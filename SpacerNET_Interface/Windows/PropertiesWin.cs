@@ -739,7 +739,7 @@ namespace SpacerUnion
 
             if (isItemSelected)
             {
-                return;
+                //return;
             }
 
 
@@ -892,6 +892,16 @@ namespace SpacerUnion
             DisableTabBBox();
 
         }
+
+        public bool IsItemFieldAllowed(string name)
+        {
+            if (name == "trafoOSToWSPos" || name == "trafoOSToWSRot")
+            {
+                return true;
+            }
+
+            return false;
+        }
         private void treeViewProp_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
@@ -931,12 +941,20 @@ namespace SpacerUnion
                         return;
                     }
 
+                    if (isItemSelected)
+                    {
+                        if (!IsItemFieldAllowed(prop.Name))
+                        {
+                            return;
+                        }
+                    }
+
                     if (prop.type == TPropEditType.PETstring || prop.type == TPropEditType.PETraw || prop.type == TPropEditType.PETint || prop.type == TPropEditType.PETfloat)
                     {
                         textBoxString.Visible = true;
                         textBoxString.Text = prop.value;
 
-                        if (prop.type == TPropEditType.PETstring || prop.type == TPropEditType.PETraw)
+                        if ((prop.type == TPropEditType.PETstring || prop.type == TPropEditType.PETraw) && prop.Name != "trafoOSToWSRot")
                         {
                             textBoxString.Width = 298;
                             buttonFileOpen.Enabled = true;
@@ -996,7 +1014,7 @@ namespace SpacerUnion
 
                     if (isItemSelected)
                     {
-                        return;
+                        //return;
                     }
 
                     Label_Backup.Visible = true;
@@ -1046,7 +1064,7 @@ namespace SpacerUnion
 
             if (isItemSelected)
             {
-                return;
+                //return;
             }
 
 
@@ -1118,7 +1136,7 @@ namespace SpacerUnion
         {
             if (isItemSelected)
             {
-                return;
+                //return;
             }
 
             TreeNode node = treeViewProp.SelectedNode;
@@ -1179,7 +1197,7 @@ namespace SpacerUnion
 
             if (isItemSelected)
             {
-                return;
+                //return;
             }
 
             if (node != null && node.Tag.ToString() != Constants.TAG_FOLDER)
