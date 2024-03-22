@@ -921,10 +921,7 @@ namespace SpacerUnion
                     HideAllInput();
 
 
-                    if (classNameGlobal == "zCVobLight")
-                    {
-                        SpacerNET.propWin.colorPanel.Visible = true;
-                    }
+                   
 
 
                     CProperty prop = props[index];
@@ -934,7 +931,16 @@ namespace SpacerUnion
                         lastSelectedNodeName = prop.Name;
                        // ConsoleEx.WriteLineRed("lastSelectedNodeName set: " + prop.Name + " index: " + index);
                     }
-                    
+
+
+                    if (classNameGlobal == "zCVobLight")
+                    {
+                        if (prop.Name != "trafoOSToWSPos" && prop.Name != "trafoOSToWSRot" && prop.Name != "bbox3DWS")
+                        {
+                            SpacerNET.propWin.colorPanel.Visible = true;
+                        }
+
+                    }
 
                     if (prop.Name == "itemInstance")
                     {
