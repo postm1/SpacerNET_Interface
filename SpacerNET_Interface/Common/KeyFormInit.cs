@@ -448,8 +448,9 @@ namespace SpacerUnion.Windows
 
             row = new string[] { "CAMERA_SYNC_VOB_MOD", Localizator.Get("KEYS_MOD_CAMERA_SYNC"), "" };
             dataGridKeys.Rows.Add(row);
-            
 
+            row = new string[] { "FAST_FILTER_IGNOREPFX", Localizator.Get("KEYS_FAST_FILTER_IGNOREPFX"), "" };
+            dataGridKeys.Rows.Add(row);
 
 
             row = new string[] { "VOB_TRANSLATE", Localizator.Get("VOB_TRANSLATE"), "" };

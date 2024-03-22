@@ -749,6 +749,12 @@ namespace SpacerUnion.Common
             words.Add("ROT_MOD_CHANGE", new List<string> { "Сменить режим вращения воба (WORLD/LOCAL/CAMERA)", "Change rotation mod (WORLD/LOCAL/CAMERA)", "Rotationsmodus ändern (WORLD/LOCAL/CAMERA)", "Zmiana trybu rotacji (WORLD/LOCAL/CAMERA)" });
 
             words.Add("ACTION_FORBIDDEN", new List<string> { "Недопустимое действие!", "This action is forbidden!", "Diese Aktion ist verboten!", "To działanie jest zakazane!" });
+
+            words.Add("SET_SELECT_FILTER_PFX", new List<string> { "Установлен фильтр выделения: Игнорировать PFX", "Selection filter set: Ignore PFX", "", "Wybrany filtr zaznaczania: Ignoruj PFX" });
+            words.Add("SET_SELECT_FILTER_NONE", new List<string> { "Установлен фильтр выделения: Нет", "Selection filter set: NONE", "", "Wybrany filtr zaznaczania: NONE" });
+            words.Add("VOB_FILTER_IGNORE_PFX", new List<string> { "Игнорировать PFX", "Ignore PFX", "", "Ignoruj PFX" });
+            words.Add("KEYS_FAST_FILTER_IGNOREPFX", new List<string> { "Выбрать фильтр выделения вобов: Игнорировать PFX", "Choose vob filter selection mod: Ignore PFX", "", "Wybierz filtr zaznaczania vobów: Ignoruj PFX" });
+
         }
         
     }

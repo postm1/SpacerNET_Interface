@@ -41,6 +41,11 @@ namespace SpacerUnion
 
             comboBoxVobList.Items[0] = Localizator.Get("VOBLIST_TYPE_ANY");
             comboBoxVobList.Items[10] = Localizator.Get("VOB_FILTER_SHOW_ONLY_INVISIBLE");
+
+
+            
+            comboBoxFilterPick.Items[0] = Localizator.Get("radioButtonWPTurnNone");
+            comboBoxFilterPick.Items[10] = Localizator.Get("VOB_FILTER_IGNORE_PFX");
             comboBoxFilterPick.Items[11] = Localizator.Get("VOB_FILTER_SHOW_ONLY_INVISIBLE");
         }
 
@@ -202,6 +207,32 @@ namespace SpacerUnion
             int index = ch.SelectedIndex;
 
             Imports.Extern_SetVobPickFilter(index);
+
+        }
+
+        [DllExport]
+        public static void SetSelectioFilterByIndex(int index)
+        {
+            if (index >= 0 && index < SpacerNET.vobList.comboBoxFilterPick.Items.Count)
+            {
+                switch (index)
+                {
+                    case 0:
+                    {
+                        Imports.Stack_PushString(Localizator.Get("SET_SELECT_FILTER_NONE"));
+                        Imports.Extern_PrintRed();
+                        break;
+                    }
+                    case 10:
+                        {
+                            Imports.Stack_PushString(Localizator.Get("SET_SELECT_FILTER_PFX"));
+                            Imports.Extern_PrintRed();
+                            break;
+                        }
+                }
+                SpacerNET.vobList.comboBoxFilterPick.SelectedIndex = index;
+
+            }
 
         }
     }
