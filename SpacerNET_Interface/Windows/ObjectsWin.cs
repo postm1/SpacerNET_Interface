@@ -4260,6 +4260,10 @@ namespace SpacerUnion
             if (index == -1)
                 return;
 
+            int color = ((Color)listBoxLightPresetColors.Items[index]).ToArgb();
+
+            colorDialogLightPresetColor.Color = Color.FromArgb(color);
+
             if (colorDialogLightPresetColor.ShowDialog() != DialogResult.OK)
                 return;
 
