@@ -751,7 +751,7 @@ namespace SpacerUnion.Common
             words.Add("ACTION_FORBIDDEN", new List<string> { "Недопустимое действие!", "This action is forbidden!", "Diese Aktion ist verboten!", "To działanie jest zakazane!" });
 
             words.Add("SET_SELECT_FILTER_PFX", new List<string> { "Установлен фильтр выделения: Игнорировать PFX", "Selection filter set: Ignore PFX", "Filter Auswahl: PFX Ignorieren", "Ustawiony filtr wyboru: Ignoruj PFX" });
-            words.Add("SET_SELECT_FILTER_NONE", new List<string> { "Установлен фильтр выделения: Нет", "Selection filter set: NONE", "Filter Auswahl: NICHTS", "Ustawiony filtr wyboru: BRAK" });
+            words.Add("SET_SELECT_FILTER_NONE", new List<string> { "Установлен фильтр выделения: Нет", "Selection filter set: NONE", "Filter Auswahl: KEINE", "Ustawiony filtr wyboru: BRAK" });
             words.Add("VOB_FILTER_IGNORE_PFX", new List<string> { "Игнорировать PFX", "Ignore PFX", "PFX Ignorieren", "Ignoruj PFX" });
             words.Add("KEYS_FAST_FILTER_IGNOREPFX", new List<string> { "Выбрать фильтр выделения вобов: Игнорировать PFX", "Choose vob filter selection mod: Ignore PFX", "Wähle Vob-Filter Selektierungs-Modus: PFX Ignorieren", "Wybór trybu filtrowania voba: Ignoruj ​​PFX" });
 
