@@ -27,8 +27,8 @@ namespace SpacerUnion.Windows
             checkBoxMiscFullPath.Text = Localizator.Get("checkBoxMiscFullPath");
             checkBoxMiscAutoCompile.Text = Localizator.Get("checkBoxMiscAutoCompile");
             checkBoxAutoCompileUncompiled.Text = Localizator.Get("checkBoxMiscAutoCompileUncZen");
-            autoRemoveLevelCompo.Text = Localizator.Get("autoRemoveLevelCompo");
             checkBoxAutoRemoveAllVisuals.Text = Localizator.Get("checkBoxAutoRemoveAllVisuals");
+            checkBoxMiscRemoveAllLevelCompos.Text = Localizator.Get("checkBoxMiscRemoveAllLevelCompos");
             checkBoxSetNearestVobCam.Text = Localizator.Get("checkBoxSetNearestVobCam");
             checkBoxShowPolysSort.Text = Localizator.Get("checkBoxShowPolysSort");
             checkBoxOnlyLatinInInput.Text = Localizator.Get("checkBoxOnlyLatinInInput");
@@ -40,7 +40,7 @@ namespace SpacerUnion.Windows
         public void LoadSettings()
         {
            
-            Imports.Stack_PushString("autoRemoveLevelCompo");
+            Imports.Stack_PushString("removeAllLevelCompos");
             Imports.Stack_PushString("autoCompileWorldLightForUnc");
             Imports.Stack_PushString("autoCompileWorldLight");
             Imports.Stack_PushString("fullPathTitle");
@@ -55,7 +55,7 @@ namespace SpacerUnion.Windows
             int fullPath = Imports.Extern_GetSetting();
             int autoCompile = Imports.Extern_GetSetting();
             int autoCompileUnc = Imports.Extern_GetSetting();
-            int autoRemoveCompo = Imports.Extern_GetSetting();
+            int removeAllLevelCompos = Imports.Extern_GetSetting();
 
             SpacerNET.miscSetWin.checkBoxSetDatePrefix.Checked = Convert.ToBoolean(useDatePrefix);
             SpacerNET.miscSetWin.checkBoxMiscExitAsk.Checked = Convert.ToBoolean(askExitZen);
@@ -63,7 +63,7 @@ namespace SpacerUnion.Windows
             SpacerNET.miscSetWin.checkBoxMiscFullPath.Checked = Convert.ToBoolean(fullPath);
             SpacerNET.miscSetWin.checkBoxMiscAutoCompile.Checked = Convert.ToBoolean(autoCompile);
             SpacerNET.miscSetWin.checkBoxAutoCompileUncompiled.Checked = Convert.ToBoolean(autoCompileUnc);
-            SpacerNET.miscSetWin.autoRemoveLevelCompo.Checked = Convert.ToBoolean(autoRemoveCompo);
+            SpacerNET.miscSetWin.checkBoxMiscRemoveAllLevelCompos.Checked = Convert.ToBoolean(removeAllLevelCompos);
 
 
 
@@ -84,7 +84,7 @@ namespace SpacerUnion.Windows
 
         public void OnApplySettings()
         {
-            Imports.Stack_PushString("autoRemoveLevelCompo");
+            Imports.Stack_PushString("removeAllLevelCompos");
             Imports.Stack_PushString("autoCompileWorldLightForUnc");
             Imports.Stack_PushString("autoCompileWorldLight");
             Imports.Stack_PushString("fullPathTitle");
@@ -98,7 +98,7 @@ namespace SpacerUnion.Windows
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxMiscFullPath.Checked));
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxMiscAutoCompile.Checked));
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxAutoCompileUncompiled.Checked));
-            Imports.Extern_SetSetting(Convert.ToInt32(autoRemoveLevelCompo.Checked));
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxMiscRemoveAllLevelCompos.Checked));
 
 
       
