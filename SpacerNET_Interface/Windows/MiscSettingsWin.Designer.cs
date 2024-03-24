@@ -30,11 +30,11 @@
         {
             this.checkBoxSetDatePrefix = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxMiscRemoveAllLevelCompos = new System.Windows.Forms.CheckBox();
             this.checkBoxOnlyLatinInInput = new System.Windows.Forms.CheckBox();
             this.checkBoxShowPolysSort = new System.Windows.Forms.CheckBox();
             this.checkBoxSetNearestVobCam = new System.Windows.Forms.CheckBox();
             this.checkBoxAutoRemoveAllVisuals = new System.Windows.Forms.CheckBox();
-            this.autoRemoveLevelCompo = new System.Windows.Forms.CheckBox();
             this.checkBoxAutoCompileUncompiled = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscAutoCompile = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscFullPath = new System.Windows.Forms.CheckBox();
@@ -56,11 +56,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxMiscRemoveAllLevelCompos);
             this.groupBox1.Controls.Add(this.checkBoxOnlyLatinInInput);
             this.groupBox1.Controls.Add(this.checkBoxShowPolysSort);
             this.groupBox1.Controls.Add(this.checkBoxSetNearestVobCam);
             this.groupBox1.Controls.Add(this.checkBoxAutoRemoveAllVisuals);
-            this.groupBox1.Controls.Add(this.autoRemoveLevelCompo);
             this.groupBox1.Controls.Add(this.checkBoxAutoCompileUncompiled);
             this.groupBox1.Controls.Add(this.checkBoxMiscAutoCompile);
             this.groupBox1.Controls.Add(this.checkBoxMiscFullPath);
@@ -73,12 +73,22 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
+            // checkBoxMiscRemoveAllLevelCompos
+            // 
+            this.checkBoxMiscRemoveAllLevelCompos.AutoSize = true;
+            this.checkBoxMiscRemoveAllLevelCompos.Location = new System.Drawing.Point(13, 214);
+            this.checkBoxMiscRemoveAllLevelCompos.Name = "checkBoxMiscRemoveAllLevelCompos";
+            this.checkBoxMiscRemoveAllLevelCompos.Size = new System.Drawing.Size(261, 17);
+            this.checkBoxMiscRemoveAllLevelCompos.TabIndex = 12;
+            this.checkBoxMiscRemoveAllLevelCompos.Text = "Remove all zCVobLevelCompo while loading ZEN";
+            this.checkBoxMiscRemoveAllLevelCompos.UseVisualStyleBackColor = true;
+            // 
             // checkBoxOnlyLatinInInput
             // 
             this.checkBoxOnlyLatinInInput.AutoSize = true;
             this.checkBoxOnlyLatinInInput.Checked = true;
             this.checkBoxOnlyLatinInInput.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxOnlyLatinInInput.Location = new System.Drawing.Point(13, 239);
+            this.checkBoxOnlyLatinInInput.Location = new System.Drawing.Point(13, 279);
             this.checkBoxOnlyLatinInInput.Name = "checkBoxOnlyLatinInInput";
             this.checkBoxOnlyLatinInInput.Size = new System.Drawing.Size(213, 17);
             this.checkBoxOnlyLatinInInput.TabIndex = 11;
@@ -88,7 +98,7 @@
             // checkBoxShowPolysSort
             // 
             this.checkBoxShowPolysSort.AutoSize = true;
-            this.checkBoxShowPolysSort.Location = new System.Drawing.Point(13, 196);
+            this.checkBoxShowPolysSort.Location = new System.Drawing.Point(13, 237);
             this.checkBoxShowPolysSort.Name = "checkBoxShowPolysSort";
             this.checkBoxShowPolysSort.Size = new System.Drawing.Size(389, 17);
             this.checkBoxShowPolysSort.TabIndex = 10;
@@ -109,28 +119,17 @@
             // checkBoxAutoRemoveAllVisuals
             // 
             this.checkBoxAutoRemoveAllVisuals.AutoSize = true;
-            this.checkBoxAutoRemoveAllVisuals.Location = new System.Drawing.Point(13, 173);
+            this.checkBoxAutoRemoveAllVisuals.Location = new System.Drawing.Point(13, 191);
             this.checkBoxAutoRemoveAllVisuals.Name = "checkBoxAutoRemoveAllVisuals";
             this.checkBoxAutoRemoveAllVisuals.Size = new System.Drawing.Size(334, 17);
             this.checkBoxAutoRemoveAllVisuals.TabIndex = 8;
             this.checkBoxAutoRemoveAllVisuals.Text = "Auto cleaning visual for all zCVobLevelCompo before saving ZEN";
             this.checkBoxAutoRemoveAllVisuals.UseVisualStyleBackColor = true;
             // 
-            // autoRemoveLevelCompo
-            // 
-            this.autoRemoveLevelCompo.AutoSize = true;
-            this.autoRemoveLevelCompo.Location = new System.Drawing.Point(370, 19);
-            this.autoRemoveLevelCompo.Name = "autoRemoveLevelCompo";
-            this.autoRemoveLevelCompo.Size = new System.Drawing.Size(468, 17);
-            this.autoRemoveLevelCompo.TabIndex = 6;
-            this.autoRemoveLevelCompo.Text = "Автоматически удалять лишний zCVobLevelCompo после объединения MESH с вобами";
-            this.autoRemoveLevelCompo.UseVisualStyleBackColor = true;
-            this.autoRemoveLevelCompo.Visible = false;
-            // 
             // checkBoxAutoCompileUncompiled
             // 
             this.checkBoxAutoCompileUncompiled.AutoSize = true;
-            this.checkBoxAutoCompileUncompiled.Location = new System.Drawing.Point(13, 150);
+            this.checkBoxAutoCompileUncompiled.Location = new System.Drawing.Point(13, 168);
             this.checkBoxAutoCompileUncompiled.Name = "checkBoxAutoCompileUncompiled";
             this.checkBoxAutoCompileUncompiled.Size = new System.Drawing.Size(298, 17);
             this.checkBoxAutoCompileUncompiled.TabIndex = 5;
@@ -140,7 +139,7 @@
             // checkBoxMiscAutoCompile
             // 
             this.checkBoxMiscAutoCompile.AutoSize = true;
-            this.checkBoxMiscAutoCompile.Location = new System.Drawing.Point(13, 127);
+            this.checkBoxMiscAutoCompile.Location = new System.Drawing.Point(13, 145);
             this.checkBoxMiscAutoCompile.Name = "checkBoxMiscAutoCompile";
             this.checkBoxMiscAutoCompile.Size = new System.Drawing.Size(295, 17);
             this.checkBoxMiscAutoCompile.TabIndex = 4;
@@ -163,7 +162,7 @@
             this.checkBoxLastZenAuto.AutoSize = true;
             this.checkBoxLastZenAuto.Enabled = false;
             this.checkBoxLastZenAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBoxLastZenAuto.Location = new System.Drawing.Point(380, 42);
+            this.checkBoxLastZenAuto.Location = new System.Drawing.Point(376, 10);
             this.checkBoxLastZenAuto.Name = "checkBoxLastZenAuto";
             this.checkBoxLastZenAuto.Size = new System.Drawing.Size(244, 17);
             this.checkBoxLastZenAuto.TabIndex = 2;
@@ -224,10 +223,10 @@
         public System.Windows.Forms.CheckBox checkBoxMiscFullPath;
         public System.Windows.Forms.CheckBox checkBoxMiscAutoCompile;
         public System.Windows.Forms.CheckBox checkBoxAutoCompileUncompiled;
-        public System.Windows.Forms.CheckBox autoRemoveLevelCompo;
         public System.Windows.Forms.CheckBox checkBoxAutoRemoveAllVisuals;
         public System.Windows.Forms.CheckBox checkBoxSetNearestVobCam;
         public System.Windows.Forms.CheckBox checkBoxShowPolysSort;
         public System.Windows.Forms.CheckBox checkBoxOnlyLatinInInput;
+        public System.Windows.Forms.CheckBox checkBoxMiscRemoveAllLevelCompos;
     }
 }
