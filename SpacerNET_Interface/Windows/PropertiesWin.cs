@@ -398,8 +398,12 @@ namespace SpacerUnion
                 {
                     var color = props[i].value;
 
-                    SpacerNET.propWin.SetColorPanelColor(color);
+                    bool result = SpacerNET.propWin.SetColorPanelColor(color);
 
+                    if (result)
+                    {
+
+                    }
                 }
 
 
@@ -850,7 +854,12 @@ namespace SpacerUnion
 
                 if (props[i].Name == "color")
                 {
-                    SpacerNET.propWin.SetColorPanelColor(props[i].value);
+                    bool result = SpacerNET.propWin.SetColorPanelColor(props[i].value);
+
+                    if (!result)
+                    {
+                        return;
+                    }
                 }
             }
 
@@ -955,12 +964,13 @@ namespace SpacerUnion
                         }
                     }
 
-                    if (prop.type == TPropEditType.PETstring || prop.type == TPropEditType.PETraw || prop.type == TPropEditType.PETint || prop.type == TPropEditType.PETfloat)
+                    if (prop.type == TPropEditType.PETstring || prop.type == TPropEditType.PETraw || prop.type == TPropEditType.PETint 
+                        || prop.type == TPropEditType.PETfloat || prop.type == TPropEditType.PETcolor)
                     {
                         textBoxString.Visible = true;
                         textBoxString.Text = prop.value;
 
-                        if ((prop.type == TPropEditType.PETstring || prop.type == TPropEditType.PETraw) && prop.Name != "trafoOSToWSRot")
+                        if ((prop.type == TPropEditType.PETstring || prop.type == TPropEditType.PETraw || prop.type == TPropEditType.PETcolor) && prop.Name != "trafoOSToWSRot")
                         {
                             textBoxString.Width = 298;
                             buttonFileOpen.Enabled = true;
@@ -971,7 +981,7 @@ namespace SpacerUnion
                         }
                     }
 
-                    if (prop.type == TPropEditType.PETvec3 || prop.type == TPropEditType.PETcolor)
+                    if (prop.type == TPropEditType.PETvec3)
                     {
                         textBoxVec0.Visible = true;
                         textBoxVec1.Visible = true;
@@ -985,13 +995,11 @@ namespace SpacerUnion
                         textBoxVec1.Text = arr[1];
                         textBoxVec2.Text = arr[2];
 
+                    }
 
-                        if (prop.type == TPropEditType.PETcolor)
-                        {
-                            textBoxVec3.Visible = true;
-                            textBoxVec3.Text = arr[3];
-                            buttonSelectColor.Visible = true;
-                        }
+                    if (prop.type == TPropEditType.PETcolor)
+                    {
+                        buttonSelectColor.Visible = true;
                     }
 
                     if (prop.type == TPropEditType.PETenum)
@@ -1161,7 +1169,7 @@ namespace SpacerUnion
                     prop.value = prop.backup_value;
                     node.Text = prop.Name + ": " + prop.ShowValue();
 
-                    if (currentFieldtype == TPropEditType.PETvec3 || prop.type == TPropEditType.PETcolor)
+                    if (currentFieldtype == TPropEditType.PETvec3)
                     {
                         string[] arr = prop.value.Split(' ');
 
@@ -1169,10 +1177,6 @@ namespace SpacerUnion
                         textBoxVec1.Text = arr[1];
                         textBoxVec2.Text = arr[2];
 
-                        if (prop.type == TPropEditType.PETcolor)
-                        {
-                            textBoxVec3.Text = arr[3];
-                        }
                     }
                     else if (currentFieldtype == TPropEditType.PETenum)
                     {
@@ -1217,11 +1221,6 @@ namespace SpacerUnion
                     CProperty prop = props[index];
 
                     prop.value = textBoxVec0.Text.Trim() + " " + textBoxVec1.Text.Trim() + " " + textBoxVec2.Text.Trim();
-
-                    if (prop.type == TPropEditType.PETcolor)
-                    {
-                        prop.value += " " + textBoxVec3.Text.Trim();
-                    }
 
                     node.Text = prop.Name + ": " + prop.ShowValue();
 
@@ -1599,19 +1598,28 @@ namespace SpacerUnion
         {
             ColorDialog MyDialog = new ColorDialog();
 
-            int r = Convert.ToInt32(textBoxVec0.Text);
-            int g = Convert.ToInt32(textBoxVec1.Text);
-            int b = Convert.ToInt32(textBoxVec2.Text);
-            int a = Convert.ToInt32(textBoxVec3.Text);
+            var split = textBoxString.Text.Split(' ');
+
+            if (split.Count() < 4)
+            {
+                return;
+            }
+
+            int r = Convert.ToInt32(split[0]);
+            int g = Convert.ToInt32(split[1]);
+            int b = Convert.ToInt32(split[2]);
+            int a = Convert.ToInt32(split[3]);
 
             MyDialog.Color = Color.FromArgb(a, r, g, b);
 
             if (MyDialog.ShowDialog() == DialogResult.OK)
             {
-                textBoxVec0.Text = MyDialog.Color.R.ToString();
-                textBoxVec1.Text = MyDialog.Color.G.ToString();
-                textBoxVec2.Text = MyDialog.Color.B.ToString();
-                textBoxVec3.Text = MyDialog.Color.A.ToString();
+                textBoxString.Text =
+                    MyDialog.Color.R.ToString()
+                    + " " + MyDialog.Color.G.ToString()
+                    + " " + MyDialog.Color.B.ToString()
+                    + " " + MyDialog.Color.A.ToString()
+                    ;
             }
                
         }
@@ -1756,18 +1764,32 @@ namespace SpacerUnion
         }
 
 
-        public void SetColorPanelColor(string input)
+        public bool SetColorPanelColor(string input)
         {
             string[] colorValues = input.Split(' ');
+
+            if (colorValues.Length != 4)
+            {
+                MessageBox.Show(Localizator.Get("MSG_WRONG_COLOR_FORMAT"));
+                return false;
+            }
 
             int r = int.Parse(colorValues[0]);
             int g = int.Parse(colorValues[1]);
             int b = int.Parse(colorValues[2]);
             int a = int.Parse(colorValues[3]);
 
+            if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255 || a < 0 || a > 255)
+            {
+                MessageBox.Show(Localizator.Get("MSG_WRONG_COLOR_FORMAT_RANGE"));
+                return false;
+            }
+
             Color color = Color.FromArgb(a, r, g, b);
 
             colorPanel.BackColor = color;
+
+            return true;
         }
 
         private void colorPanel_MouseClick(object sender, MouseEventArgs e)

@@ -755,6 +755,8 @@ namespace SpacerUnion.Common
             words.Add("VOB_FILTER_IGNORE_PFX", new List<string> { "Игнорировать PFX", "Ignore PFX", "PFX Ignorieren", "Ignoruj PFX" });
             words.Add("KEYS_FAST_FILTER_IGNOREPFX", new List<string> { "Выбрать фильтр выделения вобов: Игнорировать PFX", "Choose vob filter selection mod: Ignore PFX", "Wähle Vob-Filter Selektierungs-Modus: PFX Ignorieren", "Wybór trybu filtrowania voba: Ignoruj ​​PFX" });
 
+            words.Add("MSG_WRONG_COLOR_FORMAT", new List<string> { "Недопустимый формат цвета! Используйте формат '255 255 255 255'", "Wrong color format! Format is '255 255 255 255'", "", "" });
+            words.Add("MSG_WRONG_COLOR_FORMAT_RANGE", new List<string> { "Допустимый диапазон цвета от 0 до 255!", "Valid color range is 0 to 255 ", "", "" });
         }
         
     }
