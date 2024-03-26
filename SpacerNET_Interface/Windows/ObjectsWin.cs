@@ -2406,12 +2406,15 @@ namespace SpacerUnion
                     }
 
 
-                    if (prop.type == TPropEditType.PETstring || prop.type == TPropEditType.PETraw || prop.type == TPropEditType.PETint || prop.type == TPropEditType.PETfloat)
+                    if (prop.type == TPropEditType.PETstring || prop.type == TPropEditType.PETraw || prop.type == TPropEditType.PETint
+                        || prop.type == TPropEditType.PETfloat
+                        || prop.type == TPropEditType.PETcolor
+                        )
                     {
                         textBoxSearchVobs.Visible = true;
                         textBoxSearchVobs.Text = prop.value;
 
-                        if (prop.type == TPropEditType.PETstring || prop.type == TPropEditType.PETraw)
+                        if (prop.type == TPropEditType.PETstring || prop.type == TPropEditType.PETraw || prop.type == TPropEditType.PETcolor)
                         {
                             textBoxSearchVobs.Width = 300;
                         }
@@ -2432,7 +2435,7 @@ namespace SpacerUnion
                         }
                     }
 
-                    if (prop.type == TPropEditType.PETvec3 || prop.type == TPropEditType.PETcolor)
+                    if (prop.type == TPropEditType.PETvec3)
                     {
                         textBoxVecSearch0.Visible = true;
                         textBoxVecSearch1.Visible = true;
@@ -2444,15 +2447,9 @@ namespace SpacerUnion
                         textBoxVecSearch1.Text = arr[1];
                         textBoxVecSearch2.Text = arr[2];
 
-
-                        if (prop.type == TPropEditType.PETcolor)
-                        {
-                            textBoxVecSearch3.Visible = true;
-                            textBoxVecSearch3.Text = arr[3];
-                        }
                     }
 
-                    if (prop.type == TPropEditType.PETenum)
+                     if (prop.type == TPropEditType.PETenum)
                     {
                         comboBoxPropsEnumSearch.Visible = true;
                         comboBoxPropsEnumSearch.Items.Clear();
@@ -2685,10 +2682,6 @@ namespace SpacerUnion
 
                     prop.value = textBoxVecSearch0.Text.Trim() + " " + textBoxVecSearch1.Text.Trim() + " " + textBoxVecSearch2.Text.Trim();
 
-                    if (prop.type == TPropEditType.PETcolor)
-                    {
-                        prop.value += " " + textBoxVecSearch3.Text.Trim();
-                    }
 
                     node.Text = prop.Name + ": " + prop.ShowValue();
 
