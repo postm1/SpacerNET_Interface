@@ -194,7 +194,7 @@ namespace SpacerUnion.Common
             words.Add("WIN_CONTROLSET_ROTSPEED", new List<string> { "Скорость вращения: ", "Rotation speed: ", "Rotationsgeschiwndigkeit: ", "Szybkość rotacji: " });
             words.Add("WIN_CONTROLSET_GROUP0", new List<string> { "Управление вобом", "Vob control", "Vob Kontrolle", "Kontrola Voba" });
             words.Add("WIN_CONTROLSET_GROUP1", new List<string> { "Вставка воба", "Vob insertion", "Vob Einfügung", "Wstawianie Voba" });
-            words.Add("checkBoxInsertVob", new List<string> { "Вставлять воб на той же высоте", "Insert vob on the source height", "Füge Vob in der Höhe der Quelle ein", "Wstaw voba na wysokości kamery" });
+            words.Add("checkBoxInsertVob", new List<string> { "Вставлять воб на той же высоте", "Insert vob on the same height", "Füge Vob in der Höhe der Quelle ein", "Wstaw voba na wysokości kamery" });
             words.Add("checkBoxVobRotRandAngle", new List<string> { "Поворачивать воб на случайный угол", "Turn vob on a random angle", "Versetze den Vob in einen zufälligen Winkel", "Obróć voba pod dowolnym kątem" });
             words.Add("checkBoxVobInsertHierarchy", new List<string> { "Учитывать иерархию при копировании", "Use hierarchy when copying", "Nutze die Hierachie beim Kopieren", "Użyj hierarchii podczas kopiowania" });
             words.Add("labelRotWpFP", new List<string> { "Разворачивать WP/FP при вставке", "Turn WP/FP when inserting", "WP/FP beim Einfügen drehen", "Obróć WP/FP podczas dodawania" });
