@@ -98,6 +98,8 @@
             // checkBoxShowPolysSort
             // 
             this.checkBoxShowPolysSort.AutoSize = true;
+            this.checkBoxShowPolysSort.Checked = true;
+            this.checkBoxShowPolysSort.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxShowPolysSort.Location = new System.Drawing.Point(13, 237);
             this.checkBoxShowPolysSort.Name = "checkBoxShowPolysSort";
             this.checkBoxShowPolysSort.Size = new System.Drawing.Size(389, 17);
