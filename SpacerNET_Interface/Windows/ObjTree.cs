@@ -494,7 +494,7 @@ namespace SpacerUnion
                     .FirstOrDefault();
 
 
-            ConsoleEx.WriteLineGreen("OnSelectVob: " + Utils.ToHex(ptr));
+           // ConsoleEx.WriteLineGreen("OnSelectVob: " + Utils.ToHex(ptr));
 
 
             if (entry != null)
@@ -1061,7 +1061,7 @@ namespace SpacerUnion
 
             uint addr = Convert.ToUInt32(node.Tag);
 
-            ConsoleEx.WriteLineGreen("AfterSelect node: vob " + Utils.ToHex(addr));
+           // ConsoleEx.WriteLineGreen("AfterSelect node: vob " + Utils.ToHex(addr));
 
             if (node.Text.Contains("zCVobWaypoint") || node.Text.Contains("zCVobSpot"))
             {

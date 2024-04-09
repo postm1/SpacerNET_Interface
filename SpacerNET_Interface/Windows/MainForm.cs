@@ -2145,6 +2145,13 @@ namespace SpacerUnion
             SpacerNET.form.UpdateSpacerCaption(name);
         }
 
+        private void toolStripVobVisualInfo_Click(object sender, EventArgs e)
+        {
+            ToolStripButton btn = sender as ToolStripButton;
 
+            btn.Checked = !btn.Checked;
+
+            Imports.Extern_ToggleVisualVobInfo(btn.Checked);
+        }
     }
 }

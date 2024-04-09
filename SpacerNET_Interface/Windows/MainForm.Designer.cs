@@ -113,6 +113,7 @@
             this.toolStripButtonNoGrass = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonMacros = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFilter = new System.Windows.Forms.ToolStripButton();
+            this.toolStripVobVisualInfo = new System.Windows.Forms.ToolStripButton();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -670,7 +671,8 @@
             this.toolStripButtonMulti,
             this.toolStripButtonNoGrass,
             this.toolStripButtonMacros,
-            this.toolStripButtonFilter});
+            this.toolStripButtonFilter,
+            this.toolStripVobVisualInfo});
             this.toolStripTop.Location = new System.Drawing.Point(0, 0);
             this.toolStripTop.Name = "toolStripTop";
             this.toolStripTop.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -871,6 +873,16 @@
             this.toolStripButtonFilter.Text = "MatFilter";
             this.toolStripButtonFilter.Click += new System.EventHandler(this.toolStripButtonFilter_Click);
             // 
+            // toolStripVobVisualInfo
+            // 
+            this.toolStripVobVisualInfo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripVobVisualInfo.Image = ((System.Drawing.Image)(resources.GetObject("toolStripVobVisualInfo.Image")));
+            this.toolStripVobVisualInfo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripVobVisualInfo.Name = "toolStripVobVisualInfo";
+            this.toolStripVobVisualInfo.Size = new System.Drawing.Size(23, 22);
+            this.toolStripVobVisualInfo.Text = "Vob visual info";
+            this.toolStripVobVisualInfo.Click += new System.EventHandler(this.toolStripVobVisualInfo_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -986,5 +998,6 @@
         private System.Windows.Forms.ToolStripTextBox toolStripTextTimeSet;
         public System.Windows.Forms.ToolStripButton toolStripButtonMaterial;
         public System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.ToolStripButton toolStripVobVisualInfo;
     }
 }
