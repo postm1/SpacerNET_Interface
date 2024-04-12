@@ -104,6 +104,7 @@ namespace SpacerUnion
             {
                 DialogResult res = MessageBox.Show(Localizator.Get("askSure"), Localizator.Get("confirmation"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
+
                 if (res == DialogResult.OK)
                 {
                     OnClosingSpacer();
@@ -2179,6 +2180,7 @@ namespace SpacerUnion
         {
             this.Font = font;
             this.menuStripTopMain.Font = font;
+            this.mainUIFont = font;
 
 
             //set default menu when using default font
