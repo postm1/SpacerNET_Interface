@@ -2180,6 +2180,15 @@ namespace SpacerUnion
             this.Font = font;
             this.menuStripTopMain.Font = font;
 
+
+            //set default menu when using default font
+            if (font.Size == 8.25f && font.Name == "Microsoft Sans Serif")
+            {
+                var menuFont = new Font("Segoe UI", 9.00f, FontStyle.Regular);
+                this.menuStripTopMain.Font = menuFont;
+            }
+            
+
             SpacerNET.objectsWin.Font = font;
             SpacerNET.objTreeWin.Font = font;
             SpacerNET.infoWin.Font = font;
