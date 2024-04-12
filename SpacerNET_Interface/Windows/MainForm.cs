@@ -2192,6 +2192,7 @@ namespace SpacerUnion
             SpacerNET.soundWin.Font = font;
             SpacerNET.vobList.Font = font;
             SpacerNET.grassWin.Font = font;
+            SpacerNET.keysWin.Font = font;
             SaveFontToSettings();
         }
 
