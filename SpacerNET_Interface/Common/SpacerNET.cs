@@ -3,6 +3,7 @@ using SpacerUnion.Common;
 using SpacerUnion.Windows;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
@@ -168,6 +169,16 @@ namespace SpacerUnion
             form.AddText(Localizator.Get("appIsLoading"));
 
 
+            var fontStr = Properties.Settings.Default.MainFont;
+
+            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Font));
+
+            Font font = (Font)converter.ConvertFromString(fontStr);
+
+            if (font != null)
+            {
+                form.UpdateFontUI(font);
+            }
         }
 
         // Функция вызывается, когда загрузился движок игры (Game_Init), вызывается из Union
@@ -179,6 +190,7 @@ namespace SpacerUnion
             form.AddText(Localizator.Get("appIsReady"), Color.Green);
 
             form.menuStripTopMain.Enabled = true;
+
 
 
             if (Properties.Settings.Default.InfoWinShow || Properties.Settings.Default.InfoWinShowNext)

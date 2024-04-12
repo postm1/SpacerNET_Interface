@@ -758,6 +758,10 @@ namespace SpacerUnion.Common
             words.Add("MSG_WRONG_COLOR_FORMAT", new List<string> { "Недопустимый формат цвета! Используйте формат RGBA '255 255 255 255'", "Wrong color format! Format is RGBA '255 255 255 255'", "Falsches Farbformat! Format ist RGBA '255 255 255 255'", "Zły format koloru! Prawidłowy format to '255, 255, 255, 255'" });
             words.Add("MSG_WRONG_COLOR_FORMAT_RANGE", new List<string> { "Допустимый диапазон цвета от 0 до 255!", "Valid color range is 0 to 255 ", "Gültiger Farbbereich ist 0 bis 255", "Dopuszczalny zakres koloru jest od wartości 0 do 255!" });
             words.Add("VOB_INFO_VISUAL_COPIED", new List<string> { "Информация о визуале воба скопирована в буфер и консоль", "Vob's visual info copied to clipboard and console", "Visuelle Infos von VOBs in die Zwischenablage und Konsole kopiert", "Informacje dotyczące visuala voba zostały skopiowane do schowka i konsoli" });
+
+            words.Add("changeFontToolStripMenuItem", new List<string> { "Настроить шрифт", "Font settings", "Schriftart Einstellungen", "" });
+            words.Add("setFontUIToolStripMenuItem", new List<string> { "Установить шрифт", "Set font", "", "Schriftart einstellen" });
+            words.Add("resetDefaultToolStripMenuItem", new List<string> { "Сбросить шрифт по умолчанию", "Reset font to default", "Schriftart auf Standard zurücksetzen", "" });
         }
         
     }

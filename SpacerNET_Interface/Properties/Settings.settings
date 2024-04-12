@@ -110,5 +110,11 @@
     <Setting Name="MatFilterWinLocation" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">200, 200</Value>
     </Setting>
+    <Setting Name="MainFont" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Microsoft Sans Serif; 8pt</Value>
+    </Setting>
+    <Setting Name="TestVal" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -28,6 +28,8 @@ namespace SpacerUnion
         public bool meshOpenFirst = false;
         public string locationName;
 
+        public Font mainUIFont = null;
+
         public enum ToggleMenuType
         {
             ToggleVobs = 0,
@@ -190,6 +192,9 @@ namespace SpacerUnion
             preset1ToolStripMenuItem.Text = Localizator.Get("MENU_TOP_WIN_POS_PRESET_1");
             preset2ToolStripMenuItem.Text = Localizator.Get("MENU_TOP_WIN_POS_PRESET_2");
 
+            changeFontToolStripMenuItem.Text = Localizator.Get("changeFontToolStripMenuItem");
+            setFontUIToolStripMenuItem.Text = Localizator.Get("setFontUIToolStripMenuItem");
+            resetDefaultToolStripMenuItem.Text = Localizator.Get("resetDefaultToolStripMenuItem");
 
 
             toolStripMenuItem5.Text = Localizator.Get("MENU_TOP_VIEW_VOBS");
@@ -2152,6 +2157,63 @@ namespace SpacerUnion
             btn.Checked = !btn.Checked;
 
             Imports.Extern_ToggleVisualVobInfo(btn.Checked);
+        }
+
+        private void setFontUIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FontDialog fontDialogSelect = new FontDialog();
+
+            if (fontDialogSelect.ShowDialog() == DialogResult.OK)
+            {
+
+                mainUIFont = fontDialogSelect.Font;
+
+                if (mainUIFont != null)
+                {
+                    UpdateFontUI(mainUIFont);
+                }
+            }
+        }
+
+        public void UpdateFontUI(Font font)
+        {
+            this.Font = font;
+            this.menuStripTopMain.Font = font;
+
+            SpacerNET.objectsWin.Font = font;
+            SpacerNET.objTreeWin.Font = font;
+            SpacerNET.infoWin.Font = font;
+            SpacerNET.propWin.Font = font;
+            SpacerNET.macrosWin.Font = font;
+            SpacerNET.matFilterWin.Font = font;
+            SpacerNET.miscSetWin.Font = font;
+            SpacerNET.settingsCam.Font = font;
+            SpacerNET.settingsControl.Font = font;
+            SpacerNET.soundWin.Font = font;
+            SpacerNET.vobList.Font = font;
+            SpacerNET.grassWin.Font = font;
+            SaveFontToSettings();
+        }
+
+        private void resetDefaultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Microsoft Sans Serif; 8,25pt
+            var font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Regular);
+            var menuFont = new Font("Segoe UI", 9.00f, FontStyle.Regular);
+
+            UpdateFontUI(font);
+            this.menuStripTopMain.Font = menuFont;
+
+
+            SaveFontToSettings();
+        }
+
+        public void SaveFontToSettings()
+        {
+            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Font));
+
+            string fontString = converter.ConvertToString(this.Font);
+            Properties.Settings.Default.MainFont = fontString;
         }
     }
 }
