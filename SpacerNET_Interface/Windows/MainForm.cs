@@ -2269,6 +2269,17 @@ namespace SpacerUnion
 
                 text = text.Replace(',', '.');
 
+
+                for (int i = 0; i < text.Length; i++)
+                {
+                    if (!Utils.IsNumberInput(text[i], true, false))
+                    {
+                        MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+                        return;
+                    }
+                }
+
+
                 float number = float.Parse(text, CultureInfo.InvariantCulture);
 
                 //MessageBox.Show(number.ToString());
@@ -2281,5 +2292,9 @@ namespace SpacerUnion
             }
         }
 
+        private void toolStripTextBoxScaleIconsUI_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
