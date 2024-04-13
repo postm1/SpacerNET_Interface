@@ -2232,12 +2232,13 @@ namespace SpacerUnion
 
         private void setDefault10ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            scaleIconsSize = 1.0f;
+            UpdateIconsSIze(scaleIconsSize, true);
         }
 
-        public void UpdateIconsSIze(float size)
+        public void UpdateIconsSIze(float size, bool setDefault)
         {
-            if (size == 1.0f)
+            if (setDefault)
             {
                 toolStripTop.AutoSize = true;
 
@@ -2266,7 +2267,7 @@ namespace SpacerUnion
                 if (number >= 1.0)
                 {
                     scaleIconsSize = number;
-                    UpdateIconsSIze(scaleIconsSize);
+                    UpdateIconsSIze(scaleIconsSize, false);
                 }
             }
         }
