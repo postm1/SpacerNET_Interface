@@ -2241,12 +2241,14 @@ namespace SpacerUnion
             if (setDefault)
             {
                 toolStripTop.AutoSize = true;
+                toolStripTop.Height = 25;
 
             }
             else
             {
                 toolStripTop.AutoSize = false;
                 toolStripTop.ImageScalingSize = new Size((int)(16 * size), (int)(16 * size));
+                toolStripTop.Height = (int)(25 * size);
 
             }
 
@@ -2260,9 +2262,11 @@ namespace SpacerUnion
             {
                 var text = toolStripTextBoxScaleIconsUI.Text.Trim();
 
+                text = text.Replace(',', '.');
+
                 float number = float.Parse(text, CultureInfo.InvariantCulture);
 
-                MessageBox.Show(number.ToString());
+                //MessageBox.Show(number.ToString());
 
                 if (number >= 1.0)
                 {
