@@ -3351,9 +3351,11 @@ namespace SpacerUnion
                 case 1: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE1"); break;
                 case 2: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE2"); break;
                 case 3: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE3"); break;
-                //case 4: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE4"); break;
                 case 4: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE_DYNAMIC"); break;
                 case 5: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE0"); break;
+                case 6: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE_RENAME"); break;
+
+                 
             }
 
             if (cb.SelectedIndex == 1)

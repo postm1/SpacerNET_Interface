@@ -421,7 +421,7 @@ namespace SpacerUnion.Common
 
 
             words.Add("WARNING_VDF_FILE_OPEN", new List<string> { "Внимание! Файл был загружен из VDF/MOD, а не из _WORK/DATA!", "Warning! The file was loaded from VDF/MOD, not from _WORK/DATA!", "Achtung! Die Dati wurde von einer VDF/MOD und nicht vom _WORK/DATA geladen!", "Uwaga! Plik został załadowany z paczki VDF/MOD, nie z _WORK/DATA." });
-            words.Add("VOB_SEARCH_TYPE4", new List<string> { "Переименовать", "Rename", "Umbenennen", "Zmień nazwę" });
+            words.Add("VOB_SEARCH_TYPE_RENAME", new List<string> { "Переименовать", "Rename", "Umbenennen", "Zmień nazwę" });
             words.Add("VOB_SEARCH_RENAME_VOBS", new List<string> { "Переименовано вобов: ", "Vobs renamed: ", "Vobs umbeanannt: ", "Vobom zmieniono nazwę: " });
             words.Add("labelRenameVob", new List<string> { "Новое имя", "New name", "Neuer Name", "Nowa nazwa" });
             words.Add("checkBoxAutoNumerate", new List<string> { "Авто-нумерация имен", "Auto numeration of names", "Automatische Nummerierung der Namen", "Automatycznie numeruj nazwy" });
@@ -762,6 +762,11 @@ namespace SpacerUnion.Common
             words.Add("changeFontToolStripMenuItem", new List<string> { "Настроить шрифт", "Font settings", "Schriftart Einstellungen", "Ustawienia czcionki" });
             words.Add("setFontUIToolStripMenuItem", new List<string> { "Установить шрифт", "Set font", "Schriftart einstellen", "Ustaw czcionkę" });
             words.Add("resetDefaultToolStripMenuItem", new List<string> { "Сбросить шрифт по умолчанию", "Reset font to default", "Schriftart auf Standard zurücksetzen", "Ustaw domyślną czcionkę" });
+
+
+            words.Add("TOP_MENU_CHANGE_ICONS_SCALE", new List<string> { "Сменить маштаб иконок", "Change icons scale", "", "Zmień skalę ikon" });
+            words.Add("TOP_MENU_CHANGE_ICONS_DEFAULT", new List<string> { "Установить по умолчанию 1.0", "Set default 1.0", "", "Ustaw domyślną 1.0" });
+
         }
         
     }

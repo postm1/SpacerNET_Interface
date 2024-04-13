@@ -199,6 +199,9 @@ namespace SpacerUnion
             setFontUIToolStripMenuItem.Text = Localizator.Get("setFontUIToolStripMenuItem");
             resetDefaultToolStripMenuItem.Text = Localizator.Get("resetDefaultToolStripMenuItem");
 
+            changeIconsScaleToolStripMenuItem.Text = Localizator.Get("TOP_MENU_CHANGE_ICONS_SCALE");
+            setDefault10ToolStripMenuItem.Text = Localizator.Get("TOP_MENU_CHANGE_ICONS_DEFAULT");
+
 
             toolStripMenuItem5.Text = Localizator.Get("MENU_TOP_VIEW_VOBS");
             toolStripMenuItem6.Text = Localizator.Get("MENU_TOP_VIEW_WAYNET");

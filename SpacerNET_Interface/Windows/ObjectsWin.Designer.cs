@@ -106,6 +106,7 @@
             this.buttonSendTrigger = new System.Windows.Forms.Button();
             this.listBoxActionType = new System.Windows.Forms.ListBox();
             this.groupBoxTriggersVob = new System.Windows.Forms.GroupBox();
+            this.labelTriggerClassName = new System.Windows.Forms.Label();
             this.labelTriggerName = new System.Windows.Forms.Label();
             this.labelTriggerCollision = new System.Windows.Forms.Label();
             this.checkBoxShowMoverKeys = new System.Windows.Forms.CheckBox();
@@ -230,7 +231,6 @@
             this.buttonUsePresetOnLightVob = new System.Windows.Forms.Button();
             this.buttonUpdateLightPresetFromLightVob = new System.Windows.Forms.Button();
             this.colorDialogLightPresetColor = new System.Windows.Forms.ColorDialog();
-            this.labelTriggerClassName = new System.Windows.Forms.Label();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -1146,6 +1146,15 @@
             this.groupBoxTriggersVob.TabStop = false;
             this.groupBoxTriggersVob.Text = "Selected vob";
             // 
+            // labelTriggerClassName
+            // 
+            this.labelTriggerClassName.AutoSize = true;
+            this.labelTriggerClassName.Location = new System.Drawing.Point(7, 42);
+            this.labelTriggerClassName.Name = "labelTriggerClassName";
+            this.labelTriggerClassName.Size = new System.Drawing.Size(82, 13);
+            this.labelTriggerClassName.TabIndex = 12;
+            this.labelTriggerClassName.Text = "(zCTriggerBase)";
+            // 
             // labelTriggerName
             // 
             this.labelTriggerName.AutoSize = true;
@@ -1606,7 +1615,8 @@
             "Replace with VobTree",
             "Remove",
             "Toggle dynamic collision",
-            "Search for unconnected WP"});
+            "Search for unconnected WP",
+            "Rename"});
             this.comboBoxSearchType.Location = new System.Drawing.Point(241, 19);
             this.comboBoxSearchType.Name = "comboBoxSearchType";
             this.comboBoxSearchType.Size = new System.Drawing.Size(166, 21);
@@ -2496,15 +2506,6 @@
             this.buttonUpdateLightPresetFromLightVob.Text = "Update preset from lightvob <<";
             this.buttonUpdateLightPresetFromLightVob.UseVisualStyleBackColor = true;
             this.buttonUpdateLightPresetFromLightVob.Click += new System.EventHandler(this.buttonUpdateLightPresetFromLightVob_Click);
-            // 
-            // labelTriggerClassName
-            // 
-            this.labelTriggerClassName.AutoSize = true;
-            this.labelTriggerClassName.Location = new System.Drawing.Point(7, 42);
-            this.labelTriggerClassName.Name = "labelTriggerClassName";
-            this.labelTriggerClassName.Size = new System.Drawing.Size(82, 13);
-            this.labelTriggerClassName.TabIndex = 12;
-            this.labelTriggerClassName.Text = "(zCTriggerBase)";
             // 
             // ObjectsWin
             // 
