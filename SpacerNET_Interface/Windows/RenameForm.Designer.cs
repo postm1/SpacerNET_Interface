@@ -90,6 +90,7 @@ namespace SpacerUnion.Windows
             this.textBoxRenamesStarNumber.Size = new System.Drawing.Size(53, 20);
             this.textBoxRenamesStarNumber.TabIndex = 4;
             this.textBoxRenamesStarNumber.Text = "1";
+            this.textBoxRenamesStarNumber.TextChanged += new System.EventHandler(this.textBoxRenamesStarNumber_TextChanged);
             // 
             // textBoxRenameForAllVobs
             // 
@@ -97,6 +98,7 @@ namespace SpacerUnion.Windows
             this.textBoxRenameForAllVobs.Name = "textBoxRenameForAllVobs";
             this.textBoxRenameForAllVobs.Size = new System.Drawing.Size(155, 20);
             this.textBoxRenameForAllVobs.TabIndex = 5;
+            this.textBoxRenameForAllVobs.TextChanged += new System.EventHandler(this.textBoxRenameForAllVobs_TextChanged);
             // 
             // textBoxRenameWithPrefix
             // 
@@ -104,6 +106,7 @@ namespace SpacerUnion.Windows
             this.textBoxRenameWithPrefix.Name = "textBoxRenameWithPrefix";
             this.textBoxRenameWithPrefix.Size = new System.Drawing.Size(155, 20);
             this.textBoxRenameWithPrefix.TabIndex = 6;
+            this.textBoxRenameWithPrefix.TextChanged += new System.EventHandler(this.textBoxRenameWithPrefix_TextChanged);
             // 
             // RenameForm
             // 

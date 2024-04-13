@@ -71,5 +71,41 @@ namespace SpacerUnion.Windows
             buttonRenameWin_Apply_Click(null, null);
             
         }
+
+        private void textBoxRenameForAllVobs_TextChanged(object sender, EventArgs e)
+        {
+            string text = textBoxRenameForAllVobs.Text.Trim();
+
+            if (!Utils.IsOnlyLatin(text))
+            {
+                MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+            }
+        }
+
+        private void textBoxRenameWithPrefix_TextChanged(object sender, EventArgs e)
+        {
+            string text = textBoxRenameWithPrefix.Text.Trim();
+
+
+            if (!Utils.IsOnlyLatin(text))
+            {
+                MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+            }
+        }
+
+        private void textBoxRenamesStarNumber_TextChanged(object sender, EventArgs e)
+        {
+            string text = textBoxRenamesStarNumber.Text.Trim();
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (!Utils.IsNumberInput(text[i], false, false))
+                {
+                    MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+                    break;
+                }
+            }
+            
+        }
     }
 }
