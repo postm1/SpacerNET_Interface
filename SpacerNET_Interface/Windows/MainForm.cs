@@ -2169,6 +2169,13 @@ namespace SpacerUnion
         {
             FontDialog fontDialogSelect = new FontDialog();
 
+            if (mainUIFont != null)
+            {
+                fontDialogSelect.Font = mainUIFont;
+            }
+
+           
+
             if (fontDialogSelect.ShowDialog() == DialogResult.OK)
             {
 
