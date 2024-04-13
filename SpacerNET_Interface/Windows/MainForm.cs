@@ -7,6 +7,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -29,6 +30,7 @@ namespace SpacerUnion
         public string locationName;
 
         public Font mainUIFont = null;
+        public float scaleIconsSize = 1.0f;
 
         public enum ToggleMenuType
         {
@@ -2226,6 +2228,47 @@ namespace SpacerUnion
 
             string fontString = converter.ConvertToString(this.Font);
             Properties.Settings.Default.MainFont = fontString;
+        }
+
+        private void setDefault10ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void UpdateIconsSIze(float size)
+        {
+            if (size == 1.0f)
+            {
+                toolStripTop.AutoSize = true;
+
+            }
+            else
+            {
+                toolStripTop.AutoSize = false;
+                toolStripTop.ImageScalingSize = new Size((int)(16 * size), (int)(16 * size));
+
+            }
+
+            toolStripTop.Refresh();
+            //toolStripTop.Invalidate();
+        }
+
+        private void toolStripTextBoxScaleIconsUI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                var text = toolStripTextBoxScaleIconsUI.Text.Trim();
+
+                float number = float.Parse(text, CultureInfo.InvariantCulture);
+
+                MessageBox.Show(number.ToString());
+
+                if (number >= 1.0)
+                {
+                    scaleIconsSize = number;
+                    UpdateIconsSIze(scaleIconsSize);
+                }
+            }
         }
     }
 }

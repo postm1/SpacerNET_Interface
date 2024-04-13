@@ -53,6 +53,9 @@
             this.resetWinAction = new System.Windows.Forms.ToolStripMenuItem();
             this.preset1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preset2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeFontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setFontUIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetDefaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuWorld = new System.Windows.Forms.ToolStripMenuItem();
             this.compileLightToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.compileWorldToolStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -114,9 +117,9 @@
             this.toolStripButtonMacros = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFilter = new System.Windows.Forms.ToolStripButton();
             this.toolStripVobVisualInfo = new System.Windows.Forms.ToolStripButton();
-            this.changeFontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.setFontUIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.resetDefaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeIconsScaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setDefault10ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBoxScaleIconsUI = new System.Windows.Forms.ToolStripTextBox();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -261,7 +264,8 @@
             this.ToolStripMenuView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showToolStripMenuItem,
             this.WinPosMenu,
-            this.changeFontToolStripMenuItem});
+            this.changeFontToolStripMenuItem,
+            this.changeIconsScaleToolStripMenuItem});
             this.ToolStripMenuView.ForeColor = System.Drawing.Color.Black;
             this.ToolStripMenuView.Name = "ToolStripMenuView";
             this.ToolStripMenuView.Size = new System.Drawing.Size(44, 20);
@@ -333,6 +337,29 @@
             this.preset2ToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
             this.preset2ToolStripMenuItem.Text = "Use windows preset #2 (QuadHD)";
             this.preset2ToolStripMenuItem.Click += new System.EventHandler(this.пресет2QuadHDToolStripMenuItem_Click);
+            // 
+            // changeFontToolStripMenuItem
+            // 
+            this.changeFontToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setFontUIToolStripMenuItem,
+            this.resetDefaultToolStripMenuItem});
+            this.changeFontToolStripMenuItem.Name = "changeFontToolStripMenuItem";
+            this.changeFontToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.changeFontToolStripMenuItem.Text = "Change font";
+            // 
+            // setFontUIToolStripMenuItem
+            // 
+            this.setFontUIToolStripMenuItem.Name = "setFontUIToolStripMenuItem";
+            this.setFontUIToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.setFontUIToolStripMenuItem.Text = "SetFont UI";
+            this.setFontUIToolStripMenuItem.Click += new System.EventHandler(this.setFontUIToolStripMenuItem_Click);
+            // 
+            // resetDefaultToolStripMenuItem
+            // 
+            this.resetDefaultToolStripMenuItem.Name = "resetDefaultToolStripMenuItem";
+            this.resetDefaultToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resetDefaultToolStripMenuItem.Text = "Reset default font";
+            this.resetDefaultToolStripMenuItem.Click += new System.EventHandler(this.resetDefaultToolStripMenuItem_Click);
             // 
             // ToolStripMenuWorld
             // 
@@ -887,28 +914,28 @@
             this.toolStripVobVisualInfo.Text = "Vob visual info";
             this.toolStripVobVisualInfo.Click += new System.EventHandler(this.toolStripVobVisualInfo_Click);
             // 
-            // changeFontToolStripMenuItem
+            // changeIconsScaleToolStripMenuItem
             // 
-            this.changeFontToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.setFontUIToolStripMenuItem,
-            this.resetDefaultToolStripMenuItem});
-            this.changeFontToolStripMenuItem.Name = "changeFontToolStripMenuItem";
-            this.changeFontToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.changeFontToolStripMenuItem.Text = "Change font";
+            this.changeIconsScaleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setDefault10ToolStripMenuItem,
+            this.toolStripTextBoxScaleIconsUI});
+            this.changeIconsScaleToolStripMenuItem.Name = "changeIconsScaleToolStripMenuItem";
+            this.changeIconsScaleToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.changeIconsScaleToolStripMenuItem.Text = "Change Icons Scale";
             // 
-            // setFontUIToolStripMenuItem
+            // setDefault10ToolStripMenuItem
             // 
-            this.setFontUIToolStripMenuItem.Name = "setFontUIToolStripMenuItem";
-            this.setFontUIToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.setFontUIToolStripMenuItem.Text = "SetFont UI";
-            this.setFontUIToolStripMenuItem.Click += new System.EventHandler(this.setFontUIToolStripMenuItem_Click);
+            this.setDefault10ToolStripMenuItem.Name = "setDefault10ToolStripMenuItem";
+            this.setDefault10ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.setDefault10ToolStripMenuItem.Text = "Set default 1.0";
+            this.setDefault10ToolStripMenuItem.Click += new System.EventHandler(this.setDefault10ToolStripMenuItem_Click);
             // 
-            // resetDefaultToolStripMenuItem
+            // toolStripTextBoxScaleIconsUI
             // 
-            this.resetDefaultToolStripMenuItem.Name = "resetDefaultToolStripMenuItem";
-            this.resetDefaultToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.resetDefaultToolStripMenuItem.Text = "Reset default font";
-            this.resetDefaultToolStripMenuItem.Click += new System.EventHandler(this.resetDefaultToolStripMenuItem_Click);
+            this.toolStripTextBoxScaleIconsUI.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBoxScaleIconsUI.Name = "toolStripTextBoxScaleIconsUI";
+            this.toolStripTextBoxScaleIconsUI.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBoxScaleIconsUI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripTextBoxScaleIconsUI_KeyPress);
             // 
             // MainForm
             // 
@@ -1029,5 +1056,8 @@
         private System.Windows.Forms.ToolStripMenuItem changeFontToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setFontUIToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resetDefaultToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeIconsScaleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setDefault10ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxScaleIconsUI;
     }
 }
