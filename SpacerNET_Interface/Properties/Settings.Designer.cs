@@ -469,13 +469,13 @@ namespace SpacerUnion.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string TestVal {
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public float IconsUIScale {
             get {
-                return ((string)(this["TestVal"]));
+                return ((float)(this["IconsUIScale"]));
             }
             set {
-                this["TestVal"] = value;
+                this["IconsUIScale"] = value;
             }
         }
     }

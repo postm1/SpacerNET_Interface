@@ -206,6 +206,13 @@ namespace SpacerUnion
             return false;
         }
 
+        public static bool IsFloatOrInt(string value)
+        {
+            int intValue;
+            float floatValue;
+            return Int32.TryParse(value, out intValue) || float.TryParse(value, out floatValue);
+        }
+
         public static String sha256_hash(String value)
         {
             StringBuilder Sb = new StringBuilder();

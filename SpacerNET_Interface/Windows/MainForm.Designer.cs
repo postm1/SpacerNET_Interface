@@ -56,6 +56,9 @@
             this.changeFontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setFontUIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetDefaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeIconsScaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setDefault10ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBoxScaleIconsUI = new System.Windows.Forms.ToolStripTextBox();
             this.ToolStripMenuWorld = new System.Windows.Forms.ToolStripMenuItem();
             this.compileLightToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.compileWorldToolStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -117,9 +120,6 @@
             this.toolStripButtonMacros = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFilter = new System.Windows.Forms.ToolStripButton();
             this.toolStripVobVisualInfo = new System.Windows.Forms.ToolStripButton();
-            this.changeIconsScaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.setDefault10ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripTextBoxScaleIconsUI = new System.Windows.Forms.ToolStripTextBox();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -350,16 +350,40 @@
             // setFontUIToolStripMenuItem
             // 
             this.setFontUIToolStripMenuItem.Name = "setFontUIToolStripMenuItem";
-            this.setFontUIToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.setFontUIToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.setFontUIToolStripMenuItem.Text = "SetFont UI";
             this.setFontUIToolStripMenuItem.Click += new System.EventHandler(this.setFontUIToolStripMenuItem_Click);
             // 
             // resetDefaultToolStripMenuItem
             // 
             this.resetDefaultToolStripMenuItem.Name = "resetDefaultToolStripMenuItem";
-            this.resetDefaultToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resetDefaultToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.resetDefaultToolStripMenuItem.Text = "Reset default font";
             this.resetDefaultToolStripMenuItem.Click += new System.EventHandler(this.resetDefaultToolStripMenuItem_Click);
+            // 
+            // changeIconsScaleToolStripMenuItem
+            // 
+            this.changeIconsScaleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setDefault10ToolStripMenuItem,
+            this.toolStripTextBoxScaleIconsUI});
+            this.changeIconsScaleToolStripMenuItem.Name = "changeIconsScaleToolStripMenuItem";
+            this.changeIconsScaleToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.changeIconsScaleToolStripMenuItem.Text = "Change Icons Scale";
+            // 
+            // setDefault10ToolStripMenuItem
+            // 
+            this.setDefault10ToolStripMenuItem.Name = "setDefault10ToolStripMenuItem";
+            this.setDefault10ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.setDefault10ToolStripMenuItem.Text = "Set default 1.0";
+            this.setDefault10ToolStripMenuItem.Click += new System.EventHandler(this.setDefault10ToolStripMenuItem_Click);
+            // 
+            // toolStripTextBoxScaleIconsUI
+            // 
+            this.toolStripTextBoxScaleIconsUI.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBoxScaleIconsUI.Name = "toolStripTextBoxScaleIconsUI";
+            this.toolStripTextBoxScaleIconsUI.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBoxScaleIconsUI.Text = "2.0";
+            this.toolStripTextBoxScaleIconsUI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripTextBoxScaleIconsUI_KeyPress);
             // 
             // ToolStripMenuWorld
             // 
@@ -913,29 +937,6 @@
             this.toolStripVobVisualInfo.Size = new System.Drawing.Size(23, 22);
             this.toolStripVobVisualInfo.Text = "Vob visual info";
             this.toolStripVobVisualInfo.Click += new System.EventHandler(this.toolStripVobVisualInfo_Click);
-            // 
-            // changeIconsScaleToolStripMenuItem
-            // 
-            this.changeIconsScaleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.setDefault10ToolStripMenuItem,
-            this.toolStripTextBoxScaleIconsUI});
-            this.changeIconsScaleToolStripMenuItem.Name = "changeIconsScaleToolStripMenuItem";
-            this.changeIconsScaleToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.changeIconsScaleToolStripMenuItem.Text = "Change Icons Scale";
-            // 
-            // setDefault10ToolStripMenuItem
-            // 
-            this.setDefault10ToolStripMenuItem.Name = "setDefault10ToolStripMenuItem";
-            this.setDefault10ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.setDefault10ToolStripMenuItem.Text = "Set default 1.0";
-            this.setDefault10ToolStripMenuItem.Click += new System.EventHandler(this.setDefault10ToolStripMenuItem_Click);
-            // 
-            // toolStripTextBoxScaleIconsUI
-            // 
-            this.toolStripTextBoxScaleIconsUI.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStripTextBoxScaleIconsUI.Name = "toolStripTextBoxScaleIconsUI";
-            this.toolStripTextBoxScaleIconsUI.Size = new System.Drawing.Size(100, 23);
-            this.toolStripTextBoxScaleIconsUI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripTextBoxScaleIconsUI_KeyPress);
             // 
             // MainForm
             // 

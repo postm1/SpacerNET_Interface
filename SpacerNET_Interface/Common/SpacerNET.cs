@@ -179,6 +179,11 @@ namespace SpacerUnion
             {
                 form.UpdateFontUI(font);
             }
+
+
+            var iconsScale = Properties.Settings.Default.IconsUIScale;
+
+            form.UpdateIconsSize(iconsScale, false);
         }
 
         // Функция вызывается, когда загрузился движок игры (Game_Init), вызывается из Union

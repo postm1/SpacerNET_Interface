@@ -113,8 +113,8 @@
     <Setting Name="MainFont" Type="System.String" Scope="User">
       <Value Profile="(Default)">Microsoft Sans Serif; 8pt</Value>
     </Setting>
-    <Setting Name="TestVal" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="IconsUIScale" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">1</Value>
     </Setting>
   </Settings>
 </SettingsFile>

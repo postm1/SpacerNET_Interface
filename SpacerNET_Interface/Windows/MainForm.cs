@@ -2233,14 +2233,15 @@ namespace SpacerUnion
         private void setDefault10ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             scaleIconsSize = 1.0f;
-            UpdateIconsSIze(scaleIconsSize, true);
+            UpdateIconsSize(scaleIconsSize, true);
         }
 
-        public void UpdateIconsSIze(float size, bool setDefault)
+        public void UpdateIconsSize(float size, bool setDefault)
         {
             if (setDefault)
             {
                 toolStripTop.AutoSize = true;
+                toolStripTop.ImageScalingSize = new Size(16, 16);
                 toolStripTop.Height = 25;
 
             }
@@ -2252,8 +2253,9 @@ namespace SpacerUnion
 
             }
 
+            Properties.Settings.Default.IconsUIScale = size;
+
             toolStripTop.Refresh();
-            //toolStripTop.Invalidate();
         }
 
         private void toolStripTextBoxScaleIconsUI_KeyPress(object sender, KeyPressEventArgs e)
@@ -2271,9 +2273,10 @@ namespace SpacerUnion
                 if (number >= 1.0)
                 {
                     scaleIconsSize = number;
-                    UpdateIconsSIze(scaleIconsSize, false);
+                    UpdateIconsSize(scaleIconsSize, false);
                 }
             }
         }
+
     }
 }
