@@ -1,5 +1,6 @@
 ﻿
 using SpacerUnion.Common;
+using SpacerUnion.Windows;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace SpacerUnion
 
     public partial class ObjectsWin : Form
     {
+        public static RenameForm renameWin = null;
         public static List<string> listVisualsVDF = new List<string>();
         public static List<string> listVisualsWORK = new List<string>();
         public TriggerEntry triggerEntry = new TriggerEntry();
@@ -170,6 +172,7 @@ namespace SpacerUnion
             comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE3"));
             comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE_DYNAMIC"));
             comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE_SINGLE_WP"));
+            comboBoxSearchType.Items.Add(Localizator.Get("VOB_SEARCH_TYPE_RENAME")); //index 6
             comboBoxSearchType.SelectedIndex = 0;
 
             radioButtonConvertOld.Text = Localizator.Get("VOB_SEARCH_CONVERT_RADIO0");
@@ -2854,19 +2857,20 @@ namespace SpacerUnion
             }
 
 
-           /* if (comboBoxSearchType.SelectedIndex == 4)
-            {
-                //labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": " + listBoxSearchResult.Items.Count;
-                labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": ";
-                SpacerNET.form.AddText(Localizator.Get("VOB_SEARCH_RENAME_VOBS") + result.ToString() + " (" + timeSpend + ")");
-            }
-            */
+            
+            
 
             if (comboBoxSearchType.SelectedIndex == 4)
             {
                 //labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": " + listBoxSearchResult.Items.Count;
                 labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": ";
                 SpacerNET.form.AddText(Localizator.Get("VOB_SEARCH_DYNCOLL_VOBS") + result.ToString() + " (" + timeSpend + ")");
+            }
+
+            if (comboBoxSearchType.SelectedIndex == 6)
+            {
+                labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": ";
+                SpacerNET.form.AddText(Localizator.Get("VOB_SEARCH_RENAME_VOBS") + result.ToString() + " (" + timeSpend + ")");
             }
 
         }
@@ -3356,6 +3360,17 @@ namespace SpacerUnion
                 case 6: buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE_RENAME"); break;
 
                  
+            }
+
+            //rename
+            if (cb.SelectedIndex == 6)
+            {
+                if (renameWin == null)
+                {
+                    renameWin = new RenameForm();
+                }
+
+                renameWin.ShowDialog();
             }
 
             if (cb.SelectedIndex == 1)

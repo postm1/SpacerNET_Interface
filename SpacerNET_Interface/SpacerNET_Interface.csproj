@@ -175,6 +175,12 @@
     <Compile Include="Windows\PFXEditorWin.Designer.cs">
       <DependentUpon>PFXEditorWin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\RenameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\RenameForm.Designer.cs">
+      <DependentUpon>RenameForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\SettingsCamera.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,6 +296,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\RenameForm.resx">
+      <DependentUpon>RenameForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\SettingsCamera.resx">
       <DependentUpon>SettingsCamera.cs</DependentUpon>

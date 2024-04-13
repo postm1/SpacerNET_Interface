@@ -97,6 +97,11 @@ namespace SpacerUnion.Common
 
             SpacerNET.objTreeWin.UpdateLang();
 
+            if (ObjectsWin.renameWin != null)
+            {
+                ObjectsWin.renameWin.UpdateLang();
+            }
+
             SpacerNET.vobList.UpdateLang();
             SpacerNET.soundWin.UpdateLang();
             SpacerNET.propWin.UpdateLang();
