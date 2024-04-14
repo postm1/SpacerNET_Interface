@@ -40,7 +40,7 @@ namespace SpacerUnion.Windows
             // 
             // buttonRenameWin_Apply
             // 
-            this.buttonRenameWin_Apply.Location = new System.Drawing.Point(220, 120);
+            this.buttonRenameWin_Apply.Location = new System.Drawing.Point(204, 118);
             this.buttonRenameWin_Apply.Name = "buttonRenameWin_Apply";
             this.buttonRenameWin_Apply.Size = new System.Drawing.Size(128, 23);
             this.buttonRenameWin_Apply.TabIndex = 0;
@@ -85,7 +85,7 @@ namespace SpacerUnion.Windows
             // 
             // textBoxRenamesStarNumber
             // 
-            this.textBoxRenamesStarNumber.Location = new System.Drawing.Point(433, 75);
+            this.textBoxRenamesStarNumber.Location = new System.Drawing.Point(462, 75);
             this.textBoxRenamesStarNumber.Name = "textBoxRenamesStarNumber";
             this.textBoxRenamesStarNumber.Size = new System.Drawing.Size(53, 20);
             this.textBoxRenamesStarNumber.TabIndex = 4;
@@ -94,7 +94,7 @@ namespace SpacerUnion.Windows
             // 
             // textBoxRenameForAllVobs
             // 
-            this.textBoxRenameForAllVobs.Location = new System.Drawing.Point(272, 43);
+            this.textBoxRenameForAllVobs.Location = new System.Drawing.Point(301, 43);
             this.textBoxRenameForAllVobs.Name = "textBoxRenameForAllVobs";
             this.textBoxRenameForAllVobs.Size = new System.Drawing.Size(155, 20);
             this.textBoxRenameForAllVobs.TabIndex = 5;
@@ -102,7 +102,7 @@ namespace SpacerUnion.Windows
             // 
             // textBoxRenameWithPrefix
             // 
-            this.textBoxRenameWithPrefix.Location = new System.Drawing.Point(272, 75);
+            this.textBoxRenameWithPrefix.Location = new System.Drawing.Point(301, 75);
             this.textBoxRenameWithPrefix.Name = "textBoxRenameWithPrefix";
             this.textBoxRenameWithPrefix.Size = new System.Drawing.Size(155, 20);
             this.textBoxRenameWithPrefix.TabIndex = 6;
@@ -112,7 +112,7 @@ namespace SpacerUnion.Windows
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 171);
+            this.ClientSize = new System.Drawing.Size(541, 153);
             this.Controls.Add(this.textBoxRenameWithPrefix);
             this.Controls.Add(this.textBoxRenameForAllVobs);
             this.Controls.Add(this.textBoxRenamesStarNumber);
