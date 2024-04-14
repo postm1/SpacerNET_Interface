@@ -764,13 +764,13 @@ namespace SpacerUnion.Common
             words.Add("resetDefaultToolStripMenuItem", new List<string> { "Сбросить шрифт по умолчанию", "Reset font to default", "Schriftart auf Standard zurücksetzen", "Ustaw domyślną czcionkę" });
 
 
-            words.Add("TOP_MENU_CHANGE_ICONS_SCALE", new List<string> { "Сменить маштаб иконок", "Change icons scale", "", "Zmień skalę ikon" });
-            words.Add("TOP_MENU_CHANGE_ICONS_DEFAULT", new List<string> { "Установить по умолчанию 1.0", "Set default 1.0", "", "Ustaw domyślną 1.0" });
-            words.Add("RENAME_WIN_TITLE", new List<string> { "Опции переименования", "Rename options", "", "Opcje zmiany nazwy" });
+            words.Add("TOP_MENU_CHANGE_ICONS_SCALE", new List<string> { "Сменить маштаб иконок", "Change icons scale", "Skalierung der Icons ändern", "Zmień skalę ikon" });
+            words.Add("TOP_MENU_CHANGE_ICONS_DEFAULT", new List<string> { "Установить по умолчанию 1.0", "Set default 1.0", "Standardwert 1,0 einstellen", "Ustaw domyślną 1.0" });
+            words.Add("RENAME_WIN_TITLE", new List<string> { "Опции переименования", "Rename options", "Optionen umbenennen", "Opcje zmiany nazwy" });
 
-            words.Add("radioButtonRenameEmpty", new List<string> { "Установить пустое имя для всех вобов", "Set empty name for all vobs", "", "Ustaw pustą nazwę dla wszystkich vobów" });
-            words.Add("radioButtonNameForAll", new List<string> { "Установить единое имя для всех вобов", "Set one name for all vobs", "", "Ustaw jedną nazwę dla wszystkich vobów" });
-            words.Add("radioButtonNameOneNumberPostfix", new List<string> { "Установить имя с числом в конце начиная с...", "Set one name with number postfix started from...", "", "Ustaw jedną nazwę z liczbą postfix zaczynającą się od.." });
+            words.Add("radioButtonRenameEmpty", new List<string> { "Установить пустое имя для всех вобов", "Set empty name for all vobs", "Leeren Namen für alle VOBs festlegen", "Ustaw pustą nazwę dla wszystkich vobów" });
+            words.Add("radioButtonNameForAll", new List<string> { "Установить единое имя для всех вобов", "Set one name for all vobs", "Einen Namen für alle VOBs festlegen", "Ustaw jedną nazwę dla wszystkich vobów" });
+            words.Add("radioButtonNameOneNumberPostfix", new List<string> { "Установить имя с числом в конце начиная с...", "Set one name with number postfix started from...", "Benenne mit nummerischem Anhang, beginnend ab...", "Ustaw jedną nazwę z liczbą postfix zaczynającą się od..." });
         }
         
     }
