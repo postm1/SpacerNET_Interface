@@ -492,6 +492,12 @@ namespace SpacerUnion.Windows
                     Imports.Stack_PushString(prop.Name);
                     Imports.Extern_UpdatePFXField();
                 }
+                else if (IsFieldRealString(prop.Name))
+                {
+                    Imports.Stack_PushString(prop.ShowValue());
+                    Imports.Stack_PushString(prop.Name);
+                    Imports.Extern_UpdatePFXField();
+                }
                 else
                 {
                     Imports.Stack_PushString(prop.value);

@@ -359,9 +359,9 @@ namespace SpacerUnion.Windows
             else if (prop.Name == "visOrientation_s")
             {
                 prop.enumArray.Add("NONE");
-                prop.enumArray.Add("VEL");
+                prop.enumArray.Add("VELO");
                 prop.enumArray.Add("VOB");
-                prop.enumArray.Add("VEL3D");
+                prop.enumArray.Add("VELO3D");
             }
             else if (prop.Name == "visAlphaFunc_s")
             {
@@ -393,6 +393,25 @@ namespace SpacerUnion.Windows
 
             return false;
         }
+
+        public bool IsFieldRealString(string fieldName)
+        {
+            if (fieldName == "visAlphaFunc_s" 
+                || fieldName == "visOrientation_s" 
+                || fieldName == "dirModeTargetFor_s"
+                || fieldName == "dirFor_s"
+                || fieldName == "dirMode_s"
+                || fieldName == "shpDistribType_s"
+                || fieldName == "shpFor_s"
+                || fieldName == "shpType_s"
+                )
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public bool PFX_CheckValidInput(string input, CProperty prop)
         {
             // empty string is good
