@@ -129,6 +129,46 @@ namespace SpacerUnion
             return result;
         }
 
+        public void SetTypePFXEditor(string dtw)
+        {
+            if (dtw.Contains("enum"))
+            {
+                type = TPropEditType.PETenum;
+            }
+            else if (dtw.Contains("bool"))
+            {
+                type = TPropEditType.PETbool;
+            }
+            else if (dtw.Contains("string"))
+            {
+                type = TPropEditType.PETstring;
+            }
+            else if (dtw.Contains("int"))
+            {
+                type = TPropEditType.PETint;
+            }
+            else if (dtw.Contains("float"))
+            {
+                type = TPropEditType.PETfloat;
+            }
+            else if (dtw.Contains("raw"))
+            {
+                type = TPropEditType.PETraw;
+            }
+            else if (dtw.Contains("vec3"))
+            {
+                type = TPropEditType.PETvec3;
+            }
+            else if (dtw.Contains("color"))
+            {
+                type = TPropEditType.PETcolor;
+            }
+            else
+            {
+                type = TPropEditType.PETint;
+            }
+        }
+
         public void SetType(string dtw)
         {
             
@@ -138,10 +178,10 @@ namespace SpacerUnion
                 enumArray = dtw.Split(';').ToList();
                 enumArray.RemoveAt(0);
 
-                for (int i = 0; i < enumArray.Count; i++)
-                {
-                    //Console.WriteLine("Enum value: " + enumArray[i]);
-                }
+                //for (int i = 0; i < enumArray.Count; i++)
+                //{
+                //    Console.WriteLine("Enum value: " + enumArray[i]);
+                //}
             }
             else if (dtw.Contains("bool"))
             {

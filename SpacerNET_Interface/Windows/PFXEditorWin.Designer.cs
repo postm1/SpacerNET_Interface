@@ -32,6 +32,7 @@
             this.labelPFXName = new System.Windows.Forms.Label();
             this.propertyGridPfx = new System.Windows.Forms.PropertyGrid();
             this.savePFXButton = new System.Windows.Forms.Button();
+            this.treeViewPFX = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
             // comboBoxPfxInst
@@ -55,10 +56,9 @@
             // 
             // propertyGridPfx
             // 
-            this.propertyGridPfx.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.propertyGridPfx.Location = new System.Drawing.Point(0, 71);
+            this.propertyGridPfx.Location = new System.Drawing.Point(426, 9);
             this.propertyGridPfx.Name = "propertyGridPfx";
-            this.propertyGridPfx.Size = new System.Drawing.Size(432, 424);
+            this.propertyGridPfx.Size = new System.Drawing.Size(36, 171);
             this.propertyGridPfx.TabIndex = 2;
             this.propertyGridPfx.SelectedGridItemChanged += new System.Windows.Forms.SelectedGridItemChangedEventHandler(this.propertyGridPfx_SelectedGridItemChanged);
             // 
@@ -72,11 +72,19 @@
             this.savePFXButton.UseVisualStyleBackColor = true;
             this.savePFXButton.Click += new System.EventHandler(this.savePFXButton_Click);
             // 
+            // treeViewPFX
+            // 
+            this.treeViewPFX.Location = new System.Drawing.Point(15, 65);
+            this.treeViewPFX.Name = "treeViewPFX";
+            this.treeViewPFX.Size = new System.Drawing.Size(405, 621);
+            this.treeViewPFX.TabIndex = 4;
+            // 
             // PFXEditorWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(432, 495);
+            this.ClientSize = new System.Drawing.Size(467, 698);
+            this.Controls.Add(this.treeViewPFX);
             this.Controls.Add(this.savePFXButton);
             this.Controls.Add(this.propertyGridPfx);
             this.Controls.Add(this.labelPFXName);
@@ -100,5 +108,6 @@
         private System.Windows.Forms.Label labelPFXName;
         private System.Windows.Forms.PropertyGrid propertyGridPfx;
         private System.Windows.Forms.Button savePFXButton;
+        private System.Windows.Forms.TreeView treeViewPFX;
     }
 }
