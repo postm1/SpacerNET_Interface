@@ -73,11 +73,11 @@
             // 
             // savePFXButton
             // 
-            this.savePFXButton.Location = new System.Drawing.Point(47, 57);
+            this.savePFXButton.Location = new System.Drawing.Point(104, 40);
             this.savePFXButton.Name = "savePFXButton";
             this.savePFXButton.Size = new System.Drawing.Size(119, 23);
             this.savePFXButton.TabIndex = 3;
-            this.savePFXButton.Text = "Сохранить";
+            this.savePFXButton.Text = "Сохранить в файл";
             this.savePFXButton.UseVisualStyleBackColor = true;
             this.savePFXButton.Click += new System.EventHandler(this.savePFXButton_Click);
             // 
@@ -136,6 +136,7 @@
             this.comboBoxPfxField.Size = new System.Drawing.Size(141, 21);
             this.comboBoxPfxField.TabIndex = 6;
             this.comboBoxPfxField.Visible = false;
+            this.comboBoxPfxField.SelectedIndexChanged += new System.EventHandler(this.comboBoxPfxField_SelectedIndexChanged);
             // 
             // textBoxPfxInput
             // 
@@ -151,7 +152,7 @@
             this.buttonPfxRestore.Name = "buttonPfxRestore";
             this.buttonPfxRestore.Size = new System.Drawing.Size(119, 23);
             this.buttonPfxRestore.TabIndex = 8;
-            this.buttonPfxRestore.Text = "Restore";
+            this.buttonPfxRestore.Text = "Restore ";
             this.buttonPfxRestore.UseVisualStyleBackColor = true;
             this.buttonPfxRestore.Click += new System.EventHandler(this.buttonPfxRestore_Click);
             // 

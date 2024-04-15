@@ -433,5 +433,29 @@ namespace SpacerUnion.Windows
                 treeViewPFX_AfterSelect(null, events);
             }
         }
+
+        private void comboBoxPfxField_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (treeViewPFX.SelectedNode != null)
+            {
+                var prop = props.FirstOrDefault(curProp => curProp.ownNode == treeViewPFX.SelectedNode);
+
+                if (prop == null)
+                {
+                    return;
+                }
+
+                if (prop.type != TPropEditType.PETenum)
+                {
+                    return;
+                }
+
+                int selectedIndex = comboBoxPfxField.SelectedIndex;
+
+                prop.SetValue(selectedIndex.ToString());
+                treeViewPFX.SelectedNode.Text = prop.Name + ": " + prop.ShowValue();
+            }
+                
+        }
     }
 }
