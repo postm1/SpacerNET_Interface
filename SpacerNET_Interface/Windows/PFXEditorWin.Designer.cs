@@ -35,11 +35,13 @@
             this.treeViewPFX = new System.Windows.Forms.TreeView();
             this.buttonPfxEditorApply = new System.Windows.Forms.Button();
             this.panelPFXButtons = new System.Windows.Forms.Panel();
-            this.panelPFXTop = new System.Windows.Forms.Panel();
-            this.comboBoxPfxField = new System.Windows.Forms.ComboBox();
-            this.textBoxPfxInput = new System.Windows.Forms.TextBox();
             this.buttonPfxRestore = new System.Windows.Forms.Button();
+            this.textBoxPfxInput = new System.Windows.Forms.TextBox();
+            this.comboBoxPfxField = new System.Windows.Forms.ComboBox();
+            this.panelPFXTop = new System.Windows.Forms.Panel();
             this.buttonPFXPlayAgain = new System.Windows.Forms.Button();
+            this.buttonFile = new System.Windows.Forms.Button();
+            this.buttonColor = new System.Windows.Forms.Button();
             this.panelPFXButtons.SuspendLayout();
             this.panelPFXTop.SuspendLayout();
             this.SuspendLayout();
@@ -106,6 +108,8 @@
             // 
             // panelPFXButtons
             // 
+            this.panelPFXButtons.Controls.Add(this.buttonColor);
+            this.panelPFXButtons.Controls.Add(this.buttonFile);
             this.panelPFXButtons.Controls.Add(this.buttonPfxRestore);
             this.panelPFXButtons.Controls.Add(this.textBoxPfxInput);
             this.panelPFXButtons.Controls.Add(this.comboBoxPfxField);
@@ -115,6 +119,35 @@
             this.panelPFXButtons.Name = "panelPFXButtons";
             this.panelPFXButtons.Size = new System.Drawing.Size(467, 76);
             this.panelPFXButtons.TabIndex = 6;
+            // 
+            // buttonPfxRestore
+            // 
+            this.buttonPfxRestore.Location = new System.Drawing.Point(153, 41);
+            this.buttonPfxRestore.Name = "buttonPfxRestore";
+            this.buttonPfxRestore.Size = new System.Drawing.Size(119, 23);
+            this.buttonPfxRestore.TabIndex = 8;
+            this.buttonPfxRestore.Text = "Restore ";
+            this.buttonPfxRestore.UseVisualStyleBackColor = true;
+            this.buttonPfxRestore.Click += new System.EventHandler(this.buttonPfxRestore_Click);
+            // 
+            // textBoxPfxInput
+            // 
+            this.textBoxPfxInput.Location = new System.Drawing.Point(12, 7);
+            this.textBoxPfxInput.Name = "textBoxPfxInput";
+            this.textBoxPfxInput.Size = new System.Drawing.Size(260, 20);
+            this.textBoxPfxInput.TabIndex = 7;
+            this.textBoxPfxInput.Visible = false;
+            // 
+            // comboBoxPfxField
+            // 
+            this.comboBoxPfxField.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPfxField.FormattingEnabled = true;
+            this.comboBoxPfxField.Location = new System.Drawing.Point(12, 6);
+            this.comboBoxPfxField.Name = "comboBoxPfxField";
+            this.comboBoxPfxField.Size = new System.Drawing.Size(141, 21);
+            this.comboBoxPfxField.TabIndex = 6;
+            this.comboBoxPfxField.Visible = false;
+            this.comboBoxPfxField.SelectedIndexChanged += new System.EventHandler(this.comboBoxPfxField_SelectedIndexChanged);
             // 
             // panelPFXTop
             // 
@@ -129,35 +162,6 @@
             this.panelPFXTop.Size = new System.Drawing.Size(467, 100);
             this.panelPFXTop.TabIndex = 7;
             // 
-            // comboBoxPfxField
-            // 
-            this.comboBoxPfxField.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxPfxField.FormattingEnabled = true;
-            this.comboBoxPfxField.Location = new System.Drawing.Point(12, 6);
-            this.comboBoxPfxField.Name = "comboBoxPfxField";
-            this.comboBoxPfxField.Size = new System.Drawing.Size(141, 21);
-            this.comboBoxPfxField.TabIndex = 6;
-            this.comboBoxPfxField.Visible = false;
-            this.comboBoxPfxField.SelectedIndexChanged += new System.EventHandler(this.comboBoxPfxField_SelectedIndexChanged);
-            // 
-            // textBoxPfxInput
-            // 
-            this.textBoxPfxInput.Location = new System.Drawing.Point(12, 7);
-            this.textBoxPfxInput.Name = "textBoxPfxInput";
-            this.textBoxPfxInput.Size = new System.Drawing.Size(260, 20);
-            this.textBoxPfxInput.TabIndex = 7;
-            this.textBoxPfxInput.Visible = false;
-            // 
-            // buttonPfxRestore
-            // 
-            this.buttonPfxRestore.Location = new System.Drawing.Point(153, 41);
-            this.buttonPfxRestore.Name = "buttonPfxRestore";
-            this.buttonPfxRestore.Size = new System.Drawing.Size(119, 23);
-            this.buttonPfxRestore.TabIndex = 8;
-            this.buttonPfxRestore.Text = "Restore ";
-            this.buttonPfxRestore.UseVisualStyleBackColor = true;
-            this.buttonPfxRestore.Click += new System.EventHandler(this.buttonPfxRestore_Click);
-            // 
             // buttonPFXPlayAgain
             // 
             this.buttonPFXPlayAgain.Location = new System.Drawing.Point(104, 40);
@@ -167,6 +171,25 @@
             this.buttonPFXPlayAgain.Text = "Play again";
             this.buttonPFXPlayAgain.UseVisualStyleBackColor = true;
             this.buttonPFXPlayAgain.Click += new System.EventHandler(this.buttonPFXPlayAgain_Click);
+            // 
+            // buttonFile
+            // 
+            this.buttonFile.Location = new System.Drawing.Point(278, 6);
+            this.buttonFile.Name = "buttonFile";
+            this.buttonFile.Size = new System.Drawing.Size(75, 23);
+            this.buttonFile.TabIndex = 9;
+            this.buttonFile.Text = "File";
+            this.buttonFile.UseVisualStyleBackColor = true;
+            // 
+            // buttonColor
+            // 
+            this.buttonColor.Location = new System.Drawing.Point(359, 7);
+            this.buttonColor.Name = "buttonColor";
+            this.buttonColor.Size = new System.Drawing.Size(96, 23);
+            this.buttonColor.TabIndex = 10;
+            this.buttonColor.Text = "Color";
+            this.buttonColor.UseVisualStyleBackColor = true;
+            this.buttonColor.Click += new System.EventHandler(this.buttonColor_Click);
             // 
             // PFXEditorWin
             // 
@@ -208,5 +231,7 @@
         private System.Windows.Forms.TextBox textBoxPfxInput;
         private System.Windows.Forms.Button buttonPfxRestore;
         private System.Windows.Forms.Button buttonPFXPlayAgain;
+        private System.Windows.Forms.Button buttonColor;
+        private System.Windows.Forms.Button buttonFile;
     }
 }

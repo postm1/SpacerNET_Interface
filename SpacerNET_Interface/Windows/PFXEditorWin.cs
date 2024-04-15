@@ -44,6 +44,12 @@ namespace SpacerUnion.Windows
             buttonPfxEditorApply.Enabled = toggle;
             buttonPfxRestore.Enabled = toggle;
             
+
+            if (!toggle)
+            {
+                buttonFile.Enabled = toggle;
+                buttonColor.Enabled = toggle;
+            }
         }
         
 
@@ -301,7 +307,8 @@ namespace SpacerUnion.Windows
 
             comboBoxPfxField.Visible = false;
             textBoxPfxInput.Visible = false;
-
+            buttonColor.Enabled = false;
+            buttonFile.Enabled = false;
 
             if (node != null && node.Tag != null && node.Tag.ToString() == Constants.TAG_FOLDER)
             {
@@ -347,6 +354,11 @@ namespace SpacerUnion.Windows
                 {
                     textBoxPfxInput.Text = prop.ShowValue();
                     textBoxPfxInput.Visible = true;
+
+                    if (IsColorField(prop.Name))
+                    {
+                        buttonColor.Enabled = true;
+                    }
                 }
             }
         }
@@ -363,6 +375,7 @@ namespace SpacerUnion.Windows
                 {
                     return;
                 }
+
 
                 if (prop.type == TPropEditType.PETenum)
                 {
@@ -390,6 +403,12 @@ namespace SpacerUnion.Windows
                     if (prop.type == TPropEditType.PETfloat)
                     {
                         input = input.Replace(",", ".");
+                    }
+
+
+                    if (IsTextureField(prop.Name) && !input.Contains(".TGA"))
+                    {
+                        input += ".TGA";
                     }
 
                     prop.SetValue(input);
@@ -520,6 +539,33 @@ namespace SpacerUnion.Windows
             }
 
             
+        }
+
+        private void buttonColor_Click(object sender, EventArgs e)
+        {
+            ColorDialog MyDialog = new ColorDialog();
+
+            var split = textBoxPfxInput.Text.Split(' ');
+
+            if (split.Count() < 3)
+            {
+                return;
+            }
+
+            int r = Convert.ToInt32(split[0]);
+            int g = Convert.ToInt32(split[1]);
+            int b = Convert.ToInt32(split[2]);
+
+            MyDialog.Color = Color.FromArgb(255, r, g, b);
+
+            if (MyDialog.ShowDialog() == DialogResult.OK)
+            {
+                textBoxPfxInput.Text =
+                    MyDialog.Color.R.ToString()
+                    + " " + MyDialog.Color.G.ToString()
+                    + " " + MyDialog.Color.B.ToString()
+                    ;
+            }
         }
     }
 }

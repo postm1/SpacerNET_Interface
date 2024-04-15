@@ -66,7 +66,7 @@ namespace SpacerUnion.Windows
                 || prop.Name == "ppsCreateEm_s"
                 || prop.Name == "visTexColorStart_s"
                 || prop.Name == "visTexColorEnd_s"
-
+                || prop.Name == "visAlphaFunc_s"
                 )
             {
                 prop.ownNode.NodeFont = new Font(treeViewPFX.Font, style);
@@ -404,6 +404,32 @@ namespace SpacerUnion.Windows
                 || fieldName == "shpDistribType_s"
                 || fieldName == "shpFor_s"
                 || fieldName == "shpType_s"
+                )
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool IsColorField(string fieldName)
+        {
+            if (fieldName == "visTexColorStart_s"
+                || fieldName == "visTexColorEnd_s"
+                )
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool IsTextureField(string fieldName)
+        {
+            if (fieldName == "ppsCreateEm_s"
+                || fieldName == "visName_s"
+                || fieldName == "trlTexture_s"
+                || fieldName == "mrkTexture_s"
                 )
             {
                 return true;
