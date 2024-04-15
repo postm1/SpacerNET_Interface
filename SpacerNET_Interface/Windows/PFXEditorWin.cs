@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -359,6 +360,11 @@ namespace SpacerUnion.Windows
                     {
                         buttonColor.Enabled = true;
                     }
+
+                    if (IsTextureField(prop.Name))
+                    {
+                        buttonFile.Enabled = true;
+                    }
                 }
             }
         }
@@ -405,8 +411,8 @@ namespace SpacerUnion.Windows
                         input = input.Replace(",", ".");
                     }
 
-
-                    if (IsTextureField(prop.Name) && !input.Contains(".TGA"))
+                    // Fixing texture name if no .TGA
+                    if (IsTextureField(prop.Name) && input.Length > 0 && !input.Contains(".TGA"))
                     {
                         input += ".TGA";
                     }
@@ -565,6 +571,55 @@ namespace SpacerUnion.Windows
                     + " " + MyDialog.Color.G.ToString()
                     + " " + MyDialog.Color.B.ToString()
                     ;
+            }
+        }
+
+        private void buttonFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialogFileName = new OpenFileDialog();
+
+            openFileDialogFileName.Filter = Constants.FILE_FILTER_ALL;
+
+
+            Imports.Stack_PushString("vobResPath");
+            Imports.Extern_GetSettingStr();
+            string path = Utils.FixPath(Imports.Stack_PeekString());
+
+            try
+            {
+                openFileDialogFileName.InitialDirectory = Utils.GetInitialDirectory(path);
+            }
+            catch
+            {
+                MessageBox.Show("Wrong path! " + path);
+                return;
+            }
+
+            openFileDialogFileName.RestoreDirectory = true;
+
+            if (openFileDialogFileName.ShowDialog() == DialogResult.OK)
+            {
+                //Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(openFileDialogFileName.FileName)));
+                //Imports.Stack_PushString("vobResPath");
+                //Imports.Extern_SetSettingStr();
+
+                string fileName = openFileDialogFileName.SafeFileName;
+                TreeNode node = treeViewPFX.SelectedNode;
+
+                if (node != null)
+                {
+
+                    var prop = props.FirstOrDefault(curProp => curProp.ownNode == treeViewPFX.SelectedNode);
+
+                    if (prop == null)
+                    {
+                        return;
+                    }
+
+                    prop.value = fileName.ToUpper();
+                    prop.ownNode.Text = prop.Name + ": " + prop.ShowValue();
+                    textBoxPfxInput.Text = prop.value;
+                }
             }
         }
     }

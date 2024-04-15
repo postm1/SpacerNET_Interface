@@ -174,16 +174,17 @@
             // 
             // buttonFile
             // 
-            this.buttonFile.Location = new System.Drawing.Point(278, 6);
+            this.buttonFile.Location = new System.Drawing.Point(278, 5);
             this.buttonFile.Name = "buttonFile";
             this.buttonFile.Size = new System.Drawing.Size(75, 23);
             this.buttonFile.TabIndex = 9;
             this.buttonFile.Text = "File";
             this.buttonFile.UseVisualStyleBackColor = true;
+            this.buttonFile.Click += new System.EventHandler(this.buttonFile_Click);
             // 
             // buttonColor
             // 
-            this.buttonColor.Location = new System.Drawing.Point(359, 7);
+            this.buttonColor.Location = new System.Drawing.Point(359, 5);
             this.buttonColor.Name = "buttonColor";
             this.buttonColor.Size = new System.Drawing.Size(96, 23);
             this.buttonColor.TabIndex = 10;
