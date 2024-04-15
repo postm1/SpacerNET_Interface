@@ -221,7 +221,7 @@ namespace SpacerUnion.Windows
 
                 TreeNode node = baseNode.Nodes.Add(name + ": " + prop.ShowValue());
                 prop.ownNode = node;
-
+               
                 props.Add(prop);
 
 
@@ -232,6 +232,48 @@ namespace SpacerUnion.Windows
                 ConsoleEx.WriteLineRed("NO NODE!");
             }
            
+        }
+
+        public void SetProp(string name, string val)
+        {
+            var prop = props.FirstOrDefault(curProp => curProp.Name.Equals(name));
+
+            if (prop != null)
+            {
+                if (prop.type == TPropEditType.PETfloat)
+                {
+                    val = val.Replace(",", ".");
+                }
+
+
+                if (prop.enumArray.Count > 0)
+                {
+                    bool foundFlag = false;
+
+                    for (int i = 0; i < prop.enumArray.Count; i++)
+                    {
+                        if (prop.enumArray[i].ToUpper() == val.ToUpper())
+                        {
+                            prop.SetValue(i.ToString());
+                            foundFlag = true;
+                            break;
+                        }
+                    }
+
+                    // if we don't find proper enum value
+                    if (!foundFlag)
+                    {
+                        prop.SetValue("0");
+                    }
+                }
+                else
+                {
+                    prop.SetValue(val);
+                }
+
+               
+                prop.ownNode.Text = prop.Name + ": " + prop.ShowValue();
+            }
         }
         public void FillProps()
         {
@@ -310,8 +352,8 @@ namespace SpacerUnion.Windows
 
             AddNewProp("flockMode", "OTHER", "enum", "0");
             AddNewProp("flockStrength", "OTHER", "float", "0");
-            AddNewProp("useEmittersFor", "OTHER", "int", "0");
-            AddNewProp("timeStartEnd_s", "OTHER", "string", "");
+            AddNewProp("useEmittersFor", "OTHER", "bool", "0");
+            AddNewProp("timeStartEnd_s", "OTHER", "string", "0 0");
             AddNewProp("m_bIsAmbientPFX", "OTHER", "bool", "0"); //57 END
 
 
@@ -331,7 +373,7 @@ namespace SpacerUnion.Windows
             //Console.WriteLine(e.PropertyName + " has been changed.");
             var propInfo = SpacerNET.pfxWin.stat.GetType().GetProperty(e.PropertyName);
 
-            ConsoleEx.WriteLineRed("stat_PropertyChanged: " + e.PropertyName);
+            //ConsoleEx.WriteLineRed("stat_PropertyChanged: " + e.PropertyName);
 
             if (propInfo != null)
             {
@@ -385,48 +427,46 @@ namespace SpacerUnion.Windows
 
         public void LoadPfx(string name)
         {
-            //propertyGridPfx.PropertySort = PropertySort.Categorized;
-            //propertyGridPfx.SelectedObject = stat;
-
             Imports.Stack_PushString(name);
             Imports.Extern_GetInstanceProps();
 
 
             treeViewPFX.BeginUpdate();
 
-            //int size = Imports.Stack_PeekInt();
-
-            //MessageBox.Show("Size: " + size);
-
-            stat.BIsAmbientPFX = Convert.ToBoolean(Imports.Stack_PeekInt());
-            stat.TimeStartEnd_s = Imports.Stack_PeekString();
-            stat.UseEmittersFor = Convert.ToBoolean(Imports.Stack_PeekInt());
-            stat.FlockStrength = Imports.Stack_PeekFloat();
-
-            stat.FlockMode = Imports.Stack_PeekString();
-            stat.MrkSize = Imports.Stack_PeekFloat();
-            stat.MrkTexture_s = Imports.Stack_PeekString();
-            stat.MrkFadeSpeed = Imports.Stack_PeekFloat();
-            stat.TrlWidth = Imports.Stack_PeekFloat();
-            stat.TrlTexture_s = Imports.Stack_PeekString();
-            stat.TrlFadeSpeed = Imports.Stack_PeekFloat();
-
-            stat.VisAlphaEnd = Imports.Stack_PeekFloat();
-            stat.VisAlphaStart = Imports.Stack_PeekFloat();
-            stat.VisAlphaFunc_s = Imports.Stack_PeekString();
-            stat.VisSizeEndScale = Imports.Stack_PeekFloat();
-            stat.VisSizeStart_s = Imports.Stack_PeekString();
-
-            stat.VisTexColorEnd_s = Imports.Stack_PeekString();
-            stat.VisTexColorStart_s = Imports.Stack_PeekString();
-
-            stat.VisTexAniIsLooping = (VISTEXANIISLOOPING)Imports.Stack_PeekInt();
+            SetProp("m_bIsAmbientPFX", Imports.Stack_PeekInt().ToString());
+            SetProp("timeStartEnd_s", Imports.Stack_PeekString());
+            SetProp("useEmittersFor", Imports.Stack_PeekInt().ToString());
+            SetProp("flockStrength", Imports.Stack_PeekFloat().ToString());
+            SetProp("flockMode", Imports.Stack_PeekString());
 
 
-            stat.VisTexAniFPS = Imports.Stack_PeekFloat();
-            stat.VisTexIsQuadPoly = Convert.ToBoolean(Imports.Stack_PeekInt());
-            stat.VisOrientation_s = Imports.Stack_PeekString();
-            stat.VisName_s = Imports.Stack_PeekString();
+            SetProp("mrkSize", Imports.Stack_PeekFloat().ToString());
+            SetProp("mrkTexture_s", Imports.Stack_PeekString());
+            SetProp("mrkFadeSpeed", Imports.Stack_PeekFloat().ToString());
+            SetProp("trlWidth", Imports.Stack_PeekFloat().ToString());
+            SetProp("trlTexture_s", Imports.Stack_PeekString());
+            SetProp("trlFadeSpeed", Imports.Stack_PeekFloat().ToString());
+
+
+
+
+            SetProp("visAlphaEnd", Imports.Stack_PeekFloat().ToString());
+            SetProp("visAlphaStart", Imports.Stack_PeekFloat().ToString());
+            SetProp("visAlphaFunc_s", Imports.Stack_PeekString());
+            SetProp("visSizeEndScale", Imports.Stack_PeekFloat().ToString());
+            SetProp("visSizeStart_s", Imports.Stack_PeekString());
+            SetProp("visTexColorEnd_s", Imports.Stack_PeekString());
+            SetProp("visTexColorStart_s", Imports.Stack_PeekString());
+
+
+            SetProp("visTexAniIsLooping", Imports.Stack_PeekInt().ToString());
+            SetProp("visTexAniFPS", Imports.Stack_PeekFloat().ToString());
+            SetProp("visTexIsQuadPoly", Imports.Stack_PeekInt().ToString());
+            SetProp("visOrientation_s", Imports.Stack_PeekString());
+            SetProp("visName_s", Imports.Stack_PeekString());
+
+
+         
  
             stat.FlyCollDet_b = (FLYCOLLDET_B)Imports.Stack_PeekInt();
             stat.FlyGravity_s = Imports.Stack_PeekString();

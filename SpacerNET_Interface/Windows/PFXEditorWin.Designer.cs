@@ -33,6 +33,9 @@
             this.propertyGridPfx = new System.Windows.Forms.PropertyGrid();
             this.savePFXButton = new System.Windows.Forms.Button();
             this.treeViewPFX = new System.Windows.Forms.TreeView();
+            this.buttonPfxEditorApply = new System.Windows.Forms.Button();
+            this.panelPFXButtons = new System.Windows.Forms.Panel();
+            this.panelPFXButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBoxPfxInst
@@ -74,18 +77,38 @@
             // 
             // treeViewPFX
             // 
-            this.treeViewPFX.Location = new System.Drawing.Point(15, 65);
+            this.treeViewPFX.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.treeViewPFX.Location = new System.Drawing.Point(0, 65);
             this.treeViewPFX.Name = "treeViewPFX";
-            this.treeViewPFX.Size = new System.Drawing.Size(405, 621);
+            this.treeViewPFX.Size = new System.Drawing.Size(467, 566);
             this.treeViewPFX.TabIndex = 4;
+            // 
+            // buttonPfxEditorApply
+            // 
+            this.buttonPfxEditorApply.Location = new System.Drawing.Point(15, 20);
+            this.buttonPfxEditorApply.Name = "buttonPfxEditorApply";
+            this.buttonPfxEditorApply.Size = new System.Drawing.Size(119, 23);
+            this.buttonPfxEditorApply.TabIndex = 5;
+            this.buttonPfxEditorApply.Text = "Apply";
+            this.buttonPfxEditorApply.UseVisualStyleBackColor = true;
+            // 
+            // panelPFXButtons
+            // 
+            this.panelPFXButtons.Controls.Add(this.buttonPfxEditorApply);
+            this.panelPFXButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelPFXButtons.Location = new System.Drawing.Point(0, 631);
+            this.panelPFXButtons.Name = "panelPFXButtons";
+            this.panelPFXButtons.Size = new System.Drawing.Size(467, 100);
+            this.panelPFXButtons.TabIndex = 6;
             // 
             // PFXEditorWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 698);
+            this.ClientSize = new System.Drawing.Size(467, 731);
             this.Controls.Add(this.treeViewPFX);
             this.Controls.Add(this.savePFXButton);
+            this.Controls.Add(this.panelPFXButtons);
             this.Controls.Add(this.propertyGridPfx);
             this.Controls.Add(this.labelPFXName);
             this.Controls.Add(this.comboBoxPfxInst);
@@ -97,6 +120,7 @@
             this.ShowInTaskbar = false;
             this.Text = "PFXEditorWin";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PFXEditorWin_FormClosing);
+            this.panelPFXButtons.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,5 +133,7 @@
         private System.Windows.Forms.PropertyGrid propertyGridPfx;
         private System.Windows.Forms.Button savePFXButton;
         private System.Windows.Forms.TreeView treeViewPFX;
+        private System.Windows.Forms.Button buttonPfxEditorApply;
+        private System.Windows.Forms.Panel panelPFXButtons;
     }
 }

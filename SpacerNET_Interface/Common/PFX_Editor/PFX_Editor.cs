@@ -83,7 +83,7 @@ namespace SpacerUnion.Common.PFX_Editor
 
         private void NotifyPropertyChanged(String propertyName)
         {
-            ConsoleEx.WriteLineRed(propertyName);
+            //ConsoleEx.WriteLineRed(propertyName);
             PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
 
         }
