@@ -36,7 +36,7 @@ namespace SpacerUnion
         string name;
         public string value;
         public string backup_value;
-        private bool oldValueInit;
+        public bool oldValueInit;
         public TPropEditType type;
         public List<string> enumArray = new List<string>();
         public TreeNode node;

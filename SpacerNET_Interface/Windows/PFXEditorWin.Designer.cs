@@ -38,6 +38,7 @@
             this.panelPFXTop = new System.Windows.Forms.Panel();
             this.comboBoxPfxField = new System.Windows.Forms.ComboBox();
             this.textBoxPfxInput = new System.Windows.Forms.TextBox();
+            this.buttonPfxRestore = new System.Windows.Forms.Button();
             this.panelPFXButtons.SuspendLayout();
             this.panelPFXTop.SuspendLayout();
             this.SuspendLayout();
@@ -104,6 +105,7 @@
             // 
             // panelPFXButtons
             // 
+            this.panelPFXButtons.Controls.Add(this.buttonPfxRestore);
             this.panelPFXButtons.Controls.Add(this.textBoxPfxInput);
             this.panelPFXButtons.Controls.Add(this.comboBoxPfxField);
             this.panelPFXButtons.Controls.Add(this.buttonPfxEditorApply);
@@ -143,6 +145,16 @@
             this.textBoxPfxInput.TabIndex = 7;
             this.textBoxPfxInput.Visible = false;
             // 
+            // buttonPfxRestore
+            // 
+            this.buttonPfxRestore.Location = new System.Drawing.Point(153, 41);
+            this.buttonPfxRestore.Name = "buttonPfxRestore";
+            this.buttonPfxRestore.Size = new System.Drawing.Size(119, 23);
+            this.buttonPfxRestore.TabIndex = 8;
+            this.buttonPfxRestore.Text = "Restore";
+            this.buttonPfxRestore.UseVisualStyleBackColor = true;
+            this.buttonPfxRestore.Click += new System.EventHandler(this.buttonPfxRestore_Click);
+            // 
             // PFXEditorWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,5 +193,6 @@
         private System.Windows.Forms.Panel panelPFXTop;
         private System.Windows.Forms.ComboBox comboBoxPfxField;
         private System.Windows.Forms.TextBox textBoxPfxInput;
+        private System.Windows.Forms.Button buttonPfxRestore;
     }
 }
