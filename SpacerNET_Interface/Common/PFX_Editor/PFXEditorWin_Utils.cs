@@ -62,7 +62,12 @@ namespace SpacerUnion.Windows
         {
             FontStyle style = FontStyle.Underline;
 
-            if (prop.Name == "visName_s" || prop.Name == "trlTexture_s" || prop.Name == "shpMesh_s" || prop.Name == "ppsCreateEm_s")
+            if (prop.Name == "shpType_s" || prop.Name == "visName_s" || prop.Name == "trlTexture_s" || prop.Name == "shpMesh_s" 
+                || prop.Name == "ppsCreateEm_s"
+                || prop.Name == "visTexColorStart_s"
+                || prop.Name == "visTexColorEnd_s"
+
+                )
             {
                 prop.ownNode.NodeFont = new Font(treeViewPFX.Font, style);
             }
@@ -406,11 +411,18 @@ namespace SpacerUnion.Windows
                     return false;
                 }
             }
-            else if (prop.Name == "ppsValue" || prop.Name == "ppsFPS" || prop.Name == "ppsCreateEmDelay" || prop.Name == "shpDistribWalkSpeed"
-
-                || prop.Name == "shpScaleFPS" || prop.Name == "visTexAniFPS" || prop.Name == "visSizeEndScale" || prop.Name == "trlFadeSpeed"
-
-                || prop.Name == "trlWidth" || prop.Name == "mrkFadeSpeed" || prop.Name == "flockStrength"
+            else if (prop.Name == "ppsValue" 
+                || prop.Name == "ppsFPS"
+                || prop.Name == "ppsCreateEmDelay" 
+                || prop.Name == "shpDistribWalkSpeed"
+                || prop.Name == "shpScaleFPS" 
+                || prop.Name == "visTexAniFPS"
+                || prop.Name == "visSizeEndScale" 
+                || prop.Name == "trlFadeSpeed"
+                || prop.Name == "trlWidth" 
+                || prop.Name == "mrkFadeSpeed" 
+                || prop.Name == "flockStrength"
+                || prop.Name == "mrkSize"
                 )
             {
                 float f = float.Parse(input, CultureInfo.InvariantCulture);
