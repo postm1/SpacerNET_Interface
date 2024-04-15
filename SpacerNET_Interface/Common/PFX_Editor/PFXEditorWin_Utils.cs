@@ -385,6 +385,12 @@ namespace SpacerUnion.Windows
 
         public bool PFX_CheckValidInput(string input, CProperty prop)
         {
+            // empty string is good
+            if (prop.type == TPropEditType.PETstring && input.Trim().Length == 0)
+            {
+                return true;
+            }
+
             if (prop.type == TPropEditType.PETfloat || prop.type == TPropEditType.PETint)
             {
                 if (!Utils.IsFloatOrInt(input))
@@ -395,11 +401,7 @@ namespace SpacerUnion.Windows
                
             }
 
-            // empty string is good
-            if (prop.type == TPropEditType.PETstring && input.Trim().Length == 0)
-            {
-                return true;
-            }
+           
 
             if (prop.Name == "visAlphaStart" || prop.Name == "visAlphaEnd")
             {
@@ -420,9 +422,9 @@ namespace SpacerUnion.Windows
                 || prop.Name == "visSizeEndScale" 
                 || prop.Name == "trlFadeSpeed"
                 || prop.Name == "trlWidth" 
-                || prop.Name == "mrkFadeSpeed" 
-                || prop.Name == "flockStrength"
+                || prop.Name == "mrkFadeSpeed"  
                 || prop.Name == "mrkSize"
+                || prop.Name == "flockStrength"
                 )
             {
                 float f = float.Parse(input, CultureInfo.InvariantCulture);
@@ -456,7 +458,7 @@ namespace SpacerUnion.Windows
                     return false;
                 }
             }
-            else if (prop.Name == "visSizeStart_s")
+            else if (prop.Name == "visSizeStart_s" || prop.Name == "timeStartEnd_s")
             {
                 var split = input.Split(' ');
 
