@@ -384,6 +384,15 @@ namespace SpacerUnion.Windows
 
         }
 
+        public bool IsFieldRealInt(string fieldName)
+        {
+            if (fieldName == "flyCollDet_b" || fieldName == "shpMeshRender_b")
+            {
+                return true;
+            }
+
+            return false;
+        }
         public bool PFX_CheckValidInput(string input, CProperty prop)
         {
             // empty string is good

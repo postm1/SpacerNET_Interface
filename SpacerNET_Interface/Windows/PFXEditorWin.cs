@@ -106,19 +106,30 @@ namespace SpacerUnion.Windows
                 {
                     bool foundFlag = false;
 
-                    for (int i = 0; i < prop.enumArray.Count; i++)
+
+                    if (IsFieldRealInt(prop.Name))
                     {
-                        if (prop.enumArray[i].ToUpper() == val.ToUpper())
+                        foundFlag = true;
+                        prop.SetValue(val);
+                    }
+                    else
+                    {
+                        for (int i = 0; i < prop.enumArray.Count; i++)
                         {
-                            prop.SetValue(i.ToString());
-                            foundFlag = true;
-                            break;
+                            if (prop.enumArray[i].ToUpper() == val.ToUpper())
+                            {
+                                prop.SetValue(i.ToString());
+                                foundFlag = true;
+                                break;
+                            }
                         }
                     }
+                    
 
                     // if we don't find proper enum value
                     if (!foundFlag)
                     {
+                        ConsoleEx.WriteLineRed("ENUM VALUE NOT FOUND : " + prop.Name + " Val: " + val);
                         prop.SetValue("0");
                     }
                 }
@@ -475,9 +486,19 @@ namespace SpacerUnion.Windows
             }
             else if (prop.type == TPropEditType.PETenum)
             {
-                Imports.Stack_PushString(prop.value);
-                Imports.Stack_PushString(prop.Name);
-                Imports.Extern_UpdatePFXField();
+                if (IsFieldRealInt(prop.Name))
+                {
+                    Imports.Stack_PushInt(Convert.ToInt32(prop.value));
+                    Imports.Stack_PushString(prop.Name);
+                    Imports.Extern_UpdatePFXField();
+                }
+                else
+                {
+                    Imports.Stack_PushString(prop.value);
+                    Imports.Stack_PushString(prop.Name);
+                    Imports.Extern_UpdatePFXField();
+                }
+                
             }
             else if (prop.type == TPropEditType.PETfloat)
             {
