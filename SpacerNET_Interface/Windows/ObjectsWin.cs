@@ -3235,8 +3235,8 @@ namespace SpacerUnion
                                         {
                                            // ConsoleEx.WriteLineGreen("TryParse ok");
 
-                                            float valCompare = Convert.ToSingle(searchFloatValue);
-                                            float valVob = Convert.ToSingle(vobFloatValue);
+                                            float valCompare = Convert.ToSingle(searchFloatValue, CultureInfo.InvariantCulture);
+                                            float valVob = Convert.ToSingle(vobFloatValue, CultureInfo.InvariantCulture);
 
 
                                             if (searchProps[j].numSearchType == TSearchNumberType.TS_LESSTHAN)

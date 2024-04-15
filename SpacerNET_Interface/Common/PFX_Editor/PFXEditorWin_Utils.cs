@@ -161,6 +161,9 @@ namespace SpacerUnion.Windows
 
         public void LoadPfx(string name)
         {
+
+            ConsoleEx.WriteLineRed("Load PFX: " + name);
+
             Imports.Stack_PushString(name);
             Imports.Extern_GetInstanceProps();
 
@@ -248,8 +251,6 @@ namespace SpacerUnion.Windows
 
 
             treeViewPFX.EndUpdate();
-
-            //propertyGridPfx.Refresh();
         }
 
         public void SetPFXIcon(CProperty prop)

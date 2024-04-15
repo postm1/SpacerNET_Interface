@@ -1,10 +1,10 @@
 ﻿using SpacerUnion.Common;
-using SpacerUnion.Common.PFX_Editor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -17,16 +17,14 @@ namespace SpacerUnion.Windows
 
     public partial class PFXEditorWin : Form
     {
-        PFX_Stat stat;
         bool firstTimeInit = false;
         static List<CProperty> props = new List<CProperty>();
+        bool dontUpdateFieldNow = false;
 
         public PFXEditorWin()
         {
-            stat = new PFX_Stat();
-            InitializeComponent();
 
-            stat.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(stat_PropertyChanged);
+            InitializeComponent();
 
             this.DoubleBuffered = true;
 
@@ -134,57 +132,14 @@ namespace SpacerUnion.Windows
                 
 
                 prop.ownNode.Text = prop.Name + ": " + prop.ShowValue();
+
+
             }
         }
         
 
         
 
-        static void stat_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            if (!SpacerNET.pfxWin.firstTimeInit)
-            {
-                return;
-            }
-
-            //Console.WriteLine(e.PropertyName + " has been changed.");
-            var propInfo = SpacerNET.pfxWin.stat.GetType().GetProperty(e.PropertyName);
-
-            //ConsoleEx.WriteLineRed("stat_PropertyChanged: " + e.PropertyName);
-
-            if (propInfo != null)
-            {
-                object val = propInfo.GetValue(SpacerNET.pfxWin.stat, null);
-
-                Console.WriteLine(e.PropertyName + " has been changed: " + val.ToString() + " : " + propInfo.PropertyType.ToString());
-
-                if (propInfo.PropertyType == Type.GetType("System.Int32"))
-                {
-                    Imports.Stack_PushInt(Convert.ToInt32(val));
-                    Imports.Stack_PushString(e.PropertyName);
-                    Imports.Extern_UpdatePFXField();
-                }
-                else if (propInfo.PropertyType == Type.GetType("System.Single"))
-                {
-                    Imports.Stack_PushFloat(Convert.ToSingle(val));
-                    Imports.Stack_PushString(e.PropertyName);
-                    Imports.Extern_UpdatePFXField();
-                }
-                else if (propInfo.PropertyType == Type.GetType("System.String"))
-                {
-                    Imports.Stack_PushString(Convert.ToString(val));
-                    Imports.Stack_PushString(e.PropertyName);
-                    Imports.Extern_UpdatePFXField();
-                }
-                else if (propInfo.PropertyType == Type.GetType("System.Boolean"))
-                {
-                    Imports.Stack_PushInt(Convert.ToInt32(val));
-                    Imports.Stack_PushString(e.PropertyName);
-                    Imports.Extern_UpdatePFXField();
-                }
-            }
-
-        }
 
 
 
@@ -301,6 +256,8 @@ namespace SpacerUnion.Windows
                 node.Text = prop.Name + ": " + prop.ShowValue();
 
                 comboBoxPfxField.SelectedIndex = prop.value == "1" ? 1 : 0;
+
+                OnFieldChanged(prop);
             }
 
             if (prop.type == TPropEditType.PETenum)
@@ -320,6 +277,8 @@ namespace SpacerUnion.Windows
 
                 node.Text = prop.Name + ": " + prop.ShowValue();
                 comboBoxPfxField.SelectedIndex = prop.GetCurrentEnumIndex();
+
+                OnFieldChanged(prop);
             }
 
             
@@ -359,12 +318,14 @@ namespace SpacerUnion.Windows
                     {
                         comboBoxPfxField.Items.Add(prop.enumArray[i]);
                     }
-
+                    dontUpdateFieldNow = true;
                     comboBoxPfxField.SelectedIndex = prop.GetCurrentEnumIndex();
                     comboBoxPfxField.Visible = true;
                 }
                 else if (prop.type == TPropEditType.PETbool)
                 {
+                    dontUpdateFieldNow = true;
+
                     comboBoxPfxField.Items.Clear();
                     comboBoxPfxField.Items.Add("FALSE");
                     comboBoxPfxField.Items.Add("TRUE");
@@ -379,7 +340,7 @@ namespace SpacerUnion.Windows
             }
         }
 
-        
+       
 
         private void buttonPfxEditorApply_Click(object sender, EventArgs e)
         {
@@ -426,6 +387,7 @@ namespace SpacerUnion.Windows
                 }
 
                 treeViewPFX.SelectedNode.Text = prop.Name + ": " + prop.ShowValue();
+                OnFieldChanged(prop);
             }
         }
 
@@ -447,6 +409,8 @@ namespace SpacerUnion.Windows
                 var events = new TreeViewEventArgs(treeViewPFX.SelectedNode);
 
                 treeViewPFX_AfterSelect(null, events);
+
+                OnFieldChanged(prop);
             }
         }
 
@@ -461,7 +425,7 @@ namespace SpacerUnion.Windows
                     return;
                 }
 
-                if (prop.type != TPropEditType.PETenum)
+                if (prop.type != TPropEditType.PETenum && prop.type != TPropEditType.PETbool)
                 {
                     return;
                 }
@@ -469,7 +433,17 @@ namespace SpacerUnion.Windows
                 int selectedIndex = comboBoxPfxField.SelectedIndex;
 
                 prop.SetValue(selectedIndex.ToString());
+                
                 treeViewPFX.SelectedNode.Text = prop.Name + ": " + prop.ShowValue();
+
+                //onchange if not block
+                if (!dontUpdateFieldNow)
+                {
+                    OnFieldChanged(prop);
+                }
+
+                // turn off block any way
+                dontUpdateFieldNow = false;
             }
                 
         }
@@ -485,6 +459,40 @@ namespace SpacerUnion.Windows
                 LoadPfx(value);
                 firstTimeInit = true;
             }
+        }
+
+
+        //update current PFX emitter
+        public void OnFieldChanged(CProperty prop)
+        {
+            ConsoleEx.WriteLineYellow(prop.Name + " changed " + prop.type);
+
+            if (prop.type == TPropEditType.PETbool || prop.type == TPropEditType.PETint)
+            {
+                Imports.Stack_PushInt(Convert.ToInt32(prop.value));
+                Imports.Stack_PushString(prop.Name);
+                Imports.Extern_UpdatePFXField();
+            }
+            else if (prop.type == TPropEditType.PETenum)
+            {
+                Imports.Stack_PushString(prop.value);
+                Imports.Stack_PushString(prop.Name);
+                Imports.Extern_UpdatePFXField();
+            }
+            else if (prop.type == TPropEditType.PETfloat)
+            {
+                Imports.Stack_PushFloat(Convert.ToSingle(prop.value, CultureInfo.InvariantCulture));
+                Imports.Stack_PushString(prop.Name);
+                Imports.Extern_UpdatePFXField();
+            }
+            else if (prop.type == TPropEditType.PETstring)
+            {
+                Imports.Stack_PushString(prop.value);
+                Imports.Stack_PushString(prop.Name);
+                Imports.Extern_UpdatePFXField();
+            }
+
+            
         }
     }
 }
