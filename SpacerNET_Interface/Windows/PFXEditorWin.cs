@@ -246,6 +246,8 @@ namespace SpacerUnion.Windows
                 }
 
 
+                val = val.ToUpper().Trim();
+
                 if (prop.enumArray.Count > 0)
                 {
                     bool foundFlag = false;

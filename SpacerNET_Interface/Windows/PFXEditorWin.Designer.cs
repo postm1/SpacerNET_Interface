@@ -81,9 +81,9 @@
             // treeViewPFX
             // 
             this.treeViewPFX.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.treeViewPFX.Location = new System.Drawing.Point(0, 65);
+            this.treeViewPFX.Location = new System.Drawing.Point(0, 99);
             this.treeViewPFX.Name = "treeViewPFX";
-            this.treeViewPFX.Size = new System.Drawing.Size(467, 566);
+            this.treeViewPFX.Size = new System.Drawing.Size(467, 532);
             this.treeViewPFX.TabIndex = 4;
             // 
             // buttonPfxEditorApply
