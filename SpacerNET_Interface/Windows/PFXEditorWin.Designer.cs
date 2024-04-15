@@ -30,7 +30,6 @@
         {
             this.comboBoxPfxInst = new System.Windows.Forms.ComboBox();
             this.labelPFXName = new System.Windows.Forms.Label();
-            this.propertyGridPfx = new System.Windows.Forms.PropertyGrid();
             this.savePFXButton = new System.Windows.Forms.Button();
             this.treeViewPFX = new System.Windows.Forms.TreeView();
             this.buttonPfxEditorApply = new System.Windows.Forms.Button();
@@ -61,18 +60,9 @@
             this.labelPFXName.AutoSize = true;
             this.labelPFXName.Location = new System.Drawing.Point(13, 13);
             this.labelPFXName.Name = "labelPFXName";
-            this.labelPFXName.Size = new System.Drawing.Size(85, 13);
+            this.labelPFXName.Size = new System.Drawing.Size(70, 13);
             this.labelPFXName.TabIndex = 1;
-            this.labelPFXName.Text = "Инстанция PFX";
-            // 
-            // propertyGridPfx
-            // 
-            this.propertyGridPfx.Location = new System.Drawing.Point(431, 3);
-            this.propertyGridPfx.Name = "propertyGridPfx";
-            this.propertyGridPfx.Size = new System.Drawing.Size(36, 77);
-            this.propertyGridPfx.TabIndex = 2;
-            this.propertyGridPfx.SelectedGridItemChanged += new System.Windows.Forms.SelectedGridItemChangedEventHandler(this.propertyGridPfx_SelectedGridItemChanged);
-            this.propertyGridPfx.Click += new System.EventHandler(this.propertyGridPfx_Click);
+            this.labelPFXName.Text = "PFX instance";
             // 
             // savePFXButton
             // 
@@ -80,7 +70,7 @@
             this.savePFXButton.Name = "savePFXButton";
             this.savePFXButton.Size = new System.Drawing.Size(119, 23);
             this.savePFXButton.TabIndex = 3;
-            this.savePFXButton.Text = "Сохранить в файл";
+            this.savePFXButton.Text = "Save to file";
             this.savePFXButton.UseVisualStyleBackColor = true;
             this.savePFXButton.Click += new System.EventHandler(this.savePFXButton_Click);
             // 
@@ -88,9 +78,9 @@
             // 
             this.treeViewPFX.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.treeViewPFX.HideSelection = false;
-            this.treeViewPFX.Location = new System.Drawing.Point(0, 99);
+            this.treeViewPFX.Location = new System.Drawing.Point(0, 100);
             this.treeViewPFX.Name = "treeViewPFX";
-            this.treeViewPFX.Size = new System.Drawing.Size(467, 556);
+            this.treeViewPFX.Size = new System.Drawing.Size(404, 556);
             this.treeViewPFX.TabIndex = 4;
             this.treeViewPFX.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewPFX_AfterSelect);
             this.treeViewPFX.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewPFX_NodeMouseDoubleClick);
@@ -115,9 +105,9 @@
             this.panelPFXButtons.Controls.Add(this.comboBoxPfxField);
             this.panelPFXButtons.Controls.Add(this.buttonPfxEditorApply);
             this.panelPFXButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelPFXButtons.Location = new System.Drawing.Point(0, 655);
+            this.panelPFXButtons.Location = new System.Drawing.Point(0, 656);
             this.panelPFXButtons.Name = "panelPFXButtons";
-            this.panelPFXButtons.Size = new System.Drawing.Size(467, 76);
+            this.panelPFXButtons.Size = new System.Drawing.Size(404, 76);
             this.panelPFXButtons.TabIndex = 6;
             // 
             // buttonPfxRestore
@@ -155,11 +145,10 @@
             this.panelPFXTop.Controls.Add(this.labelPFXName);
             this.panelPFXTop.Controls.Add(this.comboBoxPfxInst);
             this.panelPFXTop.Controls.Add(this.savePFXButton);
-            this.panelPFXTop.Controls.Add(this.propertyGridPfx);
             this.panelPFXTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPFXTop.Location = new System.Drawing.Point(0, 0);
             this.panelPFXTop.Name = "panelPFXTop";
-            this.panelPFXTop.Size = new System.Drawing.Size(467, 100);
+            this.panelPFXTop.Size = new System.Drawing.Size(404, 100);
             this.panelPFXTop.TabIndex = 7;
             // 
             // buttonPFXPlayAgain
@@ -174,9 +163,9 @@
             // 
             // buttonFile
             // 
-            this.buttonFile.Location = new System.Drawing.Point(278, 5);
+            this.buttonFile.Location = new System.Drawing.Point(288, 5);
             this.buttonFile.Name = "buttonFile";
-            this.buttonFile.Size = new System.Drawing.Size(75, 23);
+            this.buttonFile.Size = new System.Drawing.Size(96, 23);
             this.buttonFile.TabIndex = 9;
             this.buttonFile.Text = "File";
             this.buttonFile.UseVisualStyleBackColor = true;
@@ -184,7 +173,7 @@
             // 
             // buttonColor
             // 
-            this.buttonColor.Location = new System.Drawing.Point(359, 5);
+            this.buttonColor.Location = new System.Drawing.Point(288, 41);
             this.buttonColor.Name = "buttonColor";
             this.buttonColor.Size = new System.Drawing.Size(96, 23);
             this.buttonColor.TabIndex = 10;
@@ -196,7 +185,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 731);
+            this.ClientSize = new System.Drawing.Size(404, 732);
             this.Controls.Add(this.panelPFXTop);
             this.Controls.Add(this.treeViewPFX);
             this.Controls.Add(this.panelPFXButtons);
@@ -222,7 +211,6 @@
 
         private System.Windows.Forms.ComboBox comboBoxPfxInst;
         private System.Windows.Forms.Label labelPFXName;
-        private System.Windows.Forms.PropertyGrid propertyGridPfx;
         private System.Windows.Forms.Button savePFXButton;
         private System.Windows.Forms.TreeView treeViewPFX;
         private System.Windows.Forms.Button buttonPfxEditorApply;
