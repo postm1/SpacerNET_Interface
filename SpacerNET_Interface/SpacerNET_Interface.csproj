@@ -88,6 +88,9 @@
     <Compile Include="Common\Localizator.cs" />
     <Compile Include="Common\LocalizedStrings.cs" />
     <Compile Include="Common\Macros.cs" />
+    <Compile Include="Common\PFX_Editor\PFXEditorWin_Utils.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Common\PFX_Editor\PFX_Editor.cs" />
     <Compile Include="Common\PFX_Editor\PFX_Enums.cs" />
     <Compile Include="Common\QuickVobsManager.cs" />

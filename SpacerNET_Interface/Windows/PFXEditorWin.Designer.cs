@@ -133,6 +133,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PFXEditorWin";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PFXEditorWin_FormClosing);
+            this.Shown += new System.EventHandler(this.PFXEditorWin_Shown);
             this.panelPFXButtons.ResumeLayout(false);
             this.panelPFXTop.ResumeLayout(false);
             this.panelPFXTop.PerformLayout();
