@@ -34,8 +34,19 @@ namespace SpacerUnion.Windows
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
 
             Helper.EnableDoubleBuffering(this.treeViewPFX);
+
+            ToggleInterface(false);
+
         }
 
+        public void ToggleInterface(bool toggle)
+        {
+            buttonPFXPlayAgain.Enabled = toggle;
+            savePFXButton.Enabled = toggle;
+            buttonPfxEditorApply.Enabled = toggle;
+            buttonPfxRestore.Enabled = toggle;
+            
+        }
         
 
         public void AddNewProp(string name, string folder, string type, string val)
@@ -229,6 +240,11 @@ namespace SpacerUnion.Windows
             {
                 LoadPfx(value);
                 firstTimeInit = true;
+
+                if (comboBoxPfxInst.SelectedIndex >= 0)
+                {
+                    ToggleInterface(true);
+                }
             }
         }
 
@@ -456,6 +472,19 @@ namespace SpacerUnion.Windows
                 treeViewPFX.SelectedNode.Text = prop.Name + ": " + prop.ShowValue();
             }
                 
+        }
+
+        private void buttonPFXPlayAgain_Click(object sender, EventArgs e)
+        {
+            string value = comboBoxPfxInst.Text;
+
+            firstTimeInit = false;
+
+            if (value != String.Empty)
+            {
+                LoadPfx(value);
+                firstTimeInit = true;
+            }
         }
     }
 }

@@ -39,6 +39,7 @@
             this.comboBoxPfxField = new System.Windows.Forms.ComboBox();
             this.textBoxPfxInput = new System.Windows.Forms.TextBox();
             this.buttonPfxRestore = new System.Windows.Forms.Button();
+            this.buttonPFXPlayAgain = new System.Windows.Forms.Button();
             this.panelPFXButtons.SuspendLayout();
             this.panelPFXTop.SuspendLayout();
             this.SuspendLayout();
@@ -73,7 +74,7 @@
             // 
             // savePFXButton
             // 
-            this.savePFXButton.Location = new System.Drawing.Point(104, 40);
+            this.savePFXButton.Location = new System.Drawing.Point(104, 70);
             this.savePFXButton.Name = "savePFXButton";
             this.savePFXButton.Size = new System.Drawing.Size(119, 23);
             this.savePFXButton.TabIndex = 3;
@@ -117,6 +118,7 @@
             // 
             // panelPFXTop
             // 
+            this.panelPFXTop.Controls.Add(this.buttonPFXPlayAgain);
             this.panelPFXTop.Controls.Add(this.labelPFXName);
             this.panelPFXTop.Controls.Add(this.comboBoxPfxInst);
             this.panelPFXTop.Controls.Add(this.savePFXButton);
@@ -155,6 +157,16 @@
             this.buttonPfxRestore.Text = "Restore ";
             this.buttonPfxRestore.UseVisualStyleBackColor = true;
             this.buttonPfxRestore.Click += new System.EventHandler(this.buttonPfxRestore_Click);
+            // 
+            // buttonPFXPlayAgain
+            // 
+            this.buttonPFXPlayAgain.Location = new System.Drawing.Point(104, 40);
+            this.buttonPFXPlayAgain.Name = "buttonPFXPlayAgain";
+            this.buttonPFXPlayAgain.Size = new System.Drawing.Size(119, 23);
+            this.buttonPFXPlayAgain.TabIndex = 5;
+            this.buttonPFXPlayAgain.Text = "Play again";
+            this.buttonPFXPlayAgain.UseVisualStyleBackColor = true;
+            this.buttonPFXPlayAgain.Click += new System.EventHandler(this.buttonPFXPlayAgain_Click);
             // 
             // PFXEditorWin
             // 
@@ -195,5 +207,6 @@
         private System.Windows.Forms.ComboBox comboBoxPfxField;
         private System.Windows.Forms.TextBox textBoxPfxInput;
         private System.Windows.Forms.Button buttonPfxRestore;
+        private System.Windows.Forms.Button buttonPFXPlayAgain;
     }
 }
