@@ -465,52 +465,53 @@ namespace SpacerUnion.Windows
             SetProp("visOrientation_s", Imports.Stack_PeekString());
             SetProp("visName_s", Imports.Stack_PeekString());
 
+            SetProp("flyCollDet_b", Imports.Stack_PeekInt().ToString());
+            SetProp("flyGravity_s", Imports.Stack_PeekString());
 
-         
- 
-            stat.FlyCollDet_b = (FLYCOLLDET_B)Imports.Stack_PeekInt();
-            stat.FlyGravity_s = Imports.Stack_PeekString();
-            stat.LspPartVar = Imports.Stack_PeekFloat();
-            stat.LspPartAvg = Imports.Stack_PeekFloat();
-            stat.VelVar = Imports.Stack_PeekFloat();
-            stat.VelAvg = Imports.Stack_PeekFloat();
-            stat.DirAngleElevVar = Imports.Stack_PeekFloat();
-            stat.DirAngleElev = Imports.Stack_PeekFloat();
-            stat.DirAngleHeadVar = Imports.Stack_PeekFloat();
-            stat.DirAngleHead = Imports.Stack_PeekFloat();
+            SetProp("lspPartVar", Imports.Stack_PeekFloat().ToString());
+            SetProp("lspPartAvg", Imports.Stack_PeekFloat().ToString());
+            SetProp("velVar", Imports.Stack_PeekFloat().ToString());
+            SetProp("velAvg", Imports.Stack_PeekFloat().ToString());
 
-            stat.DirModeTargetPos_s = Imports.Stack_PeekString();
-            stat.DirModeTargetFor_s = Imports.Stack_PeekString();
-            stat.DirFor_s = Imports.Stack_PeekString();
-            stat.DirMode_s = Imports.Stack_PeekString();
-       
-            stat.ShpScaleFPS = Imports.Stack_PeekFloat();
-            stat.ShpScaleIsSmooth = Convert.ToBoolean(Imports.Stack_PeekInt());
-            stat.ShpScaleIsLooping = Convert.ToBoolean(Imports.Stack_PeekInt());
 
-            stat.ShpScaleKeys_s = Imports.Stack_PeekString();
-            stat.ShpMeshRender_b = Convert.ToBoolean(Imports.Stack_PeekInt());
-            stat.ShpMesh_s = Imports.Stack_PeekString();
-            stat.ShpDim_s = Imports.Stack_PeekString();
-            stat.ShpIsVolume = Convert.ToBoolean(Imports.Stack_PeekInt());
-            stat.ShpDistribWalkSpeed = Imports.Stack_PeekFloat();
-            stat.ShpDistribType_s = Imports.Stack_PeekString();
-            stat.ShpOffsetVec_s = Imports.Stack_PeekString();
-         
-            SHPFOR_S ShpFor_s = ExtClass.ToEnum<SHPFOR_S>(Imports.Stack_PeekString());
-            stat.ShpFor_s = ShpFor_s;
+            SetProp("dirAngleElevVar", Imports.Stack_PeekFloat().ToString());
+            SetProp("dirAngleElev", Imports.Stack_PeekFloat().ToString());
 
-            SHPTYPE_S ShpType_s = ExtClass.ToEnum<SHPTYPE_S>(Imports.Stack_PeekString());
-            stat.ShpType_s = ShpType_s;
+            SetProp("dirAngleHeadVar", Imports.Stack_PeekFloat().ToString());
+            SetProp("dirAngleHead", Imports.Stack_PeekFloat().ToString());
+
+
+            SetProp("dirModeTargetPos_s", Imports.Stack_PeekString());
+            SetProp("dirModeTargetFor_s", Imports.Stack_PeekString());
+            SetProp("dirFor_s", Imports.Stack_PeekString());
+            SetProp("dirMode_s", Imports.Stack_PeekString());
+
+            SetProp("shpScaleFPS", Imports.Stack_PeekFloat().ToString());
+            SetProp("shpScaleIsSmooth", Imports.Stack_PeekInt().ToString());
+            SetProp("shpScaleIsLooping", Imports.Stack_PeekInt().ToString());
+            SetProp("shpScaleKeys_s", Imports.Stack_PeekString());
+            SetProp("shpMeshRender_b", Imports.Stack_PeekInt().ToString());
+            SetProp("shpMesh_s", Imports.Stack_PeekString());
+            SetProp("shpDim_s", Imports.Stack_PeekString());
+            SetProp("shpIsVolume", Imports.Stack_PeekInt().ToString());
+
+            SetProp("shpDistribWalkSpeed", Imports.Stack_PeekFloat().ToString());
+            SetProp("shpDistribType_s", Imports.Stack_PeekString());
+            SetProp("shpOffsetVec_s", Imports.Stack_PeekString());
+
+            SetProp("shpFor_s", Imports.Stack_PeekString());
+            SetProp("shpType_s", Imports.Stack_PeekString());
+            SetProp("ppsCreateEmDelay", Imports.Stack_PeekFloat().ToString());
+
+
+            SetProp("ppsCreateEm_s", Imports.Stack_PeekString());
+            SetProp("ppsFPS", Imports.Stack_PeekFloat().ToString());
+            SetProp("ppsIsSmooth", Imports.Stack_PeekInt().ToString());
+            SetProp("ppsIsLooping", Imports.Stack_PeekInt().ToString());
+            SetProp("ppsScaleKeys_s", Imports.Stack_PeekString());
+            SetProp("ppsValue", Imports.Stack_PeekFloat().ToString());
+
      
-            stat.PpsCreateEmDelay = Imports.Stack_PeekFloat();
-            stat.PpsCreateEm_s = Imports.Stack_PeekString();
-            stat.PpsFPS = Imports.Stack_PeekFloat();
-            stat.PpsIsSmooth = Convert.ToBoolean(Imports.Stack_PeekInt());
-            stat.PpsIsLooping = Convert.ToBoolean(Imports.Stack_PeekInt());
-            stat.PpsScaleKeys_s = Imports.Stack_PeekString();
-            stat.PpsValue = Imports.Stack_PeekFloat();
-
 
             treeViewPFX.EndUpdate();
 
@@ -565,6 +566,11 @@ namespace SpacerUnion.Windows
         {
             Hide();
             e.Cancel = true;
+        }
+
+        private void propertyGridPfx_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
