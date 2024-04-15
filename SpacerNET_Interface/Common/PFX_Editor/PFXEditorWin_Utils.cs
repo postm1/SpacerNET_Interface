@@ -1,6 +1,8 @@
-﻿using System;
+﻿using SpacerUnion.Common;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -194,6 +196,89 @@ namespace SpacerUnion.Windows
             }
 
         }
+
+        public bool PFX_CheckValidInput(string input, CProperty prop)
+        {
+            if (prop.type == TPropEditType.PETfloat || prop.type == TPropEditType.PETint)
+            {
+                if (!Utils.IsFloatOrInt(input))
+                {
+                    MessageBox.Show(Localizator.Get("PFX_EDITOR_WRONG_INPUT_NOT_NUMBER"));
+                    return false;
+                }
+               
+            }
+
+            // empty string is good
+            if (prop.type == TPropEditType.PETstring && input.Trim().Length == 0)
+            {
+                return true;
+            }
+
+            if (prop.Name == "visAlphaStart" || prop.Name == "visAlphaEnd")
+            {
+                float f = float.Parse(input, CultureInfo.InvariantCulture);
+
+                if (f < 0 || f > 255.0f)
+                {
+                    MessageBox.Show(Localizator.Get("PFX_EDITOR_WRONG_INPUT_0_255"));
+                    return false;
+                }
+            }
+            else if (prop.Name == "ppsValue" || prop.Name == "ppsFPS" || prop.Name == "ppsCreateEmDelay" || prop.Name == "shpDistribWalkSpeed"
+
+                || prop.Name == "shpScaleFPS" || prop.Name == "visTexAniFPS" || prop.Name == "visSizeEndScale" || prop.Name == "trlFadeSpeed"
+
+                || prop.Name == "trlWidth" || prop.Name == "mrkFadeSpeed" || prop.Name == "flockStrength"
+                )
+            {
+                float f = float.Parse(input, CultureInfo.InvariantCulture);
+
+                if (f < 0)
+                {
+                    MessageBox.Show(Localizator.Get("PFX_EDITOR_WRONG_INPUT_CANTBE_NEGATIVE"));
+                    return false;
+                }
+            }
+            else if (prop.Name == "shpOffsetVec_s" || prop.Name == "flyGravity_s" || prop.Name == "dirModeTargetPos_s"
+
+                )
+            {
+                var split = input.Split(' ');
+
+                if (split.Length != 3)
+                {
+                    MessageBox.Show(Localizator.Get("PFX_EDITOR_WRONG_FORMAT_VECTOR3"));
+                    return false;
+                }
+               
+            }
+            else if (prop.Name == "visTexColorStart_s" || prop.Name == "visTexColorEnd_s")
+            {
+                var split = input.Split(' ');
+
+                if (split.Length != 3)
+                {
+                    MessageBox.Show(Localizator.Get("PFX_EDITOR_WRONG_FORMAT_COLOR"));
+                    return false;
+                }
+            }
+            else if (prop.Name == "visSizeStart_s")
+            {
+                var split = input.Split(' ');
+
+                if (split.Length != 2)
+                {
+                    MessageBox.Show(Localizator.Get("PFX_EDITOR_WRONG_FORMAT_VECTOR2"));
+                    return false;
+                }
+            }
+                
+
+            return true;
+        }
     }
+
+    
 
 }

@@ -28,7 +28,12 @@ namespace SpacerUnion.Windows
 
             stat.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(stat_PropertyChanged);
 
+            this.DoubleBuffered = true;
 
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+
+            Helper.EnableDoubleBuffering(this.treeViewPFX);
         }
 
         
@@ -414,7 +419,167 @@ namespace SpacerUnion.Windows
 
         private void PFXEditorWin_Shown(object sender, EventArgs e)
         {
-                        FillProps();
+             FillProps();
+        }
+
+        private void treeViewPFX_DoubleClick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void treeViewPFX_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+
+            TreeNode node = e.Node;
+
+            if (node == null)
+            {
+                return;
+            }
+
+            //ConsoleEx.WriteLineRed(node.Text);
+
+
+            var prop = props.FirstOrDefault(curProp => curProp.ownNode == node);
+
+            if (prop == null)
+            {
+                return;
+            }
+
+            if (prop.type == TPropEditType.PETbool)
+            {
+                prop.value = prop.value == "0" ? "1" : "0"; ;
+
+                node.Text = prop.Name + ": " + prop.ShowValue();
+
+                comboBoxPfxField.SelectedIndex = prop.value == "1" ? 1 : 0;
+            }
+
+            if (prop.type == TPropEditType.PETenum)
+            {
+                int currentIndex = 0;
+
+                Int32.TryParse(prop.value, out currentIndex);
+
+                currentIndex++;
+
+                if (currentIndex >= prop.enumArray.Count)
+                {
+                    currentIndex = 0;
+                }
+
+                prop.value = currentIndex.ToString();
+
+                node.Text = prop.Name + ": " + prop.ShowValue();
+                comboBoxPfxField.SelectedIndex = prop.GetCurrentEnumIndex();
+            }
+
+            
+        }
+
+        private void treeViewPFX_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            TreeNode node = e.Node;
+
+            comboBoxPfxField.Visible = false;
+            textBoxPfxInput.Visible = false;
+
+
+            if (node != null && node.Tag != null && node.Tag.ToString() == Constants.TAG_FOLDER)
+            {
+                return;
+            }
+
+            if (node != null)
+            {
+
+
+                var prop = props.FirstOrDefault(curProp => curProp.ownNode == node);
+
+                if (prop == null)
+                {
+                    return;
+                }
+
+                
+
+                if (prop.type == TPropEditType.PETenum)
+                {
+                    comboBoxPfxField.Items.Clear();
+
+                    for (int i = 0; i < prop.enumArray.Count; i++)
+                    {
+                        comboBoxPfxField.Items.Add(prop.enumArray[i]);
+                    }
+
+                    comboBoxPfxField.SelectedIndex = prop.GetCurrentEnumIndex();
+                    comboBoxPfxField.Visible = true;
+                }
+                else if (prop.type == TPropEditType.PETbool)
+                {
+                    comboBoxPfxField.Items.Clear();
+                    comboBoxPfxField.Items.Add("FALSE");
+                    comboBoxPfxField.Items.Add("TRUE");
+                    comboBoxPfxField.SelectedIndex = prop.value == "1" ? 1 : 0;
+                    comboBoxPfxField.Visible = true;
+                }
+                else
+                {
+                    textBoxPfxInput.Text = prop.ShowValue();
+                    textBoxPfxInput.Visible = true;
+                }
+            }
+        }
+
+        
+
+        private void buttonPfxEditorApply_Click(object sender, EventArgs e)
+        {
+            if (treeViewPFX.SelectedNode != null)
+            {
+                var prop = props.FirstOrDefault(curProp => curProp.ownNode == treeViewPFX.SelectedNode);
+
+                if (prop == null)
+                {
+                    return;
+                }
+
+                if (prop.type == TPropEditType.PETenum)
+                {
+                    int selectedIndex = comboBoxPfxField.SelectedIndex;
+
+                    prop.SetValue(selectedIndex.ToString());
+
+                }
+                else if (prop.type == TPropEditType.PETbool)
+                {
+                    int selectedIndex = comboBoxPfxField.SelectedIndex;
+
+                    prop.SetValue(selectedIndex.ToString());
+                }
+                else
+                {
+                    string input = textBoxPfxInput.Text.Trim().ToUpper();
+
+                    if (!PFX_CheckValidInput(input, prop))
+                    {
+                        return;
+                    }
+
+                    // Fixing float format
+                    if (prop.type == TPropEditType.PETfloat)
+                    {
+                        input = input.Replace(",", ".");
+                    }
+
+                    prop.SetValue(input);
+
+
+                }
+
+                treeViewPFX.SelectedNode.Text = prop.Name + ": " + prop.ShowValue();
+            }
         }
     }
 }

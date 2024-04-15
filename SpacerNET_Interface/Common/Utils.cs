@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -210,7 +211,7 @@ namespace SpacerUnion
         {
             int intValue;
             float floatValue;
-            return Int32.TryParse(value, out intValue) || float.TryParse(value, out floatValue);
+            return Int32.TryParse(value, out intValue) || float.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out floatValue);
         }
 
         public static String sha256_hash(String value)

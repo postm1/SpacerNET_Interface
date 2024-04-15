@@ -771,6 +771,15 @@ namespace SpacerUnion.Common
             words.Add("radioButtonRenameEmpty", new List<string> { "Установить пустое имя для всех вобов", "Set empty name for all vobs", "Leeren Namen für alle VOBs festlegen", "Ustaw pustą nazwę dla wszystkich vobów" });
             words.Add("radioButtonNameForAll", new List<string> { "Установить единое имя для всех вобов", "Set one name for all vobs", "Einen Namen für alle VOBs festlegen", "Ustaw jedną nazwę dla wszystkich vobów" });
             words.Add("radioButtonNameOneNumberPostfix", new List<string> { "Установить имя с числом в конце начиная с...", "Set one name with number postfix started from...", "Benenne mit nummerischem Anhang, beginnend ab...", "Ustaw jedną nazwę z liczbą postfix zaczynającą się od..." });
+
+
+            words.Add("PFX_EDITOR_WRONG_INPUT", new List<string> { "Введено недопустимое значение!", "Wrong input!", "", "" });
+            words.Add("PFX_EDITOR_WRONG_INPUT_0_255", new List<string> { "Допустимый диапазон от 0 до 255!", "Allowed range is from 0 to 255", "", "" });
+            words.Add("PFX_EDITOR_WRONG_INPUT_NOT_NUMBER", new List<string> { "Введеная строка не является числом!", "Input text is not a number!", "", "" });
+            words.Add("PFX_EDITOR_WRONG_INPUT_CANTBE_NEGATIVE", new List<string> { "Данное поле не может быть отрицательным!", "This field can't be negative!", "", "" });
+            words.Add("PFX_EDITOR_WRONG_FORMAT_VECTOR3", new List<string> { "Правильный формат (вектор): 10.0 -20.0 55.0", "Corrent format (vector): 10.0 -20.0 55.0", "", "" });
+            words.Add("PFX_EDITOR_WRONG_FORMAT_COLOR", new List<string> { "Правильный формат (цвет, 3 числа от 0 до 255): 255 20 30", "Corrent format (color, 3 numbers from 0 to 255): 255 20 30", "", "" });
+            words.Add("PFX_EDITOR_WRONG_FORMAT_VECTOR2", new List<string> { "Правильный формат (два числа): 5 8", "Corrent format (two numbers): 5 8", "", "" });
         }
         
     }
