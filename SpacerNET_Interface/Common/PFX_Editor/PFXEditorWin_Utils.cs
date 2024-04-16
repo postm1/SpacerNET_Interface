@@ -62,7 +62,10 @@ namespace SpacerUnion.Windows
         {
             FontStyle style = FontStyle.Underline;
 
-            if (prop.Name == "shpType_s" || prop.Name == "visName_s" || prop.Name == "trlTexture_s" || prop.Name == "shpMesh_s" 
+            if (prop.Name == "shpType_s" 
+                || prop.Name == "visName_s" 
+                || prop.Name == "trlTexture_s" 
+                || prop.Name == "shpMesh_s" 
                 || prop.Name == "ppsCreateEm_s"
                 || prop.Name == "visTexColorStart_s"
                 || prop.Name == "visTexColorEnd_s"

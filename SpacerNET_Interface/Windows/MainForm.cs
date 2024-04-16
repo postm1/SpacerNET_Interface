@@ -148,6 +148,7 @@ namespace SpacerUnion
             toolStripMenuResetWorld.Enabled = false;
             toolStripMenuItemMergeMesh.Enabled = false;
             stripSpecialFunctions.Enabled = false;
+            SpacerNET.pfxWin.ToggleInterface(false);
             // UnionNET.partWin.listBoxParticles.Items.Clear();
             // UnionNET.partWin.listBoxItems.Items.Clear();
         }
@@ -472,7 +473,7 @@ namespace SpacerUnion
                 SpacerNET.form.compileWorldToolStrip.Enabled = SpacerNET.form.IsWorldCanBeCompiled();
                 SpacerNET.form.compileLightToolStrip.Enabled = true;
 
-
+                SpacerNET.pfxWin.ToggleInterface(true);
             }
 
             
@@ -2223,6 +2224,9 @@ namespace SpacerUnion
             SpacerNET.comLightWin.Font = font;
             SpacerNET.compWorldWin.Font = font;
             SpacerNET.pfxWin.Font = font;
+
+            SpacerNET.pfxWin.OnFontUpdate();
+
             SaveFontToSettings();
         }
 

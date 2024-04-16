@@ -39,19 +39,36 @@ namespace SpacerUnion.Windows
 
         }
 
+        public void OnFontUpdate()
+        {
+            for (int i = 0; i < props.Count; i++)
+            {
+                var prop = props[i];
+
+                SetNodeStyle(prop);
+            }
+        }
+
         public void ToggleInterface(bool toggle)
         {
             buttonPFXPlayAgain.Enabled = toggle;
             savePFXButton.Enabled = toggle;
             buttonPfxEditorApply.Enabled = toggle;
             buttonPfxRestore.Enabled = toggle;
-            
+            savePFXButton.Enabled = toggle;
+            checkBoxPfxSaveAllFields.Enabled = toggle;
+            comboBoxPfxInst.Enabled = toggle;
+
+            treeViewPFX.Enabled = toggle;
+            textBoxPfxInput.Enabled = toggle;
 
             if (!toggle)
             {
+                comboBoxPfxInst.SelectedIndex = -1;
                 buttonFile.Enabled = toggle;
                 buttonColor.Enabled = toggle;
             }
+
         }
         
 
@@ -185,6 +202,10 @@ namespace SpacerUnion.Windows
 
         private void comboBoxPfxInst_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (comboBoxPfxInst.SelectedIndex < 0)
+            {
+                return;
+            }
 
             string value = comboBoxPfxInst.Text;
 
