@@ -702,5 +702,13 @@ namespace SpacerUnion.Windows
                 
             }
         }
+
+        private void PFXEditorWin_Load(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.PFXEditorLocation != null)
+            {
+                this.Location = Properties.Settings.Default.PFXEditorLocation;
+            }
+        }
     }
 }

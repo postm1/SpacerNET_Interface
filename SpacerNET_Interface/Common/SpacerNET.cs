@@ -318,6 +318,11 @@ namespace SpacerUnion
             }
 
 
+            if (Properties.Settings.Default.PFXEditorLocation != null)
+            {
+                pfxWin.Location = Properties.Settings.Default.PFXEditorLocation;
+            }
+
             LoadSettingsToInterface();
 
 
@@ -497,8 +502,8 @@ namespace SpacerUnion
             Properties.Settings.Default.GrassWinLocation = grassWin.Location;
             Properties.Settings.Default.MacrosWinLocation = macrosWin.Location;
             Properties.Settings.Default.MatFilterWinLocation = matFilterWin.Location;
+            Properties.Settings.Default.PFXEditorLocation = pfxWin.Location;
 
-            
 
             Properties.Settings.Default.InfoWinShow = infoWin.Visible;
             Properties.Settings.Default.ObjectWinShow = objectsWin.Visible;

@@ -478,5 +478,17 @@ namespace SpacerUnion.Properties {
                 this["IconsUIScale"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("500, 500")]
+        public global::System.Drawing.Point PFXEditorLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["PFXEditorLocation"]));
+            }
+            set {
+                this["PFXEditorLocation"] = value;
+            }
+        }
     }
 }
