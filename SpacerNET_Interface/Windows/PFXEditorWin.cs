@@ -402,7 +402,65 @@ namespace SpacerUnion.Windows
                 {
                     string input = textBoxPfxInput.Text.Trim().ToUpper();
 
-                    if (!PFX_CheckValidInput(input, prop))
+                    bool isValidFastString = false;
+
+                    ConsoleEx.WriteLineYellow("Input: " + input);
+
+                    if (input.StartsWith("!") && (prop.Name == "ppsScaleKeys_s" || prop.Name == "shpScaleKeys_s"))
+                    {
+
+                        string fastString = input.Replace("!", "").Trim();
+                        StringBuilder fastStringResult = new StringBuilder();
+
+                        var split = fastString.Split(' ');
+
+                        if (split.Length == 3)
+                        {
+                            var startNum = Convert.ToSingle(split[0],  CultureInfo.InvariantCulture);
+                            var endNum = Convert.ToSingle(split[1], CultureInfo.InvariantCulture);
+                            var step = Convert.ToSingle(split[2], CultureInfo.InvariantCulture);
+
+                            int startIntNum = (int)(startNum * 10);
+                            int endIntNum = (int)(endNum * 10);
+                            int stepInt = (int)(step * 10);
+
+                            //ConsoleEx.WriteLineYellow(startNum + " " + endNum + " " + step);
+                            //ConsoleEx.WriteLineYellow(startIntNum + " " + endIntNum + " " + stepInt);
+
+                            isValidFastString = true;
+
+                            if (startIntNum < endIntNum)
+                            {
+                                while (startIntNum <= endIntNum)
+                                {
+                                    fastStringResult.Append((float)startIntNum / 10.0f + " ");
+                                    startIntNum += stepInt;
+                                }
+                            }
+                            else
+                            {
+                                // 10 5
+                                while (startIntNum >= endIntNum)
+                                {
+                                    fastStringResult.Append((float)startIntNum / 10.0f + " ");
+                                    startIntNum -= stepInt;
+                                }
+                            }
+                            //C#: Input: ! 0,2 5,2 0,5
+                            //C#: 20 520 50
+                            //C#: GenString: 2 7 12 17 22 27 32 37 42 47 52
+
+                           
+
+                            
+
+                            input = fastStringResult.ToString().Trim().Replace(",", ".");
+
+                            //ConsoleEx.WriteLineYellow("GenString: " + input);
+                        }
+                    }
+
+                    if (!isValidFastString && !PFX_CheckValidInput(input, prop))
                     {
                         return;
                     }
