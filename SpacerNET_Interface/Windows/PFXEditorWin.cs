@@ -731,5 +731,11 @@ namespace SpacerUnion.Windows
                 this.Location = Properties.Settings.Default.PFXEditorLocation;
             }
         }
+
+        private void labelPFXName_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
