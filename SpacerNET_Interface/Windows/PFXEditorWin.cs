@@ -79,6 +79,8 @@ namespace SpacerUnion.Windows
             treeViewPFX.Enabled = toggle;
             textBoxPfxInput.Enabled = toggle;
             checkBoxPlayAuto.Enabled = toggle;
+            buttonPFXPlaceNearCam.Enabled = toggle;
+            
 
             if (!toggle)
             {
