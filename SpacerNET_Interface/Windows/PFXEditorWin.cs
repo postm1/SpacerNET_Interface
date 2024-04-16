@@ -38,6 +38,19 @@ namespace SpacerUnion.Windows
             ToggleInterface(false);
 
         }
+        public void UpdateLang()
+        {
+            this.Text = Localizator.Get("PFX_EDITOR_TITLE");
+            labelPFXName.Text = Localizator.Get("PFX_EDITOR_INSTANCE");
+            buttonPFXPlayAgain.Text = Localizator.Get("PFX_EDITOR_PLAY_AGAIN");
+            checkBoxPfxSaveAllFields.Text = Localizator.Get("PFX_EDITOR_SAVE_ALL_FIELDS");
+            savePFXButton.Text = Localizator.Get("PFX_EDITOR_SAVE_IN_FILE");
+
+            buttonFile.Text = Localizator.Get("buttonFileOpen");
+            buttonColor.Text = Localizator.Get("PROP_BUTTON_COLOR");
+            buttonPfxRestore.Text = Localizator.Get("buttonRestoreVobProp");
+            buttonPfxEditorApply.Text = Localizator.Get("BTN_APPLY");
+        }
 
         public void OnFontUpdate()
         {
@@ -69,6 +82,10 @@ namespace SpacerUnion.Windows
                 buttonColor.Enabled = toggle;
             }
 
+        }
+        public void ToggleSelectPFX(bool toggle)
+        {
+            comboBoxPfxInst.Enabled = toggle;
         }
         
 

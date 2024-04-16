@@ -473,10 +473,10 @@ namespace SpacerUnion
                 SpacerNET.form.compileWorldToolStrip.Enabled = SpacerNET.form.IsWorldCanBeCompiled();
                 SpacerNET.form.compileLightToolStrip.Enabled = true;
 
-                SpacerNET.pfxWin.ToggleInterface(true);
+                SpacerNET.pfxWin.ToggleSelectPFX(true);
             }
 
-            
+
 
         }
 

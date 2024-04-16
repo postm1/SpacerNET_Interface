@@ -564,8 +564,9 @@
             // pfxEditorToolStrip
             // 
             this.pfxEditorToolStrip.Name = "pfxEditorToolStrip";
-            this.pfxEditorToolStrip.Size = new System.Drawing.Size(164, 22);
+            this.pfxEditorToolStrip.Size = new System.Drawing.Size(180, 22);
             this.pfxEditorToolStrip.Text = "Редактор PFX";
+            this.pfxEditorToolStrip.Visible = false;
             this.pfxEditorToolStrip.Click += new System.EventHandler(this.pfxEditorToolStrip_Click);
             // 
             // testCoordsToolStripMenuItem

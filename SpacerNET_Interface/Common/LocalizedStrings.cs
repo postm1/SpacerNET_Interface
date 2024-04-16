@@ -780,6 +780,13 @@ namespace SpacerUnion.Common
             words.Add("PFX_EDITOR_WRONG_FORMAT_VECTOR3", new List<string> { "Правильный формат (вектор): 10.0 -20.0 55.0", "Corrent format (vector): 10.0 -20.0 55.0", "", "" });
             words.Add("PFX_EDITOR_WRONG_FORMAT_COLOR", new List<string> { "Правильный формат (цвет, 3 числа от 0 до 255): 255 20 30", "Corrent format (color, 3 numbers from 0 to 255): 255 20 30", "", "" });
             words.Add("PFX_EDITOR_WRONG_FORMAT_VECTOR2", new List<string> { "Правильный формат (два числа): 5 8", "Corrent format (two numbers): 5 8", "", "" });
+
+            words.Add("PFX_EDITOR_TITLE", new List<string> { "Редактор частиц", "Particles editor", "", "" });
+            words.Add("PFX_EDITOR_INSTANCE", new List<string> { "Инстанция PFX: ", "PFX instance: ", "", "" });
+            words.Add("PFX_EDITOR_PLAY_AGAIN", new List<string> { "Вызвать эффект снова", "Play effect again", "", "" });
+            words.Add("PFX_EDITOR_SAVE_ALL_FIELDS", new List<string> { "Сохранять все поля (даже пустые)", "Save all fields (even empty ones)", "", "" });
+            words.Add("PFX_EDITOR_SAVE_IN_FILE", new List<string> { "Сохранить в файл", "Save into a file", "", "" });
+            
         }
         
     }
