@@ -2314,5 +2314,20 @@ namespace SpacerUnion
         {
 
         }
+
+        private void toolStripButtonPfxEditor_Click(object sender, EventArgs e)
+        {
+
+
+            if (SpacerNET.pfxWin.Visible)
+            {
+                SpacerNET.pfxWin.Hide();
+            }
+            else
+            {
+                SpacerNET.pfxWin.Show();
+                SpacerNET.pfxWin.LoadAllPfx();
+            }
+        }
     }
 }

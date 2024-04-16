@@ -228,6 +228,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PFXEditorWin_FormClosing);
             this.Load += new System.EventHandler(this.PFXEditorWin_Load);
             this.Shown += new System.EventHandler(this.PFXEditorWin_Shown);
+            this.VisibleChanged += new System.EventHandler(this.PFXEditorWin_VisibleChanged);
             this.panelPFXButtons.ResumeLayout(false);
             this.panelPFXButtons.PerformLayout();
             this.panelPFXTop.ResumeLayout(false);

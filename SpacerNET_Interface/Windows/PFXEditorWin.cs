@@ -795,5 +795,9 @@ namespace SpacerUnion.Windows
 
         }
 
+        private void PFXEditorWin_VisibleChanged(object sender, EventArgs e)
+        {
+            SpacerNET.form.toolStripButtonPfxEditor.Checked = this.Visible;
+        }
     }
 }
