@@ -52,7 +52,7 @@ namespace SpacerUnion.Windows
             buttonPfxRestore.Text = Localizator.Get("buttonRestoreVobProp");
             buttonPfxEditorApply.Text = Localizator.Get("BTN_APPLY");
             checkBoxPlayAuto.Text = Localizator.Get("PFX_EDITOR_AUTO_PLAY");
-
+            buttonPFXPlaceNearCam.Text = Localizator.Get("PFX_EDITOR_SET_NEAR_CAMERA");
             
         }
 
@@ -838,6 +838,11 @@ namespace SpacerUnion.Windows
         {
             Imports.Stack_PushString("pfxSaveFullFields");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxPfxSaveAllFields.Checked));
+        }
+
+        private void buttonPFXPlaceNearCam_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_PlacePfxNearCam();
         }
     }
 }
