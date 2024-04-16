@@ -828,6 +828,11 @@ namespace SpacerUnion.Windows
         private void PFXEditorWin_VisibleChanged(object sender, EventArgs e)
         {
             SpacerNET.form.toolStripButtonPfxEditor.Checked = this.Visible;
+
+            if (!this.Visible)
+            {
+                Imports.Extern_PfxEditorStopEffect();
+            }
         }
 
         private void checkBoxPlayAuto_CheckedChanged(object sender, EventArgs e)
