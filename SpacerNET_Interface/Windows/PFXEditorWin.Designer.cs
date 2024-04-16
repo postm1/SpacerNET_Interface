@@ -34,13 +34,13 @@
             this.treeViewPFX = new System.Windows.Forms.TreeView();
             this.buttonPfxEditorApply = new System.Windows.Forms.Button();
             this.panelPFXButtons = new System.Windows.Forms.Panel();
+            this.buttonColor = new System.Windows.Forms.Button();
+            this.buttonFile = new System.Windows.Forms.Button();
             this.buttonPfxRestore = new System.Windows.Forms.Button();
             this.textBoxPfxInput = new System.Windows.Forms.TextBox();
             this.comboBoxPfxField = new System.Windows.Forms.ComboBox();
             this.panelPFXTop = new System.Windows.Forms.Panel();
             this.buttonPFXPlayAgain = new System.Windows.Forms.Button();
-            this.buttonFile = new System.Windows.Forms.Button();
-            this.buttonColor = new System.Windows.Forms.Button();
             this.panelPFXButtons.SuspendLayout();
             this.panelPFXTop.SuspendLayout();
             this.SuspendLayout();
@@ -110,6 +110,26 @@
             this.panelPFXButtons.Size = new System.Drawing.Size(404, 76);
             this.panelPFXButtons.TabIndex = 6;
             // 
+            // buttonColor
+            // 
+            this.buttonColor.Location = new System.Drawing.Point(288, 41);
+            this.buttonColor.Name = "buttonColor";
+            this.buttonColor.Size = new System.Drawing.Size(96, 23);
+            this.buttonColor.TabIndex = 10;
+            this.buttonColor.Text = "Color";
+            this.buttonColor.UseVisualStyleBackColor = true;
+            this.buttonColor.Click += new System.EventHandler(this.buttonColor_Click);
+            // 
+            // buttonFile
+            // 
+            this.buttonFile.Location = new System.Drawing.Point(288, 5);
+            this.buttonFile.Name = "buttonFile";
+            this.buttonFile.Size = new System.Drawing.Size(96, 23);
+            this.buttonFile.TabIndex = 9;
+            this.buttonFile.Text = "File";
+            this.buttonFile.UseVisualStyleBackColor = true;
+            this.buttonFile.Click += new System.EventHandler(this.buttonFile_Click);
+            // 
             // buttonPfxRestore
             // 
             this.buttonPfxRestore.Location = new System.Drawing.Point(153, 41);
@@ -127,6 +147,7 @@
             this.textBoxPfxInput.Size = new System.Drawing.Size(260, 20);
             this.textBoxPfxInput.TabIndex = 7;
             this.textBoxPfxInput.Visible = false;
+            this.textBoxPfxInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPfxInput_KeyPress);
             // 
             // comboBoxPfxField
             // 
@@ -160,26 +181,6 @@
             this.buttonPFXPlayAgain.Text = "Play again";
             this.buttonPFXPlayAgain.UseVisualStyleBackColor = true;
             this.buttonPFXPlayAgain.Click += new System.EventHandler(this.buttonPFXPlayAgain_Click);
-            // 
-            // buttonFile
-            // 
-            this.buttonFile.Location = new System.Drawing.Point(288, 5);
-            this.buttonFile.Name = "buttonFile";
-            this.buttonFile.Size = new System.Drawing.Size(96, 23);
-            this.buttonFile.TabIndex = 9;
-            this.buttonFile.Text = "File";
-            this.buttonFile.UseVisualStyleBackColor = true;
-            this.buttonFile.Click += new System.EventHandler(this.buttonFile_Click);
-            // 
-            // buttonColor
-            // 
-            this.buttonColor.Location = new System.Drawing.Point(288, 41);
-            this.buttonColor.Name = "buttonColor";
-            this.buttonColor.Size = new System.Drawing.Size(96, 23);
-            this.buttonColor.TabIndex = 10;
-            this.buttonColor.Text = "Color";
-            this.buttonColor.UseVisualStyleBackColor = true;
-            this.buttonColor.Click += new System.EventHandler(this.buttonColor_Click);
             // 
             // PFXEditorWin
             // 

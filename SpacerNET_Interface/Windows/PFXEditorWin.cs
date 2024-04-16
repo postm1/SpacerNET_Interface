@@ -18,9 +18,10 @@ namespace SpacerUnion.Windows
 
     public partial class PFXEditorWin : Form
     {
-        bool firstTimeInit = false;
         static List<CProperty> props = new List<CProperty>();
         bool dontUpdateFieldNow = false;
+        string currentPfxName = String.Empty;
+        Dictionary<string, string> backupFieldsValues = new Dictionary<string, string>();
 
         public PFXEditorWin()
         {
@@ -146,11 +147,15 @@ namespace SpacerUnion.Windows
                     prop.SetValue(val);
                 }
 
+                // save backup value for any pfx
+                var key = currentPfxName + "_" + prop.Name;
 
-                
+                if (!backupFieldsValues.ContainsKey(key))
+                {
+                    backupFieldsValues[key] = prop.value;
+                }
 
                 prop.ownNode.Text = prop.Name + ": " + prop.ShowValue();
-
 
             }
         }
@@ -207,12 +212,12 @@ namespace SpacerUnion.Windows
 
             string value = comboBoxPfxInst.Text;
 
-            firstTimeInit = false;
 
             if (value != String.Empty)
             {
+                currentPfxName = value;
+
                 LoadPfx(value);
-                firstTimeInit = true;
 
                 if (comboBoxPfxInst.SelectedIndex >= 0)
                 {
@@ -439,7 +444,15 @@ namespace SpacerUnion.Windows
                     return;
                 }
 
-                prop.SetValue(prop.backup_value);
+                // save backup value for any pfx
+                var key = currentPfxName + "_" + prop.Name;
+
+                if (!backupFieldsValues.ContainsKey(key))
+                {
+                    return;
+                }
+
+                prop.SetValue(backupFieldsValues[key]);
                 treeViewPFX.SelectedNode.Text = prop.Name + ": " + prop.ShowValue();
 
                 var events = new TreeViewEventArgs(treeViewPFX.SelectedNode);
@@ -488,12 +501,10 @@ namespace SpacerUnion.Windows
         {
             string value = comboBoxPfxInst.Text;
 
-            firstTimeInit = false;
 
             if (value != String.Empty)
             {
                 LoadPfx(value);
-                firstTimeInit = true;
             }
         }
 
@@ -581,7 +592,7 @@ namespace SpacerUnion.Windows
             openFileDialogFileName.Filter = Constants.FILE_FILTER_ALL;
 
 
-            Imports.Stack_PushString("vobResPath");
+            Imports.Stack_PushString("pfxTexturesPath");
             Imports.Extern_GetSettingStr();
             string path = Utils.FixPath(Imports.Stack_PeekString());
 
@@ -599,9 +610,9 @@ namespace SpacerUnion.Windows
 
             if (openFileDialogFileName.ShowDialog() == DialogResult.OK)
             {
-                //Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(openFileDialogFileName.FileName)));
-                //Imports.Stack_PushString("vobResPath");
-                //Imports.Extern_SetSettingStr();
+                Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(openFileDialogFileName.FileName)));
+                Imports.Stack_PushString("pfxTexturesPath");
+                Imports.Extern_SetSettingStr();
 
                 string fileName = openFileDialogFileName.SafeFileName;
                 TreeNode node = treeViewPFX.SelectedNode;
@@ -620,6 +631,16 @@ namespace SpacerUnion.Windows
                     prop.ownNode.Text = prop.Name + ": " + prop.ShowValue();
                     textBoxPfxInput.Text = prop.value;
                 }
+            }
+        }
+
+        private void textBoxPfxInput_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (e.KeyChar == (char)13)
+            {
+                buttonPfxEditorApply_Click(null, null);
+                e.Handled = true;
             }
         }
     }
