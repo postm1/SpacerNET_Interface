@@ -44,6 +44,7 @@
             this.buttonPFXPlayAgain = new System.Windows.Forms.Button();
             this.checkBoxPfxSaveAllFields = new System.Windows.Forms.CheckBox();
             this.buttonRemovePFX = new System.Windows.Forms.Button();
+            this.buttonApplyOnMesh = new System.Windows.Forms.Button();
             this.panelPFXButtons.SuspendLayout();
             this.panelPFXTop.SuspendLayout();
             this.SuspendLayout();
@@ -156,6 +157,7 @@
             // 
             // panelPFXTop
             // 
+            this.panelPFXTop.Controls.Add(this.buttonApplyOnMesh);
             this.panelPFXTop.Controls.Add(this.buttonRemovePFX);
             this.panelPFXTop.Controls.Add(this.buttonPFXPlaceNearCam);
             this.panelPFXTop.Controls.Add(this.checkBoxPlayAuto);
@@ -225,6 +227,16 @@
             this.buttonRemovePFX.UseVisualStyleBackColor = true;
             this.buttonRemovePFX.Click += new System.EventHandler(this.buttonRemovePFX_Click);
             // 
+            // buttonApplyOnMesh
+            // 
+            this.buttonApplyOnMesh.Location = new System.Drawing.Point(250, 58);
+            this.buttonApplyOnMesh.Name = "buttonApplyOnMesh";
+            this.buttonApplyOnMesh.Size = new System.Drawing.Size(176, 23);
+            this.buttonApplyOnMesh.TabIndex = 10;
+            this.buttonApplyOnMesh.Text = "Apply on mesh";
+            this.buttonApplyOnMesh.UseVisualStyleBackColor = true;
+            this.buttonApplyOnMesh.Click += new System.EventHandler(this.buttonApplyOnMesh_Click);
+            // 
             // PFXEditorWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,5 +283,6 @@
         private System.Windows.Forms.CheckBox checkBoxPlayAuto;
         private System.Windows.Forms.Button buttonPFXPlaceNearCam;
         private System.Windows.Forms.Button buttonRemovePFX;
+        private System.Windows.Forms.Button buttonApplyOnMesh;
     }
 }

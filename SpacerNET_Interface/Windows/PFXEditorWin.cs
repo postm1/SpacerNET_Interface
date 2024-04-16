@@ -864,5 +864,10 @@ namespace SpacerUnion.Windows
         {
             Imports.Extern_PfxEditorStopEffect();
         }
+
+        private void buttonApplyOnMesh_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_PfxEditorApplyOnMesh();
+        }
     }
 }
