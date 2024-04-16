@@ -786,7 +786,10 @@ namespace SpacerUnion.Common
             words.Add("PFX_EDITOR_PLAY_AGAIN", new List<string> { "Вызвать эффект снова", "Play effect again", "", "" });
             words.Add("PFX_EDITOR_SAVE_ALL_FIELDS", new List<string> { "Сохранять все поля (даже пустые)", "Save all fields (even empty ones)", "", "" });
             words.Add("PFX_EDITOR_SAVE_IN_FILE", new List<string> { "Сохранить в файл", "Save into a file", "", "" });
-            
+            words.Add("PFX_EDITOR_AUTO_PLAY", new List<string> { "Повтороно вызвать эффект после его завершения", "Repeat playing effect after it is finished", "", "" });
+
+
+
         }
         
     }

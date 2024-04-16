@@ -43,6 +43,7 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.buttonPFXPlayAgain = new System.Windows.Forms.Button();
             this.checkBoxPfxSaveAllFields = new System.Windows.Forms.CheckBox();
+            this.checkBoxPlayAuto = new System.Windows.Forms.CheckBox();
             this.panelPFXButtons.SuspendLayout();
             this.panelPFXTop.SuspendLayout();
             this.panelTop.SuspendLayout();
@@ -70,9 +71,9 @@
             // 
             // savePFXButton
             // 
-            this.savePFXButton.Location = new System.Drawing.Point(15, 60);
+            this.savePFXButton.Location = new System.Drawing.Point(12, 66);
             this.savePFXButton.Name = "savePFXButton";
-            this.savePFXButton.Size = new System.Drawing.Size(119, 23);
+            this.savePFXButton.Size = new System.Drawing.Size(132, 23);
             this.savePFXButton.TabIndex = 3;
             this.savePFXButton.Text = "Save to file";
             this.savePFXButton.UseVisualStyleBackColor = true;
@@ -175,6 +176,7 @@
             // 
             // panelTop
             // 
+            this.panelTop.Controls.Add(this.checkBoxPlayAuto);
             this.panelTop.Controls.Add(this.buttonPFXPlayAgain);
             this.panelTop.Controls.Add(this.labelPFXName);
             this.panelTop.Controls.Add(this.checkBoxPfxSaveAllFields);
@@ -188,9 +190,9 @@
             // 
             // buttonPFXPlayAgain
             // 
-            this.buttonPFXPlayAgain.Location = new System.Drawing.Point(265, 37);
+            this.buttonPFXPlayAgain.Location = new System.Drawing.Point(12, 37);
             this.buttonPFXPlayAgain.Name = "buttonPFXPlayAgain";
-            this.buttonPFXPlayAgain.Size = new System.Drawing.Size(119, 23);
+            this.buttonPFXPlayAgain.Size = new System.Drawing.Size(132, 23);
             this.buttonPFXPlayAgain.TabIndex = 5;
             this.buttonPFXPlayAgain.Text = "Play again";
             this.buttonPFXPlayAgain.UseVisualStyleBackColor = true;
@@ -201,12 +203,26 @@
             this.checkBoxPfxSaveAllFields.AutoSize = true;
             this.checkBoxPfxSaveAllFields.Checked = true;
             this.checkBoxPfxSaveAllFields.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxPfxSaveAllFields.Location = new System.Drawing.Point(153, 64);
+            this.checkBoxPfxSaveAllFields.Location = new System.Drawing.Point(153, 70);
             this.checkBoxPfxSaveAllFields.Name = "checkBoxPfxSaveAllFields";
             this.checkBoxPfxSaveAllFields.Size = new System.Drawing.Size(91, 17);
             this.checkBoxPfxSaveAllFields.TabIndex = 6;
             this.checkBoxPfxSaveAllFields.Text = "Save all fields";
             this.checkBoxPfxSaveAllFields.UseVisualStyleBackColor = true;
+            this.checkBoxPfxSaveAllFields.CheckedChanged += new System.EventHandler(this.checkBoxPfxSaveAllFields_CheckedChanged);
+            // 
+            // checkBoxPlayAuto
+            // 
+            this.checkBoxPlayAuto.AutoSize = true;
+            this.checkBoxPlayAuto.Checked = true;
+            this.checkBoxPlayAuto.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxPlayAuto.Location = new System.Drawing.Point(153, 41);
+            this.checkBoxPlayAuto.Name = "checkBoxPlayAuto";
+            this.checkBoxPlayAuto.Size = new System.Drawing.Size(160, 17);
+            this.checkBoxPlayAuto.TabIndex = 7;
+            this.checkBoxPlayAuto.Text = "Repeat effect after it is done";
+            this.checkBoxPlayAuto.UseVisualStyleBackColor = true;
+            this.checkBoxPlayAuto.CheckedChanged += new System.EventHandler(this.checkBoxPlayAuto_CheckedChanged);
             // 
             // PFXEditorWin
             // 
@@ -255,5 +271,6 @@
         private System.Windows.Forms.Button buttonFile;
         private System.Windows.Forms.CheckBox checkBoxPfxSaveAllFields;
         private System.Windows.Forms.Panel panelTop;
+        private System.Windows.Forms.CheckBox checkBoxPlayAuto;
     }
 }

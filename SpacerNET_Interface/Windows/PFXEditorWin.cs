@@ -37,6 +37,7 @@ namespace SpacerUnion.Windows
 
             ToggleInterface(false);
 
+
         }
         public void UpdateLang()
         {
@@ -50,6 +51,9 @@ namespace SpacerUnion.Windows
             buttonColor.Text = Localizator.Get("PROP_BUTTON_COLOR");
             buttonPfxRestore.Text = Localizator.Get("buttonRestoreVobProp");
             buttonPfxEditorApply.Text = Localizator.Get("BTN_APPLY");
+            checkBoxPlayAuto.Text = Localizator.Get("PFX_EDITOR_AUTO_PLAY");
+
+            
         }
 
         public void OnFontUpdate()
@@ -74,6 +78,7 @@ namespace SpacerUnion.Windows
 
             treeViewPFX.Enabled = toggle;
             textBoxPfxInput.Enabled = toggle;
+            checkBoxPlayAuto.Enabled = toggle;
 
             if (!toggle)
             {
@@ -259,6 +264,12 @@ namespace SpacerUnion.Windows
         private void PFXEditorWin_Shown(object sender, EventArgs e)
         {
              FillProps();
+
+            Imports.Stack_PushString("pfxRepeatAutoplay");
+            checkBoxPlayAuto.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("pfxSaveFullFields");
+            checkBoxPfxSaveAllFields.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
         }
 
         private void treeViewPFX_DoubleClick(object sender, EventArgs e)
@@ -815,6 +826,18 @@ namespace SpacerUnion.Windows
         private void PFXEditorWin_VisibleChanged(object sender, EventArgs e)
         {
             SpacerNET.form.toolStripButtonPfxEditor.Checked = this.Visible;
+        }
+
+        private void checkBoxPlayAuto_CheckedChanged(object sender, EventArgs e)
+        {
+            Imports.Stack_PushString("pfxRepeatAutoplay");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxPlayAuto.Checked));
+        }
+
+        private void checkBoxPfxSaveAllFields_CheckedChanged(object sender, EventArgs e)
+        {
+            Imports.Stack_PushString("pfxSaveFullFields");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxPfxSaveAllFields.Checked));
         }
     }
 }
