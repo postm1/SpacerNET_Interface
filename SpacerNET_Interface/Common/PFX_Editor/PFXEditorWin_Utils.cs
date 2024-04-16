@@ -404,6 +404,7 @@ namespace SpacerUnion.Windows
                 || fieldName == "shpDistribType_s"
                 || fieldName == "shpFor_s"
                 || fieldName == "shpType_s"
+                || fieldName == "flockMode"
                 )
             {
                 return true;

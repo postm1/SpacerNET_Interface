@@ -181,31 +181,7 @@ namespace SpacerUnion.Windows
         }
 
         
-        private void savePFXButton_Click(object sender, EventArgs e)
-        {
-           
-            /*
-            int type = Imports.Stack_PeekInt();
-            
-            if (type == 1)
-            {
-                MessageBox.Show(Imports.Stack_PeekFloat().ToString());
-            }
-            if (type == 2)
-            {
-                MessageBox.Show(Imports.Stack_PeekInt().ToString());
-            }
-
-            if (type == 3)
-            {
-              
-            }
-            */
-
-
-            //stat.PpsFPS = Imports.Stack_PeekFloat();
-            // stat.PpsScaleKeys_s = Imports.Stack_PeekString();
-        }
+        
 
         private void comboBoxPfxInst_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -641,6 +617,78 @@ namespace SpacerUnion.Windows
             {
                 buttonPfxEditorApply_Click(null, null);
                 e.Handled = true;
+            }
+        }
+
+
+        private void savePFXButton_Click(object sender, EventArgs e)
+        {
+
+            SaveFileDialog safeFileDialogFileName = new SaveFileDialog();
+
+            safeFileDialogFileName.Filter = Constants.FILE_FILTER_ALL;
+            safeFileDialogFileName.FileName = currentPfxName + ".txt";
+
+            Imports.Stack_PushString("pfxSavesPath");
+            Imports.Extern_GetSettingStr();
+            string path = Utils.FixPath(Imports.Stack_PeekString());
+
+            try
+            {
+                safeFileDialogFileName.InitialDirectory = Utils.GetInitialDirectory(path);
+            }
+            catch
+            {
+                MessageBox.Show("Wrong path! " + path);
+                return;
+            }
+
+            safeFileDialogFileName.RestoreDirectory = true;
+
+            if (safeFileDialogFileName.ShowDialog() == DialogResult.OK)
+            {
+                Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(safeFileDialogFileName.FileName)));
+                Imports.Stack_PushString("pfxSavesPath");
+                Imports.Extern_SetSettingStr();
+
+
+                using (StreamWriter file = new StreamWriter(safeFileDialogFileName.FileName))
+                {
+                    file.WriteLine("instance " + currentPfxName.ToUpper() + " (C_PARTICLEFX)");
+                    file.WriteLine("{");
+
+
+                    for (int i = 0; i < props.Count; i++)
+                    {
+                        var value = props[i].value;
+                        var name = props[i].Name;
+
+                        if (IsFieldRealInt(name))
+                        {
+                            file.WriteLine("\t" + name + " = " + value + ";");
+                        }
+                        else if (IsFieldRealString(name))
+                        {
+                            file.WriteLine("\t" + name + " = \"" + props[i].ShowValue() + "\";");
+                        }
+                        else if (props[i].type == TPropEditType.PETstring || props[i].type == TPropEditType.PETenum)
+                        {
+                            file.WriteLine("\t" + name + " = \"" + value + "\";");
+                        }
+                        else
+                        {
+                            file.WriteLine("\t" + name + " = " + value + ";");
+                        }
+                        
+                    }
+
+                    file.WriteLine("};");
+                    file.WriteLine("");
+
+                    file.Close();
+                }
+
+                
             }
         }
     }
