@@ -41,6 +41,7 @@
             this.comboBoxPfxField = new System.Windows.Forms.ComboBox();
             this.panelPFXTop = new System.Windows.Forms.Panel();
             this.buttonPFXPlayAgain = new System.Windows.Forms.Button();
+            this.checkBoxPfxSaveAllFields = new System.Windows.Forms.CheckBox();
             this.panelPFXButtons.SuspendLayout();
             this.panelPFXTop.SuspendLayout();
             this.SuspendLayout();
@@ -162,6 +163,7 @@
             // 
             // panelPFXTop
             // 
+            this.panelPFXTop.Controls.Add(this.checkBoxPfxSaveAllFields);
             this.panelPFXTop.Controls.Add(this.buttonPFXPlayAgain);
             this.panelPFXTop.Controls.Add(this.labelPFXName);
             this.panelPFXTop.Controls.Add(this.comboBoxPfxInst);
@@ -181,6 +183,18 @@
             this.buttonPFXPlayAgain.Text = "Play again";
             this.buttonPFXPlayAgain.UseVisualStyleBackColor = true;
             this.buttonPFXPlayAgain.Click += new System.EventHandler(this.buttonPFXPlayAgain_Click);
+            // 
+            // checkBoxPfxSaveAllFields
+            // 
+            this.checkBoxPfxSaveAllFields.AutoSize = true;
+            this.checkBoxPfxSaveAllFields.Checked = true;
+            this.checkBoxPfxSaveAllFields.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxPfxSaveAllFields.Location = new System.Drawing.Point(12, 74);
+            this.checkBoxPfxSaveAllFields.Name = "checkBoxPfxSaveAllFields";
+            this.checkBoxPfxSaveAllFields.Size = new System.Drawing.Size(91, 17);
+            this.checkBoxPfxSaveAllFields.TabIndex = 6;
+            this.checkBoxPfxSaveAllFields.Text = "Save all fields";
+            this.checkBoxPfxSaveAllFields.UseVisualStyleBackColor = true;
             // 
             // PFXEditorWin
             // 
@@ -223,5 +237,6 @@
         private System.Windows.Forms.Button buttonPFXPlayAgain;
         private System.Windows.Forms.Button buttonColor;
         private System.Windows.Forms.Button buttonFile;
+        private System.Windows.Forms.CheckBox checkBoxPfxSaveAllFields;
     }
 }

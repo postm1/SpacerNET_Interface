@@ -623,6 +623,7 @@ namespace SpacerUnion.Windows
 
         private void savePFXButton_Click(object sender, EventArgs e)
         {
+            bool saveAllFields = checkBoxPfxSaveAllFields.Checked;
 
             SaveFileDialog safeFileDialogFileName = new SaveFileDialog();
 
@@ -654,7 +655,7 @@ namespace SpacerUnion.Windows
 
                 using (StreamWriter file = new StreamWriter(safeFileDialogFileName.FileName))
                 {
-                    file.WriteLine("instance " + currentPfxName.ToUpper() + " (C_PARTICLEFX)");
+                    file.WriteLine("instance " + currentPfxName.ToUpper() + "(C_PARTICLEFX)");
                     file.WriteLine("{");
 
 
@@ -662,6 +663,16 @@ namespace SpacerUnion.Windows
                     {
                         var value = props[i].value;
                         var name = props[i].Name;
+
+
+                        // don't save empty or default fields
+                        if (!saveAllFields)
+                        {
+                            if (value == String.Empty || value == "0")
+                            {
+                                continue;
+                            }
+                        }
 
                         if (IsFieldRealInt(name))
                         {
