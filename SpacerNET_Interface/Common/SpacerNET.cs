@@ -323,6 +323,12 @@ namespace SpacerUnion
                 pfxWin.Location = Properties.Settings.Default.PFXEditorLocation;
             }
 
+
+            if (Properties.Settings.Default.PFXEditorSize != null)
+            {
+                pfxWin.Size = Properties.Settings.Default.PFXEditorSize;
+            }
+
             LoadSettingsToInterface();
 
 
@@ -535,7 +541,7 @@ namespace SpacerUnion
             Properties.Settings.Default.PropsWinSize = propWin.Size;
             Properties.Settings.Default.VobListSize = vobList.Size;
             Properties.Settings.Default.InfoWinSize = infoWin.Size;
-
+            Properties.Settings.Default.PFXEditorSize = pfxWin.Size;
 
             Properties.Settings.Default.Save();
 

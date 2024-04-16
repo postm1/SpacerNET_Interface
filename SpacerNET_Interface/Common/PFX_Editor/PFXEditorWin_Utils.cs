@@ -160,6 +160,9 @@ namespace SpacerUnion.Windows
 
             treeViewPFX.ExpandAll();
             treeViewPFX.EndUpdate();
+
+            //select first index
+            treeViewPFX.Nodes[0].EnsureVisible();
         }
 
         public void LoadPfx(string name)

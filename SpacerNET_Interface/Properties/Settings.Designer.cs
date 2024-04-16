@@ -490,5 +490,17 @@ namespace SpacerUnion.Properties {
                 this["PFXEditorLocation"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("420, 771")]
+        public global::System.Drawing.Size PFXEditorSize {
+            get {
+                return ((global::System.Drawing.Size)(this["PFXEditorSize"]));
+            }
+            set {
+                this["PFXEditorSize"] = value;
+            }
+        }
     }
 }
