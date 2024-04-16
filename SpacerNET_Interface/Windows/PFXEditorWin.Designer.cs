@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBoxPfxInst = new System.Windows.Forms.ComboBox();
             this.labelPFXName = new System.Windows.Forms.Label();
             this.savePFXButton = new System.Windows.Forms.Button();
             this.treeViewPFX = new System.Windows.Forms.TreeView();
@@ -40,28 +39,19 @@
             this.textBoxPfxInput = new System.Windows.Forms.TextBox();
             this.comboBoxPfxField = new System.Windows.Forms.ComboBox();
             this.panelPFXTop = new System.Windows.Forms.Panel();
+            this.buttonPFXPlaceNearCam = new System.Windows.Forms.Button();
+            this.checkBoxPlayAuto = new System.Windows.Forms.CheckBox();
             this.buttonPFXPlayAgain = new System.Windows.Forms.Button();
             this.checkBoxPfxSaveAllFields = new System.Windows.Forms.CheckBox();
-            this.checkBoxPlayAuto = new System.Windows.Forms.CheckBox();
-            this.buttonPFXPlaceNearCam = new System.Windows.Forms.Button();
+            this.buttonRemovePFX = new System.Windows.Forms.Button();
             this.panelPFXButtons.SuspendLayout();
             this.panelPFXTop.SuspendLayout();
             this.SuspendLayout();
             // 
-            // comboBoxPfxInst
-            // 
-            this.comboBoxPfxInst.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxPfxInst.FormattingEnabled = true;
-            this.comboBoxPfxInst.Location = new System.Drawing.Point(104, 12);
-            this.comboBoxPfxInst.Name = "comboBoxPfxInst";
-            this.comboBoxPfxInst.Size = new System.Drawing.Size(280, 21);
-            this.comboBoxPfxInst.TabIndex = 0;
-            this.comboBoxPfxInst.SelectedIndexChanged += new System.EventHandler(this.comboBoxPfxInst_SelectedIndexChanged);
-            // 
             // labelPFXName
             // 
             this.labelPFXName.AutoSize = true;
-            this.labelPFXName.Location = new System.Drawing.Point(12, 15);
+            this.labelPFXName.Location = new System.Drawing.Point(12, 9);
             this.labelPFXName.Name = "labelPFXName";
             this.labelPFXName.Size = new System.Drawing.Size(70, 13);
             this.labelPFXName.TabIndex = 1;
@@ -70,7 +60,7 @@
             // 
             // savePFXButton
             // 
-            this.savePFXButton.Location = new System.Drawing.Point(12, 68);
+            this.savePFXButton.Location = new System.Drawing.Point(12, 58);
             this.savePFXButton.Name = "savePFXButton";
             this.savePFXButton.Size = new System.Drawing.Size(132, 23);
             this.savePFXButton.TabIndex = 3;
@@ -82,9 +72,9 @@
             // 
             this.treeViewPFX.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewPFX.HideSelection = false;
-            this.treeViewPFX.Location = new System.Drawing.Point(0, 132);
+            this.treeViewPFX.Location = new System.Drawing.Point(0, 116);
             this.treeViewPFX.Name = "treeViewPFX";
-            this.treeViewPFX.Size = new System.Drawing.Size(404, 524);
+            this.treeViewPFX.Size = new System.Drawing.Size(404, 540);
             this.treeViewPFX.TabIndex = 4;
             this.treeViewPFX.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewPFX_AfterSelect);
             this.treeViewPFX.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewPFX_NodeMouseDoubleClick);
@@ -166,9 +156,9 @@
             // 
             // panelPFXTop
             // 
+            this.panelPFXTop.Controls.Add(this.buttonRemovePFX);
             this.panelPFXTop.Controls.Add(this.buttonPFXPlaceNearCam);
             this.panelPFXTop.Controls.Add(this.checkBoxPlayAuto);
-            this.panelPFXTop.Controls.Add(this.comboBoxPfxInst);
             this.panelPFXTop.Controls.Add(this.savePFXButton);
             this.panelPFXTop.Controls.Add(this.buttonPFXPlayAgain);
             this.panelPFXTop.Controls.Add(this.checkBoxPfxSaveAllFields);
@@ -176,12 +166,35 @@
             this.panelPFXTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPFXTop.Location = new System.Drawing.Point(0, 0);
             this.panelPFXTop.Name = "panelPFXTop";
-            this.panelPFXTop.Size = new System.Drawing.Size(404, 132);
+            this.panelPFXTop.Size = new System.Drawing.Size(404, 116);
             this.panelPFXTop.TabIndex = 7;
+            // 
+            // buttonPFXPlaceNearCam
+            // 
+            this.buttonPFXPlaceNearCam.Location = new System.Drawing.Point(12, 87);
+            this.buttonPFXPlaceNearCam.Name = "buttonPFXPlaceNearCam";
+            this.buttonPFXPlaceNearCam.Size = new System.Drawing.Size(198, 23);
+            this.buttonPFXPlaceNearCam.TabIndex = 8;
+            this.buttonPFXPlaceNearCam.Text = "Place effect near camera";
+            this.buttonPFXPlaceNearCam.UseVisualStyleBackColor = true;
+            this.buttonPFXPlaceNearCam.Click += new System.EventHandler(this.buttonPFXPlaceNearCam_Click);
+            // 
+            // checkBoxPlayAuto
+            // 
+            this.checkBoxPlayAuto.AutoSize = true;
+            this.checkBoxPlayAuto.Checked = true;
+            this.checkBoxPlayAuto.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxPlayAuto.Location = new System.Drawing.Point(153, 33);
+            this.checkBoxPlayAuto.Name = "checkBoxPlayAuto";
+            this.checkBoxPlayAuto.Size = new System.Drawing.Size(160, 17);
+            this.checkBoxPlayAuto.TabIndex = 7;
+            this.checkBoxPlayAuto.Text = "Repeat effect after it is done";
+            this.checkBoxPlayAuto.UseVisualStyleBackColor = true;
+            this.checkBoxPlayAuto.CheckedChanged += new System.EventHandler(this.checkBoxPlayAuto_CheckedChanged);
             // 
             // buttonPFXPlayAgain
             // 
-            this.buttonPFXPlayAgain.Location = new System.Drawing.Point(12, 39);
+            this.buttonPFXPlayAgain.Location = new System.Drawing.Point(12, 29);
             this.buttonPFXPlayAgain.Name = "buttonPFXPlayAgain";
             this.buttonPFXPlayAgain.Size = new System.Drawing.Size(132, 23);
             this.buttonPFXPlayAgain.TabIndex = 5;
@@ -194,7 +207,7 @@
             this.checkBoxPfxSaveAllFields.AutoSize = true;
             this.checkBoxPfxSaveAllFields.Checked = true;
             this.checkBoxPfxSaveAllFields.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxPfxSaveAllFields.Location = new System.Drawing.Point(153, 72);
+            this.checkBoxPfxSaveAllFields.Location = new System.Drawing.Point(153, 62);
             this.checkBoxPfxSaveAllFields.Name = "checkBoxPfxSaveAllFields";
             this.checkBoxPfxSaveAllFields.Size = new System.Drawing.Size(91, 17);
             this.checkBoxPfxSaveAllFields.TabIndex = 6;
@@ -202,28 +215,15 @@
             this.checkBoxPfxSaveAllFields.UseVisualStyleBackColor = true;
             this.checkBoxPfxSaveAllFields.CheckedChanged += new System.EventHandler(this.checkBoxPfxSaveAllFields_CheckedChanged);
             // 
-            // checkBoxPlayAuto
+            // buttonRemovePFX
             // 
-            this.checkBoxPlayAuto.AutoSize = true;
-            this.checkBoxPlayAuto.Checked = true;
-            this.checkBoxPlayAuto.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxPlayAuto.Location = new System.Drawing.Point(153, 43);
-            this.checkBoxPlayAuto.Name = "checkBoxPlayAuto";
-            this.checkBoxPlayAuto.Size = new System.Drawing.Size(160, 17);
-            this.checkBoxPlayAuto.TabIndex = 7;
-            this.checkBoxPlayAuto.Text = "Repeat effect after it is done";
-            this.checkBoxPlayAuto.UseVisualStyleBackColor = true;
-            this.checkBoxPlayAuto.CheckedChanged += new System.EventHandler(this.checkBoxPlayAuto_CheckedChanged);
-            // 
-            // buttonPFXPlaceNearCam
-            // 
-            this.buttonPFXPlaceNearCam.Location = new System.Drawing.Point(12, 97);
-            this.buttonPFXPlaceNearCam.Name = "buttonPFXPlaceNearCam";
-            this.buttonPFXPlaceNearCam.Size = new System.Drawing.Size(232, 23);
-            this.buttonPFXPlaceNearCam.TabIndex = 8;
-            this.buttonPFXPlaceNearCam.Text = "Place effect near camera";
-            this.buttonPFXPlaceNearCam.UseVisualStyleBackColor = true;
-            this.buttonPFXPlaceNearCam.Click += new System.EventHandler(this.buttonPFXPlaceNearCam_Click);
+            this.buttonRemovePFX.Location = new System.Drawing.Point(216, 87);
+            this.buttonRemovePFX.Name = "buttonRemovePFX";
+            this.buttonRemovePFX.Size = new System.Drawing.Size(176, 23);
+            this.buttonRemovePFX.TabIndex = 9;
+            this.buttonRemovePFX.Text = "Remove effect";
+            this.buttonRemovePFX.UseVisualStyleBackColor = true;
+            this.buttonRemovePFX.Click += new System.EventHandler(this.buttonRemovePFX_Click);
             // 
             // PFXEditorWin
             // 
@@ -255,8 +255,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox comboBoxPfxInst;
         private System.Windows.Forms.Label labelPFXName;
         private System.Windows.Forms.Button savePFXButton;
         private System.Windows.Forms.TreeView treeViewPFX;
@@ -272,5 +270,6 @@
         private System.Windows.Forms.CheckBox checkBoxPfxSaveAllFields;
         private System.Windows.Forms.CheckBox checkBoxPlayAuto;
         private System.Windows.Forms.Button buttonPFXPlaceNearCam;
+        private System.Windows.Forms.Button buttonRemovePFX;
     }
 }

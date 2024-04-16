@@ -787,8 +787,11 @@ namespace SpacerUnion.Common
             words.Add("PFX_EDITOR_SAVE_IN_FILE", new List<string> { "Сохранить в файл", "Save into a file", "In Datei speichern", "" });
             words.Add("PFX_EDITOR_AUTO_PLAY", new List<string> { "Повторно вызвать эффект", "Repeat playing effect", "Effekt wiederholen", "" });
 
-            words.Add("PFX_EDITOR_SET_NEAR_CAMERA", new List<string> { "Установить эффект рядом с камерой", "Place effect near camera", "Platziere Effekt nahe der Kamera", "" });
+            words.Add("PFX_EDITOR_SET_NEAR_CAMERA", new List<string> { "Переместить эффект к камере", "Place effect near camera", "Platziere Effekt nahe der Kamera", "" });
             words.Add("PFX_EDITOR_SET_NEAR_CAMERA_DONE", new List<string> { "Эффект перемещен к камере", "The effect was placed near camera", "Effekt wurde nahe der Kamera platziert", "" });
+            words.Add("PFX_EDITOR_REMOVE_EFFECT", new List<string> { "Удалить эффект с экрана", "Remove effect from screen", "Effekt vom Bildschirm entfernen", "" });
+
+            
         }
         
     }

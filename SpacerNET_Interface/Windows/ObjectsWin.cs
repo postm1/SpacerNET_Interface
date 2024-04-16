@@ -1727,14 +1727,21 @@ namespace SpacerUnion
         {
             ListBox lb = sender as ListBox;
 
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             if (lb.SelectedItem != null)
             {
                 string visual = lb.GetItemText(lb.SelectedItem);
 
-                if (checkBoxShowPFXPreview.Checked)
+                if (checkBoxShowPFXPreview.Checked && !SpacerNET.pfxWin.Visible)
                 {
                     SendRenderPFX(visual);
                 }
+
+                SpacerNET.pfxWin.SetCurrentPFX(visual);
             }
 
            
@@ -1744,14 +1751,21 @@ namespace SpacerUnion
         {
             ListBox lb = sender as ListBox;
 
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             if (lb.SelectedItem != null)
             {
                 string visual = lb.GetItemText(lb.SelectedItem);
 
-                if (checkBoxShowPFXPreview.Checked)
+                if (checkBoxShowPFXPreview.Checked && !SpacerNET.pfxWin.Visible)
                 {
                     SendRenderPFX(visual);
                 }
+
+                SpacerNET.pfxWin.SetCurrentPFX(visual);
             }
         }
 

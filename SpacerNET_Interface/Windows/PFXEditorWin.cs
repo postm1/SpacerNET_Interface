@@ -53,6 +53,8 @@ namespace SpacerUnion.Windows
             buttonPfxEditorApply.Text = Localizator.Get("BTN_APPLY");
             checkBoxPlayAuto.Text = Localizator.Get("PFX_EDITOR_AUTO_PLAY");
             buttonPFXPlaceNearCam.Text = Localizator.Get("PFX_EDITOR_SET_NEAR_CAMERA");
+            buttonRemovePFX.Text = Localizator.Get("PFX_EDITOR_REMOVE_EFFECT");
+
             
         }
 
@@ -74,27 +76,35 @@ namespace SpacerUnion.Windows
             buttonPfxRestore.Enabled = toggle;
             savePFXButton.Enabled = toggle;
             checkBoxPfxSaveAllFields.Enabled = toggle;
-            comboBoxPfxInst.Enabled = toggle;
+           // comboBoxPfxInst.Enabled = toggle;
 
             treeViewPFX.Enabled = toggle;
             textBoxPfxInput.Enabled = toggle;
             checkBoxPlayAuto.Enabled = toggle;
             buttonPFXPlaceNearCam.Enabled = toggle;
+            buttonRemovePFX.Enabled = toggle;
             
-
             if (!toggle)
             {
-                comboBoxPfxInst.SelectedIndex = -1;
                 buttonFile.Enabled = toggle;
                 buttonColor.Enabled = toggle;
+
+                labelPFXName.Text = Localizator.Get("PFX_EDITOR_INSTANCE");
             }
 
         }
         public void ToggleSelectPFX(bool toggle)
         {
-            comboBoxPfxInst.Enabled = toggle;
+           // comboBoxPfxInst.Enabled = toggle;
         }
         
+        public void SetCurrentPFX(string name)
+        {
+            labelPFXName.Text = Localizator.Get("PFX_EDITOR_INSTANCE") + name;
+            currentPfxName = name;
+            LoadPfx(name);
+            ToggleInterface(true);
+        }
 
         public void AddNewProp(string name, string folder, string type, string val)
         {
@@ -212,40 +222,42 @@ namespace SpacerUnion.Windows
         {
             string name = Imports.Stack_PeekString();
 
-            SpacerNET.pfxWin.comboBoxPfxInst.Items.Add(name);
+            //SpacerNET.pfxWin.comboBoxPfxInst.Items.Add(name);
+            
+
         }
 
         public void LoadAllPfx()
         {
-            comboBoxPfxInst.Items.Clear();
-            Imports.Extern_GetAllPfx();
+            //comboBoxPfxInst.Items.Clear();
+            //Imports.Extern_GetAllPfx();
         }
 
         
         
 
-        private void comboBoxPfxInst_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxPfxInst.SelectedIndex < 0)
-            {
-                return;
-            }
+        //private void comboBoxPfxInst_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (comboBoxPfxInst.SelectedIndex < 0)
+        //    {
+        //        return;
+        //    }
 
-            string value = comboBoxPfxInst.Text;
+        //    string value = comboBoxPfxInst.Text;
 
 
-            if (value != String.Empty)
-            {
-                currentPfxName = value;
+        //    if (value != String.Empty)
+        //    {
+        //        currentPfxName = value;
 
-                LoadPfx(value);
+        //        LoadPfx(value);
 
-                if (comboBoxPfxInst.SelectedIndex >= 0)
-                {
-                    ToggleInterface(true);
-                }
-            }
-        }
+        //        if (comboBoxPfxInst.SelectedIndex >= 0)
+        //        {
+        //            ToggleInterface(true);
+        //        }
+        //    }
+        //}
 
         private void propertyGridPfx_SelectedGridItemChanged(object sender, SelectedGridItemChangedEventArgs e)
         {
@@ -254,6 +266,10 @@ namespace SpacerUnion.Windows
 
         private void PFXEditorWin_FormClosing(object sender, FormClosingEventArgs e)
         {
+            //ConsoleEx.WriteLineYellow(e.CloseReason.ToString());
+
+            Imports.Extern_PfxEditorStopEffect();
+
             Hide();
             e.Cancel = true;
         }
@@ -584,12 +600,9 @@ namespace SpacerUnion.Windows
 
         private void buttonPFXPlayAgain_Click(object sender, EventArgs e)
         {
-            string value = comboBoxPfxInst.Text;
-
-
-            if (value != String.Empty)
+            if (currentPfxName != String.Empty)
             {
-                LoadPfx(value);
+                LoadPfx(currentPfxName);
             }
         }
 
@@ -828,11 +841,6 @@ namespace SpacerUnion.Windows
         private void PFXEditorWin_VisibleChanged(object sender, EventArgs e)
         {
             SpacerNET.form.toolStripButtonPfxEditor.Checked = this.Visible;
-
-            if (!this.Visible)
-            {
-                Imports.Extern_PfxEditorStopEffect();
-            }
         }
 
         private void checkBoxPlayAuto_CheckedChanged(object sender, EventArgs e)
@@ -850,6 +858,11 @@ namespace SpacerUnion.Windows
         private void buttonPFXPlaceNearCam_Click(object sender, EventArgs e)
         {
             Imports.Extern_PlacePfxNearCam();
+        }
+
+        private void buttonRemovePFX_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_PfxEditorStopEffect();
         }
     }
 }
