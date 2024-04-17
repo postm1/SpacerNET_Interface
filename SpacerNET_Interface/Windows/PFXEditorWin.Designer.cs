@@ -186,6 +186,7 @@
             this.checkBoxShowHints.TabIndex = 11;
             this.checkBoxShowHints.Text = "Show hints";
             this.checkBoxShowHints.UseVisualStyleBackColor = true;
+            this.checkBoxShowHints.Visible = false;
             this.checkBoxShowHints.CheckedChanged += new System.EventHandler(this.checkBoxShowHints_CheckedChanged);
             // 
             // buttonApplyOnMesh

@@ -1304,6 +1304,18 @@ namespace SpacerUnion
             */
         }
 
+        
+
+        private void сочетанияКлавишToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SpacerNET.keysWin.Show();
+        }
+
+        private void тестToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
         private void русскийToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.Language = (int)LangEnum.RU;
@@ -1320,16 +1332,6 @@ namespace SpacerUnion
 
             Localizator.SetLanguage(LangEnum.EN);
             Localizator.UpdateInterface();
-        }
-
-        private void сочетанияКлавишToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SpacerNET.keysWin.Show();
-        }
-
-        private void тестToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void deutscheToolStripMenuItem_Click(object sender, EventArgs e)

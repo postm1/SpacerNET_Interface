@@ -12,7 +12,8 @@ namespace SpacerUnion.Common
         RU = 0,
         EN,
         DE,
-        PL
+        PL,
+        CZ
     }
 
 
@@ -42,7 +43,7 @@ namespace SpacerUnion.Common
             switch (curLang)
             {
                 case LangEnum.RU: case LangEnum.EN: result = 1251; break;
-                case LangEnum.PL: case LangEnum.DE: result = 1250; break;
+                case LangEnum.PL: case LangEnum.DE: case LangEnum.CZ: result = 1250; break;
             }
 
             return result;
