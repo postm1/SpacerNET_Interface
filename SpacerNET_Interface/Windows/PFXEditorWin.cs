@@ -106,43 +106,8 @@ namespace SpacerUnion.Windows
             ToggleInterface(true);
         }
 
-        public void AddNewProp(string name, string folder, string type, string val)
-        {
-            CProperty prop = new CProperty();
-
-            prop.Name = name;
-            prop.GroupName = folder;
-            prop.SetTypePFXEditor(type);
-            prop.SetValue(val);
 
 
-            var baseNode = treeViewPFX.Nodes.OfType<TreeNode>()
-                            .FirstOrDefault(node => node.Text.Equals(folder));
-
-            if (baseNode != null)
-            {
-
-
-                if (type == "enum")
-                {
-                    FillEnumProp(prop);
-                }
-
-                TreeNode node = baseNode.Nodes.Add(name + ": " + prop.ShowValue());
-                prop.ownNode = node;
-               
-                props.Add(prop);
-
-
-                SetPFXIcon(prop);
-                SetNodeStyle(prop);
-            }
-            else
-            {
-                ConsoleEx.WriteLineRed("NO NODE!");
-            }
-           
-        }
 
         public void SetProp(string name, string val)
         {
@@ -350,6 +315,7 @@ namespace SpacerUnion.Windows
             
         }
 
+       
         private void treeViewPFX_AfterSelect(object sender, TreeViewEventArgs e)
         {
             TreeNode node = e.Node;
@@ -409,11 +375,13 @@ namespace SpacerUnion.Windows
                         buttonColor.Enabled = true;
                     }
 
-                    if (IsTextureField(prop.Name))
+                    if (IsFileField(prop.Name))
                     {
                         buttonFile.Enabled = true;
                     }
                 }
+
+                ApplyHint(prop);
             }
         }
 
@@ -874,6 +842,41 @@ namespace SpacerUnion.Windows
         private void buttonApplyOnMesh_Click(object sender, EventArgs e)
         {
             Imports.Extern_PfxEditorApplyOnMesh();
+        }
+
+
+
+        private void treeViewPFX_MouseUp(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void checkBoxShowHints_CheckedChanged(object sender, EventArgs e)
+        {
+            //turn off hints when option is off
+            if (!checkBoxShowHints.Checked)
+            {
+                if (labelHint.Visible)
+                {
+                    labelHint.Visible = false;
+                }
+            }
+            else
+            {
+                if (treeViewPFX.SelectedNode != null)
+                {
+                    var prop = props.FirstOrDefault(curProp => curProp.ownNode == treeViewPFX.SelectedNode);
+
+                    if (prop == null)
+                    {
+                        return;
+                    }
+
+                    ApplyHint(prop);
+                }
+                
+            }
+            
         }
     }
 }

@@ -39,12 +39,14 @@
             this.textBoxPfxInput = new System.Windows.Forms.TextBox();
             this.comboBoxPfxField = new System.Windows.Forms.ComboBox();
             this.panelPFXTop = new System.Windows.Forms.Panel();
+            this.buttonApplyOnMesh = new System.Windows.Forms.Button();
+            this.buttonRemovePFX = new System.Windows.Forms.Button();
             this.buttonPFXPlaceNearCam = new System.Windows.Forms.Button();
             this.checkBoxPlayAuto = new System.Windows.Forms.CheckBox();
             this.buttonPFXPlayAgain = new System.Windows.Forms.Button();
             this.checkBoxPfxSaveAllFields = new System.Windows.Forms.CheckBox();
-            this.buttonRemovePFX = new System.Windows.Forms.Button();
-            this.buttonApplyOnMesh = new System.Windows.Forms.Button();
+            this.labelHint = new System.Windows.Forms.Label();
+            this.checkBoxShowHints = new System.Windows.Forms.CheckBox();
             this.panelPFXButtons.SuspendLayout();
             this.panelPFXTop.SuspendLayout();
             this.SuspendLayout();
@@ -80,6 +82,7 @@
             this.treeViewPFX.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewPFX_AfterSelect);
             this.treeViewPFX.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewPFX_NodeMouseDoubleClick);
             this.treeViewPFX.DoubleClick += new System.EventHandler(this.treeViewPFX_DoubleClick);
+            this.treeViewPFX.MouseUp += new System.Windows.Forms.MouseEventHandler(this.treeViewPFX_MouseUp);
             // 
             // buttonPfxEditorApply
             // 
@@ -157,6 +160,7 @@
             // 
             // panelPFXTop
             // 
+            this.panelPFXTop.Controls.Add(this.checkBoxShowHints);
             this.panelPFXTop.Controls.Add(this.buttonApplyOnMesh);
             this.panelPFXTop.Controls.Add(this.buttonRemovePFX);
             this.panelPFXTop.Controls.Add(this.buttonPFXPlaceNearCam);
@@ -170,6 +174,26 @@
             this.panelPFXTop.Name = "panelPFXTop";
             this.panelPFXTop.Size = new System.Drawing.Size(404, 116);
             this.panelPFXTop.TabIndex = 7;
+            // 
+            // buttonApplyOnMesh
+            // 
+            this.buttonApplyOnMesh.Location = new System.Drawing.Point(270, 12);
+            this.buttonApplyOnMesh.Name = "buttonApplyOnMesh";
+            this.buttonApplyOnMesh.Size = new System.Drawing.Size(176, 23);
+            this.buttonApplyOnMesh.TabIndex = 10;
+            this.buttonApplyOnMesh.Text = "Apply on mesh";
+            this.buttonApplyOnMesh.UseVisualStyleBackColor = true;
+            this.buttonApplyOnMesh.Click += new System.EventHandler(this.buttonApplyOnMesh_Click);
+            // 
+            // buttonRemovePFX
+            // 
+            this.buttonRemovePFX.Location = new System.Drawing.Point(216, 87);
+            this.buttonRemovePFX.Name = "buttonRemovePFX";
+            this.buttonRemovePFX.Size = new System.Drawing.Size(176, 23);
+            this.buttonRemovePFX.TabIndex = 9;
+            this.buttonRemovePFX.Text = "Remove effect";
+            this.buttonRemovePFX.UseVisualStyleBackColor = true;
+            this.buttonRemovePFX.Click += new System.EventHandler(this.buttonRemovePFX_Click);
             // 
             // buttonPFXPlaceNearCam
             // 
@@ -217,31 +241,36 @@
             this.checkBoxPfxSaveAllFields.UseVisualStyleBackColor = true;
             this.checkBoxPfxSaveAllFields.CheckedChanged += new System.EventHandler(this.checkBoxPfxSaveAllFields_CheckedChanged);
             // 
-            // buttonRemovePFX
+            // labelHint
             // 
-            this.buttonRemovePFX.Location = new System.Drawing.Point(216, 87);
-            this.buttonRemovePFX.Name = "buttonRemovePFX";
-            this.buttonRemovePFX.Size = new System.Drawing.Size(176, 23);
-            this.buttonRemovePFX.TabIndex = 9;
-            this.buttonRemovePFX.Text = "Remove effect";
-            this.buttonRemovePFX.UseVisualStyleBackColor = true;
-            this.buttonRemovePFX.Click += new System.EventHandler(this.buttonRemovePFX_Click);
+            this.labelHint.AutoSize = true;
+            this.labelHint.Location = new System.Drawing.Point(257, 203);
+            this.labelHint.Name = "labelHint";
+            this.labelHint.Padding = new System.Windows.Forms.Padding(2);
+            this.labelHint.Size = new System.Drawing.Size(56, 17);
+            this.labelHint.TabIndex = 8;
+            this.labelHint.Text = "HintLabel";
+            this.labelHint.Visible = false;
             // 
-            // buttonApplyOnMesh
+            // checkBoxShowHints
             // 
-            this.buttonApplyOnMesh.Location = new System.Drawing.Point(250, 58);
-            this.buttonApplyOnMesh.Name = "buttonApplyOnMesh";
-            this.buttonApplyOnMesh.Size = new System.Drawing.Size(176, 23);
-            this.buttonApplyOnMesh.TabIndex = 10;
-            this.buttonApplyOnMesh.Text = "Apply on mesh";
-            this.buttonApplyOnMesh.UseVisualStyleBackColor = true;
-            this.buttonApplyOnMesh.Click += new System.EventHandler(this.buttonApplyOnMesh_Click);
+            this.checkBoxShowHints.AutoSize = true;
+            this.checkBoxShowHints.Checked = true;
+            this.checkBoxShowHints.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxShowHints.Location = new System.Drawing.Point(270, 62);
+            this.checkBoxShowHints.Name = "checkBoxShowHints";
+            this.checkBoxShowHints.Size = new System.Drawing.Size(78, 17);
+            this.checkBoxShowHints.TabIndex = 11;
+            this.checkBoxShowHints.Text = "Show hints";
+            this.checkBoxShowHints.UseVisualStyleBackColor = true;
+            this.checkBoxShowHints.CheckedChanged += new System.EventHandler(this.checkBoxShowHints_CheckedChanged);
             // 
             // PFXEditorWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(404, 732);
+            this.Controls.Add(this.labelHint);
             this.Controls.Add(this.treeViewPFX);
             this.Controls.Add(this.panelPFXTop);
             this.Controls.Add(this.panelPFXButtons);
@@ -263,6 +292,7 @@
             this.panelPFXTop.ResumeLayout(false);
             this.panelPFXTop.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -284,5 +314,7 @@
         private System.Windows.Forms.Button buttonPFXPlaceNearCam;
         private System.Windows.Forms.Button buttonRemovePFX;
         private System.Windows.Forms.Button buttonApplyOnMesh;
+        private System.Windows.Forms.Label labelHint;
+        private System.Windows.Forms.CheckBox checkBoxShowHints;
     }
 }

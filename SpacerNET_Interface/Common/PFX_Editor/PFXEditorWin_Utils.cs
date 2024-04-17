@@ -76,6 +76,124 @@ namespace SpacerUnion.Windows
             }
         }
 
+        private Point GetAbsolutePosition(TreeNode node)
+        {
+            TreeView treeView = node.TreeView;
+            Point offset = treeView.Location;
+
+            TreeNode currentNode = node;
+            while (currentNode.Parent != null)
+            {
+                currentNode = currentNode.Parent;
+                offset.X += currentNode.Bounds.X;
+                offset.Y += currentNode.Bounds.Y;
+            }
+
+            offset.X += node.Bounds.X;
+            offset.Y += node.Bounds.Y;
+
+            return offset;
+        }
+
+        // test code
+        public void ApplyHint(CProperty prop)
+        {
+            return;
+
+            // don't show hints
+            if (!checkBoxShowHints.Checked)
+            {
+                labelHint.Visible = false;
+                return;
+            }
+
+            Point nodeLocation = GetAbsolutePosition(prop.ownNode);
+            bool found = false;
+            string text = String.Empty;
+            
+            switch (prop.Name)
+            {
+                case "ppsValue":
+                    {
+                        text = "Количество частиц при создании";
+
+                        found = true;
+                    }; break;
+                case "ppsScaleKeys_s":
+                    {
+                        text = "Ключи количества частиц по времени";
+
+                        found = true;
+                    }; break;
+                case "ppsCreateEm_s":
+                    {
+                        text = "Вызывает другой PFX эффект по имени инстанции";
+
+                        found = true;
+                    }; break;
+
+                case "ppsCreateEmDelay":
+                    {
+                        text = "Задержка вызова ppsCreateEm_s в милисекундах";
+                        found = true;
+
+                    }; break;
+            }
+
+            //ConsoleEx.WriteLineRed(nodeLocation.ToString());
+            if (found)
+            {
+                labelHint.Left = nodeLocation.X + prop.ownNode.Bounds.Width / 2 + 20;
+                labelHint.Top = nodeLocation.Y;
+                labelHint.Text = text;
+                labelHint.Font = SpacerNET.form.mainUIFont;
+                labelHint.Visible = true;
+            }
+            else
+            {
+                labelHint.Visible = false;
+            }
+
+        }
+
+        public void AddNewProp(string name, string folder, string type, string val)
+        {
+            CProperty prop = new CProperty();
+
+            prop.Name = name;
+            prop.GroupName = folder;
+            prop.SetTypePFXEditor(type);
+            prop.SetValue(val);
+
+
+            var baseNode = treeViewPFX.Nodes.OfType<TreeNode>()
+                            .FirstOrDefault(node => node.Text.Equals(folder));
+
+            if (baseNode != null)
+            {
+
+
+                if (type == "enum")
+                {
+                    FillEnumProp(prop);
+                }
+
+                TreeNode node = baseNode.Nodes.Add(name + ": " + prop.ShowValue());
+                prop.ownNode = node;
+
+                props.Add(prop);
+
+
+                SetPFXIcon(prop);
+                SetNodeStyle(prop);
+            }
+            else
+            {
+                ConsoleEx.WriteLineRed("NO NODE!");
+            }
+
+        }
+
         public void FillProps()
         {
             props.Clear();
@@ -444,6 +562,18 @@ namespace SpacerUnion.Windows
             return false;
         }
 
+        public bool IsFileField(string fieldName)
+        {
+            if (IsTextureField(fieldName)
+                || fieldName == "shpMesh_s"
+                )
+            {
+                return true;
+            }
+
+            return false;
+        }
+        
         public bool IsAnotherPFXCreateField(string fieldName)
         {
             return fieldName == "ppsCreateEm_s";
