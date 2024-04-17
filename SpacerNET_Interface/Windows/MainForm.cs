@@ -1271,12 +1271,12 @@ namespace SpacerUnion
             MessageBox.Show("Spacer.NET (version " + Constants.SPACER_VERSION + ") by Liker, 2020-2024", Localizator.Get("MENU_TOP_ABOUT"));
         }
 
-        private void ввестиКоординатыToolStripMenuItem_Click(object sender, EventArgs e)
+        private void enterCoordsToolStipMenuItem_Click(object sender, EventArgs e)
         {
             SpacerNET.camCoordsWin.Show();
         }
 
-        private void прочееToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mistSetttingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SpacerNET.miscSetWin.LoadSettings();
             SpacerNET.miscSetWin.Show();
@@ -1306,14 +1306,9 @@ namespace SpacerUnion
 
         
 
-        private void сочетанияКлавишToolStripMenuItem_Click(object sender, EventArgs e)
+        private void keyBindingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SpacerNET.keysWin.Show();
-        }
-
-        private void тестToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void русскийToolStripMenuItem1_Click(object sender, EventArgs e)

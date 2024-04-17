@@ -445,7 +445,7 @@
             this.ввестиКоординатыToolStripMenuItem.Name = "ввестиКоординатыToolStripMenuItem";
             this.ввестиКоординатыToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.ввестиКоординатыToolStripMenuItem.Text = "Enter coordinates";
-            this.ввестиКоординатыToolStripMenuItem.Click += new System.EventHandler(this.ввестиКоординатыToolStripMenuItem_Click);
+            this.ввестиКоординатыToolStripMenuItem.Click += new System.EventHandler(this.enterCoordsToolStipMenuItem_Click);
             // 
             // dayTimeToolStrip
             // 
@@ -623,14 +623,14 @@
             this.miscToolStripMenuItem.Name = "miscToolStripMenuItem";
             this.miscToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.miscToolStripMenuItem.Text = "Misc";
-            this.miscToolStripMenuItem.Click += new System.EventHandler(this.прочееToolStripMenuItem_Click);
+            this.miscToolStripMenuItem.Click += new System.EventHandler(this.mistSetttingsToolStripMenuItem_Click);
             // 
             // keyBindsToolStripMenuItem
             // 
             this.keyBindsToolStripMenuItem.Name = "keyBindsToolStripMenuItem";
             this.keyBindsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.keyBindsToolStripMenuItem.Text = "Keys bindings";
-            this.keyBindsToolStripMenuItem.Click += new System.EventHandler(this.сочетанияКлавишToolStripMenuItem_Click);
+            this.keyBindsToolStripMenuItem.Click += new System.EventHandler(this.keyBindingsToolStripMenuItem_Click);
             // 
             // languageToolStripMenuItem
             // 
