@@ -773,23 +773,23 @@ namespace SpacerUnion.Common
             words.Add("radioButtonNameOneNumberPostfix", new List<string> { "Установить имя с числом в конце начиная с...", "Set one name with number postfix started from...", "Benenne mit nummerischem Anhang, beginnend ab...", "Ustaw jedną nazwę z liczbą postfix zaczynającą się od..." });
 
 
-            words.Add("PFX_EDITOR_WRONG_INPUT", new List<string> { "Введено недопустимое значение!", "Wrong input!", "Falsche Eingabe!", "" });
-            words.Add("PFX_EDITOR_WRONG_INPUT_0_255", new List<string> { "Допустимый диапазон от 0 до 255!", "Allowed range is from 0 to 255", "Erlaubter Bereich ist von 0 bis 255!", "" });
-            words.Add("PFX_EDITOR_WRONG_INPUT_NOT_NUMBER", new List<string> { "Введеная строка не является числом!", "Input text is not a number!", "Eingegebener Text ist keine Zahl!", "" });
-            words.Add("PFX_EDITOR_WRONG_INPUT_CANTBE_NEGATIVE", new List<string> { "Данное поле не может быть отрицательным!", "This field can't be negative!", "Feld darf nicht Negativ sein!", "" });
-            words.Add("PFX_EDITOR_WRONG_FORMAT_VECTOR3", new List<string> { "Правильный формат (вектор): 10.0 -20.0 55.0", "Corrent format (vector): 10.0 -20.0 55.0", "Aktuelles Format (Vector): 10.0 -20.0 55.0", "" });
-            words.Add("PFX_EDITOR_WRONG_FORMAT_COLOR", new List<string> { "Правильный формат (цвет, 3 числа от 0 до 255): 255 20 30", "Corrent format (color, 3 numbers from 0 to 255): 255 20 30", "Aktuelles Format (Farbe, 3 Zahlen von 0 bis 255): 255 20 30", "" });
-            words.Add("PFX_EDITOR_WRONG_FORMAT_VECTOR2", new List<string> { "Правильный формат (два числа): 5 8", "Corrent format (two numbers): 5 8", "Aktuelles Format (zwei Zahlen): 5 8", "" });
-            words.Add("PFX_EDITOR_TITLE", new List<string> { "Редактор частиц", "Particles editor", "Partikel-Editor", "" });
-            words.Add("PFX_EDITOR_INSTANCE", new List<string> { "Инстанция PFX: ", "PFX instance: ", "PFX-Instanz", "" });
-            words.Add("PFX_EDITOR_PLAY_AGAIN", new List<string> { "Вызвать эффект снова", "Play effect again", "Effekt erneut abspielen", "" });
-            words.Add("PFX_EDITOR_SAVE_ALL_FIELDS", new List<string> { "Сохранять все поля (даже пустые)", "Save all fields (even empty ones)", "Alle Felder speichern (auch leere)", "" });
-            words.Add("PFX_EDITOR_SAVE_IN_FILE", new List<string> { "Сохранить в файл", "Save into a file", "In Datei speichern", "" });
-            words.Add("PFX_EDITOR_AUTO_PLAY", new List<string> { "Повторно вызвать эффект", "Repeat playing effect", "Effekt wiederholen", "" });
+            words.Add("PFX_EDITOR_WRONG_INPUT", new List<string> { "Введено недопустимое значение!", "Wrong input!", "Falsche Eingabe!", "Podano nieprawidłową wartość!" });
+            words.Add("PFX_EDITOR_WRONG_INPUT_0_255", new List<string> { "Допустимый диапазон от 0 до 255!", "Allowed range is from 0 to 255", "Erlaubter Bereich ist von 0 bis 255!", "Dozwolony zakres jest od 0 do 255!" });
+            words.Add("PFX_EDITOR_WRONG_INPUT_NOT_NUMBER", new List<string> { "Введеная строка не является числом!", "Input text is not a number!", "Eingegebener Text ist keine Zahl!", "Wprowadzony tekst nie jest liczbą!" });
+            words.Add("PFX_EDITOR_WRONG_INPUT_CANTBE_NEGATIVE", new List<string> { "Данное поле не может быть отрицательным!", "This field can't be negative!", "Feld darf nicht Negativ sein!", "To pole nie może być ujemne!" });
+            words.Add("PFX_EDITOR_WRONG_FORMAT_VECTOR3", new List<string> { "Правильный формат (вектор): 10.0 -20.0 55.0", "Correct format (vector): 10.0 -20.0 55.0", "Aktuelles Format (Vector): 10.0 -20.0 55.0", "Prawidłowy format (vector): 10.0, -20.0 55.0" });
+            words.Add("PFX_EDITOR_WRONG_FORMAT_COLOR", new List<string> { "Правильный формат (цвет, 3 числа от 0 до 255): 255 20 30", "Correct format (color, 3 numbers from 0 to 255): 255 20 30", "Aktuelles Format (Farbe, 3 Zahlen von 0 bis 255): 255 20 30", "Prawidłowy format (color, 3 liczby od 0 do 255): 255 20 30" });
+            words.Add("PFX_EDITOR_WRONG_FORMAT_VECTOR2", new List<string> { "Правильный формат (два числа): 5 8", "Correct format (two numbers): 5 8", "Aktuelles Format (zwei Zahlen): 5 8", "Prawidłowy format (dwie liczby): 5 8" });
+            words.Add("PFX_EDITOR_TITLE", new List<string> { "Редактор частиц", "Particles editor", "Partikel-Editor", "Edytor cząsteczek" });
+            words.Add("PFX_EDITOR_INSTANCE", new List<string> { "Инстанция PFX: ", "PFX instance: ", "PFX-Instanz", "Instancja PFX" });
+            words.Add("PFX_EDITOR_PLAY_AGAIN", new List<string> { "Вызвать эффект снова", "Play effect again", "Effekt erneut abspielen", "Odtwórz efekt ponownie" });
+            words.Add("PFX_EDITOR_SAVE_ALL_FIELDS", new List<string> { "Сохранять все поля (даже пустые)", "Save all fields (even empty ones)", "Alle Felder speichern (auch leere)", "Zapisz wszystkie pola (również te puste)" });
+            words.Add("PFX_EDITOR_SAVE_IN_FILE", new List<string> { "Сохранить в файл", "Save into a file", "In Datei speichern", "Zapisz do pliku" });
+            words.Add("PFX_EDITOR_AUTO_PLAY", new List<string> { "Повторно вызвать эффект", "Repeat playing effect", "Effekt wiederholen", "Powtarzaj odtwarzany efekt" });
 
-            words.Add("PFX_EDITOR_SET_NEAR_CAMERA", new List<string> { "Переместить эффект к камере", "Place effect near camera", "Platziere Effekt nahe der Kamera", "" });
-            words.Add("PFX_EDITOR_SET_NEAR_CAMERA_DONE", new List<string> { "Эффект перемещен к камере", "The effect was placed near camera", "Effekt wurde nahe der Kamera platziert", "" });
-            words.Add("PFX_EDITOR_REMOVE_EFFECT", new List<string> { "Удалить эффект с экрана", "Remove effect from screen", "Effekt vom Bildschirm entfernen", "" });
+            words.Add("PFX_EDITOR_SET_NEAR_CAMERA", new List<string> { "Переместить эффект к камере", "Place effect near camera", "Platziere Effekt nahe der Kamera", "Ustaw efekt w pobliżu kamery" });
+            words.Add("PFX_EDITOR_SET_NEAR_CAMERA_DONE", new List<string> { "Эффект перемещен к камере", "The effect was placed near camera", "Effekt wurde nahe der Kamera platziert", "Efekt został umieszony w pobliżu kamery" });
+            words.Add("PFX_EDITOR_REMOVE_EFFECT", new List<string> { "Удалить эффект с экрана", "Remove effect from screen", "Effekt vom Bildschirm entfernen", "Usuń efekt z ekranu" });
 
             
         }
