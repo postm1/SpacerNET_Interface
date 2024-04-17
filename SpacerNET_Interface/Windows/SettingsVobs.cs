@@ -33,6 +33,7 @@ namespace SpacerUnion.Windows
             radioButtonWPTurnNone.Text = Localizator.Get("radioButtonWPTurnNone");
             radioButtonWPTurnAgainst.Text = Localizator.Get("radioButtonWPTurnAgainst");
             radioButtonWPTurnOn.Text = Localizator.Get("radioButtonWPTurnOn");
+            radioButtonWPTurnOnRandom.Text = Localizator.Get("radioButtonWPTurnOnRandom");
 
             buttonVobControlApply.Text = Localizator.Get("BTN_APPLY");
             checkBoxSelectMoveInsert.Text = Localizator.Get("checkBoxSelectMoveInsert");
@@ -120,6 +121,13 @@ namespace SpacerUnion.Windows
             {
                 radioButtonWPTurnOn.Checked = true;
             }
+
+            if (mode == 3)
+            {
+                radioButtonWPTurnOnRandom.Checked = true;
+            }
+
+            
         }
 
         private void radioButtonWPTurnNone_CheckedChanged(object sender, EventArgs e)

@@ -375,7 +375,7 @@
             // setDefault10ToolStripMenuItem
             // 
             this.setDefault10ToolStripMenuItem.Name = "setDefault10ToolStripMenuItem";
-            this.setDefault10ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.setDefault10ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.setDefault10ToolStripMenuItem.Text = "Set default 1.0";
             this.setDefault10ToolStripMenuItem.Click += new System.EventHandler(this.setDefault10ToolStripMenuItem_Click);
             // 
@@ -607,28 +607,28 @@
             // cameraToolStripMenuItem
             // 
             this.cameraToolStripMenuItem.Name = "cameraToolStripMenuItem";
-            this.cameraToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.cameraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cameraToolStripMenuItem.Text = "Camera";
             this.cameraToolStripMenuItem.Click += new System.EventHandler(this.камераToolStripMenuItem_Click);
             // 
             // controlsToolStripMenuItem
             // 
             this.controlsToolStripMenuItem.Name = "controlsToolStripMenuItem";
-            this.controlsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.controlsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.controlsToolStripMenuItem.Text = "Controls";
             this.controlsToolStripMenuItem.Click += new System.EventHandler(this.управлениеToolStripMenuItem_Click);
             // 
             // miscToolStripMenuItem
             // 
             this.miscToolStripMenuItem.Name = "miscToolStripMenuItem";
-            this.miscToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.miscToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.miscToolStripMenuItem.Text = "Misc";
             this.miscToolStripMenuItem.Click += new System.EventHandler(this.mistSetttingsToolStripMenuItem_Click);
             // 
             // keyBindsToolStripMenuItem
             // 
             this.keyBindsToolStripMenuItem.Name = "keyBindsToolStripMenuItem";
-            this.keyBindsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.keyBindsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.keyBindsToolStripMenuItem.Text = "Keys bindings";
             this.keyBindsToolStripMenuItem.Click += new System.EventHandler(this.keyBindingsToolStripMenuItem_Click);
             // 
@@ -646,33 +646,33 @@
             // 
             // russianToolStrip
             // 
-            this.russianToolStrip.Image = global::SpacerUnion.Properties.Resources.Flag_Russia;
+            this.russianToolStrip.Image = ((System.Drawing.Image)(resources.GetObject("russianToolStrip.Image")));
             this.russianToolStrip.Name = "russianToolStrip";
-            this.russianToolStrip.Size = new System.Drawing.Size(119, 22);
+            this.russianToolStrip.Size = new System.Drawing.Size(180, 22);
             this.russianToolStrip.Text = "Русский";
             this.russianToolStrip.Click += new System.EventHandler(this.русскийToolStripMenuItem1_Click);
             // 
             // englishToolStripMenuItem1
             // 
-            this.englishToolStripMenuItem1.Image = global::SpacerUnion.Properties.Resources.Flag_Eng;
+            this.englishToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("englishToolStripMenuItem1.Image")));
             this.englishToolStripMenuItem1.Name = "englishToolStripMenuItem1";
-            this.englishToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
+            this.englishToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.englishToolStripMenuItem1.Text = "English";
             this.englishToolStripMenuItem1.Click += new System.EventHandler(this.englishToolStripMenuItem1_Click);
             // 
             // deutscheToolStripMenuItem
             // 
-            this.deutscheToolStripMenuItem.Image = global::SpacerUnion.Properties.Resources.Flag_Germany;
+            this.deutscheToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deutscheToolStripMenuItem.Image")));
             this.deutscheToolStripMenuItem.Name = "deutscheToolStripMenuItem";
-            this.deutscheToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.deutscheToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deutscheToolStripMenuItem.Text = "Deutsch";
             this.deutscheToolStripMenuItem.Click += new System.EventHandler(this.deutscheToolStripMenuItem_Click);
             // 
             // polskiToolStripMenuItem
             // 
-            this.polskiToolStripMenuItem.Image = global::SpacerUnion.Properties.Resources.Flag_Poland;
+            this.polskiToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("polskiToolStripMenuItem.Image")));
             this.polskiToolStripMenuItem.Name = "polskiToolStripMenuItem";
-            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.polskiToolStripMenuItem.Text = "Polski";
             this.polskiToolStripMenuItem.Click += new System.EventHandler(this.polskiToolStripMenuItem_Click);
             // 
