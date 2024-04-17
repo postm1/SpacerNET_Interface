@@ -2261,16 +2261,16 @@ namespace SpacerUnion
         {
             if (setDefault)
             {
-                toolStripTop.AutoSize = true;
+                toolStripTop.AutoSize = false;
                 toolStripTop.ImageScalingSize = new Size(16, 16);
-                toolStripTop.Height = 25;
+                toolStripTop.AutoSize = true;
 
             }
             else
             {
                 toolStripTop.AutoSize = false;
                 toolStripTop.ImageScalingSize = new Size((int)(16 * size), (int)(16 * size));
-                toolStripTop.Height = (int)(25 * size);
+                toolStripTop.AutoSize = true;
 
             }
 

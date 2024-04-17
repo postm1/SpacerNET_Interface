@@ -885,7 +885,7 @@
             // toolStripButtonGrass
             // 
             this.toolStripButtonGrass.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonGrass.Image = global::SpacerUnion.Properties.Resources.grass_icon;
+            this.toolStripButtonGrass.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonGrass.Image")));
             this.toolStripButtonGrass.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonGrass.Name = "toolStripButtonGrass";
             this.toolStripButtonGrass.Size = new System.Drawing.Size(23, 22);
@@ -905,7 +905,7 @@
             // toolStripButtonNoGrass
             // 
             this.toolStripButtonNoGrass.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonNoGrass.Image = global::SpacerUnion.Properties.Resources.nograssPic;
+            this.toolStripButtonNoGrass.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonNoGrass.Image")));
             this.toolStripButtonNoGrass.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonNoGrass.Name = "toolStripButtonNoGrass";
             this.toolStripButtonNoGrass.Size = new System.Drawing.Size(23, 22);
