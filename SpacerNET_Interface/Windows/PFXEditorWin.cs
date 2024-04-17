@@ -523,6 +523,12 @@ namespace SpacerUnion.Windows
                         input += ".TGA";
                     }
 
+                    // Fixing another PFX name (no .pfx)
+                    if (IsAnotherPFXCreateField(prop.Name) && input.Contains(".PFX"))
+                    {
+                        input = input.Replace(".PFX", "");
+                    }
+
                     prop.SetValue(input);
 
 

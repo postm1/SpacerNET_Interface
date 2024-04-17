@@ -433,8 +433,7 @@ namespace SpacerUnion.Windows
 
         public bool IsTextureField(string fieldName)
         {
-            if (fieldName == "ppsCreateEm_s"
-                || fieldName == "visName_s"
+            if (fieldName == "visName_s"
                 || fieldName == "trlTexture_s"
                 || fieldName == "mrkTexture_s"
                 )
@@ -443,6 +442,11 @@ namespace SpacerUnion.Windows
             }
 
             return false;
+        }
+
+        public bool IsAnotherPFXCreateField(string fieldName)
+        {
+            return fieldName == "ppsCreateEm_s";
         }
 
         public bool PFX_CheckValidInput(string input, CProperty prop)
