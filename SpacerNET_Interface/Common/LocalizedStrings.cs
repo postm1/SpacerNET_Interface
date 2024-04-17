@@ -17,7 +17,7 @@ namespace SpacerUnion.Common
              *  Use the 3rd column for German, the 4th for Polish
              *  For special symbols use @ before string like @"someString"
              */
-            // RUSSIAN, ENGLISH, GERMAN, POLISH                                            
+            // RUSSIAN, ENGLISH, GERMAN, POLISH, CZECH                                        
 
             words.Add("appIsLoading", new List<string> { "Spacer.NET загружается...", "Spacer.NET is loading...", "Spacer.NET lädt", "Spacer.NET trwa ładowanie..." });
             words.Add("appIsReady", new List<string> { "Программа готова к работе!", "The program is ready!", "Programm ist bereit!", "Program jest gotowy do pracy!" });
@@ -793,8 +793,8 @@ namespace SpacerUnion.Common
 
 
 
-            words.Add("WIN_TOOLTIP_VISUAL_INFO", new List<string> { "Режим информации о визуале воба", "Vob's visual info mode", "", "" });
-            words.Add("WIN_TOOLTIP_NOGRASS", new List<string> { "Режим скрытия травы (nograss)", "No grass mode", "", "" });
+            words.Add("WIN_TOOLTIP_VISUAL_INFO", new List<string> { "Режим информации о визуале воба", "Vob's visual info mode", "VOBs visueller Info-Modus", "" });
+            words.Add("WIN_TOOLTIP_NOGRASS", new List<string> { "Режим скрытия травы (nograss)", "No grass mode", "Kein Gras-Modus", "" });
         }
         
     }

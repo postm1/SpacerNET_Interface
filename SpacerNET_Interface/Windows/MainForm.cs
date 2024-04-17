@@ -2272,10 +2272,11 @@ namespace SpacerUnion
             }
             else
             {
-                toolStripTop.AutoSize = false;
-                toolStripTop.ImageScalingSize = new Size((int)(16 * size), (int)(16 * size));
-                toolStripTop.AutoSize = true;
+                int sizeIcon = (int)(Math.Ceiling(16 * size));
 
+                toolStripTop.AutoSize = false;
+                toolStripTop.ImageScalingSize = new Size(sizeIcon, sizeIcon);
+                toolStripTop.AutoSize = true;
             }
 
             Properties.Settings.Default.IconsUIScale = size;
