@@ -44,7 +44,7 @@ namespace SpacerUnion
 
 
             
-            comboBoxFilterPick.Items[0] = Localizator.Get("radioButtonWPTurnNone");
+            comboBoxFilterPick.Items[0] = Localizator.Get("OPTION_CHECK_NONE");
             comboBoxFilterPick.Items[10] = Localizator.Get("VOB_FILTER_IGNORE_PFX");
             comboBoxFilterPick.Items[11] = Localizator.Get("VOB_FILTER_SHOW_ONLY_INVISIBLE");
         }

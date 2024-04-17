@@ -198,9 +198,13 @@ namespace SpacerUnion.Common
             words.Add("checkBoxVobRotRandAngle", new List<string> { "Поворачивать воб на случайный угол", "Turn vob on a random angle", "Versetze den Vob in einen zufälligen Winkel", "Obróć voba pod dowolnym kątem" });
             words.Add("checkBoxVobInsertHierarchy", new List<string> { "Учитывать иерархию при копировании", "Use hierarchy when copying", "Nutze die Hierachie beim Kopieren", "Użyj hierarchii podczas kopiowania" });
             words.Add("labelRotWpFP", new List<string> { "Разворачивать WP/FP при вставке", "Turn WP/FP when inserting", "WP/FP beim Einfügen drehen", "Obróć WP/FP podczas dodawania" });
-            words.Add("radioButtonWPTurnNone", new List<string> { "Нет", "None ", "Keine ", "Brak" });
+           
+            words.Add("OPTION_CHECK_NONE", new List<string> { "Нет", "None ", "Keine ", "Brak" });
+            words.Add("radioButtonWPTurnNone", new List<string> { "Нет", "None ", "Keine ", "Nie obracaj" });
             words.Add("radioButtonWPTurnAgainst", new List<string> { "От камеры", "From the camera", "Von der Kamera aus", "Z kamery" });
             words.Add("radioButtonWPTurnOn", new List<string> { "На камеру", "At the camera", "Bei der Kamera", "Do kamery" });
+            words.Add("radioButtonWPTurnOnRandom", new List<string> { "Случайно", "Random", "Zufällig", "Losowo" });
+
             words.Add("WIN_CONTROLCAM_TEXT", new List<string> { "Настройки камеры", "Camera settings", "Kameraeinstellungen", "Ustawienia kamery" });
             words.Add("groupBoxCam", new List<string> { "Камера", "Camera", "Kamera", "Kamera" });
             words.Add("labelTrans", new List<string> { "Скорость полета", "Moving speed", "Bewegungsgeschwindigkeit", "Prędkość poruszania" });
@@ -795,7 +799,7 @@ namespace SpacerUnion.Common
 
             words.Add("WIN_TOOLTIP_VISUAL_INFO", new List<string> { "Режим информации о визуале воба", "Vob's visual info mode", "VOBs visueller Info-Modus", "Tryb informacji wizualnych o Vobie" });
             words.Add("WIN_TOOLTIP_NOGRASS", new List<string> { "Режим скрытия травы (nograss)", "No grass mode", "Kein Gras-Modus", "Tryb bez trawy" });
-            words.Add("radioButtonWPTurnOnRandom", new List<string> { "Случайно", "Random", "Zufällig", "Losowy" });
+            
 
             
         }
