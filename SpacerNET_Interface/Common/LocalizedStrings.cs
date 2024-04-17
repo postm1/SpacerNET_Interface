@@ -791,7 +791,10 @@ namespace SpacerUnion.Common
             words.Add("PFX_EDITOR_SET_NEAR_CAMERA_DONE", new List<string> { "Эффект перемещен к камере", "The effect was placed near camera", "Effekt wurde nahe der Kamera platziert", "Efekt został umieszony w pobliżu kamery" });
             words.Add("PFX_EDITOR_REMOVE_EFFECT", new List<string> { "Удалить эффект с экрана", "Remove effect from screen", "Effekt vom Bildschirm entfernen", "Usuń efekt z ekranu" });
 
-            
+
+
+            words.Add("WIN_TOOLTIP_VISUAL_INFO", new List<string> { "Режим информации о визуале воба", "Vob's visual info mode", "", "" });
+            words.Add("WIN_TOOLTIP_NOGRASS", new List<string> { "Режим скрытия травы (nograss)", "No grass mode", "", "" });
         }
         
     }

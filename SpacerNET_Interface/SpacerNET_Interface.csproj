@@ -38,7 +38,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\Pictures\Letter_S_red_34876.ico</ApplicationIcon>
+    <ApplicationIcon>Spacer.NET %28C%29.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <DllExportIdent>1B284176-5712-455A-A8F7-503ECC22028F</DllExportIdent>
@@ -334,6 +334,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Spacer.NET %28C%29.ico" />
     <None Include="Resources\TEX_NOT_FOUND_V5.png" />
     <None Include="Resources\png-transparent-yellow-simple-star-yellow-simple-stars.png" />
     <None Include="Resources\v-ozhidanii-otveta_63203298_orig_.jpeg" />

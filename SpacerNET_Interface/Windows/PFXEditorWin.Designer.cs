@@ -39,6 +39,7 @@
             this.textBoxPfxInput = new System.Windows.Forms.TextBox();
             this.comboBoxPfxField = new System.Windows.Forms.ComboBox();
             this.panelPFXTop = new System.Windows.Forms.Panel();
+            this.checkBoxShowHints = new System.Windows.Forms.CheckBox();
             this.buttonApplyOnMesh = new System.Windows.Forms.Button();
             this.buttonRemovePFX = new System.Windows.Forms.Button();
             this.buttonPFXPlaceNearCam = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.buttonPFXPlayAgain = new System.Windows.Forms.Button();
             this.checkBoxPfxSaveAllFields = new System.Windows.Forms.CheckBox();
             this.labelHint = new System.Windows.Forms.Label();
-            this.checkBoxShowHints = new System.Windows.Forms.CheckBox();
             this.panelPFXButtons.SuspendLayout();
             this.panelPFXTop.SuspendLayout();
             this.SuspendLayout();
@@ -175,6 +175,19 @@
             this.panelPFXTop.Size = new System.Drawing.Size(404, 116);
             this.panelPFXTop.TabIndex = 7;
             // 
+            // checkBoxShowHints
+            // 
+            this.checkBoxShowHints.AutoSize = true;
+            this.checkBoxShowHints.Checked = true;
+            this.checkBoxShowHints.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxShowHints.Location = new System.Drawing.Point(270, 62);
+            this.checkBoxShowHints.Name = "checkBoxShowHints";
+            this.checkBoxShowHints.Size = new System.Drawing.Size(78, 17);
+            this.checkBoxShowHints.TabIndex = 11;
+            this.checkBoxShowHints.Text = "Show hints";
+            this.checkBoxShowHints.UseVisualStyleBackColor = true;
+            this.checkBoxShowHints.CheckedChanged += new System.EventHandler(this.checkBoxShowHints_CheckedChanged);
+            // 
             // buttonApplyOnMesh
             // 
             this.buttonApplyOnMesh.Location = new System.Drawing.Point(270, 12);
@@ -183,6 +196,7 @@
             this.buttonApplyOnMesh.TabIndex = 10;
             this.buttonApplyOnMesh.Text = "Apply on mesh";
             this.buttonApplyOnMesh.UseVisualStyleBackColor = true;
+            this.buttonApplyOnMesh.Visible = false;
             this.buttonApplyOnMesh.Click += new System.EventHandler(this.buttonApplyOnMesh_Click);
             // 
             // buttonRemovePFX
@@ -251,19 +265,6 @@
             this.labelHint.TabIndex = 8;
             this.labelHint.Text = "HintLabel";
             this.labelHint.Visible = false;
-            // 
-            // checkBoxShowHints
-            // 
-            this.checkBoxShowHints.AutoSize = true;
-            this.checkBoxShowHints.Checked = true;
-            this.checkBoxShowHints.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxShowHints.Location = new System.Drawing.Point(270, 62);
-            this.checkBoxShowHints.Name = "checkBoxShowHints";
-            this.checkBoxShowHints.Size = new System.Drawing.Size(78, 17);
-            this.checkBoxShowHints.TabIndex = 11;
-            this.checkBoxShowHints.Text = "Show hints";
-            this.checkBoxShowHints.UseVisualStyleBackColor = true;
-            this.checkBoxShowHints.CheckedChanged += new System.EventHandler(this.checkBoxShowHints_CheckedChanged);
             // 
             // PFXEditorWin
             // 
