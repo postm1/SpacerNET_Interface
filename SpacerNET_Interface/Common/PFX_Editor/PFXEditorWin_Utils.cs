@@ -269,11 +269,16 @@ namespace SpacerUnion.Windows
             AddNewProp("mrkTexture_s", "TRAIL", "string", "1.0");
             AddNewProp("mrkSize", "TRAIL", "float", "1.0");
 
-            AddNewProp("flockMode", "OTHER", "enum", "0");
-            AddNewProp("flockStrength", "OTHER", "float", "0");
-            AddNewProp("useEmittersFor", "OTHER", "bool", "0");
-            AddNewProp("timeStartEnd_s", "OTHER", "string", "0 0");
-            AddNewProp("m_bIsAmbientPFX", "OTHER", "bool", "0"); //57 END
+            if (Imports.Extern_IsGothic_1() == 0)
+            {
+                AddNewProp("flockMode", "OTHER", "enum", "0");
+                AddNewProp("flockStrength", "OTHER", "float", "0");
+                AddNewProp("useEmittersFor", "OTHER", "bool", "0");
+                AddNewProp("timeStartEnd_s", "OTHER", "string", "0 0");
+                AddNewProp("m_bIsAmbientPFX", "OTHER", "bool", "0"); //57 END
+            }
+
+            
 
 
             treeViewPFX.ExpandAll();
@@ -294,11 +299,16 @@ namespace SpacerUnion.Windows
 
             treeViewPFX.BeginUpdate();
 
-            SetProp("m_bIsAmbientPFX", Imports.Stack_PeekInt().ToString());
-            SetProp("timeStartEnd_s", Imports.Stack_PeekString());
-            SetProp("useEmittersFor", Imports.Stack_PeekInt().ToString());
-            SetProp("flockStrength", Imports.Stack_PeekFloat().ToString());
-            SetProp("flockMode", Imports.Stack_PeekString());
+
+            if (Imports.Extern_IsGothic_1() == 0)
+            {
+                SetProp("m_bIsAmbientPFX", Imports.Stack_PeekInt().ToString());
+                SetProp("timeStartEnd_s", Imports.Stack_PeekString());
+                SetProp("useEmittersFor", Imports.Stack_PeekInt().ToString());
+                SetProp("flockStrength", Imports.Stack_PeekFloat().ToString());
+                SetProp("flockMode", Imports.Stack_PeekString());
+            }
+            
 
 
             SetProp("mrkSize", Imports.Stack_PeekFloat().ToString());

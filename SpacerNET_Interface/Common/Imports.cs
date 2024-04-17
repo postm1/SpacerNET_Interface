@@ -530,6 +530,11 @@ namespace SpacerUnion.Common
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_PfxEditorApplyOnMesh();
+
+
+        [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int Extern_IsGothic_1();
+
         
     }
     
