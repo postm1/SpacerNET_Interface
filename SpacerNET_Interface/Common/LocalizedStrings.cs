@@ -793,9 +793,9 @@ namespace SpacerUnion.Common
 
 
 
-            words.Add("WIN_TOOLTIP_VISUAL_INFO", new List<string> { "Режим информации о визуале воба", "Vob's visual info mode", "VOBs visueller Info-Modus", "" });
-            words.Add("WIN_TOOLTIP_NOGRASS", new List<string> { "Режим скрытия травы (nograss)", "No grass mode", "Kein Gras-Modus", "" });
-            words.Add("radioButtonWPTurnOnRandom", new List<string> { "Случайно", "Random", "Zufällig", "" });
+            words.Add("WIN_TOOLTIP_VISUAL_INFO", new List<string> { "Режим информации о визуале воба", "Vob's visual info mode", "VOBs visueller Info-Modus", "Tryb informacji wizualnych o Vobie" });
+            words.Add("WIN_TOOLTIP_NOGRASS", new List<string> { "Режим скрытия травы (nograss)", "No grass mode", "Kein Gras-Modus", "Tryb bez trawy" });
+            words.Add("radioButtonWPTurnOnRandom", new List<string> { "Случайно", "Random", "Zufällig", "Losowy" });
 
             
         }
