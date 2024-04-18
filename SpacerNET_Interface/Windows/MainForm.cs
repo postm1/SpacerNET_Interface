@@ -1347,6 +1347,15 @@ namespace SpacerUnion
             Localizator.UpdateInterface();
         }
 
+        private void czechToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Language = (int)LangEnum.CZ;
+            Properties.Settings.Default.Save();
+
+            Localizator.SetLanguage(LangEnum.CZ);
+            Localizator.UpdateInterface();
+        }
+
         private void toolStripButtonInfo_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -2334,5 +2343,7 @@ namespace SpacerUnion
                 SpacerNET.pfxWin.LoadAllPfx();
             }
         }
+
+        
     }
 }

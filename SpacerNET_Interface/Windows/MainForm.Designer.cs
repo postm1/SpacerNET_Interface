@@ -122,6 +122,7 @@
             this.toolStripVobVisualInfo = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonPfxEditor = new System.Windows.Forms.ToolStripButton();
+            this.czechToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -638,7 +639,8 @@
             this.russianToolStrip,
             this.englishToolStripMenuItem1,
             this.deutscheToolStripMenuItem,
-            this.polskiToolStripMenuItem});
+            this.polskiToolStripMenuItem,
+            this.czechToolStripMenuItem});
             this.languageToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
             this.languageToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
@@ -957,6 +959,14 @@
             this.toolStripButtonPfxEditor.Text = "PFX Editor";
             this.toolStripButtonPfxEditor.Click += new System.EventHandler(this.toolStripButtonPfxEditor_Click);
             // 
+            // czechToolStripMenuItem
+            // 
+            this.czechToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("czechToolStripMenuItem.Image")));
+            this.czechToolStripMenuItem.Name = "czechToolStripMenuItem";
+            this.czechToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.czechToolStripMenuItem.Text = "Czech";
+            this.czechToolStripMenuItem.Click += new System.EventHandler(this.czechToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1081,5 +1091,6 @@
         private System.Windows.Forms.ToolStripTextBox toolStripTextBoxScaleIconsUI;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         public System.Windows.Forms.ToolStripButton toolStripButtonPfxEditor;
+        private System.Windows.Forms.ToolStripMenuItem czechToolStripMenuItem;
     }
 }
