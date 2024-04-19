@@ -175,6 +175,12 @@ namespace SpacerUnion
             return zenName;
         }
 
+
+        public static bool IsFoundAnyVEC3(string text)
+        {
+            return Regex.IsMatch(text, @"^[0-9\,\.\- ]+$");
+        }
+
         public static bool IsOnlyLatin(string text)
         {
             return Regex.IsMatch(text, @"^[a-zA-Z0-9_\-\+\=\.\,\;\:\\\/\(\)\]\[\# ]+$");

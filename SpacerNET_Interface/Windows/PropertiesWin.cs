@@ -964,8 +964,10 @@ namespace SpacerUnion
                         }
                     }
 
+                    //ConsoleEx.WriteLineRed(prop.type + " " + prop.Name);
+
                     if (prop.type == TPropEditType.PETstring || prop.type == TPropEditType.PETraw || prop.type == TPropEditType.PETint 
-                        || prop.type == TPropEditType.PETfloat || prop.type == TPropEditType.PETcolor)
+                        || prop.type == TPropEditType.PETfloat || prop.type == TPropEditType.PETcolor || prop.Name == "trafoOSToWSPos")
                     {
                         textBoxString.Visible = true;
                         textBoxString.Text = prop.value;
@@ -981,7 +983,7 @@ namespace SpacerUnion
                         }
                     }
 
-                    if (prop.type == TPropEditType.PETvec3)
+                    if (prop.type == TPropEditType.PETvec3 && prop.Name != "trafoOSToWSPos")
                     {
                         textBoxVec0.Visible = true;
                         textBoxVec1.Visible = true;
@@ -1124,6 +1126,16 @@ namespace SpacerUnion
                             textBox.Text = String.Empty;
                             return;
                         }
+                    }
+                    else if (prop.Name == "trafoOSToWSPos")
+                    {
+                        if (!Utils.IsFoundAnyVEC3(textTry))
+                        {
+                            MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+                            return;
+                        }
+
+                        textTry = textTry.Replace(',', '.');
                     }
                     else
                     {
