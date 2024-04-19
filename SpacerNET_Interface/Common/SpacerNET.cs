@@ -246,7 +246,9 @@ namespace SpacerUnion
                 matFilterWin.Show();
             }
 
+
             
+
 
             if (Properties.Settings.Default.TreeWinLocation != null)
             {
@@ -317,7 +319,7 @@ namespace SpacerUnion
                 infoWin.Size = Properties.Settings.Default.InfoWinSize;
             }
 
-
+            // PFX EDITOR WINDOW
             if (Properties.Settings.Default.PFXEditorLocation != null)
             {
                 pfxWin.Location = Properties.Settings.Default.PFXEditorLocation;
@@ -327,6 +329,12 @@ namespace SpacerUnion
             if (Properties.Settings.Default.PFXEditorSize != null)
             {
                 pfxWin.Size = Properties.Settings.Default.PFXEditorSize;
+            }
+
+            if (Properties.Settings.Default.PFXEditorShow || Properties.Settings.Default.PFXEditorShowNext)
+            {
+                // ConsoleEx.WriteLineRed("Macro show");
+                pfxWin.Show();
             }
 
             LoadSettingsToInterface();
@@ -520,6 +528,7 @@ namespace SpacerUnion
             Properties.Settings.Default.GrassWinShow = grassWin.Visible;
             Properties.Settings.Default.MacrosWinShow = macrosWin.Visible;
             Properties.Settings.Default.MatFilterWinShow = matFilterWin.Visible;
+            Properties.Settings.Default.PFXEditorShow = pfxWin.Visible;
 
             Properties.Settings.Default.ObjWinShowNext = !objectsWin.Visible && windowsToHideList.Contains(objectsWin);
             Properties.Settings.Default.VobListWinShowNext = !vobList.Visible && windowsToHideList.Contains(vobList);
@@ -530,6 +539,7 @@ namespace SpacerUnion
             Properties.Settings.Default.GrassWinShowNext = !grassWin.Visible && windowsToHideList.Contains(grassWin);
             Properties.Settings.Default.MacrosWinShowNext = !macrosWin.Visible && windowsToHideList.Contains(macrosWin);
             Properties.Settings.Default.MatFilterWinShowNext = !matFilterWin.Visible && windowsToHideList.Contains(matFilterWin);
+            Properties.Settings.Default.PFXEditorShowNext = !pfxWin.Visible && windowsToHideList.Contains(pfxWin);
             //ConsoleEx.WriteLineRed(Properties.Settings.Default.MacrosWinShowNext + "/" + Properties.Settings.Default.MacrosWinShowNext);
 
             Properties.Settings.Default.MainWindowPos = form.Location;

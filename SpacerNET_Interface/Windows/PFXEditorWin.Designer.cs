@@ -56,9 +56,9 @@
             this.labelPFXName.AutoSize = true;
             this.labelPFXName.Location = new System.Drawing.Point(12, 9);
             this.labelPFXName.Name = "labelPFXName";
-            this.labelPFXName.Size = new System.Drawing.Size(70, 13);
+            this.labelPFXName.Size = new System.Drawing.Size(73, 13);
             this.labelPFXName.TabIndex = 1;
-            this.labelPFXName.Text = "PFX instance";
+            this.labelPFXName.Text = "PFX instance:";
             this.labelPFXName.Click += new System.EventHandler(this.labelPFXName_Click);
             // 
             // savePFXButton

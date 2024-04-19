@@ -502,5 +502,29 @@ namespace SpacerUnion.Properties {
                 this["PFXEditorSize"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool PFXEditorShow {
+            get {
+                return ((bool)(this["PFXEditorShow"]));
+            }
+            set {
+                this["PFXEditorShow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool PFXEditorShowNext {
+            get {
+                return ((bool)(this["PFXEditorShowNext"]));
+            }
+            set {
+                this["PFXEditorShowNext"] = value;
+            }
+        }
     }
 }
