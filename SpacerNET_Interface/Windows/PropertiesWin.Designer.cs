@@ -207,6 +207,7 @@
             // colorPanel
             // 
             this.colorPanel.BackColor = System.Drawing.Color.Maroon;
+            this.colorPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.colorPanel.Location = new System.Drawing.Point(234, 2);
             this.colorPanel.Name = "colorPanel";
             this.colorPanel.Size = new System.Drawing.Size(70, 13);

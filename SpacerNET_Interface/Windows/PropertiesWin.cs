@@ -1770,10 +1770,10 @@ namespace SpacerUnion
                 int index = 0;
                 int.TryParse(node.Tag.ToString(), out index);
 
-                CProperty prop = props[index];
-
                 if (textBoxString.Visible)
                 {
+                    CProperty prop = props[index];
+
                     textBoxString.Width = this.Width - 48;
                 }
             }
