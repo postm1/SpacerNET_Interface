@@ -243,6 +243,7 @@ namespace SpacerUnion.Windows
         {
             //ConsoleEx.WriteLineYellow(e.CloseReason.ToString());
 
+            currentPfxName = String.Empty;
             Imports.Extern_PfxEditorStopEffect();
 
             Hide();
@@ -866,7 +867,7 @@ namespace SpacerUnion.Windows
             }
             else
             {
-                currentPfxName = String.Empty;
+                
             }
         }
 
