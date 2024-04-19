@@ -100,6 +100,11 @@ namespace SpacerUnion.Windows
         
         public void SetCurrentPFX(string name)
         {
+            if (!this.Visible)
+            {
+                return;
+            }
+
             labelPFXName.Text = Localizator.Get("PFX_EDITOR_INSTANCE") + name;
             currentPfxName = name;
             LoadPfx(name);
