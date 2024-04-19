@@ -1736,6 +1736,8 @@ namespace SpacerUnion
             {
                 string visual = lb.GetItemText(lb.SelectedItem);
 
+                SpacerNET.pfxWin.SetLastVisualSelected(visual);
+
                 if (checkBoxShowPFXPreview.Checked && !SpacerNET.pfxWin.Visible)
                 {
                     SendRenderPFX(visual);
@@ -1759,6 +1761,8 @@ namespace SpacerUnion
             if (lb.SelectedItem != null)
             {
                 string visual = lb.GetItemText(lb.SelectedItem);
+
+                SpacerNET.pfxWin.SetLastVisualSelected(visual);
 
                 if (checkBoxShowPFXPreview.Checked && !SpacerNET.pfxWin.Visible)
                 {

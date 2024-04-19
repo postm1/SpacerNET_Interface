@@ -21,6 +21,8 @@ namespace SpacerUnion.Windows
         static List<CProperty> props = new List<CProperty>();
         bool dontUpdateFieldNow = false;
         string currentPfxName = String.Empty;
+        string currentPfxNameSelectedInList = String.Empty;
+
         Dictionary<string, string> backupFieldsValues = new Dictionary<string, string>();
 
         public PFXEditorWin()
@@ -111,7 +113,10 @@ namespace SpacerUnion.Windows
             ToggleInterface(true);
         }
 
-
+        public void SetLastVisualSelected(string visual)
+        {
+            currentPfxNameSelectedInList = visual;
+        }
 
 
         public void SetProp(string name, string val)
@@ -820,6 +825,20 @@ namespace SpacerUnion.Windows
         private void PFXEditorWin_VisibleChanged(object sender, EventArgs e)
         {
             SpacerNET.form.toolStripButtonPfxEditor.Checked = this.Visible;
+
+            if (this.Visible)
+            {
+                Imports.Extern_KillPFX();
+                
+                if (currentPfxName.Length == 0 && currentPfxNameSelectedInList.Length > 0)
+                {
+                    SpacerNET.pfxWin.SetCurrentPFX(currentPfxNameSelectedInList);
+                }
+            }
+            else
+            {
+                currentPfxName = String.Empty;
+            }
         }
 
         private void checkBoxPlayAuto_CheckedChanged(object sender, EventArgs e)
