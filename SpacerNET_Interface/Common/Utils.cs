@@ -244,6 +244,8 @@ namespace SpacerUnion
             Imports.Stack_PushString(Localizator.Get("COPYBUFFER") + ": " + text);
 
             Imports.Extern_PrintGreen();
+
+            ConsoleEx.WriteLineYellow(text);
         }
 
     }

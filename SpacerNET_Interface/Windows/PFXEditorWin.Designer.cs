@@ -82,6 +82,7 @@
             this.treeViewPFX.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewPFX_AfterSelect);
             this.treeViewPFX.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewPFX_NodeMouseDoubleClick);
             this.treeViewPFX.DoubleClick += new System.EventHandler(this.treeViewPFX_DoubleClick);
+            this.treeViewPFX.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeViewPFX_MouseDown);
             this.treeViewPFX.MouseUp += new System.Windows.Forms.MouseEventHandler(this.treeViewPFX_MouseUp);
             // 
             // buttonPfxEditorApply

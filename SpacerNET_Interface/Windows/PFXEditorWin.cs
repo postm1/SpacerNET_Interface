@@ -932,5 +932,36 @@ namespace SpacerUnion.Windows
             }
             
         }
+
+        private void treeViewPFX_MouseDown(object sender, MouseEventArgs e)
+        {
+            TreeNode node = treeViewPFX.GetNodeAt(e.Location);
+
+            if (node != null && node.Tag != null && node.Tag.ToString() == Constants.TAG_FOLDER)
+            {
+                return;
+            }
+
+            if (node != null)
+            {
+
+                var prop = props.FirstOrDefault(curProp => curProp.ownNode == node);
+
+                if (prop == null)
+                {
+                    return;
+                }
+
+                if (prop.value == String.Empty)
+                {
+                    return;
+                }
+
+                if (e.Button == MouseButtons.Middle)
+                {
+                    Utils.SetCopyText(prop.ShowValue());
+                }
+            }
+        }
     }
 }
