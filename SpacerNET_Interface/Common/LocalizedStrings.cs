@@ -799,9 +799,9 @@ namespace SpacerUnion.Common
 
             words.Add("WIN_TOOLTIP_VISUAL_INFO", new List<string> { "Режим информации о визуале воба", "Vob's visual info mode", "VOBs visueller Info-Modus", "Tryb informacji wizualnych o Vobie" });
             words.Add("WIN_TOOLTIP_NOGRASS", new List<string> { "Режим скрытия травы (nograss)", "No grass mode", "Kein Gras-Modus", "Tryb bez trawy" });
-            
+            words.Add("PFX_EDITOR_WARNING_PPS_LOOPING", new List<string> { "Внимание! ppsIsLooping = 1, и есть вызов эффекта в ppsCreateEm_s. Он будет создаваться бесконечно! Вы уверены?", "Attention! ppsIsLooping = 1, and there is a call to the effect in ppsCreateEm_s. It will be created endlessly!", "", "" });
+            words.Add("PFX_EDITOR_WARNING_WRONG_NAME", new List<string> { "Нельзя вызывать эффект из самого себя! Измените поле ppsCreateEm_s!", "You cannot call an effect from itself! Change the ppsCreateEm_s field!", "", "" });
 
-            
         }
         
     }

@@ -428,7 +428,9 @@ namespace SpacerUnion.Windows
 
                     bool isValidFastString = false;
 
-                    ConsoleEx.WriteLineYellow("Input: " + input);
+                    //ConsoleEx.WriteLineYellow("Input: " + input);
+
+
 
                     if (input.StartsWith("!") && (prop.Name == "ppsScaleKeys_s" || prop.Name == "shpScaleKeys_s"))
                     {
@@ -505,6 +507,15 @@ namespace SpacerUnion.Windows
                     if (IsAnotherPFXCreateField(prop.Name) && input.Contains(".PFX"))
                     {
                         input = input.Replace(".PFX", "");
+                    }
+
+
+                    //protect from name = ppsCreateEm_s
+                    if (prop.Name == "ppsCreateEm_s" && input == currentPfxName)
+                    {
+                        MessageBox.Show(Localizator.Get("PFX_EDITOR_WARNING_WRONG_NAME"));
+
+                        return;
                     }
 
                     prop.SetValue(input);
@@ -637,7 +648,25 @@ namespace SpacerUnion.Windows
                 Imports.Extern_UpdatePFXField();
             }
 
+
+           /* bool ppsIsLooping = false;
+            bool ppsCreateEm_s = false;
+            for (int i = 0; i < props.Count; i++)
+            {
+                if (props[i].Name == "ppsIsLooping" && props[i].value == "1")
+                {
+                    ppsIsLooping = true;
+                }
+                else if (props[i].Name == "ppsCreateEm_s" && props[i].value.Length > 0)
+                {
+                    ppsCreateEm_s = true;
+                }
+            }
             
+            if (ppsCreateEm_s && ppsIsLooping)
+            {
+                MessageBox.Show(Localizator.Get("PFX_EDITOR_WARNING_PPS_LOOPING"));
+            }*/
         }
 
         private void buttonColor_Click(object sender, EventArgs e)
