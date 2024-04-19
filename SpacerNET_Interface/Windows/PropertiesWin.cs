@@ -972,15 +972,21 @@ namespace SpacerUnion
                         textBoxString.Visible = true;
                         textBoxString.Text = prop.value;
 
-                        if ((prop.type == TPropEditType.PETstring || prop.type == TPropEditType.PETraw || prop.type == TPropEditType.PETcolor) && prop.Name != "trafoOSToWSRot")
-                        {
-                            textBoxString.Width = 298;
-                            buttonFileOpen.Enabled = true;
-                        }
-                        else if (prop.type == TPropEditType.PETint || prop.type == TPropEditType.PETfloat)
+
+                        if (prop.type == TPropEditType.PETint || prop.type == TPropEditType.PETfloat)
                         {
                             textBoxString.Width = 75;
                         }
+                        else
+                        {
+                            textBoxString.Width = this.Width - 48;
+                        }
+
+                        if (prop.type == TPropEditType.PETstring)
+                        {
+                            buttonFileOpen.Enabled = true;
+                        }
+
                     }
 
                     if (prop.type == TPropEditType.PETvec3 && prop.Name != "trafoOSToWSPos")
@@ -1757,7 +1763,20 @@ namespace SpacerUnion
 
         private void ObjectsWindow_Resize(object sender, EventArgs e)
         {
-            
+            var node = treeViewProp.SelectedNode;
+
+            if (node != null)
+            {
+                int index = 0;
+                int.TryParse(node.Tag.ToString(), out index);
+
+                CProperty prop = props[index];
+
+                if (textBoxString.Visible)
+                {
+                    textBoxString.Width = this.Width - 48;
+                }
+            }
         }
 
         private void ObjectsWindow_VisibleChanged(object sender, EventArgs e)

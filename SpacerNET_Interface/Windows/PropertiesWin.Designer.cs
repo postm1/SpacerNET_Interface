@@ -624,6 +624,7 @@
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(346, 300);
             this.Name = "ObjectsWindow";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
