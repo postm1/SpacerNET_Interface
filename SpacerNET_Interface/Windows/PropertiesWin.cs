@@ -1867,12 +1867,9 @@ namespace SpacerUnion
                         return;
                     }
 
-                    if (prop.Name == "visual" || prop.Name == "vobName" || prop.Name == "texture" || prop.Name == "name")
+                    if (e.Button == MouseButtons.Middle)
                     {
-                        if (e.Button == MouseButtons.Middle)
-                        {
-                            Utils.SetCopyText(prop.ShowValue());
-                        }
+                        Utils.SetCopyText(prop.ShowValue());
                     }
 
                 }
