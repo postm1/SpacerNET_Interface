@@ -807,10 +807,18 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_TYPE_CRITICAL", new List<string> { "Критическая ошибка", "Critical error", "", "" });
 
 
+            words.Add("ERROR_REPORT_DOUBLE_CLICK", new List<string> { "Двойной клик для выбора...", "Double click to select...", "" });
+
             words.Add("ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_NAME", new List<string> { "Подозрительное имя материала", "Suspicious material's name", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_BAD_NAME", new List<string> { "Неправильное имя текстуры", "Wrong texture name", "", "" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_NOT_FOUND", new List<string> { "Текстура не найдена!", "Texture not found!", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_NOT_FOUND", new List<string> { "Текстура не найдена", "Texture not found", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_TRIGGER_NO_NAME", new List<string> { "Нет имени у триггера", "Trigger has no name", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_BE_PARENT", new List<string> { "PFX не может содержать в себе другие вобы!", "PFX vob can't contain vobs inside itself!", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_ITEM_CANT_BE_PARENT", new List<string> { "oCItem не может содержать в себе другие вобы", "oCItem vob can't contain vobs inside itself!", "" });
+
+
         }
+
         
     }
 }

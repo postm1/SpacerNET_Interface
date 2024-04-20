@@ -45,7 +45,6 @@ namespace SpacerUnion.Windows
             // 
             // listViewErrors
             // 
-            this.listViewErrors.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listViewErrors.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderNum,
             this.columnType,
@@ -59,12 +58,11 @@ namespace SpacerUnion.Windows
             this.listViewErrors.Location = new System.Drawing.Point(0, 0);
             this.listViewErrors.MultiSelect = false;
             this.listViewErrors.Name = "listViewErrors";
-            this.listViewErrors.Size = new System.Drawing.Size(964, 554);
+            this.listViewErrors.Size = new System.Drawing.Size(964, 526);
             this.listViewErrors.TabIndex = 0;
             this.listViewErrors.UseCompatibleStateImageBehavior = false;
             this.listViewErrors.View = System.Windows.Forms.View.Details;
             this.listViewErrors.DoubleClick += new System.EventHandler(this.listViewErrors_DoubleClick);
-            this.listViewErrors.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewErrors_MouseClick);
             this.listViewErrors.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listViewErrors_MouseDown);
             // 
             // columnHeaderNum
@@ -102,7 +100,7 @@ namespace SpacerUnion.Windows
             // 
             // buttonErrorsSearch
             // 
-            this.buttonErrorsSearch.Location = new System.Drawing.Point(12, 27);
+            this.buttonErrorsSearch.Location = new System.Drawing.Point(12, 13);
             this.buttonErrorsSearch.Name = "buttonErrorsSearch";
             this.buttonErrorsSearch.Size = new System.Drawing.Size(137, 23);
             this.buttonErrorsSearch.TabIndex = 1;
@@ -112,11 +110,12 @@ namespace SpacerUnion.Windows
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.buttonErrorsSearch);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 437);
+            this.panel1.Location = new System.Drawing.Point(0, 476);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(964, 89);
+            this.panel1.Size = new System.Drawing.Size(964, 50);
             this.panel1.TabIndex = 2;
             // 
             // SearchErrorsForm

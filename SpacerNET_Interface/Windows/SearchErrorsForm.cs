@@ -42,6 +42,7 @@ namespace SpacerUnion.Windows
 
         public void SelectEntry(int row)
         {
+            //row index starts from 1, not 0
             row -= 1;
 
             if (entriesList.Count - 1 >= row)
@@ -90,57 +91,43 @@ namespace SpacerUnion.Windows
             listViewErrors.Items.Clear();
             entriesList.Clear();
 
+            ErrorReportEntry entry = null;
 
-
-            ErrorReportEntry entry = new ErrorReportEntry();
-
+            entry = new ErrorReportEntry();
             entry.ProblemType = ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_NOT_FOUND;
-            entry.ErrorType = ErrorReportType.ERROR_REPORT_TYPE_CRITICAL;
+            entry.SetErrorType();
             AddNewRow(entry);
 
             entry = new ErrorReportEntry();
             entry.ProblemType = ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_NAME;
-            entry.ErrorType = ErrorReportType.ERROR_REPORT_TYPE_WARNING;
+            entry.SetErrorType();
             AddNewRow(entry);
 
 
             entry = new ErrorReportEntry();
             entry.ProblemType = ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_BAD_NAME;
-            entry.ErrorType = ErrorReportType.ERROR_REPORT_TYPE_CRITICAL;
+            entry.SetErrorType();
             AddNewRow(entry);
 
             entry = new ErrorReportEntry();
-            entry.ProblemType = ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_BAD_NAME;
-            entry.ErrorType = ErrorReportType.ERROR_REPORT_TYPE_CRITICAL;
+            entry.ProblemType = ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_TRIGGER_NO_NAME;
+            entry.SetErrorType();
+            AddNewRow(entry);
+
+            entry = new ErrorReportEntry();
+            entry.ProblemType = ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_BE_PARENT;
+            entry.SetErrorType();
             AddNewRow(entry);
 
 
             entry = new ErrorReportEntry();
-            entry.ProblemType = ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_NAME;
-            entry.ErrorType = ErrorReportType.ERROR_REPORT_TYPE_WARNING;
+            entry.ProblemType = ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_ITEM_CANT_BE_PARENT;
+            entry.SetErrorType();
             AddNewRow(entry);
-
 
             listViewErrors.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
-        private void listViewErrors_MouseClick(object sender, MouseEventArgs e)
-        {
-
-            //Point mousePosition = listViewErrors.PointToClient(Control.MousePosition);
-            //ListViewHitTestInfo hit = listViewErrors.HitTest(mousePosition);
-
-            //if (hit == null)
-            //{
-            //    return;
-            //}
-
-            //int columnindex = hit.Item.SubItems.IndexOf(hit.SubItem);
-            //int rowIndex = Convert.ToInt32(hit.Item.Text);
-
-            ////MessageBox.Show(rowIndex + "/" + columnindex + " " + hit.SubItem.Text);
-            ////MessageBox.Show(columnindex.ToString() + " " + columnindex + " " + rowIndex);
-        }
 
         private void listViewErrors_MouseDown(object sender, MouseEventArgs e)
         {
@@ -176,10 +163,7 @@ namespace SpacerUnion.Windows
             int rowIndex = Convert.ToInt32(hit.Item.Text);
 
 
-            if (columnindex == 4)
-            {
-                SelectEntry(rowIndex);
-            }
+            SelectEntry(rowIndex);
 
             // MessageBox.Show(rowIndex + "/" + columnindex + " " + hit.SubItem.Text);
         }

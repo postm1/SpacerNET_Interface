@@ -18,7 +18,10 @@ namespace SpacerUnion.Common
         ERROR_REPORT_PROBLEM_TYPE_NONE = 0,
         ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_NAME,
         ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_BAD_NAME,
-        ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_NOT_FOUND
+        ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_NOT_FOUND,
+        ERROR_REPORT_PROBLEM_TYPE_TRIGGER_NO_NAME,
+        ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_BE_PARENT,
+        ERROR_REPORT_PROBLEM_TYPE_ITEM_CANT_BE_PARENT,
     }
 
     public class ErrorReportEntry
@@ -53,6 +56,8 @@ namespace SpacerUnion.Common
                 case ErrorReportType.ERROR_REPORT_TYPE_INFO: result = Localizator.Get("ERROR_REPORT_TYPE_INFO"); break;
                 case ErrorReportType.ERROR_REPORT_TYPE_WARNING: result = Localizator.Get("ERROR_REPORT_TYPE_WARNING"); break;
                 case ErrorReportType.ERROR_REPORT_TYPE_CRITICAL: result = Localizator.Get("ERROR_REPORT_TYPE_CRITICAL"); break;
+
+                    
             }
 
 
@@ -68,6 +73,9 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_NAME: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_NAME"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_BAD_NAME: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_BAD_NAME"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_NOT_FOUND: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_NOT_FOUND"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_TRIGGER_NO_NAME: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_TRIGGER_NO_NAME"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_BE_PARENT: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_BE_PARENT"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_ITEM_CANT_BE_PARENT: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_ITEM_CANT_BE_PARENT"); break;
             }
 
 
@@ -105,6 +113,12 @@ namespace SpacerUnion.Common
                         result = String.Format("Материал: {0}, Текстура: {1}", materialName, textureName);
                     };
                     break;
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_TRIGGER_NO_NAME:
+                    {
+                        result = String.Format(Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_TRIGGER_NO_NAME"));
+                    };
+                    break;
             }
 
             return result;
@@ -112,7 +126,7 @@ namespace SpacerUnion.Common
 
         public string GetLinkText()
         {
-            return "Double click to select";
+            return Localizator.Get("ERROR_REPORT_DOUBLE_CLICK");
         }
 
         public Color GetTypeBackColor()
@@ -121,12 +135,43 @@ namespace SpacerUnion.Common
 
             switch (ErrorType)
             {
-                case ErrorReportType.ERROR_REPORT_TYPE_INFO: col = Color.White; break;
+                case ErrorReportType.ERROR_REPORT_TYPE_INFO: col = Color.FromArgb(255, 134, 182, 255); break;
                 case ErrorReportType.ERROR_REPORT_TYPE_WARNING: col = Color.Orange; break;
                 case ErrorReportType.ERROR_REPORT_TYPE_CRITICAL: col = Color.Red; break;
             }
 
             return col;
+        }
+
+        public void SetErrorType()
+        {
+            switch (ProblemType)
+            {
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_NAME:
+                    {
+                        errorType = ErrorReportType.ERROR_REPORT_TYPE_INFO;
+                    }
+                    break;
+                   
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_TRIGGER_NO_NAME:
+                    {
+                        errorType = ErrorReportType.ERROR_REPORT_TYPE_WARNING;
+                    }
+                    break;
+
+
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_BAD_NAME:
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_NOT_FOUND:
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_BE_PARENT:
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_ITEM_CANT_BE_PARENT:
+                    {
+                        errorType = ErrorReportType.ERROR_REPORT_TYPE_CRITICAL;
+                    }
+                    break;
+
+            }
         }
     }
 }
