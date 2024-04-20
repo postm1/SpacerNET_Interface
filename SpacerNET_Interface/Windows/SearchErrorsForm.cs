@@ -40,19 +40,28 @@ namespace SpacerUnion.Windows
         {
             List<string> texts = new List<string>();
 
+            texts.Add((listViewErrors.Items.Count + 1).ToString());
             texts.Add(entry.GetProblemTypeText());
             texts.Add(entry.GetReportTypeText());
             texts.Add(entry.GetDescriptionText());
-            texts.Add("-");
+            texts.Add(entry.GetLinkText());
 
             ListViewItem newItem = new ListViewItem(texts.ToArray());
 
             newItem.UseItemStyleForSubItems = false;
 
-            newItem.SubItems[0].BackColor = Color.White;
-            newItem.SubItems[1].BackColor = entry.GetTypeBackColor();
-            newItem.SubItems[2].BackColor = Color.White;
-            newItem.SubItems[3].BackColor = Color.White;
+            var rowColor = Color.White;
+
+            if (listViewErrors.Items.Count % 2 == 0)
+            {
+                rowColor = Color.FromArgb(255, 236, 237, 239);
+            }
+
+            newItem.SubItems[0].BackColor = rowColor;
+            newItem.SubItems[1].BackColor = rowColor;
+            newItem.SubItems[2].BackColor = entry.GetTypeBackColor();
+            newItem.SubItems[3].BackColor = rowColor;
+            newItem.SubItems[4].BackColor = rowColor;
 
             //for (int i = 0; i < newItem.SubItems.Count; i++)
             //{
@@ -67,26 +76,39 @@ namespace SpacerUnion.Windows
         {
             listViewErrors.Items.Clear();
 
-             ErrorReportEntry entry = new ErrorReportEntry();
+            
+
+
+            ErrorReportEntry entry = new ErrorReportEntry();
 
             entry.ProblemType = ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_NOT_FOUND;
             entry.ErrorType = ErrorReportType.ERROR_REPORT_TYPE_CRITICAL;
             AddNewRow(entry);
 
             entry = new ErrorReportEntry();
-
             entry.ProblemType = ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_NAME;
             entry.ErrorType = ErrorReportType.ERROR_REPORT_TYPE_WARNING;
-
-
             AddNewRow(entry);
 
 
+            entry = new ErrorReportEntry();
             entry.ProblemType = ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_BAD_NAME;
             entry.ErrorType = ErrorReportType.ERROR_REPORT_TYPE_CRITICAL;
-
-
             AddNewRow(entry);
+
+            entry = new ErrorReportEntry();
+            entry.ProblemType = ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_BAD_NAME;
+            entry.ErrorType = ErrorReportType.ERROR_REPORT_TYPE_CRITICAL;
+            AddNewRow(entry);
+
+
+            entry = new ErrorReportEntry();
+            entry.ProblemType = ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_NAME;
+            entry.ErrorType = ErrorReportType.ERROR_REPORT_TYPE_WARNING;
+            AddNewRow(entry);
+
+
+            listViewErrors.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
         private void listViewErrors_MouseClick(object sender, MouseEventArgs e)
@@ -104,6 +126,16 @@ namespace SpacerUnion.Windows
 
             //MessageBox.Show(column.ToString());
 
+        }
+
+        private void listViewErrors_DrawItem(object sender, DrawListViewItemEventArgs e)
+        {
+            e.DrawDefault = true;
+
+            var pen = Pens.Black;
+            pen.Width = 3;
+
+            e.Graphics.DrawRectangle(pen, e.Bounds);
         }
     }
 }

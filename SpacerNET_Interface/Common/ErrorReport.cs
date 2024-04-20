@@ -110,6 +110,11 @@ namespace SpacerUnion.Common
             return result;
         }
 
+        public string GetLinkText()
+        {
+            return "-";
+        }
+
         public Color GetTypeBackColor()
         {
             Color col = Color.Black;

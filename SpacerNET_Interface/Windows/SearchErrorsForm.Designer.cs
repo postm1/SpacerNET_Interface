@@ -39,27 +39,31 @@ namespace SpacerUnion.Windows
             this.imageListErrorsType = new System.Windows.Forms.ImageList(this.components);
             this.buttonErrorsSearch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.columnHeaderNum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listViewErrors
             // 
+            this.listViewErrors.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listViewErrors.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderNum,
             this.columnType,
             this.columnColor,
             this.columnDesc,
             this.columnVob});
             this.listViewErrors.Dock = System.Windows.Forms.DockStyle.Top;
             this.listViewErrors.FullRowSelect = true;
-            this.listViewErrors.HideSelection = false;
             this.listViewErrors.LabelWrap = false;
             this.listViewErrors.Location = new System.Drawing.Point(0, 0);
+            this.listViewErrors.MultiSelect = false;
             this.listViewErrors.Name = "listViewErrors";
             this.listViewErrors.Size = new System.Drawing.Size(1027, 554);
             this.listViewErrors.TabIndex = 0;
             this.listViewErrors.UseCompatibleStateImageBehavior = false;
             this.listViewErrors.View = System.Windows.Forms.View.Details;
             this.listViewErrors.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listViewErrors_ColumnClick);
+            this.listViewErrors.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listViewErrors_DrawItem);
             this.listViewErrors.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewErrors_MouseClick);
             // 
             // columnType
@@ -109,6 +113,11 @@ namespace SpacerUnion.Windows
             this.panel1.Size = new System.Drawing.Size(1027, 89);
             this.panel1.TabIndex = 2;
             // 
+            // columnHeaderNum
+            // 
+            this.columnHeaderNum.Text = "№";
+            this.columnHeaderNum.Width = 40;
+            // 
             // SearchErrorsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -140,5 +149,6 @@ namespace SpacerUnion.Windows
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ColumnHeader columnColor;
         private System.Windows.Forms.ImageList imageListErrorsType;
+        private System.Windows.Forms.ColumnHeader columnHeaderNum;
     }
 }
