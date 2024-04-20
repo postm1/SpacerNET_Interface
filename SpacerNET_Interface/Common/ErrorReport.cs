@@ -112,7 +112,7 @@ namespace SpacerUnion.Common
 
         public string GetLinkText()
         {
-            return "-";
+            return "Double click to select";
         }
 
         public Color GetTypeBackColor()

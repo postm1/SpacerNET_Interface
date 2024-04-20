@@ -13,6 +13,8 @@ namespace SpacerUnion.Windows
     
     public partial class SearchErrorsForm : Form
     {
+        public List<ErrorReportEntry> entriesList;
+
         public SearchErrorsForm()
         {
             InitializeComponent();
@@ -23,6 +25,8 @@ namespace SpacerUnion.Windows
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
 
             Helper.EnableDoubleBuffering(this.listViewErrors);
+
+            entriesList = new List<ErrorReportEntry>();
         }
 
         public void UpdateLang()
@@ -36,8 +40,21 @@ namespace SpacerUnion.Windows
             e.Cancel = true;
         }
 
+        public void SelectEntry(int row)
+        {
+            row -= 1;
+
+            if (entriesList.Count - 1 >= row)
+            {
+                var entry = entriesList[row];
+
+                MessageBox.Show(entry.GetProblemTypeText());
+            }
+        }
+
         public void AddNewRow(ErrorReportEntry entry)
         {
+            var rowColor = Color.White;
             List<string> texts = new List<string>();
 
             texts.Add((listViewErrors.Items.Count + 1).ToString());
@@ -50,8 +67,8 @@ namespace SpacerUnion.Windows
 
             newItem.UseItemStyleForSubItems = false;
 
-            var rowColor = Color.White;
 
+            // even string has another color
             if (listViewErrors.Items.Count % 2 == 0)
             {
                 rowColor = Color.FromArgb(255, 236, 237, 239);
@@ -63,20 +80,16 @@ namespace SpacerUnion.Windows
             newItem.SubItems[3].BackColor = rowColor;
             newItem.SubItems[4].BackColor = rowColor;
 
-            //for (int i = 0; i < newItem.SubItems.Count; i++)
-            //{
-            //    ConsoleEx.WriteLineRed(newItem.SubItems[i].Text);
-            //}
-
-            // Add the new item to the ListView control
             listViewErrors.Items.Add(newItem);
+
+            entriesList.Add(entry);
         }
 
         private void buttonErrorsSearch_Click(object sender, EventArgs e)
         {
             listViewErrors.Items.Clear();
+            entriesList.Clear();
 
-            
 
 
             ErrorReportEntry entry = new ErrorReportEntry();
@@ -113,29 +126,62 @@ namespace SpacerUnion.Windows
 
         private void listViewErrors_MouseClick(object sender, MouseEventArgs e)
         {
-            if (listViewErrors.SelectedItems.Count > 0)
+
+            //Point mousePosition = listViewErrors.PointToClient(Control.MousePosition);
+            //ListViewHitTestInfo hit = listViewErrors.HitTest(mousePosition);
+
+            //if (hit == null)
+            //{
+            //    return;
+            //}
+
+            //int columnindex = hit.Item.SubItems.IndexOf(hit.SubItem);
+            //int rowIndex = Convert.ToInt32(hit.Item.Text);
+
+            ////MessageBox.Show(rowIndex + "/" + columnindex + " " + hit.SubItem.Text);
+            ////MessageBox.Show(columnindex.ToString() + " " + columnindex + " " + rowIndex);
+        }
+
+        private void listViewErrors_MouseDown(object sender, MouseEventArgs e)
+        {
+            Point mousePosition = listViewErrors.PointToClient(Control.MousePosition);
+            ListViewHitTestInfo hit = listViewErrors.HitTest(mousePosition);
+
+            if (hit == null || hit.SubItem == null)
             {
-                ListViewItem item = listViewErrors.SelectedItems[0];
-                //MessageBox.Show(item.ToString());
+                return;
             }
+
+
+            if (e.Button == MouseButtons.Middle)
+            {
+                Utils.SetCopyText(hit.SubItem.Text);
+            }
+
+            //MessageBox.Show(rowIndex + "/" + columnindex + " " + hit.SubItem.Text);
         }
 
-        private void listViewErrors_ColumnClick(object sender, ColumnClickEventArgs e)
+        
+        private void listViewErrors_DoubleClick(object sender, EventArgs e)
         {
-            int column = e.Column;
+            Point mousePosition = listViewErrors.PointToClient(Control.MousePosition);
+            ListViewHitTestInfo hit = listViewErrors.HitTest(mousePosition);
 
-            //MessageBox.Show(column.ToString());
+            if (hit == null || hit.SubItem == null)
+            {
+                return;
+            }
 
-        }
+            int columnindex = hit.Item.SubItems.IndexOf(hit.SubItem);
+            int rowIndex = Convert.ToInt32(hit.Item.Text);
 
-        private void listViewErrors_DrawItem(object sender, DrawListViewItemEventArgs e)
-        {
-            e.DrawDefault = true;
 
-            var pen = Pens.Black;
-            pen.Width = 3;
+            if (columnindex == 4)
+            {
+                SelectEntry(rowIndex);
+            }
 
-            e.Graphics.DrawRectangle(pen, e.Bounds);
+            // MessageBox.Show(rowIndex + "/" + columnindex + " " + hit.SubItem.Text);
         }
     }
 }
