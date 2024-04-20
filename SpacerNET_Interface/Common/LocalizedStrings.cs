@@ -801,6 +801,15 @@ namespace SpacerUnion.Common
             words.Add("WIN_TOOLTIP_NOGRASS", new List<string> { "Режим скрытия травы (nograss)", "No grass mode", "Kein Gras-Modus", "Tryb bez trawy" });
             words.Add("PFX_EDITOR_WARNING_WRONG_NAME", new List<string> { "Нельзя вызывать эффект из самого себя! Измените поле ppsCreateEm_s!", "You cannot call the effect from itself! Change the ppsCreateEm_s field!", "Du kannst den Effekt nicht von sich aus aufrufen! Ändere das ppsCreateEm_s Feld!", "Nie możesz wywołać efektu na samym sobie! Zmień pole ppsCreateEm_s!" });
 
+
+            words.Add("ERROR_REPORT_TYPE_INFO", new List<string> { "Оповещение", "Information", "", "" });
+            words.Add("ERROR_REPORT_TYPE_WARNING", new List<string> { "Предупреждение", "Warning", "", "" });
+            words.Add("ERROR_REPORT_TYPE_CRITICAL", new List<string> { "Критическая ошибка", "Critical error", "", "" });
+
+
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_NAME", new List<string> { "Подозрительное имя материала", "Suspicious material's name", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_BAD_NAME", new List<string> { "Неправильное имя текстуры", "Wrong texture name", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_NOT_FOUND", new List<string> { "Текстура не найдена!", "Texture not found!", "", "" });
         }
         
     }

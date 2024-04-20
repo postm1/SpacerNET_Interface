@@ -2344,6 +2344,9 @@ namespace SpacerUnion
             }
         }
 
-        
+        private void findZENErrorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SpacerNET.errorForm.Show();
+        }
     }
 }

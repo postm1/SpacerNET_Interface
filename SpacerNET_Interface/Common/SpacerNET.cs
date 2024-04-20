@@ -40,6 +40,7 @@ namespace SpacerUnion
         public static GrassWin grassWin;
         public static MacrosForm macrosWin;
         public static MaterialFilterForm matFilterWin;
+        public static SearchErrorsForm errorForm;
 
         // Список скрытых окон
         static List<Form> windowsToHideList = null;
@@ -92,6 +93,7 @@ namespace SpacerUnion
             grassWin = new GrassWin();
             macrosWin = new MacrosForm();
             matFilterWin = new MaterialFilterForm();
+            errorForm = new SearchErrorsForm();
 
             windowsList.Add(objTreeWin);
             windowsList.Add(objectsWin);
@@ -111,8 +113,8 @@ namespace SpacerUnion
             windowsList.Add(grassWin);
             windowsList.Add(matFilterWin);
             windowsList.Add(macrosWin);
-           
-            
+            windowsList.Add(errorForm);
+
             // каждому окну из списка задаем владельца: главную форму
             windowsList.ForEach(x => x.Owner = form);
 
@@ -246,8 +248,9 @@ namespace SpacerUnion
                 matFilterWin.Show();
             }
 
+            errorForm.Show();
 
-            
+
 
 
             if (Properties.Settings.Default.TreeWinLocation != null)
