@@ -785,7 +785,7 @@ namespace SpacerUnion.Common
             words.Add("PFX_EDITOR_WRONG_FORMAT_COLOR", new List<string> { "Правильный формат (цвет, 3 числа от 0 до 255): 255 20 30", "Correct format (color, 3 numbers from 0 to 255): 255 20 30", "Aktuelles Format (Farbe, 3 Zahlen von 0 bis 255): 255 20 30", "Prawidłowy format (color, 3 liczby od 0 do 255): 255 20 30" });
             words.Add("PFX_EDITOR_WRONG_FORMAT_VECTOR2", new List<string> { "Правильный формат (два числа): 5 8", "Correct format (two numbers): 5 8", "Aktuelles Format (zwei Zahlen): 5 8", "Prawidłowy format (dwie liczby): 5 8" });
             words.Add("PFX_EDITOR_TITLE", new List<string> { "Редактор частиц", "Particles editor", "Partikel-Editor", "Edytor cząsteczek" });
-            words.Add("PFX_EDITOR_INSTANCE", new List<string> { "Инстанция PFX: ", "PFX instance: ", "PFX-Instanz", "Instancja PFX" });
+            words.Add("PFX_EDITOR_INSTANCE", new List<string> { "Инстанция PFX: ", "PFX instance: ", "PFX-Instanz: ", "Instancja PFX: " });
             words.Add("PFX_EDITOR_PLAY_AGAIN", new List<string> { "Вызвать эффект снова", "Play effect again", "Effekt erneut abspielen", "Odtwórz efekt ponownie" });
             words.Add("PFX_EDITOR_SAVE_ALL_FIELDS", new List<string> { "Сохранять все поля (даже пустые)", "Save all fields (even empty ones)", "Alle Felder speichern (auch leere)", "Zapisz wszystkie pola (również te puste)" });
             words.Add("PFX_EDITOR_SAVE_IN_FILE", new List<string> { "Сохранить в файл", "Save into a file", "In Datei speichern", "Zapisz do pliku" });
