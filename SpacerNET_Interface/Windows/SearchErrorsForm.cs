@@ -63,7 +63,7 @@ namespace SpacerUnion.Windows
 
             if (!toggle)
             {
-                //listViewErrors.Clear();
+                listViewErrors.Items.Clear();
             }
 
             listViewErrors.Enabled = toggle;
@@ -88,15 +88,13 @@ namespace SpacerUnion.Windows
             entry.vobName = Imports.Stack_PeekString();
             entry.materialName = Imports.Stack_PeekString();
             entry.textureName = Imports.Stack_PeekString();
-
+            entry.id = form.entriesList.Count;
             form.entriesList.Add(entry);
 
         }
 
         public void SelectEntry(int row)
         {
-            //row index starts from 1, not 0
-            row -= 1;
 
             if (entriesList.Count - 1 >= row)
             {
@@ -158,6 +156,8 @@ namespace SpacerUnion.Windows
             newItem.SubItems[3].BackColor = rowColor;
             newItem.SubItems[4].BackColor = rowColor;
 
+            //save real id of element
+            newItem.Tag = entry.id;
             listViewErrors.Items.Add(newItem);
 
             
@@ -204,8 +204,7 @@ namespace SpacerUnion.Windows
                 return;
             }
 
-            int columnindex = hit.Item.SubItems.IndexOf(hit.SubItem);
-            int rowIndex = Convert.ToInt32(hit.Item.Text);
+            int rowIndex = Convert.ToInt32(hit.Item.Tag);
 
 
             SelectEntry(rowIndex);

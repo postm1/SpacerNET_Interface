@@ -825,8 +825,11 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_TRIGGER_NO_NAME", new List<string> { "Нет имени у триггера", "Trigger has no name", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_BE_PARENT", new List<string> { "PFX не может содержать в себе другие вобы!", "PFX vob can't contain vobs inside itself!", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_ITEM_CANT_BE_PARENT", new List<string> { "oCItem не может содержать в себе другие вобы", "oCItem vob can't contain vobs inside itself!", "", "" });
-
-
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_ITEM_NO_VISUAL", new List<string> { "oCItem не имеет визуала", "oCItem does not have a visual", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_ZCVOB_EMPTY_VISUAL", new List<string> { "zCVob не имеет визуала", "zCVob does not have a visual", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_FOG_ZONES", new List<string> { "Неверное количество zCZoneZFogDefault, должно быть 1.", "Wrong number of zCZoneZFogDefault, must be 1.", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_VOB_ZONES", new List<string> { "Неверное количество zCZoneVobFarPlaneDefault, должно быть 1.", "Wrong number of zCZoneVobFarPlaneDefault, must be 1.", "", "" });
+            
         }
 
         

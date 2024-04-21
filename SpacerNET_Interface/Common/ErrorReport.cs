@@ -22,6 +22,10 @@ namespace SpacerUnion.Common
         ERROR_REPORT_PROBLEM_TYPE_TRIGGER_NO_NAME,
         ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_BE_PARENT,
         ERROR_REPORT_PROBLEM_TYPE_ITEM_CANT_BE_PARENT,
+        ERROR_REPORT_PROBLEM_TYPE_ITEM_NO_VISUAL,
+        ERROR_REPORT_PROBLEM_TYPE_ZCVOB_EMPTY_VISUAL,
+        ERROR_REPORT_PROBLEM_TYPE_FOG_ZONES,
+        ERROR_REPORT_PROBLEM_TYPE_VOB_ZONES
     }
 
     public class ErrorReportEntry
@@ -33,6 +37,7 @@ namespace SpacerUnion.Common
         public string textureName;
         public string materialName;
         public string vobName;
+        public int id;
 
         public ErrorReportEntry()
         {
@@ -41,6 +46,7 @@ namespace SpacerUnion.Common
             ObjectAddr = 0;
             textureName = String.Empty;
             materialName = String.Empty;
+            id = 0;
         }
 
         public uint ObjectAddr { get => objectAddr; set => objectAddr = value; }
@@ -77,6 +83,11 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_TRIGGER_NO_NAME: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_TRIGGER_NO_NAME"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_BE_PARENT: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_BE_PARENT"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_ITEM_CANT_BE_PARENT: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_ITEM_CANT_BE_PARENT"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_ITEM_NO_VISUAL: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_ITEM_NO_VISUAL"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_ZCVOB_EMPTY_VISUAL: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_ZCVOB_EMPTY_VISUAL"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_FOG_ZONES: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_FOG_ZONES"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_VOB_ZONES: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_VOB_ZONES"); break;
+                    
             }
 
 
@@ -91,6 +102,9 @@ namespace SpacerUnion.Common
             var stringFormatMatTex = Localizator.Get("ERROR_REPORT_TEXT_MATERIAL") + ": {0}, " +
                             Localizator.Get("ERROR_REPORT_TEXT_TEXTURE") + ": {1}";
 
+
+            
+
             switch (ProblemType)
             {
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_NAME:
@@ -104,6 +118,55 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_TRIGGER_NO_NAME:
                     {
                         result = String.Format(Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_TRIGGER_NO_NAME"));
+                    };
+                    break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_ITEM_NO_VISUAL:
+                    {
+
+                        var stringFormatItemNoVisual = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_ITEM_NO_VISUAL") + ": {0}";
+
+                        result = String.Format(stringFormatItemNoVisual, vobName);
+                    };
+                    break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_ZCVOB_EMPTY_VISUAL:
+                    {
+
+                        var stringFormatItemNoVisual = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_ZCVOB_EMPTY_VISUAL") + ": {0}";
+
+                        result = String.Format(stringFormatItemNoVisual, vobName);
+                    };
+                    break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_BE_PARENT:
+                    {
+
+                        var stringFormatPFXParent = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_BE_PARENT") + ": {0}";
+
+                        result = String.Format(stringFormatPFXParent, vobName);
+                    };
+                    break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_ITEM_CANT_BE_PARENT:
+                    {
+
+                        var stringFormatPFXParent = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_ITEM_CANT_BE_PARENT") + ": {0}";
+
+                        result = String.Format(stringFormatPFXParent, vobName);
+                    };
+                    break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_FOG_ZONES:
+                    {
+
+                        var stringFormatPFXParent = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_FOG_ZONES") + ": {0}";
+
+                        result = String.Format(stringFormatPFXParent, vobName);
+                    };
+                    break;
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_VOB_ZONES:
+                    {
+
+                        var stringFormatPFXParent = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_VOB_ZONES") + ": {0}";
+
+                        result = String.Format(stringFormatPFXParent, vobName);
                     };
                     break;
             }
