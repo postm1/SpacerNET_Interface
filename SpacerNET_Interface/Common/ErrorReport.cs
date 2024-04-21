@@ -87,25 +87,17 @@ namespace SpacerUnion.Common
         {
             string result = String.Empty;
 
+
+            var stringFormatMatTex = Localizator.Get("ERROR_REPORT_TEXT_MATERIAL") + ": {0}, " +
+                            Localizator.Get("ERROR_REPORT_TEXT_TEXTURE") + ": {1}";
+
             switch (ProblemType)
             {
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_NAME:
-                {
-
-                        result = String.Format("Имя материала: {0}", materialName);
-                };
-                    break;
-
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_BAD_NAME:
-                    {
-
-                        result = String.Format("Материал: {0}, Текстура: {1}", materialName, textureName);
-                    };
-                    break;
-
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_NOT_FOUND:
                     {
-                        result = String.Format("Материал: {0}, Текстура: {1}", materialName, textureName);
+                            result = String.Format(stringFormatMatTex, materialName, textureName);
                     };
                     break;
 

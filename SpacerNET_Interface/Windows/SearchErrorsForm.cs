@@ -40,6 +40,16 @@ namespace SpacerUnion.Windows
             listViewErrors.Columns[3].Text = Localizator.Get("ERROR_REPORT_COLUMN_PROBLEM_DESC");
             listViewErrors.Columns[4].Text = Localizator.Get("ERROR_REPORT_COLUMN_PROBLEM_ACTION");
 
+            buttonErrorsSearch.Text = Localizator.Get("ERROR_REPORT_BUTTON_FIND_ALL");
+
+            comboBoxErrFilter.Items.Clear();
+
+            comboBoxErrFilter.Items.Add(Localizator.Get("ERROR_REPORT_TYPE_ALL"));
+            comboBoxErrFilter.Items.Add(Localizator.Get("ERROR_REPORT_TYPE_INFO"));
+            comboBoxErrFilter.Items.Add(Localizator.Get("ERROR_REPORT_TYPE_WARNING"));
+            comboBoxErrFilter.Items.Add(Localizator.Get("ERROR_REPORT_TYPE_CRITICAL"));
+
+            comboBoxErrFilter.SelectedIndex = 0;
         }
 
         private void SearchErrorsForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -58,6 +68,7 @@ namespace SpacerUnion.Windows
 
             listViewErrors.Enabled = toggle;
             buttonErrorsSearch.Enabled = toggle;
+            comboBoxErrFilter.Enabled = toggle;
         }
 
 
@@ -97,9 +108,8 @@ namespace SpacerUnion.Windows
 
         public void UpdateListFilter(int index)
         {
-            listViewErrors.Items.Clear();
-
             listViewErrors.BeginUpdate();
+            listViewErrors.Items.Clear();
 
             foreach (var entry in entriesList)
             {
@@ -107,11 +117,7 @@ namespace SpacerUnion.Windows
                 {
                     AddNewRow(entry);
                 }
-                else
-                {
-
-                }
-                if (entry.ErrorType == (ErrorReportType)index)
+                else if (entry.ErrorType == (ErrorReportType)index)
                 {
                     AddNewRow(entry);
                 }
@@ -120,6 +126,8 @@ namespace SpacerUnion.Windows
 
 
             listViewErrors.EndUpdate();
+
+            listViewErrors.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
         public void AddNewRow(ErrorReportEntry entry)
@@ -158,18 +166,11 @@ namespace SpacerUnion.Windows
 
         private void buttonErrorsSearch_Click(object sender, EventArgs e)
         {
-            listViewErrors.Items.Clear();
             entriesList.Clear();
-
-            listViewErrors.BeginUpdate();
-
             Imports.Extern_ReportCreateAll();
 
             UpdateListFilter(comboBoxErrFilter.SelectedIndex);
-            listViewErrors.EndUpdate();
 
-
-            listViewErrors.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
 

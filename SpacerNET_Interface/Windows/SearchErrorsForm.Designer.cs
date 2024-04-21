@@ -52,14 +52,14 @@ namespace SpacerUnion.Windows
             this.columnColor,
             this.columnDesc,
             this.columnVob});
-            this.listViewErrors.Dock = System.Windows.Forms.DockStyle.Top;
+            this.listViewErrors.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewErrors.FullRowSelect = true;
             this.listViewErrors.HideSelection = false;
             this.listViewErrors.LabelWrap = false;
             this.listViewErrors.Location = new System.Drawing.Point(0, 0);
             this.listViewErrors.MultiSelect = false;
             this.listViewErrors.Name = "listViewErrors";
-            this.listViewErrors.Size = new System.Drawing.Size(964, 470);
+            this.listViewErrors.Size = new System.Drawing.Size(964, 477);
             this.listViewErrors.TabIndex = 0;
             this.listViewErrors.UseCompatibleStateImageBehavior = false;
             this.listViewErrors.View = System.Windows.Forms.View.Details;
@@ -103,7 +103,7 @@ namespace SpacerUnion.Windows
             // 
             this.buttonErrorsSearch.Location = new System.Drawing.Point(12, 13);
             this.buttonErrorsSearch.Name = "buttonErrorsSearch";
-            this.buttonErrorsSearch.Size = new System.Drawing.Size(137, 23);
+            this.buttonErrorsSearch.Size = new System.Drawing.Size(159, 23);
             this.buttonErrorsSearch.TabIndex = 1;
             this.buttonErrorsSearch.Text = "Find ZEN problems";
             this.buttonErrorsSearch.UseVisualStyleBackColor = true;
@@ -115,7 +115,7 @@ namespace SpacerUnion.Windows
             this.panel1.Controls.Add(this.comboBoxErrFilter);
             this.panel1.Controls.Add(this.buttonErrorsSearch);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 476);
+            this.panel1.Location = new System.Drawing.Point(0, 477);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(964, 50);
             this.panel1.TabIndex = 2;
@@ -129,7 +129,7 @@ namespace SpacerUnion.Windows
             "Info",
             "Warning",
             "Critical"});
-            this.comboBoxErrFilter.Location = new System.Drawing.Point(177, 13);
+            this.comboBoxErrFilter.Location = new System.Drawing.Point(191, 13);
             this.comboBoxErrFilter.Name = "comboBoxErrFilter";
             this.comboBoxErrFilter.Size = new System.Drawing.Size(160, 21);
             this.comboBoxErrFilter.TabIndex = 2;
@@ -139,9 +139,9 @@ namespace SpacerUnion.Windows
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 526);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(964, 527);
             this.Controls.Add(this.listViewErrors);
+            this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
