@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -27,10 +28,17 @@ namespace SpacerUnion.Windows
             Helper.EnableDoubleBuffering(this.listViewErrors);
 
             entriesList = new List<ErrorReportEntry>();
+
+            comboBoxErrFilter.SelectedIndex = 0;
         }
 
         public void UpdateLang()
         {
+            this.Text = Localizator.Get("ERROR_REPORT_TITLE");
+            listViewErrors.Columns[1].Text = Localizator.Get("ERROR_REPORT_COLUMN_PROBLEM_TYPE");
+            listViewErrors.Columns[2].Text = Localizator.Get("ERROR_REPORT_COLUMN_PROBLEM_LEVEL");
+            listViewErrors.Columns[3].Text = Localizator.Get("ERROR_REPORT_COLUMN_PROBLEM_DESC");
+            listViewErrors.Columns[4].Text = Localizator.Get("ERROR_REPORT_COLUMN_PROBLEM_ACTION");
 
         }
 
@@ -38,6 +46,40 @@ namespace SpacerUnion.Windows
         {
             this.Hide();
             e.Cancel = true;
+        }
+
+        public void ToggleInterface(bool toggle)
+        {
+
+            if (!toggle)
+            {
+                //listViewErrors.Clear();
+            }
+
+            listViewErrors.Enabled = toggle;
+            buttonErrorsSearch.Enabled = toggle;
+        }
+
+
+        [DllExport]
+        public static void Report_AddReport()
+        {
+            var form = SpacerNET.errorForm;
+
+
+            ErrorReportEntry entry = null;
+
+            entry = new ErrorReportEntry();
+
+            entry.SetErrorType((ErrorReportType)Imports.Stack_PeekInt());
+            entry.SetProblemType((ErrorReportProblemType)Imports.Stack_PeekInt());
+            entry.ObjectAddr = Imports.Stack_PeekUInt();
+            entry.vobName = Imports.Stack_PeekString();
+            entry.materialName = Imports.Stack_PeekString();
+            entry.textureName = Imports.Stack_PeekString();
+
+            form.entriesList.Add(entry);
+
         }
 
         public void SelectEntry(int row)
@@ -51,6 +93,33 @@ namespace SpacerUnion.Windows
 
                 MessageBox.Show(entry.GetProblemTypeText());
             }
+        }
+
+        public void UpdateListFilter(int index)
+        {
+            listViewErrors.Items.Clear();
+
+            listViewErrors.BeginUpdate();
+
+            foreach (var entry in entriesList)
+            {
+                if (index == 0)
+                {
+                    AddNewRow(entry);
+                }
+                else
+                {
+
+                }
+                if (entry.ErrorType == (ErrorReportType)index)
+                {
+                    AddNewRow(entry);
+                }
+            }
+
+
+
+            listViewErrors.EndUpdate();
         }
 
         public void AddNewRow(ErrorReportEntry entry)
@@ -83,7 +152,8 @@ namespace SpacerUnion.Windows
 
             listViewErrors.Items.Add(newItem);
 
-            entriesList.Add(entry);
+            
+            //ConsoleEx.WriteLineGreen(entry.GetDescriptionText());
         }
 
         private void buttonErrorsSearch_Click(object sender, EventArgs e)
@@ -91,39 +161,13 @@ namespace SpacerUnion.Windows
             listViewErrors.Items.Clear();
             entriesList.Clear();
 
-            ErrorReportEntry entry = null;
+            listViewErrors.BeginUpdate();
 
-            entry = new ErrorReportEntry();
-            entry.ProblemType = ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_NOT_FOUND;
-            entry.SetErrorType();
-            AddNewRow(entry);
+            Imports.Extern_ReportCreateAll();
 
-            entry = new ErrorReportEntry();
-            entry.ProblemType = ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_NAME;
-            entry.SetErrorType();
-            AddNewRow(entry);
+            UpdateListFilter(comboBoxErrFilter.SelectedIndex);
+            listViewErrors.EndUpdate();
 
-
-            entry = new ErrorReportEntry();
-            entry.ProblemType = ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_BAD_NAME;
-            entry.SetErrorType();
-            AddNewRow(entry);
-
-            entry = new ErrorReportEntry();
-            entry.ProblemType = ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_TRIGGER_NO_NAME;
-            entry.SetErrorType();
-            AddNewRow(entry);
-
-            entry = new ErrorReportEntry();
-            entry.ProblemType = ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_BE_PARENT;
-            entry.SetErrorType();
-            AddNewRow(entry);
-
-
-            entry = new ErrorReportEntry();
-            entry.ProblemType = ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_ITEM_CANT_BE_PARENT;
-            entry.SetErrorType();
-            AddNewRow(entry);
 
             listViewErrors.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
         }
@@ -166,6 +210,11 @@ namespace SpacerUnion.Windows
             SelectEntry(rowIndex);
 
             // MessageBox.Show(rowIndex + "/" + columnindex + " " + hit.SubItem.Text);
+        }
+
+        private void comboBoxErrFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateListFilter(comboBoxErrFilter.SelectedIndex);
         }
     }
 }

@@ -802,6 +802,14 @@ namespace SpacerUnion.Common
             words.Add("PFX_EDITOR_WARNING_WRONG_NAME", new List<string> { "Нельзя вызывать эффект из самого себя! Измените поле ppsCreateEm_s!", "You cannot call the effect from itself! Change the ppsCreateEm_s field!", "Du kannst den Effekt nicht von sich aus aufrufen! Ändere das ppsCreateEm_s Feld!", "Nie możesz wywołać efektu na samym sobie! Zmień pole ppsCreateEm_s!" });
 
 
+            words.Add("ERROR_REPORT_TITLE", new List<string> { "Поиск ошибок в ZEN", "Search errors in ZEN", "", "" });
+
+            words.Add("ERROR_REPORT_COLUMN_PROBLEM_TYPE", new List<string> { "Тип проблемы", "Problem type", "", "" });
+            words.Add("ERROR_REPORT_COLUMN_PROBLEM_LEVEL", new List<string> { "Уровень ошибки", "Error level", "", "" });
+            words.Add("ERROR_REPORT_COLUMN_PROBLEM_DESC", new List<string> { "Описание", "Description", "", "" });
+            words.Add("ERROR_REPORT_COLUMN_PROBLEM_ACTION", new List<string> { "Действие", "Action", "", "" });
+
+
             words.Add("ERROR_REPORT_TYPE_INFO", new List<string> { "Оповещение", "Information", "", "" });
             words.Add("ERROR_REPORT_TYPE_WARNING", new List<string> { "Предупреждение", "Warning", "", "" });
             words.Add("ERROR_REPORT_TYPE_CRITICAL", new List<string> { "Критическая ошибка", "Critical error", "", "" });

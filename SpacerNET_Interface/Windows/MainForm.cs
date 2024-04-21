@@ -149,6 +149,7 @@ namespace SpacerUnion
             toolStripMenuItemMergeMesh.Enabled = false;
             stripSpecialFunctions.Enabled = false;
             SpacerNET.pfxWin.ToggleInterface(false);
+            SpacerNET.errorForm.ToggleInterface(false);
             // UnionNET.partWin.listBoxParticles.Items.Clear();
             // UnionNET.partWin.listBoxItems.Items.Clear();
         }
@@ -481,6 +482,7 @@ namespace SpacerUnion
                 SpacerNET.form.compileLightToolStrip.Enabled = true;
 
                 SpacerNET.pfxWin.ToggleSelectPFX(true);
+                SpacerNET.errorForm.ToggleInterface(true);
             }
 
 

@@ -111,6 +111,7 @@ namespace SpacerUnion.Common
             SpacerNET.macrosWin.UpdateLang();
             SpacerNET.matFilterWin.UpdateLang();
             SpacerNET.pfxWin.UpdateLang();
+            SpacerNET.errorForm.UpdateLang();
 
         }
 

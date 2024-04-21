@@ -29,9 +29,10 @@ namespace SpacerUnion.Common
         private ErrorReportType errorType;
         private ErrorReportProblemType problemType;
 
-        uint objectAddr;
-        private string textureName;
-        private string materialName;
+        public uint objectAddr;
+        public string textureName;
+        public string materialName;
+        public string vobName;
 
         public ErrorReportEntry()
         {
@@ -90,7 +91,6 @@ namespace SpacerUnion.Common
             {
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_NAME:
                 {
-                        materialName = "SOLEMN_TAR.001";
 
                         result = String.Format("Имя материала: {0}", materialName);
                 };
@@ -98,8 +98,6 @@ namespace SpacerUnion.Common
 
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_BAD_NAME:
                     {
-                        textureName = "TEXT_GRASS_01.TGA.TGA";
-                        materialName = "SOLEMN_TAR_GONE";
 
                         result = String.Format("Материал: {0}, Текстура: {1}", materialName, textureName);
                     };
@@ -107,9 +105,6 @@ namespace SpacerUnion.Common
 
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_NOT_FOUND:
                     {
-                        textureName = "SETEXT_GRASS_01.TGA.001";
-                        materialName = "SOLEMN_TAR_GONE_03";
-
                         result = String.Format("Материал: {0}, Текстура: {1}", materialName, textureName);
                     };
                     break;
@@ -143,35 +138,14 @@ namespace SpacerUnion.Common
             return col;
         }
 
-        public void SetErrorType()
+        public void SetErrorType(ErrorReportType type)
         {
-            switch (ProblemType)
-            {
-                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_NAME:
-                    {
-                        errorType = ErrorReportType.ERROR_REPORT_TYPE_INFO;
-                    }
-                    break;
-                   
+            ErrorType = type;
+        }
 
-                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_TRIGGER_NO_NAME:
-                    {
-                        errorType = ErrorReportType.ERROR_REPORT_TYPE_WARNING;
-                    }
-                    break;
-
-
-
-                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_BAD_NAME:
-                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_NOT_FOUND:
-                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_BE_PARENT:
-                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_ITEM_CANT_BE_PARENT:
-                    {
-                        errorType = ErrorReportType.ERROR_REPORT_TYPE_CRITICAL;
-                    }
-                    break;
-
-            }
+        public void SetProblemType(ErrorReportProblemType type)
+        {
+            problemType = type;
         }
     }
 }

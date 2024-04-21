@@ -40,6 +40,7 @@ namespace SpacerUnion.Windows
             this.imageListErrorsType = new System.Windows.Forms.ImageList(this.components);
             this.buttonErrorsSearch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBoxErrFilter = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +59,7 @@ namespace SpacerUnion.Windows
             this.listViewErrors.Location = new System.Drawing.Point(0, 0);
             this.listViewErrors.MultiSelect = false;
             this.listViewErrors.Name = "listViewErrors";
-            this.listViewErrors.Size = new System.Drawing.Size(964, 526);
+            this.listViewErrors.Size = new System.Drawing.Size(964, 470);
             this.listViewErrors.TabIndex = 0;
             this.listViewErrors.UseCompatibleStateImageBehavior = false;
             this.listViewErrors.View = System.Windows.Forms.View.Details;
@@ -111,12 +112,28 @@ namespace SpacerUnion.Windows
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.comboBoxErrFilter);
             this.panel1.Controls.Add(this.buttonErrorsSearch);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 476);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(964, 50);
             this.panel1.TabIndex = 2;
+            // 
+            // comboBoxErrFilter
+            // 
+            this.comboBoxErrFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxErrFilter.FormattingEnabled = true;
+            this.comboBoxErrFilter.Items.AddRange(new object[] {
+            "All",
+            "Info",
+            "Warning",
+            "Critical"});
+            this.comboBoxErrFilter.Location = new System.Drawing.Point(177, 13);
+            this.comboBoxErrFilter.Name = "comboBoxErrFilter";
+            this.comboBoxErrFilter.Size = new System.Drawing.Size(160, 21);
+            this.comboBoxErrFilter.TabIndex = 2;
+            this.comboBoxErrFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxErrFilter_SelectedIndexChanged);
             // 
             // SearchErrorsForm
             // 
@@ -141,8 +158,6 @@ namespace SpacerUnion.Windows
         }
 
         #endregion
-
-        private System.Windows.Forms.ListView listViewErrors;
         private System.Windows.Forms.ColumnHeader columnType;
         private System.Windows.Forms.ColumnHeader columnDesc;
         private System.Windows.Forms.ColumnHeader columnVob;
@@ -151,5 +166,7 @@ namespace SpacerUnion.Windows
         private System.Windows.Forms.ColumnHeader columnColor;
         private System.Windows.Forms.ImageList imageListErrorsType;
         private System.Windows.Forms.ColumnHeader columnHeaderNum;
+        public System.Windows.Forms.ListView listViewErrors;
+        private System.Windows.Forms.ComboBox comboBoxErrFilter;
     }
 }
