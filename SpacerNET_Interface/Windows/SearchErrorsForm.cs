@@ -146,6 +146,11 @@ namespace SpacerUnion.Windows
             listViewErrors.EndUpdate();
 
             listViewErrors.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+
+            if (listViewErrors.Items.Count == 0)
+            {
+                MessageBox.Show(Localizator.Get("ERROR_REPORT_NO_ERRORS"));
+            }
         }
 
         public void AddNewRow(ErrorReportEntry entry)

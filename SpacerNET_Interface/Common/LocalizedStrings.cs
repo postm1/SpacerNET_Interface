@@ -818,6 +818,7 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_DOUBLE_CLICK", new List<string> { "Двойной клик для выбора...", "Double click to select...", "", "" });
             words.Add("ERROR_REPORT_TEXT_MATERIAL", new List<string> { "Материал", "Material", "", "" });
             words.Add("ERROR_REPORT_TEXT_TEXTURE", new List<string> { "Текстура", "Texture", "", "" });
+            words.Add("ERROR_REPORT_NO_ERRORS", new List<string> { "Ошибки не найдены!", "Errors not found!", "", "" });
 
             words.Add("ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_NAME", new List<string> { "Подозрительное имя материала", "Suspicious material's name", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_BAD_NAME", new List<string> { "Неправильное имя текстуры", "Wrong texture name", "", "" });
@@ -827,9 +828,10 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_ITEM_CANT_BE_PARENT", new List<string> { "oCItem не может содержать в себе другие вобы", "oCItem vob can't contain vobs inside itself!", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_ITEM_NO_VISUAL", new List<string> { "oCItem не имеет визуала", "oCItem does not have a visual", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_ZCVOB_EMPTY_VISUAL", new List<string> { "zCVob не имеет визуала", "zCVob does not have a visual", "", "" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_FOG_ZONES", new List<string> { "Неверное количество zCZoneZFogDefault, должно быть 1.", "Wrong number of zCZoneZFogDefault, must be 1.", "", "" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_VOB_ZONES", new List<string> { "Неверное количество zCZoneVobFarPlaneDefault, должно быть 1.", "Wrong number of zCZoneVobFarPlaneDefault, must be 1.", "", "" });
-            
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_FOG_ZONES", new List<string> { "Неверное количество zCZoneZFogDefault, должно быть 1", "Wrong number of zCZoneZFogDefault, must be 1", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_VOB_ZONES", new List<string> { "Неверное количество zCZoneVobFarPlaneDefault, должно быть 1", "Wrong number of zCZoneVobFarPlaneDefault, must be 1", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_MUSIC_ZONES", new List<string> { "Неверное количество oCZoneMusicDefault, должно быть 1", "Wrong number of oCZoneMusicDefault, must be 1", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_STARTPOINT", new List<string> { "Неверное количество zCVobStartpoint, должно быть 1", "Wrong number of zCVobStartpoint, must be 1", "", "" });
         }
 
         
