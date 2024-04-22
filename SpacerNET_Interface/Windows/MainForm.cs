@@ -2350,5 +2350,17 @@ namespace SpacerUnion
         {
             SpacerNET.errorForm.Show();
         }
+
+        private void toolStripButtonErrorReport_Click(object sender, EventArgs e)
+        {
+            if (SpacerNET.errorForm.Visible)
+            {
+                SpacerNET.errorForm.Hide();
+            }
+            else
+            {
+                SpacerNET.errorForm.Show();
+            }
+        }
     }
 }

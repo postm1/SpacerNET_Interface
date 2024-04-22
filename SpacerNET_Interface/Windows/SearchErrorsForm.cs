@@ -216,5 +216,10 @@ namespace SpacerUnion.Windows
         {
             UpdateListFilter(comboBoxErrFilter.SelectedIndex);
         }
+
+        private void SearchErrorsForm_VisibleChanged(object sender, EventArgs e)
+        {
+            SpacerNET.form.toolStripButtonErrorReport.Checked = this.Visible;
+        }
     }
 }

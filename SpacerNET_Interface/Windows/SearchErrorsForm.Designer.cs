@@ -152,6 +152,7 @@ namespace SpacerUnion.Windows
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SearchErrorsForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SearchErrorsForm_FormClosing);
+            this.VisibleChanged += new System.EventHandler(this.SearchErrorsForm_VisibleChanged);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

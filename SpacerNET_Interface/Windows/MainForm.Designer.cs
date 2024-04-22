@@ -83,6 +83,7 @@
             this.testCoordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stripSpecialFunctions = new System.Windows.Forms.ToolStripMenuItem();
             this.stripSpecialFormVobsVisuals = new System.Windows.Forms.ToolStripMenuItem();
+            this.findZENErrorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.cameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -123,7 +124,7 @@
             this.toolStripVobVisualInfo = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonPfxEditor = new System.Windows.Forms.ToolStripButton();
-            this.findZENErrorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButtonErrorReport = new System.Windows.Forms.ToolStripButton();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -383,7 +384,6 @@
             // 
             // toolStripTextBoxScaleIconsUI
             // 
-            this.toolStripTextBoxScaleIconsUI.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxScaleIconsUI.Name = "toolStripTextBoxScaleIconsUI";
             this.toolStripTextBoxScaleIconsUI.Size = new System.Drawing.Size(100, 23);
             this.toolStripTextBoxScaleIconsUI.Text = "2.0";
@@ -415,14 +415,14 @@
             // compileLightToolStrip
             // 
             this.compileLightToolStrip.Name = "compileLightToolStrip";
-            this.compileLightToolStrip.Size = new System.Drawing.Size(180, 22);
+            this.compileLightToolStrip.Size = new System.Drawing.Size(164, 22);
             this.compileLightToolStrip.Text = "Compile light";
             this.compileLightToolStrip.Click += new System.EventHandler(this.здрастеToolStripMenuItem_Click);
             // 
             // compileWorldToolStrip
             // 
             this.compileWorldToolStrip.Name = "compileWorldToolStrip";
-            this.compileWorldToolStrip.Size = new System.Drawing.Size(180, 22);
+            this.compileWorldToolStrip.Size = new System.Drawing.Size(164, 22);
             this.compileWorldToolStrip.Text = "Compile world";
             this.compileWorldToolStrip.Click += new System.EventHandler(this.компиляцияМираToolStripMenuItem_Click);
             // 
@@ -432,7 +432,7 @@
             this.прыгнутьНа000КоординатыToolStripMenuItem,
             this.ввестиКоординатыToolStripMenuItem});
             this.cameraCoordsToolStrip.Name = "cameraCoordsToolStrip";
-            this.cameraCoordsToolStrip.Size = new System.Drawing.Size(180, 22);
+            this.cameraCoordsToolStrip.Size = new System.Drawing.Size(164, 22);
             this.cameraCoordsToolStrip.Text = "Camera";
             // 
             // прыгнутьНа000КоординатыToolStripMenuItem
@@ -459,7 +459,7 @@
             this.freezeTimeToolStripMenuItem,
             this.toolStripTextTimeSet});
             this.dayTimeToolStrip.Name = "dayTimeToolStrip";
-            this.dayTimeToolStrip.Size = new System.Drawing.Size(180, 22);
+            this.dayTimeToolStrip.Size = new System.Drawing.Size(164, 22);
             this.dayTimeToolStrip.Text = "Day time";
             this.dayTimeToolStrip.TextChanged += new System.EventHandler(this.dayTimeToolStrip_TextChanged);
             // 
@@ -500,7 +500,6 @@
             // 
             // toolStripTextTimeSet
             // 
-            this.toolStripTextTimeSet.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextTimeSet.Name = "toolStripTextTimeSet";
             this.toolStripTextTimeSet.Size = new System.Drawing.Size(100, 23);
             this.toolStripTextTimeSet.Text = "06 00";
@@ -516,7 +515,7 @@
             this.fLATToolStripMenuItem,
             this.wIREToolStripMenuItem});
             this.renderModeToolStripMenuItem.Name = "renderModeToolStripMenuItem";
-            this.renderModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.renderModeToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.renderModeToolStripMenuItem.Text = "Render mode";
             // 
             // normalToolStripMenuItem
@@ -552,21 +551,21 @@
             // analyseWaynetToolStripMenuItem
             // 
             this.analyseWaynetToolStripMenuItem.Name = "analyseWaynetToolStripMenuItem";
-            this.analyseWaynetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.analyseWaynetToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.analyseWaynetToolStripMenuItem.Text = "Analyze Waynet";
             this.analyseWaynetToolStripMenuItem.Click += new System.EventHandler(this.анализWaynetToolStripMenuItem_Click);
             // 
             // playHeroToolStrip
             // 
             this.playHeroToolStrip.Name = "playHeroToolStrip";
-            this.playHeroToolStrip.Size = new System.Drawing.Size(180, 22);
+            this.playHeroToolStrip.Size = new System.Drawing.Size(164, 22);
             this.playHeroToolStrip.Text = "Play the hero";
             this.playHeroToolStrip.Click += new System.EventHandler(this.игратьЗаГерояToolStripMenuItem_Click);
             // 
             // pfxEditorToolStrip
             // 
             this.pfxEditorToolStrip.Name = "pfxEditorToolStrip";
-            this.pfxEditorToolStrip.Size = new System.Drawing.Size(180, 22);
+            this.pfxEditorToolStrip.Size = new System.Drawing.Size(164, 22);
             this.pfxEditorToolStrip.Text = "Редактор PFX";
             this.pfxEditorToolStrip.Visible = false;
             this.pfxEditorToolStrip.Click += new System.EventHandler(this.pfxEditorToolStrip_Click);
@@ -574,7 +573,7 @@
             // testCoordsToolStripMenuItem
             // 
             this.testCoordsToolStripMenuItem.Name = "testCoordsToolStripMenuItem";
-            this.testCoordsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.testCoordsToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.testCoordsToolStripMenuItem.Text = "TestCoords";
             this.testCoordsToolStripMenuItem.Visible = false;
             this.testCoordsToolStripMenuItem.Click += new System.EventHandler(this.testCoordsToolStripMenuItem_Click);
@@ -585,7 +584,7 @@
             this.stripSpecialFormVobsVisuals,
             this.findZENErrorsToolStripMenuItem});
             this.stripSpecialFunctions.Name = "stripSpecialFunctions";
-            this.stripSpecialFunctions.Size = new System.Drawing.Size(180, 22);
+            this.stripSpecialFunctions.Size = new System.Drawing.Size(164, 22);
             this.stripSpecialFunctions.Text = "Special functions";
             // 
             // stripSpecialFormVobsVisuals
@@ -594,6 +593,13 @@
             this.stripSpecialFormVobsVisuals.Size = new System.Drawing.Size(323, 22);
             this.stripSpecialFormVobsVisuals.Text = "Create a list of files that are used in the location";
             this.stripSpecialFormVobsVisuals.Click += new System.EventHandler(this.stripSpecialFormVobsVisuals_Click);
+            // 
+            // findZENErrorsToolStripMenuItem
+            // 
+            this.findZENErrorsToolStripMenuItem.Name = "findZENErrorsToolStripMenuItem";
+            this.findZENErrorsToolStripMenuItem.Size = new System.Drawing.Size(323, 22);
+            this.findZENErrorsToolStripMenuItem.Text = "Find ZEN errors";
+            this.findZENErrorsToolStripMenuItem.Click += new System.EventHandler(this.findZENErrorsToolStripMenuItem_Click);
             // 
             // toolStripMenuItemSettings
             // 
@@ -652,7 +658,7 @@
             // 
             this.russianToolStrip.Image = ((System.Drawing.Image)(resources.GetObject("russianToolStrip.Image")));
             this.russianToolStrip.Name = "russianToolStrip";
-            this.russianToolStrip.Size = new System.Drawing.Size(180, 22);
+            this.russianToolStrip.Size = new System.Drawing.Size(119, 22);
             this.russianToolStrip.Text = "Русский";
             this.russianToolStrip.Click += new System.EventHandler(this.русскийToolStripMenuItem1_Click);
             // 
@@ -660,7 +666,7 @@
             // 
             this.englishToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("englishToolStripMenuItem1.Image")));
             this.englishToolStripMenuItem1.Name = "englishToolStripMenuItem1";
-            this.englishToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.englishToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
             this.englishToolStripMenuItem1.Text = "English";
             this.englishToolStripMenuItem1.Click += new System.EventHandler(this.englishToolStripMenuItem1_Click);
             // 
@@ -668,7 +674,7 @@
             // 
             this.deutscheToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deutscheToolStripMenuItem.Image")));
             this.deutscheToolStripMenuItem.Name = "deutscheToolStripMenuItem";
-            this.deutscheToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deutscheToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.deutscheToolStripMenuItem.Text = "Deutsch";
             this.deutscheToolStripMenuItem.Click += new System.EventHandler(this.deutscheToolStripMenuItem_Click);
             // 
@@ -676,7 +682,7 @@
             // 
             this.polskiToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("polskiToolStripMenuItem.Image")));
             this.polskiToolStripMenuItem.Name = "polskiToolStripMenuItem";
-            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.polskiToolStripMenuItem.Text = "Polski";
             this.polskiToolStripMenuItem.Click += new System.EventHandler(this.polskiToolStripMenuItem_Click);
             // 
@@ -684,7 +690,7 @@
             // 
             this.czechToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("czechToolStripMenuItem.Image")));
             this.czechToolStripMenuItem.Name = "czechToolStripMenuItem";
-            this.czechToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.czechToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.czechToolStripMenuItem.Text = "Czech";
             this.czechToolStripMenuItem.Click += new System.EventHandler(this.czechToolStripMenuItem_Click);
             // 
@@ -743,7 +749,8 @@
             this.toolStripButtonFilter,
             this.toolStripVobVisualInfo,
             this.toolStripSeparator3,
-            this.toolStripButtonPfxEditor});
+            this.toolStripButtonPfxEditor,
+            this.toolStripButtonErrorReport});
             this.toolStripTop.Location = new System.Drawing.Point(0, 0);
             this.toolStripTop.Name = "toolStripTop";
             this.toolStripTop.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -969,12 +976,15 @@
             this.toolStripButtonPfxEditor.Text = "PFX Editor";
             this.toolStripButtonPfxEditor.Click += new System.EventHandler(this.toolStripButtonPfxEditor_Click);
             // 
-            // findZENErrorsToolStripMenuItem
+            // toolStripButtonErrorReport
             // 
-            this.findZENErrorsToolStripMenuItem.Name = "findZENErrorsToolStripMenuItem";
-            this.findZENErrorsToolStripMenuItem.Size = new System.Drawing.Size(323, 22);
-            this.findZENErrorsToolStripMenuItem.Text = "Find ZEN errors";
-            this.findZENErrorsToolStripMenuItem.Click += new System.EventHandler(this.findZENErrorsToolStripMenuItem_Click);
+            this.toolStripButtonErrorReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonErrorReport.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonErrorReport.Image")));
+            this.toolStripButtonErrorReport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonErrorReport.Name = "toolStripButtonErrorReport";
+            this.toolStripButtonErrorReport.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonErrorReport.Text = "ErrorsReport";
+            this.toolStripButtonErrorReport.Click += new System.EventHandler(this.toolStripButtonErrorReport_Click);
             // 
             // MainForm
             // 
@@ -1102,5 +1112,6 @@
         public System.Windows.Forms.ToolStripButton toolStripButtonPfxEditor;
         private System.Windows.Forms.ToolStripMenuItem czechToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem findZENErrorsToolStripMenuItem;
+        public System.Windows.Forms.ToolStripButton toolStripButtonErrorReport;
     }
 }
