@@ -100,7 +100,27 @@ namespace SpacerUnion.Windows
             {
                 var entry = entriesList[row];
 
-                MessageBox.Show(entry.GetProblemTypeText());
+                if (entry.ObjectAddr > 0)
+                {
+
+                    if (ObjTree.globalEntries.ContainsKey(entry.ObjectAddr))
+                    {
+                        SpacerNET.objTreeWin.globalTree.SelectedNode =
+                       ObjTree.globalEntries[entry.ObjectAddr].node;
+
+                        Imports.Extern_SelectVobSync(entry.ObjectAddr);
+                    }
+                    else
+                    {
+                        ConsoleEx.WriteLineGreen("ErrReportWin can't select object with addr: " + Utils.ToHex(entry.ObjectAddr));
+                    }
+
+
+                    Imports.Extern_SelectVob(entry.ObjectAddr);
+
+                }
+
+               
             }
         }
 
