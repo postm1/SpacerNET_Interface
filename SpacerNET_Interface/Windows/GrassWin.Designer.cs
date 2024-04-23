@@ -57,6 +57,7 @@
             this.buttonSetDefaultValue = new System.Windows.Forms.Button();
             this.buttonOpenFile = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.checkBoxInsertGlobalParent = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarWinGrassMinRadius)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarGrassWinVertical)).BeginInit();
             this.panel1.SuspendLayout();
@@ -135,7 +136,7 @@
             this.checkBoxGrassWinCopyName.AutoSize = true;
             this.checkBoxGrassWinCopyName.Checked = true;
             this.checkBoxGrassWinCopyName.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxGrassWinCopyName.Location = new System.Drawing.Point(3, 11);
+            this.checkBoxGrassWinCopyName.Location = new System.Drawing.Point(3, 4);
             this.checkBoxGrassWinCopyName.Name = "checkBoxGrassWinCopyName";
             this.checkBoxGrassWinCopyName.Size = new System.Drawing.Size(211, 17);
             this.checkBoxGrassWinCopyName.TabIndex = 7;
@@ -147,7 +148,7 @@
             this.checkBoxGrassWinRemove.AutoSize = true;
             this.checkBoxGrassWinRemove.Checked = true;
             this.checkBoxGrassWinRemove.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxGrassWinRemove.Location = new System.Drawing.Point(3, 34);
+            this.checkBoxGrassWinRemove.Location = new System.Drawing.Point(3, 27);
             this.checkBoxGrassWinRemove.Name = "checkBoxGrassWinRemove";
             this.checkBoxGrassWinRemove.Size = new System.Drawing.Size(118, 17);
             this.checkBoxGrassWinRemove.TabIndex = 8;
@@ -160,7 +161,7 @@
             this.checkBoxGrassWinIsItem.AutoSize = true;
             this.checkBoxGrassWinIsItem.Checked = true;
             this.checkBoxGrassWinIsItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxGrassWinIsItem.Location = new System.Drawing.Point(3, 57);
+            this.checkBoxGrassWinIsItem.Location = new System.Drawing.Point(3, 50);
             this.checkBoxGrassWinIsItem.Name = "checkBoxGrassWinIsItem";
             this.checkBoxGrassWinIsItem.Size = new System.Drawing.Size(131, 17);
             this.checkBoxGrassWinIsItem.TabIndex = 9;
@@ -173,7 +174,7 @@
             this.checkBoxGrassWinClickOnce.AutoSize = true;
             this.checkBoxGrassWinClickOnce.Checked = true;
             this.checkBoxGrassWinClickOnce.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxGrassWinClickOnce.Location = new System.Drawing.Point(3, 80);
+            this.checkBoxGrassWinClickOnce.Location = new System.Drawing.Point(3, 73);
             this.checkBoxGrassWinClickOnce.Name = "checkBoxGrassWinClickOnce";
             this.checkBoxGrassWinClickOnce.Size = new System.Drawing.Size(207, 17);
             this.checkBoxGrassWinClickOnce.TabIndex = 10;
@@ -186,7 +187,7 @@
             this.checkBoxGrassWinDynColl.AutoSize = true;
             this.checkBoxGrassWinDynColl.Checked = true;
             this.checkBoxGrassWinDynColl.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxGrassWinDynColl.Location = new System.Drawing.Point(3, 103);
+            this.checkBoxGrassWinDynColl.Location = new System.Drawing.Point(3, 96);
             this.checkBoxGrassWinDynColl.Name = "checkBoxGrassWinDynColl";
             this.checkBoxGrassWinDynColl.Size = new System.Drawing.Size(160, 17);
             this.checkBoxGrassWinDynColl.TabIndex = 11;
@@ -199,7 +200,7 @@
             this.checkBoxGrassWinRotRand.AutoSize = true;
             this.checkBoxGrassWinRotRand.Checked = true;
             this.checkBoxGrassWinRotRand.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxGrassWinRotRand.Location = new System.Drawing.Point(3, 126);
+            this.checkBoxGrassWinRotRand.Location = new System.Drawing.Point(3, 119);
             this.checkBoxGrassWinRotRand.Name = "checkBoxGrassWinRotRand";
             this.checkBoxGrassWinRotRand.Size = new System.Drawing.Size(252, 17);
             this.checkBoxGrassWinRotRand.TabIndex = 12;
@@ -212,7 +213,7 @@
             this.checkBoxGrassWinSetNormal.AutoSize = true;
             this.checkBoxGrassWinSetNormal.Checked = true;
             this.checkBoxGrassWinSetNormal.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxGrassWinSetNormal.Location = new System.Drawing.Point(3, 149);
+            this.checkBoxGrassWinSetNormal.Location = new System.Drawing.Point(3, 142);
             this.checkBoxGrassWinSetNormal.Name = "checkBoxGrassWinSetNormal";
             this.checkBoxGrassWinSetNormal.Size = new System.Drawing.Size(200, 17);
             this.checkBoxGrassWinSetNormal.TabIndex = 13;
@@ -223,6 +224,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.checkBoxInsertGlobalParent);
             this.panel1.Controls.Add(this.checkBoxGrassWinRemove);
             this.panel1.Controls.Add(this.checkBoxGrassWinSetNormal);
             this.panel1.Controls.Add(this.checkBoxGrassWinCopyName);
@@ -230,9 +232,9 @@
             this.panel1.Controls.Add(this.checkBoxGrassWinIsItem);
             this.panel1.Controls.Add(this.checkBoxGrassWinDynColl);
             this.panel1.Controls.Add(this.checkBoxGrassWinClickOnce);
-            this.panel1.Location = new System.Drawing.Point(12, 243);
+            this.panel1.Location = new System.Drawing.Point(12, 230);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(406, 169);
+            this.panel1.Size = new System.Drawing.Size(406, 182);
             this.panel1.TabIndex = 14;
             // 
             // panel2
@@ -383,6 +385,19 @@
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
+            // checkBoxInsertGlobalParent
+            // 
+            this.checkBoxInsertGlobalParent.AutoSize = true;
+            this.checkBoxInsertGlobalParent.Checked = true;
+            this.checkBoxInsertGlobalParent.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxInsertGlobalParent.Location = new System.Drawing.Point(3, 162);
+            this.checkBoxInsertGlobalParent.Name = "checkBoxInsertGlobalParent";
+            this.checkBoxInsertGlobalParent.Size = new System.Drawing.Size(154, 17);
+            this.checkBoxInsertGlobalParent.TabIndex = 14;
+            this.checkBoxInsertGlobalParent.Text = "Insert into the global parent";
+            this.checkBoxInsertGlobalParent.UseVisualStyleBackColor = true;
+            this.checkBoxInsertGlobalParent.CheckedChanged += new System.EventHandler(this.checkBoxInsertGlobalParent_CheckedChanged);
+            // 
             // GrassWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,5 +465,6 @@
         private System.Windows.Forms.Button buttonSetDefaultValue;
         private System.Windows.Forms.Button buttonOpenFile;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        public System.Windows.Forms.CheckBox checkBoxInsertGlobalParent;
     }
 }

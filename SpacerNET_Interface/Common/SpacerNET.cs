@@ -446,7 +446,8 @@ namespace SpacerUnion
             Imports.Stack_PushString("grassToolSetNormal");
             grassWin.checkBoxGrassWinSetNormal.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
-
+            Imports.Stack_PushString("grassToolGlobalParent");
+            grassWin.checkBoxInsertGlobalParent.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
 
             Imports.Stack_PushString("grassToolcomboBoxVisualCamAlignValue");

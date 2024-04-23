@@ -63,8 +63,8 @@ namespace SpacerUnion.Windows
             this.checkBoxGrassWinDynColl.Text = Localizator.Get("WIN_GRASS_DYNCOLL");
             this.checkBoxGrassWinRotRand.Text = Localizator.Get("WIN_GRASS_RANDANGLE");
             this.checkBoxGrassWinSetNormal.Text = Localizator.Get("WIN_GRASS_NORMALPOLYGON");
-
-
+            this.checkBoxInsertGlobalParent.Text = Localizator.Get("WIN_GRASS_INSERT_INTO_GLOBAL_PARENT");
+            
             this.buttonGrassWinApply.Text = Localizator.Get("BTN_APPLY");
             this.buttonSetDefaultValue.Text = Localizator.Get("BTN_SET_DEFAULT_VALUES");
             this.buttonOpenFile.Text = Localizator.Get("BTN_OPEN_FILE");
@@ -318,6 +318,14 @@ namespace SpacerUnion.Windows
                 Imports.Stack_PushString("grassWinFilePath");
                 Imports.Extern_SetSettingStr();
             }
+        }
+
+        private void checkBoxInsertGlobalParent_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkBox = sender as CheckBox;
+
+            Imports.Stack_PushString("grassToolGlobalParent");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBox.Checked));
         }
     }
 }
