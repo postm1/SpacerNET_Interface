@@ -248,11 +248,6 @@ namespace SpacerUnion
                 matFilterWin.Show();
             }
 
-            errorForm.Show();
-
-
-
-
             if (Properties.Settings.Default.TreeWinLocation != null)
             {
                 objTreeWin.Location = Properties.Settings.Default.TreeWinLocation;
