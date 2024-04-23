@@ -526,5 +526,53 @@ namespace SpacerUnion.Properties {
                 this["PFXEditorShowNext"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("550, 550")]
+        public global::System.Drawing.Point ErrorWinLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["ErrorWinLocation"]));
+            }
+            set {
+                this["ErrorWinLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("980, 566")]
+        public global::System.Drawing.Size ErrorWinSize {
+            get {
+                return ((global::System.Drawing.Size)(this["ErrorWinSize"]));
+            }
+            set {
+                this["ErrorWinSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ErrorWinShow {
+            get {
+                return ((bool)(this["ErrorWinShow"]));
+            }
+            set {
+                this["ErrorWinShow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ErrorWinShowNext {
+            get {
+                return ((bool)(this["ErrorWinShowNext"]));
+            }
+            set {
+                this["ErrorWinShowNext"] = value;
+            }
+        }
     }
 }

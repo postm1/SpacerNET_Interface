@@ -128,5 +128,17 @@
     <Setting Name="PFXEditorShowNext" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="ErrorWinLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">550, 550</Value>
+    </Setting>
+    <Setting Name="ErrorWinSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">980, 566</Value>
+    </Setting>
+    <Setting Name="ErrorWinShow" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ErrorWinShowNext" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

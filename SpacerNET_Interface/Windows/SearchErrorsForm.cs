@@ -272,5 +272,13 @@ namespace SpacerUnion.Windows
         {
             SpacerNET.form.toolStripButtonErrorReport.Checked = this.Visible;
         }
+
+        private void SearchErrorsForm_Load(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.ErrorWinLocation != null)
+            {
+                this.Location = Properties.Settings.Default.ErrorWinLocation;
+            }
+        }
     }
 }
