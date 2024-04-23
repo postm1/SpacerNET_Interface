@@ -34,7 +34,7 @@ namespace SpacerUnion
             this.Text = Localizator.Get("WIN_VOBLIST_TITLE");
             //labelVobType.Text = Localizator.Get("labelVobType");
             labelRadius.Text = Localizator.Get("labelRadius") + ": " + trackBarRadius.Value;
-            btnRemoveContainerVobs.Text = Localizator.Get("VOB_SEARCH_TYPE3");
+            btnRemoveContainerVobs.Text = Localizator.Get("WIN_INFO_CLEAR");
             buttonVobListSearch.Text = Localizator.Get("MSG_COMMON_SEARCH");
             
             labelFilterVobsPick.Text = Localizator.Get("OBJ_TAB_PICKFILTER");
@@ -183,8 +183,7 @@ namespace SpacerUnion
 
         private void очиститьСписокToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            listBoxVobs.Items.Clear();
-            vobList.Clear();
+            ClearListBox();
         }
 
         private void listBoxVobs_SelectedIndexChanged(object sender, EventArgs e)
@@ -203,23 +202,7 @@ namespace SpacerUnion
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            DialogResult res = MessageBox.Show(Localizator.Get("askSure"), Localizator.Get("confirmation"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-
-            if (res != DialogResult.OK)
-            {
-                return;
-            }
-
-            foreach (var entry in vobList)
-            {
-                Imports.Extern_RemoveVob(entry);
-            }
-
-            vobList.Clear();
-            listBoxVobs.Items.Clear();
-
-
+            ClearListBox();
         }
 
         private void buttonVobListSearch_Click(object sender, EventArgs e)

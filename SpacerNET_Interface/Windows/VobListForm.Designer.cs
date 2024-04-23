@@ -160,7 +160,7 @@
             this.btnRemoveContainerVobs.Name = "btnRemoveContainerVobs";
             this.btnRemoveContainerVobs.Size = new System.Drawing.Size(80, 23);
             this.btnRemoveContainerVobs.TabIndex = 6;
-            this.btnRemoveContainerVobs.Text = "Remove";
+            this.btnRemoveContainerVobs.Text = "Clean";
             this.btnRemoveContainerVobs.UseVisualStyleBackColor = true;
             this.btnRemoveContainerVobs.Click += new System.EventHandler(this.button1_Click);
             // 
