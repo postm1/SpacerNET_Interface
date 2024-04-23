@@ -248,6 +248,19 @@ namespace SpacerUnion
                 matFilterWin.Show();
             }
 
+            if (Properties.Settings.Default.PFXEditorShow || Properties.Settings.Default.PFXEditorShowNext)
+            {
+                pfxWin.Show();
+            }
+
+
+            if (Properties.Settings.Default.ErrorWinShow || Properties.Settings.Default.ErrorWinShowNext)
+            {
+                errorForm.Show();
+            }
+
+            //==========================================================================================
+
             if (Properties.Settings.Default.TreeWinLocation != null)
             {
                 objTreeWin.Location = Properties.Settings.Default.TreeWinLocation;
@@ -294,9 +307,20 @@ namespace SpacerUnion
             {
                 matFilterWin.Location = Properties.Settings.Default.MatFilterWinLocation;
             }
-            
 
+            // pfx editor form
+            if (Properties.Settings.Default.PFXEditorLocation != null)
+            {
+                pfxWin.Location = Properties.Settings.Default.PFXEditorLocation;
+            }
 
+            // error reports form
+            if (Properties.Settings.Default.ErrorWinLocation != null)
+            {
+                errorForm.Location = Properties.Settings.Default.ErrorWinLocation;
+            }
+
+            //=======================================================================================
             if (Properties.Settings.Default.TreeWinSize != null)
             {
                 objTreeWin.Size = Properties.Settings.Default.TreeWinSize;
@@ -317,17 +341,7 @@ namespace SpacerUnion
                 infoWin.Size = Properties.Settings.Default.InfoWinSize;
             }
 
-            // pfx editor form
-            if (Properties.Settings.Default.PFXEditorLocation != null)
-            {
-                pfxWin.Location = Properties.Settings.Default.PFXEditorLocation;
-            }
-
-            // error reports form
-            if (Properties.Settings.Default.ErrorWinLocation != null)
-            {
-                errorForm.Location = Properties.Settings.Default.ErrorWinLocation;
-            }
+            
 
 
             if (Properties.Settings.Default.PFXEditorSize != null)
@@ -343,16 +357,7 @@ namespace SpacerUnion
 
 
 
-            if (Properties.Settings.Default.PFXEditorShow || Properties.Settings.Default.PFXEditorShowNext)
-            {
-                pfxWin.Show();
-            }
-
-
-            if (Properties.Settings.Default.ErrorWinShow || Properties.Settings.Default.ErrorWinShowNext)
-            {
-                errorForm.Show();
-            }
+            
 
 
             

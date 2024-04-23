@@ -54,8 +54,15 @@ namespace SpacerUnion.Windows
 
         private void SearchErrorsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            //wtf why? Only this windows has this bug
+            if (e.CloseReason == CloseReason.FormOwnerClosing)
+            {
+                e.Cancel = true;
+                return;
+            }
             this.Hide();
             e.Cancel = true;
+
         }
 
         public void ToggleInterface(bool toggle)

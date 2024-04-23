@@ -59,7 +59,7 @@ namespace SpacerUnion.Windows
             this.listViewErrors.Location = new System.Drawing.Point(0, 0);
             this.listViewErrors.MultiSelect = false;
             this.listViewErrors.Name = "listViewErrors";
-            this.listViewErrors.Size = new System.Drawing.Size(966, 477);
+            this.listViewErrors.Size = new System.Drawing.Size(670, 211);
             this.listViewErrors.TabIndex = 0;
             this.listViewErrors.UseCompatibleStateImageBehavior = false;
             this.listViewErrors.View = System.Windows.Forms.View.Details;
@@ -84,7 +84,7 @@ namespace SpacerUnion.Windows
             // columnDesc
             // 
             this.columnDesc.Text = "Description";
-            this.columnDesc.Width = 450;
+            this.columnDesc.Width = 150;
             // 
             // columnVob
             // 
@@ -115,9 +115,9 @@ namespace SpacerUnion.Windows
             this.panel1.Controls.Add(this.comboBoxErrFilter);
             this.panel1.Controls.Add(this.buttonErrorsSearch);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 477);
+            this.panel1.Location = new System.Drawing.Point(0, 211);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(966, 50);
+            this.panel1.Size = new System.Drawing.Size(670, 50);
             this.panel1.TabIndex = 2;
             // 
             // comboBoxErrFilter
@@ -139,13 +139,13 @@ namespace SpacerUnion.Windows
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(966, 527);
+            this.ClientSize = new System.Drawing.Size(670, 261);
             this.Controls.Add(this.listViewErrors);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(550, 565);
+            this.MinimumSize = new System.Drawing.Size(550, 300);
             this.Name = "SearchErrorsForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

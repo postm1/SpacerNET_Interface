@@ -2238,9 +2238,13 @@ namespace SpacerUnion
             SpacerNET.keysWin.Font = font;
             SpacerNET.comLightWin.Font = font;
             SpacerNET.compWorldWin.Font = font;
-            SpacerNET.pfxWin.Font = font;
+            SpacerNET.errorForm.Font = font;
 
+            SpacerNET.pfxWin.Font = font;
             SpacerNET.pfxWin.OnFontUpdate();
+
+            
+            
 
             SaveFontToSettings();
         }
@@ -2348,7 +2352,16 @@ namespace SpacerUnion
 
         private void findZENErrorsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SpacerNET.errorForm.Show();
+
+            if (SpacerNET.errorForm.Visible)
+            {
+                SpacerNET.errorForm.Hide();
+            }
+            else
+            {
+                SpacerNET.errorForm.Show();
+            }
+
         }
 
         private void toolStripButtonErrorReport_Click(object sender, EventArgs e)
