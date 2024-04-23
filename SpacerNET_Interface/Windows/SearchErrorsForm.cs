@@ -170,7 +170,16 @@ namespace SpacerUnion.Windows
 
             listViewErrors.EndUpdate();
 
-            listViewErrors.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            if (listViewErrors.Items.Count == 0)
+            {
+                listViewErrors.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            }
+            else
+            {
+                listViewErrors.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            }
+
+            
 
         }
 
