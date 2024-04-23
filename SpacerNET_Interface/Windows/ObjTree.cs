@@ -696,7 +696,7 @@ namespace SpacerUnion
 
             SpacerNET.errorForm.OnRemoveVob(vob);
 
-            SpacerNET.vobList.ClearListBox();
+            SpacerNET.vobList.OnVobDelete(vob);
             ObjectsWindow.CleanProps();
 
             ConsoleEx.WriteLineGreen("OnVobRemove: All vobs count: " + globalEntries.Count);
@@ -1268,12 +1268,13 @@ namespace SpacerUnion
             DialogResult dialogResult = MessageBox.Show(Localizator.Get("WIN_MSG_CONFIRM_REMOVEVOB"), Localizator.Get("WIN_MSG_CONFIRM"), MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                SpacerNET.vobList.ClearListBox();
+                
                 uint vob = 0;
 
                 uint.TryParse(tag, out vob);
 
                 Imports.Extern_RemoveVob(vob);
+                SpacerNET.vobList.OnVobDelete(vob);
             }
 
             SpacerNET.form.ToggleWindowOnTop(false);

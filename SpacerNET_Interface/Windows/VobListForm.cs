@@ -69,8 +69,36 @@ namespace SpacerUnion
         {
             string vobName = Imports.Stack_PeekString();
 
-            SpacerNET.vobList.listBoxVobs.Items.Add(vobName);
+            var listBox = SpacerNET.vobList.listBoxVobs;
+
+            listBox.Items.Add(vobName);
+
             vobList.Add(vob);
+        }
+
+        public void ClearListBox()
+        {
+            listBoxVobs.Items.Clear();
+            vobList.Clear();
+        }
+
+        public void OnVobDelete(uint addr)
+        {
+            if (addr == 0) return;
+
+            var index = vobList.FindIndex(ele => ele == addr);
+
+            //MessageBox.Show(index.ToString());
+
+            if (index >= 0)
+            {
+                if (listBoxVobs.Items.Count > 0 && listBoxVobs.Items.Count >= index + 1)
+                {
+                    listBoxVobs.Items.RemoveAt(index);
+                    vobList.RemoveAt(index);
+                }
+            }
+
         }
 
         private void VobListForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -110,10 +138,7 @@ namespace SpacerUnion
             }
         }
 
-        public void ClearListBox()
-        {
-            listBoxVobs.Items.Clear();
-        }
+        
         private void trackBarRadius_ValueChanged(object sender, EventArgs e)
         {
             labelRadius.Text = Localizator.Get("labelRadius") + ": " + trackBarRadius.Value;
