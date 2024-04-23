@@ -831,7 +831,7 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_FOG_ZONES", new List<string> { "Неверное количество zCZoneZFogDefault, должно быть 1", "Wrong number of zCZoneZFogDefault, must be 1", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_VOB_ZONES", new List<string> { "Неверное количество zCZoneVobFarPlaneDefault, должно быть 1", "Wrong number of zCZoneVobFarPlaneDefault, must be 1", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_MUSIC_ZONES", new List<string> { "Неверное количество oCZoneMusicDefault, должно быть 1", "Wrong number of oCZoneMusicDefault, must be 1", "", "" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_STARTPOINT", new List<string> { "Неверное количество zCVobStartpoint, должно быть 1", "Wrong number of zCVobStartpoint, must be 1", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_STARTPOINT", new List<string> { "Неверное количество zCVobStartpoint, должно быть 0 или 1", "Wrong number of zCVobStartpoint, must be 0 or 1", "", "" });
         }
 
         

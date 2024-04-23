@@ -147,10 +147,6 @@ namespace SpacerUnion.Windows
 
             listViewErrors.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
 
-            if (listViewErrors.Items.Count == 0)
-            {
-                MessageBox.Show(Localizator.Get("ERROR_REPORT_NO_ERRORS"));
-            }
         }
 
         public void AddNewRow(ErrorReportEntry entry)
@@ -196,6 +192,11 @@ namespace SpacerUnion.Windows
 
             UpdateListFilter(comboBoxErrFilter.SelectedIndex);
 
+
+            if (listViewErrors.Items.Count == 0)
+            {
+                MessageBox.Show(Localizator.Get("ERROR_REPORT_NO_ERRORS"));
+            }
         }
 
 
