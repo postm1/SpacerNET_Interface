@@ -695,7 +695,6 @@ namespace SpacerUnion
             }
 
             SpacerNET.errorForm.OnRemoveVob(vob);
-
             SpacerNET.vobList.OnVobDelete(vob);
             ObjectsWindow.CleanProps();
 
@@ -1274,7 +1273,6 @@ namespace SpacerUnion
                 uint.TryParse(tag, out vob);
 
                 Imports.Extern_RemoveVob(vob);
-                SpacerNET.vobList.OnVobDelete(vob);
             }
 
             SpacerNET.form.ToggleWindowOnTop(false);

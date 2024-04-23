@@ -88,6 +88,8 @@ namespace SpacerUnion
 
             var index = vobList.FindIndex(ele => ele == addr);
 
+
+            //ConsoleEx.WriteLineYellow("VobListForm OnVobDelete: " + addr);
             //MessageBox.Show(index.ToString());
 
             if (index >= 0)
