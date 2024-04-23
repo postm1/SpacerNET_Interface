@@ -93,6 +93,31 @@ namespace SpacerUnion.Windows
 
         }
 
+
+        public void OnRemoveVob(uint addr)
+        {
+            if (addr == 0) return;
+
+            var foundEntry = entriesList.FirstOrDefault(entry => entry.objectAddr == addr);
+
+            if (foundEntry == null)
+            {
+                return;
+            }
+
+            entriesList.Remove(foundEntry);
+
+            //changing indexes after removing vob
+            for (int i = 0; i < entriesList.Count; i++)
+            {
+                //Console.WriteLine("{0} -> {1}", entriesList[i].id, i);
+                entriesList[i].id = i;
+            }
+
+
+            UpdateListFilter(comboBoxErrFilter.SelectedIndex);
+        }
+
         public void SelectEntry(int row)
         {
 

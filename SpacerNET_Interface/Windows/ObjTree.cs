@@ -694,6 +694,8 @@ namespace SpacerUnion
                 }
             }
 
+            SpacerNET.errorForm.OnRemoveVob(vob);
+
             SpacerNET.vobList.ClearListBox();
             ObjectsWindow.CleanProps();
 
