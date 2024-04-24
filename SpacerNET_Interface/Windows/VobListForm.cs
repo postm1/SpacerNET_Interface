@@ -47,6 +47,8 @@ namespace SpacerUnion
             comboBoxFilterPick.Items[0] = Localizator.Get("OPTION_CHECK_NONE");
             comboBoxFilterPick.Items[10] = Localizator.Get("VOB_FILTER_IGNORE_PFX");
             comboBoxFilterPick.Items[11] = Localizator.Get("VOB_FILTER_SHOW_ONLY_INVISIBLE");
+            comboBoxFilterPick.Items[12] = Localizator.Get("VOB_FILTER_IGNORE_DECALS");
+            comboBoxFilterPick.Items[13] = Localizator.Get("VOB_FILTER_IGNORE_DECALS_PFX");
         }
 
         [DllExport]
@@ -233,9 +235,9 @@ namespace SpacerUnion
                         Imports.Extern_PrintRed();
                         break;
                     }
-                    case 10:
+                    case 13:
                         {
-                            Imports.Stack_PushString(Localizator.Get("SET_SELECT_FILTER_PFX"));
+                            Imports.Stack_PushString(Localizator.Get("SET_SELECT_FILTER_DECALS_PFX"));
                             Imports.Extern_PrintRed();
                             break;
                         }

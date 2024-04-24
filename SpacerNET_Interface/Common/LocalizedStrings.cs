@@ -757,7 +757,7 @@ namespace SpacerUnion.Common
             words.Add("SET_SELECT_FILTER_PFX", new List<string> { "Установлен фильтр выделения: Игнорировать PFX", "Selection filter set: Ignore PFX", "Filter Auswahl: PFX Ignorieren", "Ustawiony filtr wyboru: Ignoruj PFX" });
             words.Add("SET_SELECT_FILTER_NONE", new List<string> { "Установлен фильтр выделения: Нет", "Selection filter set: NONE", "Filter Auswahl: KEINE", "Ustawiony filtr wyboru: BRAK" });
             words.Add("VOB_FILTER_IGNORE_PFX", new List<string> { "Игнорировать PFX", "Ignore PFX", "PFX Ignorieren", "Ignoruj PFX" });
-            words.Add("KEYS_FAST_FILTER_IGNOREPFX", new List<string> { "Выбрать фильтр выделения вобов: Игнорировать PFX", "Choose vob filter selection mod: Ignore PFX", "Wähle Vob-Filter Selektierungs-Modus: PFX Ignorieren", "Wybór trybu filtrowania voba: Ignoruj ​​PFX" });
+            
 
             words.Add("MSG_WRONG_COLOR_FORMAT", new List<string> { "Недопустимый формат цвета! Используйте формат RGBA '255 255 255 255'", "Wrong color format! Format is RGBA '255 255 255 255'", "Falsches Farbformat! Format ist RGBA '255 255 255 255'", "Zły format koloru! Prawidłowy format to '255, 255, 255, 255'" });
             words.Add("MSG_WRONG_COLOR_FORMAT_RANGE", new List<string> { "Допустимый диапазон цвета от 0 до 255!", "Valid color range is 0 to 255 ", "Gültiger Farbbereich ist 0 bis 255", "Dopuszczalny zakres koloru jest od wartości 0 do 255!" });
@@ -836,16 +836,14 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME_MOB_FOCUS", new List<string> { "oCMob не имеет focusName", "oCMob does not have focusName", "", "" });
 
             
-
-
-
             words.Add("CANT_CHANGE_PARENT_INTO_INSELF", new List<string> { "Нельзя установить родителя воба самого себя!", "Can't set vob parent as the vob itself!", "", "" });
             words.Add("WIN_GRASS_INSERT_INTO_GLOBAL_PARENT", new List<string> { "Вставлять воб в Глобального родителя", "Insert the vob into Global parent", "", "" });
             words.Add("SEWER_NO_PLACE_TO_PUT_VOB", new List<string> { "Нет места для размещения воба", "No place to put vob", "", "" });
             words.Add("checkBoxSearchInRadius", new List<string> { "В радиусе:", "In radius:", "", "" });
-
-
-            
+            words.Add("VOB_FILTER_IGNORE_DECALS", new List<string> { "Игнорировать zCDecal", "Ignore zCDecal", "", "" });
+            words.Add("VOB_FILTER_IGNORE_DECALS_PFX", new List<string> { "Игнорир. zCDecal и PFX", "Ignore zCDecal and PFX", "", "" });
+            words.Add("SET_SELECT_FILTER_DECALS_PFX", new List<string> { "Установлен фильтр выделения: Игнорировать zCDecal и PFX", "Selection filter set: zCDecal and PFX", "", "" });
+            words.Add("KEYS_FAST_FILTER_IGNOREPFX", new List<string> { "Выбрать фильтр выделения вобов: Игнорировать zCDecal и PFX", "Choose vob filter selection mod: Ignore zCDecal и PFX", "", "" });
         }
 
         

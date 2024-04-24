@@ -115,7 +115,7 @@
             // labelFilterVobsPick
             // 
             this.labelFilterVobsPick.AutoSize = true;
-            this.labelFilterVobsPick.Location = new System.Drawing.Point(155, 75);
+            this.labelFilterVobsPick.Location = new System.Drawing.Point(171, 75);
             this.labelFilterVobsPick.Name = "labelFilterVobsPick";
             this.labelFilterVobsPick.Size = new System.Drawing.Size(79, 13);
             this.labelFilterVobsPick.TabIndex = 9;
@@ -137,10 +137,12 @@
             "VobLight",
             "VobSound",
             "Ignore PFX",
-            "Invisible only"});
+            "Invisible only",
+            "Ignore decals",
+            "Ignore PFX & Decals"});
             this.comboBoxFilterPick.Location = new System.Drawing.Point(0, 72);
             this.comboBoxFilterPick.Name = "comboBoxFilterPick";
-            this.comboBoxFilterPick.Size = new System.Drawing.Size(149, 21);
+            this.comboBoxFilterPick.Size = new System.Drawing.Size(165, 21);
             this.comboBoxFilterPick.TabIndex = 8;
             this.comboBoxFilterPick.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilterPick_SelectedIndexChanged);
             // 

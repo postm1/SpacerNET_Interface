@@ -30,10 +30,10 @@
         {
             this.buttonClose = new System.Windows.Forms.Button();
             this.dataGridKeys = new System.Windows.Forms.DataGridView();
+            this.buttonKeysResetDefault = new System.Windows.Forms.Button();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonKeysResetDefault = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridKeys)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,6 +71,16 @@
             this.dataGridKeys.TabIndex = 5;
             this.dataGridKeys.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridKeys_KeyDown);
             // 
+            // buttonKeysResetDefault
+            // 
+            this.buttonKeysResetDefault.Location = new System.Drawing.Point(12, 520);
+            this.buttonKeysResetDefault.Name = "buttonKeysResetDefault";
+            this.buttonKeysResetDefault.Size = new System.Drawing.Size(170, 23);
+            this.buttonKeysResetDefault.TabIndex = 6;
+            this.buttonKeysResetDefault.Text = "Reset default";
+            this.buttonKeysResetDefault.UseVisualStyleBackColor = true;
+            this.buttonKeysResetDefault.Click += new System.EventHandler(this.buttonKeysResetDefault_Click);
+            // 
             // Column3
             // 
             this.Column3.HeaderText = "";
@@ -83,7 +93,7 @@
             this.Column1.HeaderText = "Description";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 350;
+            this.Column1.Width = 380;
             // 
             // Column2
             // 
@@ -91,16 +101,6 @@
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             this.Column2.Width = 190;
-            // 
-            // buttonKeysResetDefault
-            // 
-            this.buttonKeysResetDefault.Location = new System.Drawing.Point(12, 520);
-            this.buttonKeysResetDefault.Name = "buttonKeysResetDefault";
-            this.buttonKeysResetDefault.Size = new System.Drawing.Size(170, 23);
-            this.buttonKeysResetDefault.TabIndex = 6;
-            this.buttonKeysResetDefault.Text = "Reset default";
-            this.buttonKeysResetDefault.UseVisualStyleBackColor = true;
-            this.buttonKeysResetDefault.Click += new System.EventHandler(this.buttonKeysResetDefault_Click);
             // 
             // KeysForm
             // 
@@ -131,9 +131,9 @@
 
         private System.Windows.Forms.Button buttonClose;
         public System.Windows.Forms.DataGridView dataGridKeys;
+        private System.Windows.Forms.Button buttonKeysResetDefault;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.Button buttonKeysResetDefault;
     }
 }
