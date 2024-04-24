@@ -43,6 +43,10 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuRestorePos = new System.Windows.Forms.ToolStripMenuItem();
             this.tempInvisibleToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.SaveVisualTofileCommon = new System.Windows.Forms.ToolStripMenuItem();
+            this.onlyParentVobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allChildrenVobsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageListObjects = new System.Windows.Forms.ImageList(this.components);
             this.buttonCollapse = new System.Windows.Forms.Button();
             this.buttonExpand = new System.Windows.Forms.Button();
@@ -57,10 +61,6 @@
             this.contextMenuQuick = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripClearGlobalPar = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuRemoveQuickVob = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.SaveVisualTofileCommon = new System.Windows.Forms.ToolStripMenuItem();
-            this.onlyParentVobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.allChildrenVobsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripTree.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.tabControlObjectList.SuspendLayout();
@@ -160,7 +160,7 @@
             // 
             // AddQuickVobToolStripMenuItem
             // 
-            this.AddQuickVobToolStripMenuItem.Image = global::SpacerUnion.Properties.Resources.vob_start_fav;
+            this.AddQuickVobToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AddQuickVobToolStripMenuItem.Image")));
             this.AddQuickVobToolStripMenuItem.Name = "AddQuickVobToolStripMenuItem";
             this.AddQuickVobToolStripMenuItem.Size = new System.Drawing.Size(282, 22);
             this.AddQuickVobToolStripMenuItem.Text = "Добавить воб в быстрый доступ";
@@ -184,6 +184,34 @@
             this.tempInvisibleToolStrip.Size = new System.Drawing.Size(282, 22);
             this.tempInvisibleToolStrip.Text = "Переместить все вобы из родителя";
             this.tempInvisibleToolStrip.Click += new System.EventHandler(this.tempInvisibleToolStrip_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(279, 6);
+            // 
+            // SaveVisualTofileCommon
+            // 
+            this.SaveVisualTofileCommon.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.onlyParentVobToolStripMenuItem,
+            this.allChildrenVobsToolStripMenuItem});
+            this.SaveVisualTofileCommon.Name = "SaveVisualTofileCommon";
+            this.SaveVisualTofileCommon.Size = new System.Drawing.Size(282, 22);
+            this.SaveVisualTofileCommon.Text = "Save visual as MSH for Blender/3DMAX";
+            // 
+            // onlyParentVobToolStripMenuItem
+            // 
+            this.onlyParentVobToolStripMenuItem.Name = "onlyParentVobToolStripMenuItem";
+            this.onlyParentVobToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.onlyParentVobToolStripMenuItem.Text = "Only parent vob";
+            this.onlyParentVobToolStripMenuItem.Click += new System.EventHandler(this.onlyParentVobToolStripMenuItem_Click);
+            // 
+            // allChildrenVobsToolStripMenuItem
+            // 
+            this.allChildrenVobsToolStripMenuItem.Name = "allChildrenVobsToolStripMenuItem";
+            this.allChildrenVobsToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.allChildrenVobsToolStripMenuItem.Text = "All children vobs";
+            this.allChildrenVobsToolStripMenuItem.Click += new System.EventHandler(this.allChildrenVobsToolStripMenuItem_Click);
             // 
             // imageListObjects
             // 
@@ -316,34 +344,6 @@
             this.toolStripMenuRemoveQuickVob.Size = new System.Drawing.Size(258, 22);
             this.toolStripMenuRemoveQuickVob.Text = "Удалить воб из быстрого доступа";
             this.toolStripMenuRemoveQuickVob.Click += new System.EventHandler(this.toolStripMenuRemoveQuickVob_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(279, 6);
-            // 
-            // SaveVisualTofileCommon
-            // 
-            this.SaveVisualTofileCommon.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.onlyParentVobToolStripMenuItem,
-            this.allChildrenVobsToolStripMenuItem});
-            this.SaveVisualTofileCommon.Name = "SaveVisualTofileCommon";
-            this.SaveVisualTofileCommon.Size = new System.Drawing.Size(282, 22);
-            this.SaveVisualTofileCommon.Text = "Save visual as MSH for Blender/3DMAX";
-            // 
-            // onlyParentVobToolStripMenuItem
-            // 
-            this.onlyParentVobToolStripMenuItem.Name = "onlyParentVobToolStripMenuItem";
-            this.onlyParentVobToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.onlyParentVobToolStripMenuItem.Text = "Only parent vob";
-            this.onlyParentVobToolStripMenuItem.Click += new System.EventHandler(this.onlyParentVobToolStripMenuItem_Click);
-            // 
-            // allChildrenVobsToolStripMenuItem
-            // 
-            this.allChildrenVobsToolStripMenuItem.Name = "allChildrenVobsToolStripMenuItem";
-            this.allChildrenVobsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.allChildrenVobsToolStripMenuItem.Text = "All children vobs";
-            this.allChildrenVobsToolStripMenuItem.Click += new System.EventHandler(this.allChildrenVobsToolStripMenuItem_Click);
             // 
             // ObjTree
             // 
