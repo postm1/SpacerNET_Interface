@@ -154,10 +154,10 @@ namespace SpacerUnion
             checkBoxMatchNames.Text = Localizator.Get("checkBoxMatchNames");
             checkBoxSearchItem.Text = Localizator.Get("checkBoxSearchItem");
 
-            
 
 
 
+            checkBoxSearchInRadius.Text = Localizator.Get("checkBoxSearchInRadius");
             checkBoxSearchUseRegex.Text = Localizator.Get("search_use_regex");
             buttonSearchVobsDo.Text = Localizator.Get("VOB_SEARCH_TYPE0");
             buttonSearchVobsReset.Text = Localizator.Get("BTN_RESET");
@@ -2812,6 +2812,23 @@ namespace SpacerUnion
             }
 
 
+            int collectRadius = -1;
+            // check radius
+            if (checkBoxSearchInRadius.Checked)
+            {
+                var text = textBoxInRadius.Text.Trim();
+
+                if (text.Length > 0)
+                {
+                    collectRadius = int.Parse(textBoxInRadius.Text.Trim());
+
+                    if (collectRadius == 0)
+                    {
+                        collectRadius = -1;
+                    }
+                }
+                
+            }
        
 
             SpacerNET.form.AddText(Localizator.Get("VOB_SEARCH_START"));
@@ -2834,9 +2851,12 @@ namespace SpacerUnion
             Imports.Stack_PushString(replaceZenPath);
             Imports.Extern_SetSearchVobName();
 
+            
             Imports.Stack_PushInt(countSelected);
             Imports.Stack_PushInt(Convert.ToInt32(checkBoxSearchItem.Checked));
             Imports.Stack_PushInt(Convert.ToInt32(checkBoxMatchNames.Checked));
+            Imports.Stack_PushInt(collectRadius);
+
             int result = Imports.Extern_SearchVobs(checkBoxSearchDerived.Checked, checkBoxSearchHasChildren.Checked, comboBoxSearchType.SelectedIndex, onlyNameVisualSearch);
 
 
@@ -4559,6 +4579,19 @@ namespace SpacerUnion
             //ConsoleEx.WriteLineRed(triggerEntry.m_kf_pos + "/" + triggerEntry.maxKey);
 
             UpdateTriggerWindow(false);
+        }
+
+        private void textBoxInRadius_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Utils.IsNumberInput(e.KeyChar, false, false) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void checkBoxSearchInRadius_CheckedChanged(object sender, EventArgs e)
+        {
+            textBoxInRadius.Enabled = checkBoxSearchInRadius.Checked;
         }
     }
 }
