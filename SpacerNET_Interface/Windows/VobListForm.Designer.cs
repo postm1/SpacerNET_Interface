@@ -179,7 +179,8 @@
             "zCTrigger",
             "zCVobSpot",
             "oCMOB",
-            "Invisible only"});
+            "Invisible only",
+            "zCVobLight"});
             this.comboBoxVobList.Location = new System.Drawing.Point(0, 39);
             this.comboBoxVobList.Name = "comboBoxVobList";
             this.comboBoxVobList.Size = new System.Drawing.Size(122, 21);
