@@ -60,7 +60,7 @@ namespace SpacerUnion
             SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
             SpacerNET.form.toolStripMenuItemMergeMesh.Enabled = false;
 
-
+            SpacerNET.errorForm.ToggleInterface(true);
 
 
             SpacerNET.form.compileWorldToolStrip.Enabled = SpacerNET.form.IsWorldCanBeCompiled();
