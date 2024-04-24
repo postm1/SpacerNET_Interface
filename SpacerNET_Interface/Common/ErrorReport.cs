@@ -28,7 +28,8 @@ namespace SpacerUnion.Common
         ERROR_REPORT_PROBLEM_TYPE_VOB_ZONES,
         ERROR_REPORT_PROBLEM_TYPE_MUSIC_ZONES,
         ERROR_REPORT_PROBLEM_TYPE_STARTPOINT,
-        ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME
+        ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME,
+        ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME_MOB_FOCUS
     }
 
     public class ErrorReportEntry
@@ -93,6 +94,9 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MUSIC_ZONES: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_MUSIC_ZONES"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_STARTPOINT: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_STARTPOINT"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME_MOB_FOCUS: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME_MOB_FOCUS"); break;
+
+
                     
             }
 
@@ -202,6 +206,14 @@ namespace SpacerUnion.Common
                         result = String.Format(stringFormatPFXParent, vobName);
                     };
                     break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME_MOB_FOCUS:
+                    {
+
+                        var stringFormatPFXParent = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME_MOB_FOCUS") + ": {0}";
+
+                        result = String.Format(stringFormatPFXParent, vobName);
+                    };
+                    break; 
             }
 
             return result;

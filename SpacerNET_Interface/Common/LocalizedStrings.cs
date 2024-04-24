@@ -833,6 +833,11 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_MUSIC_ZONES", new List<string> { "Неверное количество oCZoneMusicDefault, должно быть 1", "Wrong number of oCZoneMusicDefault, must be 1", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_STARTPOINT", new List<string> { "Неверное количество zCVobStartpoint, должно быть 0 или 1", "Wrong number of zCVobStartpoint, must be 0 or 1", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME", new List<string> { "У объекта пустое имя", "The vob has an empty name", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME_MOB_FOCUS", new List<string> { "oCMob не имеет focusName", "oCMob does not have focusName", "", "" });
+
+            
+
+
 
             words.Add("CANT_CHANGE_PARENT_INTO_INSELF", new List<string> { "Нельзя установить родителя воба самого себя!", "Can't set vob parent as the vob itself!", "", "" });
             words.Add("WIN_GRASS_INSERT_INTO_GLOBAL_PARENT", new List<string> { "Вставлять воб в Глобального родителя", "Insert the vob into Global parent", "", "" });
