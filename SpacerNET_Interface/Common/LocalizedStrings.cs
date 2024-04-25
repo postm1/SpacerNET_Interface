@@ -802,48 +802,48 @@ namespace SpacerUnion.Common
             words.Add("PFX_EDITOR_WARNING_WRONG_NAME", new List<string> { "Нельзя вызывать эффект из самого себя! Измените поле ppsCreateEm_s!", "You cannot call the effect from itself! Change the ppsCreateEm_s field!", "Du kannst den Effekt nicht von sich aus aufrufen! Ändere das ppsCreateEm_s Feld!", "Nie możesz wywołać efektu na samym sobie! Zmień pole ppsCreateEm_s!" });
 
 
-            words.Add("ERROR_REPORT_TITLE", new List<string> { "Поиск ошибок в ZEN", "Search errors in ZEN", "", "Szukaj błędów w ZEN" });
+            words.Add("ERROR_REPORT_TITLE", new List<string> { "Поиск ошибок в ZEN", "Search errors in ZEN", "Suche nach Fehlern im ZEN", "Szukaj błędów w ZEN" });
 
-            words.Add("ERROR_REPORT_COLUMN_PROBLEM_TYPE", new List<string> { "Тип проблемы", "Problem type", "", "Rodzaj problemu" });
-            words.Add("ERROR_REPORT_COLUMN_PROBLEM_LEVEL", new List<string> { "Уровень ошибки", "Error level", "", "Poziom błędu" });
-            words.Add("ERROR_REPORT_COLUMN_PROBLEM_DESC", new List<string> { "Описание", "Description", "", "Opis" });
-            words.Add("ERROR_REPORT_COLUMN_PROBLEM_ACTION", new List<string> { "Действие", "Action", "", "Akcja" });
-            words.Add("ERROR_REPORT_BUTTON_FIND_ALL", new List<string> { "Найти все ошибки", "Find all errors", "", "Znajdź wszystkie błędy" });
+            words.Add("ERROR_REPORT_COLUMN_PROBLEM_TYPE", new List<string> { "Тип проблемы", "Problem type", "Art des Problems", "Rodzaj problemu" });
+            words.Add("ERROR_REPORT_COLUMN_PROBLEM_LEVEL", new List<string> { "Уровень ошибки", "Error level", "Fehlerquote", "Poziom błędu" });
+            words.Add("ERROR_REPORT_COLUMN_PROBLEM_DESC", new List<string> { "Описание", "Description", "Beschreibung", "Opis" });
+            words.Add("ERROR_REPORT_COLUMN_PROBLEM_ACTION", new List<string> { "Действие", "Action", "Aktion", "Akcja" });
+            words.Add("ERROR_REPORT_BUTTON_FIND_ALL", new List<string> { "Найти все ошибки", "Find all errors", "Finde alle Fehler", "Znajdź wszystkie błędy" });
             
-            words.Add("ERROR_REPORT_TYPE_INFO", new List<string> { "Оповещение", "Information", "", "Informacje" });
-            words.Add("ERROR_REPORT_TYPE_WARNING", new List<string> { "Предупреждение", "Warning", "", "Ostrzeżenie" });
-            words.Add("ERROR_REPORT_TYPE_CRITICAL", new List<string> { "Критическая ошибка", "Critical error", "", "Błąd krytyczny" });
-            words.Add("ERROR_REPORT_TYPE_ALL", new List<string> { "Все", "All", "", "Wszystko" });
+            words.Add("ERROR_REPORT_TYPE_INFO", new List<string> { "Оповещение", "Information", "Information", "Informacje" });
+            words.Add("ERROR_REPORT_TYPE_WARNING", new List<string> { "Предупреждение", "Warning", "Warnung", "Ostrzeżenie" });
+            words.Add("ERROR_REPORT_TYPE_CRITICAL", new List<string> { "Критическая ошибка", "Critical error", "Kritischer Fehler", "Błąd krytyczny" });
+            words.Add("ERROR_REPORT_TYPE_ALL", new List<string> { "Все", "All", "Alle", "Wszystko" });
 
-            words.Add("ERROR_REPORT_DOUBLE_CLICK", new List<string> { "Двойной клик для выбора...", "Double click to select...", "", "Naciśnij dwa razy by zaznaczyć..." });
-            words.Add("ERROR_REPORT_TEXT_MATERIAL", new List<string> { "Материал", "Material", "", "Materiał" });
-            words.Add("ERROR_REPORT_TEXT_TEXTURE", new List<string> { "Текстура", "Texture", "", "Tekstura" });
-            words.Add("ERROR_REPORT_NO_ERRORS", new List<string> { "Ошибки не найдены!", "Errors not found!", "", "Nie znaleziono błędów!" });
+            words.Add("ERROR_REPORT_DOUBLE_CLICK", new List<string> { "Двойной клик для выбора...", "Double click to select...", "Doppelklick zum auswählen...", "Naciśnij dwa razy by zaznaczyć..." });
+            words.Add("ERROR_REPORT_TEXT_MATERIAL", new List<string> { "Материал", "Material", "Material", "Materiał" });
+            words.Add("ERROR_REPORT_TEXT_TEXTURE", new List<string> { "Текстура", "Texture", "Textur", "Tekstura" });
+            words.Add("ERROR_REPORT_NO_ERRORS", new List<string> { "Ошибки не найдены!", "Errors not found!", "Fehler nicht gefunden!", "Nie znaleziono błędów!" });
 
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_NAME", new List<string> { "Подозрительное имя материала", "Suspicious material's name", "", "Podejrzana nazwa materiału" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_BAD_NAME", new List<string> { "Неправильное имя текстуры", "Wrong texture name", "", "Zła nazwa tekstury" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_NOT_FOUND", new List<string> { "Текстура не найдена", "Texture not found", "", "Tekstura nie znaleziona" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_TRIGGER_NO_NAME", new List<string> { "Нет имени у триггера", "Trigger has no name", "", "Trigger nie ma nazwy" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_BE_PARENT", new List<string> { "PFX не может содержать в себе другие вобы!", "PFX vob can't contain vobs inside itself!", "", "PFX nie może zawierać vobów wewnątrz siebie!" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_ITEM_CANT_BE_PARENT", new List<string> { "oCItem не может содержать в себе другие вобы", "oCItem vob can't contain vobs inside itself!", "", "Vob oCItem nie może mieć w sobie vobów!" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_ITEM_NO_VISUAL", new List<string> { "oCItem не имеет визуала", "oCItem does not have a visual", "", "oCItem nie ma ustawionego visuala" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_ZCVOB_EMPTY_VISUAL", new List<string> { "zCVob не имеет визуала", "zCVob does not have a visual", "", "zCVob nie ma ustawionego visuala" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_FOG_ZONES", new List<string> { "Неверное количество zCZoneZFogDefault, должно быть 1", "Wrong number of zCZoneZFogDefault, must be 1", "", "Nieprawidłowa ilość obiektów zCZonezFogDefault, musi być tylko 1" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_VOB_ZONES", new List<string> { "Неверное количество zCZoneVobFarPlaneDefault, должно быть 1", "Wrong number of zCZoneVobFarPlaneDefault, must be 1", "", "Nieprawidłowa ilość obiektów zCZoneVobFarPlaneDefault, musi być tylko 1" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_MUSIC_ZONES", new List<string> { "Неверное количество oCZoneMusicDefault, должно быть 1", "Wrong number of oCZoneMusicDefault, must be 1", "", "Nieprawidłowa ilość obiektów oCZoneMusicDefault, musi być tylko 1" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_STARTPOINT", new List<string> { "Неверное количество zCVobStartpoint, должно быть 0 или 1", "Wrong number of zCVobStartpoint, must be 0 or 1", "", "Nieprawidłowa ilość obiektów zCVobStartpoint, musi być albo 0 albo 1" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME", new List<string> { "У объекта пустое имя", "The vob has an empty name", "", "Vob ma pustą nazwę" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME_MOB_FOCUS", new List<string> { "oCMob не имеет focusName", "oCMob does not have focusName", "", "oCMob nie ma ustawionego focusName" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_NAME", new List<string> { "Подозрительное имя материала", "Suspicious material's name", "Name des verdächtigen Materials", "Podejrzana nazwa materiału" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_BAD_NAME", new List<string> { "Неправильное имя текстуры", "Wrong texture name", "Falscher Texturname", "Zła nazwa tekstury" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_TEXTURE_NOT_FOUND", new List<string> { "Текстура не найдена", "Texture not found", "Textur nicht gefunden", "Tekstura nie znaleziona" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_TRIGGER_NO_NAME", new List<string> { "Нет имени у триггера", "Trigger has no name", "Trigger hat keinen Namen", "Trigger nie ma nazwy" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_BE_PARENT", new List<string> { "PFX не может содержать в себе другие вобы!", "PFX vob can't contain vobs inside itself!", "PFX VOB kann keine VOBs in sich selbst enthalten!", "PFX nie może zawierać vobów wewnątrz siebie!" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_ITEM_CANT_BE_PARENT", new List<string> { "oCItem не может содержать в себе другие вобы", "oCItem vob can't contain vobs inside itself!", "oCItem VOB kann keine VOBs in sich selbst enthalten!", "Vob oCItem nie może mieć w sobie vobów!" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_ITEM_NO_VISUAL", new List<string> { "oCItem не имеет визуала", "oCItem does not have a visual", "oCItem hat kein Aussehen", "oCItem nie ma ustawionego visuala" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_ZCVOB_EMPTY_VISUAL", new List<string> { "zCVob не имеет визуала", "zCVob does not have a visual", "zCVob hat kein Aussehen", "zCVob nie ma ustawionego visuala" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_FOG_ZONES", new List<string> { "Неверное количество zCZoneZFogDefault, должно быть 1", "Wrong number of zCZoneZFogDefault, must be 1", "Falsche Nummer von zCZoneZFogDefault, muss 1 sein", "Nieprawidłowa ilość obiektów zCZonezFogDefault, musi być tylko 1" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_VOB_ZONES", new List<string> { "Неверное количество zCZoneVobFarPlaneDefault, должно быть 1", "Wrong number of zCZoneVobFarPlaneDefault, must be 1", "Falsche Nummer von zCZoneVobFarPlaneDefault, muss 1 sein", "Nieprawidłowa ilość obiektów zCZoneVobFarPlaneDefault, musi być tylko 1" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_MUSIC_ZONES", new List<string> { "Неверное количество oCZoneMusicDefault, должно быть 1", "Wrong number of oCZoneMusicDefault, must be 1", "Falsche Nummer von oCZoneMusicDefault, muss 1 sein", "Nieprawidłowa ilość obiektów oCZoneMusicDefault, musi być tylko 1" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_STARTPOINT", new List<string> { "Неверное количество zCVobStartpoint, должно быть 0 или 1", "Wrong number of zCVobStartpoint, must be 0 or 1", "Falsche Nummer von zCVobStartpoint, muss 0 oder 1 sein", "Nieprawidłowa ilość obiektów zCVobStartpoint, musi być albo 0 albo 1" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME", new List<string> { "У объекта пустое имя", "The vob has an empty name", "Der VOB hat keinen Namen", "Vob ma pustą nazwę" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME_MOB_FOCUS", new List<string> { "oCMob не имеет focusName", "oCMob does not have focusName", "oCMob hat keinen focusName", "oCMob nie ma ustawionego focusName" });
 
             
-            words.Add("CANT_CHANGE_PARENT_INTO_INSELF", new List<string> { "Нельзя установить родителя воба самого себя!", "Can't set vob parent as the vob itself!", "", "Nie można ustawić rodzica voba jako samego siebie!" });
-            words.Add("WIN_GRASS_INSERT_INTO_GLOBAL_PARENT", new List<string> { "Вставлять воб в Глобального родителя", "Insert the vob into Global parent", "", "Dodaj voba do globalnego rodzica" });
-            words.Add("SEWER_NO_PLACE_TO_PUT_VOB", new List<string> { "Нет места для размещения воба", "No place to put vob", "", "Brak miejsca by dodać voba" });
-            words.Add("checkBoxSearchInRadius", new List<string> { "В радиусе:", "In radius:", "", "W promieniu:" });
-            words.Add("VOB_FILTER_IGNORE_DECALS", new List<string> { "Игнорировать zCDecal", "Ignore zCDecal", "", "Ignoruj zCDecal" });
-            words.Add("VOB_FILTER_IGNORE_DECALS_PFX", new List<string> { "Игнорир. zCDecal и PFX", "Ignore zCDecal and PFX", "", "Ignoruj zCDecal i PFX" });
-            words.Add("SET_SELECT_FILTER_DECALS_PFX", new List<string> { "Установлен фильтр выделения: Игнорировать zCDecal и PFX", "Selection filter set: zCDecal and PFX", "", "Wybrany filtr: zCDecal i PFX" });
-            words.Add("KEYS_FAST_FILTER_IGNOREPFX", new List<string> { "Выбрать фильтр выделения вобов: Игнорировать zCDecal и PFX", "Choose vob filter selection mod: Ignore zCDecal и PFX", "", "Wybierz filtr zaznaczania vobów: Ignoruj zCDecal i PFX" });
+            words.Add("CANT_CHANGE_PARENT_INTO_INSELF", new List<string> { "Нельзя установить родителя воба самого себя!", "Can't set vob parent as the vob itself!", "Ich kann dem Haupt VOB nicht als die VOB selbst festlegen!", "Nie można ustawić rodzica voba jako samego siebie!" });
+            words.Add("WIN_GRASS_INSERT_INTO_GLOBAL_PARENT", new List<string> { "Вставлять воб в Глобального родителя", "Insert the vob into Global parent", "Füge die VOB in die übergeordnete Gruppe ein", "Dodaj voba do globalnego rodzica" });
+            words.Add("SEWER_NO_PLACE_TO_PUT_VOB", new List<string> { "Нет места для размещения воба", "No place to put vob", "Kein Platz zum Ablegen von VOB", "Brak miejsca by dodać voba" });
+            words.Add("checkBoxSearchInRadius", new List<string> { "В радиусе:", "In radius:", "Im Radius:", "W promieniu:" });
+            words.Add("VOB_FILTER_IGNORE_DECALS", new List<string> { "Игнорировать zCDecal", "Ignore zCDecal", "Ignoriere zCDecal", "Ignoruj zCDecal" });
+            words.Add("VOB_FILTER_IGNORE_DECALS_PFX", new List<string> { "Игнорир. zCDecal и PFX", "Ignore zCDecal and PFX", "Ignoriere zCDecal und PFX", "Ignoruj zCDecal i PFX" });
+            words.Add("SET_SELECT_FILTER_DECALS_PFX", new List<string> { "Установлен фильтр выделения: Игнорировать zCDecal и PFX", "Selection filter set: zCDecal and PFX", "Auswahlfilterset: zCDecal und PFX", "Wybrany filtr: zCDecal i PFX" });
+            words.Add("KEYS_FAST_FILTER_IGNOREPFX", new List<string> { "Выбрать фильтр выделения вобов: Игнорировать zCDecal и PFX", "Choose vob filter selection mod: Ignore zCDecal и PFX", "Wähle VOB Filter Auswahl-Modus: Ignoriere zCDecal und PFX", "Wybierz filtr zaznaczania vobów: Ignoruj zCDecal i PFX" });
         }
 
         
