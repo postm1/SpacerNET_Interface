@@ -834,8 +834,12 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_STARTPOINT", new List<string> { "Неверное количество zCVobStartpoint, должно быть 0 или 1", "Wrong number of zCVobStartpoint, must be 0 or 1", "Falsche Nummer von zCVobStartpoint, muss 0 oder 1 sein", "Nieprawidłowa ilość obiektów zCVobStartpoint, musi być albo 0 albo 1" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME", new List<string> { "У объекта пустое имя", "The vob has an empty name", "Der VOB hat keinen Namen", "Vob ma pustą nazwę" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME_MOB_FOCUS", new List<string> { "oCMob не имеет focusName", "oCMob does not have focusName", "oCMob hat keinen focusName", "oCMob nie ma ustawionego focusName" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_NAME_SPACE", new List<string> { "В имени воба есть символ пробела", "Vob's name contains a space symbol", "", "" });
+
 
             
+
+
             words.Add("CANT_CHANGE_PARENT_INTO_INSELF", new List<string> { "Нельзя установить родителя воба самого себя!", "Can't set vob parent as the vob itself!", "Ich kann dem Haupt VOB nicht als die VOB selbst festlegen!", "Nie można ustawić rodzica voba jako samego siebie!" });
             words.Add("WIN_GRASS_INSERT_INTO_GLOBAL_PARENT", new List<string> { "Вставлять воб в Глобального родителя", "Insert the vob into Global parent", "Füge die VOB in die übergeordnete Gruppe ein", "Dodaj voba do globalnego rodzica" });
             words.Add("SEWER_NO_PLACE_TO_PUT_VOB", new List<string> { "Нет места для размещения воба", "No place to put vob", "Kein Platz zum Ablegen von VOB", "Brak miejsca by dodać voba" });
