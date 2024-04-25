@@ -765,10 +765,25 @@ namespace SpacerUnion
                     {
                         string newName = prop.value;
 
+                        if (newName.Contains(' '))
+                        {
+                            prop.value = "";
+                            MessageBox.Show(Localizator.Get("ERROR_NAME_CANT_CONTAIN_SPACE"));
+                            return;
+                        }
+
+                        if (!Utils.IsOnlyLatin(newName))
+                        {
+                            prop.value = "";
+                            MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+                            return;
+                        }
+
                         Imports.Stack_PushString(newName);
 
                         if (Imports.Extern_CheckUniqueNameExist() == 1)
                         {
+                            prop.value = "";
                             MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
                             
                             return;
@@ -778,10 +793,25 @@ namespace SpacerUnion
                     {
                         string newName = prop.value;
 
+                        if (newName.Contains(' '))
+                        {
+                            prop.value = "";
+                            MessageBox.Show(Localizator.Get("ERROR_NAME_CANT_CONTAIN_SPACE"));
+                            return;
+                        }
+
+                        if (!Utils.IsOnlyLatin(newName))
+                        {
+                            prop.value = "";
+                            MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+                            return;
+                        }
+
                         Imports.Stack_PushString(newName);
 
                         if (Imports.Extern_CheckUniqueNameExist() == 1)
                         {
+                            prop.value = "";
                             MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
 
                             return;

@@ -834,7 +834,7 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_STARTPOINT", new List<string> { "Неверное количество zCVobStartpoint, должно быть 0 или 1", "Wrong number of zCVobStartpoint, must be 0 or 1", "Falsche Nummer von zCVobStartpoint, muss 0 oder 1 sein", "Nieprawidłowa ilość obiektów zCVobStartpoint, musi być albo 0 albo 1" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME", new List<string> { "У объекта пустое имя", "The vob has an empty name", "Der VOB hat keinen Namen", "Vob ma pustą nazwę" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME_MOB_FOCUS", new List<string> { "oCMob не имеет focusName", "oCMob does not have focusName", "oCMob hat keinen focusName", "oCMob nie ma ustawionego focusName" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_NAME_SPACE", new List<string> { "В имени воба есть символ пробела", "Vob's name contains a space symbol", "", "" });
+            
 
 
             
@@ -848,6 +848,9 @@ namespace SpacerUnion.Common
             words.Add("VOB_FILTER_IGNORE_DECALS_PFX", new List<string> { "Игнорир. zCDecal и PFX", "Ignore zCDecal and PFX", "Ignoriere zCDecal und PFX", "Ignoruj zCDecal i PFX" });
             words.Add("SET_SELECT_FILTER_DECALS_PFX", new List<string> { "Установлен фильтр выделения: Игнорировать zCDecal и PFX", "Selection filter set: zCDecal and PFX", "Auswahlfilterset: zCDecal und PFX", "Wybrany filtr: zCDecal i PFX" });
             words.Add("KEYS_FAST_FILTER_IGNOREPFX", new List<string> { "Выбрать фильтр выделения вобов: Игнорировать zCDecal и PFX", "Choose vob filter selection mod: Ignore zCDecal и PFX", "Wähle VOB Filter Auswahl-Modus: Ignoriere zCDecal und PFX", "Wybierz filtr zaznaczania vobów: Ignoruj zCDecal i PFX" });
+            
+            words.Add("ERROR_NAME_CANT_CONTAIN_SPACE", new List<string> { "Имя не может содержать символ пробела!", "Vob's name can't contain a space symbol!", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_NAME_SPACE", new List<string> { "В имени воба есть символ пробела", "Vob's name contains a space symbol", "", "" });
         }
 
         

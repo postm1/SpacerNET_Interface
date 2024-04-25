@@ -89,10 +89,18 @@ namespace SpacerUnion.Windows
         private void textBoxGrassWinModel_TextChanged(object sender, EventArgs e)
         {
 
-            var text = sender as TextBox;
+            var textBox = sender as TextBox;
+            var text = textBox.Text.Trim();
 
-           
-            Imports.Stack_PushString(text.Text.Trim());
+
+            if (!Utils.IsOnlyLatin(text))
+            {
+                MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+                return;
+            }
+
+
+            Imports.Stack_PushString(text);
             Imports.Stack_PushString("grassModelName");
             Imports.Extern_SetSettingStr();
 

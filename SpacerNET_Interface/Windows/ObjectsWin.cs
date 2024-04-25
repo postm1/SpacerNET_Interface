@@ -804,6 +804,12 @@ namespace SpacerUnion
                 MessageBox.Show(Localizator.Get("WIN_OBJ_NO_WAYPOINT_NUMBERSONLY"));
                 return;
             }
+
+            if (vobName.Contains(' '))
+            {
+                MessageBox.Show(Localizator.Get("ERROR_NAME_CANT_CONTAIN_SPACE"));
+                return;
+            }
             
 
             Imports.Stack_PushString(vobName);
@@ -857,6 +863,12 @@ namespace SpacerUnion
             if (vobName.Length > 0 && !Utils.IsOnlyLatin(vobName) && Utils.IsOptionActive("checkBoxOnlyLatinInInput"))
             {
                 MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+                return;
+            }
+
+            if (vobName.Contains(' '))
+            {
+                MessageBox.Show(Localizator.Get("ERROR_NAME_CANT_CONTAIN_SPACE"));
                 return;
             }
 
