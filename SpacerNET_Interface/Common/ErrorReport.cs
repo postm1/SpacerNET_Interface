@@ -31,7 +31,8 @@ namespace SpacerUnion.Common
         ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME,
         ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME_MOB_FOCUS,
         ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_COLLISION,
-        ERROR_REPORT_PROBLEM_TYPE_NAME_SPACE
+        ERROR_REPORT_PROBLEM_TYPE_NAME_SPACE,
+        ERROR_REPORT_PROBLEM_TYPE_NOT_UNIQ_NAME
     }
 
     public class ErrorReportEntry
@@ -98,7 +99,7 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME_MOB_FOCUS: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME_MOB_FOCUS"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_NAME_SPACE: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_NAME_SPACE"); break;
-
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_NOT_UNIQ_NAME: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_NOT_UNIQ_NAME"); break;
                     
             }
 
@@ -221,6 +222,15 @@ namespace SpacerUnion.Common
                     {
 
                         var stringFormatSpaceName = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_NAME_SPACE") + ": {0}";
+
+                        result = String.Format(stringFormatSpaceName, vobName);
+                    };
+                    break;
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_NOT_UNIQ_NAME:
+                    {
+
+                        var stringFormatSpaceName = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_NOT_UNIQ_NAME") + ": {0}";
 
                         result = String.Format(stringFormatSpaceName, vobName);
                     };

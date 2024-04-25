@@ -851,6 +851,10 @@ namespace SpacerUnion.Common
             
             words.Add("ERROR_NAME_CANT_CONTAIN_SPACE", new List<string> { "Имя не может содержать символ пробела!", "Vob's name can't contain a space symbol!", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_NAME_SPACE", new List<string> { "В имени воба есть символ пробела", "Vob's name contains a space symbol", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_NOT_UNIQ_NAME", new List<string> { "Имя воба не уникально", "Vob's name is not unique", "", "" });
+
+
+            
         }
 
         
