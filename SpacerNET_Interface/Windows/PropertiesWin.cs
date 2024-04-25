@@ -767,14 +767,14 @@ namespace SpacerUnion
 
                         if (newName.Contains(' '))
                         {
-                            prop.value = "";
+                            prop.value = prop.backup_value.Length > 0 ? prop.backup_value : "";
                             MessageBox.Show(Localizator.Get("ERROR_NAME_CANT_CONTAIN_SPACE"));
                             return;
                         }
 
                         if (!Utils.IsOnlyLatin(newName))
                         {
-                            prop.value = "";
+                            prop.value = prop.backup_value.Length > 0 ? prop.backup_value : "";
                             MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
                             return;
                         }
@@ -783,7 +783,7 @@ namespace SpacerUnion
 
                         if (Imports.Extern_CheckUniqueNameExist() == 1)
                         {
-                            prop.value = "";
+                            prop.value = prop.backup_value.Length > 0 ? prop.backup_value : "";
                             MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
                             
                             return;
@@ -795,14 +795,14 @@ namespace SpacerUnion
 
                         if (newName.Contains(' '))
                         {
-                            prop.value = "";
+                            prop.value = prop.backup_value.Length > 0 ? prop.backup_value : "";
                             MessageBox.Show(Localizator.Get("ERROR_NAME_CANT_CONTAIN_SPACE"));
                             return;
                         }
 
                         if (!Utils.IsOnlyLatin(newName))
                         {
-                            prop.value = "";
+                            prop.value = prop.backup_value.Length > 0 ? prop.backup_value : "";
                             MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
                             return;
                         }
@@ -811,7 +811,7 @@ namespace SpacerUnion
 
                         if (Imports.Extern_CheckUniqueNameExist() == 1)
                         {
-                            prop.value = "";
+                            prop.value = prop.backup_value.Length > 0 ? prop.backup_value : "";
                             MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
 
                             return;
