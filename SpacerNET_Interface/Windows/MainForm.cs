@@ -253,6 +253,7 @@ namespace SpacerUnion
 
             toolStripButtonNoGrass.Text = Localizator.Get("WIN_TOOLTIP_NOGRASS");
             toolStripButtonPfxEditor.Text = Localizator.Get("PFX_EDITOR_TITLE");
+            toolStripButtonErrorReport.Text = Localizator.Get("ERROR_REPORT_TITLE");
 
             freezeTimeToolStripMenuItem.Text = Localizator.Get("MENU_TOP_VIEW_FREEZETIME");
 
