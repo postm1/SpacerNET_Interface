@@ -852,8 +852,8 @@ namespace SpacerUnion.Common
             words.Add("ERROR_NAME_CANT_CONTAIN_SPACE", new List<string> { "Имя не может содержать символ пробела!", "Vob's name can't contain a space symbol!", "Name von VOBs darf kein Leerzeichen enthalten!", "Nazwa Voba nie może zawierać spacji" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_NAME_SPACE", new List<string> { "В имени воба есть символ пробела", "Vob's name contains a space symbol", "Name von VOB enthält ein Leerzeichen", "Nazwa Voba zawiera spację" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_NOT_UNIQ_NAME", new List<string> { "Имя воба не уникально", "Vob's name is not unique", "VOBs Name ist nicht einzigartig", "Nazwa Voba nie jest unikalna" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_NAME_SYMBOLS", new List<string> { "Имя воба содержит недопустимые символы", "Vob's name contains bad symbols", "", "Nazwa Voba zawiera złe symbole" });
-            words.Add("ERROR_REPORT_COPY_MAT_NAME", new List<string> { "Скопируйте имя материала и вставьте его в Фильтр материалов", "Copy material's name and copy it into Material Filter", "", "Skopiuj nazwę materiału do filtru materiału" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_NAME_SYMBOLS", new List<string> { "Имя воба содержит недопустимые символы", "Vob's name contains bad symbols", "Der Name von VOB enthält falsche Symbole", "Nazwa Voba zawiera złe symbole" });
+            words.Add("ERROR_REPORT_COPY_MAT_NAME", new List<string> { "Скопируйте имя материала и вставьте его в Фильтр материалов", "Copy material's name and copy it into Material Filter", "Kopiere den Namen des Materials und kopiere ihn in den Materialfilter", "Skopiuj nazwę materiału do filtru materiału" });
             
         }
 

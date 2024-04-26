@@ -132,6 +132,8 @@
             this.textBoxFP = new System.Windows.Forms.TextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.groupBoxSearchClasses = new System.Windows.Forms.GroupBox();
+            this.checkBoxSearchInRadius = new System.Windows.Forms.CheckBox();
+            this.textBoxInRadius = new System.Windows.Forms.TextBox();
             this.checkBoxSearchItem = new System.Windows.Forms.CheckBox();
             this.checkBoxMatchNames = new System.Windows.Forms.CheckBox();
             this.panelRadioNumType = new System.Windows.Forms.Panel();
@@ -231,8 +233,6 @@
             this.buttonUsePresetOnLightVob = new System.Windows.Forms.Button();
             this.buttonUpdateLightPresetFromLightVob = new System.Windows.Forms.Button();
             this.colorDialogLightPresetColor = new System.Windows.Forms.ColorDialog();
-            this.textBoxInRadius = new System.Windows.Forms.TextBox();
-            this.checkBoxSearchInRadius = new System.Windows.Forms.CheckBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -1464,6 +1464,27 @@
             this.groupBoxSearchClasses.Text = "Vob classes";
             this.groupBoxSearchClasses.Enter += new System.EventHandler(this.groupBoxSearchClasses_Enter);
             // 
+            // checkBoxSearchInRadius
+            // 
+            this.checkBoxSearchInRadius.AutoSize = true;
+            this.checkBoxSearchInRadius.Location = new System.Drawing.Point(431, 88);
+            this.checkBoxSearchInRadius.Name = "checkBoxSearchInRadius";
+            this.checkBoxSearchInRadius.Size = new System.Drawing.Size(72, 17);
+            this.checkBoxSearchInRadius.TabIndex = 32;
+            this.checkBoxSearchInRadius.Text = "In radius: ";
+            this.checkBoxSearchInRadius.UseVisualStyleBackColor = true;
+            this.checkBoxSearchInRadius.CheckedChanged += new System.EventHandler(this.checkBoxSearchInRadius_CheckedChanged);
+            // 
+            // textBoxInRadius
+            // 
+            this.textBoxInRadius.Enabled = false;
+            this.textBoxInRadius.Location = new System.Drawing.Point(517, 87);
+            this.textBoxInRadius.Name = "textBoxInRadius";
+            this.textBoxInRadius.Size = new System.Drawing.Size(44, 20);
+            this.textBoxInRadius.TabIndex = 31;
+            this.textBoxInRadius.Text = "1500";
+            this.textBoxInRadius.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxInRadius_KeyPress);
+            // 
             // checkBoxSearchItem
             // 
             this.checkBoxSearchItem.AutoSize = true;
@@ -2510,27 +2531,6 @@
             this.buttonUpdateLightPresetFromLightVob.Text = "Update preset from lightvob <<";
             this.buttonUpdateLightPresetFromLightVob.UseVisualStyleBackColor = true;
             this.buttonUpdateLightPresetFromLightVob.Click += new System.EventHandler(this.buttonUpdateLightPresetFromLightVob_Click);
-            // 
-            // textBoxInRadius
-            // 
-            this.textBoxInRadius.Enabled = false;
-            this.textBoxInRadius.Location = new System.Drawing.Point(517, 88);
-            this.textBoxInRadius.Name = "textBoxInRadius";
-            this.textBoxInRadius.Size = new System.Drawing.Size(44, 20);
-            this.textBoxInRadius.TabIndex = 31;
-            this.textBoxInRadius.Text = "1500";
-            this.textBoxInRadius.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxInRadius_KeyPress);
-            // 
-            // checkBoxSearchInRadius
-            // 
-            this.checkBoxSearchInRadius.AutoSize = true;
-            this.checkBoxSearchInRadius.Location = new System.Drawing.Point(431, 88);
-            this.checkBoxSearchInRadius.Name = "checkBoxSearchInRadius";
-            this.checkBoxSearchInRadius.Size = new System.Drawing.Size(72, 17);
-            this.checkBoxSearchInRadius.TabIndex = 32;
-            this.checkBoxSearchInRadius.Text = "In radius: ";
-            this.checkBoxSearchInRadius.UseVisualStyleBackColor = true;
-            this.checkBoxSearchInRadius.CheckedChanged += new System.EventHandler(this.checkBoxSearchInRadius_CheckedChanged);
             // 
             // ObjectsWin
             // 
