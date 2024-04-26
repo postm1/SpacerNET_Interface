@@ -132,6 +132,11 @@ namespace SpacerUnion.Windows
             {
                 var entry = entriesList[row];
 
+                if (entry.materialName.Length > 0)
+                {
+                    return;
+                }
+
                 if (entry.ObjectAddr > 0)
                 {
 
@@ -254,7 +259,22 @@ namespace SpacerUnion.Windows
 
             if (e.Button == MouseButtons.Middle)
             {
-                Utils.SetCopyText(hit.SubItem.Text);
+                int rowIndex = Convert.ToInt32(hit.Item.Tag);
+
+
+                if (entriesList.Count - 1 >= rowIndex)
+                {
+                    var entry = entriesList[rowIndex];
+
+                    if (entry.materialName.Length > 0)
+                    {
+                        Utils.SetCopyText(entry.materialName);
+                    }
+                    else
+                    {
+                        Utils.SetCopyText(hit.SubItem.Text);
+                    }
+                }
             }
 
             //MessageBox.Show(rowIndex + "/" + columnindex + " " + hit.SubItem.Text);

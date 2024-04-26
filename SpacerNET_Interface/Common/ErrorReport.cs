@@ -32,7 +32,8 @@ namespace SpacerUnion.Common
         ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME_MOB_FOCUS,
         ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_COLLISION,
         ERROR_REPORT_PROBLEM_TYPE_NAME_SPACE,
-        ERROR_REPORT_PROBLEM_TYPE_NOT_UNIQ_NAME
+        ERROR_REPORT_PROBLEM_TYPE_NOT_UNIQ_NAME,
+        ERROR_REPORT_PROBLEM_TYPE_BAD_NAME_SYMBOLS
     }
 
     public class ErrorReportEntry
@@ -100,6 +101,8 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME_MOB_FOCUS: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME_MOB_FOCUS"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_NAME_SPACE: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_NAME_SPACE"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_NOT_UNIQ_NAME: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_NOT_UNIQ_NAME"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_NAME_SYMBOLS: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_NAME_SYMBOLS"); break;
+                    
                     
             }
 
@@ -235,6 +238,17 @@ namespace SpacerUnion.Common
                         result = String.Format(stringFormatSpaceName, vobName);
                     };
                     break;
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_NAME_SYMBOLS:
+                    {
+
+                        var stringFormatSpaceName = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_NAME_SYMBOLS") + ": {0}";
+
+                        result = String.Format(stringFormatSpaceName, vobName);
+                    };
+                    break;
+
+
                     
             }
 
@@ -243,7 +257,15 @@ namespace SpacerUnion.Common
 
         public string GetLinkText()
         {
-            return Localizator.Get("ERROR_REPORT_DOUBLE_CLICK");
+            if (materialName.Length > 0)
+            {
+                return Localizator.Get("ERROR_REPORT_COPY_MAT_NAME");
+            }
+            else
+            {
+                return Localizator.Get("ERROR_REPORT_DOUBLE_CLICK");
+            }
+            
         }
 
         public Color GetTypeBackColor()

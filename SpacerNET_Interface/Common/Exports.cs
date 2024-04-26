@@ -715,5 +715,14 @@ namespace SpacerUnion.Common
             // ConsoleEx.WriteLineYellow("FillBrush: " + watch.ElapsedMilliseconds);
 
         }
+
+
+        [DllExport]
+        public static int Utils_IsOnlyLatin()
+        {
+            string name = Imports.Stack_PeekString();
+
+            return Convert.ToInt32(Utils.IsOnlyLatin(name));
+        }
     }
 }

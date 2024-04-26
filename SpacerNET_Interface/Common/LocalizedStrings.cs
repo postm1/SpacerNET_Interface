@@ -799,9 +799,9 @@ namespace SpacerUnion.Common
 
             words.Add("WIN_TOOLTIP_VISUAL_INFO", new List<string> { "Режим информации о визуале воба", "Vob's visual info mode", "VOBs visueller Info-Modus", "Tryb informacji wizualnych o Vobie" });
             words.Add("WIN_TOOLTIP_NOGRASS", new List<string> { "Режим скрытия травы (nograss)", "No grass mode", "Kein Gras-Modus", "Tryb bez trawy" });
+            
+            
             words.Add("PFX_EDITOR_WARNING_WRONG_NAME", new List<string> { "Нельзя вызывать эффект из самого себя! Измените поле ppsCreateEm_s!", "You cannot call the effect from itself! Change the ppsCreateEm_s field!", "Du kannst den Effekt nicht von sich aus aufrufen! Ändere das ppsCreateEm_s Feld!", "Nie możesz wywołać efektu na samym sobie! Zmień pole ppsCreateEm_s!" });
-
-
             words.Add("ERROR_REPORT_TITLE", new List<string> { "Поиск ошибок в ZEN", "Search errors in ZEN", "Suche nach Fehlern im ZEN", "Szukaj błędów w ZEN" });
 
             words.Add("ERROR_REPORT_COLUMN_PROBLEM_TYPE", new List<string> { "Тип проблемы", "Problem type", "Art des Problems", "Rodzaj problemu" });
@@ -849,11 +849,11 @@ namespace SpacerUnion.Common
             words.Add("SET_SELECT_FILTER_DECALS_PFX", new List<string> { "Установлен фильтр выделения: Игнорировать zCDecal и PFX", "Selection filter set: zCDecal and PFX", "Auswahlfilterset: zCDecal und PFX", "Wybrany filtr: zCDecal i PFX" });
             words.Add("KEYS_FAST_FILTER_IGNOREPFX", new List<string> { "Выбрать фильтр выделения вобов: Игнорировать zCDecal и PFX", "Choose vob filter selection mod: Ignore zCDecal и PFX", "Wähle VOB Filter Auswahl-Modus: Ignoriere zCDecal und PFX", "Wybierz filtr zaznaczania vobów: Ignoruj zCDecal i PFX" });
             
-            words.Add("ERROR_NAME_CANT_CONTAIN_SPACE", new List<string> { "Имя не может содержать символ пробела!", "Vob's name can't contain a space symbol!", "", "" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_NAME_SPACE", new List<string> { "В имени воба есть символ пробела", "Vob's name contains a space symbol", "", "" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_NOT_UNIQ_NAME", new List<string> { "Имя воба не уникально", "Vob's name is not unique", "", "" });
-
-
+            words.Add("ERROR_NAME_CANT_CONTAIN_SPACE", new List<string> { "Имя не может содержать символ пробела!", "Vob's name can't contain a space symbol!", "Name von VOBs darf kein Leerzeichen enthalten!", "Nazwa Voba nie może zawierać spacji" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_NAME_SPACE", new List<string> { "В имени воба есть символ пробела", "Vob's name contains a space symbol", "Name von VOB enthält ein Leerzeichen", "Nazwa Voba zawiera spację" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_NOT_UNIQ_NAME", new List<string> { "Имя воба не уникально", "Vob's name is not unique", "VOBs Name ist nicht einzigartig", "Nazwa Voba nie jest unikalna" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_NAME_SYMBOLS", new List<string> { "Имя воба содержит недопустимые символы", "Vob's name contains bad symbols", "", "Nazwa Voba zawiera złe symbole" });
+            words.Add("ERROR_REPORT_COPY_MAT_NAME", new List<string> { "Скопируйте имя материала и вставьте его в Фильтр материалов", "Copy material's name and copy it into Material Filter", "", "Skopiuj nazwę materiału do filtru materiału" });
             
         }
 
