@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Windows;
 
 namespace SpacerUnion.Common
 {
@@ -72,6 +73,10 @@ namespace SpacerUnion.Common
                     result = words[key][(int)LangEnum.EN];
                 }
 
+            }
+            else
+            {
+                MessageBox.Show("Localizator. No key: " + key);
             }
 
             return result;
