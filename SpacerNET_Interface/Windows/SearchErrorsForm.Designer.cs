@@ -41,6 +41,7 @@ namespace SpacerUnion.Windows
             this.buttonErrorsSearch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBoxErrFilter = new System.Windows.Forms.ComboBox();
+            this.buttonSaveReport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,6 +113,7 @@ namespace SpacerUnion.Windows
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.buttonSaveReport);
             this.panel1.Controls.Add(this.comboBoxErrFilter);
             this.panel1.Controls.Add(this.buttonErrorsSearch);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -134,6 +136,16 @@ namespace SpacerUnion.Windows
             this.comboBoxErrFilter.Size = new System.Drawing.Size(160, 21);
             this.comboBoxErrFilter.TabIndex = 2;
             this.comboBoxErrFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxErrFilter_SelectedIndexChanged);
+            // 
+            // buttonSaveReport
+            // 
+            this.buttonSaveReport.Location = new System.Drawing.Point(375, 11);
+            this.buttonSaveReport.Name = "buttonSaveReport";
+            this.buttonSaveReport.Size = new System.Drawing.Size(159, 23);
+            this.buttonSaveReport.TabIndex = 3;
+            this.buttonSaveReport.Text = "Save report to txt";
+            this.buttonSaveReport.UseVisualStyleBackColor = true;
+            this.buttonSaveReport.Click += new System.EventHandler(this.buttonSaveReport_Click);
             // 
             // SearchErrorsForm
             // 
@@ -170,5 +182,6 @@ namespace SpacerUnion.Windows
         private System.Windows.Forms.ColumnHeader columnHeaderNum;
         public System.Windows.Forms.ListView listViewErrors;
         private System.Windows.Forms.ComboBox comboBoxErrFilter;
+        private System.Windows.Forms.Button buttonSaveReport;
     }
 }

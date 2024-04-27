@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -41,6 +42,9 @@ namespace SpacerUnion.Windows
             listViewErrors.Columns[4].Text = Localizator.Get("ERROR_REPORT_COLUMN_PROBLEM_ACTION");
 
             buttonErrorsSearch.Text = Localizator.Get("ERROR_REPORT_BUTTON_FIND_ALL");
+            buttonSaveReport.Text = Localizator.Get("ERROR_REPORT_SAVE_REPORT");
+
+            
 
             comboBoxErrFilter.Items.Clear();
 
@@ -76,6 +80,8 @@ namespace SpacerUnion.Windows
             listViewErrors.Enabled = toggle;
             buttonErrorsSearch.Enabled = toggle;
             comboBoxErrFilter.Enabled = toggle;
+            buttonSaveReport.Enabled = toggle;
+            
         }
 
 
@@ -315,6 +321,45 @@ namespace SpacerUnion.Windows
             {
                 this.Location = Properties.Settings.Default.ErrorWinLocation;
             }
+        }
+
+        private void buttonSaveReport_Click(object sender, EventArgs e)
+        {
+            if (entriesList.Count == 0)
+            {
+                return;
+            }
+
+            SaveFileDialog saveDialog = new SaveFileDialog();
+
+            saveDialog.RestoreDirectory = true;
+            saveDialog.Filter = "Text files (*.text)|";
+
+            saveDialog.InitialDirectory = "./";
+            saveDialog.FileName = "ZEN_REPORT_" + SpacerNET.form.currentWorldName.ToUpper().Replace(".ZEN", "") + ".txt";
+
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+
+                using (StreamWriter sw = new StreamWriter(saveDialog.FileName))
+                {
+                    foreach (var entry in entriesList)
+                    {
+                        sw.WriteLine(entry.GetProblemTypeText() + "; " 
+                            + entry.GetReportTypeText() 
+                            + "; " + entry.GetDescriptionText()
+                            + "; " + entry.GetLinkText()
+                           );
+
+                    }
+
+                    sw.Close();
+                }
+
+            }
+            
+
+            
         }
     }
 }

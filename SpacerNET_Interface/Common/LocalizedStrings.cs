@@ -715,6 +715,10 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_NAME_SYMBOLS", new List<string> { "Имя воба содержит недопустимые символы", "Vob's name contains bad symbols", "Der Name von VOB enthält falsche Symbole", "Nazwa Voba zawiera złe symbole", "Jméno Vob obsahuje špatné symboly" });
             words.Add("ERROR_REPORT_COPY_MAT_NAME", new List<string> { "Скопируйте имя материала и вставьте его в Фильтр материалов", "Copy material's name and copy it into Material Filter", "Kopiere den Namen des Materials und kopiere ihn in den Materialfilter", "Skopiuj nazwę materiału do filtru materiału", "Zkopírujte název materiálu a zkopírujte ho do Filtru materiálů" });
 
+
+            words.Add("ERROR_REPORT_SAVE_REPORT", new List<string> { "Сохранить отчет в файл", "Save report to a file", "", "", "" });
+
+            
         }
 
         
