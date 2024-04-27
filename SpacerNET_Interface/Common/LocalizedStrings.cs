@@ -342,7 +342,7 @@ namespace SpacerUnion.Common
             words.Add("labelAllPfx", new List<string> { "Все эффекты игры", "All game PFXes", "Alle Spiel PFXs", @"Wszystkie PFX'y z gry", "Všechny PFX hry" });
             words.Add("groupBoxTriggersVob", new List<string> { "Выбранный воб", "Selected vob", "Ausgewählter Vob", "Wybrany vob", "Vybraný vob" });
             words.Add("groupBoxTriggersKeys", new List<string> { "Ключи", "Keys", "Tasten", "Klucze", "Klávesy" });
-            words.Add("buttonSendTrigger", new List<string> { "Запустить >>>", "Run >>>", "Starten >>>", "Uruchom >>>", "Spustit" });
+            words.Add("buttonSendTrigger", new List<string> { "Запустить >>>", "Run >>>", "Starten >>>", "Uruchom >>>", "Spustit >>>" });
             words.Add("buttonTriggerCollectSources", new List<string> { "Собрать", "Collect", "Einsammeln", "Zbierz", "Sbírat" });
             words.Add("buttonNewKey", new List<string> { "Новый ключ", "New key", "Neuer Key", "Nowy klucz", "Nová klávesa" });
             words.Add("buttonRemoveKey", new List<string> { "Удалить ключ", "Remove key", "Key entfernen", "Usuń klucz", "Odstraň klávesu" });
