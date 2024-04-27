@@ -761,7 +761,7 @@ namespace SpacerUnion
                     //Console.WriteLine("Change entry with index: " + index);
                     CProperty prop = props[index];
 
-                    if (prop.Name == "vobName")
+                    if (prop.Name == "vobName" || prop.Name == "name")
                     {
                         string newName = prop.value;
 
@@ -772,7 +772,7 @@ namespace SpacerUnion
                             return;
                         }
 
-                        if (!Utils.IsOnlyLatin(newName))
+                        if (newName.Length > 0 && !Utils.IsOnlyLatin(newName))
                         {
                             prop.value = prop.backup_value.Length > 0 ? prop.backup_value : "";
                             MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
@@ -786,34 +786,6 @@ namespace SpacerUnion
                             prop.value = prop.backup_value.Length > 0 ? prop.backup_value : "";
                             MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
                             
-                            return;
-                        }
-                    }
-                    else if (prop.Name == "name")
-                    {
-                        string newName = prop.value;
-
-                        if (newName.Contains(' '))
-                        {
-                            prop.value = prop.backup_value.Length > 0 ? prop.backup_value : "";
-                            MessageBox.Show(Localizator.Get("ERROR_NAME_CANT_CONTAIN_SPACE"));
-                            return;
-                        }
-
-                        if (!Utils.IsOnlyLatin(newName))
-                        {
-                            prop.value = prop.backup_value.Length > 0 ? prop.backup_value : "";
-                            MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
-                            return;
-                        }
-
-                        Imports.Stack_PushString(newName);
-
-                        if (Imports.Extern_CheckUniqueNameExist() == 1)
-                        {
-                            prop.value = prop.backup_value.Length > 0 ? prop.backup_value : "";
-                            MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
-
                             return;
                         }
                     }
