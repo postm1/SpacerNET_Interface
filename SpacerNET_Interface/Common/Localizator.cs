@@ -76,7 +76,7 @@ namespace SpacerUnion.Common
             }
             else
             {
-                MessageBox.Show("Localizator. No key: " + key);
+                //MessageBox.Show("Localizator. No key: " + key);
             }
 
             return result;
