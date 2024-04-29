@@ -716,7 +716,7 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_COPY_MAT_NAME", new List<string> { "Скопируйте имя материала и вставьте его в Фильтр материалов", "Copy material's name and copy it into Material Filter", "Kopiere den Namen des Materials und kopiere ihn in den Materialfilter", "Skopiuj nazwę materiału do filtru materiału", "Zkopírujte název materiálu a zkopírujte ho do Filtru materiálů" });
 
 
-            words.Add("ERROR_REPORT_SAVE_REPORT", new List<string> { "Сохранить отчет в файл", "Save report to a file", "", "", "" });
+            words.Add("ERROR_REPORT_SAVE_REPORT", new List<string> { "Сохранить отчет в файл", "Save report to a file", "Bericht in eine Datei speichern", "Zapisz raport do pliku", "Uložit hlášení do souboru" });
 
             
         }

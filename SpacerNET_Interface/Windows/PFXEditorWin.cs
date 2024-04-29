@@ -102,15 +102,21 @@ namespace SpacerUnion.Windows
         
         public void SetCurrentPFX(string name)
         {
+
             if (!this.Visible)
             {
                 return;
             }
 
+
             labelPFXName.Text = Localizator.Get("PFX_EDITOR_INSTANCE") + name;
             currentPfxName = name;
-            LoadPfx(name);
             ToggleInterface(true);
+
+            // this code fixes first window loading, without it fields would be default
+            Application.DoEvents();
+            LoadPfx(name);
+            
         }
 
         public void SetLastVisualSelected(string visual)
@@ -122,6 +128,8 @@ namespace SpacerUnion.Windows
         public void SetProp(string name, string val)
         {
             var prop = props.FirstOrDefault(curProp => curProp.Name.Equals(name));
+
+            ConsoleEx.WriteLineGreen(name + ": " + val);
 
             if (prop != null)
             {
@@ -257,13 +265,41 @@ namespace SpacerUnion.Windows
 
         private void PFXEditorWin_Shown(object sender, EventArgs e)
         {
-             FillProps();
+
+            //MessageBox.Show("PFXEditorWin_Shown: " + this.Visible);
+
+            FillProps();
 
             Imports.Stack_PushString("pfxRepeatAutoplay");
             checkBoxPlayAuto.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
             Imports.Stack_PushString("pfxSaveFullFields");
             checkBoxPfxSaveAllFields.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+        }
+
+        private void PFXEditorWin_VisibleChanged(object sender, EventArgs e)
+        {
+            SpacerNET.form.toolStripButtonPfxEditor.Checked = this.Visible;
+
+            //MessageBox.Show("PFXEditorWin_VisibleChanged: " + this.Visible);
+
+            if (this.Visible)
+            {
+                Imports.Extern_KillPFX();
+
+                //ConsoleEx.WriteLineYellow(String.Format("{0} ; {1}", currentPfxName, currentPfxNameSelectedInList));
+
+
+                if (currentPfxName.Length == 0 && currentPfxNameSelectedInList.Length > 0)
+                {
+                    SpacerNET.pfxWin.SetCurrentPFX(currentPfxNameSelectedInList);
+                }
+            }
+            else
+            {
+
+            }
         }
 
         private void treeViewPFX_DoubleClick(object sender, EventArgs e)
@@ -852,24 +888,7 @@ namespace SpacerUnion.Windows
 
         }
 
-        private void PFXEditorWin_VisibleChanged(object sender, EventArgs e)
-        {
-            SpacerNET.form.toolStripButtonPfxEditor.Checked = this.Visible;
-
-            if (this.Visible)
-            {
-                Imports.Extern_KillPFX();
-                
-                if (currentPfxName.Length == 0 && currentPfxNameSelectedInList.Length > 0)
-                {
-                    SpacerNET.pfxWin.SetCurrentPFX(currentPfxNameSelectedInList);
-                }
-            }
-            else
-            {
-                
-            }
-        }
+       
 
         private void checkBoxPlayAuto_CheckedChanged(object sender, EventArgs e)
         {
