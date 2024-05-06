@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.listBoxVobs = new System.Windows.Forms.ListBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.очиститьСписокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CleanListVobList = new System.Windows.Forms.ToolStripMenuItem();
             this.trackBarRadius = new System.Windows.Forms.TrackBar();
             this.labelRadius = new System.Windows.Forms.Label();
             this.panelVobList = new System.Windows.Forms.Panel();
@@ -65,16 +65,16 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.очиститьСписокToolStripMenuItem});
+            this.CleanListVobList});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(169, 26);
             // 
-            // очиститьСписокToolStripMenuItem
+            // CleanListVobList
             // 
-            this.очиститьСписокToolStripMenuItem.Name = "очиститьСписокToolStripMenuItem";
-            this.очиститьСписокToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.очиститьСписокToolStripMenuItem.Text = "Очистить список";
-            this.очиститьСписокToolStripMenuItem.Click += new System.EventHandler(this.очиститьСписокToolStripMenuItem_Click);
+            this.CleanListVobList.Name = "CleanListVobList";
+            this.CleanListVobList.Size = new System.Drawing.Size(168, 22);
+            this.CleanListVobList.Text = "Очистить список";
+            this.CleanListVobList.Click += new System.EventHandler(this.очиститьСписокToolStripMenuItem_Click);
             // 
             // trackBarRadius
             // 
@@ -229,7 +229,7 @@
         public System.Windows.Forms.ListBox listBoxVobs;
         private System.Windows.Forms.Label labelRadius;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem очиститьСписокToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CleanListVobList;
         public System.Windows.Forms.TrackBar trackBarRadius;
         private System.Windows.Forms.Panel panelVobList;
         private System.Windows.Forms.ComboBox comboBoxVobList;
