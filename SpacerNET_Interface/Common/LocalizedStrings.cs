@@ -718,7 +718,11 @@ namespace SpacerUnion.Common
 
             words.Add("ERROR_REPORT_SAVE_REPORT", new List<string> { "Сохранить отчет в файл", "Save report to a file", "Bericht in eine Datei speichern", "Zapisz raport do pliku", "Uložit hlášení do souboru" });
 
-            
+
+            words.Add("SET_VOB_SET_ZERO_PARENT", new List<string> { "Воб помещен в центр родительского воба", "The vob is set to the center of parent vob", "", "", "" });
+            words.Add("SET_VOB_SET_ZERO_PARENT_CANT", new List<string> { "У данного воба нет родителя!", "The vob does not have a parent vob!", "", "", "" });
+            words.Add("KEYS_VOB_SET_ZERO_PARENT", new List<string> { "Поместить воб в центр родительского воба", "Move the vob to the center of parent vob", "", "", "" });
+
         }
 
         

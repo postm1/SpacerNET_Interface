@@ -452,6 +452,9 @@ namespace SpacerUnion.Windows
             row = new string[] { "FAST_FILTER_IGNOREPFX", Localizator.Get("KEYS_FAST_FILTER_IGNOREPFX"), "" };
             dataGridKeys.Rows.Add(row);
 
+            row = new string[] { "VOB_SET_ZERO_PARENT", Localizator.Get("KEYS_VOB_SET_ZERO_PARENT"), "" };
+            dataGridKeys.Rows.Add(row);
+
 
             row = new string[] { "VOB_TRANSLATE", Localizator.Get("VOB_TRANSLATE"), "" };
             dataGridKeys.Rows.Add(row);

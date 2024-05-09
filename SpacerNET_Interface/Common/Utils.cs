@@ -15,7 +15,7 @@ namespace SpacerUnion
 {
     public class Constants
     {
-        public const string SPACER_VERSION = "1.13";
+        public const string SPACER_VERSION = "1.14";
 
 
         public const string FILE_FILTER_OPEN_ZEN = "Compiled ZEN (*.zen)|*.zen|Uncompiled ZEN (*.zen)|*.zen";
@@ -81,6 +81,11 @@ namespace SpacerUnion
             Utils.WriteToFile(msg);
         }
 
+        public static bool IsSymbolic(string path)
+        {
+            FileInfo pathInfo = new FileInfo(path);
+            return pathInfo.Attributes.HasFlag(FileAttributes.ReparsePoint);
+        }
 
         public static bool IsPathWorkFolder(string path)
         {
@@ -105,6 +110,11 @@ namespace SpacerUnion
                 //ConsoleEx.WriteLineRed("path: " + path);
                 result = filePath.ToUpper() == path.ToUpper();
 
+            }
+
+            if (IsSymbolic(path))
+            {
+                return true;
             }
 
             return result;  
