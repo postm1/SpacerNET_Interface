@@ -33,7 +33,8 @@ namespace SpacerUnion.Common
         ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_COLLISION,
         ERROR_REPORT_PROBLEM_TYPE_NAME_SPACE,
         ERROR_REPORT_PROBLEM_TYPE_NOT_UNIQ_NAME,
-        ERROR_REPORT_PROBLEM_TYPE_BAD_NAME_SYMBOLS
+        ERROR_REPORT_PROBLEM_TYPE_BAD_NAME_SYMBOLS,
+        ERROR_REPORT_PROBLEM_TYPE_NAME_IS_VISUAL
     }
 
     public class ErrorReportEntry
@@ -102,7 +103,7 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_NAME_SPACE: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_NAME_SPACE"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_NOT_UNIQ_NAME: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_NOT_UNIQ_NAME"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_NAME_SYMBOLS: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_NAME_SYMBOLS"); break;
-                    
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_NAME_IS_VISUAL: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_NAME_IS_VISUAL"); break;
                     
             }
 
@@ -248,8 +249,15 @@ namespace SpacerUnion.Common
                     };
                     break;
 
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_NAME_IS_VISUAL:
+                    {
 
-                    
+                        var stringFormatSpaceName = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_NAME_IS_VISUAL") + ": {0}";
+
+                        result = String.Format(stringFormatSpaceName, vobName);
+                    };
+                    break;
+
             }
 
             return result;
