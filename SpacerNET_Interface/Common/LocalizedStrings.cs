@@ -719,9 +719,9 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_SAVE_REPORT", new List<string> { "Сохранить отчет в файл", "Save report to a file", "Bericht in eine Datei speichern", "Zapisz raport do pliku", "Uložit hlášení do souboru" });
 
 
-            words.Add("SET_VOB_SET_ZERO_PARENT", new List<string> { "Воб помещен в центр родительского воба", "The vob is set to the center of parent vob", "Das VOB wird in die Mitte des übergeordneten VOBs gesetzt", "Vob jest ustawiony na środku voba nadrzędnego", "Vob je nastaven do středu vobu rodiče" });
-            words.Add("SET_VOB_SET_ZERO_PARENT_CANT", new List<string> { "У данного воба нет родителя!", "The vob does not have a parent vob!", "Das VOB hat kein übergeordnetes VOB!", "Vob nie ma voba nadrzędnego!", "Tento vob nemá rodiče!" });
-            words.Add("KEYS_VOB_SET_ZERO_PARENT", new List<string> { "Поместить воб в центр родительского воба", "Move the vob to the center of parent vob", "Verschiebe das VOB in die Mitte des übergeordneten VOBs", "Przesuń vob na środek voba nadrzędnego", "Přesun vobu do středu vobu rodiče" });
+            words.Add("SET_VOB_SET_ZERO_PARENT", new List<string> { "Воб помещен в центр родительского воба", "The vob is set to the center of parent vob", "Das VOB wird in die Mitte des übergeordneten VOBs gesetzt", "Vob jest ustawiony na środku voba rodzica", "Vob je nastaven do středu vobu rodiče" });
+            words.Add("SET_VOB_SET_ZERO_PARENT_CANT", new List<string> { "У данного воба нет родителя!", "The vob does not have a parent vob!", "Das VOB hat kein übergeordnetes VOB!", "Vob nie ma voba rodzica!", "Tento vob nemá rodiče!" });
+            words.Add("KEYS_VOB_SET_ZERO_PARENT", new List<string> { "Поместить воб в центр родительского воба", "Move the vob to the center of parent vob", "Verschiebe das VOB in die Mitte des übergeordneten VOBs", "Przenieś voba na środek voba rodzica", "Přesun vobu do středu vobu rodiče" });
 
 
             words.Add("ERROR_REPORT_PROBLEM_TYPE_NAME_IS_VISUAL", new List<string> { "Имя воба совпадает с его визуалом", "Vob's name is the same as its visual", "VOB Name ist identisch mit dem visuellen Objekt", "Nazwa Voba jest taka sama jak jego wygląd", "Jméno vobu je stejné jako jeho vizuál" });

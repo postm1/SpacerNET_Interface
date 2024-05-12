@@ -193,7 +193,7 @@ namespace SpacerUnion
 
         public static bool IsOnlyLatin(string text)
         {
-            return Regex.IsMatch(text, @"^[a-zA-Z0-9_\-\+\=\.\,\;\:\\\/\(\)\]\[\# ]+$");
+            return Regex.IsMatch(text, @"^[a-zA-Z0-9_\-\+\=\.\,\;\:\\\/\(\)\]\[\#\! ]+$");
         }
 
         public static bool IsOptionActive(string text)
