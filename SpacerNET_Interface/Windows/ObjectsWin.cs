@@ -1279,7 +1279,11 @@ namespace SpacerUnion
                 return;
             }
 
-            SpacerNET.objectsWin.tabControlObjects.SelectedIndex = num;
+            if (SpacerNET.objectsWin.tabControlObjects.SelectedIndex != num)
+            {
+                SpacerNET.objectsWin.tabControlObjects.SelectedIndex = num;
+            }
+            
         }
 
         [DllExport]
