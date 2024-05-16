@@ -95,7 +95,31 @@ namespace SpacerUnion.Windows
                 Imports.Stack_PushString(text);
                 Imports.Extern_Filter_CreateNewMaterial();
             }
+            else if (confType == "VOBCATALOG_NEW_GROUP")
+            {
+                string text = textBoxValueEnter.Text.Trim();
 
+                if (text.Contains(";"))
+                {
+                    MessageBox.Show("Symbol ; is not allowed here"); //fixme
+                    return;
+                }
+
+                SpacerNET.vobCatForm.SetNewGroupText(text);
+            }
+            else if (confType == "VOBCATALOG_RENAME_GROUP")
+            {
+                string text = textBoxValueEnter.Text.Trim();
+
+
+                if (text.Contains(";"))
+                {
+                    MessageBox.Show("Symbol ; is not allowed here"); //fixme
+                    return;
+                }
+
+                SpacerNET.vobCatForm.RenameGroup(text);
+            }
 
             this.Hide();
         }
