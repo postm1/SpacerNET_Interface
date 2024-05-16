@@ -150,6 +150,7 @@ namespace SpacerUnion
             stripSpecialFunctions.Enabled = false;
             SpacerNET.pfxWin.ToggleInterface(false);
             SpacerNET.errorForm.ToggleInterface(false);
+            SpacerNET.vobCatForm.ToggleInterface(false);
             // UnionNET.partWin.listBoxParticles.Items.Clear();
             // UnionNET.partWin.listBoxItems.Items.Clear();
         }
@@ -484,6 +485,7 @@ namespace SpacerUnion
 
                 SpacerNET.pfxWin.ToggleSelectPFX(true);
                 SpacerNET.errorForm.ToggleInterface(true);
+                SpacerNET.vobCatForm.ToggleInterface(true);
             }
 
 
@@ -2240,12 +2242,15 @@ namespace SpacerUnion
             SpacerNET.comLightWin.Font = font;
             SpacerNET.compWorldWin.Font = font;
             SpacerNET.errorForm.Font = font;
+            SpacerNET.vobCatForm.Font = font;
+            
 
             SpacerNET.pfxWin.Font = font;
             SpacerNET.pfxWin.OnFontUpdate();
 
             
-            
+
+
 
             SaveFontToSettings();
         }

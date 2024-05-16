@@ -55,6 +55,18 @@ namespace SpacerUnion.Windows
 
         }
 
+        public void ToggleInterface(bool toggle)
+        {
+
+            groupBoxGroups.Enabled = toggle;
+            listBoxGroups.Enabled = toggle;
+            listBoxItems.Enabled = toggle;
+            buttonUP.Enabled = toggle;
+            buttonDOWN.Enabled = toggle;
+            groupBoxItems.Enabled = toggle;
+
+        }
+
 
         public void SetNewGroupText(string groupName)
         {
@@ -101,9 +113,43 @@ namespace SpacerUnion.Windows
 
         }
 
-        public void MoveItem(int direction)
+        public void NewItem(string name)
         {
-            var listBox1 = listBoxGroups;
+            if (listBoxGroups.SelectedItem != null)
+            {
+                if (name.Length == 0)
+                {
+                    return;
+                }
+
+                vobMan.AddNew(listBoxGroups.SelectedItem.ToString(), name, name);
+                listBoxItems.Items.Add(name);
+            }
+        }
+
+        public void OnSelectGroup()
+        {
+            if (listBoxGroups.SelectedItem != null)
+            {
+                listBoxItems.BeginUpdate();
+                listBoxItems.Items.Clear();
+
+                var foundList = vobMan.GetAllByGroup(listBoxGroups.SelectedItem.ToString());
+
+                foreach (var entry in foundList)
+                {
+                    listBoxItems.Items.Add(entry.EntryName);
+                }
+                
+
+
+                listBoxItems.EndUpdate();
+            }
+        }
+
+        public void MoveItem(ListBox list, int direction)
+        {
+            var listBox1 = list;
 
             // Checking selected item
             if (listBox1.SelectedItem == null || listBox1.SelectedIndex < 0)
@@ -172,6 +218,20 @@ namespace SpacerUnion.Windows
 
                 listBoxGroups.EndUpdate();
             }
+
+            if (arr.Count > 1)
+            {
+                for (int i = 1; i < arr.Count; i++)
+                {
+                    var split = arr[i].Trim().Split(';');
+
+                    if (split.Length == 3)
+                    {
+                        vobMan.AddNew(split[0], split[1], split[2]);
+                    }
+                    
+                }
+            }
         }
 
         public void SaveToFile()
@@ -196,7 +256,10 @@ namespace SpacerUnion.Windows
 
             //write all entries in file
 
-
+            foreach (var entry in vobMan.entries)
+            {
+                w.WriteLine(entry.GroupName + ";" + entry.EntryName + ";" + entry.Visual);
+            }
 
             //w.WriteLine(entry.GroupName + ";" + entry.EntryName + ";" + entry.Visual);
             w.Close();
@@ -205,6 +268,8 @@ namespace SpacerUnion.Windows
         private void VobCatalogForm_Shown(object sender, EventArgs e)
         {
             LoadFromFile();
+            Application.DoEvents();
+            ToggleInterface(false);
         }
 
         private void VobCatalogForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -219,17 +284,93 @@ namespace SpacerUnion.Windows
 
         private void buttonDOWN_Click(object sender, EventArgs e)
         {
-            MoveItem(1);
+            MoveItem(listBoxGroups, 1);
         }
 
         private void buttonUP_Click(object sender, EventArgs e)
         {
-            MoveItem(-1);
+            MoveItem(listBoxGroups, - 1);
         }
 
         private void VobCatalogForm_VisibleChanged(object sender, EventArgs e)
         {
             SpacerNET.form.toolStripButtonCatalog.Checked = this.Visible;
+        }
+
+        private void listBoxItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxItems.SelectedIndex >= 0)
+            {
+                var visual = listBoxItems.SelectedItem.ToString();
+
+                Imports.Stack_PushString(visual);
+                Imports.Extern_RenderSelectedVob();
+            }
+            else
+            {
+                Imports.Stack_PushString("");
+                Imports.Extern_RenderSelectedVob();
+            }
+        }
+
+        private void listBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxGroups.SelectedIndex >= 0)
+            {
+                OnSelectGroup();
+            }
+        }
+
+        private void buttonAddElement_Click(object sender, EventArgs e)
+        {
+            if (listBoxGroups.SelectedItem != null)
+            {
+
+                formConf.buttonConfirmNo.Text = Localizator.Get("WIN_COMPLIGHT_CLOSEBUTTON");
+                formConf.buttonConfirmYes.Text = Localizator.Get("WIN_BTN_CONFIRM");
+                formConf.labelTextShow.Text = Localizator.Get("MSG_MATFILTER_NEW_NAME");//fixme
+                formConf.confType = "VOBCATALOG_NEW_ITEM";
+                formConf.clearText = true;
+                formConf.ShowDialog();
+            }
+        }
+
+        private void buttonRemoveItem_Click(object sender, EventArgs e)
+        {
+            if (listBoxGroups.SelectedItem != null && listBoxItems.SelectedItem != null)
+            {
+                //fixme
+                DialogResult dialogResult = MessageBox.Show(Localizator.Get("askSure"), Localizator.Get("confirmation"), MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string groupName = listBoxGroups.SelectedItem.ToString();
+                    string visualName = listBoxItems.SelectedItem.ToString();
+
+                    vobMan.entries.RemoveAll(x => x.GroupName == groupName && x.Visual == visualName);
+                    listBoxItems.Items.RemoveAt(listBoxGroups.SelectedIndex);
+                }
+            }
+        }
+
+        private void listBoxItems_MouseDown(object sender, MouseEventArgs e)
+        {
+
+            ListBox lb = sender as ListBox;
+
+            if (e.Button == MouseButtons.Middle)
+            {
+
+                int index = lb.IndexFromPoint(e.Location);
+                {
+                    if (index >= 0 && lb.Items.Count > 0)
+                    {
+                        string name = lb.GetItemText(lb.Items[index]);
+                        Utils.SetCopyText(name);
+                    }
+                }
+            }
+
         }
     }
 }

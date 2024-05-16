@@ -37,7 +37,11 @@ namespace SpacerUnion.Windows
             this.buttonUP = new System.Windows.Forms.Button();
             this.buttonDOWN = new System.Windows.Forms.Button();
             this.groupBoxGroups = new System.Windows.Forms.GroupBox();
+            this.groupBoxItems = new System.Windows.Forms.GroupBox();
+            this.buttonAddElement = new System.Windows.Forms.Button();
+            this.buttonRemoveItem = new System.Windows.Forms.Button();
             this.groupBoxGroups.SuspendLayout();
+            this.groupBoxItems.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBoxGroups
@@ -45,16 +49,19 @@ namespace SpacerUnion.Windows
             this.listBoxGroups.FormattingEnabled = true;
             this.listBoxGroups.Location = new System.Drawing.Point(33, 12);
             this.listBoxGroups.Name = "listBoxGroups";
-            this.listBoxGroups.Size = new System.Drawing.Size(140, 173);
+            this.listBoxGroups.Size = new System.Drawing.Size(162, 173);
             this.listBoxGroups.TabIndex = 0;
+            this.listBoxGroups.SelectedIndexChanged += new System.EventHandler(this.listBoxGroups_SelectedIndexChanged);
             // 
             // listBoxItems
             // 
             this.listBoxItems.FormattingEnabled = true;
-            this.listBoxItems.Location = new System.Drawing.Point(179, 12);
+            this.listBoxItems.Location = new System.Drawing.Point(201, 12);
             this.listBoxItems.Name = "listBoxItems";
-            this.listBoxItems.Size = new System.Drawing.Size(385, 173);
+            this.listBoxItems.Size = new System.Drawing.Size(339, 173);
             this.listBoxItems.TabIndex = 1;
+            this.listBoxItems.SelectedIndexChanged += new System.EventHandler(this.listBoxItems_SelectedIndexChanged);
+            this.listBoxItems.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxItems_MouseDown);
             // 
             // buttonAddNewGroup
             // 
@@ -120,11 +127,43 @@ namespace SpacerUnion.Windows
             this.groupBoxGroups.TabStop = false;
             this.groupBoxGroups.Text = "Groups";
             // 
+            // groupBoxItems
+            // 
+            this.groupBoxItems.Controls.Add(this.buttonRemoveItem);
+            this.groupBoxItems.Controls.Add(this.buttonAddElement);
+            this.groupBoxItems.Location = new System.Drawing.Point(201, 191);
+            this.groupBoxItems.Name = "groupBoxItems";
+            this.groupBoxItems.Size = new System.Drawing.Size(188, 100);
+            this.groupBoxItems.TabIndex = 9;
+            this.groupBoxItems.TabStop = false;
+            this.groupBoxItems.Text = "Items";
+            // 
+            // buttonAddElement
+            // 
+            this.buttonAddElement.Location = new System.Drawing.Point(6, 19);
+            this.buttonAddElement.Name = "buttonAddElement";
+            this.buttonAddElement.Size = new System.Drawing.Size(161, 23);
+            this.buttonAddElement.TabIndex = 6;
+            this.buttonAddElement.Text = "Add new vob";
+            this.buttonAddElement.UseVisualStyleBackColor = true;
+            this.buttonAddElement.Click += new System.EventHandler(this.buttonAddElement_Click);
+            // 
+            // buttonRemoveItem
+            // 
+            this.buttonRemoveItem.Location = new System.Drawing.Point(6, 45);
+            this.buttonRemoveItem.Name = "buttonRemoveItem";
+            this.buttonRemoveItem.Size = new System.Drawing.Size(161, 23);
+            this.buttonRemoveItem.TabIndex = 7;
+            this.buttonRemoveItem.Text = "Remove selected item";
+            this.buttonRemoveItem.UseVisualStyleBackColor = true;
+            this.buttonRemoveItem.Click += new System.EventHandler(this.buttonRemoveItem_Click);
+            // 
             // VobCatalogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 298);
+            this.ClientSize = new System.Drawing.Size(549, 298);
+            this.Controls.Add(this.groupBoxItems);
             this.Controls.Add(this.groupBoxGroups);
             this.Controls.Add(this.buttonDOWN);
             this.Controls.Add(this.buttonUP);
@@ -143,6 +182,7 @@ namespace SpacerUnion.Windows
             this.Shown += new System.EventHandler(this.VobCatalogForm_Shown);
             this.VisibleChanged += new System.EventHandler(this.VobCatalogForm_VisibleChanged);
             this.groupBoxGroups.ResumeLayout(false);
+            this.groupBoxItems.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -157,5 +197,8 @@ namespace SpacerUnion.Windows
         private System.Windows.Forms.Button buttonUP;
         private System.Windows.Forms.Button buttonDOWN;
         private System.Windows.Forms.GroupBox groupBoxGroups;
+        private System.Windows.Forms.GroupBox groupBoxItems;
+        private System.Windows.Forms.Button buttonAddElement;
+        private System.Windows.Forms.Button buttonRemoveItem;
     }
 }
