@@ -2351,20 +2351,6 @@ namespace SpacerUnion
             }
         }
 
-        private void findZENErrorsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            if (SpacerNET.errorForm.Visible)
-            {
-                SpacerNET.errorForm.Hide();
-            }
-            else
-            {
-                SpacerNET.errorForm.Show();
-            }
-
-        }
-
         private void toolStripButtonErrorReport_Click(object sender, EventArgs e)
         {
             if (SpacerNET.errorForm.Visible)
@@ -2374,6 +2360,18 @@ namespace SpacerUnion
             else
             {
                 SpacerNET.errorForm.Show();
+            }
+        }
+
+        private void toolStripButtonCatalog_Click(object sender, EventArgs e)
+        {
+            if (SpacerNET.vobCatForm.Visible)
+            {
+                SpacerNET.vobCatForm.Hide();
+            }
+            else
+            {
+                SpacerNET.vobCatForm.Show();
             }
         }
     }

@@ -22,7 +22,7 @@ namespace SpacerUnion.Windows
             InitializeComponent();
             vobMan = new VobCatalogManager();
             formConf = new ConfirmForm(null);
-            pathFile = Path.GetFullPath(@"../_work/tools/spacernet_vobcatalog.txt");
+            pathFile = Path.GetFullPath(@"../_work/tools/vobcatalog_spacernet.txt");
         }
 
         private void buttonAddNewGroup_Click(object sender, EventArgs e)
@@ -50,22 +50,35 @@ namespace SpacerUnion.Windows
             }
         }
 
+        public void UpdateLang()
+        {
+
+        }
+
 
         public void SetNewGroupText(string groupName)
         {
             if (listBoxGroups.Items.Contains(groupName))
             {
+                //fixme
                 MessageBox.Show("Such name already exists");
                 return;
             }
 
+            if (groupName.Length == 0)
+            {
+                return;
+            }
+
             listBoxGroups.Items.Add(groupName);
+            listBoxGroups.Focus();
         }
 
 
         public void RenameGroup(string groupName)
         {
-            if (groupName.Contains(";"))
+
+            if (groupName.Length == 0)
             {
                 return;
             }
@@ -84,67 +97,139 @@ namespace SpacerUnion.Windows
             }
 
             listBoxGroups.Items[listBoxGroups.SelectedIndex] = groupName;
-
+            listBoxGroups.Focus();
 
         }
-        
+
+        public void MoveItem(int direction)
+        {
+            var listBox1 = listBoxGroups;
+
+            // Checking selected item
+            if (listBox1.SelectedItem == null || listBox1.SelectedIndex < 0)
+                return; // No selected item - nothing to do
+                        // Calculate new index using move direction
+            int newIndex = listBox1.SelectedIndex + direction;
+            // Checking bounds of the range
+            if (newIndex < 0 || newIndex >= listBox1.Items.Count)
+                return; // Index out of range - nothing to do
+            object selected = listBox1.SelectedItem;
+            // Removing removable element
+            listBox1.Items.Remove(selected);
+            // Insert it in new position
+            listBox1.Items.Insert(newIndex, selected);
+            // Restore selection
+            listBox1.SetSelected(newIndex, true);
+        }
+
 
         private void buttonRemoveSelected_Click(object sender, EventArgs e)
         {
             if (listBoxGroups.SelectedItem != null)
             {
-
+                //fixme
                 DialogResult dialogResult = MessageBox.Show(Localizator.Get("askSure"), Localizator.Get("confirmation"), MessageBoxButtons.YesNo);
 
                 if (dialogResult == DialogResult.Yes)
                 {
+                    string groupName = listBoxGroups.SelectedItem.ToString();
+
+                    vobMan.entries.RemoveAll(x => x.GroupName == groupName);
+
                     listBoxGroups.Items.RemoveAt(listBoxGroups.SelectedIndex);
                 }
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+
+        public void LoadFromFile()
         {
-            var result = vobMan.GetAllByGroup("SOME");
-
-            ConsoleEx.WriteLineYellow("_____");
-
-            for (int i = 0; i < result.Count; i++)
+            if (!File.Exists(pathFile))
             {
-                ConsoleEx.WriteLineYellow(result[i].EntryName);
+                return;
             }
 
-            SaveToFile();
+            List<string> arr = System.IO.File.ReadLines(pathFile, Encoding.UTF8).ToList();
+
+            string firstLine = arr[0].Trim();
+
+            if (firstLine.Length > 0)
+            {
+                var split = firstLine.Split(';');
 
 
+                listBoxGroups.BeginUpdate();
+
+                for (int i = 0; i < split.Length; i++)
+                {
+                    var groupName = split[i].Trim();
+
+                    if (groupName.Length > 0)
+                    {
+                        listBoxGroups.Items.Add(groupName);
+                    }
+                }
+
+                listBoxGroups.EndUpdate();
+            }
         }
 
         public void SaveToFile()
         {
             FileStream fs = new FileStream(pathFile, FileMode.Create);
 
-            StreamWriter w = new StreamWriter(fs, Encoding.Default);
+            StreamWriter w = new StreamWriter(fs, Encoding.UTF8);
 
             HashSet<string> groupNames = new HashSet<string>();
 
             StringBuilder groupsList = new StringBuilder();
 
-            foreach (var entry in vobMan.entries)
+
+            //write all groups in file
+            foreach (var entry in listBoxGroups.Items)
             {
-                if (!groupNames.Contains(entry.GroupName))
-                {
-                    groupNames.Add(entry.GroupName);
-                    groupsList.Append(entry.GroupName + ";");
-                }
-                
+                groupsList.Append(entry.ToString() + ";");
+
             }
 
             w.WriteLine(groupsList.ToString());
+
+            //write all entries in file
+
+
 
             //w.WriteLine(entry.GroupName + ";" + entry.EntryName + ";" + entry.Visual);
             w.Close();
         }
 
-        
+        private void VobCatalogForm_Shown(object sender, EventArgs e)
+        {
+            LoadFromFile();
+        }
+
+        private void VobCatalogForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //fixme
+            //Properties.Settings.Default.SoundWinLocation = this.Location;
+            this.Hide();
+            e.Cancel = true;
+
+            SaveToFile();
+        }
+
+        private void buttonDOWN_Click(object sender, EventArgs e)
+        {
+            MoveItem(1);
+        }
+
+        private void buttonUP_Click(object sender, EventArgs e)
+        {
+            MoveItem(-1);
+        }
+
+        private void VobCatalogForm_VisibleChanged(object sender, EventArgs e)
+        {
+            SpacerNET.form.toolStripButtonCatalog.Checked = this.Visible;
+        }
     }
 }
