@@ -710,6 +710,8 @@ namespace SpacerUnion
             string name = entry.name;
             string vobName = textBoxVobName.Text.Trim();
 
+            
+
             if (vobName.Length > 0 && !Utils.IsOnlyLatin(vobName) && Utils.IsOptionActive("checkBoxOnlyLatinInInput"))
             {
                 MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
@@ -724,6 +726,17 @@ namespace SpacerUnion
             {
                 visualVob = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
             }
+
+            // get visual from Vob Catalog
+            if (SpacerNET.vobCatForm.Visible && SpacerNET.vobCatForm.checkBoxVobCreateActive.Checked)
+            {
+                if (SpacerNET.vobCatForm.listBoxItems.SelectedItem != null)
+                {
+                    visualVob = SpacerNET.vobCatForm.listBoxItems.SelectedItem.ToString();
+                }
+
+            }
+
 
             ConsoleEx.WriteLineGreen("OnCreateVob: ClassDef: " + name);
 

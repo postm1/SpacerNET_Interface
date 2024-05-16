@@ -64,6 +64,8 @@ namespace SpacerUnion.Windows
             buttonUP.Enabled = toggle;
             buttonDOWN.Enabled = toggle;
             groupBoxItems.Enabled = toggle;
+            buttonUpRight.Enabled = toggle;
+            buttonDownRight.Enabled = toggle;
 
         }
 
@@ -122,7 +124,14 @@ namespace SpacerUnion.Windows
                     return;
                 }
 
-                vobMan.AddNew(listBoxGroups.SelectedItem.ToString(), name, name);
+                if (listBoxItems.Items.Contains(name))
+                {
+                    //fixme
+                    MessageBox.Show("Already exists!");
+                    return;
+                }
+
+                vobMan.AddNew(listBoxGroups.SelectedItem.ToString(), name, name, listBoxGroups.Items.Count);
                 listBoxItems.Items.Add(name);
             }
         }
@@ -227,7 +236,11 @@ namespace SpacerUnion.Windows
 
                     if (split.Length == 3)
                     {
-                        vobMan.AddNew(split[0], split[1], split[2]);
+                        string groupName = split[0];
+
+                        int count = vobMan.entries.Where(x => x.GroupName == groupName).Count();
+
+                        vobMan.AddNew(groupName, split[1], split[2], count);
                     }
                     
                 }
@@ -239,8 +252,6 @@ namespace SpacerUnion.Windows
             FileStream fs = new FileStream(pathFile, FileMode.Create);
 
             StreamWriter w = new StreamWriter(fs, Encoding.UTF8);
-
-            HashSet<string> groupNames = new HashSet<string>();
 
             StringBuilder groupsList = new StringBuilder();
 
@@ -254,14 +265,32 @@ namespace SpacerUnion.Windows
 
             w.WriteLine(groupsList.ToString());
 
-            //write all entries in file
 
-            foreach (var entry in vobMan.entries)
+            //sorting by groups 
+            vobMan.entries.Sort((x, y) => x.GroupName.CompareTo(y.GroupName));
+
+            //and indexes (position in listbox)
+            //List<VobCatalogEntry> SortedList = vobMan.entries.OrderBy(o => o.Index).ToList();
+            HashSet<string> writtenGroups = new HashSet<string>();
+
+            //write all entries in file
+            foreach (var tryEntry in vobMan.entries)
             {
-                w.WriteLine(entry.GroupName + ";" + entry.EntryName + ";" + entry.Visual);
+                // get current group, find all entries and write them
+                if (!writtenGroups.Contains(tryEntry.GroupName))
+                {
+                    writtenGroups.Add(tryEntry.GroupName);
+
+                    var list = vobMan.entries.Where(x => x.GroupName == tryEntry.GroupName).ToList().OrderBy(x => x.Index);
+
+                    foreach (var entry in list)
+                    {
+                        w.WriteLine(entry.GroupName + ";" + entry.EntryName + ";" + entry.Visual);
+                    }
+                }
+               
             }
 
-            //w.WriteLine(entry.GroupName + ";" + entry.EntryName + ";" + entry.Visual);
             w.Close();
         }
 
@@ -348,7 +377,7 @@ namespace SpacerUnion.Windows
                     string visualName = listBoxItems.SelectedItem.ToString();
 
                     vobMan.entries.RemoveAll(x => x.GroupName == groupName && x.Visual == visualName);
-                    listBoxItems.Items.RemoveAt(listBoxGroups.SelectedIndex);
+                    listBoxItems.Items.RemoveAt(listBoxItems.SelectedIndex);
                 }
             }
         }
@@ -371,6 +400,29 @@ namespace SpacerUnion.Windows
                 }
             }
 
+        }
+
+        private void buttonUpRight_Click(object sender, EventArgs e)
+        {
+            if (listBoxGroups.SelectedItem != null)
+            {
+                var groupName = listBoxGroups.SelectedItem.ToString();
+
+                MoveItem(listBoxItems, -1);
+                vobMan.UpdateIndexes(groupName, listBoxItems);
+            }
+            
+        }
+
+        private void buttonDownRight_Click(object sender, EventArgs e)
+        {
+            if (listBoxGroups.SelectedItem != null)
+            {
+                var groupName = listBoxGroups.SelectedItem.ToString();
+
+                MoveItem(listBoxItems, 1);
+                vobMan.UpdateIndexes(groupName, listBoxItems);
+            }
         }
     }
 }

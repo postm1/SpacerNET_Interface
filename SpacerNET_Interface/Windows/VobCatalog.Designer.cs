@@ -40,6 +40,9 @@ namespace SpacerUnion.Windows
             this.groupBoxItems = new System.Windows.Forms.GroupBox();
             this.buttonAddElement = new System.Windows.Forms.Button();
             this.buttonRemoveItem = new System.Windows.Forms.Button();
+            this.buttonUpRight = new System.Windows.Forms.Button();
+            this.buttonDownRight = new System.Windows.Forms.Button();
+            this.checkBoxVobCreateActive = new System.Windows.Forms.CheckBox();
             this.groupBoxGroups.SuspendLayout();
             this.groupBoxItems.SuspendLayout();
             this.SuspendLayout();
@@ -133,7 +136,7 @@ namespace SpacerUnion.Windows
             this.groupBoxItems.Controls.Add(this.buttonAddElement);
             this.groupBoxItems.Location = new System.Drawing.Point(201, 191);
             this.groupBoxItems.Name = "groupBoxItems";
-            this.groupBoxItems.Size = new System.Drawing.Size(188, 100);
+            this.groupBoxItems.Size = new System.Drawing.Size(188, 75);
             this.groupBoxItems.TabIndex = 9;
             this.groupBoxItems.TabStop = false;
             this.groupBoxItems.Text = "Items";
@@ -158,11 +161,48 @@ namespace SpacerUnion.Windows
             this.buttonRemoveItem.UseVisualStyleBackColor = true;
             this.buttonRemoveItem.Click += new System.EventHandler(this.buttonRemoveItem_Click);
             // 
+            // buttonUpRight
+            // 
+            this.buttonUpRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonUpRight.Location = new System.Drawing.Point(546, 60);
+            this.buttonUpRight.Name = "buttonUpRight";
+            this.buttonUpRight.Size = new System.Drawing.Size(23, 30);
+            this.buttonUpRight.TabIndex = 10;
+            this.buttonUpRight.Text = "↑";
+            this.buttonUpRight.UseVisualStyleBackColor = true;
+            this.buttonUpRight.Click += new System.EventHandler(this.buttonUpRight_Click);
+            // 
+            // buttonDownRight
+            // 
+            this.buttonDownRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonDownRight.Location = new System.Drawing.Point(546, 96);
+            this.buttonDownRight.Name = "buttonDownRight";
+            this.buttonDownRight.Size = new System.Drawing.Size(23, 30);
+            this.buttonDownRight.TabIndex = 11;
+            this.buttonDownRight.Text = "↓";
+            this.buttonDownRight.UseVisualStyleBackColor = true;
+            this.buttonDownRight.Click += new System.EventHandler(this.buttonDownRight_Click);
+            // 
+            // checkBoxVobCreateActive
+            // 
+            this.checkBoxVobCreateActive.AutoSize = true;
+            this.checkBoxVobCreateActive.Checked = true;
+            this.checkBoxVobCreateActive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxVobCreateActive.Location = new System.Drawing.Point(207, 271);
+            this.checkBoxVobCreateActive.Name = "checkBoxVobCreateActive";
+            this.checkBoxVobCreateActive.Size = new System.Drawing.Size(215, 17);
+            this.checkBoxVobCreateActive.TabIndex = 12;
+            this.checkBoxVobCreateActive.Text = "Put selected visual when creating a vob";
+            this.checkBoxVobCreateActive.UseVisualStyleBackColor = true;
+            // 
             // VobCatalogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 298);
+            this.ClientSize = new System.Drawing.Size(575, 298);
+            this.Controls.Add(this.checkBoxVobCreateActive);
+            this.Controls.Add(this.buttonDownRight);
+            this.Controls.Add(this.buttonUpRight);
             this.Controls.Add(this.groupBoxItems);
             this.Controls.Add(this.groupBoxGroups);
             this.Controls.Add(this.buttonDOWN);
@@ -184,13 +224,13 @@ namespace SpacerUnion.Windows
             this.groupBoxGroups.ResumeLayout(false);
             this.groupBoxItems.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.ListBox listBoxGroups;
-        private System.Windows.Forms.ListBox listBoxItems;
         private System.Windows.Forms.Button buttonAddNewGroup;
         private System.Windows.Forms.Button buttonRemoveSelected;
         private System.Windows.Forms.Button buttonRenameSelected;
@@ -200,5 +240,9 @@ namespace SpacerUnion.Windows
         private System.Windows.Forms.GroupBox groupBoxItems;
         private System.Windows.Forms.Button buttonAddElement;
         private System.Windows.Forms.Button buttonRemoveItem;
+        private System.Windows.Forms.Button buttonUpRight;
+        private System.Windows.Forms.Button buttonDownRight;
+        public System.Windows.Forms.CheckBox checkBoxVobCreateActive;
+        public System.Windows.Forms.ListBox listBoxItems;
     }
 }
