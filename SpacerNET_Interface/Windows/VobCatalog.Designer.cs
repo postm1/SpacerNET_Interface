@@ -45,6 +45,7 @@ namespace SpacerUnion.Windows
             this.buttonChangeProps = new System.Windows.Forms.Button();
             this.buttonCreateVob = new System.Windows.Forms.Button();
             this.groupBoxActions = new System.Windows.Forms.GroupBox();
+            this.checkBoxHideModel = new System.Windows.Forms.CheckBox();
             this.groupBoxGroups.SuspendLayout();
             this.groupBoxItems.SuspendLayout();
             this.groupBoxActions.SuspendLayout();
@@ -210,6 +211,7 @@ namespace SpacerUnion.Windows
             // 
             // groupBoxActions
             // 
+            this.groupBoxActions.Controls.Add(this.checkBoxHideModel);
             this.groupBoxActions.Controls.Add(this.buttonCreateVob);
             this.groupBoxActions.Location = new System.Drawing.Point(395, 191);
             this.groupBoxActions.Name = "groupBoxActions";
@@ -217,6 +219,16 @@ namespace SpacerUnion.Windows
             this.groupBoxActions.TabIndex = 10;
             this.groupBoxActions.TabStop = false;
             this.groupBoxActions.Text = "Actions";
+            // 
+            // checkBoxHideModel
+            // 
+            this.checkBoxHideModel.AutoSize = true;
+            this.checkBoxHideModel.Location = new System.Drawing.Point(8, 61);
+            this.checkBoxHideModel.Name = "checkBoxHideModel";
+            this.checkBoxHideModel.Size = new System.Drawing.Size(168, 17);
+            this.checkBoxHideModel.TabIndex = 14;
+            this.checkBoxHideModel.Text = "Hide 3D preview when closed";
+            this.checkBoxHideModel.UseVisualStyleBackColor = true;
             // 
             // VobCatalogForm
             // 
@@ -247,6 +259,7 @@ namespace SpacerUnion.Windows
             this.groupBoxGroups.ResumeLayout(false);
             this.groupBoxItems.ResumeLayout(false);
             this.groupBoxActions.ResumeLayout(false);
+            this.groupBoxActions.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -269,5 +282,6 @@ namespace SpacerUnion.Windows
         private System.Windows.Forms.Button buttonChangeProps;
         private System.Windows.Forms.Button buttonCreateVob;
         private System.Windows.Forms.GroupBox groupBoxActions;
+        private System.Windows.Forms.CheckBox checkBoxHideModel;
     }
 }

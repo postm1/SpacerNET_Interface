@@ -370,7 +370,7 @@ namespace SpacerUnion.Windows
         {
             SpacerNET.form.toolStripButtonCatalog.Checked = this.Visible;
 
-            if (!this.Visible)
+            if (!this.Visible && checkBoxHideModel.Checked)
             {
                 Imports.Stack_PushString("");
                 Imports.Extern_RenderSelectedVob();
@@ -506,6 +506,18 @@ namespace SpacerUnion.Windows
 
         private void buttonCreateVob_Click(object sender, EventArgs e)
         {
+            if (SpacerNET.matFilterWin.Visible)
+            {
+                MessageBox.Show("Close mateditor first!"); //fixme
+                return;
+            }
+
+            if (SpacerNET.form.toolStripButtonMaterial.Checked)
+            {
+                MessageBox.Show("Turn off select polygons mode!"); //fixme
+                return;
+            }
+
             if (listBoxGroups.SelectedItem != null && listBoxItems.SelectedItem != null)
             {
                 var curGroup = listBoxGroups.SelectedItem.ToString();
