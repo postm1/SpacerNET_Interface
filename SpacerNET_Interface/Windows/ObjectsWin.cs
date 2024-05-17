@@ -727,16 +727,6 @@ namespace SpacerUnion
                 visualVob = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
             }
 
-            // get visual from Vob Catalog
-            if (SpacerNET.vobCatForm.Visible && SpacerNET.vobCatForm.checkBoxVobCreateActive.Checked)
-            {
-                if (SpacerNET.vobCatForm.listBoxItems.SelectedItem != null)
-                {
-                    visualVob = SpacerNET.vobCatForm.listBoxItems.SelectedItem.ToString();
-                }
-
-            }
-
 
             ConsoleEx.WriteLineGreen("OnCreateVob: ClassDef: " + name);
 

@@ -120,18 +120,7 @@ namespace SpacerUnion.Windows
 
                 SpacerNET.vobCatForm.RenameGroup(text);
             }
-            else if (confType == "VOBCATALOG_NEW_ITEM")
-            {
-                string text = textBoxValueEnter.Text.Trim();
-
-                if (text.Contains(";"))
-                {
-                    MessageBox.Show("Symbol ; is not allowed here"); //fixme
-                    return;
-                }
-
-                SpacerNET.vobCatForm.NewItem(text);
-            }
+           
 
 
 
@@ -167,6 +156,16 @@ namespace SpacerUnion.Windows
                 e.Handled = true;
                 this.Close();
             }
+
+        }
+
+        private void labelTextShow_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxValueEnter_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

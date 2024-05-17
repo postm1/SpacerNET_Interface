@@ -40,6 +40,7 @@
             this.textBoxValueEnter.Name = "textBoxValueEnter";
             this.textBoxValueEnter.Size = new System.Drawing.Size(361, 20);
             this.textBoxValueEnter.TabIndex = 0;
+            this.textBoxValueEnter.TextChanged += new System.EventHandler(this.textBoxValueEnter_TextChanged);
             this.textBoxValueEnter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValueEnter_KeyPress);
             // 
             // labelTextShow
@@ -50,6 +51,7 @@
             this.labelTextShow.Size = new System.Drawing.Size(82, 13);
             this.labelTextShow.TabIndex = 1;
             this.labelTextShow.Text = "Enter the name:";
+            this.labelTextShow.Click += new System.EventHandler(this.labelTextShow_Click);
             // 
             // buttonConfirmYes
             // 

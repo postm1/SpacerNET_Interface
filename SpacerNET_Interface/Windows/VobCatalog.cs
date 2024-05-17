@@ -15,6 +15,7 @@ namespace SpacerUnion.Windows
     {
         public VobCatalogManager vobMan;
         public ConfirmForm formConf;
+        public VobCatalogPropsForm propsForm;
         string pathFile;
 
         public VobCatalogForm()
@@ -22,6 +23,7 @@ namespace SpacerUnion.Windows
             InitializeComponent();
             vobMan = new VobCatalogManager();
             formConf = new ConfirmForm(null);
+            propsForm = new VobCatalogPropsForm();
             pathFile = Path.GetFullPath(@"../_work/tools/vobcatalog_spacernet.txt");
         }
 
@@ -66,6 +68,7 @@ namespace SpacerUnion.Windows
             groupBoxItems.Enabled = toggle;
             buttonUpRight.Enabled = toggle;
             buttonDownRight.Enabled = toggle;
+            groupBoxActions.Enabled = toggle;
 
         }
 
@@ -115,7 +118,7 @@ namespace SpacerUnion.Windows
 
         }
 
-        public void NewItem(string name)
+        public void NewItem(string name, bool dynColl)
         {
             if (listBoxGroups.SelectedItem != null)
             {
@@ -131,13 +134,43 @@ namespace SpacerUnion.Windows
                     return;
                 }
 
-                vobMan.AddNew(listBoxGroups.SelectedItem.ToString(), name, name, listBoxGroups.Items.Count);
+                var newEntry = vobMan.AddNew(listBoxGroups.SelectedItem.ToString(), name, name, listBoxGroups.Items.Count);
+
+                newEntry.DynColl = dynColl;
+
                 listBoxItems.Items.Add(name);
             }
         }
 
+        public void ChangeItem(string name, bool dynColl)
+        {
+            if (listBoxItems.SelectedItem != null && listBoxGroups.SelectedItem != null)
+            {
+                if (name.Length == 0)
+                {
+                    return;
+                }
+
+                var curGroup = listBoxGroups.SelectedItem.ToString();
+                var curVisual = listBoxItems.SelectedItem.ToString();
+
+                var newEntry = vobMan.GetByGroupAndVisual(curGroup, curVisual);
+
+                if (newEntry != null)
+                {
+                    newEntry.Visual = name;
+                    newEntry.DynColl = dynColl;
+                }
+
+            }
+        }
+
+
         public void OnSelectGroup()
         {
+            Imports.Stack_PushString("");
+            Imports.Extern_RenderSelectedVob();
+
             if (listBoxGroups.SelectedItem != null)
             {
                 listBoxItems.BeginUpdate();
@@ -234,13 +267,15 @@ namespace SpacerUnion.Windows
                 {
                     var split = arr[i].Trim().Split(';');
 
-                    if (split.Length == 3)
+                    if (split.Length == 4)
                     {
                         string groupName = split[0];
 
                         int count = vobMan.entries.Where(x => x.GroupName == groupName).Count();
 
-                        vobMan.AddNew(groupName, split[1], split[2], count);
+                        var newEntry = vobMan.AddNew(groupName, split[1], split[2], count);
+
+                        newEntry.DynColl = Convert.ToBoolean(split[3]);
                     }
                     
                 }
@@ -285,7 +320,7 @@ namespace SpacerUnion.Windows
 
                     foreach (var entry in list)
                     {
-                        w.WriteLine(entry.GroupName + ";" + entry.EntryName + ";" + entry.Visual);
+                        w.WriteLine(entry.GroupName + ";" + entry.EntryName + ";" + entry.Visual + ";" + entry.DynColl);
                     }
                 }
                
@@ -355,12 +390,12 @@ namespace SpacerUnion.Windows
             if (listBoxGroups.SelectedItem != null)
             {
 
-                formConf.buttonConfirmNo.Text = Localizator.Get("WIN_COMPLIGHT_CLOSEBUTTON");
-                formConf.buttonConfirmYes.Text = Localizator.Get("WIN_BTN_CONFIRM");
-                formConf.labelTextShow.Text = Localizator.Get("MSG_MATFILTER_NEW_NAME");//fixme
-                formConf.confType = "VOBCATALOG_NEW_ITEM";
-                formConf.clearText = true;
-                formConf.ShowDialog();
+                propsForm.buttonConfirmNo.Text = Localizator.Get("WIN_COMPLIGHT_CLOSEBUTTON");
+                propsForm.buttonConfirmYes.Text = Localizator.Get("WIN_BTN_CONFIRM");
+                propsForm.labelTextShow.Text = Localizator.Get("MSG_MATFILTER_NEW_NAME");//fixme
+                propsForm.confType = "VOBCATALOG_ADD_NEW";
+                propsForm.clearText = true;
+                propsForm.ShowDialog();
             }
         }
 
@@ -423,6 +458,61 @@ namespace SpacerUnion.Windows
                 MoveItem(listBoxItems, 1);
                 vobMan.UpdateIndexes(groupName, listBoxItems);
             }
+        }
+
+        private void buttonChangeProps_Click(object sender, EventArgs e)
+        {
+            if (listBoxItems.SelectedItem != null)
+            {
+                propsForm.buttonConfirmNo.Text = Localizator.Get("WIN_COMPLIGHT_CLOSEBUTTON");
+                propsForm.buttonConfirmYes.Text = Localizator.Get("WIN_BTN_CONFIRM");
+                propsForm.labelTextShow.Text = Localizator.Get("MSG_MATFILTER_NEW_NAME");//fixme
+                propsForm.confType = "VOBCATALOG_CHANGE_ELEMENT";
+                propsForm.clearText = true;
+
+
+
+                var curGroup = listBoxGroups.SelectedItem.ToString();
+                var curVisual = listBoxItems.SelectedItem.ToString();
+
+                var newEntry = vobMan.GetByGroupAndVisual(curGroup, curVisual);
+
+                if (newEntry != null)
+                {
+                    propsForm.textBoxValueEnter.Text = newEntry.Visual;
+                    propsForm.checkBoxDynColl.Checked = newEntry.DynColl;
+
+                    propsForm.ShowDialog();
+                }
+                
+            }
+        }
+
+        private void buttonCreateVob_Click(object sender, EventArgs e)
+        {
+            if (listBoxGroups.SelectedItem != null && listBoxItems.SelectedItem != null)
+            {
+                var curGroup = listBoxGroups.SelectedItem.ToString();
+                var curVisual = listBoxItems.SelectedItem.ToString();
+
+                var newEntry = vobMan.GetByGroupAndVisual(curGroup, curVisual);
+
+                if (newEntry != null)
+                {
+                    Imports.Stack_PushString(newEntry.Visual);
+                    Imports.Stack_PushString("");
+                    Imports.Stack_PushString("zCVob");
+                    Imports.Extern_CreateNewVobVisual(Convert.ToInt32(newEntry.DynColl), 0); //fixme 0
+
+                }
+                
+            }
+               
+        }
+
+        private void checkBoxVobCreateActive_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

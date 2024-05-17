@@ -12,12 +12,13 @@ namespace SpacerUnion.Common
         private string groupName;
         private string entryName;
         private string visual;
-
+        private bool dynColl;
 
         public string GroupName { get => groupName; set => groupName = value; }
         public string EntryName { get => entryName; set => entryName = value; }
         public string Visual { get => visual; set => visual = value; }
         public int Index { get => index; set => index = value; }
+        public bool DynColl { get => dynColl; set => dynColl = value; }
     }
 
     public class VobCatalogManager
@@ -30,7 +31,7 @@ namespace SpacerUnion.Common
             entries = new List<VobCatalogEntry>();
         }
 
-        public void AddNew(string group, string name, string visual, int index)
+        public VobCatalogEntry AddNew(string group, string name, string visual, int index)
         {
             var newEntry = new VobCatalogEntry();
 
@@ -40,6 +41,8 @@ namespace SpacerUnion.Common
             newEntry.Index = index;
 
             entries.Add(newEntry);
+
+            return newEntry;
         }
 
         public List<VobCatalogEntry> GetAllByGroup(string group)
@@ -47,6 +50,11 @@ namespace SpacerUnion.Common
             List<VobCatalogEntry> list = entries.Where(x => x.GroupName == group).ToList();
 
             return list;
+        }
+
+        public VobCatalogEntry GetByGroupAndVisual(string group, string visual)
+        {
+            return entries.Where(x => x.GroupName == group && x.Visual == visual).FirstOrDefault();
         }
 
         public void Clear()
