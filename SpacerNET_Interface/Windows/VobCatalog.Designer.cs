@@ -67,6 +67,7 @@ namespace SpacerUnion.Windows
             this.listBoxItems.Size = new System.Drawing.Size(364, 173);
             this.listBoxItems.TabIndex = 1;
             this.listBoxItems.SelectedIndexChanged += new System.EventHandler(this.listBoxItems_SelectedIndexChanged);
+            this.listBoxItems.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxItems_MouseDoubleClick);
             this.listBoxItems.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxItems_MouseDown);
             // 
             // buttonAddNewGroup
@@ -203,7 +204,7 @@ namespace SpacerUnion.Windows
             this.buttonCreateVob.Name = "buttonCreateVob";
             this.buttonCreateVob.Size = new System.Drawing.Size(170, 23);
             this.buttonCreateVob.TabIndex = 13;
-            this.buttonCreateVob.Text = "Create new vob";
+            this.buttonCreateVob.Text = "Create new zCVob";
             this.buttonCreateVob.UseVisualStyleBackColor = true;
             this.buttonCreateVob.Click += new System.EventHandler(this.buttonCreateVob_Click);
             // 

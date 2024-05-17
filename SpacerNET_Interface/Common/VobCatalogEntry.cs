@@ -10,15 +10,15 @@ namespace SpacerUnion.Common
     {
         private int index;
         private string groupName;
-        private string entryName;
         private string visual;
         private bool dynColl;
+        private bool statColl;
 
         public string GroupName { get => groupName; set => groupName = value; }
-        public string EntryName { get => entryName; set => entryName = value; }
         public string Visual { get => visual; set => visual = value; }
         public int Index { get => index; set => index = value; }
         public bool DynColl { get => dynColl; set => dynColl = value; }
+        public bool StatColl { get => statColl; set => statColl = value; }
     }
 
     public class VobCatalogManager
@@ -31,12 +31,11 @@ namespace SpacerUnion.Common
             entries = new List<VobCatalogEntry>();
         }
 
-        public VobCatalogEntry AddNew(string group, string name, string visual, int index)
+        public VobCatalogEntry AddNew(string group, string visual, int index)
         {
             var newEntry = new VobCatalogEntry();
 
             newEntry.GroupName = group;
-            newEntry.EntryName = name;
             newEntry.Visual = visual;
             newEntry.Index = index;
 

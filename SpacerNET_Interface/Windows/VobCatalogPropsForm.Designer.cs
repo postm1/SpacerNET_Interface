@@ -34,11 +34,13 @@ namespace SpacerUnion.Windows
             this.labelTextShow = new System.Windows.Forms.Label();
             this.textBoxValueEnter = new System.Windows.Forms.TextBox();
             this.checkBoxDynColl = new System.Windows.Forms.CheckBox();
+            this.checkBoxStatic = new System.Windows.Forms.CheckBox();
+            this.buttonOpenFile = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonConfirmNo
             // 
-            this.buttonConfirmNo.Location = new System.Drawing.Point(210, 152);
+            this.buttonConfirmNo.Location = new System.Drawing.Point(208, 117);
             this.buttonConfirmNo.Name = "buttonConfirmNo";
             this.buttonConfirmNo.Size = new System.Drawing.Size(95, 23);
             this.buttonConfirmNo.TabIndex = 7;
@@ -48,7 +50,7 @@ namespace SpacerUnion.Windows
             // 
             // buttonConfirmYes
             // 
-            this.buttonConfirmYes.Location = new System.Drawing.Point(95, 152);
+            this.buttonConfirmYes.Location = new System.Drawing.Point(108, 117);
             this.buttonConfirmYes.Name = "buttonConfirmYes";
             this.buttonConfirmYes.Size = new System.Drawing.Size(94, 23);
             this.buttonConfirmYes.TabIndex = 6;
@@ -69,7 +71,7 @@ namespace SpacerUnion.Windows
             // 
             this.textBoxValueEnter.Location = new System.Drawing.Point(27, 33);
             this.textBoxValueEnter.Name = "textBoxValueEnter";
-            this.textBoxValueEnter.Size = new System.Drawing.Size(361, 20);
+            this.textBoxValueEnter.Size = new System.Drawing.Size(348, 20);
             this.textBoxValueEnter.TabIndex = 4;
             // 
             // checkBoxDynColl
@@ -82,11 +84,33 @@ namespace SpacerUnion.Windows
             this.checkBoxDynColl.Text = "Dynamic collision";
             this.checkBoxDynColl.UseVisualStyleBackColor = true;
             // 
+            // checkBoxStatic
+            // 
+            this.checkBoxStatic.AutoSize = true;
+            this.checkBoxStatic.Location = new System.Drawing.Point(27, 82);
+            this.checkBoxStatic.Name = "checkBoxStatic";
+            this.checkBoxStatic.Size = new System.Drawing.Size(93, 17);
+            this.checkBoxStatic.TabIndex = 9;
+            this.checkBoxStatic.Text = "Static collision";
+            this.checkBoxStatic.UseVisualStyleBackColor = true;
+            // 
+            // buttonOpenFile
+            // 
+            this.buttonOpenFile.Location = new System.Drawing.Point(381, 31);
+            this.buttonOpenFile.Name = "buttonOpenFile";
+            this.buttonOpenFile.Size = new System.Drawing.Size(42, 23);
+            this.buttonOpenFile.TabIndex = 10;
+            this.buttonOpenFile.Text = "...";
+            this.buttonOpenFile.UseVisualStyleBackColor = true;
+            this.buttonOpenFile.Click += new System.EventHandler(this.buttonOpenFile_Click);
+            // 
             // VobCatalogPropsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 187);
+            this.ClientSize = new System.Drawing.Size(435, 153);
+            this.Controls.Add(this.buttonOpenFile);
+            this.Controls.Add(this.checkBoxStatic);
             this.Controls.Add(this.checkBoxDynColl);
             this.Controls.Add(this.buttonConfirmNo);
             this.Controls.Add(this.buttonConfirmYes);
@@ -94,12 +118,15 @@ namespace SpacerUnion.Windows
             this.Controls.Add(this.textBoxValueEnter);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "VobCatalogPropsForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VobCatalogPropsForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VobCatalogPropsForm_FormClosing);
+            this.Shown += new System.EventHandler(this.VobCatalogPropsForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,5 +139,7 @@ namespace SpacerUnion.Windows
         public System.Windows.Forms.Label labelTextShow;
         public System.Windows.Forms.TextBox textBoxValueEnter;
         public System.Windows.Forms.CheckBox checkBoxDynColl;
+        public System.Windows.Forms.CheckBox checkBoxStatic;
+        private System.Windows.Forms.Button buttonOpenFile;
     }
 }
