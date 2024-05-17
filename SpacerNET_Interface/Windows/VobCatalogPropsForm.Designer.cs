@@ -124,7 +124,6 @@ namespace SpacerUnion.Windows
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "VobCatalogPropsForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VobCatalogPropsForm_FormClosing);
             this.Shown += new System.EventHandler(this.VobCatalogPropsForm_Shown);
             this.ResumeLayout(false);

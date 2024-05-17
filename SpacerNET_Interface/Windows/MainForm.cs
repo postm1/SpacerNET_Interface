@@ -255,6 +255,7 @@ namespace SpacerUnion
             toolStripButtonNoGrass.Text = Localizator.Get("WIN_TOOLTIP_NOGRASS");
             toolStripButtonPfxEditor.Text = Localizator.Get("PFX_EDITOR_TITLE");
             toolStripButtonErrorReport.Text = Localizator.Get("ERROR_REPORT_TITLE");
+            toolStripButtonCatalog.Text = Localizator.Get("WIN_VOBCATALOG_TITLE");
 
             freezeTimeToolStripMenuItem.Text = Localizator.Get("MENU_TOP_VIEW_FREEZETIME");
 
@@ -265,7 +266,8 @@ namespace SpacerUnion
             toolStripButtonGrass.ToolTipText = toolStripButtonGrass.Text;
             toolStripButtonGratt.ToolTipText = toolStripButtonGratt.Text;
             toolStripButtonMulti.ToolTipText = toolStripButtonMulti.Text;
-
+            toolStripButtonCatalog.ToolTipText = toolStripButtonCatalog.Text;
+            toolStripButtonErrorReport.ToolTipText = toolStripButtonErrorReport.Text;
 
             if (SpacerNET.isInit)
             {

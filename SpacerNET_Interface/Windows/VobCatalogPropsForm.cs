@@ -24,6 +24,12 @@ namespace SpacerUnion.Windows
             confType = String.Empty;
         }
 
+        public void UpdateLang()
+        {
+            checkBoxDynColl.Text = Localizator.Get("checkBoxDynStat");
+            checkBoxStatic.Text = Localizator.Get("checkBoxStaStat");
+        }
+
         private void buttonConfirmYes_Click(object sender, EventArgs e)
         {
             bool dynColl = checkBoxDynColl.Checked;
@@ -74,7 +80,7 @@ namespace SpacerUnion.Windows
 
         private void VobCatalogPropsForm_Shown(object sender, EventArgs e)
         {
-            //this.textBoxValueEnter.Focus();
+            this.textBoxValueEnter.Focus();
 
             if (clearText)
             {

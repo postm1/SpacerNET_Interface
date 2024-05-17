@@ -27,11 +27,12 @@ namespace SpacerUnion.Windows
             pathFile = Path.GetFullPath(@"../_work/tools/vobcatalog_spacernet.txt");
         }
 
+      
         private void buttonAddNewGroup_Click(object sender, EventArgs e)
         {
             formConf.buttonConfirmNo.Text = Localizator.Get("WIN_COMPLIGHT_CLOSEBUTTON");
             formConf.buttonConfirmYes.Text = Localizator.Get("WIN_BTN_CONFIRM");
-            formConf.labelTextShow.Text = "Group name: ";//fixme:
+            formConf.labelTextShow.Text = Localizator.Get("WIN_VOBCATALOG_GROUP_NAME");
             formConf.confType = "VOBCATALOG_NEW_GROUP";
             formConf.clearText = true;
             formConf.ShowDialog();
@@ -44,7 +45,7 @@ namespace SpacerUnion.Windows
 
                 formConf.buttonConfirmNo.Text = Localizator.Get("WIN_COMPLIGHT_CLOSEBUTTON");
                 formConf.buttonConfirmYes.Text = Localizator.Get("WIN_BTN_CONFIRM");
-                formConf.labelTextShow.Text = "Group name: ";//fixme:
+                formConf.labelTextShow.Text = Localizator.Get("WIN_VOBCATALOG_GROUP_NAME");
                 formConf.confType = "VOBCATALOG_RENAME_GROUP";
                 formConf.clearText = false;
                 formConf.textBoxValueEnter.Text = listBoxGroups.SelectedItem.ToString();
@@ -54,6 +55,7 @@ namespace SpacerUnion.Windows
 
         public void UpdateLang()
         {
+            this.Text = Localizator.Get("WIN_VOBCATALOG_TITLE");
 
         }
 
@@ -77,8 +79,7 @@ namespace SpacerUnion.Windows
         {
             if (listBoxGroups.Items.Contains(groupName))
             {
-                //fixme
-                MessageBox.Show("Such name already exists");
+                MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
                 return;
             }
 
@@ -129,8 +130,7 @@ namespace SpacerUnion.Windows
 
                 if (listBoxItems.Items.Contains(name))
                 {
-                    //fixme
-                    MessageBox.Show("Already exists!");
+                    MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
                     return;
                 }
 
@@ -407,8 +407,8 @@ namespace SpacerUnion.Windows
             {
 
                 propsForm.buttonConfirmNo.Text = Localizator.Get("WIN_COMPLIGHT_CLOSEBUTTON");
-                propsForm.buttonConfirmYes.Text = Localizator.Get("WIN_BTN_CONFIRM");
-                propsForm.labelTextShow.Text = "Visual name: ";//fixme
+                propsForm.buttonConfirmYes.Text = Localizator.Get("WIN_BTN_CONFIRM"); 
+                propsForm.labelTextShow.Text = Localizator.Get("WIN_VOBCATALOG_VISUAL_NAME");
                 propsForm.confType = "VOBCATALOG_ADD_NEW";
                 propsForm.clearText = true;
                 propsForm.ShowDialog();
@@ -482,7 +482,7 @@ namespace SpacerUnion.Windows
             {
                 propsForm.buttonConfirmNo.Text = Localizator.Get("WIN_COMPLIGHT_CLOSEBUTTON");
                 propsForm.buttonConfirmYes.Text = Localizator.Get("WIN_BTN_CONFIRM");
-                propsForm.labelTextShow.Text = "Visual name: ";//fixme
+                propsForm.labelTextShow.Text = Localizator.Get("WIN_VOBCATALOG_VISUAL_NAME");
                 propsForm.confType = "VOBCATALOG_CHANGE_ELEMENT";
                 propsForm.clearText = false;
 
@@ -508,13 +508,13 @@ namespace SpacerUnion.Windows
         {
             if (SpacerNET.matFilterWin.Visible)
             {
-                MessageBox.Show("Close mateditor first!"); //fixme
+                MessageBox.Show(Localizator.Get("WIN_VOBCATALOG_MATFILTER_TURNOFF"));
                 return;
             }
 
             if (SpacerNET.form.toolStripButtonMaterial.Checked)
             {
-                MessageBox.Show("Turn off select polygons mode!"); //fixme
+                MessageBox.Show(Localizator.Get("WIN_VOBCATALOG_POLYSELECT_TURNOFF"));
                 return;
             }
 

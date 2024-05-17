@@ -118,6 +118,7 @@ namespace SpacerUnion.Common
             SpacerNET.pfxWin.UpdateLang();
             SpacerNET.errorForm.UpdateLang();
             SpacerNET.vobCatForm.UpdateLang();
+            SpacerNET.vobCatForm.propsForm.UpdateLang();
         }
 
         [DllExport]
