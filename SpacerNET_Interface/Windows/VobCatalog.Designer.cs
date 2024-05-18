@@ -238,6 +238,7 @@ namespace SpacerUnion.Windows
             this.checkBoxHideModel.TabIndex = 14;
             this.checkBoxHideModel.Text = "Hide 3D preview when closed";
             this.checkBoxHideModel.UseVisualStyleBackColor = true;
+            this.checkBoxHideModel.CheckedChanged += new System.EventHandler(this.checkBoxHideModel_CheckedChanged);
             // 
             // panelBottom
             // 

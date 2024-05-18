@@ -56,6 +56,7 @@ namespace SpacerUnion.Windows
         public void UpdateLang()
         {
             this.Text = Localizator.Get("WIN_VOBCATALOG_TITLE");
+            checkBoxHideModel.Text = Localizator.Get("WIN_VOBCATALOG_HIDE_PREVIEW");
 
         }
 
@@ -68,7 +69,10 @@ namespace SpacerUnion.Windows
             {
                 ToggleInterface(false);
             }
-            
+
+            Imports.Stack_PushString("bHidePreviewOnVobCatalogHide");
+            checkBoxHideModel.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
         }
 
         public void ToggleInterface(bool toggle)
@@ -606,6 +610,14 @@ namespace SpacerUnion.Windows
             listBoxGroups.EndUpdate();
 
             listBoxGroups.SelectedIndex = 0;
+        }
+
+        private void checkBoxHideModel_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkBox = sender as CheckBox;
+
+            Imports.Stack_PushString("bHidePreviewOnVobCatalogHide");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBox.Checked));
         }
     }
 }

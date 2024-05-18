@@ -735,6 +735,11 @@ namespace SpacerUnion.Common
             words.Add("WIN_VOBCATALOG_ASKSURE_REMOVE_GROUP", new List<string> { "Вы уверены? Все вобы в группе будут удалены!", "Are you sure? All vobs in the group will be deleted!", "", "", "" });
             words.Add("WIN_VOBCATALOG_IS_STATIC_VOB", new List<string> { "Статичный воб (isStatic): ", "Static vob (isStatic): ", "", "", "" });
             words.Add("WIN_VOBCATALOG_BAD_SYMBOL", new List<string> { "Нельзя использовать символ ;", "Symbol ; is not allowed here", "", "", "" });
+            words.Add("WIN_VOBCATALOG_HIDE_PREVIEW", new List<string> { "Скрывать 3D модель при скрытии окна", "Hide 3D preview when window is hidden", "", "", "" });
+
+            
+
+
         }
 
         
