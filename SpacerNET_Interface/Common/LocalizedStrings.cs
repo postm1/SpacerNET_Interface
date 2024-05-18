@@ -727,7 +727,7 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_NAME_IS_VISUAL", new List<string> { "Имя воба совпадает с его визуалом", "Vob's name is the same as its visual", "VOB Name ist identisch mit dem visuellen Objekt", "Nazwa Voba jest taka sama jak jego wygląd", "Jméno vobu je stejné jako jeho vizuál" });
 
 
-            words.Add("WIN_VOBCATALOG_TITLE", new List<string> { "Каталог вобов", "Vobs catalog", "", "", "" });
+            words.Add("WIN_VOBCATALOG_TITLE", new List<string> { "Каталог вобов.", "Vobs catalog.", "", "", "" });
             words.Add("WIN_VOBCATALOG_GROUP_NAME", new List<string> { "Имя группы: ", "Group name: ", "", "", "" });
             words.Add("WIN_VOBCATALOG_VISUAL_NAME", new List<string> { "Визуал: ", "Visual: ", "", "", "" });
             words.Add("WIN_VOBCATALOG_MATFILTER_TURNOFF", new List<string> { "Сначала закройте окно Фильтра материалов!", "Turn off Materials filter window first!", "", "", "" });
@@ -741,6 +741,7 @@ namespace SpacerUnion.Common
             words.Add("WIN_VOBCATALOG_ITEMS", new List<string> { "Элементы", "Entries", "", "", "" });
             words.Add("WIN_VOBCATALOG_ACTIONS", new List<string> { "Действия", "Actions", "", "", "" });
 
+            words.Add("WIN_VOBCATALOG_ALL_COUNT", new List<string> { "Всего объектов: ", "Objects amount: ", "", "", "" });
         }
 
         

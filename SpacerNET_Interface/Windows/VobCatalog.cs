@@ -67,6 +67,11 @@ namespace SpacerUnion.Windows
             groupBoxActions.Text = Localizator.Get("WIN_VOBCATALOG_ACTIONS");
         }
 
+        public void UpdateTitle()
+        {
+            this.Text = Localizator.Get("WIN_VOBCATALOG_TITLE") + " " + Localizator.Get("WIN_VOBCATALOG_ALL_COUNT") + vobMan.entries.Count;
+        }
+
         private void VobCatalogForm_Shown(object sender, EventArgs e)
         {
             LoadFromFile();
@@ -167,6 +172,8 @@ namespace SpacerUnion.Windows
                 listBoxItems.Items.Add(name);
 
                 this.Focus();
+
+                UpdateTitle();
             }
         }
 
@@ -258,6 +265,7 @@ namespace SpacerUnion.Windows
                     vobMan.entries.RemoveAll(x => x.GroupName == groupName);
 
                     listBoxGroups.Items.RemoveAt(listBoxGroups.SelectedIndex);
+
                 }
             }
         }
@@ -326,6 +334,8 @@ namespace SpacerUnion.Windows
            
 
             fileWasRead = true;
+
+            UpdateTitle();
         }
 
         public void SaveToFile()
@@ -485,6 +495,8 @@ namespace SpacerUnion.Windows
 
                     vobMan.entries.RemoveAll(x => x.GroupName == groupName && x.Visual == visualName);
                     listBoxItems.Items.RemoveAt(listBoxItems.SelectedIndex);
+
+                    UpdateTitle();
                 }
             }
         }
