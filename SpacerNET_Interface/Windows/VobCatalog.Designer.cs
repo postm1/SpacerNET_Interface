@@ -54,6 +54,7 @@ namespace SpacerUnion.Windows
             this.labelSearch = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.panelSearch = new System.Windows.Forms.Panel();
+            this.buttonDebug = new System.Windows.Forms.Button();
             this.groupBoxGroups.SuspendLayout();
             this.groupBoxItems.SuspendLayout();
             this.groupBoxActions.SuspendLayout();
@@ -247,6 +248,7 @@ namespace SpacerUnion.Windows
             // 
             // panelBottom
             // 
+            this.panelBottom.Controls.Add(this.buttonDebug);
             this.panelBottom.Controls.Add(this.groupBoxGroups);
             this.panelBottom.Controls.Add(this.groupBoxActions);
             this.panelBottom.Controls.Add(this.groupBoxItems);
@@ -329,6 +331,17 @@ namespace SpacerUnion.Windows
             this.panelSearch.Size = new System.Drawing.Size(458, 36);
             this.panelSearch.TabIndex = 15;
             // 
+            // buttonDebug
+            // 
+            this.buttonDebug.Enabled = false;
+            this.buttonDebug.Location = new System.Drawing.Point(602, 10);
+            this.buttonDebug.Name = "buttonDebug";
+            this.buttonDebug.Size = new System.Drawing.Size(75, 23);
+            this.buttonDebug.TabIndex = 11;
+            this.buttonDebug.Text = "DebugRemove";
+            this.buttonDebug.UseVisualStyleBackColor = true;
+            this.buttonDebug.Click += new System.EventHandler(this.buttonDebug_Click);
+            // 
             // VobCatalogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,5 +403,6 @@ namespace SpacerUnion.Windows
         private System.Windows.Forms.Label labelSearch;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Panel panelSearch;
+        private System.Windows.Forms.Button buttonDebug;
     }
 }

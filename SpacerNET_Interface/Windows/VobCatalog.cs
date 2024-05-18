@@ -593,6 +593,11 @@ namespace SpacerUnion.Windows
 
         private void buttonSortAlph_Click(object sender, EventArgs e)
         {
+            if (listBoxGroups.Items.Count <= 1)
+            {
+                return;
+            }
+
             List<string> itemsList = new List<string>();
 
             foreach (var item in listBoxGroups.Items)
@@ -625,6 +630,11 @@ namespace SpacerUnion.Windows
 
         private void buttonSortItems_Click(object sender, EventArgs e)
         {
+            if (listBoxItems.Items.Count <= 1)
+            {
+                return;
+            }
+
             List<string> itemsList = new List<string>();
 
             foreach (var item in listBoxItems.Items)
@@ -672,6 +682,19 @@ namespace SpacerUnion.Windows
                     index++;
                 }
             }
+        }
+
+        private void buttonDebug_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_CallFindSuchVisualsDebug(0);
+
+            foreach (var item in vobMan.entries)
+            {
+                Imports.Stack_PushString(item.Visual);
+                Imports.Extern_CallFindSuchVisualsDebugAdd();
+            }
+
+            Imports.Extern_CallFindSuchVisualsDebug(1);
         }
     }
 }
