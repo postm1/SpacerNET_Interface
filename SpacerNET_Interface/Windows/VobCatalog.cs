@@ -321,7 +321,7 @@ namespace SpacerUnion.Windows
             if (vobMan.entries.Count > 0 || listBoxGroups.Items.Count > 0)
             {
                 //make a copy of catalog file
-                File.Copy(pathFile, pathFileCopy);
+                File.Copy(pathFile, pathFileCopy, true);
             }
            
 
@@ -331,7 +331,7 @@ namespace SpacerUnion.Windows
         public void SaveToFile()
         {
 
-            if (listBoxGroups.Items.Count == 0)
+            if (listBoxGroups.Items.Count == 0 || !SpacerNET.isInit)
             {
                 return;
             }
