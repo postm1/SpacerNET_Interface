@@ -333,7 +333,6 @@ namespace SpacerUnion.Windows
             // 
             // buttonDebug
             // 
-            this.buttonDebug.Enabled = false;
             this.buttonDebug.Location = new System.Drawing.Point(602, 10);
             this.buttonDebug.Name = "buttonDebug";
             this.buttonDebug.Size = new System.Drawing.Size(75, 23);

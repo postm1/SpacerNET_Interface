@@ -17,6 +17,8 @@ namespace SpacerUnion.Windows
         public ConfirmForm formConf;
         public VobCatalogPropsForm propsForm;
         string pathFile;
+        string pathFileCopy;
+        bool fileWasRead;
 
         public VobCatalogForm()
         {
@@ -25,6 +27,8 @@ namespace SpacerUnion.Windows
             formConf = new ConfirmForm(null);
             propsForm = new VobCatalogPropsForm();
             pathFile = Path.GetFullPath(@"../_work/tools/vobcatalog_spacernet.txt");
+            pathFileCopy = Path.GetFullPath(@"../_work/tools/vobcatalog_spacernet_backup.txt");
+            fileWasRead = false;
         }
 
       
@@ -91,6 +95,7 @@ namespace SpacerUnion.Windows
             buttonDownRight.Enabled = toggle;
             groupBoxActions.Enabled = toggle;
             buttonSortAlph.Enabled = toggle;
+            buttonSortItems.Enabled = toggle;
         }
 
 
@@ -265,6 +270,8 @@ namespace SpacerUnion.Windows
                 return;
             }
 
+           
+
             List<string> arr = System.IO.File.ReadLines(pathFile, Encoding.UTF8).ToList();
 
             string firstLine = arr[0].Trim();
@@ -310,16 +317,34 @@ namespace SpacerUnion.Windows
                     
                 }
             }
+
+            if (vobMan.entries.Count > 0 || listBoxGroups.Items.Count > 0)
+            {
+                //make a copy of catalog file
+                File.Copy(pathFile, pathFileCopy);
+            }
+           
+
+            fileWasRead = true;
         }
 
         public void SaveToFile()
         {
+
+            if (listBoxGroups.Items.Count == 0)
+            {
+                return;
+            }
+
+
             FileStream fs = new FileStream(pathFile, FileMode.Create);
 
             StreamWriter w = new StreamWriter(fs, Encoding.UTF8);
 
             StringBuilder groupsList = new StringBuilder();
 
+
+            
 
             //write all groups in file
             foreach (var entry in listBoxGroups.Items)
