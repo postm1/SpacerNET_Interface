@@ -101,7 +101,7 @@ namespace SpacerUnion.Windows
 
                 if (text.Contains(";"))
                 {
-                    MessageBox.Show("Symbol ; is not allowed here"); //fixme
+                    MessageBox.Show(Localizator.Get("WIN_VOBCATALOG_BAD_SYMBOL"));
                     return;
                 }
 
@@ -114,7 +114,7 @@ namespace SpacerUnion.Windows
 
                 if (text.Contains(";"))
                 {
-                    MessageBox.Show("Symbol ; is not allowed here"); //fixme
+                    MessageBox.Show(Localizator.Get("WIN_VOBCATALOG_BAD_SYMBOL"));
                     return;
                 }
 

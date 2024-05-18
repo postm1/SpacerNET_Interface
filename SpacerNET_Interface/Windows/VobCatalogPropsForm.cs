@@ -28,6 +28,9 @@ namespace SpacerUnion.Windows
         {
             checkBoxDynColl.Text = Localizator.Get("checkBoxDynStat");
             checkBoxStatic.Text = Localizator.Get("checkBoxStaStat");
+            checkBoxIsStaticVob.Text = Localizator.Get("WIN_VOBCATALOG_IS_STATIC_VOB");
+
+            
         }
 
         private void buttonConfirmYes_Click(object sender, EventArgs e)
@@ -42,7 +45,7 @@ namespace SpacerUnion.Windows
 
                 if (text.Contains(";"))
                 {
-                    MessageBox.Show("Symbol ; is not allowed here"); //fixme
+                    MessageBox.Show(Localizator.Get("WIN_VOBCATALOG_BAD_SYMBOL"));
                     return;
                 }
 
@@ -56,7 +59,7 @@ namespace SpacerUnion.Windows
 
                 if (text.Contains(";"))
                 {
-                    MessageBox.Show("Symbol ; is not allowed here"); //fixme
+                    MessageBox.Show(Localizator.Get("WIN_VOBCATALOG_BAD_SYMBOL"));
                     return;
                 }
 

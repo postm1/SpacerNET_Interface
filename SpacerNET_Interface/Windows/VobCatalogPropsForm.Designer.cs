@@ -110,9 +110,9 @@ namespace SpacerUnion.Windows
             this.checkBoxIsStaticVob.AutoSize = true;
             this.checkBoxIsStaticVob.Location = new System.Drawing.Point(27, 105);
             this.checkBoxIsStaticVob.Name = "checkBoxIsStaticVob";
-            this.checkBoxIsStaticVob.Size = new System.Drawing.Size(82, 17);
+            this.checkBoxIsStaticVob.Size = new System.Drawing.Size(70, 17);
             this.checkBoxIsStaticVob.TabIndex = 11;
-            this.checkBoxIsStaticVob.Text = "IsStatic vob";
+            this.checkBoxIsStaticVob.Text = "staticVob";
             this.checkBoxIsStaticVob.UseVisualStyleBackColor = true;
             // 
             // VobCatalogPropsForm
