@@ -83,7 +83,7 @@ namespace SpacerUnion.Windows
             buttonUpRight.Enabled = toggle;
             buttonDownRight.Enabled = toggle;
             groupBoxActions.Enabled = toggle;
-
+            buttonSortAlph.Enabled = toggle;
         }
 
 
@@ -237,7 +237,6 @@ namespace SpacerUnion.Windows
         {
             if (listBoxGroups.SelectedItem != null)
             {
-                //fixme
                 DialogResult dialogResult = MessageBox.Show(Localizator.Get("WIN_VOBCATALOG_ASKSURE_REMOVE_GROUP"), Localizator.Get("confirmation"), MessageBoxButtons.YesNo);
 
                 if (dialogResult == DialogResult.Yes)
@@ -356,6 +355,8 @@ namespace SpacerUnion.Windows
             }
 
             w.Close();
+
+            ConsoleEx.WriteLineRed("Save to file");
         }
 
         
@@ -369,11 +370,14 @@ namespace SpacerUnion.Windows
                 return;
             }
 
+
+            SaveToFile();
+
             Properties.Settings.Default.VobCatalogWinLocation = this.Location;
             this.Hide();
             e.Cancel = true;
 
-            SaveToFile();
+           
         }
 
         private void buttonDOWN_Click(object sender, EventArgs e)
@@ -395,6 +399,7 @@ namespace SpacerUnion.Windows
                 Imports.Stack_PushString("");
                 Imports.Extern_RenderSelectedVob();
             }
+           
         }
 
         private void listBoxItems_SelectedIndexChanged(object sender, EventArgs e)
@@ -577,6 +582,30 @@ namespace SpacerUnion.Windows
                     buttonChangeProps_Click(null, null);
                 }
             }
+        }
+
+        private void buttonSortAlph_Click(object sender, EventArgs e)
+        {
+            List<string> itemsList = new List<string>();
+
+            foreach (var item in listBoxGroups.Items)
+            {
+                itemsList.Add(item.ToString());
+            }
+
+            itemsList.Sort();
+
+            listBoxGroups.BeginUpdate();
+            listBoxGroups.Items.Clear();
+
+            foreach (var item in itemsList)
+            {
+                listBoxGroups.Items.Add(item);
+            }
+
+            listBoxGroups.EndUpdate();
+
+            listBoxGroups.SelectedIndex = 0;
         }
     }
 }
