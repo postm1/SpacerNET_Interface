@@ -34,7 +34,7 @@ namespace SpacerUnion.Windows
         {
             bool dynColl = checkBoxDynColl.Checked;
             bool statColl = checkBoxStatic.Checked;
-
+            bool isStaticVob = checkBoxIsStaticVob.Checked;
 
             if (confType == "VOBCATALOG_ADD_NEW")
             {
@@ -48,7 +48,7 @@ namespace SpacerUnion.Windows
 
                
 
-                SpacerNET.vobCatForm.NewItem(text, dynColl, statColl);
+                SpacerNET.vobCatForm.NewItem(text, dynColl, statColl, isStaticVob);
             }
             else if (confType == "VOBCATALOG_CHANGE_ELEMENT")
             {
@@ -62,7 +62,7 @@ namespace SpacerUnion.Windows
 
     
 
-                SpacerNET.vobCatForm.ChangeItem(text, dynColl, statColl);
+                SpacerNET.vobCatForm.ChangeItem(text, dynColl, statColl, isStaticVob);
             }
             this.Hide();
         }

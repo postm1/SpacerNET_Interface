@@ -140,5 +140,17 @@
     <Setting Name="ErrorWinShowNext" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="VobCatalogWinLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">500, 500</Value>
+    </Setting>
+    <Setting Name="VobCatalogWinSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">615, 337</Value>
+    </Setting>
+    <Setting Name="VobCatalogWinShow" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="VobCatalogWinShowNext" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

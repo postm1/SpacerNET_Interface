@@ -574,5 +574,53 @@ namespace SpacerUnion.Properties {
                 this["ErrorWinShowNext"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("500, 500")]
+        public global::System.Drawing.Point VobCatalogWinLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["VobCatalogWinLocation"]));
+            }
+            set {
+                this["VobCatalogWinLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("615, 337")]
+        public global::System.Drawing.Size VobCatalogWinSize {
+            get {
+                return ((global::System.Drawing.Size)(this["VobCatalogWinSize"]));
+            }
+            set {
+                this["VobCatalogWinSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool VobCatalogWinShow {
+            get {
+                return ((bool)(this["VobCatalogWinShow"]));
+            }
+            set {
+                this["VobCatalogWinShow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool VobCatalogWinShowNext {
+            get {
+                return ((bool)(this["VobCatalogWinShowNext"]));
+            }
+            set {
+                this["VobCatalogWinShowNext"] = value;
+            }
+        }
     }
 }

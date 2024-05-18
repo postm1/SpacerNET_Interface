@@ -38,11 +38,11 @@ namespace SpacerUnion.Windows
             this.buttonDOWN = new System.Windows.Forms.Button();
             this.groupBoxGroups = new System.Windows.Forms.GroupBox();
             this.groupBoxItems = new System.Windows.Forms.GroupBox();
+            this.buttonChangeProps = new System.Windows.Forms.Button();
             this.buttonRemoveItem = new System.Windows.Forms.Button();
             this.buttonAddElement = new System.Windows.Forms.Button();
             this.buttonUpRight = new System.Windows.Forms.Button();
             this.buttonDownRight = new System.Windows.Forms.Button();
-            this.buttonChangeProps = new System.Windows.Forms.Button();
             this.buttonCreateVob = new System.Windows.Forms.Button();
             this.groupBoxActions = new System.Windows.Forms.GroupBox();
             this.checkBoxHideModel = new System.Windows.Forms.CheckBox();
@@ -147,6 +147,16 @@ namespace SpacerUnion.Windows
             this.groupBoxItems.TabStop = false;
             this.groupBoxItems.Text = "Elements";
             // 
+            // buttonChangeProps
+            // 
+            this.buttonChangeProps.Location = new System.Drawing.Point(6, 45);
+            this.buttonChangeProps.Name = "buttonChangeProps";
+            this.buttonChangeProps.Size = new System.Drawing.Size(161, 23);
+            this.buttonChangeProps.TabIndex = 8;
+            this.buttonChangeProps.Text = "Change selected element";
+            this.buttonChangeProps.UseVisualStyleBackColor = true;
+            this.buttonChangeProps.Click += new System.EventHandler(this.buttonChangeProps_Click);
+            // 
             // buttonRemoveItem
             // 
             this.buttonRemoveItem.Location = new System.Drawing.Point(6, 74);
@@ -188,16 +198,6 @@ namespace SpacerUnion.Windows
             this.buttonDownRight.Text = "↓";
             this.buttonDownRight.UseVisualStyleBackColor = true;
             this.buttonDownRight.Click += new System.EventHandler(this.buttonDownRight_Click);
-            // 
-            // buttonChangeProps
-            // 
-            this.buttonChangeProps.Location = new System.Drawing.Point(6, 45);
-            this.buttonChangeProps.Name = "buttonChangeProps";
-            this.buttonChangeProps.Size = new System.Drawing.Size(161, 23);
-            this.buttonChangeProps.TabIndex = 8;
-            this.buttonChangeProps.Text = "Change selected element";
-            this.buttonChangeProps.UseVisualStyleBackColor = true;
-            this.buttonChangeProps.Click += new System.EventHandler(this.buttonChangeProps_Click);
             // 
             // buttonCreateVob
             // 
@@ -245,14 +245,14 @@ namespace SpacerUnion.Windows
             this.Controls.Add(this.listBoxItems);
             this.Controls.Add(this.listBoxGroups);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(615, 337);
             this.Name = "VobCatalogForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "VobCatalog";
+            this.Text = "Vob Catalog";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VobCatalogForm_FormClosing);
             this.Shown += new System.EventHandler(this.VobCatalogForm_Shown);
             this.VisibleChanged += new System.EventHandler(this.VobCatalogForm_VisibleChanged);

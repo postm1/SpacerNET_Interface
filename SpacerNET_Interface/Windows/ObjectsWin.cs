@@ -742,6 +742,7 @@ namespace SpacerUnion
             Imports.Stack_PushString(visualVob);
             Imports.Stack_PushString(vobName);
             Imports.Stack_PushString(name);
+            Imports.Stack_PushInt(0); //isStaticVob
             Imports.Extern_CreateNewVobVisual(isDyn, isStat);
 
             

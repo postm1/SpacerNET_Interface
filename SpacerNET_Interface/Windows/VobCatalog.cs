@@ -59,6 +59,18 @@ namespace SpacerUnion.Windows
 
         }
 
+        private void VobCatalogForm_Shown(object sender, EventArgs e)
+        {
+            LoadFromFile();
+            Application.DoEvents();
+
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                ToggleInterface(false);
+            }
+            
+        }
+
         public void ToggleInterface(bool toggle)
         {
 
@@ -119,7 +131,7 @@ namespace SpacerUnion.Windows
 
         }
 
-        public void NewItem(string name, bool dynColl, bool statColl)
+        public void NewItem(string name, bool dynColl, bool statColl, bool staticVob)
         {
             if (listBoxGroups.SelectedItem != null)
             {
@@ -138,6 +150,7 @@ namespace SpacerUnion.Windows
 
                 newEntry.DynColl = dynColl;
                 newEntry.StatColl = statColl;
+                newEntry.IsStaticVob = staticVob;
 
                 listBoxItems.Items.Add(name);
 
@@ -145,7 +158,7 @@ namespace SpacerUnion.Windows
             }
         }
 
-        public void ChangeItem(string name, bool dynColl, bool statColl)
+        public void ChangeItem(string name, bool dynColl, bool statColl, bool isStaticVob)
         {
             if (listBoxItems.SelectedItem != null && listBoxGroups.SelectedItem != null)
             {
@@ -164,7 +177,7 @@ namespace SpacerUnion.Windows
                     newEntry.Visual = name;
                     newEntry.DynColl = dynColl;
                     newEntry.StatColl = statColl;
-
+                    newEntry.IsStaticVob = isStaticVob;
 
                     listBoxItems.Items[listBoxItems.SelectedIndex] = name;
 
@@ -225,7 +238,7 @@ namespace SpacerUnion.Windows
             if (listBoxGroups.SelectedItem != null)
             {
                 //fixme
-                DialogResult dialogResult = MessageBox.Show(Localizator.Get("askSure"), Localizator.Get("confirmation"), MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show(Localizator.Get("WIN_VOBCATALOG_ASKSURE_REMOVE_GROUP"), Localizator.Get("confirmation"), MessageBoxButtons.YesNo);
 
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -276,7 +289,7 @@ namespace SpacerUnion.Windows
                 {
                     var split = arr[i].Trim().Split(';');
 
-                    if (split.Length == 4)
+                    if (split.Length == 5)
                     {
                         string groupName = split[0];
 
@@ -286,6 +299,7 @@ namespace SpacerUnion.Windows
 
                         newEntry.DynColl = Convert.ToBoolean(split[2]);
                         newEntry.StatColl = Convert.ToBoolean(split[3]);
+                        newEntry.IsStaticVob = Convert.ToBoolean(split[4]);
                     }
                     
                 }
@@ -330,7 +344,12 @@ namespace SpacerUnion.Windows
 
                     foreach (var entry in list)
                     {
-                        w.WriteLine(entry.GroupName + ";" + entry.Visual + ";" + entry.DynColl + ";" + entry.StatColl);
+                        w.WriteLine(entry.GroupName + ";" 
+                            + entry.Visual + ";" 
+                            + entry.DynColl + ";" 
+                            + entry.StatColl + ";"
+                            + entry.IsStaticVob
+                           );
                     }
                 }
                
@@ -339,17 +358,18 @@ namespace SpacerUnion.Windows
             w.Close();
         }
 
-        private void VobCatalogForm_Shown(object sender, EventArgs e)
-        {
-            LoadFromFile();
-            Application.DoEvents();
-            ToggleInterface(false);
-        }
+        
 
         private void VobCatalogForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //fixme
-            //Properties.Settings.Default.SoundWinLocation = this.Location;
+            //wtf why? Only this windows has this bug
+            if (e.CloseReason == CloseReason.FormOwnerClosing)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            Properties.Settings.Default.VobCatalogWinLocation = this.Location;
             this.Hide();
             e.Cancel = true;
 
@@ -419,7 +439,6 @@ namespace SpacerUnion.Windows
         {
             if (listBoxGroups.SelectedItem != null && listBoxItems.SelectedItem != null)
             {
-                //fixme
                 DialogResult dialogResult = MessageBox.Show(Localizator.Get("askSure"), Localizator.Get("confirmation"), MessageBoxButtons.YesNo);
 
                 if (dialogResult == DialogResult.Yes)
@@ -497,6 +516,7 @@ namespace SpacerUnion.Windows
                     propsForm.textBoxValueEnter.Text = newEntry.Visual;
                     propsForm.checkBoxDynColl.Checked = newEntry.DynColl;
                     propsForm.checkBoxStatic.Checked = newEntry.StatColl;
+                    propsForm.checkBoxIsStaticVob.Checked = newEntry.IsStaticVob;
 
                     propsForm.ShowDialog();
                 }
@@ -530,6 +550,7 @@ namespace SpacerUnion.Windows
                     Imports.Stack_PushString(newEntry.Visual);
                     Imports.Stack_PushString("");
                     Imports.Stack_PushString("zCVob");
+                    Imports.Stack_PushInt(Convert.ToInt32(newEntry.IsStaticVob));
                     Imports.Extern_CreateNewVobVisual(Convert.ToInt32(newEntry.DynColl), Convert.ToInt32(newEntry.StatColl));
 
                 }

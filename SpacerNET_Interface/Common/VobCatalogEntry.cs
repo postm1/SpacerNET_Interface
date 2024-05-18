@@ -13,12 +13,14 @@ namespace SpacerUnion.Common
         private string visual;
         private bool dynColl;
         private bool statColl;
+        private bool isStaticVob;
 
         public string GroupName { get => groupName; set => groupName = value; }
         public string Visual { get => visual; set => visual = value; }
         public int Index { get => index; set => index = value; }
         public bool DynColl { get => dynColl; set => dynColl = value; }
         public bool StatColl { get => statColl; set => statColl = value; }
+        public bool IsStaticVob { get => isStaticVob; set => isStaticVob = value; }
     }
 
     public class VobCatalogManager

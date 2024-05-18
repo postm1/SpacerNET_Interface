@@ -262,7 +262,13 @@ namespace SpacerUnion
                 errorForm.Show();
             }
 
-            vobCatForm.Show(); //fixme
+
+            if (Properties.Settings.Default.VobCatalogWinShow || Properties.Settings.Default.VobCatalogWinShowNext)
+            {
+                vobCatForm.Show(); 
+            }
+
+           
 
             //==========================================================================================
 
@@ -325,6 +331,12 @@ namespace SpacerUnion
                 errorForm.Location = Properties.Settings.Default.ErrorWinLocation;
             }
 
+            // Vob catalog form
+            if (Properties.Settings.Default.VobCatalogWinLocation != null)
+            {
+                vobCatForm.Location = Properties.Settings.Default.VobCatalogWinLocation;
+            }
+
             //=======================================================================================
             if (Properties.Settings.Default.TreeWinSize != null)
             {
@@ -360,12 +372,15 @@ namespace SpacerUnion
                 errorForm.Size = Properties.Settings.Default.ErrorWinSize;
             }
 
+            if (Properties.Settings.Default.VobCatalogWinSize != null)
+            {
+                vobCatForm.Size = Properties.Settings.Default.VobCatalogWinSize;
+            }
 
 
-            
 
 
-            
+
 
             LoadSettingsToInterface();
 
@@ -549,6 +564,7 @@ namespace SpacerUnion
             Properties.Settings.Default.MatFilterWinLocation = matFilterWin.Location;
             Properties.Settings.Default.PFXEditorLocation = pfxWin.Location;
             Properties.Settings.Default.ErrorWinLocation = errorForm.Location;
+            Properties.Settings.Default.VobCatalogWinLocation = vobCatForm.Location;
 
             Properties.Settings.Default.InfoWinShow = infoWin.Visible;
             Properties.Settings.Default.ObjectWinShow = objectsWin.Visible;
@@ -561,6 +577,7 @@ namespace SpacerUnion
             Properties.Settings.Default.MatFilterWinShow = matFilterWin.Visible;
             Properties.Settings.Default.PFXEditorShow = pfxWin.Visible;
             Properties.Settings.Default.ErrorWinShow = errorForm.Visible;
+            Properties.Settings.Default.VobCatalogWinShow = vobCatForm.Visible;
 
             Properties.Settings.Default.ObjWinShowNext = !objectsWin.Visible && windowsToHideList.Contains(objectsWin);
             Properties.Settings.Default.VobListWinShowNext = !vobList.Visible && windowsToHideList.Contains(vobList);
@@ -573,6 +590,7 @@ namespace SpacerUnion
             Properties.Settings.Default.MatFilterWinShowNext = !matFilterWin.Visible && windowsToHideList.Contains(matFilterWin);
             Properties.Settings.Default.PFXEditorShowNext = !pfxWin.Visible && windowsToHideList.Contains(pfxWin);
             Properties.Settings.Default.ErrorWinShowNext = !errorForm.Visible && windowsToHideList.Contains(errorForm);
+            Properties.Settings.Default.VobCatalogWinShowNext = !vobCatForm.Visible && windowsToHideList.Contains(vobCatForm);
             //ConsoleEx.WriteLineRed(Properties.Settings.Default.MacrosWinShowNext + "/" + Properties.Settings.Default.MacrosWinShowNext);
 
             Properties.Settings.Default.MainWindowPos = form.Location;
@@ -586,6 +604,8 @@ namespace SpacerUnion
             Properties.Settings.Default.InfoWinSize = infoWin.Size;
             Properties.Settings.Default.PFXEditorSize = pfxWin.Size;
             Properties.Settings.Default.ErrorWinSize = errorForm.Size;
+            Properties.Settings.Default.VobCatalogWinSize = vobCatForm.Size;
+
             Properties.Settings.Default.Save();
 
 

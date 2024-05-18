@@ -36,13 +36,14 @@ namespace SpacerUnion.Windows
             this.checkBoxDynColl = new System.Windows.Forms.CheckBox();
             this.checkBoxStatic = new System.Windows.Forms.CheckBox();
             this.buttonOpenFile = new System.Windows.Forms.Button();
+            this.checkBoxIsStaticVob = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // buttonConfirmNo
             // 
-            this.buttonConfirmNo.Location = new System.Drawing.Point(208, 117);
+            this.buttonConfirmNo.Location = new System.Drawing.Point(204, 141);
             this.buttonConfirmNo.Name = "buttonConfirmNo";
-            this.buttonConfirmNo.Size = new System.Drawing.Size(95, 23);
+            this.buttonConfirmNo.Size = new System.Drawing.Size(124, 23);
             this.buttonConfirmNo.TabIndex = 7;
             this.buttonConfirmNo.Text = "Close";
             this.buttonConfirmNo.UseVisualStyleBackColor = true;
@@ -50,9 +51,9 @@ namespace SpacerUnion.Windows
             // 
             // buttonConfirmYes
             // 
-            this.buttonConfirmYes.Location = new System.Drawing.Point(108, 117);
+            this.buttonConfirmYes.Location = new System.Drawing.Point(86, 141);
             this.buttonConfirmYes.Name = "buttonConfirmYes";
-            this.buttonConfirmYes.Size = new System.Drawing.Size(94, 23);
+            this.buttonConfirmYes.Size = new System.Drawing.Size(112, 23);
             this.buttonConfirmYes.TabIndex = 6;
             this.buttonConfirmYes.Text = "Confirm";
             this.buttonConfirmYes.UseVisualStyleBackColor = true;
@@ -104,11 +105,22 @@ namespace SpacerUnion.Windows
             this.buttonOpenFile.UseVisualStyleBackColor = true;
             this.buttonOpenFile.Click += new System.EventHandler(this.buttonOpenFile_Click);
             // 
+            // checkBoxIsStaticVob
+            // 
+            this.checkBoxIsStaticVob.AutoSize = true;
+            this.checkBoxIsStaticVob.Location = new System.Drawing.Point(27, 105);
+            this.checkBoxIsStaticVob.Name = "checkBoxIsStaticVob";
+            this.checkBoxIsStaticVob.Size = new System.Drawing.Size(82, 17);
+            this.checkBoxIsStaticVob.TabIndex = 11;
+            this.checkBoxIsStaticVob.Text = "IsStatic vob";
+            this.checkBoxIsStaticVob.UseVisualStyleBackColor = true;
+            // 
             // VobCatalogPropsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 153);
+            this.ClientSize = new System.Drawing.Size(435, 176);
+            this.Controls.Add(this.checkBoxIsStaticVob);
             this.Controls.Add(this.buttonOpenFile);
             this.Controls.Add(this.checkBoxStatic);
             this.Controls.Add(this.checkBoxDynColl);
@@ -140,5 +152,6 @@ namespace SpacerUnion.Windows
         public System.Windows.Forms.CheckBox checkBoxDynColl;
         public System.Windows.Forms.CheckBox checkBoxStatic;
         private System.Windows.Forms.Button buttonOpenFile;
+        public System.Windows.Forms.CheckBox checkBoxIsStaticVob;
     }
 }
