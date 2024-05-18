@@ -651,5 +651,27 @@ namespace SpacerUnion.Windows
 
             vobMan.UpdateIndexes(groupName, listBoxItems);
         }
+
+        private void textBoxSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                e.Handled = true;
+                
+                var textSearch = textBoxSearch.Text.Trim().ToUpper();
+                int index = 0;
+
+                foreach (var item in listBoxItems.Items)
+                {
+                    if (item.ToString().Contains(textSearch))
+                    {
+                        listBoxItems.SelectedIndex = index;
+                        break;
+                    }
+
+                    index++;
+                }
+            }
+        }
     }
 }

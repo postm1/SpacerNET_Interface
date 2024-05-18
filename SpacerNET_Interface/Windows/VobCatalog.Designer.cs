@@ -51,12 +51,16 @@ namespace SpacerUnion.Windows
             this.buttonSortAlph = new System.Windows.Forms.Button();
             this.panelRight = new System.Windows.Forms.Panel();
             this.buttonSortItems = new System.Windows.Forms.Button();
+            this.labelSearch = new System.Windows.Forms.Label();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.panelSearch = new System.Windows.Forms.Panel();
             this.groupBoxGroups.SuspendLayout();
             this.groupBoxItems.SuspendLayout();
             this.groupBoxActions.SuspendLayout();
             this.panelBottom.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.panelRight.SuspendLayout();
+            this.panelSearch.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBoxGroups
@@ -75,7 +79,7 @@ namespace SpacerUnion.Windows
             this.listBoxItems.FormattingEnabled = true;
             this.listBoxItems.Location = new System.Drawing.Point(0, 0);
             this.listBoxItems.Name = "listBoxItems";
-            this.listBoxItems.Size = new System.Drawing.Size(412, 203);
+            this.listBoxItems.Size = new System.Drawing.Size(412, 167);
             this.listBoxItems.TabIndex = 1;
             this.listBoxItems.SelectedIndexChanged += new System.EventHandler(this.listBoxItems_SelectedIndexChanged);
             this.listBoxItems.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxItems_MouseDoubleClick);
@@ -284,7 +288,7 @@ namespace SpacerUnion.Windows
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRight.Location = new System.Drawing.Point(236, 0);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(458, 203);
+            this.panelRight.Size = new System.Drawing.Size(458, 167);
             this.panelRight.TabIndex = 14;
             // 
             // buttonSortItems
@@ -298,12 +302,40 @@ namespace SpacerUnion.Windows
             this.buttonSortItems.UseVisualStyleBackColor = true;
             this.buttonSortItems.Click += new System.EventHandler(this.buttonSortItems_Click);
             // 
+            // labelSearch
+            // 
+            this.labelSearch.AutoSize = true;
+            this.labelSearch.Location = new System.Drawing.Point(7, 9);
+            this.labelSearch.Name = "labelSearch";
+            this.labelSearch.Size = new System.Drawing.Size(47, 13);
+            this.labelSearch.TabIndex = 12;
+            this.labelSearch.Text = "Search: ";
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Location = new System.Drawing.Point(60, 6);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(352, 20);
+            this.textBoxSearch.TabIndex = 13;
+            this.textBoxSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSearch_KeyPress);
+            // 
+            // panelSearch
+            // 
+            this.panelSearch.Controls.Add(this.textBoxSearch);
+            this.panelSearch.Controls.Add(this.labelSearch);
+            this.panelSearch.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelSearch.Location = new System.Drawing.Point(236, 167);
+            this.panelSearch.Name = "panelSearch";
+            this.panelSearch.Size = new System.Drawing.Size(458, 36);
+            this.panelSearch.TabIndex = 15;
+            // 
             // VobCatalogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 328);
             this.Controls.Add(this.panelRight);
+            this.Controls.Add(this.panelSearch);
             this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.panelBottom);
             this.DoubleBuffered = true;
@@ -325,6 +357,8 @@ namespace SpacerUnion.Windows
             this.panelBottom.ResumeLayout(false);
             this.panelLeft.ResumeLayout(false);
             this.panelRight.ResumeLayout(false);
+            this.panelSearch.ResumeLayout(false);
+            this.panelSearch.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -353,5 +387,8 @@ namespace SpacerUnion.Windows
         private System.Windows.Forms.Panel panelRight;
         private System.Windows.Forms.Button buttonSortAlph;
         private System.Windows.Forms.Button buttonSortItems;
+        private System.Windows.Forms.Label labelSearch;
+        private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.Panel panelSearch;
     }
 }
