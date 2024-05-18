@@ -619,5 +619,34 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("bHidePreviewOnVobCatalogHide");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBox.Checked));
         }
+
+        private void buttonSortItems_Click(object sender, EventArgs e)
+        {
+            List<string> itemsList = new List<string>();
+
+            foreach (var item in listBoxItems.Items)
+            {
+                itemsList.Add(item.ToString());
+            }
+
+            itemsList.Sort();
+
+            listBoxItems.BeginUpdate();
+            listBoxItems.Items.Clear();
+
+            foreach (var item in itemsList)
+            {
+                listBoxItems.Items.Add(item);
+            }
+
+            listBoxItems.EndUpdate();
+
+            listBoxItems.SelectedIndex = 0;
+
+
+            var groupName = listBoxGroups.SelectedItem.ToString();
+
+            vobMan.UpdateIndexes(groupName, listBoxItems);
+        }
     }
 }

@@ -48,8 +48,9 @@ namespace SpacerUnion.Windows
             this.checkBoxHideModel = new System.Windows.Forms.CheckBox();
             this.panelBottom = new System.Windows.Forms.Panel();
             this.panelLeft = new System.Windows.Forms.Panel();
-            this.panelRight = new System.Windows.Forms.Panel();
             this.buttonSortAlph = new System.Windows.Forms.Button();
+            this.panelRight = new System.Windows.Forms.Panel();
+            this.buttonSortItems = new System.Windows.Forms.Button();
             this.groupBoxGroups.SuspendLayout();
             this.groupBoxItems.SuspendLayout();
             this.groupBoxActions.SuspendLayout();
@@ -74,7 +75,7 @@ namespace SpacerUnion.Windows
             this.listBoxItems.FormattingEnabled = true;
             this.listBoxItems.Location = new System.Drawing.Point(0, 0);
             this.listBoxItems.Name = "listBoxItems";
-            this.listBoxItems.Size = new System.Drawing.Size(417, 203);
+            this.listBoxItems.Size = new System.Drawing.Size(412, 203);
             this.listBoxItems.TabIndex = 1;
             this.listBoxItems.SelectedIndexChanged += new System.EventHandler(this.listBoxItems_SelectedIndexChanged);
             this.listBoxItems.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxItems_MouseDoubleClick);
@@ -263,17 +264,6 @@ namespace SpacerUnion.Windows
             this.panelLeft.Size = new System.Drawing.Size(236, 203);
             this.panelLeft.TabIndex = 13;
             // 
-            // panelRight
-            // 
-            this.panelRight.Controls.Add(this.listBoxItems);
-            this.panelRight.Controls.Add(this.buttonUpRight);
-            this.panelRight.Controls.Add(this.buttonDownRight);
-            this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRight.Location = new System.Drawing.Point(236, 0);
-            this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(458, 203);
-            this.panelRight.TabIndex = 14;
-            // 
             // buttonSortAlph
             // 
             this.buttonSortAlph.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -284,6 +274,29 @@ namespace SpacerUnion.Windows
             this.buttonSortAlph.Text = "A-Z";
             this.buttonSortAlph.UseVisualStyleBackColor = true;
             this.buttonSortAlph.Click += new System.EventHandler(this.buttonSortAlph_Click);
+            // 
+            // panelRight
+            // 
+            this.panelRight.Controls.Add(this.buttonSortItems);
+            this.panelRight.Controls.Add(this.listBoxItems);
+            this.panelRight.Controls.Add(this.buttonUpRight);
+            this.panelRight.Controls.Add(this.buttonDownRight);
+            this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelRight.Location = new System.Drawing.Point(236, 0);
+            this.panelRight.Name = "panelRight";
+            this.panelRight.Size = new System.Drawing.Size(458, 203);
+            this.panelRight.TabIndex = 14;
+            // 
+            // buttonSortItems
+            // 
+            this.buttonSortItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSortItems.Location = new System.Drawing.Point(418, 88);
+            this.buttonSortItems.Name = "buttonSortItems";
+            this.buttonSortItems.Size = new System.Drawing.Size(38, 30);
+            this.buttonSortItems.TabIndex = 9;
+            this.buttonSortItems.Text = "A-Z";
+            this.buttonSortItems.UseVisualStyleBackColor = true;
+            this.buttonSortItems.Click += new System.EventHandler(this.buttonSortItems_Click);
             // 
             // VobCatalogForm
             // 
@@ -339,5 +352,6 @@ namespace SpacerUnion.Windows
         private System.Windows.Forms.Panel panelLeft;
         private System.Windows.Forms.Panel panelRight;
         private System.Windows.Forms.Button buttonSortAlph;
+        private System.Windows.Forms.Button buttonSortItems;
     }
 }
