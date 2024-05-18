@@ -737,8 +737,9 @@ namespace SpacerUnion.Common
             words.Add("WIN_VOBCATALOG_BAD_SYMBOL", new List<string> { "Нельзя использовать символ ;", "Symbol ; is not allowed here", "", "", "" });
             words.Add("WIN_VOBCATALOG_HIDE_PREVIEW", new List<string> { "Скрывать 3D модель при скрытии окна", "Hide 3D preview when window is hidden", "", "", "" });
 
-            
-
+            words.Add("WIN_VOBCATALOG_GROUPS", new List<string> { "Группы", "Groups", "", "", "" });
+            words.Add("WIN_VOBCATALOG_ITEMS", new List<string> { "Элементы", "Entries", "", "", "" });
+            words.Add("WIN_VOBCATALOG_ACTIONS", new List<string> { "Действия", "Actions", "", "", "" });
 
         }
 

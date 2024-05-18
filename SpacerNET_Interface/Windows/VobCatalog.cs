@@ -58,6 +58,9 @@ namespace SpacerUnion.Windows
             this.Text = Localizator.Get("WIN_VOBCATALOG_TITLE");
             checkBoxHideModel.Text = Localizator.Get("WIN_VOBCATALOG_HIDE_PREVIEW");
 
+            groupBoxGroups.Text = Localizator.Get("WIN_VOBCATALOG_GROUPS");
+            groupBoxItems.Text = Localizator.Get("WIN_VOBCATALOG_ITEMS");
+            groupBoxActions.Text = Localizator.Get("WIN_VOBCATALOG_ACTIONS");
         }
 
         private void VobCatalogForm_Shown(object sender, EventArgs e)
