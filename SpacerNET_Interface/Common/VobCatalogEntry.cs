@@ -48,7 +48,7 @@ namespace SpacerUnion.Common
 
         public List<VobCatalogEntry> GetAllByGroup(string group)
         {
-            List<VobCatalogEntry> list = entries.Where(x => x.GroupName == group).ToList();
+            List<VobCatalogEntry> list = entries.Where(x => x.GroupName == group).OrderBy(x => x.Index).ToList();
 
             return list;
         }
