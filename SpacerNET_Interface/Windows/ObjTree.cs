@@ -1787,6 +1787,12 @@ namespace SpacerUnion
                         {
                             // fix proper name for selected node
                             string text = node.Text;
+
+                            if (text.Length == 0 || !text.Contains('('))
+                            {
+                                return;
+                            }
+
                             int index = text.LastIndexOf('(');
 
                             text = text.Substring(0, index - 1);
