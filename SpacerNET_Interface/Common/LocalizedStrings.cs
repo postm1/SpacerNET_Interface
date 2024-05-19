@@ -755,6 +755,9 @@ namespace SpacerUnion.Common
             words.Add("WIN_VOBCATALOG_BTN_ELEM_ADD", new List<string> { "Добавить новый", "Add new", "", "", "" });
             words.Add("WIN_VOBCATALOG_BTN_ELEM_EDIT", new List<string> { "Изменить", "Edit", "", "", "" });
             words.Add("WIN_VOBCATALOG_BTN_ELEM_REMOVE", new List<string> { "Удалить", "Remove", "", "", "" });
+
+            words.Add("WIN_VOBCATALOG_IN_CURRENT_GROUP", new List<string> { "В выделенной группе: ", "In selected group: ", "", "", "" });
+            
         }
 
         
