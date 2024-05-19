@@ -307,7 +307,7 @@ namespace SpacerUnion.Windows
             // labelSearch
             // 
             this.labelSearch.AutoSize = true;
-            this.labelSearch.Location = new System.Drawing.Point(7, 9);
+            this.labelSearch.Location = new System.Drawing.Point(5, 8);
             this.labelSearch.Name = "labelSearch";
             this.labelSearch.Size = new System.Drawing.Size(47, 13);
             this.labelSearch.TabIndex = 12;
@@ -339,6 +339,7 @@ namespace SpacerUnion.Windows
             this.buttonDebug.TabIndex = 11;
             this.buttonDebug.Text = "DebugRemove";
             this.buttonDebug.UseVisualStyleBackColor = true;
+            this.buttonDebug.Visible = false;
             this.buttonDebug.Click += new System.EventHandler(this.buttonDebug_Click);
             // 
             // VobCatalogForm

@@ -742,6 +742,8 @@ namespace SpacerUnion.Common
             words.Add("WIN_VOBCATALOG_ACTIONS", new List<string> { "Действия", "Actions", "", "", "" });
 
             words.Add("WIN_VOBCATALOG_ALL_COUNT", new List<string> { "Всего объектов: ", "Objects amount: ", "", "", "" });
+            words.Add("WIN_VOBCATALOG_SEARCH", new List<string> { "Поиск: ", "Search: ", "", "", "" });
+
         }
 
         

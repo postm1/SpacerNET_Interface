@@ -65,6 +65,10 @@ namespace SpacerUnion.Windows
             groupBoxGroups.Text = Localizator.Get("WIN_VOBCATALOG_GROUPS");
             groupBoxItems.Text = Localizator.Get("WIN_VOBCATALOG_ITEMS");
             groupBoxActions.Text = Localizator.Get("WIN_VOBCATALOG_ACTIONS");
+            labelSearch.Text = Localizator.Get("WIN_VOBCATALOG_SEARCH");
+            buttonCreateVob.Text = Localizator.Get("buttonAllClassesCreateVob");
+
+            
         }
 
         public void UpdateTitle()
@@ -706,18 +710,22 @@ namespace SpacerUnion.Windows
                 e.Handled = true;
                 
                 var textSearch = textBoxSearch.Text.Trim().ToUpper();
-                int index = 0;
 
-                foreach (var item in listBoxItems.Items)
+                if (listBoxItems.Items.Count > listBoxItems.SelectedIndex + 1)
                 {
-                    if (item.ToString().Contains(textSearch))
+                    for (int i = listBoxItems.SelectedIndex + 1; i < listBoxItems.Items.Count; i++)
                     {
-                        listBoxItems.SelectedIndex = index;
-                        break;
-                    }
+                        var item = listBoxItems.Items[i];
 
-                    index++;
+                        if (item.ToString().Contains(textSearch))
+                        {
+                            listBoxItems.SelectedIndex = i;
+                            break;
+                        }
+
+                    }
                 }
+                
             }
         }
 
