@@ -109,6 +109,7 @@ namespace SpacerUnion.Windows
             buttonSortItems.Enabled = toggle;
             buttonUPAbs.Enabled = toggle;
             buttonDownAbs.Enabled = toggle;
+            textBoxSearch.Enabled = toggle;
         }
 
 
