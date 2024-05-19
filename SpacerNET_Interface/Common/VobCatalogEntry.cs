@@ -58,6 +58,11 @@ namespace SpacerUnion.Common
             return entries.Where(x => x.GroupName == group && x.Visual == visual).FirstOrDefault();
         }
 
+        public VobCatalogEntry GetByVisual(string visual)
+        {
+            return entries.Where(x => x.Visual == visual).FirstOrDefault();
+        }
+
         public void Clear()
         {
             entries.Clear();

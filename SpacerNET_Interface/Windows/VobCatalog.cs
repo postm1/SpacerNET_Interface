@@ -18,6 +18,7 @@ namespace SpacerUnion.Windows
         public VobCatalogPropsForm propsForm;
         string pathFile;
         string pathFileCopy;
+        string pathBackups;
         bool fileWasRead;
 
         public VobCatalogForm()
@@ -28,6 +29,7 @@ namespace SpacerUnion.Windows
             propsForm = new VobCatalogPropsForm();
             pathFile = Path.GetFullPath(@"../_work/tools/vobcatalog_spacernet.txt");
             pathFileCopy = Path.GetFullPath(@"../_work/tools/vobcatalog_spacernet_backup.txt");
+            pathBackups = Path.GetFullPath(@"../_work/tools/vobcatalog_backups/");
             fileWasRead = false;
         }
 
@@ -67,8 +69,8 @@ namespace SpacerUnion.Windows
             groupBoxActions.Text = Localizator.Get("WIN_VOBCATALOG_ACTIONS");
             labelSearch.Text = Localizator.Get("WIN_VOBCATALOG_SEARCH");
             buttonCreateVob.Text = Localizator.Get("buttonAllClassesCreateVob");
+            buttonSaveCopy.Text = Localizator.Get("WIN_VOBCATALOG_BUTTON_SAVE");
 
-            
         }
 
         public void UpdateTitle()
@@ -342,7 +344,7 @@ namespace SpacerUnion.Windows
             UpdateTitle();
         }
 
-        public void SaveToFile()
+        public void SaveToFile(bool isBackup = false)
         {
 
             if (listBoxGroups.Items.Count == 0 || !SpacerNET.isInit)
@@ -350,8 +352,18 @@ namespace SpacerUnion.Windows
                 return;
             }
 
+            var safePath = pathFile;
 
-            FileStream fs = new FileStream(pathFile, FileMode.Create);
+            string time = DateTime.Now.ToString("yyyy_MM_dd HH-mm-ss");
+
+            if (isBackup)
+            {
+                
+
+                safePath = pathBackups + "/vobcatalog_spacernet_" + time + ".txt";
+            }
+
+            FileStream fs = new FileStream(safePath, FileMode.Create);
 
             StreamWriter w = new StreamWriter(fs, Encoding.UTF8);
 
@@ -402,7 +414,12 @@ namespace SpacerUnion.Windows
 
             w.Close();
 
-            ConsoleEx.WriteLineRed("Save to file");
+            ConsoleEx.WriteLineRed("VobCatalog: Save to file");
+
+            if (isBackup)
+            {
+                MessageBox.Show(Localizator.Get("WIN_VOBCATALOG_SAVED_COPY") + "vobcatalog_spacernet_" + time + ".txt");
+            }
         }
 
         
@@ -740,6 +757,11 @@ namespace SpacerUnion.Windows
             }
 
             Imports.Extern_CallFindSuchVisualsDebug(1);
+        }
+
+        private void buttonSaveCopy_Click(object sender, EventArgs e)
+        {
+            SaveToFile(true);
         }
     }
 }

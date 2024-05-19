@@ -56,6 +56,8 @@ namespace SpacerUnion.Windows
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.panelSearch = new System.Windows.Forms.Panel();
             this.panelButtons = new System.Windows.Forms.Panel();
+            this.checkBoxDebugSearch = new System.Windows.Forms.CheckBox();
+            this.buttonSaveCopy = new System.Windows.Forms.Button();
             this.groupBoxGroups.SuspendLayout();
             this.groupBoxItems.SuspendLayout();
             this.groupBoxActions.SuspendLayout();
@@ -82,7 +84,7 @@ namespace SpacerUnion.Windows
             this.listBoxItems.FormattingEnabled = true;
             this.listBoxItems.Location = new System.Drawing.Point(0, 0);
             this.listBoxItems.Name = "listBoxItems";
-            this.listBoxItems.Size = new System.Drawing.Size(458, 167);
+            this.listBoxItems.Size = new System.Drawing.Size(410, 167);
             this.listBoxItems.TabIndex = 1;
             this.listBoxItems.SelectedIndexChanged += new System.EventHandler(this.listBoxItems_SelectedIndexChanged);
             this.listBoxItems.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxItems_MouseDoubleClick);
@@ -228,6 +230,9 @@ namespace SpacerUnion.Windows
             // 
             // groupBoxActions
             // 
+            this.groupBoxActions.Controls.Add(this.buttonSaveCopy);
+            this.groupBoxActions.Controls.Add(this.checkBoxDebugSearch);
+            this.groupBoxActions.Controls.Add(this.buttonDebug);
             this.groupBoxActions.Controls.Add(this.checkBoxHideModel);
             this.groupBoxActions.Controls.Add(this.buttonCreateVob);
             this.groupBoxActions.Location = new System.Drawing.Point(404, 10);
@@ -240,7 +245,7 @@ namespace SpacerUnion.Windows
             // checkBoxHideModel
             // 
             this.checkBoxHideModel.AutoSize = true;
-            this.checkBoxHideModel.Location = new System.Drawing.Point(8, 51);
+            this.checkBoxHideModel.Location = new System.Drawing.Point(6, 78);
             this.checkBoxHideModel.Name = "checkBoxHideModel";
             this.checkBoxHideModel.Size = new System.Drawing.Size(168, 17);
             this.checkBoxHideModel.TabIndex = 14;
@@ -261,7 +266,7 @@ namespace SpacerUnion.Windows
             // 
             // buttonDebug
             // 
-            this.buttonDebug.Location = new System.Drawing.Point(3, 113);
+            this.buttonDebug.Location = new System.Drawing.Point(182, 48);
             this.buttonDebug.Name = "buttonDebug";
             this.buttonDebug.Size = new System.Drawing.Size(75, 23);
             this.buttonDebug.TabIndex = 11;
@@ -295,8 +300,8 @@ namespace SpacerUnion.Windows
             // 
             // panelRight
             // 
-            this.panelRight.Controls.Add(this.panelButtons);
             this.panelRight.Controls.Add(this.listBoxItems);
+            this.panelRight.Controls.Add(this.panelButtons);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRight.Location = new System.Drawing.Point(236, 0);
             this.panelRight.Name = "panelRight";
@@ -344,7 +349,6 @@ namespace SpacerUnion.Windows
             // panelButtons
             // 
             this.panelButtons.Controls.Add(this.buttonSortItems);
-            this.panelButtons.Controls.Add(this.buttonDebug);
             this.panelButtons.Controls.Add(this.buttonDownRight);
             this.panelButtons.Controls.Add(this.buttonUpRight);
             this.panelButtons.Dock = System.Windows.Forms.DockStyle.Right;
@@ -352,6 +356,26 @@ namespace SpacerUnion.Windows
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.Size = new System.Drawing.Size(48, 167);
             this.panelButtons.TabIndex = 12;
+            // 
+            // checkBoxDebugSearch
+            // 
+            this.checkBoxDebugSearch.AutoSize = true;
+            this.checkBoxDebugSearch.Location = new System.Drawing.Point(182, 23);
+            this.checkBoxDebugSearch.Name = "checkBoxDebugSearch";
+            this.checkBoxDebugSearch.Size = new System.Drawing.Size(158, 17);
+            this.checkBoxDebugSearch.TabIndex = 15;
+            this.checkBoxDebugSearch.Text = "Debug Search VDF/WORK";
+            this.checkBoxDebugSearch.UseVisualStyleBackColor = true;
+            // 
+            // buttonSaveCopy
+            // 
+            this.buttonSaveCopy.Location = new System.Drawing.Point(6, 48);
+            this.buttonSaveCopy.Name = "buttonSaveCopy";
+            this.buttonSaveCopy.Size = new System.Drawing.Size(170, 23);
+            this.buttonSaveCopy.TabIndex = 16;
+            this.buttonSaveCopy.Text = "Save a copy of catalog";
+            this.buttonSaveCopy.UseVisualStyleBackColor = true;
+            this.buttonSaveCopy.Click += new System.EventHandler(this.buttonSaveCopy_Click);
             // 
             // VobCatalogForm
             // 
@@ -417,5 +441,7 @@ namespace SpacerUnion.Windows
         private System.Windows.Forms.Panel panelSearch;
         private System.Windows.Forms.Button buttonDebug;
         private System.Windows.Forms.Panel panelButtons;
+        public System.Windows.Forms.CheckBox checkBoxDebugSearch;
+        private System.Windows.Forms.Button buttonSaveCopy;
     }
 }

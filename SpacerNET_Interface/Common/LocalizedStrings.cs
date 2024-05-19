@@ -744,6 +744,8 @@ namespace SpacerUnion.Common
             words.Add("WIN_VOBCATALOG_ALL_COUNT", new List<string> { "Всего объектов: ", "Objects amount: ", "", "", "" });
             words.Add("WIN_VOBCATALOG_SEARCH", new List<string> { "Поиск: ", "Search: ", "", "", "" });
 
+            words.Add("WIN_VOBCATALOG_BUTTON_SAVE", new List<string> { "Сохранить копию базы каталога", "Save a copy of Vob Catalog", "", "", "" });
+            words.Add("WIN_VOBCATALOG_SAVED_COPY", new List<string> { "Создана копия базы каталога, сохранено по пути: _work/tools/vobcatalog_backups/", "A copy of the catalog database has been created and saved to the path: _work/tools/vobcatalog_backups/", "", "", "" });
         }
 
         

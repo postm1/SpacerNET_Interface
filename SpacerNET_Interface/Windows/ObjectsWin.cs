@@ -1002,6 +1002,8 @@ namespace SpacerUnion
         
         private void textBoxVisuals_KeyPress(object sender, KeyPressEventArgs e)
         {
+            bool testCodeSearch = SpacerNET.vobCatForm.checkBoxDebugSearch.Checked;
+
             if (e.KeyChar == (char)13)
             {
                 e.Handled = true;
@@ -1054,7 +1056,28 @@ namespace SpacerUnion
                             }
                             else
                             {
-                                listBoxVisuals.Items.Add(listVisualsVDF[i]);
+
+                                if (testCodeSearch)
+                                {
+                                    var name = listVisualsVDF[i];
+
+                                    var entry = SpacerNET.vobCatForm.vobMan.GetByVisual(name);
+
+                                    if (entry != null)
+                                    {
+                                        //ConsoleEx.WriteLineRed(String.Format("{0} / {1}", name, entry.Visual));
+                                    }
+                                    else
+                                    {
+                                        listBoxVisuals.Items.Add(name);
+                                    }
+                                    
+                                }
+                                else
+                                {
+                                    listBoxVisuals.Items.Add(listVisualsVDF[i]);
+                                }
+                                
                             }
                         }
                     }
@@ -1065,7 +1088,29 @@ namespace SpacerUnion
                     {
                         if (regEx.IsMatch(listVisualsWORK[i]))
                         {
-                            listBoxVisuals.Items.Add(listVisualsWORK[i]);
+
+                            if (testCodeSearch)
+                            {
+                                var name = listVisualsWORK[i];
+
+                                var entry = SpacerNET.vobCatForm.vobMan.GetByVisual(name);
+
+                                if (entry != null)
+                                {
+                                    //ConsoleEx.WriteLineRed(String.Format("{0} / {1}", name, entry.Visual));
+                                }
+                                else
+                                {
+                                    listBoxVisuals.Items.Add(name);
+                                }
+
+                            }
+                            else
+                            {
+                                listBoxVisuals.Items.Add(listVisualsWORK[i]);
+                            }
+
+                            
                         }
                     }
                 }
