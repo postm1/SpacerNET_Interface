@@ -47,6 +47,7 @@ namespace SpacerUnion.Windows
             this.groupBoxActions = new System.Windows.Forms.GroupBox();
             this.checkBoxHideModel = new System.Windows.Forms.CheckBox();
             this.panelBottom = new System.Windows.Forms.Panel();
+            this.buttonDebug = new System.Windows.Forms.Button();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.buttonSortAlph = new System.Windows.Forms.Button();
             this.panelRight = new System.Windows.Forms.Panel();
@@ -54,7 +55,7 @@ namespace SpacerUnion.Windows
             this.labelSearch = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.panelSearch = new System.Windows.Forms.Panel();
-            this.buttonDebug = new System.Windows.Forms.Button();
+            this.panelButtons = new System.Windows.Forms.Panel();
             this.groupBoxGroups.SuspendLayout();
             this.groupBoxItems.SuspendLayout();
             this.groupBoxActions.SuspendLayout();
@@ -62,6 +63,7 @@ namespace SpacerUnion.Windows
             this.panelLeft.SuspendLayout();
             this.panelRight.SuspendLayout();
             this.panelSearch.SuspendLayout();
+            this.panelButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBoxGroups
@@ -76,11 +78,11 @@ namespace SpacerUnion.Windows
             // 
             // listBoxItems
             // 
-            this.listBoxItems.Dock = System.Windows.Forms.DockStyle.Left;
+            this.listBoxItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxItems.FormattingEnabled = true;
             this.listBoxItems.Location = new System.Drawing.Point(0, 0);
             this.listBoxItems.Name = "listBoxItems";
-            this.listBoxItems.Size = new System.Drawing.Size(412, 167);
+            this.listBoxItems.Size = new System.Drawing.Size(458, 167);
             this.listBoxItems.TabIndex = 1;
             this.listBoxItems.SelectedIndexChanged += new System.EventHandler(this.listBoxItems_SelectedIndexChanged);
             this.listBoxItems.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxItems_MouseDoubleClick);
@@ -195,7 +197,7 @@ namespace SpacerUnion.Windows
             // buttonUpRight
             // 
             this.buttonUpRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonUpRight.Location = new System.Drawing.Point(423, 16);
+            this.buttonUpRight.Location = new System.Drawing.Point(8, 5);
             this.buttonUpRight.Name = "buttonUpRight";
             this.buttonUpRight.Size = new System.Drawing.Size(23, 30);
             this.buttonUpRight.TabIndex = 10;
@@ -206,7 +208,7 @@ namespace SpacerUnion.Windows
             // buttonDownRight
             // 
             this.buttonDownRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDownRight.Location = new System.Drawing.Point(423, 52);
+            this.buttonDownRight.Location = new System.Drawing.Point(8, 41);
             this.buttonDownRight.Name = "buttonDownRight";
             this.buttonDownRight.Size = new System.Drawing.Size(23, 30);
             this.buttonDownRight.TabIndex = 11;
@@ -230,7 +232,7 @@ namespace SpacerUnion.Windows
             this.groupBoxActions.Controls.Add(this.buttonCreateVob);
             this.groupBoxActions.Location = new System.Drawing.Point(404, 10);
             this.groupBoxActions.Name = "groupBoxActions";
-            this.groupBoxActions.Size = new System.Drawing.Size(192, 103);
+            this.groupBoxActions.Size = new System.Drawing.Size(244, 103);
             this.groupBoxActions.TabIndex = 10;
             this.groupBoxActions.TabStop = false;
             this.groupBoxActions.Text = "Actions";
@@ -238,7 +240,7 @@ namespace SpacerUnion.Windows
             // checkBoxHideModel
             // 
             this.checkBoxHideModel.AutoSize = true;
-            this.checkBoxHideModel.Location = new System.Drawing.Point(8, 61);
+            this.checkBoxHideModel.Location = new System.Drawing.Point(8, 51);
             this.checkBoxHideModel.Name = "checkBoxHideModel";
             this.checkBoxHideModel.Size = new System.Drawing.Size(168, 17);
             this.checkBoxHideModel.TabIndex = 14;
@@ -248,7 +250,6 @@ namespace SpacerUnion.Windows
             // 
             // panelBottom
             // 
-            this.panelBottom.Controls.Add(this.buttonDebug);
             this.panelBottom.Controls.Add(this.groupBoxGroups);
             this.panelBottom.Controls.Add(this.groupBoxActions);
             this.panelBottom.Controls.Add(this.groupBoxItems);
@@ -257,6 +258,17 @@ namespace SpacerUnion.Windows
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(694, 125);
             this.panelBottom.TabIndex = 12;
+            // 
+            // buttonDebug
+            // 
+            this.buttonDebug.Location = new System.Drawing.Point(3, 113);
+            this.buttonDebug.Name = "buttonDebug";
+            this.buttonDebug.Size = new System.Drawing.Size(75, 23);
+            this.buttonDebug.TabIndex = 11;
+            this.buttonDebug.Text = "DebugRemove";
+            this.buttonDebug.UseVisualStyleBackColor = true;
+            this.buttonDebug.Visible = false;
+            this.buttonDebug.Click += new System.EventHandler(this.buttonDebug_Click);
             // 
             // panelLeft
             // 
@@ -283,10 +295,8 @@ namespace SpacerUnion.Windows
             // 
             // panelRight
             // 
-            this.panelRight.Controls.Add(this.buttonSortItems);
+            this.panelRight.Controls.Add(this.panelButtons);
             this.panelRight.Controls.Add(this.listBoxItems);
-            this.panelRight.Controls.Add(this.buttonUpRight);
-            this.panelRight.Controls.Add(this.buttonDownRight);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRight.Location = new System.Drawing.Point(236, 0);
             this.panelRight.Name = "panelRight";
@@ -296,7 +306,7 @@ namespace SpacerUnion.Windows
             // buttonSortItems
             // 
             this.buttonSortItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSortItems.Location = new System.Drawing.Point(418, 88);
+            this.buttonSortItems.Location = new System.Drawing.Point(3, 77);
             this.buttonSortItems.Name = "buttonSortItems";
             this.buttonSortItems.Size = new System.Drawing.Size(38, 30);
             this.buttonSortItems.TabIndex = 9;
@@ -331,16 +341,17 @@ namespace SpacerUnion.Windows
             this.panelSearch.Size = new System.Drawing.Size(458, 36);
             this.panelSearch.TabIndex = 15;
             // 
-            // buttonDebug
+            // panelButtons
             // 
-            this.buttonDebug.Location = new System.Drawing.Point(602, 10);
-            this.buttonDebug.Name = "buttonDebug";
-            this.buttonDebug.Size = new System.Drawing.Size(75, 23);
-            this.buttonDebug.TabIndex = 11;
-            this.buttonDebug.Text = "DebugRemove";
-            this.buttonDebug.UseVisualStyleBackColor = true;
-            this.buttonDebug.Visible = false;
-            this.buttonDebug.Click += new System.EventHandler(this.buttonDebug_Click);
+            this.panelButtons.Controls.Add(this.buttonSortItems);
+            this.panelButtons.Controls.Add(this.buttonDebug);
+            this.panelButtons.Controls.Add(this.buttonDownRight);
+            this.panelButtons.Controls.Add(this.buttonUpRight);
+            this.panelButtons.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelButtons.Location = new System.Drawing.Point(410, 0);
+            this.panelButtons.Name = "panelButtons";
+            this.panelButtons.Size = new System.Drawing.Size(48, 167);
+            this.panelButtons.TabIndex = 12;
             // 
             // VobCatalogForm
             // 
@@ -372,6 +383,7 @@ namespace SpacerUnion.Windows
             this.panelRight.ResumeLayout(false);
             this.panelSearch.ResumeLayout(false);
             this.panelSearch.PerformLayout();
+            this.panelButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -404,5 +416,6 @@ namespace SpacerUnion.Windows
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Panel panelSearch;
         private System.Windows.Forms.Button buttonDebug;
+        private System.Windows.Forms.Panel panelButtons;
     }
 }
