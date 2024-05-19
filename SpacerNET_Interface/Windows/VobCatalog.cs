@@ -82,7 +82,7 @@ namespace SpacerUnion.Windows
 
         public void UpdateTitle()
         {
-            this.Text = Localizator.Get("WIN_VOBCATALOG_TITLE") + " " + Localizator.Get("WIN_VOBCATALOG_ALL_COUNT") + vobMan.entries.Count;
+            this.Text = Localizator.Get("WIN_VOBCATALOG_TITLE") + ". " + Localizator.Get("WIN_VOBCATALOG_ALL_COUNT") + vobMan.entries.Count;
         }
 
         private void VobCatalogForm_Shown(object sender, EventArgs e)
@@ -812,6 +812,14 @@ namespace SpacerUnion.Windows
         private void buttonDownAbs_Click(object sender, EventArgs e)
         {
             MoveToBottom(listBoxItems);
+        }
+
+        private void VobCatalogForm_Load(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.VobCatalogWinLocation != null)
+            {
+                this.Location = Properties.Settings.Default.VobCatalogWinLocation;
+            }
         }
     }
 }

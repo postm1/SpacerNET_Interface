@@ -89,27 +89,31 @@
             this.miscToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.keyBindsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.russianToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.deutscheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.polskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.czechToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.panelMain = new System.Windows.Forms.Panel();
             this.toolStripTop = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonInfo = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonBig = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSound = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonTree = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonProps = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonVobCont = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonVobs = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonWaynet = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonHelpVobs = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonBBox = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonInvisible = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonGratt = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonMaterial = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonGrass = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonMulti = new System.Windows.Forms.ToolStripButton();
@@ -117,13 +121,9 @@
             this.toolStripButtonMacros = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFilter = new System.Windows.Forms.ToolStripButton();
             this.toolStripVobVisualInfo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonPfxEditor = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonErrorReport = new System.Windows.Forms.ToolStripButton();
-            this.russianToolStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.englishToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.deutscheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.polskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.czechToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButtonCatalog = new System.Windows.Forms.ToolStripButton();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
@@ -648,6 +648,46 @@
             this.languageToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.languageToolStripMenuItem.Text = "Language";
             // 
+            // russianToolStrip
+            // 
+            this.russianToolStrip.Image = ((System.Drawing.Image)(resources.GetObject("russianToolStrip.Image")));
+            this.russianToolStrip.Name = "russianToolStrip";
+            this.russianToolStrip.Size = new System.Drawing.Size(119, 22);
+            this.russianToolStrip.Text = "Русский";
+            this.russianToolStrip.Click += new System.EventHandler(this.русскийToolStripMenuItem1_Click);
+            // 
+            // englishToolStripMenuItem1
+            // 
+            this.englishToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("englishToolStripMenuItem1.Image")));
+            this.englishToolStripMenuItem1.Name = "englishToolStripMenuItem1";
+            this.englishToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
+            this.englishToolStripMenuItem1.Text = "English";
+            this.englishToolStripMenuItem1.Click += new System.EventHandler(this.englishToolStripMenuItem1_Click);
+            // 
+            // deutscheToolStripMenuItem
+            // 
+            this.deutscheToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deutscheToolStripMenuItem.Image")));
+            this.deutscheToolStripMenuItem.Name = "deutscheToolStripMenuItem";
+            this.deutscheToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.deutscheToolStripMenuItem.Text = "Deutsch";
+            this.deutscheToolStripMenuItem.Click += new System.EventHandler(this.deutscheToolStripMenuItem_Click);
+            // 
+            // polskiToolStripMenuItem
+            // 
+            this.polskiToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("polskiToolStripMenuItem.Image")));
+            this.polskiToolStripMenuItem.Name = "polskiToolStripMenuItem";
+            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.polskiToolStripMenuItem.Text = "Polski";
+            this.polskiToolStripMenuItem.Click += new System.EventHandler(this.polskiToolStripMenuItem_Click);
+            // 
+            // czechToolStripMenuItem
+            // 
+            this.czechToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("czechToolStripMenuItem.Image")));
+            this.czechToolStripMenuItem.Name = "czechToolStripMenuItem";
+            this.czechToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.czechToolStripMenuItem.Text = "Czech";
+            this.czechToolStripMenuItem.Click += new System.EventHandler(this.czechToolStripMenuItem_Click);
+            // 
             // toolStripMenuHelp
             // 
             this.toolStripMenuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -714,21 +754,6 @@
             this.toolStripTop.MouseClick += new System.Windows.Forms.MouseEventHandler(this.toolStripTop_MouseClick);
             this.toolStripTop.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.toolStripTop_MouseDoubleClick);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
             // toolStripButtonInfo
             // 
             this.toolStripButtonInfo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -790,6 +815,11 @@
             this.toolStripButtonVobCont.Text = "VobList window";
             this.toolStripButtonVobCont.Click += new System.EventHandler(this.toolStripButton9_Click_1);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // toolStripButtonVobs
             // 
             this.toolStripButtonVobs.BackColor = System.Drawing.Color.Black;
@@ -850,6 +880,11 @@
             this.toolStripButtonGratt.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonGratt.Text = "Alternative controller";
             this.toolStripButtonGratt.Click += new System.EventHandler(this.toolStripButtonGratt_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripButtonMaterial
             // 
@@ -921,6 +956,11 @@
             this.toolStripVobVisualInfo.Text = "Vob visual info";
             this.toolStripVobVisualInfo.Click += new System.EventHandler(this.toolStripVobVisualInfo_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
             // toolStripButtonPfxEditor
             // 
             this.toolStripButtonPfxEditor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -940,46 +980,6 @@
             this.toolStripButtonErrorReport.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonErrorReport.Text = "ErrorsReport";
             this.toolStripButtonErrorReport.Click += new System.EventHandler(this.toolStripButtonErrorReport_Click);
-            // 
-            // russianToolStrip
-            // 
-            this.russianToolStrip.Image = ((System.Drawing.Image)(resources.GetObject("russianToolStrip.Image")));
-            this.russianToolStrip.Name = "russianToolStrip";
-            this.russianToolStrip.Size = new System.Drawing.Size(119, 22);
-            this.russianToolStrip.Text = "Русский";
-            this.russianToolStrip.Click += new System.EventHandler(this.русскийToolStripMenuItem1_Click);
-            // 
-            // englishToolStripMenuItem1
-            // 
-            this.englishToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("englishToolStripMenuItem1.Image")));
-            this.englishToolStripMenuItem1.Name = "englishToolStripMenuItem1";
-            this.englishToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
-            this.englishToolStripMenuItem1.Text = "English";
-            this.englishToolStripMenuItem1.Click += new System.EventHandler(this.englishToolStripMenuItem1_Click);
-            // 
-            // deutscheToolStripMenuItem
-            // 
-            this.deutscheToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deutscheToolStripMenuItem.Image")));
-            this.deutscheToolStripMenuItem.Name = "deutscheToolStripMenuItem";
-            this.deutscheToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.deutscheToolStripMenuItem.Text = "Deutsch";
-            this.deutscheToolStripMenuItem.Click += new System.EventHandler(this.deutscheToolStripMenuItem_Click);
-            // 
-            // polskiToolStripMenuItem
-            // 
-            this.polskiToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("polskiToolStripMenuItem.Image")));
-            this.polskiToolStripMenuItem.Name = "polskiToolStripMenuItem";
-            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.polskiToolStripMenuItem.Text = "Polski";
-            this.polskiToolStripMenuItem.Click += new System.EventHandler(this.polskiToolStripMenuItem_Click);
-            // 
-            // czechToolStripMenuItem
-            // 
-            this.czechToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("czechToolStripMenuItem.Image")));
-            this.czechToolStripMenuItem.Name = "czechToolStripMenuItem";
-            this.czechToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.czechToolStripMenuItem.Text = "Czech";
-            this.czechToolStripMenuItem.Click += new System.EventHandler(this.czechToolStripMenuItem_Click);
             // 
             // toolStripButtonCatalog
             // 

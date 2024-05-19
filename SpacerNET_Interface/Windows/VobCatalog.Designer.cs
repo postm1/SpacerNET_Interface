@@ -423,6 +423,7 @@ namespace SpacerUnion.Windows
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vob Catalog";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VobCatalogForm_FormClosing);
+            this.Load += new System.EventHandler(this.VobCatalogForm_Load);
             this.Shown += new System.EventHandler(this.VobCatalogForm_Shown);
             this.VisibleChanged += new System.EventHandler(this.VobCatalogForm_VisibleChanged);
             this.groupBoxGroups.ResumeLayout(false);
