@@ -107,6 +107,8 @@ namespace SpacerUnion.Windows
             groupBoxActions.Enabled = toggle;
             buttonSortAlph.Enabled = toggle;
             buttonSortItems.Enabled = toggle;
+            buttonUPAbs.Enabled = toggle;
+            buttonDownAbs.Enabled = toggle;
         }
 
 
@@ -236,26 +238,7 @@ namespace SpacerUnion.Windows
             }
         }
 
-        public void MoveItem(ListBox list, int direction)
-        {
-            var listBox1 = list;
-
-            // Checking selected item
-            if (listBox1.SelectedItem == null || listBox1.SelectedIndex < 0)
-                return; // No selected item - nothing to do
-                        // Calculate new index using move direction
-            int newIndex = listBox1.SelectedIndex + direction;
-            // Checking bounds of the range
-            if (newIndex < 0 || newIndex >= listBox1.Items.Count)
-                return; // Index out of range - nothing to do
-            object selected = listBox1.SelectedItem;
-            // Removing removable element
-            listBox1.Items.Remove(selected);
-            // Insert it in new position
-            listBox1.Items.Insert(newIndex, selected);
-            // Restore selection
-            listBox1.SetSelected(newIndex, true);
-        }
+        
 
 
         private void buttonRemoveSelected_Click(object sender, EventArgs e)
@@ -762,6 +745,65 @@ namespace SpacerUnion.Windows
         private void buttonSaveCopy_Click(object sender, EventArgs e)
         {
             SaveToFile(true);
+        }
+
+
+        public void MoveToTop(ListBox lb)
+        {
+            if(lb.SelectedItem == null || lb.SelectedIndex < 0)
+                return;
+            int index = lb.SelectedIndex;
+
+            var item = lb.Items[index];
+            lb.Items.RemoveAt(index);
+            lb.Items.Insert(0, item);
+            lb.Refresh();
+            lb.SelectedIndex = 0;
+        }
+
+        public void MoveToBottom(ListBox lb)
+        {
+            if (lb.SelectedItem == null || lb.SelectedIndex < 0)
+                return;
+            int index = lb.SelectedIndex;
+
+            var item = lb.Items[index];
+            lb.Items.RemoveAt(index);
+            lb.Items.Add(item);
+            lb.Refresh();
+
+            lb.SelectedIndex = lb.Items.Count - 1;
+        }
+
+        public void MoveItem(ListBox list, int direction)
+        {
+            var listBox1 = list;
+
+            // Checking selected item
+            if (listBox1.SelectedItem == null || listBox1.SelectedIndex < 0)
+                return; // No selected item - nothing to do
+                        // Calculate new index using move direction
+            int newIndex = listBox1.SelectedIndex + direction;
+            // Checking bounds of the range
+            if (newIndex < 0 || newIndex >= listBox1.Items.Count)
+                return; // Index out of range - nothing to do
+            object selected = listBox1.SelectedItem;
+            // Removing removable element
+            listBox1.Items.Remove(selected);
+            // Insert it in new position
+            listBox1.Items.Insert(newIndex, selected);
+            // Restore selection
+            listBox1.SetSelected(newIndex, true);
+        }
+
+        private void buttonUPAbs_Click(object sender, EventArgs e)
+        {
+            MoveToTop(listBoxItems);
+        }
+
+        private void buttonDownAbs_Click(object sender, EventArgs e)
+        {
+            MoveToBottom(listBoxItems);
         }
     }
 }
