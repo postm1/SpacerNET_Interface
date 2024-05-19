@@ -263,6 +263,7 @@ namespace SpacerUnion.Windows
             this.checkBoxDebugSearch.TabIndex = 15;
             this.checkBoxDebugSearch.Text = "Debug Search VDF/WORK";
             this.checkBoxDebugSearch.UseVisualStyleBackColor = true;
+            this.checkBoxDebugSearch.Visible = false;
             // 
             // buttonDebug
             // 
@@ -272,6 +273,7 @@ namespace SpacerUnion.Windows
             this.buttonDebug.TabIndex = 11;
             this.buttonDebug.Text = "DebugRemove";
             this.buttonDebug.UseVisualStyleBackColor = true;
+            this.buttonDebug.Visible = false;
             this.buttonDebug.Click += new System.EventHandler(this.buttonDebug_Click);
             // 
             // checkBoxHideModel

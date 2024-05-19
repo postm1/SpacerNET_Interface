@@ -71,6 +71,13 @@ namespace SpacerUnion.Windows
             buttonCreateVob.Text = Localizator.Get("buttonAllClassesCreateVob");
             buttonSaveCopy.Text = Localizator.Get("WIN_VOBCATALOG_BUTTON_SAVE");
 
+            buttonAddNewGroup.Text = Localizator.Get("WIN_VOBCATALOG_BTN_ADD_GROUP_NEW");
+            buttonRenameSelected.Text = Localizator.Get("WIN_VOBCATALOG_BTN_RENAME_GROUP");
+            buttonRemoveSelected.Text = Localizator.Get("WIN_VOBCATALOG_BTN_REMOVE_GROUP");
+
+            buttonAddElement.Text = Localizator.Get("WIN_VOBCATALOG_BTN_ELEM_ADD");
+            buttonChangeProps.Text = Localizator.Get("WIN_VOBCATALOG_BTN_ELEM_EDIT");
+            buttonRemoveItem.Text = Localizator.Get("WIN_VOBCATALOG_BTN_ELEM_REMOVE");
         }
 
         public void UpdateTitle()

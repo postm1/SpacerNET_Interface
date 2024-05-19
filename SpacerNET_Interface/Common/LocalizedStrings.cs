@@ -746,6 +746,15 @@ namespace SpacerUnion.Common
 
             words.Add("WIN_VOBCATALOG_BUTTON_SAVE", new List<string> { "Сохранить копию базы каталога", "Save a copy of Vob Catalog", "", "", "" });
             words.Add("WIN_VOBCATALOG_SAVED_COPY", new List<string> { "Создана копия базы каталога, сохранено по пути: _work/tools/vobcatalog_backups/", "A copy of the catalog database has been created and saved to the path: _work/tools/vobcatalog_backups/", "", "", "" });
+
+            words.Add("WIN_VOBCATALOG_BTN_ADD_GROUP_NEW", new List<string> { "Добавить новую группу", "Add new group", "", "", "" });
+            words.Add("WIN_VOBCATALOG_BTN_RENAME_GROUP", new List<string> { "Переименовать группу", "Rename group", "", "", "" });
+            words.Add("WIN_VOBCATALOG_BTN_REMOVE_GROUP", new List<string> { "Удалить группу", "Delete group", "", "", "" });
+
+
+            words.Add("WIN_VOBCATALOG_BTN_ELEM_ADD", new List<string> { "Добавить новый", "Add new", "", "", "" });
+            words.Add("WIN_VOBCATALOG_BTN_ELEM_EDIT", new List<string> { "Изменить", "Edit", "", "", "" });
+            words.Add("WIN_VOBCATALOG_BTN_ELEM_REMOVE", new List<string> { "Удалить", "Remove", "", "", "" });
         }
 
         
