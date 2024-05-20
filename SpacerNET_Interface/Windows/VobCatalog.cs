@@ -886,7 +886,7 @@ namespace SpacerUnion.Windows
 
                 foundNoRes.Sort();
 
-                ConsoleEx.WriteLineRed("VOB Catalog: No models found in VDF/_WORK: ");
+                ConsoleEx.WriteLineRed("VOB Catalog: No models found in VDF/_WORK: ", false);
 
                 foreach (var item in foundNoRes)
                 {
