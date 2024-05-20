@@ -67,6 +67,8 @@ namespace SpacerUnion.Windows
             groupBoxGroups.Text = Localizator.Get("WIN_VOBCATALOG_GROUPS");
             groupBoxItems.Text = Localizator.Get("WIN_VOBCATALOG_ITEMS");
             groupBoxActions.Text = Localizator.Get("WIN_VOBCATALOG_ACTIONS");
+            groupBoxAdv.Text = Localizator.Get("WIN_VOBCATALOG_ADV");
+
             labelSearch.Text = Localizator.Get("WIN_VOBCATALOG_SEARCH");
             buttonCreateVob.Text = Localizator.Get("buttonAllClassesCreateVob");
             buttonSaveCopy.Text = Localizator.Get("WIN_VOBCATALOG_BUTTON_SAVE");
@@ -75,9 +77,17 @@ namespace SpacerUnion.Windows
             buttonRenameSelected.Text = Localizator.Get("WIN_VOBCATALOG_BTN_RENAME_GROUP");
             buttonRemoveSelected.Text = Localizator.Get("WIN_VOBCATALOG_BTN_REMOVE_GROUP");
 
+
+            
+
             buttonAddElement.Text = Localizator.Get("WIN_VOBCATALOG_BTN_ELEM_ADD");
             buttonChangeProps.Text = Localizator.Get("WIN_VOBCATALOG_BTN_ELEM_EDIT");
             buttonRemoveItem.Text = Localizator.Get("WIN_VOBCATALOG_BTN_ELEM_REMOVE");
+
+
+            checkBoxDebugSearch.Text = Localizator.Get("WIN_VOBCATALOG_ADV_DONT_SEARCH");
+            buttonDebugRemove.Text = Localizator.Get("WIN_VOBCATALOG_ADV_REMOVE_VOBS");
+            buttonNoModels.Text = Localizator.Get("WIN_VOBCATALOG_ADV_PRINT_MODELS");
         }
 
         public void UpdateTitle()
@@ -125,6 +135,7 @@ namespace SpacerUnion.Windows
             buttonUPAbs.Enabled = toggle;
             buttonDownAbs.Enabled = toggle;
             textBoxSearch.Enabled = toggle;
+            groupBoxAdv.Enabled = toggle;
         }
 
 
@@ -751,15 +762,24 @@ namespace SpacerUnion.Windows
 
         private void buttonDebug_Click(object sender, EventArgs e)
         {
-            Imports.Extern_CallFindSuchVisualsDebug(0);
+            DialogResult dialogResult = MessageBox.Show(Localizator.Get("WIN_VOBCATALOG_ASKSURE_REMOVE_DEBUG"), Localizator.Get("confirmation"), MessageBoxButtons.YesNo);
 
-            foreach (var item in vobMan.entries)
+            if (dialogResult == DialogResult.Yes)
             {
-                Imports.Stack_PushString(item.Visual);
-                Imports.Extern_CallFindSuchVisualsDebugAdd();
+                Imports.Extern_CallFindSuchVisualsDebug(0);
+
+                foreach (var item in vobMan.entries)
+                {
+                    Imports.Stack_PushString(item.Visual);
+                    Imports.Extern_CallFindSuchVisualsDebugAdd();
+                }
+
+                Imports.Extern_CallFindSuchVisualsDebug(1);
+
             }
 
-            Imports.Extern_CallFindSuchVisualsDebug(1);
+
+            
         }
 
         private void buttonSaveCopy_Click(object sender, EventArgs e)
@@ -836,29 +856,45 @@ namespace SpacerUnion.Windows
 
         private void buttonNoModels_Click(object sender, EventArgs e)
         {
-            List<string> foundNoRes = new List<string>();
 
-            foreach (var item in vobMan.entries)
+            DialogResult dialogResult = MessageBox.Show(Localizator.Get("WIN_VOBCATALOG_ASKSURE_CMD_MODELS"), Localizator.Get("confirmation"), MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
             {
-                var name = item.Visual;
 
-                name = name.Replace(".3DS", ".MRM");
+                List<string> foundNoRes = new List<string>();
 
-                Imports.Stack_PushString(name);
-
-                if (Imports.Extern_Union_FileExists() == 0)
+                foreach (var item in vobMan.entries)
                 {
-                    foundNoRes.Add(name);
-                    
+                    var name = item.Visual;
+
+                    if (!name.Contains(".3DS"))
+                    {
+                        continue;
+                    }
+
+                    name = name.Replace(".3DS", ".MRM");
+
+                    Imports.Stack_PushString(name);
+
+                    if (Imports.Extern_Union_FileExists() == 0)
+                    {
+                        foundNoRes.Add(name);
+
+                    }
+                }
+
+                foundNoRes.Sort();
+
+                ConsoleEx.WriteLineRed("VOB Catalog: No models found in VDF/_WORK: ");
+
+                foreach (var item in foundNoRes)
+                {
+                    ConsoleEx.WriteLineRed(item, false);
                 }
             }
 
-            foundNoRes.Sort();
-
-            foreach (var item in foundNoRes)
-            {
-                ConsoleEx.WriteLineRed(item, false);
-            }
+            
 
             
         }

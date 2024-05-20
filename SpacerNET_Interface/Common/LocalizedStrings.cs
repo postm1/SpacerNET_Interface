@@ -727,37 +727,45 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_NAME_IS_VISUAL", new List<string> { "Имя воба совпадает с его визуалом", "Vob's name is the same as its visual", "VOB Name ist identisch mit dem visuellen Objekt", "Nazwa Voba jest taka sama jak jego wygląd", "Jméno vobu je stejné jako jeho vizuál" });
 
 
-            words.Add("WIN_VOBCATALOG_TITLE", new List<string> { "Каталог вобов", "Vobs catalog", "", "", "" });
-            words.Add("WIN_VOBCATALOG_GROUP_NAME", new List<string> { "Имя группы: ", "Group name: ", "", "", "" });
-            words.Add("WIN_VOBCATALOG_VISUAL_NAME", new List<string> { "Визуал: ", "Visual: ", "", "", "" });
-            words.Add("WIN_VOBCATALOG_MATFILTER_TURNOFF", new List<string> { "Сначала закройте окно Фильтра материалов!", "Turn off Materials filter window first!", "", "", "" });
-            words.Add("WIN_VOBCATALOG_POLYSELECT_TURNOFF", new List<string> { "Сначала выключите режим выделения полигонов!", "Turn off polygon select mod first!", "", "", "" });
-            words.Add("WIN_VOBCATALOG_ASKSURE_REMOVE_GROUP", new List<string> { "Вы уверены? Все вобы в группе будут удалены!", "Are you sure? All vobs in the group will be deleted!", "", "", "" });
-            words.Add("WIN_VOBCATALOG_IS_STATIC_VOB", new List<string> { "Статичный воб (isStatic): ", "Static vob (isStatic): ", "", "", "" });
-            words.Add("WIN_VOBCATALOG_BAD_SYMBOL", new List<string> { "Нельзя использовать символ ;", "Symbol ; is not allowed here", "", "", "" });
-            words.Add("WIN_VOBCATALOG_HIDE_PREVIEW", new List<string> { "Скрывать 3D модель при скрытии окна", "Hide 3D preview when window is hidden", "", "", "" });
+            words.Add("WIN_VOBCATALOG_TITLE", new List<string> { "Каталог вобов", "Vobs catalog", "", "Katalog vobów", "" });
+            words.Add("WIN_VOBCATALOG_GROUP_NAME", new List<string> { "Имя группы: ", "Group name: ", "", "Nazwa grupy", "" });
+            words.Add("WIN_VOBCATALOG_VISUAL_NAME", new List<string> { "Визуал: ", "Visual: ", "", "Visual", "" });
+            words.Add("WIN_VOBCATALOG_MATFILTER_TURNOFF", new List<string> { "Сначала закройте окно Фильтра материалов!", "Turn off Materials filter window first!", "", "Wpierw zamknij okno filtr materiałów!", "" });
+            words.Add("WIN_VOBCATALOG_POLYSELECT_TURNOFF", new List<string> { "Сначала выключите режим выделения полигонов!", "Turn off polygon select mod first!", "", "Wpierw wyłącz tryb wyboru poligonów", "" });
+            words.Add("WIN_VOBCATALOG_ASKSURE_REMOVE_GROUP", new List<string> { "Вы уверены? Все вобы в группе будут удалены!", "Are you sure? All vobs in the group will be deleted!", "", "Jesteś pewien? Wszystkie voby w grubie zostaną skasowane!", "" });
+            words.Add("WIN_VOBCATALOG_IS_STATIC_VOB", new List<string> { "Статичный воб (isStatic): ", "Static vob (isStatic): ", "", "Vob statyczny (isStatic)", "" });
+            words.Add("WIN_VOBCATALOG_BAD_SYMBOL", new List<string> { "Нельзя использовать символ ;", "Symbol ; is not allowed here", "", "Znak ; nie jest dozwolony w tym miejscu", "" });
+            words.Add("WIN_VOBCATALOG_HIDE_PREVIEW", new List<string> { "Скрывать 3D модель при скрытии окна", "Hide 3D preview when window is hidden", "", "Schowaj podgląd 3d gdy okno jest schowane", "" });
 
-            words.Add("WIN_VOBCATALOG_GROUPS", new List<string> { "Группы", "Groups", "", "", "" });
-            words.Add("WIN_VOBCATALOG_ITEMS", new List<string> { "Элементы", "Entries", "", "", "" });
-            words.Add("WIN_VOBCATALOG_ACTIONS", new List<string> { "Действия", "Actions", "", "", "" });
+            words.Add("WIN_VOBCATALOG_GROUPS", new List<string> { "Группы", "Groups", "", "Grupy", "" });
+            words.Add("WIN_VOBCATALOG_ITEMS", new List<string> { "Элементы", "Entries", "", "Wpisy", "" });
+            words.Add("WIN_VOBCATALOG_ACTIONS", new List<string> { "Действия", "Actions", "", "Akcje", "" });
 
-            words.Add("WIN_VOBCATALOG_ALL_COUNT", new List<string> { "Всего объектов: ", "Objects amount: ", "", "", "" });
-            words.Add("WIN_VOBCATALOG_SEARCH", new List<string> { "Поиск: ", "Search: ", "", "", "" });
+            words.Add("WIN_VOBCATALOG_ALL_COUNT", new List<string> { "Всего объектов: ", "Objects amount: ", "", "Ilość obiektów: ", "" });
+            words.Add("WIN_VOBCATALOG_SEARCH", new List<string> { "Поиск: ", "Search: ", "", "Szukaj: ", "" });
 
-            words.Add("WIN_VOBCATALOG_BUTTON_SAVE", new List<string> { "Сохранить копию базы каталога", "Save a copy of Vob Catalog", "", "", "" });
-            words.Add("WIN_VOBCATALOG_SAVED_COPY", new List<string> { "Создана копия базы каталога, сохранено по пути: _work/tools/vobcatalog_backups/", "A copy of the catalog database has been created and saved to the path: _work/tools/vobcatalog_backups/", "", "", "" });
+            words.Add("WIN_VOBCATALOG_BUTTON_SAVE", new List<string> { "Сохранить копию базы каталога", "Save a copy of Vob Catalog", "", "Zapisz kopie katalogu vobów", "" });
+            words.Add("WIN_VOBCATALOG_SAVED_COPY", new List<string> { "Создана копия базы каталога, сохранено по пути: _work/tools/vobcatalog_backups/", "A copy of the catalog database has been created and saved to the path: _work/tools/vobcatalog_backups/", "", "Kopia katalogu vobów została utworzona i zapisana w ścieżce: _work/tools/vobcatalog_backups/", "" });
 
-            words.Add("WIN_VOBCATALOG_BTN_ADD_GROUP_NEW", new List<string> { "Добавить новую группу", "Add new group", "", "", "" });
-            words.Add("WIN_VOBCATALOG_BTN_RENAME_GROUP", new List<string> { "Переименовать группу", "Rename group", "", "", "" });
-            words.Add("WIN_VOBCATALOG_BTN_REMOVE_GROUP", new List<string> { "Удалить группу", "Delete group", "", "", "" });
+            words.Add("WIN_VOBCATALOG_BTN_ADD_GROUP_NEW", new List<string> { "Добавить новую группу", "Add new group", "", "Dodaj nową grupę", "" });
+            words.Add("WIN_VOBCATALOG_BTN_RENAME_GROUP", new List<string> { "Переименовать группу", "Rename group", "", "Zmień nazwę grupy", "" });
+            words.Add("WIN_VOBCATALOG_BTN_REMOVE_GROUP", new List<string> { "Удалить группу", "Delete group", "", "Usuń grupę", "" });
 
 
-            words.Add("WIN_VOBCATALOG_BTN_ELEM_ADD", new List<string> { "Добавить новый", "Add new", "", "", "" });
-            words.Add("WIN_VOBCATALOG_BTN_ELEM_EDIT", new List<string> { "Изменить", "Edit", "", "", "" });
-            words.Add("WIN_VOBCATALOG_BTN_ELEM_REMOVE", new List<string> { "Удалить", "Remove", "", "", "" });
+            words.Add("WIN_VOBCATALOG_BTN_ELEM_ADD", new List<string> { "Добавить новый", "Add new", "", "Dodaj nowe", "" });
+            words.Add("WIN_VOBCATALOG_BTN_ELEM_EDIT", new List<string> { "Изменить", "Edit", "", "Edytuj", "" });
+            words.Add("WIN_VOBCATALOG_BTN_ELEM_REMOVE", new List<string> { "Удалить", "Remove", "", "Usuń", "" });
 
-            words.Add("WIN_VOBCATALOG_IN_CURRENT_GROUP", new List<string> { "В выделенной группе: ", "In selected group: ", "", "", "" });
-            
+            words.Add("WIN_VOBCATALOG_IN_CURRENT_GROUP", new List<string> { "В выделенной группе: ", "In selected group: ", "", "W zaznaczonej grupie: ", "" });
+
+            words.Add("WIN_VOBCATALOG_ASKSURE_REMOVE_DEBUG", new List<string> { "Данная функция удалит все вобы (zCVob) в локации, визуалы которых есть в Каталоге вобов. Это удобная функция при заполнении Каталога. Разумеется, вы не должны сохранять локацию после удаления вобов. Продолжить?", "This function will delete all vobs (zCVobs) in locations whose visuals are in the Vob Catalog. This is a convenient function when filling out the Catalog. Of course, you should not save the location after removing the vobs. Continue?", "", "", "" });
+            words.Add("WIN_VOBCATALOG_ASKSURE_CMD_MODELS", new List<string> { "Данная функция выведет в консоль визуалых вобов, для которых нет файлов моделей в VDF/_WORK. Продолжить?", "This function will display visual vobs for which there are no model files in VDF/_WORK to the console. Continue?", "", "", "" });
+            words.Add("WIN_VOBCATALOG_ADV", new List<string> { "Продвинутые", "Advanced", "", "", "" });
+
+            words.Add("WIN_VOBCATALOG_ADV_DONT_SEARCH", new List<string> { "Не показывать Вобы Каталога в поиске", "Don't show Catalog's vobs in search", "", "", "" });
+            words.Add("WIN_VOBCATALOG_ADV_REMOVE_VOBS", new List<string> { "Удалить вобы (подробнее)", "Remove vobs (more details)", "", "", "" });
+            words.Add("WIN_VOBCATALOG_ADV_PRINT_MODELS", new List<string> { "Вывести список моделей (подробнее)", "Output models (more details)", "", "", "" });
+
         }
 
         
