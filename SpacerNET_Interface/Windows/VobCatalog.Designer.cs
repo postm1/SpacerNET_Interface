@@ -60,6 +60,7 @@ namespace SpacerUnion.Windows
             this.labelSearch = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.panelSearch = new System.Windows.Forms.Panel();
+            this.buttonNoModels = new System.Windows.Forms.Button();
             this.groupBoxGroups.SuspendLayout();
             this.groupBoxItems.SuspendLayout();
             this.groupBoxActions.SuspendLayout();
@@ -232,6 +233,7 @@ namespace SpacerUnion.Windows
             // 
             // groupBoxActions
             // 
+            this.groupBoxActions.Controls.Add(this.buttonNoModels);
             this.groupBoxActions.Controls.Add(this.buttonSaveCopy);
             this.groupBoxActions.Controls.Add(this.checkBoxDebugSearch);
             this.groupBoxActions.Controls.Add(this.buttonDebug);
@@ -239,7 +241,7 @@ namespace SpacerUnion.Windows
             this.groupBoxActions.Controls.Add(this.buttonCreateVob);
             this.groupBoxActions.Location = new System.Drawing.Point(404, 10);
             this.groupBoxActions.Name = "groupBoxActions";
-            this.groupBoxActions.Size = new System.Drawing.Size(244, 103);
+            this.groupBoxActions.Size = new System.Drawing.Size(294, 103);
             this.groupBoxActions.TabIndex = 10;
             this.groupBoxActions.TabStop = false;
             this.groupBoxActions.Text = "Actions";
@@ -263,17 +265,15 @@ namespace SpacerUnion.Windows
             this.checkBoxDebugSearch.TabIndex = 15;
             this.checkBoxDebugSearch.Text = "Debug Search VDF/WORK";
             this.checkBoxDebugSearch.UseVisualStyleBackColor = true;
-            this.checkBoxDebugSearch.Visible = false;
             // 
             // buttonDebug
             // 
             this.buttonDebug.Location = new System.Drawing.Point(182, 48);
             this.buttonDebug.Name = "buttonDebug";
-            this.buttonDebug.Size = new System.Drawing.Size(75, 23);
+            this.buttonDebug.Size = new System.Drawing.Size(106, 23);
             this.buttonDebug.TabIndex = 11;
             this.buttonDebug.Text = "DebugRemove";
             this.buttonDebug.UseVisualStyleBackColor = true;
-            this.buttonDebug.Visible = false;
             this.buttonDebug.Click += new System.EventHandler(this.buttonDebug_Click);
             // 
             // checkBoxHideModel
@@ -390,7 +390,7 @@ namespace SpacerUnion.Windows
             // 
             this.textBoxSearch.Location = new System.Drawing.Point(60, 6);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(352, 20);
+            this.textBoxSearch.Size = new System.Drawing.Size(402, 20);
             this.textBoxSearch.TabIndex = 13;
             this.textBoxSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSearch_KeyPress);
             // 
@@ -403,6 +403,16 @@ namespace SpacerUnion.Windows
             this.panelSearch.Name = "panelSearch";
             this.panelSearch.Size = new System.Drawing.Size(478, 36);
             this.panelSearch.TabIndex = 15;
+            // 
+            // buttonNoModels
+            // 
+            this.buttonNoModels.Location = new System.Drawing.Point(182, 74);
+            this.buttonNoModels.Name = "buttonNoModels";
+            this.buttonNoModels.Size = new System.Drawing.Size(106, 23);
+            this.buttonNoModels.TabIndex = 17;
+            this.buttonNoModels.Text = "DebugModels";
+            this.buttonNoModels.UseVisualStyleBackColor = true;
+            this.buttonNoModels.Click += new System.EventHandler(this.buttonNoModels_Click);
             // 
             // VobCatalogForm
             // 
@@ -473,5 +483,6 @@ namespace SpacerUnion.Windows
         private System.Windows.Forms.Button buttonSaveCopy;
         private System.Windows.Forms.Button buttonDownAbs;
         private System.Windows.Forms.Button buttonUPAbs;
+        private System.Windows.Forms.Button buttonNoModels;
     }
 }

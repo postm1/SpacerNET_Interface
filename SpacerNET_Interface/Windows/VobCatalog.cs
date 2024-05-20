@@ -833,5 +833,34 @@ namespace SpacerUnion.Windows
                 this.Location = Properties.Settings.Default.VobCatalogWinLocation;
             }
         }
+
+        private void buttonNoModels_Click(object sender, EventArgs e)
+        {
+            List<string> foundNoRes = new List<string>();
+
+            foreach (var item in vobMan.entries)
+            {
+                var name = item.Visual;
+
+                name = name.Replace(".3DS", ".MRM");
+
+                Imports.Stack_PushString(name);
+
+                if (Imports.Extern_Union_FileExists() == 0)
+                {
+                    foundNoRes.Add(name);
+                    
+                }
+            }
+
+            foundNoRes.Sort();
+
+            foreach (var item in foundNoRes)
+            {
+                ConsoleEx.WriteLineRed(item, false);
+            }
+
+            
+        }
     }
 }

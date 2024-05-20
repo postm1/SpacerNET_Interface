@@ -10,11 +10,20 @@ namespace SpacerUnion
     {
         private const string PREFIX = "C#: ";
 
-        public static void WriteLineRed(String message)
+        public static void WriteLineRed(String message, bool prefix = true)
         {
             var oldColor = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(PREFIX + message);
+
+            if (prefix)
+            {
+                Console.WriteLine(PREFIX + message);
+            }
+            else
+            {
+                Console.WriteLine(message);
+            }
+            
             Console.ForegroundColor = oldColor;
         }
 
@@ -58,5 +67,6 @@ namespace SpacerUnion
             Console.Write(PREFIX + message);
             Console.ForegroundColor = oldColor;
         }
+
     }
 }
