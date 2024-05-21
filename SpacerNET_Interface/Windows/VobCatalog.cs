@@ -88,6 +88,8 @@ namespace SpacerUnion.Windows
             checkBoxDebugSearch.Text = Localizator.Get("WIN_VOBCATALOG_ADV_DONT_SEARCH");
             buttonDebugRemove.Text = Localizator.Get("WIN_VOBCATALOG_ADV_REMOVE_VOBS");
             buttonNoModels.Text = Localizator.Get("WIN_VOBCATALOG_ADV_PRINT_MODELS");
+
+            UpdateTitle();
         }
 
         public void UpdateTitle()
@@ -138,6 +140,7 @@ namespace SpacerUnion.Windows
             groupBoxAdv.Enabled = toggle;
             checkBoxHideModel.Enabled = toggle;
             checkBoxDebugSearch.Enabled = toggle;
+            labelSearch.Enabled = toggle;
         }
 
 

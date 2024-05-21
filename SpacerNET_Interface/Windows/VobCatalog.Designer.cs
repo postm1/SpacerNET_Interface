@@ -227,7 +227,7 @@ namespace SpacerUnion.Windows
             // 
             this.buttonCreateVob.Location = new System.Drawing.Point(6, 19);
             this.buttonCreateVob.Name = "buttonCreateVob";
-            this.buttonCreateVob.Size = new System.Drawing.Size(170, 23);
+            this.buttonCreateVob.Size = new System.Drawing.Size(163, 23);
             this.buttonCreateVob.TabIndex = 13;
             this.buttonCreateVob.Text = "Create new zCVob";
             this.buttonCreateVob.UseVisualStyleBackColor = true;
@@ -239,7 +239,7 @@ namespace SpacerUnion.Windows
             this.groupBoxActions.Controls.Add(this.buttonCreateVob);
             this.groupBoxActions.Location = new System.Drawing.Point(418, 4);
             this.groupBoxActions.Name = "groupBoxActions";
-            this.groupBoxActions.Size = new System.Drawing.Size(191, 103);
+            this.groupBoxActions.Size = new System.Drawing.Size(177, 103);
             this.groupBoxActions.TabIndex = 10;
             this.groupBoxActions.TabStop = false;
             this.groupBoxActions.Text = "Actions";
@@ -248,7 +248,7 @@ namespace SpacerUnion.Windows
             // 
             this.buttonSaveCopy.Location = new System.Drawing.Point(6, 48);
             this.buttonSaveCopy.Name = "buttonSaveCopy";
-            this.buttonSaveCopy.Size = new System.Drawing.Size(170, 23);
+            this.buttonSaveCopy.Size = new System.Drawing.Size(163, 23);
             this.buttonSaveCopy.TabIndex = 16;
             this.buttonSaveCopy.Text = "Save a copy of catalog";
             this.buttonSaveCopy.UseVisualStyleBackColor = true;
