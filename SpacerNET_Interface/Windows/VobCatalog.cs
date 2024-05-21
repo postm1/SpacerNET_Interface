@@ -136,6 +136,8 @@ namespace SpacerUnion.Windows
             buttonDownAbs.Enabled = toggle;
             textBoxSearch.Enabled = toggle;
             groupBoxAdv.Enabled = toggle;
+            checkBoxHideModel.Enabled = toggle;
+            checkBoxDebugSearch.Enabled = toggle;
         }
 
 
