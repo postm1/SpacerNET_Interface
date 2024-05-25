@@ -1002,7 +1002,7 @@ namespace SpacerUnion
         
         private void textBoxVisuals_KeyPress(object sender, KeyPressEventArgs e)
         {
-            bool testCodeSearch = SpacerNET.vobCatForm.checkBoxDebugSearch.Checked;
+            bool checkBoxDebugSearch = SpacerNET.vobCatForm.checkBoxDebugSearch.Checked;
 
             if (e.KeyChar == (char)13)
             {
@@ -1050,14 +1050,33 @@ namespace SpacerUnion
 
                                     if (Imports.Extern_VisualIsInVDF() == 1)
                                     {
-                                        listBoxVisuals.Items.Add(listVisualsVDF[i]);
+                                        if (checkBoxDebugSearch)
+                                        {
+                                            var name = listVisualsVDF[i];
+
+                                            var entry = SpacerNET.vobCatForm.vobMan.GetByVisual(name);
+
+                                            if (entry != null)
+                                            {
+                                                //ConsoleEx.WriteLineRed(String.Format("{0} / {1}", name, entry.Visual));
+                                            }
+                                            else
+                                            {
+                                                listBoxVisuals.Items.Add(name);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            listBoxVisuals.Items.Add(listVisualsVDF[i]);
+                                        }
+                                        
                                     }
                                 }
                             }
                             else
                             {
 
-                                if (testCodeSearch)
+                                if (checkBoxDebugSearch)
                                 {
                                     var name = listVisualsVDF[i];
 
@@ -1089,7 +1108,7 @@ namespace SpacerUnion
                         if (regEx.IsMatch(listVisualsWORK[i]))
                         {
 
-                            if (testCodeSearch)
+                            if (checkBoxDebugSearch)
                             {
                                 var name = listVisualsWORK[i];
 
