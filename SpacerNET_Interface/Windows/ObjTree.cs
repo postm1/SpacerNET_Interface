@@ -1008,6 +1008,13 @@ namespace SpacerUnion
                 return;
             }
 
+            if (SpacerNET.form.toolStripButtonMaterial.Checked)
+            {
+                Imports.Stack_PushString(Localizator.Get("WIN_VOBCATALOG_POLYSELECT_TURNOFF"));
+                Imports.Extern_PrintRed();
+                return;
+            }
+
             uint addr = Convert.ToUInt32(node.Tag);
 
             ConsoleEx.WriteLineGreen("OnSelectDoubleClick node: vob " + Utils.ToHex(addr));
@@ -1018,6 +1025,11 @@ namespace SpacerUnion
 
         private void globalTree_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            if (SpacerNET.form.toolStripButtonMaterial.Checked)
+            {
+                return;
+            }
+
             TreeView tree = sender as TreeView;
 
             if (nextAfterEventBlocked)
@@ -1059,6 +1071,7 @@ namespace SpacerUnion
 
 
 
+           
 
             uint addr = Convert.ToUInt32(node.Tag);
 
@@ -1282,6 +1295,13 @@ namespace SpacerUnion
 
         private void globalTree_NodeMouseClick_1(object sender, TreeNodeMouseClickEventArgs e)
         {
+            if (SpacerNET.form.toolStripButtonMaterial.Checked)
+            {
+                Imports.Stack_PushString(Localizator.Get("WIN_VOBCATALOG_POLYSELECT_TURNOFF"));
+                Imports.Extern_PrintRed();
+                return;
+            }
+
             globalTree.SelectedNode = e.Node;
         }
 
@@ -1292,6 +1312,12 @@ namespace SpacerUnion
 
         private void globalTree_BeforeSelect(object sender, TreeViewCancelEventArgs e)
         {
+            if (SpacerNET.form.toolStripButtonMaterial.Checked)
+            {
+                e.Cancel = true;
+                return;
+            }
+
             previousSelectedNode = globalTree.SelectedNode;
         }
 
@@ -1773,7 +1799,12 @@ namespace SpacerUnion
 
         private void globalTree_MouseDown(object sender, MouseEventArgs e)
         {
-
+            if (SpacerNET.form.toolStripButtonMaterial.Checked)
+            {
+                Imports.Stack_PushString(Localizator.Get("WIN_VOBCATALOG_POLYSELECT_TURNOFF"));
+                Imports.Extern_PrintRed();
+                return;
+            }
 
 
             switch (e.Button)
