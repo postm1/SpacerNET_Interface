@@ -59,7 +59,7 @@
             this.richTextBoxInfo.Name = "richTextBoxInfo";
             this.richTextBoxInfo.ReadOnly = true;
             this.richTextBoxInfo.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBoxInfo.Size = new System.Drawing.Size(333, 327);
+            this.richTextBoxInfo.Size = new System.Drawing.Size(330, 272);
             this.richTextBoxInfo.TabIndex = 0;
             this.richTextBoxInfo.Text = "";
             this.richTextBoxInfo.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -81,7 +81,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(349, 361);
+            this.panelMain.Size = new System.Drawing.Size(346, 306);
             this.panelMain.TabIndex = 2;
             // 
             // tabControlInfo
@@ -93,7 +93,7 @@
             this.tabControlInfo.Margin = new System.Windows.Forms.Padding(0);
             this.tabControlInfo.Name = "tabControlInfo";
             this.tabControlInfo.SelectedIndex = 0;
-            this.tabControlInfo.Size = new System.Drawing.Size(349, 361);
+            this.tabControlInfo.Size = new System.Drawing.Size(346, 306);
             this.tabControlInfo.TabIndex = 1;
             // 
             // tabPage1
@@ -103,7 +103,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(341, 335);
+            this.tabPage1.Size = new System.Drawing.Size(338, 280);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Common";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -199,12 +199,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(349, 361);
+            this.ClientSize = new System.Drawing.Size(346, 306);
             this.Controls.Add(this.panelMain);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(365, 400);
+            this.MinimumSize = new System.Drawing.Size(200, 100);
             this.Name = "InfoWin";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
