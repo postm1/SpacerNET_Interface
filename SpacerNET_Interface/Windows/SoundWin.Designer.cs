@@ -46,6 +46,7 @@
             this.labelMusicVolume = new System.Windows.Forms.Label();
             this.trackBarMusicVolume = new System.Windows.Forms.TrackBar();
             this.buttonOffMusic = new System.Windows.Forms.Button();
+            this.buttonCreateSoundVob = new System.Windows.Forms.Button();
             this.groupBoxSound.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBoxMusic.SuspendLayout();
@@ -56,7 +57,7 @@
             // 
             this.buttonPlaySound.Location = new System.Drawing.Point(6, 19);
             this.buttonPlaySound.Name = "buttonPlaySound";
-            this.buttonPlaySound.Size = new System.Drawing.Size(206, 32);
+            this.buttonPlaySound.Size = new System.Drawing.Size(121, 32);
             this.buttonPlaySound.TabIndex = 0;
             this.buttonPlaySound.Text = "Play";
             this.buttonPlaySound.UseVisualStyleBackColor = true;
@@ -71,6 +72,7 @@
             this.listBoxSound.ScrollAlwaysVisible = true;
             this.listBoxSound.Size = new System.Drawing.Size(223, 238);
             this.listBoxSound.TabIndex = 1;
+            this.listBoxSound.SelectedIndexChanged += new System.EventHandler(this.listBoxSound_SelectedIndexChanged);
             this.listBoxSound.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxSound_MouseDoubleClick);
             this.listBoxSound.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxSound_MouseDown);
             // 
@@ -102,6 +104,7 @@
             // 
             // groupBoxSound
             // 
+            this.groupBoxSound.Controls.Add(this.buttonCreateSoundVob);
             this.groupBoxSound.Controls.Add(this.panel1);
             this.groupBoxSound.Controls.Add(this.listBoxSndResult);
             this.groupBoxSound.Controls.Add(this.buttonPlaySound);
@@ -155,6 +158,7 @@
             this.listBoxSndResult.Name = "listBoxSndResult";
             this.listBoxSndResult.Size = new System.Drawing.Size(215, 147);
             this.listBoxSndResult.TabIndex = 15;
+            this.listBoxSndResult.SelectedIndexChanged += new System.EventHandler(this.listBoxSndResult_SelectedIndexChanged);
             this.listBoxSndResult.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBoxSndResult_KeyPress_1);
             this.listBoxSndResult.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxSndResult_MouseDoubleClick);
             this.listBoxSndResult.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxSndResult_MouseDown);
@@ -243,6 +247,16 @@
             this.buttonOffMusic.UseVisualStyleBackColor = true;
             this.buttonOffMusic.Click += new System.EventHandler(this.buttonOffMusic_Click);
             // 
+            // buttonCreateSoundVob
+            // 
+            this.buttonCreateSoundVob.Location = new System.Drawing.Point(133, 19);
+            this.buttonCreateSoundVob.Name = "buttonCreateSoundVob";
+            this.buttonCreateSoundVob.Size = new System.Drawing.Size(99, 32);
+            this.buttonCreateSoundVob.TabIndex = 17;
+            this.buttonCreateSoundVob.Text = "Create";
+            this.buttonCreateSoundVob.UseVisualStyleBackColor = true;
+            this.buttonCreateSoundVob.Click += new System.EventHandler(this.buttonCreateSoundVob_Click);
+            // 
             // SoundWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -291,5 +305,6 @@
         private System.Windows.Forms.Button buttonStopAllSounds;
         public System.Windows.Forms.ListBox listBoxSndResult;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button buttonCreateSoundVob;
     }
 }

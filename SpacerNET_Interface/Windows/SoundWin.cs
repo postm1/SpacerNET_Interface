@@ -15,7 +15,7 @@ namespace SpacerUnion
     public partial class SoundWin : Form
     {
 
-        
+        bool isLeftListActive = false;
 
         public SoundWin()
         {
@@ -39,7 +39,7 @@ namespace SpacerUnion
             buttonStopAllSounds.Text = Localizator.Get("buttonStopAllSounds");
             checkBoxShutSounds.Text = Localizator.Get("checkBoxShutSounds");
             checkBoxConstSound.Text = Localizator.Get("checkBoxConstSound");
-            
+            buttonCreateSoundVob.Text = Localizator.Get("FORM_COMMON_CREATE");
         }
 
 
@@ -349,6 +349,49 @@ namespace SpacerUnion
                     }
                 }
             }
+        }
+
+        private void buttonCreateSoundVob_Click(object sender, EventArgs e)
+        {
+            ListBox listBox = SpacerNET.soundWin.listBoxSound;
+
+            if (isLeftListActive)
+            {
+                if (listBox.SelectedItem == null)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                listBox = SpacerNET.soundWin.listBoxSndResult;
+
+                if (listBox.SelectedItem == null)
+                {
+                    return;
+                }
+            }
+  
+           
+
+            string name = listBox.GetItemText(listBox.SelectedItem);
+            Imports.Stack_PushString(name);
+
+            Imports.Stack_PushString("");
+            Imports.Stack_PushString(name);
+            Imports.Stack_PushString("zCVobSound");
+            Imports.Stack_PushInt(0); //isStaticVob
+            Imports.Extern_CreateNewVobVisual(0, 0);
+        }
+
+        private void listBoxSndResult_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            isLeftListActive = false;
+        }
+
+        private void listBoxSound_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            isLeftListActive = true;
         }
     }
 }
