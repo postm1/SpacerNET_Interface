@@ -2245,12 +2245,15 @@ namespace SpacerUnion
             SpacerNET.comLightWin.Font = font;
             SpacerNET.compWorldWin.Font = font;
             SpacerNET.errorForm.Font = font;
+
             SpacerNET.vobCatForm.Font = font;
-            
+            SpacerNET.vobCatForm.formConf.Font = font;
+            SpacerNET.vobCatForm.moveForm.Font = font;
 
             SpacerNET.pfxWin.Font = font;
             SpacerNET.pfxWin.OnFontUpdate();
 
+            
             
 
 

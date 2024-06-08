@@ -29,8 +29,11 @@ namespace SpacerUnion.Windows
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listBoxGroups = new System.Windows.Forms.ListBox();
             this.listBoxItems = new System.Windows.Forms.ListBox();
+            this.contextMenuStripElem = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemCopy = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonAddNewGroup = new System.Windows.Forms.Button();
             this.buttonRemoveSelected = new System.Windows.Forms.Button();
             this.buttonRenameSelected = new System.Windows.Forms.Button();
@@ -62,6 +65,8 @@ namespace SpacerUnion.Windows
             this.labelSearch = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.panelSearch = new System.Windows.Forms.Panel();
+            this.toolStripMenuItemMove = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStripElem.SuspendLayout();
             this.groupBoxGroups.SuspendLayout();
             this.groupBoxItems.SuspendLayout();
             this.groupBoxActions.SuspendLayout();
@@ -79,21 +84,38 @@ namespace SpacerUnion.Windows
             this.listBoxGroups.FormattingEnabled = true;
             this.listBoxGroups.Location = new System.Drawing.Point(47, 0);
             this.listBoxGroups.Name = "listBoxGroups";
-            this.listBoxGroups.Size = new System.Drawing.Size(189, 265);
+            this.listBoxGroups.Size = new System.Drawing.Size(222, 265);
             this.listBoxGroups.TabIndex = 0;
             this.listBoxGroups.SelectedIndexChanged += new System.EventHandler(this.listBoxGroups_SelectedIndexChanged);
             // 
             // listBoxItems
             // 
+            this.listBoxItems.ContextMenuStrip = this.contextMenuStripElem;
             this.listBoxItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxItems.FormattingEnabled = true;
             this.listBoxItems.Location = new System.Drawing.Point(0, 0);
             this.listBoxItems.Name = "listBoxItems";
-            this.listBoxItems.Size = new System.Drawing.Size(574, 188);
+            this.listBoxItems.Size = new System.Drawing.Size(541, 188);
             this.listBoxItems.TabIndex = 1;
             this.listBoxItems.SelectedIndexChanged += new System.EventHandler(this.listBoxItems_SelectedIndexChanged);
             this.listBoxItems.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxItems_MouseDoubleClick);
             this.listBoxItems.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxItems_MouseDown);
+            this.listBoxItems.MouseUp += new System.Windows.Forms.MouseEventHandler(this.listBoxItems_MouseUp);
+            // 
+            // contextMenuStripElem
+            // 
+            this.contextMenuStripElem.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemCopy,
+            this.toolStripMenuItemMove});
+            this.contextMenuStripElem.Name = "contextMenuStripElem";
+            this.contextMenuStripElem.Size = new System.Drawing.Size(231, 70);
+            // 
+            // toolStripMenuItemCopy
+            // 
+            this.toolStripMenuItemCopy.Name = "toolStripMenuItemCopy";
+            this.toolStripMenuItemCopy.Size = new System.Drawing.Size(230, 22);
+            this.toolStripMenuItemCopy.Text = "Copy visual to another group";
+            this.toolStripMenuItemCopy.Click += new System.EventHandler(this.toolStripMenuItemCopy_Click);
             // 
             // buttonAddNewGroup
             // 
@@ -327,7 +349,7 @@ namespace SpacerUnion.Windows
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(236, 265);
+            this.panelLeft.Size = new System.Drawing.Size(269, 265);
             this.panelLeft.TabIndex = 13;
             // 
             // buttonSortAlph
@@ -346,9 +368,9 @@ namespace SpacerUnion.Windows
             this.panelRight.Controls.Add(this.listBoxItems);
             this.panelRight.Controls.Add(this.panelButtons);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRight.Location = new System.Drawing.Point(236, 0);
+            this.panelRight.Location = new System.Drawing.Point(269, 0);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(622, 188);
+            this.panelRight.Size = new System.Drawing.Size(589, 188);
             this.panelRight.TabIndex = 14;
             // 
             // panelButtons
@@ -359,7 +381,7 @@ namespace SpacerUnion.Windows
             this.panelButtons.Controls.Add(this.buttonDownRight);
             this.panelButtons.Controls.Add(this.buttonUpRight);
             this.panelButtons.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelButtons.Location = new System.Drawing.Point(574, 0);
+            this.panelButtons.Location = new System.Drawing.Point(541, 0);
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.Size = new System.Drawing.Size(48, 188);
             this.panelButtons.TabIndex = 12;
@@ -421,10 +443,17 @@ namespace SpacerUnion.Windows
             this.panelSearch.Controls.Add(this.checkBoxHideModel);
             this.panelSearch.Controls.Add(this.labelSearch);
             this.panelSearch.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelSearch.Location = new System.Drawing.Point(236, 188);
+            this.panelSearch.Location = new System.Drawing.Point(269, 188);
             this.panelSearch.Name = "panelSearch";
-            this.panelSearch.Size = new System.Drawing.Size(622, 77);
+            this.panelSearch.Size = new System.Drawing.Size(589, 77);
             this.panelSearch.TabIndex = 15;
+            // 
+            // toolStripMenuItemMove
+            // 
+            this.toolStripMenuItemMove.Name = "toolStripMenuItemMove";
+            this.toolStripMenuItemMove.Size = new System.Drawing.Size(230, 22);
+            this.toolStripMenuItemMove.Text = "Move visual to another group";
+            this.toolStripMenuItemMove.Click += new System.EventHandler(this.toolStripMenuItemMove_Click);
             // 
             // VobCatalogForm
             // 
@@ -448,6 +477,7 @@ namespace SpacerUnion.Windows
             this.Load += new System.EventHandler(this.VobCatalogForm_Load);
             this.Shown += new System.EventHandler(this.VobCatalogForm_Shown);
             this.VisibleChanged += new System.EventHandler(this.VobCatalogForm_VisibleChanged);
+            this.contextMenuStripElem.ResumeLayout(false);
             this.groupBoxGroups.ResumeLayout(false);
             this.groupBoxItems.ResumeLayout(false);
             this.groupBoxActions.ResumeLayout(false);
@@ -464,7 +494,7 @@ namespace SpacerUnion.Windows
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBoxGroups;
+        public System.Windows.Forms.ListBox listBoxGroups;
         private System.Windows.Forms.Button buttonAddNewGroup;
         private System.Windows.Forms.Button buttonRemoveSelected;
         private System.Windows.Forms.Button buttonRenameSelected;
@@ -497,5 +527,8 @@ namespace SpacerUnion.Windows
         private System.Windows.Forms.Button buttonUPAbs;
         private System.Windows.Forms.Button buttonNoModels;
         private System.Windows.Forms.GroupBox groupBoxAdv;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripElem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCopy;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMove;
     }
 }

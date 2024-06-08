@@ -766,6 +766,19 @@ namespace SpacerUnion.Common
             words.Add("WIN_VOBCATALOG_ADV_REMOVE_VOBS", new List<string> { "Удалить вобы (подробнее)", "Remove vobs (more details)", "Entferne VOBs (mehr Details)", "Usuń voby (więcej szczegółów)", "Odstranění vobů (více informací)" });
             words.Add("WIN_VOBCATALOG_ADV_PRINT_MODELS", new List<string> { "Вывести список моделей (подробнее)", "Output models (more details)", "Ausgabe-Modelle (mehr Details)", "Modele wyjściowe (więcej szczegółów)", "Zobrazení seznamu modelů (více informací)" });
 
+
+
+            words.Add("WIN_VOBCATALOG_COPY_VISUAL", new List<string> { "Скопировать визуал в другую группу...", "Copy visual to another group...", "", "", "" });
+            words.Add("WIN_VOBCATALOG_MOVE_VISUAL", new List<string> { "Переместить визуал в другую группу...", "Move visual to another group...", "", "", "" });
+
+            words.Add("WIN_VOBCATALOG_MODE_COPY", new List<string> { "Режим: копирование в другую группу", "Mode: copying to another group", "", "", "" });
+            words.Add("WIN_VOBCATALOG_MODE_MOVE", new List<string> { "Режим: перемещение в другую группу", "Mode: moving to another group", "", "", "" });
+            words.Add("WIN_VOBCATALOG_MOVE_WIN_TITLE", new List<string> { "Настройки перемещения визуала", "Visual's moving settings", "", "", "" });
+            words.Add("WIN_VOBCATALOG_MOVE_SELECT_GROUP", new List<string> { "Выберите группу:", "Select a group:", "", "", "" });
+            words.Add("WIN_VOBCATALOG_GROUP_ERR_NO_SELECT", new List<string> { "Ни одна группа не выбрана или список пуст!", "No group selected or the list is empty!", "", "", "" });
+            words.Add("WIN_VOBCATALOG_GROUP_ERR_NO_VISUAL", new List<string> { "Пустой визуал!", "No visual found!", "", "", "" });
+
+            words.Add("WIN_VOBCATALOG_GROUP_ERR_ALREADY", new List<string> { "Такой визуал уже существует в данной группе!", "Such visual already exists in such group!", "", "", "" });
         }
 
         

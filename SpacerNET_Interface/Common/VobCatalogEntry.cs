@@ -58,6 +58,11 @@ namespace SpacerUnion.Common
             return entries.Where(x => x.GroupName == group && x.Visual == visual).FirstOrDefault();
         }
 
+        public int GetAmountInGroup(string group)
+        {
+            return entries.Where(x => x.GroupName == group).Count();
+        }
+
         public VobCatalogEntry GetByVisual(string visual)
         {
             return entries.Where(x => x.Visual == visual).FirstOrDefault();
@@ -83,6 +88,45 @@ namespace SpacerUnion.Common
                     }
                 }
             }
+
+        }
+
+        public void CopyVisualToGroup(string groupName, string visual)
+        {
+            var checkVisual = GetByGroupAndVisual(groupName, visual);
+
+            if (checkVisual != null)
+            {
+                MessageBox.Show(Localizator.Get("WIN_VOBCATALOG_GROUP_ERR_ALREADY"));
+                return;
+            }
+
+            int count = GetAmountInGroup(groupName);
+
+
+
+            //ConsoleEx.WriteLineRed("Count in " + groupName + ": " + count);
+
+            AddNew(groupName, visual, count);
+
+
+        }
+
+        public void MoveVisualToGroup(string groupName, string visual, string oldGroup)
+        {
+            var checkVisual = GetByGroupAndVisual(groupName, visual);
+
+            if (checkVisual != null)
+            {
+                MessageBox.Show(Localizator.Get("WIN_VOBCATALOG_GROUP_ERR_ALREADY"));
+                return;
+            }
+
+            int count = GetAmountInGroup(groupName);
+            AddNew(groupName, visual, count);
+
+            SpacerNET.vobCatForm.RemoveVisualFromList(oldGroup, visual);
+            
         }
     }
 

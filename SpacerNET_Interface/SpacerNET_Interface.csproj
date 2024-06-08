@@ -240,6 +240,12 @@
     <Compile Include="Windows\VobCatalog.Designer.cs">
       <DependentUpon>VobCatalog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\VobCatalogMoveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\VobCatalogMoveForm.Designer.cs">
+      <DependentUpon>VobCatalogMoveForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\VobCatalogPropsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -338,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\VobCatalog.resx">
       <DependentUpon>VobCatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\VobCatalogMoveForm.resx">
+      <DependentUpon>VobCatalogMoveForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\VobCatalogPropsForm.resx">
       <DependentUpon>VobCatalogPropsForm.cs</DependentUpon>

@@ -16,10 +16,13 @@ namespace SpacerUnion.Windows
         public VobCatalogManager vobMan;
         public ConfirmForm formConf;
         public VobCatalogPropsForm propsForm;
+        public VobCatalogMoveForm moveForm;
+
         string pathFile;
         string pathFileCopy;
         string pathBackups;
         bool fileWasRead;
+
 
         public VobCatalogForm()
         {
@@ -27,6 +30,8 @@ namespace SpacerUnion.Windows
             vobMan = new VobCatalogManager();
             formConf = new ConfirmForm(null);
             propsForm = new VobCatalogPropsForm();
+            moveForm = new VobCatalogMoveForm();
+
             pathFile = Path.GetFullPath(@"../_work/tools/vobcatalog_spacernet.txt");
             pathFileCopy = Path.GetFullPath(@"../_work/tools/vobcatalog_spacernet_backup.txt");
             pathBackups = Path.GetFullPath(@"../_work/tools/vobcatalog_backups/");
@@ -88,6 +93,9 @@ namespace SpacerUnion.Windows
             checkBoxDebugSearch.Text = Localizator.Get("WIN_VOBCATALOG_ADV_DONT_SEARCH");
             buttonDebugRemove.Text = Localizator.Get("WIN_VOBCATALOG_ADV_REMOVE_VOBS");
             buttonNoModels.Text = Localizator.Get("WIN_VOBCATALOG_ADV_PRINT_MODELS");
+
+            contextMenuStripElem.Items[0].Text = Localizator.Get("WIN_VOBCATALOG_COPY_VISUAL");
+            contextMenuStripElem.Items[1].Text = Localizator.Get("WIN_VOBCATALOG_MOVE_VISUAL");
 
             UpdateTitle();
         }
@@ -533,12 +541,23 @@ namespace SpacerUnion.Windows
                     string groupName = listBoxGroups.SelectedItem.ToString();
                     string visualName = listBoxItems.SelectedItem.ToString();
 
-                    vobMan.entries.RemoveAll(x => x.GroupName == groupName && x.Visual == visualName);
-                    listBoxItems.Items.RemoveAt(listBoxItems.SelectedIndex);
-
-                    UpdateTitle();
+                    RemoveVisualFromList(groupName, visualName);
                 }
             }
+        }
+
+        public void RemoveVisualFromList(string groupName, string visualName)
+        {
+            ConsoleEx.WriteLineRed("RemoveVisualFromList: " + groupName + " Visual: " + visualName);
+
+            vobMan.entries.RemoveAll(x => x.GroupName == groupName && x.Visual == visualName);
+            listBoxItems.Items.RemoveAt(listBoxItems.SelectedIndex);
+
+           
+
+            UpdateTitle();
+
+            vobMan.UpdateIndexes(groupName, listBoxItems);
         }
 
         private void listBoxItems_MouseDown(object sender, MouseEventArgs e)
@@ -546,7 +565,7 @@ namespace SpacerUnion.Windows
 
             ListBox lb = sender as ListBox;
 
-            if (e.Button == MouseButtons.Middle)
+            if (e.Button == MouseButtons.Middle || e.Button == MouseButtons.Right)
             {
 
                 int index = lb.IndexFromPoint(e.Location);
@@ -554,10 +573,26 @@ namespace SpacerUnion.Windows
                     if (index >= 0 && lb.Items.Count > 0)
                     {
                         string name = lb.GetItemText(lb.Items[index]);
-                        Utils.SetCopyText(name);
+
+                        if (e.Button == MouseButtons.Right)
+                        {
+                            int newIndex = lb.IndexFromPoint(e.Location);
+
+                            if (index != ListBox.NoMatches)
+                            {
+                                lb.SelectedIndex = newIndex;
+                            }
+                        }
+                        else
+                        {
+                            Utils.SetCopyText(name);
+                        }
+                        
                     }
                 }
             }
+
+            
 
         }
 
@@ -902,6 +937,45 @@ namespace SpacerUnion.Windows
             
 
             
+        }
+
+        private void toolStripMenuItemCopy_Click(object sender, EventArgs e)
+        {
+            var item = listBoxItems.SelectedItem;
+
+            if (item != null && listBoxGroups.SelectedItem != null)
+            {
+                string name = listBoxItems.GetItemText(listBoxItems.Items[listBoxItems.SelectedIndex]);
+                string oldGroup = listBoxGroups.GetItemText(listBoxGroups.Items[listBoxGroups.SelectedIndex]);
+
+                moveForm.OperationType = "COPYING";
+                moveForm.Visual = name.ToUpper();
+                moveForm.OldGroup = oldGroup;
+                moveForm.UpdateWindow();
+                moveForm.ShowDialog();
+            }
+        }
+
+        private void listBoxItems_MouseUp(object sender, MouseEventArgs e)
+        {
+           
+        }
+
+        private void toolStripMenuItemMove_Click(object sender, EventArgs e)
+        {
+            var item = listBoxItems.SelectedItem;
+
+            if (item != null && listBoxGroups.SelectedItem != null)
+            {
+                string name = listBoxItems.GetItemText(listBoxItems.Items[listBoxItems.SelectedIndex]);
+                string oldGroup = listBoxGroups.GetItemText(listBoxGroups.Items[listBoxGroups.SelectedIndex]);
+
+                moveForm.OperationType = "MOVING";
+                moveForm.Visual = name.ToUpper();
+                moveForm.OldGroup = oldGroup;
+                moveForm.UpdateWindow();
+                moveForm.ShowDialog();
+            }
         }
     }
 }
