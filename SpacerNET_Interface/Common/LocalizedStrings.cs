@@ -768,17 +768,17 @@ namespace SpacerUnion.Common
 
 
 
-            words.Add("WIN_VOBCATALOG_COPY_VISUAL", new List<string> { "Скопировать визуал в другую группу...", "Copy visual to another group...", "", "", "" });
-            words.Add("WIN_VOBCATALOG_MOVE_VISUAL", new List<string> { "Переместить визуал в другую группу...", "Move visual to another group...", "", "", "" });
+            words.Add("WIN_VOBCATALOG_COPY_VISUAL", new List<string> { "Скопировать визуал в другую группу...", "Copy visual to another group...",  "Visuelles in eine andere Gruppe kopieren...", "Skopiuj visual do innej grupy...", "Zkopírovat vizuál do jiné skupiny..." });
+            words.Add("WIN_VOBCATALOG_MOVE_VISUAL", new List<string> { "Переместить визуал в другую группу...", "Move visual to another group...",  "Visuelles in eine andere Gruppe verschieben...", "Przenieś visual do innej grupy...", "Přesunout vizuál do jiné skupiny..." });
 
-            words.Add("WIN_VOBCATALOG_MODE_COPY", new List<string> { "Режим: копирование в другую группу", "Mode: copying to another group", "", "", "" });
-            words.Add("WIN_VOBCATALOG_MODE_MOVE", new List<string> { "Режим: перемещение в другую группу", "Mode: moving to another group", "", "", "" });
-            words.Add("WIN_VOBCATALOG_MOVE_WIN_TITLE", new List<string> { "Настройки перемещения визуала", "Visual's moving settings", "", "", "" });
-            words.Add("WIN_VOBCATALOG_MOVE_SELECT_GROUP", new List<string> { "Выберите группу:", "Select a group:", "", "", "" });
-            words.Add("WIN_VOBCATALOG_GROUP_ERR_NO_SELECT", new List<string> { "Ни одна группа не выбрана или список пуст!", "No group selected or the list is empty!", "", "", "" });
-            words.Add("WIN_VOBCATALOG_GROUP_ERR_NO_VISUAL", new List<string> { "Пустой визуал!", "No visual found!", "", "", "" });
+            words.Add("WIN_VOBCATALOG_MODE_COPY", new List<string> { "Режим: копирование в другую группу", "Mode: copying to another group",  "Modus: Kopieren in eine andere Gruppe", "Tryb: kopiowanie do innej grupy", "Režim: kopírování do jiné skupiny" });
+            words.Add("WIN_VOBCATALOG_MODE_MOVE", new List<string> { "Режим: перемещение в другую группу", "Mode: moving to another group", "Modus: Verschiebe in eine andere Gruppe", "Tryb: przeniesienie do innej grupy", "Režim: přesun do jiné skupiny" });
+            words.Add("WIN_VOBCATALOG_MOVE_WIN_TITLE", new List<string> { "Настройки перемещения визуала", "Visual's moving settings", "Visuelle Bewegungseinstellungen", "Ustawienia poruszania visualem", "Nastavení pro přesun vizuálu" });
+            words.Add("WIN_VOBCATALOG_MOVE_SELECT_GROUP", new List<string> { "Выберите группу:", "Select a group:", "Wähle eine Gruppe", "Wybierz grupę:", "Výběr skupiny:" });
+            words.Add("WIN_VOBCATALOG_GROUP_ERR_NO_SELECT", new List<string> { "Ни одна группа не выбрана или список пуст!", "No group selected or the list is empty!", "Keine Gruppe ausgewählt oder die Liste ist leer!", "Nie wybrano żadnej grupy lub lista jest pusta!", "Není vybrána žádná skupina nebo je seznam prázdný!" });
+            words.Add("WIN_VOBCATALOG_GROUP_ERR_NO_VISUAL", new List<string> { "Пустой визуал!", "No visual found!", "Keine visuellen Objekte gefunden!", "Nie znaleziono visuala!", "Nebyl nalezen žádný vizuál!" });
 
-            words.Add("WIN_VOBCATALOG_GROUP_ERR_ALREADY", new List<string> { "Такой визуал уже существует в данной группе!", "Such visual already exists in such group!", "", "", "" });
+            words.Add("WIN_VOBCATALOG_GROUP_ERR_ALREADY", new List<string> { "Такой визуал уже существует в данной группе!", "Such visual already exists in such group!",  "Visuelles Objekt existiert bereits in dieser Gruppe", "Taki visual już istnieje w takiej grupie!", "Takový vizuál již v takové skupině existuje!" });
         }
 
         
