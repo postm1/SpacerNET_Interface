@@ -40,8 +40,8 @@ namespace SpacerUnion.Windows
             this.imageListErrorsType = new System.Windows.Forms.ImageList(this.components);
             this.buttonErrorsSearch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBoxErrFilter = new System.Windows.Forms.ComboBox();
             this.buttonSaveReport = new System.Windows.Forms.Button();
+            this.comboBoxErrFilter = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,7 +102,7 @@ namespace SpacerUnion.Windows
             // 
             // buttonErrorsSearch
             // 
-            this.buttonErrorsSearch.Location = new System.Drawing.Point(12, 13);
+            this.buttonErrorsSearch.Location = new System.Drawing.Point(12, 11);
             this.buttonErrorsSearch.Name = "buttonErrorsSearch";
             this.buttonErrorsSearch.Size = new System.Drawing.Size(159, 23);
             this.buttonErrorsSearch.TabIndex = 1;
@@ -122,21 +122,6 @@ namespace SpacerUnion.Windows
             this.panel1.Size = new System.Drawing.Size(670, 50);
             this.panel1.TabIndex = 2;
             // 
-            // comboBoxErrFilter
-            // 
-            this.comboBoxErrFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxErrFilter.FormattingEnabled = true;
-            this.comboBoxErrFilter.Items.AddRange(new object[] {
-            "All",
-            "Info",
-            "Warning",
-            "Critical"});
-            this.comboBoxErrFilter.Location = new System.Drawing.Point(191, 13);
-            this.comboBoxErrFilter.Name = "comboBoxErrFilter";
-            this.comboBoxErrFilter.Size = new System.Drawing.Size(160, 21);
-            this.comboBoxErrFilter.TabIndex = 2;
-            this.comboBoxErrFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxErrFilter_SelectedIndexChanged);
-            // 
             // buttonSaveReport
             // 
             this.buttonSaveReport.Location = new System.Drawing.Point(375, 11);
@@ -146,6 +131,21 @@ namespace SpacerUnion.Windows
             this.buttonSaveReport.Text = "Save report to txt";
             this.buttonSaveReport.UseVisualStyleBackColor = true;
             this.buttonSaveReport.Click += new System.EventHandler(this.buttonSaveReport_Click);
+            // 
+            // comboBoxErrFilter
+            // 
+            this.comboBoxErrFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxErrFilter.FormattingEnabled = true;
+            this.comboBoxErrFilter.Items.AddRange(new object[] {
+            "All",
+            "Info",
+            "Warning",
+            "Critical"});
+            this.comboBoxErrFilter.Location = new System.Drawing.Point(191, 12);
+            this.comboBoxErrFilter.Name = "comboBoxErrFilter";
+            this.comboBoxErrFilter.Size = new System.Drawing.Size(160, 21);
+            this.comboBoxErrFilter.TabIndex = 2;
+            this.comboBoxErrFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxErrFilter_SelectedIndexChanged);
             // 
             // SearchErrorsForm
             // 

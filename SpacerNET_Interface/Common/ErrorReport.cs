@@ -34,7 +34,14 @@ namespace SpacerUnion.Common
         ERROR_REPORT_PROBLEM_TYPE_NAME_SPACE,
         ERROR_REPORT_PROBLEM_TYPE_NOT_UNIQ_NAME,
         ERROR_REPORT_PROBLEM_TYPE_BAD_NAME_SYMBOLS,
-        ERROR_REPORT_PROBLEM_TYPE_NAME_IS_VISUAL
+        ERROR_REPORT_PROBLEM_TYPE_NAME_IS_VISUAL,
+        ERROR_REPORT_PROBLEM_TYPE_FOCUS_NAME,
+        ERROR_REPORT_PROBLEM_TYPE_KEY_INSTANCE,
+        ERROR_REPORT_PROBLEM_TYPE_CONTAINTER_ITEM,
+        ERROR_REPORT_PROBLEM_TYPE_SPACES_CONTAINER,
+        ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME,
+        ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME_NOINST,
+        ERROR_REPORT_PROBLEM_TYPE_CONTAINER_BAD_SYMBOLS
     }
 
     public class ErrorReportEntry
@@ -104,6 +111,13 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_NOT_UNIQ_NAME: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_NOT_UNIQ_NAME"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_NAME_SYMBOLS: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_NAME_SYMBOLS"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_NAME_IS_VISUAL: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_NAME_IS_VISUAL"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_FOCUS_NAME: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_FOCUS_NAME"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_KEY_INSTANCE: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_KEY_INSTANCE"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_CONTAINTER_ITEM: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_CONTAINTER_ITEM"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_SPACES_CONTAINER: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_SPACES_CONTAINER"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME_NOINST: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME_NOINST"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_CONTAINER_BAD_SYMBOLS: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_CONTAINER_BAD_SYMBOLS"); break;
                     
             }
 
@@ -258,6 +272,69 @@ namespace SpacerUnion.Common
                     };
                     break;
 
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_FOCUS_NAME:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_FOCUS_NAME") + ": {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_KEY_INSTANCE:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_KEY_INSTANCE") + ": {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_CONTAINTER_ITEM:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_CONTAINTER_ITEM") + ": {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_SPACES_CONTAINER:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_SPACES_CONTAINER") + ": {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME") + ": {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME_NOINST:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME_NOINST") + ": {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_CONTAINER_BAD_SYMBOLS:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_CONTAINER_BAD_SYMBOLS") + ": {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
             }
 
             return result;

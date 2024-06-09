@@ -779,6 +779,17 @@ namespace SpacerUnion.Common
             words.Add("WIN_VOBCATALOG_GROUP_ERR_NO_VISUAL", new List<string> { "Пустой визуал!", "No visual found!", "Keine visuellen Objekte gefunden!", "Nie znaleziono visuala!", "Nebyl nalezen žádný vizuál!" });
 
             words.Add("WIN_VOBCATALOG_GROUP_ERR_ALREADY", new List<string> { "Такой визуал уже существует в данной группе!", "Such visual already exists in such group!",  "Visuelles Objekt existiert bereits in dieser Gruppe", "Taki visual już istnieje w takiej grupie!", "Takový vizuál již v takové skupině existuje!" });
+
+
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_FOCUS_NAME", new List<string> { "Такой 'focusName' не существует в скриптах", "Such 'focusName' does not exist in scripts", "", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_KEY_INSTANCE", new List<string> { "Такой 'keyInstance' не существует в скриптах", "Such 'keyInstance' does not exist in scripts", "", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_CONTAINTER_ITEM", new List<string> { "Такой oCItem из 'contains' не существует в скриптах", "Such oCItem in 'contains' does not exist", "", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_SPACES_CONTAINER", new List<string> { "Поле 'contains' содержит пробелы", "Field 'contains' has spaces", "", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME", new List<string> { "Поле 'sndName' пустое", "Field 'sndName' is empty", "", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME_NOINST", new List<string> { "Прописанный sndName не существует в SFX.dat", "Such sndName does not exist in SFX.dat", "", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_CONTAINER_BAD_SYMBOLS", new List<string> { "Поле 'contains' содержите неверные символы", "Field 'contains' has bad symbols", "", "", "" });
+
+            
         }
 
         
