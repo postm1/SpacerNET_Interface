@@ -233,6 +233,10 @@
             this.buttonUsePresetOnLightVob = new System.Windows.Forms.Button();
             this.buttonUpdateLightPresetFromLightVob = new System.Windows.Forms.Button();
             this.colorDialogLightPresetColor = new System.Windows.Forms.ColorDialog();
+            this.groupBoxPresets = new System.Windows.Forms.GroupBox();
+            this.buttonPresetsInsert = new System.Windows.Forms.Button();
+            this.buttonPresetRemove = new System.Windows.Forms.Button();
+            this.listBoxPresetsCamera = new System.Windows.Forms.ListBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -267,6 +271,7 @@
             this.groupBoxLightType.SuspendLayout();
             this.groupBoxLightColorProperties.SuspendLayout();
             this.groupBoxLightPresetProperties.SuspendLayout();
+            this.groupBoxPresets.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxPFX
@@ -1794,6 +1799,9 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.buttonPresetRemove);
+            this.tabPage7.Controls.Add(this.buttonPresetsInsert);
+            this.tabPage7.Controls.Add(this.groupBoxPresets);
             this.tabPage7.Controls.Add(this.groupBoxCameraNew);
             this.tabPage7.Controls.Add(this.groupBoxCamSettings);
             this.tabPage7.Controls.Add(this.groupBoxCamKeys);
@@ -1855,7 +1863,7 @@
             this.groupBoxCamSettings.Controls.Add(this.buttonCamMinus);
             this.groupBoxCamSettings.Location = new System.Drawing.Point(402, 4);
             this.groupBoxCamSettings.Name = "groupBoxCamSettings";
-            this.groupBoxCamSettings.Size = new System.Drawing.Size(213, 367);
+            this.groupBoxCamSettings.Size = new System.Drawing.Size(213, 174);
             this.groupBoxCamSettings.TabIndex = 0;
             this.groupBoxCamSettings.TabStop = false;
             this.groupBoxCamSettings.Text = "Settings";
@@ -2532,6 +2540,42 @@
             this.buttonUpdateLightPresetFromLightVob.UseVisualStyleBackColor = true;
             this.buttonUpdateLightPresetFromLightVob.Click += new System.EventHandler(this.buttonUpdateLightPresetFromLightVob_Click);
             // 
+            // groupBoxPresets
+            // 
+            this.groupBoxPresets.Controls.Add(this.listBoxPresetsCamera);
+            this.groupBoxPresets.Location = new System.Drawing.Point(402, 185);
+            this.groupBoxPresets.Name = "groupBoxPresets";
+            this.groupBoxPresets.Size = new System.Drawing.Size(213, 128);
+            this.groupBoxPresets.TabIndex = 16;
+            this.groupBoxPresets.TabStop = false;
+            this.groupBoxPresets.Text = "Presets";
+            // 
+            // buttonPresetsInsert
+            // 
+            this.buttonPresetsInsert.Location = new System.Drawing.Point(405, 320);
+            this.buttonPresetsInsert.Name = "buttonPresetsInsert";
+            this.buttonPresetsInsert.Size = new System.Drawing.Size(75, 23);
+            this.buttonPresetsInsert.TabIndex = 17;
+            this.buttonPresetsInsert.Text = "Insert";
+            this.buttonPresetsInsert.UseVisualStyleBackColor = true;
+            // 
+            // buttonPresetRemove
+            // 
+            this.buttonPresetRemove.Location = new System.Drawing.Point(487, 320);
+            this.buttonPresetRemove.Name = "buttonPresetRemove";
+            this.buttonPresetRemove.Size = new System.Drawing.Size(75, 23);
+            this.buttonPresetRemove.TabIndex = 18;
+            this.buttonPresetRemove.Text = "Remove";
+            this.buttonPresetRemove.UseVisualStyleBackColor = true;
+            // 
+            // listBoxPresetsCamera
+            // 
+            this.listBoxPresetsCamera.FormattingEnabled = true;
+            this.listBoxPresetsCamera.Location = new System.Drawing.Point(10, 19);
+            this.listBoxPresetsCamera.Name = "listBoxPresetsCamera";
+            this.listBoxPresetsCamera.Size = new System.Drawing.Size(197, 95);
+            this.listBoxPresetsCamera.TabIndex = 0;
+            // 
             // ObjectsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2602,6 +2646,7 @@
             this.groupBoxLightColorProperties.PerformLayout();
             this.groupBoxLightPresetProperties.ResumeLayout(false);
             this.groupBoxLightPresetProperties.PerformLayout();
+            this.groupBoxPresets.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2812,5 +2857,9 @@
         private System.Windows.Forms.Label labelTriggerClassName;
         private System.Windows.Forms.CheckBox checkBoxSearchInRadius;
         private System.Windows.Forms.TextBox textBoxInRadius;
+        private System.Windows.Forms.Button buttonPresetRemove;
+        private System.Windows.Forms.Button buttonPresetsInsert;
+        private System.Windows.Forms.GroupBox groupBoxPresets;
+        public System.Windows.Forms.ListBox listBoxPresetsCamera;
     }
 }

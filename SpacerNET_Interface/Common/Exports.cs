@@ -24,7 +24,8 @@ namespace SpacerUnion.Common
         UI_ALL_VOBS_TREE_LIST,
         UI_MAT_LIST,
         UI_LIST_SEARCH_RESULT,
-        UI_WIN_VOBLIST
+        UI_WIN_VOBLIST,
+        UI_CAM_PRESETS
     };
 
 
@@ -95,7 +96,11 @@ namespace SpacerUnion.Common
                         obj = SpacerNET.vobList.listBoxVobs;
 
                     }; break;
+                case UIElementType.UI_CAM_PRESETS:
+                    {
+                        obj = SpacerNET.objectsWin.listBoxPresetsCamera;
 
+                    }; break;
             }
 
             if (obj != null)

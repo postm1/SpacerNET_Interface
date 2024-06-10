@@ -50,6 +50,7 @@ namespace SpacerUnion
             comboBoxSearchType.SelectedIndex = 0;
             comboBoxLightVobLightQuality.SelectedIndex = 1;
             camEntry = new CameraKeyEntry(this);
+
         }
 
 
@@ -493,6 +494,11 @@ namespace SpacerUnion
 
         private void buttonItems_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             if (listBoxItems.SelectedItem == null)
             {
                 return;
@@ -562,6 +568,11 @@ namespace SpacerUnion
 
         private void buttonParticles_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             if (listBoxParticles.SelectedItem == null)
             {
                 return;
@@ -694,6 +705,11 @@ namespace SpacerUnion
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             if (classesTreeView.SelectedNode == null)
             {
                 return;
@@ -786,6 +802,11 @@ namespace SpacerUnion
 
         private void buttonWP_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             string name = "zCVobWaypoint";
             string vobName = textBoxWP.Text.Trim();
             bool addToNet = checkBoxWayNet.Checked;
@@ -852,6 +873,11 @@ namespace SpacerUnion
 
         private void buttonFP_Click_1(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+
+            }
             string name = "zCVobSpot";
 
             string vobName = textBoxFP.Text.Trim();
@@ -909,6 +935,11 @@ namespace SpacerUnion
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             if (listBoxResultItems.SelectedItem == null)
             {
                 return;
@@ -939,6 +970,11 @@ namespace SpacerUnion
 
         private void button6_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             if (listBoxPfxResult.SelectedItem == null)
             {
                 return;
@@ -1528,6 +1564,11 @@ namespace SpacerUnion
 
         private void buttonSend_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             string name = listBoxActionType.GetItemText(listBoxActionType.SelectedItem);
 
             //ConsoleEx.WriteLineRed("Send trigger: action " + name);
@@ -2818,6 +2859,11 @@ namespace SpacerUnion
 
         private void button9_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             bool checkValueFound = false;
             bool onlyNameVisualSearchFoundName = false;
             bool onlyNameVisualSearchFoundVisual = false;
@@ -3741,6 +3787,10 @@ namespace SpacerUnion
         // CAMERA============================================================================
         private void buttonCamInsert_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
 
             string camName = textBoxCamName.Text.Trim();
 
@@ -3804,6 +3854,11 @@ namespace SpacerUnion
         }
         private void buttonCamPlay_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             var btn = sender as Button;
 
             if (camEntry.cameraRun)
@@ -4689,5 +4744,16 @@ namespace SpacerUnion
         {
             textBoxInRadius.Enabled = checkBoxSearchInRadius.Checked;
         }
+
+        //========= CAMERA PRESETS
+
+        [DllExport]
+        public static void AddCameraPresetToList()
+        {
+            string presetName = Imports.Stack_PeekString();
+            SpacerNET.objectsWin.listBoxPresetsCamera.Items.Add(presetName);
+        }
+
+
     }
 }
