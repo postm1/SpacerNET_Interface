@@ -4754,6 +4754,54 @@ namespace SpacerUnion
             SpacerNET.objectsWin.listBoxPresetsCamera.Items.Add(presetName);
         }
 
+        private void listBoxPresetsCamera_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxPresetsCamera.SelectedItem == null)
+            {
+                buttonPresetRemove.Enabled = false;
+                buttonPresetUpdate.Enabled = false;
+                return;
+            }
+            else
+            {
+                buttonPresetRemove.Enabled = true;
+                buttonPresetUpdate.Enabled = true;
+            }
+        }
 
+        private void buttonPresetsInsert_Click(object sender, EventArgs e)
+        {
+            if (SpacerNET.form.toolStripButtonMaterial.Checked)
+            {
+                Imports.Stack_PushString(Localizator.Get("WIN_VOBCATALOG_POLYSELECT_TURNOFF"));
+                Imports.Extern_PrintRed();
+                return;
+            }
+
+            if (listBoxPresetsCamera.SelectedItem == null)
+            {
+                return;
+            }
+
+            string presetName = listBoxPresetsCamera.SelectedItem.ToString();
+
+            Imports.Stack_PushString(presetName);
+            Imports.Extern_Camera_CreateVobFromPreset();
+        }
+
+        private void buttonPresetRemove_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonPresetCreate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonPresetUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

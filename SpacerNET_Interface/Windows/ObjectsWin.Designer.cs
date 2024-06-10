@@ -237,6 +237,8 @@
             this.buttonPresetsInsert = new System.Windows.Forms.Button();
             this.buttonPresetRemove = new System.Windows.Forms.Button();
             this.listBoxPresetsCamera = new System.Windows.Forms.ListBox();
+            this.buttonPresetCreate = new System.Windows.Forms.Button();
+            this.buttonPresetUpdate = new System.Windows.Forms.Button();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -1799,8 +1801,6 @@
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.buttonPresetRemove);
-            this.tabPage7.Controls.Add(this.buttonPresetsInsert);
             this.tabPage7.Controls.Add(this.groupBoxPresets);
             this.tabPage7.Controls.Add(this.groupBoxCameraNew);
             this.tabPage7.Controls.Add(this.groupBoxCamSettings);
@@ -1863,7 +1863,7 @@
             this.groupBoxCamSettings.Controls.Add(this.buttonCamMinus);
             this.groupBoxCamSettings.Location = new System.Drawing.Point(402, 4);
             this.groupBoxCamSettings.Name = "groupBoxCamSettings";
-            this.groupBoxCamSettings.Size = new System.Drawing.Size(213, 174);
+            this.groupBoxCamSettings.Size = new System.Drawing.Size(213, 367);
             this.groupBoxCamSettings.TabIndex = 0;
             this.groupBoxCamSettings.TabStop = false;
             this.groupBoxCamSettings.Text = "Settings";
@@ -2542,31 +2542,39 @@
             // 
             // groupBoxPresets
             // 
+            this.groupBoxPresets.Controls.Add(this.buttonPresetUpdate);
             this.groupBoxPresets.Controls.Add(this.listBoxPresetsCamera);
-            this.groupBoxPresets.Location = new System.Drawing.Point(402, 185);
+            this.groupBoxPresets.Controls.Add(this.buttonPresetCreate);
+            this.groupBoxPresets.Controls.Add(this.buttonPresetRemove);
+            this.groupBoxPresets.Controls.Add(this.buttonPresetsInsert);
+            this.groupBoxPresets.Location = new System.Drawing.Point(433, 262);
             this.groupBoxPresets.Name = "groupBoxPresets";
-            this.groupBoxPresets.Size = new System.Drawing.Size(213, 128);
+            this.groupBoxPresets.Size = new System.Drawing.Size(123, 74);
             this.groupBoxPresets.TabIndex = 16;
             this.groupBoxPresets.TabStop = false;
             this.groupBoxPresets.Text = "Presets";
+            this.groupBoxPresets.Visible = false;
             // 
             // buttonPresetsInsert
             // 
-            this.buttonPresetsInsert.Location = new System.Drawing.Point(405, 320);
+            this.buttonPresetsInsert.Location = new System.Drawing.Point(3, 41);
             this.buttonPresetsInsert.Name = "buttonPresetsInsert";
-            this.buttonPresetsInsert.Size = new System.Drawing.Size(75, 23);
+            this.buttonPresetsInsert.Size = new System.Drawing.Size(108, 23);
             this.buttonPresetsInsert.TabIndex = 17;
             this.buttonPresetsInsert.Text = "Insert";
             this.buttonPresetsInsert.UseVisualStyleBackColor = true;
+            this.buttonPresetsInsert.Click += new System.EventHandler(this.buttonPresetsInsert_Click);
             // 
             // buttonPresetRemove
             // 
-            this.buttonPresetRemove.Location = new System.Drawing.Point(487, 320);
+            this.buttonPresetRemove.Enabled = false;
+            this.buttonPresetRemove.Location = new System.Drawing.Point(117, 40);
             this.buttonPresetRemove.Name = "buttonPresetRemove";
-            this.buttonPresetRemove.Size = new System.Drawing.Size(75, 23);
+            this.buttonPresetRemove.Size = new System.Drawing.Size(96, 23);
             this.buttonPresetRemove.TabIndex = 18;
             this.buttonPresetRemove.Text = "Remove";
             this.buttonPresetRemove.UseVisualStyleBackColor = true;
+            this.buttonPresetRemove.Click += new System.EventHandler(this.buttonPresetRemove_Click);
             // 
             // listBoxPresetsCamera
             // 
@@ -2575,6 +2583,28 @@
             this.listBoxPresetsCamera.Name = "listBoxPresetsCamera";
             this.listBoxPresetsCamera.Size = new System.Drawing.Size(197, 95);
             this.listBoxPresetsCamera.TabIndex = 0;
+            this.listBoxPresetsCamera.SelectedIndexChanged += new System.EventHandler(this.listBoxPresetsCamera_SelectedIndexChanged);
+            // 
+            // buttonPresetCreate
+            // 
+            this.buttonPresetCreate.Location = new System.Drawing.Point(3, 69);
+            this.buttonPresetCreate.Name = "buttonPresetCreate";
+            this.buttonPresetCreate.Size = new System.Drawing.Size(108, 23);
+            this.buttonPresetCreate.TabIndex = 19;
+            this.buttonPresetCreate.Text = "Create";
+            this.buttonPresetCreate.UseVisualStyleBackColor = true;
+            this.buttonPresetCreate.Click += new System.EventHandler(this.buttonPresetCreate_Click);
+            // 
+            // buttonPresetUpdate
+            // 
+            this.buttonPresetUpdate.Enabled = false;
+            this.buttonPresetUpdate.Location = new System.Drawing.Point(117, 69);
+            this.buttonPresetUpdate.Name = "buttonPresetUpdate";
+            this.buttonPresetUpdate.Size = new System.Drawing.Size(96, 23);
+            this.buttonPresetUpdate.TabIndex = 20;
+            this.buttonPresetUpdate.Text = "Update";
+            this.buttonPresetUpdate.UseVisualStyleBackColor = true;
+            this.buttonPresetUpdate.Click += new System.EventHandler(this.buttonPresetUpdate_Click);
             // 
             // ObjectsWin
             // 
@@ -2861,5 +2891,7 @@
         private System.Windows.Forms.Button buttonPresetsInsert;
         private System.Windows.Forms.GroupBox groupBoxPresets;
         public System.Windows.Forms.ListBox listBoxPresetsCamera;
+        private System.Windows.Forms.Button buttonPresetUpdate;
+        private System.Windows.Forms.Button buttonPresetCreate;
     }
 }
