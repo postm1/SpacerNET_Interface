@@ -317,7 +317,7 @@ namespace SpacerUnion
                 {
                     string value = prop.value;
 
-                    //ConsoleEx.WriteLineRed("Looking for the sound...");
+                    //ConsoleEx.WriteLineRed("L ooking for the sound...");
 
                     ListBox listBox = SpacerNET.soundWin.listBoxSound;
 
@@ -334,19 +334,17 @@ namespace SpacerUnion
                 }
 
 
-                //Fixing oCMobLockable, locked TRUE == -1 on Archive level, why? But it is...
-                if (prop.Name == "locked" && prop.GroupName == "Lockable")
+                // Fixing :1 fields zBOOL (C++ storage bytes), it has -1 instead of 1
+                if (prop.type == TPropEditType.PETbool)
                 {
-                    if (prop.type == TPropEditType.PETbool)
+                    if (prop.value == "-1")
                     {
-                        if (prop.value == "-1")
-                        {
-                            //Console.WriteLine("Fixing -1");
-                            prop.value = "1";
-                            prop.backup_value = "1";
-                        }
+                        //Console.WriteLine("Fixing -1 [" + prop.Name + "][" + prop.GroupName + "][" + prop.type + "][" + prop.value + "]");
+                        prop.value = "1";
+                        prop.backup_value = "1";
                     }
                 }
+                
 
 
                 
