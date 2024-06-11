@@ -334,7 +334,7 @@ namespace SpacerUnion
                 }
 
 
-                // Fixing :1 fields zBOOL (C++ storage bytes), it has -1 instead of 1
+                // Fixing :1 fields zBOOL (C++ storage bytes), it has -1 (TRUE) instead of 1
                 if (prop.type == TPropEditType.PETbool)
                 {
                     if (prop.value == "-1")
