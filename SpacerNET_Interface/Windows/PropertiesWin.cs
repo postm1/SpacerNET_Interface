@@ -334,6 +334,20 @@ namespace SpacerUnion
                 }
 
 
+                //Fixing oCMobLockable, locked TRUE == -1 on Archive level, why? But it is...
+                if (prop.Name == "locked" && prop.GroupName == "Lockable")
+                {
+                    if (prop.type == TPropEditType.PETbool)
+                    {
+                        if (prop.value == "-1")
+                        {
+                            //Console.WriteLine("Fixing -1");
+                            prop.value = "1";
+                            prop.backup_value = "1";
+                        }
+                    }
+                }
+
 
                 
 
