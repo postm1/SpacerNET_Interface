@@ -238,21 +238,25 @@
             this.buttonUpdateLightPresetOnLightVobs = new System.Windows.Forms.Button();
             this.buttonUsePresetOnLightVob = new System.Windows.Forms.Button();
             this.buttonUpdateLightPresetFromLightVob = new System.Windows.Forms.Button();
-            this.colorDialogLightPresetColor = new System.Windows.Forms.ColorDialog();
             this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.listBoxFuncs = new System.Windows.Forms.ListBox();
-            this.labelScriptFunction = new System.Windows.Forms.Label();
-            this.buttonSpawnClear = new System.Windows.Forms.Button();
-            this.buttonSpawnDo = new System.Windows.Forms.Button();
-            this.listBoxLocations = new System.Windows.Forms.ListBox();
+            this.labelSpawnShowRadius = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonFuncAdd = new System.Windows.Forms.Button();
+            this.buttonFuncDelete = new System.Windows.Forms.Button();
+            this.groupBoxLocations = new System.Windows.Forms.GroupBox();
             this.buttonLocationSpawnNew = new System.Windows.Forms.Button();
             this.buttonLocationRename = new System.Windows.Forms.Button();
             this.buttonLocationDelete = new System.Windows.Forms.Button();
-            this.buttonFuncAdd = new System.Windows.Forms.Button();
-            this.buttonFuncDelete = new System.Windows.Forms.Button();
             this.labelSpawnLocations = new System.Windows.Forms.Label();
-            this.groupBoxLocations = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listBoxLocations = new System.Windows.Forms.ListBox();
+            this.buttonSpawnDo = new System.Windows.Forms.Button();
+            this.buttonSpawnClear = new System.Windows.Forms.Button();
+            this.labelScriptFunction = new System.Windows.Forms.Label();
+            this.listBoxFuncs = new System.Windows.Forms.ListBox();
+            this.colorDialogLightPresetColor = new System.Windows.Forms.ColorDialog();
+            this.buttonSpawnSaveBase = new System.Windows.Forms.Button();
+            this.buttonSpawnSetRadius = new System.Windows.Forms.Button();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -289,8 +293,8 @@
             this.groupBoxLightColorProperties.SuspendLayout();
             this.groupBoxLightPresetProperties.SuspendLayout();
             this.tabPage9.SuspendLayout();
-            this.groupBoxLocations.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBoxLocations.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxPFX
@@ -2626,6 +2630,9 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.buttonSpawnSetRadius);
+            this.tabPage9.Controls.Add(this.labelSpawnShowRadius);
+            this.tabPage9.Controls.Add(this.textBox1);
             this.tabPage9.Controls.Add(this.groupBox1);
             this.tabPage9.Controls.Add(this.groupBoxLocations);
             this.tabPage9.Controls.Add(this.labelSpawnLocations);
@@ -2641,59 +2648,66 @@
             this.tabPage9.Text = "Spawn";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
-            // listBoxFuncs
+            // labelSpawnShowRadius
             // 
-            this.listBoxFuncs.FormattingEnabled = true;
-            this.listBoxFuncs.Items.AddRange(new object[] {
-            "FUNC1",
-            "FUNC2",
-            "FUNC3",
-            "STARTUP_TROKIA"});
-            this.listBoxFuncs.Location = new System.Drawing.Point(222, 34);
-            this.listBoxFuncs.Name = "listBoxFuncs";
-            this.listBoxFuncs.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBoxFuncs.Size = new System.Drawing.Size(195, 225);
-            this.listBoxFuncs.TabIndex = 0;
+            this.labelSpawnShowRadius.AutoSize = true;
+            this.labelSpawnShowRadius.Location = new System.Drawing.Point(420, 18);
+            this.labelSpawnShowRadius.Name = "labelSpawnShowRadius";
+            this.labelSpawnShowRadius.Size = new System.Drawing.Size(99, 13);
+            this.labelSpawnShowRadius.TabIndex = 14;
+            this.labelSpawnShowRadius.Text = "Show marks radius:";
             // 
-            // labelScriptFunction
+            // textBox1
             // 
-            this.labelScriptFunction.AutoSize = true;
-            this.labelScriptFunction.Location = new System.Drawing.Point(219, 18);
-            this.labelScriptFunction.Name = "labelScriptFunction";
-            this.labelScriptFunction.Size = new System.Drawing.Size(83, 13);
-            this.labelScriptFunction.TabIndex = 1;
-            this.labelScriptFunction.Text = "Script functions:";
+            this.textBox1.Location = new System.Drawing.Point(423, 34);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(65, 20);
+            this.textBox1.TabIndex = 13;
+            this.textBox1.Text = "4500";
             // 
-            // buttonSpawnClear
+            // groupBox1
             // 
-            this.buttonSpawnClear.Location = new System.Drawing.Point(423, 34);
-            this.buttonSpawnClear.Name = "buttonSpawnClear";
-            this.buttonSpawnClear.Size = new System.Drawing.Size(178, 23);
-            this.buttonSpawnClear.TabIndex = 2;
-            this.buttonSpawnClear.Text = "Clear";
-            this.buttonSpawnClear.UseVisualStyleBackColor = true;
-            this.buttonSpawnClear.Click += new System.EventHandler(this.buttonSpawnClear_Click);
+            this.groupBox1.Controls.Add(this.buttonSpawnSaveBase);
+            this.groupBox1.Controls.Add(this.buttonFuncAdd);
+            this.groupBox1.Controls.Add(this.buttonFuncDelete);
+            this.groupBox1.Location = new System.Drawing.Point(222, 265);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(195, 111);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Functions";
             // 
-            // buttonSpawnDo
+            // buttonFuncAdd
             // 
-            this.buttonSpawnDo.Location = new System.Drawing.Point(423, 63);
-            this.buttonSpawnDo.Name = "buttonSpawnDo";
-            this.buttonSpawnDo.Size = new System.Drawing.Size(178, 23);
-            this.buttonSpawnDo.TabIndex = 3;
-            this.buttonSpawnDo.Text = "Mark spawn points (FP/WP)";
-            this.buttonSpawnDo.UseVisualStyleBackColor = true;
-            this.buttonSpawnDo.Click += new System.EventHandler(this.buttonSpawnDo_Click);
+            this.buttonFuncAdd.Location = new System.Drawing.Point(18, 19);
+            this.buttonFuncAdd.Name = "buttonFuncAdd";
+            this.buttonFuncAdd.Size = new System.Drawing.Size(160, 23);
+            this.buttonFuncAdd.TabIndex = 8;
+            this.buttonFuncAdd.Text = "Add new";
+            this.buttonFuncAdd.UseVisualStyleBackColor = true;
+            this.buttonFuncAdd.Click += new System.EventHandler(this.buttonFuncAdd_Click);
             // 
-            // listBoxLocations
+            // buttonFuncDelete
             // 
-            this.listBoxLocations.FormattingEnabled = true;
-            this.listBoxLocations.Items.AddRange(new object[] {
-            "LOC1",
-            "LOC 2"});
-            this.listBoxLocations.Location = new System.Drawing.Point(12, 34);
-            this.listBoxLocations.Name = "listBoxLocations";
-            this.listBoxLocations.Size = new System.Drawing.Size(204, 225);
-            this.listBoxLocations.TabIndex = 4;
+            this.buttonFuncDelete.Location = new System.Drawing.Point(18, 48);
+            this.buttonFuncDelete.Name = "buttonFuncDelete";
+            this.buttonFuncDelete.Size = new System.Drawing.Size(160, 23);
+            this.buttonFuncDelete.TabIndex = 9;
+            this.buttonFuncDelete.Text = "Delete";
+            this.buttonFuncDelete.UseVisualStyleBackColor = true;
+            this.buttonFuncDelete.Click += new System.EventHandler(this.buttonFuncDelete_Click);
+            // 
+            // groupBoxLocations
+            // 
+            this.groupBoxLocations.Controls.Add(this.buttonLocationSpawnNew);
+            this.groupBoxLocations.Controls.Add(this.buttonLocationRename);
+            this.groupBoxLocations.Controls.Add(this.buttonLocationDelete);
+            this.groupBoxLocations.Location = new System.Drawing.Point(12, 265);
+            this.groupBoxLocations.Name = "groupBoxLocations";
+            this.groupBoxLocations.Size = new System.Drawing.Size(204, 111);
+            this.groupBoxLocations.TabIndex = 11;
+            this.groupBoxLocations.TabStop = false;
+            this.groupBoxLocations.Text = "Groups";
             // 
             // buttonLocationSpawnNew
             // 
@@ -2725,24 +2739,6 @@
             this.buttonLocationDelete.UseVisualStyleBackColor = true;
             this.buttonLocationDelete.Click += new System.EventHandler(this.buttonLocationDelete_Click);
             // 
-            // buttonFuncAdd
-            // 
-            this.buttonFuncAdd.Location = new System.Drawing.Point(18, 19);
-            this.buttonFuncAdd.Name = "buttonFuncAdd";
-            this.buttonFuncAdd.Size = new System.Drawing.Size(160, 23);
-            this.buttonFuncAdd.TabIndex = 8;
-            this.buttonFuncAdd.Text = "Add new";
-            this.buttonFuncAdd.UseVisualStyleBackColor = true;
-            // 
-            // buttonFuncDelete
-            // 
-            this.buttonFuncDelete.Location = new System.Drawing.Point(18, 48);
-            this.buttonFuncDelete.Name = "buttonFuncDelete";
-            this.buttonFuncDelete.Size = new System.Drawing.Size(160, 23);
-            this.buttonFuncDelete.TabIndex = 9;
-            this.buttonFuncDelete.Text = "Delete";
-            this.buttonFuncDelete.UseVisualStyleBackColor = true;
-            // 
             // labelSpawnLocations
             // 
             this.labelSpawnLocations.AutoSize = true;
@@ -2752,28 +2748,70 @@
             this.labelSpawnLocations.TabIndex = 10;
             this.labelSpawnLocations.Text = "Groups:";
             // 
-            // groupBoxLocations
+            // listBoxLocations
             // 
-            this.groupBoxLocations.Controls.Add(this.buttonLocationSpawnNew);
-            this.groupBoxLocations.Controls.Add(this.buttonLocationRename);
-            this.groupBoxLocations.Controls.Add(this.buttonLocationDelete);
-            this.groupBoxLocations.Location = new System.Drawing.Point(12, 265);
-            this.groupBoxLocations.Name = "groupBoxLocations";
-            this.groupBoxLocations.Size = new System.Drawing.Size(204, 111);
-            this.groupBoxLocations.TabIndex = 11;
-            this.groupBoxLocations.TabStop = false;
-            this.groupBoxLocations.Text = "Groups";
+            this.listBoxLocations.FormattingEnabled = true;
+            this.listBoxLocations.Location = new System.Drawing.Point(12, 34);
+            this.listBoxLocations.Name = "listBoxLocations";
+            this.listBoxLocations.Size = new System.Drawing.Size(204, 225);
+            this.listBoxLocations.TabIndex = 4;
+            this.listBoxLocations.SelectedIndexChanged += new System.EventHandler(this.listBoxLocations_SelectedIndexChanged);
             // 
-            // groupBox1
+            // buttonSpawnDo
             // 
-            this.groupBox1.Controls.Add(this.buttonFuncAdd);
-            this.groupBox1.Controls.Add(this.buttonFuncDelete);
-            this.groupBox1.Location = new System.Drawing.Point(222, 265);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(195, 111);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Functions";
+            this.buttonSpawnDo.Location = new System.Drawing.Point(423, 92);
+            this.buttonSpawnDo.Name = "buttonSpawnDo";
+            this.buttonSpawnDo.Size = new System.Drawing.Size(178, 23);
+            this.buttonSpawnDo.TabIndex = 3;
+            this.buttonSpawnDo.Text = "Mark spawn points (FP/WP)";
+            this.buttonSpawnDo.UseVisualStyleBackColor = true;
+            this.buttonSpawnDo.Click += new System.EventHandler(this.buttonSpawnDo_Click);
+            // 
+            // buttonSpawnClear
+            // 
+            this.buttonSpawnClear.Location = new System.Drawing.Point(423, 63);
+            this.buttonSpawnClear.Name = "buttonSpawnClear";
+            this.buttonSpawnClear.Size = new System.Drawing.Size(178, 23);
+            this.buttonSpawnClear.TabIndex = 2;
+            this.buttonSpawnClear.Text = "Clear spawn marks";
+            this.buttonSpawnClear.UseVisualStyleBackColor = true;
+            this.buttonSpawnClear.Click += new System.EventHandler(this.buttonSpawnClear_Click);
+            // 
+            // labelScriptFunction
+            // 
+            this.labelScriptFunction.AutoSize = true;
+            this.labelScriptFunction.Location = new System.Drawing.Point(219, 18);
+            this.labelScriptFunction.Name = "labelScriptFunction";
+            this.labelScriptFunction.Size = new System.Drawing.Size(83, 13);
+            this.labelScriptFunction.TabIndex = 1;
+            this.labelScriptFunction.Text = "Script functions:";
+            // 
+            // listBoxFuncs
+            // 
+            this.listBoxFuncs.FormattingEnabled = true;
+            this.listBoxFuncs.Location = new System.Drawing.Point(222, 34);
+            this.listBoxFuncs.Name = "listBoxFuncs";
+            this.listBoxFuncs.Size = new System.Drawing.Size(195, 225);
+            this.listBoxFuncs.TabIndex = 0;
+            // 
+            // buttonSpawnSaveBase
+            // 
+            this.buttonSpawnSaveBase.Location = new System.Drawing.Point(18, 77);
+            this.buttonSpawnSaveBase.Name = "buttonSpawnSaveBase";
+            this.buttonSpawnSaveBase.Size = new System.Drawing.Size(160, 23);
+            this.buttonSpawnSaveBase.TabIndex = 15;
+            this.buttonSpawnSaveBase.Text = "Save spawn file";
+            this.buttonSpawnSaveBase.UseVisualStyleBackColor = true;
+            this.buttonSpawnSaveBase.Click += new System.EventHandler(this.buttonSpawnSaveBase_Click);
+            // 
+            // buttonSpawnSetRadius
+            // 
+            this.buttonSpawnSetRadius.Location = new System.Drawing.Point(494, 32);
+            this.buttonSpawnSetRadius.Name = "buttonSpawnSetRadius";
+            this.buttonSpawnSetRadius.Size = new System.Drawing.Size(107, 23);
+            this.buttonSpawnSetRadius.TabIndex = 15;
+            this.buttonSpawnSetRadius.Text = "Set radius";
+            this.buttonSpawnSetRadius.UseVisualStyleBackColor = true;
             // 
             // ObjectsWin
             // 
@@ -2848,8 +2886,8 @@
             this.groupBoxLightPresetProperties.PerformLayout();
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
-            this.groupBoxLocations.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBoxLocations.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3080,5 +3118,9 @@
         private System.Windows.Forms.Label labelSpawnLocations;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBoxLocations;
+        private System.Windows.Forms.Label labelSpawnShowRadius;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button buttonSpawnSaveBase;
+        private System.Windows.Forms.Button buttonSpawnSetRadius;
     }
 }

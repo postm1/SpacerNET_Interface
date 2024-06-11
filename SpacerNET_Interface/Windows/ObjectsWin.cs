@@ -38,6 +38,10 @@ namespace SpacerUnion
         static List<CProperty> convertProps = new List<CProperty>();
         static int selectTabBlocked = 0;
 
+        public Dictionary<string, List<string>> spawnListData;
+        string pathFile;
+        
+
         public static bool dontUpdateNumType = false;
 
         public ConfirmForm formConf;
@@ -51,6 +55,8 @@ namespace SpacerUnion
             comboBoxLightVobLightQuality.SelectedIndex = 1;
             camEntry = new CameraKeyEntry(this);
             formConf = new ConfirmForm(null);
+            spawnListData = new Dictionary<string, List<string>>();
+            pathFile = Path.GetFullPath(@"../_work/tools/spawnlist_spacernet.txt");
         }
 
 
@@ -484,6 +490,7 @@ namespace SpacerUnion
 
         private void ParticleWin_FormClosing(object sender, FormClosingEventArgs e)
         {
+            SaveSpawnFile();
             this.Hide();
             e.Cancel = true;
             SpacerNET.form.SetIconActive("object", false);
@@ -1584,6 +1591,9 @@ namespace SpacerUnion
 
             this.treeViewSearchClass.ImageList = SpacerNET.objTreeWin.imageListObjects;
             InitCameraTab();
+
+            LoadSpawnFile();
+            Application.DoEvents();
         }
 
         private void listBoxSources_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -4811,13 +4821,24 @@ namespace SpacerUnion
 
         private void buttonSpawnDo_Click(object sender, EventArgs e)
         {
+            if (listBoxLocations.SelectedItem == null)
+            {
+                MessageBox.Show(Localizator.Get("WIN_SPAWN_NO_GROUP_SELECTED"));
+                return;
+            }
+
+            if (!SpacerNET.form.toolStripButtonHelpVobs.Checked)
+            {
+                MessageBox.Show(Localizator.Get("WIN_SPAWN_NO_HELP_VOBS"));
+                return;
+            }
+
+
             Imports.Extern_Spawn_ClearFuncList();
 
-            foreach (int i in listBoxFuncs.SelectedIndices)
+            foreach (var item in listBoxFuncs.Items)
             {
-                var item = listBoxFuncs.Items[i].ToString();
-
-                Imports.Stack_PushString(item);
+                Imports.Stack_PushString(item.ToString());
                 Imports.Extern_Spawn_AddInList();
             }
  
@@ -4861,7 +4882,13 @@ namespace SpacerUnion
                     string groupName = listBoxLocations.SelectedItem.ToString();
 
                     listBoxLocations.Items.RemoveAt(listBoxLocations.SelectedIndex);
+                    spawnListData.Remove(groupName);
 
+                    if (listBoxLocations.Items.Count > 0)
+                    {
+                        listBoxLocations.SelectedIndex = 0;
+                    }
+                   
                 }
             }
         }
@@ -4878,6 +4905,8 @@ namespace SpacerUnion
             {
                 return;
             }
+
+            spawnListData.Add(groupName, new List<string>());
 
             listBoxLocations.Items.Add(groupName);
             listBoxLocations.Focus();
@@ -4898,9 +4927,205 @@ namespace SpacerUnion
                 return;
             }
 
+            var oldGroup = listBoxLocations.SelectedItem.ToString();
+
+
+            if (spawnListData.ContainsKey(oldGroup))
+            {
+                List<string> value = spawnListData[oldGroup];
+
+                spawnListData.Remove(oldGroup);
+                spawnListData.Add(groupName, value);
+            }
+            
+
             listBoxLocations.Items[listBoxLocations.SelectedIndex] = groupName;
             listBoxLocations.Focus();
 
+        }
+
+        private void buttonFuncAdd_Click(object sender, EventArgs e)
+        {
+            if (listBoxLocations.SelectedItem == null)
+            {
+                return;
+            }
+
+            formConf.buttonConfirmNo.Text = Localizator.Get("WIN_COMPLIGHT_CLOSEBUTTON");
+            formConf.buttonConfirmYes.Text = Localizator.Get("WIN_BTN_CONFIRM");
+            formConf.labelTextShow.Text = Localizator.Get("WIN_SPAWN_FUNC_NAME");
+            formConf.confType = "SPAWN_NEW_FUNC";
+            formConf.clearText = true;
+            formConf.ShowDialog();
+        }
+
+        private void buttonFuncDelete_Click(object sender, EventArgs e)
+        {
+            if (listBoxLocations.SelectedItem == null)
+            {
+                return;
+            }
+
+            if (listBoxFuncs.SelectedItem == null)
+            {
+                return;
+            }
+
+            DialogResult dialogResult = MessageBox.Show(Localizator.Get("confirmText"), Localizator.Get("confirmation"), MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                string groupName = listBoxLocations.SelectedItem.ToString();
+
+                spawnListData[groupName].RemoveAt(listBoxFuncs.SelectedIndex);
+                listBoxFuncs.Items.RemoveAt(listBoxFuncs.SelectedIndex);
+                
+            }
+        }
+
+        private void listBoxLocations_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxLocations.SelectedItem == null)
+            {
+                return;
+            }
+
+            var group = listBoxLocations.SelectedItem.ToString();
+
+            var funcsList = spawnListData.Where(x => x.Key == group);
+
+            listBoxFuncs.BeginUpdate();
+            listBoxFuncs.Items.Clear();
+
+
+            if (spawnListData.ContainsKey(group))
+            {
+                foreach (string value in spawnListData[group])
+                {
+                    listBoxFuncs.Items.Add(value);
+                }
+            }
+
+           
+
+            listBoxFuncs.EndUpdate();
+        }
+
+        public void SetNewSpawnFuncText(string name)
+        {
+            if (name.Length == 0)
+            {
+                return;
+            }
+
+            var group = listBoxLocations.SelectedItem.ToString();
+
+            if (spawnListData.ContainsKey(group))
+            {
+                foreach (string value in spawnListData[group])
+                {
+                    if (value == name)
+                    {
+                        MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
+                        return;
+                    }
+                   
+                }
+
+                spawnListData[group].Add(name);
+                listBoxFuncs.Items.Add(name);
+            }
+
+
+        }
+
+        void LoadSpawnFile()
+        {
+            if (!File.Exists(pathFile))
+            {
+                return;
+            }
+
+            List<string> arr = System.IO.File.ReadLines(pathFile, Encoding.UTF8).ToList();
+
+            string firstLine = arr[0].Trim();
+
+            if (firstLine.Length > 0)
+            {
+                var split = firstLine.Split(';');
+
+
+                listBoxLocations.BeginUpdate();
+
+                for (int i = 0; i < split.Length; i++)
+                {
+                    var groupName = split[i].Trim();
+
+                    if (groupName.Length > 0)
+                    {
+                        listBoxLocations.Items.Add(groupName);
+                        spawnListData.Add(groupName, new List<string>());
+                    }
+                }
+
+                listBoxLocations.EndUpdate();
+            }
+
+            if (arr.Count > 1)
+            {
+                for (int i = 1; i < arr.Count; i++)
+                {
+                    var split = arr[i].Trim().Split(';');
+
+                    if (split.Length == 2)
+                    {
+                        string groupName = split[0];
+                        string value = split[1];
+                        spawnListData[groupName].Add(value);
+                    }
+
+                }
+            }
+
+        }
+
+        void SaveSpawnFile()
+        {
+            if (listBoxLocations.Items.Count == 0 || !SpacerNET.isInit)
+            {
+                return;
+            }
+
+            FileStream fs = new FileStream(pathFile, FileMode.Create);
+
+            StreamWriter w = new StreamWriter(fs, Encoding.UTF8);
+
+            StringBuilder groupsList = new StringBuilder();
+
+
+            foreach (var entry in listBoxLocations.Items)
+            {
+                groupsList.Append(entry.ToString() + ";");
+
+            }
+
+            w.WriteLine(groupsList.ToString());
+
+            foreach (var key in spawnListData.Keys)
+            {
+                foreach (string value in spawnListData[key])
+                {
+                    w.WriteLine(key + ";" + value);
+                }
+            }
+
+            w.Close();
+        
+        }
+
+        private void buttonSpawnSaveBase_Click(object sender, EventArgs e)
+        {
+            SaveSpawnFile();
         }
     }
 }

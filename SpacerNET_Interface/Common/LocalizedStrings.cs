@@ -792,6 +792,9 @@ namespace SpacerUnion.Common
 
 
             words.Add("WIN_SPAWN_ASKSURE_REMOVE_GROUP", new List<string> { "Вы уверены? Все функции в группе будут удалены!", "Are you sure? All functions in the group will be deleted!", "", "", "" });
+            words.Add("WIN_SPAWN_FUNC_NAME", new List<string> { "Имя функции: ", "Function name: ", "", "", "" });
+            words.Add("WIN_SPAWN_NO_GROUP_SELECTED", new List<string> { "Сначала выберите любую группу!", "Select any group first!", "", "", "" });
+            words.Add("WIN_SPAWN_NO_HELP_VOBS", new List<string> { "Сначала включите режим показа help-вобов!", "Activate help vobs show mode!", "", "", "" });
         }
 
         

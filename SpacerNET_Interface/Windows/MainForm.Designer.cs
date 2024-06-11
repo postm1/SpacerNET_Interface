@@ -1054,7 +1054,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButtonVobs;
         private System.Windows.Forms.ToolStripButton toolStripButtonWaynet;
-        private System.Windows.Forms.ToolStripButton toolStripButtonHelpVobs;
         private System.Windows.Forms.ToolStripButton toolStripButtonBBox;
         private System.Windows.Forms.ToolStripButton toolStripButtonInvisible;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuTimeMorning;
@@ -1119,5 +1118,6 @@
         private System.Windows.Forms.ToolStripMenuItem czechToolStripMenuItem;
         public System.Windows.Forms.ToolStripButton toolStripButtonErrorReport;
         public System.Windows.Forms.ToolStripButton toolStripButtonCatalog;
+        public System.Windows.Forms.ToolStripButton toolStripButtonHelpVobs;
     }
 }

@@ -145,9 +145,20 @@ namespace SpacerUnion.Windows
 
                 SpacerNET.objectsWin.RenameSpawnGroup(text);
             }
+            else if (confType == "SPAWN_NEW_FUNC")
+            {
+                string text = textBoxValueEnter.Text.Trim();
 
+                if (text.Contains(";"))
+                {
+                    MessageBox.Show(Localizator.Get("WIN_VOBCATALOG_BAD_SYMBOL"));
+                    return;
+                }
 
+                SpacerNET.objectsWin.SetNewSpawnFuncText(text);
+            }
 
+            
 
             this.Hide();
         }
