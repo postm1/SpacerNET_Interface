@@ -40,8 +40,8 @@ namespace SpacerUnion
 
         public static bool dontUpdateNumType = false;
 
+        public ConfirmForm formConf;
 
-        
         int onlyNameVisualSearch = 0;
 
         public ObjectsWin()
@@ -50,7 +50,7 @@ namespace SpacerUnion
             comboBoxSearchType.SelectedIndex = 0;
             comboBoxLightVobLightQuality.SelectedIndex = 1;
             camEntry = new CameraKeyEntry(this);
-
+            formConf = new ConfirmForm(null);
         }
 
 
@@ -4801,6 +4801,105 @@ namespace SpacerUnion
 
         private void buttonPresetUpdate_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void buttonSpawnClear_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_Spawn_ClearList();
+        }
+
+        private void buttonSpawnDo_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_Spawn_ClearFuncList();
+
+            foreach (int i in listBoxFuncs.SelectedIndices)
+            {
+                var item = listBoxFuncs.Items[i].ToString();
+
+                Imports.Stack_PushString(item);
+                Imports.Extern_Spawn_AddInList();
+            }
+ 
+
+            Imports.Extern_Spawn_Collect();
+        }
+
+        private void buttonLocationSpawnNew_Click(object sender, EventArgs e)
+        {
+            formConf.buttonConfirmNo.Text = Localizator.Get("WIN_COMPLIGHT_CLOSEBUTTON");
+            formConf.buttonConfirmYes.Text = Localizator.Get("WIN_BTN_CONFIRM");
+            formConf.labelTextShow.Text = Localizator.Get("WIN_VOBCATALOG_GROUP_NAME");
+            formConf.confType = "SPAWN_NEW_GROUP";
+            formConf.clearText = true;
+            formConf.ShowDialog();
+        }
+
+        private void buttonLocationRename_Click(object sender, EventArgs e)
+        {
+            if (listBoxLocations.SelectedItem != null)
+            {
+
+                formConf.buttonConfirmNo.Text = Localizator.Get("WIN_COMPLIGHT_CLOSEBUTTON");
+                formConf.buttonConfirmYes.Text = Localizator.Get("WIN_BTN_CONFIRM");
+                formConf.labelTextShow.Text = Localizator.Get("WIN_VOBCATALOG_GROUP_NAME");
+                formConf.confType = "SPAWN_RENAME_GROUP";
+                formConf.clearText = false;
+                formConf.textBoxValueEnter.Text = listBoxLocations.SelectedItem.ToString();
+                formConf.ShowDialog();
+            }
+        }
+
+        private void buttonLocationDelete_Click(object sender, EventArgs e)
+        {
+            if (listBoxLocations.SelectedItem != null)
+            {
+                DialogResult dialogResult = MessageBox.Show(Localizator.Get("WIN_SPAWN_ASKSURE_REMOVE_GROUP"), Localizator.Get("confirmation"), MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string groupName = listBoxLocations.SelectedItem.ToString();
+
+                    listBoxLocations.Items.RemoveAt(listBoxLocations.SelectedIndex);
+
+                }
+            }
+        }
+
+        public void SetNewSpawnGroupText(string groupName)
+        {
+            if (listBoxLocations.Items.Contains(groupName))
+            {
+                MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
+                return;
+            }
+
+            if (groupName.Length == 0)
+            {
+                return;
+            }
+
+            listBoxLocations.Items.Add(groupName);
+            listBoxLocations.Focus();
+        }
+
+
+        public void RenameSpawnGroup(string groupName)
+        {
+
+            if (groupName.Length == 0)
+            {
+                return;
+            }
+
+            if (listBoxLocations.Items.Contains(groupName))
+            {
+                MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
+                return;
+            }
+
+            listBoxLocations.Items[listBoxLocations.SelectedIndex] = groupName;
+            listBoxLocations.Focus();
 
         }
     }

@@ -120,7 +120,31 @@ namespace SpacerUnion.Windows
 
                 SpacerNET.vobCatForm.RenameGroup(text);
             }
-           
+            else if (confType == "SPAWN_NEW_GROUP")
+            {
+                string text = textBoxValueEnter.Text.Trim();
+
+                if (text.Contains(";"))
+                {
+                    MessageBox.Show(Localizator.Get("WIN_VOBCATALOG_BAD_SYMBOL"));
+                    return;
+                }
+
+                SpacerNET.objectsWin.SetNewSpawnGroupText(text);
+            }
+            else if (confType == "SPAWN_RENAME_GROUP")
+            {
+                string text = textBoxValueEnter.Text.Trim();
+
+
+                if (text.Contains(";"))
+                {
+                    MessageBox.Show(Localizator.Get("WIN_VOBCATALOG_BAD_SYMBOL"));
+                    return;
+                }
+
+                SpacerNET.objectsWin.RenameSpawnGroup(text);
+            }
 
 
 

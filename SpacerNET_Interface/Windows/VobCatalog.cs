@@ -178,6 +178,12 @@ namespace SpacerUnion.Windows
                 return;
             }
 
+            if (listBoxGroups.Items.Contains(groupName))
+            {
+                MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
+                return;
+            }
+
             string oldName = listBoxGroups.SelectedItem.ToString();
 
             //ConsoleEx.WriteLineRed(oldName + "->" + groupName);

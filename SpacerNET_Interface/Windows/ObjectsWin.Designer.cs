@@ -163,6 +163,12 @@
             this.textBoxVecSearch0 = new System.Windows.Forms.TextBox();
             this.textBoxSearchVobs = new System.Windows.Forms.TextBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.groupBoxPresets = new System.Windows.Forms.GroupBox();
+            this.buttonPresetUpdate = new System.Windows.Forms.Button();
+            this.listBoxPresetsCamera = new System.Windows.Forms.ListBox();
+            this.buttonPresetCreate = new System.Windows.Forms.Button();
+            this.buttonPresetRemove = new System.Windows.Forms.Button();
+            this.buttonPresetsInsert = new System.Windows.Forms.Button();
             this.groupBoxCameraNew = new System.Windows.Forms.GroupBox();
             this.labelCamNewName = new System.Windows.Forms.Label();
             this.buttonCamInsert = new System.Windows.Forms.Button();
@@ -233,12 +239,20 @@
             this.buttonUsePresetOnLightVob = new System.Windows.Forms.Button();
             this.buttonUpdateLightPresetFromLightVob = new System.Windows.Forms.Button();
             this.colorDialogLightPresetColor = new System.Windows.Forms.ColorDialog();
-            this.groupBoxPresets = new System.Windows.Forms.GroupBox();
-            this.buttonPresetsInsert = new System.Windows.Forms.Button();
-            this.buttonPresetRemove = new System.Windows.Forms.Button();
-            this.listBoxPresetsCamera = new System.Windows.Forms.ListBox();
-            this.buttonPresetCreate = new System.Windows.Forms.Button();
-            this.buttonPresetUpdate = new System.Windows.Forms.Button();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.listBoxFuncs = new System.Windows.Forms.ListBox();
+            this.labelScriptFunction = new System.Windows.Forms.Label();
+            this.buttonSpawnClear = new System.Windows.Forms.Button();
+            this.buttonSpawnDo = new System.Windows.Forms.Button();
+            this.listBoxLocations = new System.Windows.Forms.ListBox();
+            this.buttonLocationSpawnNew = new System.Windows.Forms.Button();
+            this.buttonLocationRename = new System.Windows.Forms.Button();
+            this.buttonLocationDelete = new System.Windows.Forms.Button();
+            this.buttonFuncAdd = new System.Windows.Forms.Button();
+            this.buttonFuncDelete = new System.Windows.Forms.Button();
+            this.labelSpawnLocations = new System.Windows.Forms.Label();
+            this.groupBoxLocations = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -261,6 +275,7 @@
             this.groupBoxSearchClasses.SuspendLayout();
             this.panelRadioNumType.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            this.groupBoxPresets.SuspendLayout();
             this.groupBoxCameraNew.SuspendLayout();
             this.groupBoxCamSettings.SuspendLayout();
             this.groupBoxCamKeys.SuspendLayout();
@@ -273,7 +288,9 @@
             this.groupBoxLightType.SuspendLayout();
             this.groupBoxLightColorProperties.SuspendLayout();
             this.groupBoxLightPresetProperties.SuspendLayout();
-            this.groupBoxPresets.SuspendLayout();
+            this.tabPage9.SuspendLayout();
+            this.groupBoxLocations.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxPFX
@@ -857,6 +874,7 @@
             this.tabControlObjects.Controls.Add(this.tabPage6);
             this.tabControlObjects.Controls.Add(this.tabPage7);
             this.tabControlObjects.Controls.Add(this.tabPage8);
+            this.tabControlObjects.Controls.Add(this.tabPage9);
             this.tabControlObjects.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlObjects.Location = new System.Drawing.Point(0, 0);
             this.tabControlObjects.Name = "tabControlObjects";
@@ -1812,6 +1830,72 @@
             this.tabPage7.Text = "Camera";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // groupBoxPresets
+            // 
+            this.groupBoxPresets.Controls.Add(this.buttonPresetUpdate);
+            this.groupBoxPresets.Controls.Add(this.listBoxPresetsCamera);
+            this.groupBoxPresets.Controls.Add(this.buttonPresetCreate);
+            this.groupBoxPresets.Controls.Add(this.buttonPresetRemove);
+            this.groupBoxPresets.Controls.Add(this.buttonPresetsInsert);
+            this.groupBoxPresets.Location = new System.Drawing.Point(433, 262);
+            this.groupBoxPresets.Name = "groupBoxPresets";
+            this.groupBoxPresets.Size = new System.Drawing.Size(123, 74);
+            this.groupBoxPresets.TabIndex = 16;
+            this.groupBoxPresets.TabStop = false;
+            this.groupBoxPresets.Text = "Presets";
+            this.groupBoxPresets.Visible = false;
+            // 
+            // buttonPresetUpdate
+            // 
+            this.buttonPresetUpdate.Enabled = false;
+            this.buttonPresetUpdate.Location = new System.Drawing.Point(117, 69);
+            this.buttonPresetUpdate.Name = "buttonPresetUpdate";
+            this.buttonPresetUpdate.Size = new System.Drawing.Size(96, 23);
+            this.buttonPresetUpdate.TabIndex = 20;
+            this.buttonPresetUpdate.Text = "Update";
+            this.buttonPresetUpdate.UseVisualStyleBackColor = true;
+            this.buttonPresetUpdate.Click += new System.EventHandler(this.buttonPresetUpdate_Click);
+            // 
+            // listBoxPresetsCamera
+            // 
+            this.listBoxPresetsCamera.FormattingEnabled = true;
+            this.listBoxPresetsCamera.Location = new System.Drawing.Point(10, 19);
+            this.listBoxPresetsCamera.Name = "listBoxPresetsCamera";
+            this.listBoxPresetsCamera.Size = new System.Drawing.Size(197, 95);
+            this.listBoxPresetsCamera.TabIndex = 0;
+            this.listBoxPresetsCamera.SelectedIndexChanged += new System.EventHandler(this.listBoxPresetsCamera_SelectedIndexChanged);
+            // 
+            // buttonPresetCreate
+            // 
+            this.buttonPresetCreate.Location = new System.Drawing.Point(3, 69);
+            this.buttonPresetCreate.Name = "buttonPresetCreate";
+            this.buttonPresetCreate.Size = new System.Drawing.Size(108, 23);
+            this.buttonPresetCreate.TabIndex = 19;
+            this.buttonPresetCreate.Text = "Create";
+            this.buttonPresetCreate.UseVisualStyleBackColor = true;
+            this.buttonPresetCreate.Click += new System.EventHandler(this.buttonPresetCreate_Click);
+            // 
+            // buttonPresetRemove
+            // 
+            this.buttonPresetRemove.Enabled = false;
+            this.buttonPresetRemove.Location = new System.Drawing.Point(117, 40);
+            this.buttonPresetRemove.Name = "buttonPresetRemove";
+            this.buttonPresetRemove.Size = new System.Drawing.Size(96, 23);
+            this.buttonPresetRemove.TabIndex = 18;
+            this.buttonPresetRemove.Text = "Remove";
+            this.buttonPresetRemove.UseVisualStyleBackColor = true;
+            this.buttonPresetRemove.Click += new System.EventHandler(this.buttonPresetRemove_Click);
+            // 
+            // buttonPresetsInsert
+            // 
+            this.buttonPresetsInsert.Location = new System.Drawing.Point(3, 41);
+            this.buttonPresetsInsert.Name = "buttonPresetsInsert";
+            this.buttonPresetsInsert.Size = new System.Drawing.Size(108, 23);
+            this.buttonPresetsInsert.TabIndex = 17;
+            this.buttonPresetsInsert.Text = "Insert";
+            this.buttonPresetsInsert.UseVisualStyleBackColor = true;
+            this.buttonPresetsInsert.Click += new System.EventHandler(this.buttonPresetsInsert_Click);
+            // 
             // groupBoxCameraNew
             // 
             this.groupBoxCameraNew.Controls.Add(this.labelCamNewName);
@@ -2540,71 +2624,156 @@
             this.buttonUpdateLightPresetFromLightVob.UseVisualStyleBackColor = true;
             this.buttonUpdateLightPresetFromLightVob.Click += new System.EventHandler(this.buttonUpdateLightPresetFromLightVob_Click);
             // 
-            // groupBoxPresets
+            // tabPage9
             // 
-            this.groupBoxPresets.Controls.Add(this.buttonPresetUpdate);
-            this.groupBoxPresets.Controls.Add(this.listBoxPresetsCamera);
-            this.groupBoxPresets.Controls.Add(this.buttonPresetCreate);
-            this.groupBoxPresets.Controls.Add(this.buttonPresetRemove);
-            this.groupBoxPresets.Controls.Add(this.buttonPresetsInsert);
-            this.groupBoxPresets.Location = new System.Drawing.Point(433, 262);
-            this.groupBoxPresets.Name = "groupBoxPresets";
-            this.groupBoxPresets.Size = new System.Drawing.Size(123, 74);
-            this.groupBoxPresets.TabIndex = 16;
-            this.groupBoxPresets.TabStop = false;
-            this.groupBoxPresets.Text = "Presets";
-            this.groupBoxPresets.Visible = false;
+            this.tabPage9.Controls.Add(this.groupBox1);
+            this.tabPage9.Controls.Add(this.groupBoxLocations);
+            this.tabPage9.Controls.Add(this.labelSpawnLocations);
+            this.tabPage9.Controls.Add(this.listBoxLocations);
+            this.tabPage9.Controls.Add(this.buttonSpawnDo);
+            this.tabPage9.Controls.Add(this.buttonSpawnClear);
+            this.tabPage9.Controls.Add(this.labelScriptFunction);
+            this.tabPage9.Controls.Add(this.listBoxFuncs);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(623, 379);
+            this.tabPage9.TabIndex = 8;
+            this.tabPage9.Text = "Spawn";
+            this.tabPage9.UseVisualStyleBackColor = true;
             // 
-            // buttonPresetsInsert
+            // listBoxFuncs
             // 
-            this.buttonPresetsInsert.Location = new System.Drawing.Point(3, 41);
-            this.buttonPresetsInsert.Name = "buttonPresetsInsert";
-            this.buttonPresetsInsert.Size = new System.Drawing.Size(108, 23);
-            this.buttonPresetsInsert.TabIndex = 17;
-            this.buttonPresetsInsert.Text = "Insert";
-            this.buttonPresetsInsert.UseVisualStyleBackColor = true;
-            this.buttonPresetsInsert.Click += new System.EventHandler(this.buttonPresetsInsert_Click);
+            this.listBoxFuncs.FormattingEnabled = true;
+            this.listBoxFuncs.Items.AddRange(new object[] {
+            "FUNC1",
+            "FUNC2",
+            "FUNC3",
+            "STARTUP_TROKIA"});
+            this.listBoxFuncs.Location = new System.Drawing.Point(222, 34);
+            this.listBoxFuncs.Name = "listBoxFuncs";
+            this.listBoxFuncs.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listBoxFuncs.Size = new System.Drawing.Size(195, 225);
+            this.listBoxFuncs.TabIndex = 0;
             // 
-            // buttonPresetRemove
+            // labelScriptFunction
             // 
-            this.buttonPresetRemove.Enabled = false;
-            this.buttonPresetRemove.Location = new System.Drawing.Point(117, 40);
-            this.buttonPresetRemove.Name = "buttonPresetRemove";
-            this.buttonPresetRemove.Size = new System.Drawing.Size(96, 23);
-            this.buttonPresetRemove.TabIndex = 18;
-            this.buttonPresetRemove.Text = "Remove";
-            this.buttonPresetRemove.UseVisualStyleBackColor = true;
-            this.buttonPresetRemove.Click += new System.EventHandler(this.buttonPresetRemove_Click);
+            this.labelScriptFunction.AutoSize = true;
+            this.labelScriptFunction.Location = new System.Drawing.Point(219, 18);
+            this.labelScriptFunction.Name = "labelScriptFunction";
+            this.labelScriptFunction.Size = new System.Drawing.Size(83, 13);
+            this.labelScriptFunction.TabIndex = 1;
+            this.labelScriptFunction.Text = "Script functions:";
             // 
-            // listBoxPresetsCamera
+            // buttonSpawnClear
             // 
-            this.listBoxPresetsCamera.FormattingEnabled = true;
-            this.listBoxPresetsCamera.Location = new System.Drawing.Point(10, 19);
-            this.listBoxPresetsCamera.Name = "listBoxPresetsCamera";
-            this.listBoxPresetsCamera.Size = new System.Drawing.Size(197, 95);
-            this.listBoxPresetsCamera.TabIndex = 0;
-            this.listBoxPresetsCamera.SelectedIndexChanged += new System.EventHandler(this.listBoxPresetsCamera_SelectedIndexChanged);
+            this.buttonSpawnClear.Location = new System.Drawing.Point(423, 34);
+            this.buttonSpawnClear.Name = "buttonSpawnClear";
+            this.buttonSpawnClear.Size = new System.Drawing.Size(178, 23);
+            this.buttonSpawnClear.TabIndex = 2;
+            this.buttonSpawnClear.Text = "Clear";
+            this.buttonSpawnClear.UseVisualStyleBackColor = true;
+            this.buttonSpawnClear.Click += new System.EventHandler(this.buttonSpawnClear_Click);
             // 
-            // buttonPresetCreate
+            // buttonSpawnDo
             // 
-            this.buttonPresetCreate.Location = new System.Drawing.Point(3, 69);
-            this.buttonPresetCreate.Name = "buttonPresetCreate";
-            this.buttonPresetCreate.Size = new System.Drawing.Size(108, 23);
-            this.buttonPresetCreate.TabIndex = 19;
-            this.buttonPresetCreate.Text = "Create";
-            this.buttonPresetCreate.UseVisualStyleBackColor = true;
-            this.buttonPresetCreate.Click += new System.EventHandler(this.buttonPresetCreate_Click);
+            this.buttonSpawnDo.Location = new System.Drawing.Point(423, 63);
+            this.buttonSpawnDo.Name = "buttonSpawnDo";
+            this.buttonSpawnDo.Size = new System.Drawing.Size(178, 23);
+            this.buttonSpawnDo.TabIndex = 3;
+            this.buttonSpawnDo.Text = "Mark spawn points (FP/WP)";
+            this.buttonSpawnDo.UseVisualStyleBackColor = true;
+            this.buttonSpawnDo.Click += new System.EventHandler(this.buttonSpawnDo_Click);
             // 
-            // buttonPresetUpdate
+            // listBoxLocations
             // 
-            this.buttonPresetUpdate.Enabled = false;
-            this.buttonPresetUpdate.Location = new System.Drawing.Point(117, 69);
-            this.buttonPresetUpdate.Name = "buttonPresetUpdate";
-            this.buttonPresetUpdate.Size = new System.Drawing.Size(96, 23);
-            this.buttonPresetUpdate.TabIndex = 20;
-            this.buttonPresetUpdate.Text = "Update";
-            this.buttonPresetUpdate.UseVisualStyleBackColor = true;
-            this.buttonPresetUpdate.Click += new System.EventHandler(this.buttonPresetUpdate_Click);
+            this.listBoxLocations.FormattingEnabled = true;
+            this.listBoxLocations.Items.AddRange(new object[] {
+            "LOC1",
+            "LOC 2"});
+            this.listBoxLocations.Location = new System.Drawing.Point(12, 34);
+            this.listBoxLocations.Name = "listBoxLocations";
+            this.listBoxLocations.Size = new System.Drawing.Size(204, 225);
+            this.listBoxLocations.TabIndex = 4;
+            // 
+            // buttonLocationSpawnNew
+            // 
+            this.buttonLocationSpawnNew.Location = new System.Drawing.Point(14, 19);
+            this.buttonLocationSpawnNew.Name = "buttonLocationSpawnNew";
+            this.buttonLocationSpawnNew.Size = new System.Drawing.Size(175, 23);
+            this.buttonLocationSpawnNew.TabIndex = 5;
+            this.buttonLocationSpawnNew.Text = "Add new group";
+            this.buttonLocationSpawnNew.UseVisualStyleBackColor = true;
+            this.buttonLocationSpawnNew.Click += new System.EventHandler(this.buttonLocationSpawnNew_Click);
+            // 
+            // buttonLocationRename
+            // 
+            this.buttonLocationRename.Location = new System.Drawing.Point(14, 48);
+            this.buttonLocationRename.Name = "buttonLocationRename";
+            this.buttonLocationRename.Size = new System.Drawing.Size(175, 23);
+            this.buttonLocationRename.TabIndex = 6;
+            this.buttonLocationRename.Text = "Rename";
+            this.buttonLocationRename.UseVisualStyleBackColor = true;
+            this.buttonLocationRename.Click += new System.EventHandler(this.buttonLocationRename_Click);
+            // 
+            // buttonLocationDelete
+            // 
+            this.buttonLocationDelete.Location = new System.Drawing.Point(14, 77);
+            this.buttonLocationDelete.Name = "buttonLocationDelete";
+            this.buttonLocationDelete.Size = new System.Drawing.Size(175, 23);
+            this.buttonLocationDelete.TabIndex = 7;
+            this.buttonLocationDelete.Text = "Delete";
+            this.buttonLocationDelete.UseVisualStyleBackColor = true;
+            this.buttonLocationDelete.Click += new System.EventHandler(this.buttonLocationDelete_Click);
+            // 
+            // buttonFuncAdd
+            // 
+            this.buttonFuncAdd.Location = new System.Drawing.Point(18, 19);
+            this.buttonFuncAdd.Name = "buttonFuncAdd";
+            this.buttonFuncAdd.Size = new System.Drawing.Size(160, 23);
+            this.buttonFuncAdd.TabIndex = 8;
+            this.buttonFuncAdd.Text = "Add new";
+            this.buttonFuncAdd.UseVisualStyleBackColor = true;
+            // 
+            // buttonFuncDelete
+            // 
+            this.buttonFuncDelete.Location = new System.Drawing.Point(18, 48);
+            this.buttonFuncDelete.Name = "buttonFuncDelete";
+            this.buttonFuncDelete.Size = new System.Drawing.Size(160, 23);
+            this.buttonFuncDelete.TabIndex = 9;
+            this.buttonFuncDelete.Text = "Delete";
+            this.buttonFuncDelete.UseVisualStyleBackColor = true;
+            // 
+            // labelSpawnLocations
+            // 
+            this.labelSpawnLocations.AutoSize = true;
+            this.labelSpawnLocations.Location = new System.Drawing.Point(9, 18);
+            this.labelSpawnLocations.Name = "labelSpawnLocations";
+            this.labelSpawnLocations.Size = new System.Drawing.Size(44, 13);
+            this.labelSpawnLocations.TabIndex = 10;
+            this.labelSpawnLocations.Text = "Groups:";
+            // 
+            // groupBoxLocations
+            // 
+            this.groupBoxLocations.Controls.Add(this.buttonLocationSpawnNew);
+            this.groupBoxLocations.Controls.Add(this.buttonLocationRename);
+            this.groupBoxLocations.Controls.Add(this.buttonLocationDelete);
+            this.groupBoxLocations.Location = new System.Drawing.Point(12, 265);
+            this.groupBoxLocations.Name = "groupBoxLocations";
+            this.groupBoxLocations.Size = new System.Drawing.Size(204, 111);
+            this.groupBoxLocations.TabIndex = 11;
+            this.groupBoxLocations.TabStop = false;
+            this.groupBoxLocations.Text = "Groups";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.buttonFuncAdd);
+            this.groupBox1.Controls.Add(this.buttonFuncDelete);
+            this.groupBox1.Location = new System.Drawing.Point(222, 265);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(195, 111);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Functions";
             // 
             // ObjectsWin
             // 
@@ -2657,6 +2826,7 @@
             this.panelRadioNumType.ResumeLayout(false);
             this.panelRadioNumType.PerformLayout();
             this.tabPage7.ResumeLayout(false);
+            this.groupBoxPresets.ResumeLayout(false);
             this.groupBoxCameraNew.ResumeLayout(false);
             this.groupBoxCameraNew.PerformLayout();
             this.groupBoxCamSettings.ResumeLayout(false);
@@ -2676,7 +2846,10 @@
             this.groupBoxLightColorProperties.PerformLayout();
             this.groupBoxLightPresetProperties.ResumeLayout(false);
             this.groupBoxLightPresetProperties.PerformLayout();
-            this.groupBoxPresets.ResumeLayout(false);
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage9.PerformLayout();
+            this.groupBoxLocations.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2893,5 +3066,19 @@
         public System.Windows.Forms.ListBox listBoxPresetsCamera;
         private System.Windows.Forms.Button buttonPresetUpdate;
         private System.Windows.Forms.Button buttonPresetCreate;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.Button buttonSpawnDo;
+        private System.Windows.Forms.Button buttonSpawnClear;
+        private System.Windows.Forms.Label labelScriptFunction;
+        private System.Windows.Forms.ListBox listBoxFuncs;
+        private System.Windows.Forms.Button buttonFuncDelete;
+        private System.Windows.Forms.Button buttonFuncAdd;
+        private System.Windows.Forms.Button buttonLocationDelete;
+        private System.Windows.Forms.Button buttonLocationRename;
+        private System.Windows.Forms.Button buttonLocationSpawnNew;
+        private System.Windows.Forms.ListBox listBoxLocations;
+        private System.Windows.Forms.Label labelSpawnLocations;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxLocations;
     }
 }

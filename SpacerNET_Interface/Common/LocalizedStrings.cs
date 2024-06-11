@@ -789,7 +789,9 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME_NOINST", new List<string> { "Прописанный sndName не существует в SFX.dat", "Such sndName does not exist in SFX.dat", "Ein solcher sndName existiert nicht in SFX.dat", "Takie sndName nie istnieje w SFX.dat", "Takový sndName v souboru SFX.dat neexistuje" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_CONTAINER_BAD_SYMBOLS", new List<string> { "Поле 'contains' содержит неверные символы", "Field 'contains' has bad symbols", "Feld 'contains' hat falsche Symbole", "Pole 'contains' zawiera nieprawidłowe symbole", "Pole 'contains' má špatné symboly" });
 
-            
+
+
+            words.Add("WIN_SPAWN_ASKSURE_REMOVE_GROUP", new List<string> { "Вы уверены? Все функции в группе будут удалены!", "Are you sure? All functions in the group will be deleted!", "", "", "" });
         }
 
         
