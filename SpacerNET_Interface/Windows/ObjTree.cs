@@ -975,11 +975,21 @@ namespace SpacerUnion
 
         private void buttonCollapse_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             globalTree.CollapseAll();
         }
 
         private void buttonExpand_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             globalTree.ExpandAll();
         }
 
@@ -1307,6 +1317,11 @@ namespace SpacerUnion
 
         private void buttonTreeSort_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             globalTree.Sort();
         }
 
