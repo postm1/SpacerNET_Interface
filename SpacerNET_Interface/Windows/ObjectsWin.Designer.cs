@@ -242,7 +242,7 @@
             this.buttonSpawnSetRadius = new System.Windows.Forms.Button();
             this.labelSpawnShowRadius = new System.Windows.Forms.Label();
             this.textBoxSpawnSetRad = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxFunctions = new System.Windows.Forms.GroupBox();
             this.buttonSpawnSaveBase = new System.Windows.Forms.Button();
             this.buttonFuncAdd = new System.Windows.Forms.Button();
             this.buttonFuncDelete = new System.Windows.Forms.Button();
@@ -293,7 +293,7 @@
             this.groupBoxLightColorProperties.SuspendLayout();
             this.groupBoxLightPresetProperties.SuspendLayout();
             this.tabPage9.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxFunctions.SuspendLayout();
             this.groupBoxLocations.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -2633,7 +2633,7 @@
             this.tabPage9.Controls.Add(this.buttonSpawnSetRadius);
             this.tabPage9.Controls.Add(this.labelSpawnShowRadius);
             this.tabPage9.Controls.Add(this.textBoxSpawnSetRad);
-            this.tabPage9.Controls.Add(this.groupBox1);
+            this.tabPage9.Controls.Add(this.groupBoxFunctions);
             this.tabPage9.Controls.Add(this.groupBoxLocations);
             this.tabPage9.Controls.Add(this.labelSpawnLocations);
             this.tabPage9.Controls.Add(this.listBoxLocations);
@@ -2656,6 +2656,7 @@
             this.buttonSpawnSetRadius.TabIndex = 15;
             this.buttonSpawnSetRadius.Text = "Set radius";
             this.buttonSpawnSetRadius.UseVisualStyleBackColor = true;
+            this.buttonSpawnSetRadius.Click += new System.EventHandler(this.buttonSpawnSetRadius_Click_1);
             // 
             // labelSpawnShowRadius
             // 
@@ -2674,17 +2675,17 @@
             this.textBoxSpawnSetRad.TabIndex = 13;
             this.textBoxSpawnSetRad.Text = "4500";
             // 
-            // groupBox1
+            // groupBoxFunctions
             // 
-            this.groupBox1.Controls.Add(this.buttonSpawnSaveBase);
-            this.groupBox1.Controls.Add(this.buttonFuncAdd);
-            this.groupBox1.Controls.Add(this.buttonFuncDelete);
-            this.groupBox1.Location = new System.Drawing.Point(222, 265);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(195, 111);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Functions";
+            this.groupBoxFunctions.Controls.Add(this.buttonSpawnSaveBase);
+            this.groupBoxFunctions.Controls.Add(this.buttonFuncAdd);
+            this.groupBoxFunctions.Controls.Add(this.buttonFuncDelete);
+            this.groupBoxFunctions.Location = new System.Drawing.Point(222, 265);
+            this.groupBoxFunctions.Name = "groupBoxFunctions";
+            this.groupBoxFunctions.Size = new System.Drawing.Size(195, 111);
+            this.groupBoxFunctions.TabIndex = 12;
+            this.groupBoxFunctions.TabStop = false;
+            this.groupBoxFunctions.Text = "Functions";
             // 
             // buttonSpawnSaveBase
             // 
@@ -2886,7 +2887,7 @@
             this.groupBoxLightPresetProperties.PerformLayout();
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
+            this.groupBoxFunctions.ResumeLayout(false);
             this.groupBoxLocations.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -3116,7 +3117,7 @@
         private System.Windows.Forms.Button buttonLocationSpawnNew;
         private System.Windows.Forms.ListBox listBoxLocations;
         private System.Windows.Forms.Label labelSpawnLocations;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxFunctions;
         private System.Windows.Forms.GroupBox groupBoxLocations;
         private System.Windows.Forms.Label labelSpawnShowRadius;
         private System.Windows.Forms.TextBox textBoxSpawnSetRad;

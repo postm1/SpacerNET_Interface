@@ -41,7 +41,7 @@ namespace SpacerUnion.Windows
             buttonMacrosRun.Text = Localizator.Get("buttonMacrosRun");
             groupBoxMacrosButtons.Text = Localizator.Get("groupBoxMacrosButtons");
 
-            this.Text = Localizator.Get("WIN_OBJ_TAB8");
+            this.Text = Localizator.Get("WIN_MACROSES");
         }
 
         private void buttonMacrosSaveAll_Click(object sender, EventArgs e)

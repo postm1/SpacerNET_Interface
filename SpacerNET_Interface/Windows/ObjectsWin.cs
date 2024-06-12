@@ -80,7 +80,7 @@ namespace SpacerUnion
             tabControlObjects.TabPages[5].Text = Localizator.Get("WIN_OBJ_TAB5");
             tabControlObjects.TabPages[6].Text = Localizator.Get("WIN_OBJ_TAB6");
             tabControlObjects.TabPages[7].Text = Localizator.Get("WIN_OBJ_TAB7");
-            //tabControlObjects.TabPages[8].Text = Localizator.Get("WIN_OBJ_TAB8");
+            tabControlObjects.TabPages[8].Text = Localizator.Get("WIN_OBJ_TAB8");
 
             groupBoxObjAllClasses.Text = Localizator.Get("groupBoxObjAllClasses");
             groupBoxObjPropVobs.Text = Localizator.Get("groupBoxObjPropVobs");
@@ -257,17 +257,24 @@ namespace SpacerUnion
             buttonMoveLightPresetRangeAniScaleDown.Text = Localizator.Get("BTN_DOWN");
 
 
-            //labelSpawnLocations.Text = Localizator.Get("WIN_SPAWN_PRESETS") + ":";
-            //labelScriptFunction.Text = Localizator.Get("WIN_SPAWN_SCRIPT_FUNCTIONS");
-            //labelSpawnShowRadius.Text = Localizator.Get("WIN_SPAWN_LABEL_RADIUS");
-            //groupBoxLocations.Text = Localizator.Get("WIN_SPAWN_PRESETS");
-            //groupBoxFunctions.Text = Localizator.Get("WIN_SPAWN_GROUPBOX_FUNCTIONS");
+            labelSpawnLocations.Text = Localizator.Get("WIN_SPAWN_PRESETS") + ":";
+            labelScriptFunction.Text = Localizator.Get("WIN_SPAWN_SCRIPT_FUNCTIONS");
+            labelSpawnShowRadius.Text = Localizator.Get("WIN_SPAWN_LABEL_RADIUS");
+            groupBoxLocations.Text = Localizator.Get("WIN_SPAWN_PRESETS");
+            groupBoxFunctions.Text = Localizator.Get("WIN_SPAWN_GROUPBOX_FUNCTIONS");
 
-            //buttonSpawnSetRadius.Text = Localizator.Get("WIN_SPAWN_BUTTON_RADIUS");
-            //buttonSpawnClear.Text = Localizator.Get("WIN_SPAWN_BUTTON_CLEAR");
-            //buttonSpawnDo.Text = Localizator.Get("WIN_SPAWN_BUTTON_SHOW");
+            buttonSpawnSetRadius.Text = Localizator.Get("WIN_SPAWN_BUTTON_RADIUS");
+            buttonSpawnClear.Text = Localizator.Get("WIN_SPAWN_BUTTON_CLEAR");
+            buttonSpawnDo.Text = Localizator.Get("WIN_SPAWN_BUTTON_SHOW");
 
+            buttonLocationSpawnNew.Text = Localizator.Get("WIN_SPAWN_ADD_NEW_PRESET");
+            buttonLocationRename.Text = Localizator.Get("buttonMacrosRenameCurrent");
+            buttonLocationDelete.Text = Localizator.Get("WIN_VOBCATALOG_BTN_ELEM_REMOVE");
+            buttonFuncAdd.Text = Localizator.Get("WIN_SPAWN_ADD_NEW_FUNCTION");
+            buttonFuncDelete.Text = Localizator.Get("WIN_VOBCATALOG_BTN_ELEM_REMOVE");
+            buttonSpawnSaveBase.Text = Localizator.Get("WIN_SPAWN_SAVE_FILE");
 
+            
         }
 
 
@@ -5150,6 +5157,12 @@ namespace SpacerUnion
 
         private void buttonSpawnSetRadius_Click(object sender, EventArgs e)
         {
+            
+            
+        }
+
+        private void buttonSpawnSetRadius_Click_1(object sender, EventArgs e)
+        {
             var textVal = textBoxSpawnSetRad.Text.Trim();
 
             if (Utils.IsInt(textVal))
@@ -5170,7 +5183,6 @@ namespace SpacerUnion
             {
                 MessageBox.Show(Localizator.Get("PFX_EDITOR_WRONG_INPUT_NOT_NUMBER"));
             }
-            
         }
     }
 }

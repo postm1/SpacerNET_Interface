@@ -250,7 +250,7 @@ namespace SpacerUnion
             toolStripButtonGrass.Text = Localizator.Get("MENU_TOP_VIEW_GRASS");
             toolStripButtonMulti.Text = Localizator.Get("MENU_TOP_VIEW_MULTI");
 
-            toolStripButtonMacros.Text = Localizator.Get("WIN_OBJ_TAB8");
+            toolStripButtonMacros.Text = Localizator.Get("WIN_MACROSES");
             toolStripButtonFilter.Text = Localizator.Get("WIN_MATFILTER_FILTER_TITLE");
             toolStripVobVisualInfo.Text = Localizator.Get("WIN_TOOLTIP_VISUAL_INFO");
 
