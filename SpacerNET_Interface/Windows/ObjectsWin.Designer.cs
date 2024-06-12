@@ -239,9 +239,11 @@
             this.buttonUsePresetOnLightVob = new System.Windows.Forms.Button();
             this.buttonUpdateLightPresetFromLightVob = new System.Windows.Forms.Button();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.buttonSpawnSetRadius = new System.Windows.Forms.Button();
             this.labelSpawnShowRadius = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxSpawnSetRad = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonSpawnSaveBase = new System.Windows.Forms.Button();
             this.buttonFuncAdd = new System.Windows.Forms.Button();
             this.buttonFuncDelete = new System.Windows.Forms.Button();
             this.groupBoxLocations = new System.Windows.Forms.GroupBox();
@@ -255,8 +257,6 @@
             this.labelScriptFunction = new System.Windows.Forms.Label();
             this.listBoxFuncs = new System.Windows.Forms.ListBox();
             this.colorDialogLightPresetColor = new System.Windows.Forms.ColorDialog();
-            this.buttonSpawnSaveBase = new System.Windows.Forms.Button();
-            this.buttonSpawnSetRadius = new System.Windows.Forms.Button();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -2632,7 +2632,7 @@
             // 
             this.tabPage9.Controls.Add(this.buttonSpawnSetRadius);
             this.tabPage9.Controls.Add(this.labelSpawnShowRadius);
-            this.tabPage9.Controls.Add(this.textBox1);
+            this.tabPage9.Controls.Add(this.textBoxSpawnSetRad);
             this.tabPage9.Controls.Add(this.groupBox1);
             this.tabPage9.Controls.Add(this.groupBoxLocations);
             this.tabPage9.Controls.Add(this.labelSpawnLocations);
@@ -2648,6 +2648,15 @@
             this.tabPage9.Text = "Spawn";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
+            // buttonSpawnSetRadius
+            // 
+            this.buttonSpawnSetRadius.Location = new System.Drawing.Point(494, 32);
+            this.buttonSpawnSetRadius.Name = "buttonSpawnSetRadius";
+            this.buttonSpawnSetRadius.Size = new System.Drawing.Size(107, 23);
+            this.buttonSpawnSetRadius.TabIndex = 15;
+            this.buttonSpawnSetRadius.Text = "Set radius";
+            this.buttonSpawnSetRadius.UseVisualStyleBackColor = true;
+            // 
             // labelSpawnShowRadius
             // 
             this.labelSpawnShowRadius.AutoSize = true;
@@ -2657,13 +2666,13 @@
             this.labelSpawnShowRadius.TabIndex = 14;
             this.labelSpawnShowRadius.Text = "Show marks radius:";
             // 
-            // textBox1
+            // textBoxSpawnSetRad
             // 
-            this.textBox1.Location = new System.Drawing.Point(423, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(65, 20);
-            this.textBox1.TabIndex = 13;
-            this.textBox1.Text = "4500";
+            this.textBoxSpawnSetRad.Location = new System.Drawing.Point(423, 34);
+            this.textBoxSpawnSetRad.Name = "textBoxSpawnSetRad";
+            this.textBoxSpawnSetRad.Size = new System.Drawing.Size(65, 20);
+            this.textBoxSpawnSetRad.TabIndex = 13;
+            this.textBoxSpawnSetRad.Text = "4500";
             // 
             // groupBox1
             // 
@@ -2676,6 +2685,16 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Functions";
+            // 
+            // buttonSpawnSaveBase
+            // 
+            this.buttonSpawnSaveBase.Location = new System.Drawing.Point(18, 77);
+            this.buttonSpawnSaveBase.Name = "buttonSpawnSaveBase";
+            this.buttonSpawnSaveBase.Size = new System.Drawing.Size(160, 23);
+            this.buttonSpawnSaveBase.TabIndex = 15;
+            this.buttonSpawnSaveBase.Text = "Save spawn file";
+            this.buttonSpawnSaveBase.UseVisualStyleBackColor = true;
+            this.buttonSpawnSaveBase.Click += new System.EventHandler(this.buttonSpawnSaveBase_Click);
             // 
             // buttonFuncAdd
             // 
@@ -2793,25 +2812,6 @@
             this.listBoxFuncs.Name = "listBoxFuncs";
             this.listBoxFuncs.Size = new System.Drawing.Size(195, 225);
             this.listBoxFuncs.TabIndex = 0;
-            // 
-            // buttonSpawnSaveBase
-            // 
-            this.buttonSpawnSaveBase.Location = new System.Drawing.Point(18, 77);
-            this.buttonSpawnSaveBase.Name = "buttonSpawnSaveBase";
-            this.buttonSpawnSaveBase.Size = new System.Drawing.Size(160, 23);
-            this.buttonSpawnSaveBase.TabIndex = 15;
-            this.buttonSpawnSaveBase.Text = "Save spawn file";
-            this.buttonSpawnSaveBase.UseVisualStyleBackColor = true;
-            this.buttonSpawnSaveBase.Click += new System.EventHandler(this.buttonSpawnSaveBase_Click);
-            // 
-            // buttonSpawnSetRadius
-            // 
-            this.buttonSpawnSetRadius.Location = new System.Drawing.Point(494, 32);
-            this.buttonSpawnSetRadius.Name = "buttonSpawnSetRadius";
-            this.buttonSpawnSetRadius.Size = new System.Drawing.Size(107, 23);
-            this.buttonSpawnSetRadius.TabIndex = 15;
-            this.buttonSpawnSetRadius.Text = "Set radius";
-            this.buttonSpawnSetRadius.UseVisualStyleBackColor = true;
             // 
             // ObjectsWin
             // 
@@ -3119,7 +3119,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBoxLocations;
         private System.Windows.Forms.Label labelSpawnShowRadius;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxSpawnSetRad;
         private System.Windows.Forms.Button buttonSpawnSaveBase;
         private System.Windows.Forms.Button buttonSpawnSetRadius;
     }

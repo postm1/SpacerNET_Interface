@@ -230,6 +230,12 @@ namespace SpacerUnion
             return Int32.TryParse(value, out intValue) || float.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out floatValue);
         }
 
+        public static bool IsInt(string value)
+        {
+            int intValue;
+            return Int32.TryParse(value, out intValue);
+        }
+
         public static String sha256_hash(String value)
         {
             StringBuilder Sb = new StringBuilder();

@@ -80,6 +80,7 @@ namespace SpacerUnion
             tabControlObjects.TabPages[5].Text = Localizator.Get("WIN_OBJ_TAB5");
             tabControlObjects.TabPages[6].Text = Localizator.Get("WIN_OBJ_TAB6");
             tabControlObjects.TabPages[7].Text = Localizator.Get("WIN_OBJ_TAB7");
+            //tabControlObjects.TabPages[8].Text = Localizator.Get("WIN_OBJ_TAB8");
 
             groupBoxObjAllClasses.Text = Localizator.Get("groupBoxObjAllClasses");
             groupBoxObjPropVobs.Text = Localizator.Get("groupBoxObjPropVobs");
@@ -254,6 +255,19 @@ namespace SpacerUnion
             buttonMoveLightPresetColorDown.Text = Localizator.Get("BTN_DOWN");
             buttonMoveLightPresetRangeAniScaleUp.Text = Localizator.Get("BTN_UP");
             buttonMoveLightPresetRangeAniScaleDown.Text = Localizator.Get("BTN_DOWN");
+
+
+            //labelSpawnLocations.Text = Localizator.Get("WIN_SPAWN_PRESETS") + ":";
+            //labelScriptFunction.Text = Localizator.Get("WIN_SPAWN_SCRIPT_FUNCTIONS");
+            //labelSpawnShowRadius.Text = Localizator.Get("WIN_SPAWN_LABEL_RADIUS");
+            //groupBoxLocations.Text = Localizator.Get("WIN_SPAWN_PRESETS");
+            //groupBoxFunctions.Text = Localizator.Get("WIN_SPAWN_GROUPBOX_FUNCTIONS");
+
+            //buttonSpawnSetRadius.Text = Localizator.Get("WIN_SPAWN_BUTTON_RADIUS");
+            //buttonSpawnClear.Text = Localizator.Get("WIN_SPAWN_BUTTON_CLEAR");
+            //buttonSpawnDo.Text = Localizator.Get("WIN_SPAWN_BUTTON_SHOW");
+
+
         }
 
 
@@ -316,6 +330,11 @@ namespace SpacerUnion
 
             Imports.Stack_PushString("showMoverKeysVisually");
             checkBoxShowMoverKeys.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+
+
+            Imports.Stack_PushString("showSpawnListRadius");
+            textBoxSpawnSetRad.Text = Imports.Extern_GetSetting().ToString();
         }
 
         public void GetVdfArchivesList()
@@ -490,7 +509,6 @@ namespace SpacerUnion
 
         private void ParticleWin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SaveSpawnFile();
             this.Hide();
             e.Cancel = true;
             SpacerNET.form.SetIconActive("object", false);
@@ -5089,12 +5107,14 @@ namespace SpacerUnion
 
         }
 
-        void SaveSpawnFile()
+        public void SaveSpawnFile()
         {
+
             if (listBoxLocations.Items.Count == 0 || !SpacerNET.isInit)
             {
                 return;
             }
+
 
             FileStream fs = new FileStream(pathFile, FileMode.Create);
 
@@ -5126,6 +5146,31 @@ namespace SpacerUnion
         private void buttonSpawnSaveBase_Click(object sender, EventArgs e)
         {
             SaveSpawnFile();
+        }
+
+        private void buttonSpawnSetRadius_Click(object sender, EventArgs e)
+        {
+            var textVal = textBoxSpawnSetRad.Text.Trim();
+
+            if (Utils.IsInt(textVal))
+            {
+                int value = Convert.ToInt32(textVal);
+
+                if (value < 2000 || value > 25000)
+                {
+                    MessageBox.Show(Localizator.Get("WIN_SPAWN_RADIUS_RANGE"));
+                    return;
+                }
+
+                Imports.Stack_PushString("showSpawnListRadius");
+                Imports.Extern_SetSetting(value);
+                Imports.Extern_Spawn_SetRadius(value);
+            }
+            else
+            {
+                MessageBox.Show(Localizator.Get("PFX_EDITOR_WRONG_INPUT_NOT_NUMBER"));
+            }
+            
         }
     }
 }

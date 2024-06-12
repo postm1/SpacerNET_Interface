@@ -94,6 +94,7 @@ namespace SpacerUnion
             SpacerNET.matFilterWin.OnClose();
             SpacerNET.objectsWin.OnClose();
             SpacerNET.vobCatForm.SaveToFile();
+            SpacerNET.objectsWin.SaveSpawnFile();
         }
         
         private void CloseApp()
