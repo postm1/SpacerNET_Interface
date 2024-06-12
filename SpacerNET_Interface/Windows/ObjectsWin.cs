@@ -267,7 +267,7 @@ namespace SpacerUnion
             buttonSpawnClear.Text = Localizator.Get("WIN_SPAWN_BUTTON_CLEAR");
             buttonSpawnDo.Text = Localizator.Get("WIN_SPAWN_BUTTON_SHOW");
 
-            buttonLocationSpawnNew.Text = Localizator.Get("WIN_SPAWN_ADD_NEW_PRESET");
+            buttonLocationSpawnNew.Text = Localizator.Get("WIN_VOBCATALOG_BTN_ELEM_ADD");
             buttonLocationRename.Text = Localizator.Get("buttonMacrosRenameCurrent");
             buttonLocationDelete.Text = Localizator.Get("WIN_VOBCATALOG_BTN_ELEM_REMOVE");
             buttonFuncAdd.Text = Localizator.Get("WIN_SPAWN_ADD_NEW_FUNCTION");
@@ -4875,7 +4875,7 @@ namespace SpacerUnion
         {
             formConf.buttonConfirmNo.Text = Localizator.Get("WIN_COMPLIGHT_CLOSEBUTTON");
             formConf.buttonConfirmYes.Text = Localizator.Get("WIN_BTN_CONFIRM");
-            formConf.labelTextShow.Text = Localizator.Get("WIN_VOBCATALOG_GROUP_NAME");
+            formConf.labelTextShow.Text = Localizator.Get("WIN_SPAWN_PRESET_NAME");
             formConf.confType = "SPAWN_NEW_GROUP";
             formConf.clearText = true;
             formConf.ShowDialog();
@@ -4888,7 +4888,7 @@ namespace SpacerUnion
 
                 formConf.buttonConfirmNo.Text = Localizator.Get("WIN_COMPLIGHT_CLOSEBUTTON");
                 formConf.buttonConfirmYes.Text = Localizator.Get("WIN_BTN_CONFIRM");
-                formConf.labelTextShow.Text = Localizator.Get("WIN_VOBCATALOG_GROUP_NAME");
+                formConf.labelTextShow.Text = Localizator.Get("WIN_SPAWN_PRESET_NAME");
                 formConf.confType = "SPAWN_RENAME_GROUP";
                 formConf.clearText = false;
                 formConf.textBoxValueEnter.Text = listBoxLocations.SelectedItem.ToString();

@@ -791,12 +791,11 @@ namespace SpacerUnion.Common
 
 
 
-            words.Add("WIN_SPAWN_ASKSURE_REMOVE_GROUP", new List<string> { "Вы уверены? Все функции в группе будут удалены!", "Are you sure? All functions in the group will be deleted!", "", "", "" });
+            words.Add("WIN_SPAWN_ASKSURE_REMOVE_GROUP", new List<string> { "Вы уверены? Все функции в пресете будут удалены!", "Are you sure? All functions in the preset will be deleted!", "", "", "" });
             words.Add("WIN_SPAWN_FUNC_NAME", new List<string> { "Имя функции: ", "Function name: ", "", "", "" });
-            words.Add("WIN_SPAWN_NO_GROUP_SELECTED", new List<string> { "Сначала выберите любую группу!", "Select any group first!", "", "", "" });
+            words.Add("WIN_SPAWN_NO_GROUP_SELECTED", new List<string> { "Сначала выберите любой пресет!", "Select any preset first!", "", "", "" });
             words.Add("WIN_SPAWN_NO_HELP_VOBS", new List<string> { "Сначала включите режим показа help-вобов!", "Activate help vobs show mode!", "", "", "" });
             words.Add("WIN_SPAWN_RADIUS_RANGE", new List<string> { "Достустимый диапазон от 2000 до 25000", "Allowed range is from 2000 to 25000", "", "", "" });
-
 
             words.Add("WIN_OBJ_TAB8", new List<string> { "Спавн", "Spawn", "", "", "" });
             words.Add("WIN_SPAWN_PRESETS", new List<string> { "Пресеты", "Presets", "", "", "" });
@@ -806,11 +805,10 @@ namespace SpacerUnion.Common
             words.Add("WIN_SPAWN_BUTTON_CLEAR", new List<string> { "Очистить точки", "Clear points", "", "", "" });
             words.Add("WIN_SPAWN_BUTTON_SHOW", new List<string> { "Показать точки спавна (WP/FP)", "Show spawn points (WP/FP)", "", "", "" });
             words.Add("WIN_SPAWN_GROUPBOX_FUNCTIONS", new List<string> { "Функции", "Function", "", "", "" });
+
             words.Add("WIN_SPAWN_SAVE_FILE", new List<string> { "Сохранить файл пресетов", "Save presets file", "", "", "" });
-
-
-            words.Add("WIN_SPAWN_ADD_NEW_PRESET", new List<string> { "Сохранить файл пресетов", "Save presets file", "", "", "" });
             words.Add("WIN_SPAWN_ADD_NEW_FUNCTION", new List<string> { "Добавить новую", "Add new", "", "", "" });
+            words.Add("WIN_SPAWN_PRESET_NAME", new List<string> { "Имя пресета: ", "Preset name: ", "", "", "" });
         }
 
         
