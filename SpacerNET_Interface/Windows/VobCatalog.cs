@@ -656,6 +656,11 @@ namespace SpacerUnion.Windows
 
         private void buttonCreateVob_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             if (SpacerNET.matFilterWin.Visible)
             {
                 MessageBox.Show(Localizator.Get("WIN_VOBCATALOG_MATFILTER_TURNOFF"));

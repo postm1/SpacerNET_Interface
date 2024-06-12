@@ -239,6 +239,11 @@ namespace SpacerUnion.Windows
 
         private void buttonErrorsSearch_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             entriesList.Clear();
             Imports.Extern_ReportCreateAll();
 

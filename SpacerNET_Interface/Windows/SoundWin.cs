@@ -103,6 +103,11 @@ namespace SpacerUnion
 
         private void buttonPlaySound_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             ListBox listBox = SpacerNET.soundWin.listBoxSound;
 
             if (listBox.SelectedItem == null)
@@ -353,6 +358,11 @@ namespace SpacerUnion
 
         private void buttonCreateSoundVob_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             ListBox listBox = SpacerNET.soundWin.listBoxSound;
 
             if (isLeftListActive)

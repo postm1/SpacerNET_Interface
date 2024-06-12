@@ -211,6 +211,11 @@ namespace SpacerUnion
 
         private void buttonVobListSearch_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             Imports.Extern_SearchVobList();
         }
 

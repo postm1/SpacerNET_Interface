@@ -1070,6 +1070,11 @@ namespace SpacerUnion
         
         private void textBoxVisuals_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             bool checkBoxDebugSearch = SpacerNET.vobCatForm.checkBoxDebugSearch.Checked;
 
             if (e.KeyChar == (char)13)
@@ -1678,6 +1683,11 @@ namespace SpacerUnion
 
         private void button10_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             string name = "";
             string count = textBoxItemCount.Text.Trim();
 
@@ -4381,6 +4391,11 @@ namespace SpacerUnion
 
         private void buttonCreateLightVob_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             if (listBoxLightPresets.SelectedItem == null)
                 PushLightPresetData();
 
@@ -4846,6 +4861,11 @@ namespace SpacerUnion
 
         private void buttonSpawnDo_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             if (listBoxLocations.SelectedItem == null)
             {
                 MessageBox.Show(Localizator.Get("WIN_SPAWN_NO_GROUP_SELECTED"));
