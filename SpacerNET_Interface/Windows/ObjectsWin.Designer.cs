@@ -2673,7 +2673,7 @@
             this.textBoxSpawnSetRad.Name = "textBoxSpawnSetRad";
             this.textBoxSpawnSetRad.Size = new System.Drawing.Size(65, 20);
             this.textBoxSpawnSetRad.TabIndex = 13;
-            this.textBoxSpawnSetRad.Text = "4500";
+            this.textBoxSpawnSetRad.Text = "7500";
             // 
             // groupBoxFunctions
             // 

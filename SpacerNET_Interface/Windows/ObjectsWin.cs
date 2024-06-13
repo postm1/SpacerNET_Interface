@@ -4878,6 +4878,7 @@ namespace SpacerUnion
                 return;
             }
 
+            Imports.Extern_Spawn_ClearList();
 
             Imports.Extern_Spawn_ClearFuncList();
 
