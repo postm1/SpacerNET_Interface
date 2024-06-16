@@ -791,24 +791,26 @@ namespace SpacerUnion.Common
 
 
 
-            words.Add("WIN_SPAWN_ASKSURE_REMOVE_GROUP", new List<string> { "Вы уверены? Все функции в пресете будут удалены!", "Are you sure? All functions in the preset will be deleted!", "", "", "" });
-            words.Add("WIN_SPAWN_FUNC_NAME", new List<string> { "Имя функции: ", "Function name: ", "", "", "" });
-            words.Add("WIN_SPAWN_NO_GROUP_SELECTED", new List<string> { "Сначала выберите любой пресет!", "Select any preset first!", "", "", "" });
-            words.Add("WIN_SPAWN_NO_HELP_VOBS", new List<string> { "Сначала включите режим показа help-вобов!", "Activate help vobs show mode!", "", "", "" });
-            words.Add("WIN_SPAWN_RADIUS_RANGE", new List<string> { "Достустимый диапазон от 2000 до 25000", "Allowed range is from 2000 to 25000", "", "", "" });
+            words.Add("WIN_SPAWN_ASKSURE_REMOVE_GROUP", new List<string> { "Вы уверены? Все функции в пресете будут удалены!", "Are you sure? All functions in the preset will be deleted!", "Bist du sicher? Alle Funkionen in der Voreinstellung werden gelöscht!", "Czy na pewno? Wszystkie funkcje w presecie zostaną usunięte!", "Jste si jistý? Všechny funkce v předvolbě budou smazány!" });
+            words.Add("WIN_SPAWN_FUNC_NAME", new List<string> { "Имя функции: ", "Function name: ", "Funktion Name: ", " Nazwa funkcji: ", "Název funkce: " });
+            words.Add("WIN_SPAWN_NO_GROUP_SELECTED", new List<string> { "Сначала выберите любой пресет!", "Select any preset first!", "Wähle zuerst eine Voreinstellung aus!", " Wybierz najpierw pierwszy preset!", "Nejprve vyberte libovolnou předvolbu!" });
+            words.Add("WIN_SPAWN_NO_HELP_VOBS", new List<string> { "Сначала включите режим показа help-вобов!", "Activate help vobs show mode!", "Aktiviere den Hilfe VOBs Anzeige Modus!", "Aktywuj tryb wyświetlania vobów pomocniczych!", "Aktivujte režim zobrazení nápovědy vobů!" });
+            words.Add("WIN_SPAWN_RADIUS_RANGE", new List<string> { "Достустимый диапазон от 2000 до 25000", "Allowed range is from 2000 to 25000", "Der zulässige Bereich liegt zwischen 2000 und 25000", "Dozwolony zakres wynosi od 2000 do 25000", "Povolený rozsah je 2000 až 25000" });
 
-            words.Add("WIN_OBJ_TAB8", new List<string> { "Спавн", "Spawn", "", "", "" });
-            words.Add("WIN_SPAWN_PRESETS", new List<string> { "Пресеты", "Presets", "", "", "" });
-            words.Add("WIN_SPAWN_SCRIPT_FUNCTIONS", new List<string> { "Скриптовые функции:", "Script functions:", "", "", "" });
-            words.Add("WIN_SPAWN_LABEL_RADIUS", new List<string> { "Радиус показа: ", "Show radius: ", "", "", "" });
-            words.Add("WIN_SPAWN_BUTTON_RADIUS", new List<string> { "Установить", "Set", "", "", "" });
-            words.Add("WIN_SPAWN_BUTTON_CLEAR", new List<string> { "Очистить точки", "Clear points", "", "", "" });
-            words.Add("WIN_SPAWN_BUTTON_SHOW", new List<string> { "Показать точки спавна (WP/FP)", "Show spawn points (WP/FP)", "", "", "" });
-            words.Add("WIN_SPAWN_GROUPBOX_FUNCTIONS", new List<string> { "Функции", "Function", "", "", "" });
+            words.Add("WIN_OBJ_TAB8", new List<string> { "Спавн", "Spawn", "Spawn", "Spawn", "Spawn" });
+            words.Add("WIN_SPAWN_PRESETS", new List<string> { "Пресеты", "Presets", "Voreinstellungen", "Presets", "Předvolby" });
+            words.Add("WIN_SPAWN_SCRIPT_FUNCTIONS", new List<string> { "Скриптовые функции:", "Script functions:", "Skript Funktionen:", "Funkcje skryptu:", "Funkce skriptu:" });
+            words.Add("WIN_SPAWN_LABEL_RADIUS", new List<string> { "Радиус показа: ", "Show radius: ", "Zeige Radius: ", "Pokaż promień: ", "Zobrazit poloměr: " });
+            words.Add("WIN_SPAWN_BUTTON_RADIUS", new List<string> { "Установить", "Set", "Festlegen", "Ustaw", "Nastavit" });
+            words.Add("WIN_SPAWN_BUTTON_CLEAR", new List<string> { "Очистить точки", "Clear points", "Lösche Punkte", "Wyczyść punkty", "Vymazat body" });
+            words.Add("WIN_SPAWN_BUTTON_SHOW", new List<string> { "Показать точки спавна (WP/FP)", "Show spawn points (WP/FP)", "Spawnpunkte anzeigen (WB/FP)", "Pokaż punkty spawnu (WP/FP)", "Zobrazit spawn body (WP/FP)" });
+            words.Add("WIN_SPAWN_GROUPBOX_FUNCTIONS", new List<string> { "Функции", "Functions", "Funktionen", "Funkcje", "Funkce" });
 
-            words.Add("WIN_SPAWN_SAVE_FILE", new List<string> { "Сохранить файл пресетов", "Save presets file", "", "", "" });
-            words.Add("WIN_SPAWN_ADD_NEW_FUNCTION", new List<string> { "Добавить новую", "Add new", "", "", "" });
-            words.Add("WIN_SPAWN_PRESET_NAME", new List<string> { "Имя пресета: ", "Preset name: ", "", "", "" });
+            words.Add("WIN_SPAWN_SAVE_FILE", new List<string> { "Сохранить файл пресетов", "Save presets file", "Speichere Voreinstellungsdatei", "Zapisz plik presets", "Uložení souboru předvoleb" });
+            words.Add("WIN_SPAWN_ADD_NEW_FUNCTION", new List<string> { "Добавить новую", "Add new", "Neu hinzufügen", "Dodaj nowy", "Přidat nové" });
+            words.Add("WIN_SPAWN_PRESET_NAME", new List<string> { "Имя пресета: ", "Preset name: ", "Vorsteinstellungsname: ", " Nazwa presetu: ", "Název předvolby: " });
+
+
         }
 
         
