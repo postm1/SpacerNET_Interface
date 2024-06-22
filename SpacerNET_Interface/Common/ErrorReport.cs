@@ -41,7 +41,11 @@ namespace SpacerUnion.Common
         ERROR_REPORT_PROBLEM_TYPE_SPACES_CONTAINER,
         ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME,
         ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME_NOINST,
-        ERROR_REPORT_PROBLEM_TYPE_CONTAINER_BAD_SYMBOLS
+        ERROR_REPORT_PROBLEM_TYPE_CONTAINER_BAD_SYMBOLS,
+        ERROR_REPORT_PROBLEM_TYPE_BAD_TRIGGER,
+        ERROR_REPORT_PROBLEM_TYPE_BAD_USE_WITHITEM,
+        ERROR_REPORT_PROBLEM_TYPE_BAD_ON_STATE_FUNC,
+        ERROR_REPORT_PROBLEM_TYPE_BAD_COND_FUNC
     }
 
     public class ErrorReportEntry
@@ -118,7 +122,12 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME_NOINST: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME_NOINST"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_CONTAINER_BAD_SYMBOLS: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_CONTAINER_BAD_SYMBOLS"); break;
-                    
+
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_TRIGGER: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_TRIGGER"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_USE_WITHITEM: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_USE_WITHITEM"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_ON_STATE_FUNC: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_ON_STATE_FUNC"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_COND_FUNC: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_COND_FUNC"); break;
             }
 
 
@@ -331,6 +340,42 @@ namespace SpacerUnion.Common
                     {
 
                         var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_CONTAINER_BAD_SYMBOLS") + ": {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_TRIGGER:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_TRIGGER") + ": {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_USE_WITHITEM:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_USE_WITHITEM") + ": {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_ON_STATE_FUNC:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_ON_STATE_FUNC") + ": {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_COND_FUNC:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_COND_FUNC") + ": {0}";
 
                         result = String.Format(stringFormat, vobName);
                     };

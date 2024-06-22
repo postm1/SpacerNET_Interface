@@ -811,8 +811,14 @@ namespace SpacerUnion.Common
             words.Add("WIN_SPAWN_PRESET_NAME", new List<string> { "Имя пресета: ", "Preset name: ", "Vorsteinstellungsname: ", " Nazwa presetu: ", "Název předvolby: " });
 
 
+
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_TRIGGER", new List<string> { "Указанный triggerTarget не существует", "Such 'triggerTarget' does not exist", "", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_USE_WITHITEM", new List<string> { "Указанный useWithItem не существует", "Such 'useWithItem' does not exist", "", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_ON_STATE_FUNC", new List<string> { "Указанная функция onStateFunc не существует", "Such 'onStateFunc' function does not exist", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_COND_FUNC", new List<string> { "Указанная функция conditionFunc не существует", "Such 'conditionFunc' function does not exist", "", "", "" });
+
         }
 
-        
+
     }
 }
