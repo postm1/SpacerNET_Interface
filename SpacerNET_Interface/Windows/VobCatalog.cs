@@ -889,12 +889,22 @@ namespace SpacerUnion.Windows
 
         private void buttonUPAbs_Click(object sender, EventArgs e)
         {
-            MoveToTop(listBoxItems);
+            if (listBoxGroups.SelectedItem != null)
+            {
+                var groupName = listBoxGroups.SelectedItem.ToString();
+                MoveToTop(listBoxItems);
+                vobMan.UpdateIndexes(groupName, listBoxItems);
+            }
         }
 
         private void buttonDownAbs_Click(object sender, EventArgs e)
         {
-            MoveToBottom(listBoxItems);
+            if (listBoxGroups.SelectedItem != null)
+            {
+                var groupName = listBoxGroups.SelectedItem.ToString();
+                MoveToBottom(listBoxItems);
+                vobMan.UpdateIndexes(groupName, listBoxItems);
+            }
         }
 
         private void VobCatalogForm_Load(object sender, EventArgs e)
