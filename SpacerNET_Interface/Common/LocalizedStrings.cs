@@ -816,7 +816,7 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_USE_WITHITEM", new List<string> { "Указанный useWithItem не существует", "Such 'useWithItem' does not exist", "", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_ON_STATE_FUNC", new List<string> { "Указанная функция onStateFunc не существует", "Such 'onStateFunc' function does not exist", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_COND_FUNC", new List<string> { "Указанная функция conditionFunc не существует", "Such 'conditionFunc' function does not exist", "", "", "" });
-
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_VISUAL_SYMBOLS", new List<string> { "'Visual' воба содержит подозрительные символы", "Vob's 'visual' contains suspicious symbols", "", "", "" });
         }
 
 

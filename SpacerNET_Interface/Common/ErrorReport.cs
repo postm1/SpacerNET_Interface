@@ -45,7 +45,8 @@ namespace SpacerUnion.Common
         ERROR_REPORT_PROBLEM_TYPE_BAD_TRIGGER,
         ERROR_REPORT_PROBLEM_TYPE_BAD_USE_WITHITEM,
         ERROR_REPORT_PROBLEM_TYPE_BAD_ON_STATE_FUNC,
-        ERROR_REPORT_PROBLEM_TYPE_BAD_COND_FUNC
+        ERROR_REPORT_PROBLEM_TYPE_BAD_COND_FUNC,
+        ERROR_REPORT_PROBLEM_TYPE_BAD_VISUAL_SYMBOLS
     }
 
     public class ErrorReportEntry
@@ -380,6 +381,17 @@ namespace SpacerUnion.Common
                         result = String.Format(stringFormat, vobName);
                     };
                     break;
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_VISUAL_SYMBOLS:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_VISUAL_SYMBOLS") + ": {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+
+                    
             }
 
             return result;
