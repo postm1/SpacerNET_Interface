@@ -32,7 +32,8 @@ namespace SpacerUnion.Windows
             checkBoxSetNearestVobCam.Text = Localizator.Get("checkBoxSetNearestVobCam");
             checkBoxShowPolysSort.Text = Localizator.Get("checkBoxShowPolysSort");
             checkBoxOnlyLatinInInput.Text = Localizator.Get("checkBoxOnlyLatinInInput");
-
+            checkBoxUpperCase.Text = Localizator.Get("checkBoxUpperCase");
+            
 
             btnMiscSetApply.Text = Localizator.Get("BTN_APPLY");
         }
@@ -79,7 +80,10 @@ namespace SpacerUnion.Windows
 
             Imports.Stack_PushString("checkBoxOnlyLatinInInput");
             SpacerNET.miscSetWin.checkBoxOnlyLatinInInput.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
-            
+
+
+            Imports.Stack_PushString("bHandleNamesUpperCase");
+            SpacerNET.miscSetWin.checkBoxUpperCase.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
         }
 
         public void OnApplySettings()
@@ -115,7 +119,8 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("checkBoxOnlyLatinInInput");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxOnlyLatinInInput.Checked));
 
-            
+            Imports.Stack_PushString("bHandleNamesUpperCase");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxUpperCase.Checked));
         }
 
         private void MiscSettingsWin_FormClosing(object sender, FormClosingEventArgs e)

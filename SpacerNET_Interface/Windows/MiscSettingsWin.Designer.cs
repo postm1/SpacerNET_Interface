@@ -41,6 +41,7 @@
             this.checkBoxLastZenAuto = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
             this.btnMiscSetApply = new System.Windows.Forms.Button();
+            this.checkBoxUpperCase = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +57,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxUpperCase);
             this.groupBox1.Controls.Add(this.checkBoxMiscRemoveAllLevelCompos);
             this.groupBox1.Controls.Add(this.checkBoxOnlyLatinInInput);
             this.groupBox1.Controls.Add(this.checkBoxShowPolysSort);
@@ -193,6 +195,18 @@
             this.btnMiscSetApply.UseVisualStyleBackColor = true;
             this.btnMiscSetApply.Click += new System.EventHandler(this.btnMiscSetApply_Click);
             // 
+            // checkBoxUpperCase
+            // 
+            this.checkBoxUpperCase.AutoSize = true;
+            this.checkBoxUpperCase.Checked = true;
+            this.checkBoxUpperCase.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxUpperCase.Location = new System.Drawing.Point(13, 302);
+            this.checkBoxUpperCase.Name = "checkBoxUpperCase";
+            this.checkBoxUpperCase.Size = new System.Drawing.Size(174, 17);
+            this.checkBoxUpperCase.TabIndex = 13;
+            this.checkBoxUpperCase.Text = "Make vobs fields to upper case";
+            this.checkBoxUpperCase.UseVisualStyleBackColor = true;
+            // 
             // MiscSettingsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,5 +244,6 @@
         public System.Windows.Forms.CheckBox checkBoxShowPolysSort;
         public System.Windows.Forms.CheckBox checkBoxOnlyLatinInInput;
         public System.Windows.Forms.CheckBox checkBoxMiscRemoveAllLevelCompos;
+        public System.Windows.Forms.CheckBox checkBoxUpperCase;
     }
 }

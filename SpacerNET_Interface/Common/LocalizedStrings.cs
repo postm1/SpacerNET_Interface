@@ -812,11 +812,14 @@ namespace SpacerUnion.Common
 
 
 
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_TRIGGER", new List<string> { "Указанный triggerTarget не существует", "Such 'triggerTarget' does not exist", "", "", "" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_USE_WITHITEM", new List<string> { "Указанный useWithItem не существует", "Such 'useWithItem' does not exist", "", "", "" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_ON_STATE_FUNC", new List<string> { "Указанная функция onStateFunc не существует", "Such 'onStateFunc' function does not exist", "", "" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_COND_FUNC", new List<string> { "Указанная функция conditionFunc не существует", "Such 'conditionFunc' function does not exist", "", "", "" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_VISUAL_SYMBOLS", new List<string> { "'Visual' воба содержит подозрительные символы", "Vob's 'visual' contains suspicious symbols", "", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_TRIGGER", new List<string> { "Указанный triggerTarget не существует", "Such 'triggerTarget' does not exist", "Ein solcher 'triggerTarget' existiert nicht", "Taki 'triggerTarget' nie istnieje", "Takový 'triggerTarget' neexistuje" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_USE_WITHITEM", new List<string> { "Указанный useWithItem не существует", "Such 'useWithItem' does not exist", "Ein solcher 'useWithItem' existiert nicht", "Taki 'useWithItem' nie istnieje", "Takový 'useWithItem' neexistuje" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_ON_STATE_FUNC", new List<string> { "Указанная функция onStateFunc не существует", "Such 'onStateFunc' function does not exist", "Die Funktion 'onStateFunc' existiert nicht", "Taka funkcja 'onStateFunc' nie istnieje", "Taková funkce 'onStateFunc' neexistuje" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_COND_FUNC", new List<string> { "Указанная функция conditionFunc не существует", "Such 'conditionFunc' function does not exist", "Die Funktion 'conditionFunc' existiert nicht", "Taka funkcja 'conditionFunc' nie istnieje", "Taková funkce 'conditionFunc' neexistuje" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_VISUAL_SYMBOLS", new List<string> { "'Visual' воба содержит подозрительные символы", "Vob's 'visual' contains unexpected symbols", "Das 'Visual' vom VOB enthält verdächtige Symbole", "Visual' voba zawiera nieoczekiwane symbole", "Vobův 'vizuál' obsahuje podezřelé symboly" });
+
+            words.Add("checkBoxUpperCase", new List<string> { "Переводить некоторые поля вобов в верхний регистр при сохранении локации", "Make some vob's fields to upper case when saving a location", "Einige Felder der VOBs beim Speichern einer Location in Großbuchstaben umwandeln", "Podczas zapisywania lokalizacji zmień niektóre pola voba na wielkie litery", "Přeložit některá pole vobů do velkých písmen při ukládání lokace" });
+
         }
 
 
