@@ -46,7 +46,8 @@ namespace SpacerUnion.Common
         ERROR_REPORT_PROBLEM_TYPE_BAD_USE_WITHITEM,
         ERROR_REPORT_PROBLEM_TYPE_BAD_ON_STATE_FUNC,
         ERROR_REPORT_PROBLEM_TYPE_BAD_COND_FUNC,
-        ERROR_REPORT_PROBLEM_TYPE_BAD_VISUAL_SYMBOLS
+        ERROR_REPORT_PROBLEM_TYPE_BAD_VISUAL_SYMBOLS,
+        ERROR_REPORT_PROBLEM_TYPE_MOBCONT_BAD_LOCKSTRING
     }
 
     public class ErrorReportEntry
@@ -129,6 +130,9 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_USE_WITHITEM: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_USE_WITHITEM"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_ON_STATE_FUNC: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_ON_STATE_FUNC"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_COND_FUNC: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_COND_FUNC"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MOBCONT_BAD_LOCKSTRING: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_MOBCONT_BAD_LOCKSTRING"); break;
+
+                    
             }
 
 
@@ -391,8 +395,19 @@ namespace SpacerUnion.Common
                     };
                     break;
 
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MOBCONT_BAD_LOCKSTRING:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_MOBCONT_BAD_LOCKSTRING") + ": {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+
+
                     
             }
+
 
             return result;
         }

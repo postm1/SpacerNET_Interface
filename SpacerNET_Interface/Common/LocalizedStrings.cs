@@ -820,6 +820,10 @@ namespace SpacerUnion.Common
 
             words.Add("checkBoxUpperCase", new List<string> { "Переводить некоторые поля вобов в верхний регистр при сохранении локации", "Make some vob's fields to upper case when saving a location", "Einige Felder der VOBs beim Speichern einer Location in Großbuchstaben umwandeln", "Podczas zapisywania lokalizacji zmień niektóre pola voba na wielkie litery", "Přeložit některá pole vobů do velkých písmen při ukládání lokace" });
 
+
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_MOBCONT_BAD_LOCKSTRING", new List<string> { "Поле 'pickLockStr' может содержать только символы R или L", "The 'pickLockStr' field can only contain the characters R or L", "Das Feld 'pickLockStr' darf nur die Zeichen R oder L enthalten", "Pole 'pickLockStr' może zawierać tylko znaki R lub L", "Pole „pickLockStr“ může obsahovat pouze znaky R nebo L" });
+
+            
         }
 
 
