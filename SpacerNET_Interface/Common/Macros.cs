@@ -75,7 +75,7 @@ namespace SpacerUnion.Common
             objWin = win;
 
             formConf = new ConfirmForm(this);
-            pathFile = Path.GetFullPath(@"../_work/tools/macros_spacernet.txt");
+            pathFile = Path.GetFullPath(@"../_work/tools/Macros.zmf");
 
             //ConsoleEx.WriteLineRed(pathFile);
 
