@@ -770,9 +770,12 @@ namespace SpacerUnion
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            bool firstMesh = true;
+            int countLoaded = 0;
+            Stopwatch sAll = new Stopwatch();
+
             openFileDialog.Filter = Constants.FILE_FILTER_OPEN_MESH;
-
-
+            
 
             Imports.Stack_PushString("meshPath");
             Imports.Extern_GetSettingStr();
@@ -783,47 +786,90 @@ namespace SpacerUnion
 
             openFileDialog.RestoreDirectory = true;
             openFileDialog.FileName = String.Empty;
+            openFileDialog.Multiselect = true;
+
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
 
-                string filePath = openFileDialog.FileName;
 
-                if (!Utils.IsPathWorkFolder(filePath))
+                string filePathCheck = openFileDialog.FileName;
+
+                if (!Utils.IsPathWorkFolder(filePathCheck))
                 {
                     MessageBox.Show(Localizator.Get("WORK_PATH_ERROR"));
                     return;
                 }
 
 
-                string meshPathSave = Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(openFileDialog.FileName)));
 
 
-                Imports.Stack_PushString(meshPathSave);
+                Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(openFileDialog.FileName))));
                 Imports.Stack_PushString("meshPath");
                 Imports.Extern_SetSettingStr();
 
-
-
+                ResetInterface();
                 UpdateSpacerCaption(openFileDialog.SafeFileName);
 
+                
+                sAll.Start();
+
+               
 
                 Stopwatch s = new Stopwatch();
-                s.Start();
 
-                ResetInterface();
+                foreach (string filePath in openFileDialog.FileNames)
+                { 
+                    s.Reset();
+                    s.Start();
 
-                SpacerNET.form.AddText(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"));
+                    string fileNameCurrent = Path.GetFileName(filePath).ToUpper();
 
-                currentWorldName = openFileDialog.SafeFileName;
+                    if (!fileNameCurrent.EndsWith(".3DS"))
+                    {
+                        continue;
+                    }
 
-                Imports.Stack_PushString(filePath);
-                Imports.Extern_LoadMesh();
+                    SpacerNET.form.AddText(fileNameCurrent + " " + Localizator.Get("isLoading"));
 
-                s.Stop();
+                    currentWorldName = fileNameCurrent;
 
-                string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-                SpacerNET.form.AddText(Localizator.Get("loadMeshTime") + " (" + timeSpend + ")", Color.Green);
+                    if (firstMesh)
+                    {
+                        firstMesh = false;
+
+                        Imports.Stack_PushString(filePath);
+                        Imports.Extern_LoadMesh();
+                    }
+                    else
+                    {
+                        Imports.Stack_PushString(filePath);
+                        Imports.Extern_MergeMesh();
+                    }
+
+                    countLoaded++;
+
+
+
+                    s.Stop();
+
+                    string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
+                    SpacerNET.form.AddText(Localizator.Get("loadMeshTime") + " (" + timeSpend + ")");
+                }
+
+                sAll.Stop();
+
+                if (countLoaded > 1)
+                {
+                    string timeSpendAll = string.Format("{0:HH:mm:ss.fff}", new DateTime(sAll.Elapsed.Ticks));
+                    SpacerNET.form.AddText("==============");
+                    SpacerNET.form.AddText(Localizator.Get("loadMeshTimeAll") + " (" + timeSpendAll + ")", Color.Green);
+                }
+                
+
+                Imports.Stack_PushString("CS_IAI_ME_ME");
+                Imports.Extern_PlaySound();
+
 
                 SpacerNET.form.toolStripMenuItemMerge.Enabled = true;
                 SpacerNET.form.compileWorldToolStrip.Enabled = SpacerNET.form.IsWorldCanBeCompiled(); ;
@@ -831,9 +877,11 @@ namespace SpacerUnion
                 SpacerNET.form.toolStripMenuResetWorld.Enabled = true;
                 SpacerNET.form.toolStripMenuItemMergeMesh.Enabled = true;
                 meshOpenFirst = true;
+                currentWorldName = openFileDialog.SafeFileName;
             }
 
-            toolStripMenuResetWorld.Enabled = true;
+            openFileDialog.Multiselect = false;
+
 
         }
 
