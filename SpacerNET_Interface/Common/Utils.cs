@@ -15,7 +15,7 @@ namespace SpacerUnion
 {
     public class Constants
     {
-        public const string SPACER_VERSION = "1.21";
+        public const string SPACER_VERSION = "1.22";
 
 
         public const string FILE_FILTER_OPEN_ZEN = "Compiled ZEN (*.zen)|*.zen|Uncompiled ZEN (*.zen)|*.zen";
