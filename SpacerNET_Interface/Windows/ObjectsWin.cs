@@ -3781,6 +3781,11 @@ namespace SpacerUnion
 
         private void textBoxLocatorByName_TextChanged(object sender, EventArgs e)
         {
+            if (!SpacerNET.isInit)
+            {
+                return;
+            }
+
             var text = textBoxLocatorByName.Text.Trim();
 
             //ConsoleEx.WriteLineRed(text);
