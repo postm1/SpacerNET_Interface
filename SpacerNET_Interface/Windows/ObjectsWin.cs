@@ -3775,16 +3775,29 @@ namespace SpacerUnion
 
             if (locatorCheck.Checked)
             {
-                Imports.Stack_PushString(textBoxLocatorByName.Text.Trim());
-                Imports.Stack_PushString("itemLocatorNameSearch");
-                Imports.Extern_SetSettingStr();
+                textBoxLocatorByName_TextChanged(null, null);
             }
         }
 
         private void textBoxLocatorByName_TextChanged(object sender, EventArgs e)
         {
+            var text = textBoxLocatorByName.Text.Trim();
 
-            Imports.Stack_PushString(textBoxLocatorByName.Text.Trim());
+            //ConsoleEx.WriteLineRed(text);
+
+            if (text.Contains(' '))
+            {
+                MessageBox.Show(Localizator.Get("ERROR_NAME_CANT_CONTAIN_SPACE"));
+                return;
+            }
+
+            if (!Utils.IsOnlyLatin(text))
+            {
+                MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+                return;
+            }
+
+            Imports.Stack_PushString(text);
             Imports.Stack_PushString("itemLocatorNameSearch");
             Imports.Extern_SetSettingStr();
         }
