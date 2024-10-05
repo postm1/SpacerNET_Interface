@@ -625,7 +625,7 @@ namespace SpacerUnion.Windows
                 || prop.Name == "shpDistribWalkSpeed"
                 || prop.Name == "shpScaleFPS" 
                 || prop.Name == "visTexAniFPS"
-                || prop.Name == "visSizeEndScale" 
+                //|| prop.Name == "visSizeEndScale" 
                 || prop.Name == "trlFadeSpeed"
                 || prop.Name == "trlWidth" 
                 || prop.Name == "mrkFadeSpeed"  
