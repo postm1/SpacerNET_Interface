@@ -229,7 +229,7 @@ namespace SpacerUnion.Common
         [DllExport]
         public static void ShowSkip3DSWarning()
         {
-            SpacerNET.infoWin.AddText(Localizator.Get("WARNING_VDF_FILE_OPEN"), Color.Red);
+            SpacerNET.infoWin.AddText(Localizator.Get("WARNING_3DS_FAST_MODE"), Color.Red);
 
         }
 
