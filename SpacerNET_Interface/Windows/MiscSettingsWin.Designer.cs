@@ -30,6 +30,7 @@
         {
             this.checkBoxSetDatePrefix = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxUpperCase = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscRemoveAllLevelCompos = new System.Windows.Forms.CheckBox();
             this.checkBoxOnlyLatinInInput = new System.Windows.Forms.CheckBox();
             this.checkBoxShowPolysSort = new System.Windows.Forms.CheckBox();
@@ -41,7 +42,7 @@
             this.checkBoxLastZenAuto = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
             this.btnMiscSetApply = new System.Windows.Forms.Button();
-            this.checkBoxUpperCase = new System.Windows.Forms.CheckBox();
+            this.checkBoxFast3ds = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +58,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxFast3ds);
             this.groupBox1.Controls.Add(this.checkBoxUpperCase);
             this.groupBox1.Controls.Add(this.checkBoxMiscRemoveAllLevelCompos);
             this.groupBox1.Controls.Add(this.checkBoxOnlyLatinInInput);
@@ -74,6 +76,18 @@
             this.groupBox1.Size = new System.Drawing.Size(624, 409);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // checkBoxUpperCase
+            // 
+            this.checkBoxUpperCase.AutoSize = true;
+            this.checkBoxUpperCase.Checked = true;
+            this.checkBoxUpperCase.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxUpperCase.Location = new System.Drawing.Point(13, 302);
+            this.checkBoxUpperCase.Name = "checkBoxUpperCase";
+            this.checkBoxUpperCase.Size = new System.Drawing.Size(174, 17);
+            this.checkBoxUpperCase.TabIndex = 13;
+            this.checkBoxUpperCase.Text = "Make vobs fields to upper case";
+            this.checkBoxUpperCase.UseVisualStyleBackColor = true;
             // 
             // checkBoxMiscRemoveAllLevelCompos
             // 
@@ -195,17 +209,18 @@
             this.btnMiscSetApply.UseVisualStyleBackColor = true;
             this.btnMiscSetApply.Click += new System.EventHandler(this.btnMiscSetApply_Click);
             // 
-            // checkBoxUpperCase
+            // checkBoxFast3ds
             // 
-            this.checkBoxUpperCase.AutoSize = true;
-            this.checkBoxUpperCase.Checked = true;
-            this.checkBoxUpperCase.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxUpperCase.Location = new System.Drawing.Point(13, 302);
-            this.checkBoxUpperCase.Name = "checkBoxUpperCase";
-            this.checkBoxUpperCase.Size = new System.Drawing.Size(174, 17);
-            this.checkBoxUpperCase.TabIndex = 13;
-            this.checkBoxUpperCase.Text = "Make vobs fields to upper case";
-            this.checkBoxUpperCase.UseVisualStyleBackColor = true;
+            this.checkBoxFast3ds.AutoSize = true;
+            this.checkBoxFast3ds.Checked = true;
+            this.checkBoxFast3ds.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxFast3ds.Location = new System.Drawing.Point(13, 325);
+            this.checkBoxFast3ds.Name = "checkBoxFast3ds";
+            this.checkBoxFast3ds.Size = new System.Drawing.Size(575, 17);
+            this.checkBoxFast3ds.TabIndex = 14;
+            this.checkBoxFast3ds.Text = "Skip creating OBBox for location 3ds (gives 30% speed bonus of 3DS file loading)." +
+    " Work version only! Not for release";
+            this.checkBoxFast3ds.UseVisualStyleBackColor = true;
             // 
             // MiscSettingsWin
             // 
@@ -245,5 +260,6 @@
         public System.Windows.Forms.CheckBox checkBoxOnlyLatinInInput;
         public System.Windows.Forms.CheckBox checkBoxMiscRemoveAllLevelCompos;
         public System.Windows.Forms.CheckBox checkBoxUpperCase;
+        public System.Windows.Forms.CheckBox checkBoxFast3ds;
     }
 }

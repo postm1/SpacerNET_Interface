@@ -33,8 +33,8 @@ namespace SpacerUnion.Windows
             checkBoxShowPolysSort.Text = Localizator.Get("checkBoxShowPolysSort");
             checkBoxOnlyLatinInInput.Text = Localizator.Get("checkBoxOnlyLatinInInput");
             checkBoxUpperCase.Text = Localizator.Get("checkBoxUpperCase");
+            checkBoxFast3ds.Text = Localizator.Get("TITLE_3DS_FAST_MODE");
             
-
             btnMiscSetApply.Text = Localizator.Get("BTN_APPLY");
         }
 
@@ -84,6 +84,9 @@ namespace SpacerUnion.Windows
 
             Imports.Stack_PushString("bHandleNamesUpperCase");
             SpacerNET.miscSetWin.checkBoxUpperCase.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("bFastLoad3DSLocation");
+            SpacerNET.miscSetWin.checkBoxFast3ds.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
         }
 
         public void OnApplySettings()
@@ -121,6 +124,10 @@ namespace SpacerUnion.Windows
 
             Imports.Stack_PushString("bHandleNamesUpperCase");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxUpperCase.Checked));
+
+            Imports.Stack_PushString("bFastLoad3DSLocation");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxFast3ds.Checked));
+            
         }
 
         private void MiscSettingsWin_FormClosing(object sender, FormClosingEventArgs e)

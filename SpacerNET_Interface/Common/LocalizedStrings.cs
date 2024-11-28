@@ -823,7 +823,10 @@ namespace SpacerUnion.Common
 
             words.Add("ERROR_REPORT_PROBLEM_TYPE_MOBCONT_BAD_LOCKSTRING", new List<string> { "Поле 'pickLockStr' может содержать только символы R или L", "The 'pickLockStr' field can only contain the characters R or L", "Das Feld 'pickLockStr' darf nur die Zeichen R oder L enthalten", "Pole 'pickLockStr' może zawierać tylko znaki R lub L", "Pole „pickLockStr“ může obsahovat pouze znaky R nebo L" });
 
-            
+
+
+            words.Add("WARNING_3DS_FAST_MODE", new List<string> { "3DS файл был загружен в 'Быстром режиме!", "3DS file was loaded with 'Fast mod'", "", "", "" });
+            words.Add("TITLE_3DS_FAST_MODE", new List<string> { "Пропустить создание OBBox для загружаемого 3DS файла локации (дает +30% к скорости загрузки 3DS). Только для рабочих версий!", "Skip creating OBBox for location 3ds (gives +30% speed of 3DS file loading time). Work version only! Not for release", "", "", "" });
         }
 
 
