@@ -826,7 +826,7 @@ namespace SpacerUnion.Common
 
 
             words.Add("WARNING_3DS_FAST_MODE", new List<string> { "3DS файл был загружен в 'Быстром режиме!", "3DS file was loaded with 'Fast mod'", "", "", "" });
-            words.Add("TITLE_3DS_FAST_MODE", new List<string> { "Пропустить создание OBBox для загружаемого 3DS файла локации (дает +30% к скорости загрузки 3DS). Только для рабочих версий!", "Skip creating OBBox for location 3ds (gives +30% speed of 3DS file loading time). Work version only! Not for release", "", "", "" });
+            words.Add("TITLE_3DS_FAST_MODE", new List<string> { "Быстрый режим загрузки 3DS файла локации (дает +30% к скорости). Только для рабочих версий!", "Fast mod of loading 3DS location file (gives +30% speed of 3DS file loading time). Work version only!", "", "", "" });
         }
 
 
