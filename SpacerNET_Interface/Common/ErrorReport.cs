@@ -47,7 +47,8 @@ namespace SpacerUnion.Common
         ERROR_REPORT_PROBLEM_TYPE_BAD_ON_STATE_FUNC,
         ERROR_REPORT_PROBLEM_TYPE_BAD_COND_FUNC,
         ERROR_REPORT_PROBLEM_TYPE_BAD_VISUAL_SYMBOLS,
-        ERROR_REPORT_PROBLEM_TYPE_MOBCONT_BAD_LOCKSTRING
+        ERROR_REPORT_PROBLEM_TYPE_MOBCONT_BAD_LOCKSTRING,
+        ERROR_REPORT_PROBLEM_TYPE_BBOX_AREA_WRONG_SIZE
     }
 
     public class ErrorReportEntry
@@ -131,7 +132,7 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_ON_STATE_FUNC: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_ON_STATE_FUNC"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_COND_FUNC: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_COND_FUNC"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MOBCONT_BAD_LOCKSTRING: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_MOBCONT_BAD_LOCKSTRING"); break;
-
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BBOX_AREA_WRONG_SIZE: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BBOX_AREA_WRONG_SIZE"); break;
                     
             }
 
@@ -404,8 +405,14 @@ namespace SpacerUnion.Common
                     };
                     break;
 
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BBOX_AREA_WRONG_SIZE:
+                    {
 
-                    
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BBOX_AREA_WRONG_SIZE") + ": {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;  
             }
 
 
