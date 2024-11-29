@@ -88,6 +88,7 @@
             this.globalTree.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.globalTree_NodeMouseDoubleClick);
             this.globalTree.KeyDown += new System.Windows.Forms.KeyEventHandler(this.globalTree_KeyDown);
             this.globalTree.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.globalTree_KeyPress);
+            this.globalTree.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.globalTree_MouseDoubleClick);
             this.globalTree.MouseDown += new System.Windows.Forms.MouseEventHandler(this.globalTree_MouseDown);
             // 
             // contextMenuStripTree
@@ -107,7 +108,7 @@
             this.toolStripSeparator3,
             this.SaveVisualTofileCommon});
             this.contextMenuStripTree.Name = "contextMenuStrip1";
-            this.contextMenuStripTree.Size = new System.Drawing.Size(283, 264);
+            this.contextMenuStripTree.Size = new System.Drawing.Size(283, 242);
             this.contextMenuStripTree.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripTree_Opening);
             // 
             // toolStripMenuItem2

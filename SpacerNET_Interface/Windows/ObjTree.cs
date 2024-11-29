@@ -1006,6 +1006,13 @@ namespace SpacerUnion
 
         private void globalTree_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
+            if (SpacerNET.form.toolStripButtonMaterial.Checked)
+            {
+                Imports.Stack_PushString(Localizator.Get("WIN_VOBCATALOG_POLYSELECT_TURNOFF"));
+                Imports.Extern_PrintRed();
+                return;
+            }
+
             TreeNode node = globalTree.SelectedNode;
 
             string tag = node.Tag.ToString();
@@ -1018,12 +1025,7 @@ namespace SpacerUnion
                 return;
             }
 
-            if (SpacerNET.form.toolStripButtonMaterial.Checked)
-            {
-                Imports.Stack_PushString(Localizator.Get("WIN_VOBCATALOG_POLYSELECT_TURNOFF"));
-                Imports.Extern_PrintRed();
-                return;
-            }
+            
 
             uint addr = Convert.ToUInt32(node.Tag);
 
@@ -1329,6 +1331,8 @@ namespace SpacerUnion
         {
             if (SpacerNET.form.toolStripButtonMaterial.Checked)
             {
+                Imports.Stack_PushString(Localizator.Get("WIN_VOBCATALOG_POLYSELECT_TURNOFF"));
+                Imports.Extern_PrintRed();
                 e.Cancel = true;
                 return;
             }
@@ -1457,7 +1461,13 @@ namespace SpacerUnion
 
         private void contextMenuStripTree_Opening(object sender, CancelEventArgs e)
         {
-            
+            if (SpacerNET.form.toolStripButtonMaterial.Checked)
+            {
+                Imports.Stack_PushString(Localizator.Get("WIN_VOBCATALOG_POLYSELECT_TURNOFF"));
+                Imports.Extern_PrintRed();
+                e.Cancel = true;
+                return;
+            }
 
 
         }
@@ -1945,6 +1955,11 @@ namespace SpacerUnion
         private void onlyParentVobToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveVisualDialog(false);
+        }
+
+        private void globalTree_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            
         }
     }
 }
