@@ -1002,6 +1002,10 @@ namespace SpacerUnion
 
         private void прыгнутьНа000КоординатыToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            Imports.Stack_PushFloat(0);
+            Imports.Stack_PushFloat(0);
+
             Imports.Stack_PushFloat(0);
             Imports.Stack_PushFloat(0);
             Imports.Stack_PushFloat(0);

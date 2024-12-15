@@ -32,9 +32,11 @@ namespace SpacerUnion.Windows
 
             labelPitch.Text = Localizator.Get("labelPitch");
             labelYaw.Text = Localizator.Get("labelYaw");
+            buttonSetCurrentCoords.Text = Localizator.Get("camSetCurPos");
 
-            labelCamPos.Text = Localizator.Get("UNION_CAM_ROT");
-            labelCamRot.Text = Localizator.Get("UNION_CAM_POS");
+
+            labelCamRot.Text = Localizator.Get("UNION_CAM_ROT");
+            labelCamPos.Text = Localizator.Get("UNION_CAM_POS");
         }
 
 
@@ -46,6 +48,11 @@ namespace SpacerUnion.Windows
 
         private void buttonCameraGo_Click(object sender, EventArgs e)
         {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
             float v0 = Convert.ToSingle(textBoxCamVec0.Text.Trim().Replace(',', '.'), CultureInfo.InvariantCulture);
             float v1 = Convert.ToSingle(textBoxCamVec1.Text.Trim().Replace(',', '.'), CultureInfo.InvariantCulture);
             float v2 = Convert.ToSingle(textBoxCamVec2.Text.Trim().Replace(',', '.'), CultureInfo.InvariantCulture);
@@ -160,6 +167,21 @@ namespace SpacerUnion.Windows
                         
                 }
             }
+        }
+
+        private void buttonSetCurrentCoords_Click(object sender, EventArgs e)
+        {
+            float t1, t2, t3;
+
+            Imports.Extern_GetCurrentCameraPos();
+
+            t3 = Imports.Stack_PeekFloat();
+            t2 = Imports.Stack_PeekFloat();
+            t1 = Imports.Stack_PeekFloat();
+
+            textBoxCamVec0.Text = Convert.ToString(t1);
+            textBoxCamVec1.Text = Convert.ToString(t2);
+            textBoxCamVec2.Text = Convert.ToString(t3);
         }
     }
 }

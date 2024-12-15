@@ -48,6 +48,11 @@ namespace SpacerUnion.Common
         public static extern void Extern_SetCameraPos();
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_GetCurrentCameraPos();
+
+        
+
+        [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_SaveWorld(int type);
 
 

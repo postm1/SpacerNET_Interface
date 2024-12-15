@@ -45,11 +45,13 @@
             this.labelCamRot = new System.Windows.Forms.Label();
             this.labelCamPos = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonSetCurrentCoords = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonSetCurrentCoords);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.labelCamPos);
             this.panel1.Controls.Add(this.labelCamRot);
@@ -109,9 +111,9 @@
             // 
             // buttonGetFrom
             // 
-            this.buttonGetFrom.Location = new System.Drawing.Point(162, 79);
+            this.buttonGetFrom.Location = new System.Drawing.Point(103, 77);
             this.buttonGetFrom.Name = "buttonGetFrom";
-            this.buttonGetFrom.Size = new System.Drawing.Size(157, 23);
+            this.buttonGetFrom.Size = new System.Drawing.Size(273, 23);
             this.buttonGetFrom.TabIndex = 16;
             this.buttonGetFrom.Text = "Get from clipboard";
             this.buttonGetFrom.UseVisualStyleBackColor = true;
@@ -214,10 +216,20 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel2.Location = new System.Drawing.Point(96, 12);
+            this.panel2.Location = new System.Drawing.Point(96, 25);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1, 180);
+            this.panel2.Size = new System.Drawing.Size(1, 160);
             this.panel2.TabIndex = 23;
+            // 
+            // buttonSetCurrentCoords
+            // 
+            this.buttonSetCurrentCoords.Location = new System.Drawing.Point(103, 106);
+            this.buttonSetCurrentCoords.Name = "buttonSetCurrentCoords";
+            this.buttonSetCurrentCoords.Size = new System.Drawing.Size(273, 23);
+            this.buttonSetCurrentCoords.TabIndex = 24;
+            this.buttonSetCurrentCoords.Text = "Input current coordinates";
+            this.buttonSetCurrentCoords.UseVisualStyleBackColor = true;
+            this.buttonSetCurrentCoords.Click += new System.EventHandler(this.buttonSetCurrentCoords_Click);
             // 
             // CameraCoords
             // 
@@ -263,5 +275,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label labelCamPos;
         private System.Windows.Forms.Label labelCamRot;
+        private System.Windows.Forms.Button buttonSetCurrentCoords;
     }
 }
