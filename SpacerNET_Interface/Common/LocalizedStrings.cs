@@ -830,10 +830,12 @@ namespace SpacerUnion.Common
             words.Add("TITLE_3DS_FAST_MODE", new List<string> { "Быстрый режим загрузки 3DS файла локации (дает +30% к скорости). Только для рабочих версий!", "Fast mod of loading 3DS location file (gives +30% speed of 3DS file loading time). Work version only!", "Schnellmodus für das Laden von 3DS-Dateien (bringt +30% Ladegeschwindigkeit). Nur für Arbeitsversionen!", "Szybki tryb ładowania plików 3DS (około +30% szybsze ładowanie plików 3DS). Tylko w wersji roboczej!", "Rychlý režim načítání 3DS souboru lokace (zvyšuje rychlost načítání 3DS souboru o 30 %). Pouze pracovní verze!" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_BBOX_AREA_WRONG_SIZE", new List<string> { "BBox (зона) этого воба имеет подозрительный размер", "Bbox size is unexpected", "BBox (Bereich) dieses Objekts hat eine verdächtige Größe", "Nieoczekiwany rozmiar Bboxa", "Velikost Bboxu je neočekávaná" });
 
+            // angle
+            words.Add("labelPitch", new List<string> { "Тангаж", "Pitch", "", "", "" });
+            words.Add("labelYaw", new List<string> { "Рысканье", "Yaw", "", "", "" });
+
 
             
-
-
         }
 
 

@@ -29,6 +29,12 @@ namespace SpacerUnion.Windows
             checkBoxCloseCamWin.Text = Localizator.Get("WIN_CAM_CLOSEWIN");
             buttonCameraGo.Text = Localizator.Get("WIN_CAM_GO");
             buttonGetFrom.Text = Localizator.Get("WIN_CAM_GETFROMBUFFER");
+
+            labelPitch.Text = Localizator.Get("labelPitch");
+            labelYaw.Text = Localizator.Get("labelYaw");
+
+            labelCamPos.Text = Localizator.Get("UNION_CAM_ROT");
+            labelCamRot.Text = Localizator.Get("UNION_CAM_POS");
         }
 
 
