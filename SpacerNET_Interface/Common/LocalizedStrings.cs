@@ -157,6 +157,7 @@ namespace SpacerUnion.Common
             words.Add("UNION_VOBTREE_INSERT", new List<string> { "VobTree вставлен!", "VobTree inserted!", "VobTree eingefügt!", "Dodano drzewko vobów!", "VobTree vložen!" });
             words.Add("UNION_SHOW_TRIS", new List<string> { "Кол-во треугольников: ", "Tris amount: ", "Anzahl Tris: ", "Ilość trisów: ", "Množství trojúhelníků" });
             words.Add("UNION_CAM_POS", new List<string> { "Позиция камеры: ", "Camera pos: ", "Kameraposition: ", "Pozycja kamery: ", "Pozice kamery" });
+            words.Add("UNION_CAM_ROT", new List<string> { "Вращение камеры: ", "Camera rot: ", "Kameradrehung: ", "Rotacja kamery: ", "Rotace kamery" });
             words.Add("UNION_VOB_COUNT", new List<string> { "Кол-во вобов: ", "Vobs amount: ", "Anzahl der Vobs: ", "Ilość vobów: ", "Počet Vobů" });
             words.Add("UNION_WP_COUNT", new List<string> { "Кол-во вейпоинтов: ", "Waypoint amount: ", "Anzahl der Wegpunkte: ", "Ilość waypointów: ", "Počet waypointů" });
             words.Add("UNION_DIST", new List<string> { "Дистанция: ", "Distance: ", "Entfernung: ", "Dystans: ", "Vzdálenost" });

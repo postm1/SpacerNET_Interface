@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxCamPitch = new System.Windows.Forms.TextBox();
+            this.textBoxCamYaw = new System.Windows.Forms.TextBox();
             this.buttonGetFrom = new System.Windows.Forms.Button();
             this.checkBoxCloseCamWin = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,6 +47,10 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.textBoxCamPitch);
+            this.panel1.Controls.Add(this.textBoxCamYaw);
             this.panel1.Controls.Add(this.buttonGetFrom);
             this.panel1.Controls.Add(this.checkBoxCloseCamWin);
             this.panel1.Controls.Add(this.label3);
@@ -59,9 +67,43 @@
             this.panel1.TabIndex = 8;
             this.panel1.TabStop = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(190, 115);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 13);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Pitch";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(80, 115);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 13);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Yaw";
+            // 
+            // textBoxCamPitch
+            // 
+            this.textBoxCamPitch.Location = new System.Drawing.Point(162, 92);
+            this.textBoxCamPitch.Name = "textBoxCamPitch";
+            this.textBoxCamPitch.Size = new System.Drawing.Size(87, 20);
+            this.textBoxCamPitch.TabIndex = 18;
+            this.textBoxCamPitch.Text = "100";
+            // 
+            // textBoxCamYaw
+            // 
+            this.textBoxCamYaw.Location = new System.Drawing.Point(50, 92);
+            this.textBoxCamYaw.Name = "textBoxCamYaw";
+            this.textBoxCamYaw.Size = new System.Drawing.Size(87, 20);
+            this.textBoxCamYaw.TabIndex = 17;
+            this.textBoxCamYaw.Text = "100";
+            // 
             // buttonGetFrom
             // 
-            this.buttonGetFrom.Location = new System.Drawing.Point(69, 72);
+            this.buttonGetFrom.Location = new System.Drawing.Point(69, 63);
             this.buttonGetFrom.Name = "buttonGetFrom";
             this.buttonGetFrom.Size = new System.Drawing.Size(157, 23);
             this.buttonGetFrom.TabIndex = 16;
@@ -182,5 +224,9 @@
         private System.Windows.Forms.TextBox textBoxCamVec0;
         private System.Windows.Forms.Button buttonCameraGo;
         private System.Windows.Forms.Button buttonGetFrom;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBoxCamPitch;
+        private System.Windows.Forms.TextBox textBoxCamYaw;
     }
 }
