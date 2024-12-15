@@ -479,10 +479,10 @@ namespace SpacerUnion
 
 
             Imports.Stack_PushString("grassToolvisualAniModeStrengthValue");
-            grassWin.textBoxVisualAniModeStrength.Text = Convert.ToString(Imports.Extern_GetSettingFloat(), new CultureInfo("en-US"));
+            grassWin.textBoxVisualAniModeStrength.Text = Convert.ToString(Imports.Extern_GetSettingFloat(), CultureInfo.InvariantCulture);
 
             Imports.Stack_PushString("grassToolVobFarClipZScaleValue");
-            grassWin.textBoxVobFarClipZScale.Text = Convert.ToString(Imports.Extern_GetSettingFloat(), new CultureInfo("en-US"));
+            grassWin.textBoxVobFarClipZScale.Text = Convert.ToString(Imports.Extern_GetSettingFloat(), CultureInfo.InvariantCulture);
 
 
 

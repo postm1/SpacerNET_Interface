@@ -134,8 +134,8 @@ namespace SpacerUnion.Windows
             int comboBoxVisualCamAlignValue = comboBoxVisualCamAlign.SelectedIndex;
             int comboBoxVisualAniModeValue = comboBoxVisualAniMode.SelectedIndex;
 
-            float visualAniModeStrengthValue = Convert.ToSingle(textBoxVisualAniModeStrength.Text.Trim(), new CultureInfo("en-US"));
-            float VobFarClipZScaleValue = Convert.ToSingle(textBoxVobFarClipZScale.Text.Trim(), new CultureInfo("en-US"));
+            float visualAniModeStrengthValue = Convert.ToSingle(textBoxVisualAniModeStrength.Text.Trim(), CultureInfo.InvariantCulture);
+            float VobFarClipZScaleValue = Convert.ToSingle(textBoxVobFarClipZScale.Text.Trim(), CultureInfo.InvariantCulture);
 
             bool cdStaticValue = checkBoxcdStatic.Checked;
             bool staticVobValue = checkBoxstaticVob.Checked;

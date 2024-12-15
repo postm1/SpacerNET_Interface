@@ -40,12 +40,12 @@ namespace SpacerUnion.Windows
 
         private void buttonCameraGo_Click(object sender, EventArgs e)
         {
-            float v0 = Convert.ToSingle(textBoxCamVec0.Text.Trim().Replace(',', '.'), new CultureInfo("en-US"));
-            float v1 = Convert.ToSingle(textBoxCamVec1.Text.Trim().Replace(',', '.'), new CultureInfo("en-US"));
-            float v2 = Convert.ToSingle(textBoxCamVec2.Text.Trim().Replace(',', '.'), new CultureInfo("en-US"));
+            float v0 = Convert.ToSingle(textBoxCamVec0.Text.Trim().Replace(',', '.'), CultureInfo.InvariantCulture);
+            float v1 = Convert.ToSingle(textBoxCamVec1.Text.Trim().Replace(',', '.'), CultureInfo.InvariantCulture);
+            float v2 = Convert.ToSingle(textBoxCamVec2.Text.Trim().Replace(',', '.'), CultureInfo.InvariantCulture);
 			
-            float yaw = Convert.ToSingle(textBoxCamYaw.Text.Trim().Replace(',', '.'), new CultureInfo("en-US"));
-            float pitch = Convert.ToSingle(textBoxCamPitch.Text.Trim().Replace(',', '.'), new CultureInfo("en-US"));
+            float yaw = Convert.ToSingle(textBoxCamYaw.Text.Trim().Replace(',', '.'), CultureInfo.InvariantCulture);
+            float pitch = Convert.ToSingle(textBoxCamPitch.Text.Trim().Replace(',', '.'), CultureInfo.InvariantCulture);
 
             Imports.Stack_PushFloat(pitch);
             Imports.Stack_PushFloat(yaw);
