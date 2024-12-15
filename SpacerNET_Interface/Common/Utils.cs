@@ -264,6 +264,23 @@ namespace SpacerUnion
             ConsoleEx.WriteLineYellow(text);
         }
 
+        public static bool IfArrayIsNumvers(string[] stringArray)
+        {
+            bool allAreNumbers = true;
+
+            foreach (string str in stringArray)
+            {
+                // Попытка преобразовать строку в число
+                if (!double.TryParse(str, out _))
+                {
+                    allAreNumbers = false;
+                    break; // Выход из цикла, если найдено нечисловое значение
+                }
+            }
+
+            return allAreNumbers;
+        }
+
     }
 
     public static class Helper

@@ -122,18 +122,28 @@ namespace SpacerUnion.Windows
 
             if (arr.Length == 3 && !text.Contains(','))
             {
-                textBoxCamVec0.Text = arr[0].Trim();
-                textBoxCamVec1.Text = arr[1].Trim();
-                textBoxCamVec2.Text = arr[2].Trim();
+                if (Utils.IfArrayIsNumvers(arr))
+                {
+                    textBoxCamVec0.Text = arr[0].Trim();
+                    textBoxCamVec1.Text = arr[1].Trim();
+                    textBoxCamVec2.Text = arr[2].Trim();
+                }
+
+               
             }
             else if (text.Contains(','))
             {
                 string[] arrComma = text.Split(',');
                 if (arrComma.Length == 3)
                 {
-                    textBoxCamVec0.Text = arrComma[0].Trim();
-                    textBoxCamVec1.Text = arrComma[1].Trim();
-                    textBoxCamVec2.Text = arrComma[2].Trim();
+                    if (Utils.IfArrayIsNumvers(arrComma))
+                    {
+                        textBoxCamVec0.Text = arrComma[0].Trim();
+                        textBoxCamVec1.Text = arrComma[1].Trim();
+                        textBoxCamVec2.Text = arrComma[2].Trim();
+                    }
+
+                    
                 }
             }
             else if (text.Contains(';'))
@@ -141,9 +151,13 @@ namespace SpacerUnion.Windows
                 string[] arrComma = text.Split(';');
                 if (arrComma.Length == 3)
                 {
-                    textBoxCamVec0.Text = arrComma[0].Trim();
-                    textBoxCamVec1.Text = arrComma[1].Trim();
-                    textBoxCamVec2.Text = arrComma[2].Trim();
+                    if (Utils.IfArrayIsNumvers(arrComma))
+                    {
+                        textBoxCamVec0.Text = arrComma[0].Trim();
+                        textBoxCamVec1.Text = arrComma[1].Trim();
+                        textBoxCamVec2.Text = arrComma[2].Trim();
+                    }
+                        
                 }
             }
         }
