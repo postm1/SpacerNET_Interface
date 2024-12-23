@@ -142,8 +142,8 @@ namespace SpacerUnion.Common
             words.Add("UNION_MESH_READY", new List<string> { "Меш и вобы объединены. Скомпилируйте мир", "Mesh and vobs were merged. Compile the world", "Mesh und Vobs zusammengeführt. Bitte Welt kompilieren!", "Mesh i voby zostały połączone. Skompiluj świat.", "Meshe a Voby jsou sloučeny. Zkompiluj svět." });
             words.Add("UNION_EDITOR", new List<string> { "Редактор для ZenGin", "Editor for ZenGin", "Editor für ZenGin", "Edytor dla ZenGine", "Editor pro ZenGin" });
             words.Add("UNION_TEAM", new List<string> { "Разработчик: Liker. Помогали: Patrix & Feuerbarde & Haart & Saturas & Gratt & Jr", "Author: Liker. Assistance from: Patrix & Feuerbarde Haart & Saturas & Gratt & Jr", "Entwicklerteam: Liker & Patrix  & Feuerbarde & Haart & Saturas & Gratt & Jr", "Deweloperzy: Liker & Patrix & Feuerbarde & Haart & Saturas & Gratt & Jr", "Autoři: Liker & Patrix & Feuerbarde & Haart & Saturas & Gratt & Jr" });
-            words.Add("UNION_DATE_COMPILE", new List<string> { "Дата компиляции: ", "Compilation date: ", "Datum der Kompilation: ", "Data kompilacji: ", "Datum kompilace" });
-            words.Add("UNION_RESOLUTION", new List<string> { "Разрешение рендера: ", "Render resolution: ", "Rendererauflösung: ", "Rozdzielczość renderowania: ", "Rozlišení renderování" });
+            words.Add("UNION_DATE_COMPILE", new List<string> { "Дата компиляции: ", "Compilation date: ", "Datum der Kompilation: ", "Data kompilacji: ", "Datum kompilace: " });
+            words.Add("UNION_RESOLUTION", new List<string> { "Разрешение рендера: ", "Render resolution: ", "Rendererauflösung: ", "Rozdzielczość renderowania: ", "Rozlišení renderování: " });
             words.Add("UNION_NOWORLD", new List<string> { "Мир не загружен", "World is not loaded", "Welt wurde nicht geladen", "Świat nie został wczytany.", "Svět nebyl načten" });
             words.Add("UNION_CANT_ABSTRACT", new List<string> { "Не могу создать объект абстрактного класса!", "Can't create a vob of an abstract class", "Kann keine vob von einer abstrakten Klasse erstellen!", "Nie można utworzyć voba klasy abstrakcyjnej", "Nemůžeš vytvořit vob s abstraktní třídou" });
             words.Add("ENTER_NAME", new List<string> { "Введите имя воба!", "Enter the name!", "Namen eingeben!", "Podaj nazwę!", "Zadej jméno" });
@@ -155,12 +155,12 @@ namespace SpacerUnion.Common
             words.Add("UNION_WORLD_ONCOMPILE", new List<string> { "Мир скомпилирован.", "World has been compiled.", "Welt wurde kompiliert.", "Świat został skompilowany.", "Svět byl zkompilován" });
             words.Add("UNION_VOBTREE_SAVE", new List<string> { "VobTree сохранен!", "VobTree saved!", "VobTree gespeichert!", "Drzewko vobów zostało zapisane!", "VobTree uložen!" });
             words.Add("UNION_VOBTREE_INSERT", new List<string> { "VobTree вставлен!", "VobTree inserted!", "VobTree eingefügt!", "Dodano drzewko vobów!", "VobTree vložen!" });
-            words.Add("UNION_SHOW_TRIS", new List<string> { "Кол-во треугольников: ", "Tris amount: ", "Anzahl Tris: ", "Ilość trisów: ", "Množství trojúhelníků" });
-            words.Add("UNION_CAM_POS", new List<string> { "Позиция камеры: ", "Camera pos: ", "Kameraposition: ", "Pozycja kamery: ", "Pozice kamery" });
-            words.Add("UNION_CAM_ROT", new List<string> { "Вращение камеры: ", "Camera rot: ", "Kameradrehung: ", "Rotacja kamery: ", "Rotace kamery" });
-            words.Add("UNION_VOB_COUNT", new List<string> { "Кол-во вобов: ", "Vobs amount: ", "Anzahl der Vobs: ", "Ilość vobów: ", "Počet Vobů" });
-            words.Add("UNION_WP_COUNT", new List<string> { "Кол-во вейпоинтов: ", "Waypoint amount: ", "Anzahl der Wegpunkte: ", "Ilość waypointów: ", "Počet waypointů" });
-            words.Add("UNION_DIST", new List<string> { "Дистанция: ", "Distance: ", "Entfernung: ", "Dystans: ", "Vzdálenost" });
+            words.Add("UNION_SHOW_TRIS", new List<string> { "Кол-во треугольников: ", "Tris amount: ", "Anzahl Tris: ", "Ilość trisów: ", "Množství trojúhelníků: " });
+            words.Add("UNION_CAM_POS", new List<string> { "Позиция камеры: ", "Camera pos: ", "Kameraposition: ", "Pozycja kamery: ", "Pozice kamery: " });
+            words.Add("UNION_CAM_ROT", new List<string> { "Вращение камеры: ", "Camera rot: ", "Kameradrehung: ", "Rotacja kamery: ", "Rotace kamery: " });
+            words.Add("UNION_VOB_COUNT", new List<string> { "Кол-во вобов: ", "Vobs amount: ", "Anzahl der Vobs: ", "Ilość vobów: ", "Počet Vobů: " });
+            words.Add("UNION_WP_COUNT", new List<string> { "Кол-во вейпоинтов: ", "Waypoint amount: ", "Anzahl der Wegpunkte: ", "Ilość waypointów: ", "Počet waypointů: " });
+            words.Add("UNION_DIST", new List<string> { "Дистанция: ", "Distance: ", "Entfernung: ", "Dystans: ", "Vzdálenost: " });
             //NEW
             words.Add("WIN_COMPLIGHT_NOWORLD", new List<string> { "Мир не загружен!", "World is not loaded!", "Welt ist nicht geladen!", "Świat nie jest załadowany!", "Svět nebyl načten!" });
             words.Add("WIN_COMPLIGHT_NOWORLDCOMPILED", new List<string> { "Мир не скомпилирован!", "World is not compiled!", "Welt ist nicht kompiliert!", "Świat nie jest skompilowany!", "Svět není zkompilován!" });
@@ -295,8 +295,8 @@ namespace SpacerUnion.Common
             words.Add("tabControlProps_1", new List<string> { "BBox", "Bbox", "Bbox", "BBox", "BBox" });
             words.Add("tabControlProps_2", new List<string> { "Контейнер", "Container", "Container", "Kontener", "Kontejner" });
             words.Add("groupBoxEditBbox", new List<string> { "Редактирование BBox", "Editing BBox", "BBox Bearbeitung", @"Edytuj BBox'y", "Editace BBoxu" });
-            words.Add("NO_ITEM_NAME", new List<string> { "Имя вещи не может быть пустым! Строка: ", "Item name is empty! Row: ", "Itemname ist leer! Reihe:", "Nazwa przedmiotu jest pusta! Rząd: ", "Jméno předmětu je prázdné! Řádek:" });
-            words.Add("NO_ITEM_COUNT", new List<string> { "Кол-во итемов не может быть пустым! Строка: ", "Item count is empty! Row: ", "Itemanzahl ist leer! Reihe:", "Ilość przedmiotów jest pusta! Rząd: ", "Počet předmětů je prázdný! Řádek:" });
+            words.Add("NO_ITEM_NAME", new List<string> { "Имя вещи не может быть пустым! Строка: ", "Item name is empty! Row: ", "Itemname ist leer! Reihe:", "Nazwa przedmiotu jest pusta! Rząd: ", "Jméno předmětu je prázdné! Řádek: " });
+            words.Add("NO_ITEM_COUNT", new List<string> { "Кол-во итемов не может быть пустым! Строка: ", "Item count is empty! Row: ", "Itemanzahl ist leer! Reihe:", "Ilość przedmiotów jest pusta! Rząd: ", "Počet předmětů je prázdný! Řádek: " });
             words.Add("ITEM_BAD_COUNT", new List<string> { "Некорректное число итемов. Строка: ", "Bad item count value! Row: ", "Falscher Itemanzahl Wert! Reihe:", "Zła wartość ilości przedmiotu! Rząd: ", "Špatná hodnota počtu předmětů! Řádek: " });
             words.Add("groupBoxContainer", new List<string> { "Редактирование BBox", "Editing BBox", "BBox Bearbeitung", @"Edytuj BBox'y", "Editace BBoxu" });
             words.Add("buttonClearItems", new List<string> { "Очистить все", "Clear all", "Alles löschen", "Wyczyść wszystkie", "Vyčistit vše" });
@@ -395,10 +395,10 @@ namespace SpacerUnion.Common
             words.Add("BAD_REGEX", new List<string> { "Введено некорректное регулярное выражение!", "Wrong regular expression!", "Falscher Regex eingeführt!", "Błędne wyrażenie regularne!", "Špatný regulární výraz!" });
             words.Add("VOB_SEARCH_TYPE0", new List<string> { "Искать", "Search", "Suchen", "Szukaj", "Hledat" });
             words.Add("VOB_SEARCH_REPLACEZEN", new List<string> { "Заменено вобов на VobTree: ", "Vobs replaced with VobTree: ", "Vobs mit Vobbaum ersetzt: ", "Voby zastąpione drzewkiem vobów: ", "Voby nahrazeny VobTree: " });
-            words.Add("VOB_SEARCH_REMOVEVOBS", new List<string> { "Удалено вобов: ", "Vobs removed: ", "Vobs entfernt: ", "Usunięto voby: ", "Voby ostraněny:" });
+            words.Add("VOB_SEARCH_REMOVEVOBS", new List<string> { "Удалено вобов: ", "Vobs removed: ", "Vobs entfernt: ", "Usunięto voby: ", "Voby ostraněny: " });
             words.Add("NO_REPLACE_VOBTREE", new List<string> { "VobTree не выбран!", "No VobTree selected!", "Kein Vobbaum ausgewählt!", "Nie wybrano drzewka vobów!", "Žádný VobTree není vybrán!" });
-            words.Add("VOB_SEARCH_CONVERT", new List<string> { "Преобразовано вобов: ", "Vobs converted: ", " Vobs konvertiert: ", "Przekonwertowane voby: ", "Konvertované voby" });
-            words.Add("VOB_SEARCH_STOP", new List<string> { "Найдено вобов: ", "Vobs found: ", "Vobs gefunden: ", "Znalezione voby: ", "Nalezené voby" });
+            words.Add("VOB_SEARCH_CONVERT", new List<string> { "Преобразовано вобов: ", "Vobs converted: ", " Vobs konvertiert: ", "Przekonwertowane voby: ", "Konvertované voby: " });
+            words.Add("VOB_SEARCH_STOP", new List<string> { "Найдено вобов: ", "Vobs found: ", "Vobs gefunden: ", "Znalezione voby: ", "Nalezené voby: " });
             words.Add("VOB_SEARCH_TYPE1", new List<string> { "Конвертировать", "Convert", "Konvertieren", "Konwertuj", "Konvertovat" });
             words.Add("VOB_SEARCH_TYPE2", new List<string> { "Заменить на VobTree", "Replace with VobTree", "Mit Vobbaum tauschen", "Zamień na drzewko vobów", "Nahrazení pomocí VobTree" });
             words.Add("VOB_SEARCH_TYPE3", new List<string> { "Удалить", "Remove", "Entfernen", "Usuń", "Odstranit" });
@@ -406,7 +406,7 @@ namespace SpacerUnion.Common
             words.Add("VOB_SEARCH_CONVERT_RADIO1", new List<string> { "Новый", "New", "Neu", "Nowy", "Nový" });
             words.Add("WARNING_VDF_FILE_OPEN", new List<string> { "Внимание! Файл был загружен из VDF/MOD, а не из _WORK/DATA!", "Warning! The file was loaded from VDF/MOD, not from _WORK/DATA!", "Achtung! Die Dati wurde von einer VDF/MOD und nicht vom _WORK/DATA geladen!", "Uwaga! Plik został załadowany z paczki VDF/MOD, nie z _WORK/DATA.", "Pozor! Soubor byl načten z VDF/MOD, nikoli z _WORK/DATA!" });
             words.Add("VOB_SEARCH_TYPE_RENAME", new List<string> { "Переименовать", "Rename", "Umbenennen", "Zmień nazwę", "Přejmenovat" });
-            words.Add("VOB_SEARCH_RENAME_VOBS", new List<string> { "Переименовано вобов: ", "Vobs renamed: ", "Vobs umbeanannt: ", "Vobom zmieniono nazwę: ", "Přejmenované voby" });
+            words.Add("VOB_SEARCH_RENAME_VOBS", new List<string> { "Переименовано вобов: ", "Vobs renamed: ", "Vobs umbeanannt: ", "Vobom zmieniono nazwę: ", "Přejmenované voby: " });
             words.Add("labelRenameVob", new List<string> { "Новое имя", "New name", "Neuer Name", "Nowa nazwa", "Nové jméno" });
             words.Add("checkBoxAutoNumerate", new List<string> { "Авто-нумерация имен", "Auto numeration of names", "Automatische Nummerierung der Namen", "Automatycznie numeruj nazwy", "Automatické číslování jmen" });
             words.Add("MENU_TOP_VIEW_FREEZETIME", new List<string> { "Заморозить время", "Freeze time", "Ingamezeit einfrieren", "Zatrzymanie czasu", "Zamrznutí času" });
@@ -414,11 +414,11 @@ namespace SpacerUnion.Common
             words.Add("MENU_TOP_VIEW_RENDERMODE", new List<string> { "Режим рендера", "Render mode", "Renderermodus", "Tryb renderowania", "Režim renderování" });
             words.Add("CHECK_BADPLUGINS_MSG", new List<string> { "У вас есть плагины, которые могут помешать работе Spacer.net!", "You have plugins which may not work with Spacer.net!", "Möglicherweise sind Plugins installiert, welche nicht mit Spacer.net kompatibel sind!", "Masz pluginy, które mogą nie działać poprawnie z Spacer.net", "Máte pluginy, které nemusí fungovat se Spacer.net!" });
             words.Add("WIN_GRASS_TITLE", new List<string> { "Сеятель объектов", "Objects sower", "Objektgenerator", "Generator obiektów", "Generátor objektů" });
-            words.Add("WIN_GRASS_VOBMODEL", new List<string> { "Название модели воба:", "Vob's model:", "Vob Modell: ", "Model voba:", "Model vobů" });
-            words.Add("WIN_GRASS_VERTOFFSET", new List<string> { "Смещение воба по вертикали: ", "Vob's vertical offset: ", "Vertikaler Versatz vom Vob: ", "Przesunięcie pionowe voba:", "Vertikální posun vobu:" });
-            words.Add("WIN_GRASS_MINRADIUS", new List<string> { "Мин. расстояние между вобами: ", "Minimal distance between vobs: ", "Minimale Distanz zwischen Vobs: ", "Minimalny dystans pomiędzy vobami:", "Minimální vzdálenost mezi voby" });
+            words.Add("WIN_GRASS_VOBMODEL", new List<string> { "Название модели воба:", "Vob's model:", "Vob Modell:", "Model voba:", "Model vobů:" });
+            words.Add("WIN_GRASS_VERTOFFSET", new List<string> { "Смещение воба по вертикали: ", "Vob's vertical offset: ", "Vertikaler Versatz vom Vob: ", "Przesunięcie pionowe voba:", "Vertikální posun vobu: " });
+            words.Add("WIN_GRASS_MINRADIUS", new List<string> { "Мин. расстояние между вобами: ", "Minimal distance between vobs: ", "Minimale Distanz zwischen Vobs: ", "Minimalny dystans pomiędzy vobami: ", "Minimální vzdálenost mezi voby: " });
             words.Add("VOB_SEARCH_TYPE_DYNAMIC", new List<string> { "Сменить динамич. коллизию", "Toggle dynamic collision", "Dynamische Kollision umschalten", "Przełącz dynamiczną kolizję", "Přepínání dynamických kolizí" });
-            words.Add("VOB_SEARCH_DYNCOLL_VOBS", new List<string> { "Проставлено коллизий: ", "Collisions set: ", "Kollision eingestellt: ", "Ustawione kolizje:", "Nastavení kolizí:" });
+            words.Add("VOB_SEARCH_DYNCOLL_VOBS", new List<string> { "Проставлено коллизий: ", "Collisions set: ", "Kollision eingestellt: ", "Ustawione kolizje: ", "Nastavení kolizí: " });
             words.Add("MENU_TOP_SAVEZENUNC", new List<string> { "Сохранить Vobs", "Save Vobs", "Vobs Speichern", "Zapisz Voby", "Uložit voby" });
             words.Add("WIN_GRASS_COPYNAME", new List<string> { "При выделении модели в поиске копировать ее сюда", "Copy model name from another window", "Modellnamen aus einem anderen Fenster kopieren", "Skopiuj nazwę modelu z innego okna", "Kopírování jména modelu z jiného okna" });
             words.Add("WIN_GRASS_REMOVE", new List<string> { "Режим удаления вобов", "Removing vob mod", "Entfernen der Vob modifikation", "Usuwanie vobów z moda", "Odstranění vobů z modu" });
@@ -579,7 +579,7 @@ namespace SpacerUnion.Common
             words.Add("MSG_MATFILTER_NEW_MAT_NAME", new List<string> { "Имя материала:", "Material name:", "Material Name:", "Nazwa materiału:", "Jméno materiálu:" });
             words.Add("WIN_MATFILTER_TEXTURE_NOT_FOUND", new List<string> { "(Не найдена)", "(Not found)", "(Nicht gefunden)", "(Nie znaleziono)", "(Nenalezeno)" });
             words.Add("WIN_MATFILTER_FILTERS_MENU", new List<string> { "Меню фильтров", "Filters menu", "Filter Menü", "Menu filtrów", "Menu filtrů" });
-            words.Add("WIN_MATFILTER_MATLIST_CURRENT", new List<string> { "Материалы {0} фильтра: ", "Materials of {0} filter: ", "Materialien des {0}-Filters: ", "Materiały {0} filtra: ", "Materiály filtru {0}:" });
+            words.Add("WIN_MATFILTER_MATLIST_CURRENT", new List<string> { "Материалы {0} фильтра: ", "Materials of {0} filter: ", "Materialien des {0}-Filters: ", "Materiały {0} filtra: ", "Materiály filtru {0}: " });
             words.Add("WIN_MATFILTER_MATLIST_CURRENT_EMPTY", new List<string> { "Материалы фильтра: (0) ", "Materials of the filter: (0) ", "", "Materiały filtra: (0)", "Materiály filtru: (0) " });
             words.Add("WIN_MATFILTER_ERR_NO", new List<string> { "Все готово к работе", "Everything is ready", "", "Wszystko jest gotowe", "Vše je připraveno" });
             words.Add("WIN_MATFILTER_ERR_WORK", new List<string> { "Для работы загрузите ZEN или 3DS файл", "Load any ZEN or 3DS to activate Materials Filter", "Lade eine beliebige ZEN oder 3DS, um den Materialfilter zu aktivieren.", "Załaduj dowolny ZEN lub 3DS, aby aktywować filtr materiałów", "Pro aktivaci filtru materiálů načtěte libovolný ZEN nebo 3DS" });
