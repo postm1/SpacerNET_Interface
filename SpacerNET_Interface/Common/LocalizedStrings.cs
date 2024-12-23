@@ -831,9 +831,9 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_BBOX_AREA_WRONG_SIZE", new List<string> { "BBox (зона) этого воба имеет подозрительный размер", "Bbox size is unexpected", "BBox (Bereich) dieses Objekts hat eine verdächtige Größe", "Nieoczekiwany rozmiar Bboxa", "Velikost Bboxu je neočekávaná" });
 
             // angles
-            words.Add("labelPitch", new List<string> { "Тангаж", "Pitch", "", "", "" });
-            words.Add("labelYaw", new List<string> { "Рысканье", "Yaw", "", "", "" });
-            words.Add("camSetCurPos", new List<string> { "Установить в поля текущие координаты", "Set current coordinates into fields", "", "", "" });
+            words.Add("labelPitch", new List<string> { "Тангаж", "Pitch", "Pitch", "Pochylenie", "Náměr" });
+            words.Add("labelYaw", new List<string> { "Рысканье", "Yaw", "Yaw", "Odchylenie", "Klopení" });
+            words.Add("camSetCurPos", new List<string> { "Установить в поля ввода текущие координаты", "Set current coordinates into text fields", "Aktuelle Koordinaten in Feld eintragen", "Ustaw bieżące koordynaty do pól tekstowych", "Nastavit aktuální souřadnice do polí" });
 
 
         }
