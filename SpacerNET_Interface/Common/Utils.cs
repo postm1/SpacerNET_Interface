@@ -281,6 +281,18 @@ namespace SpacerUnion
             return allAreNumbers;
         }
 
+        [DllExport]
+        public static void GetConfirmWindowYesNo()
+        {
+            string textQuestion = Imports.Stack_PeekString();
+
+            DialogResult dialogResult = MessageBox.Show(Localizator.Get(textQuestion), Localizator.Get("confirmation"), MessageBoxButtons.YesNo);
+
+            bool result = dialogResult == DialogResult.Yes;
+
+            Imports.Stack_PushInt(Convert.ToInt32(result));
+        }
+
     }
 
     public static class Helper
