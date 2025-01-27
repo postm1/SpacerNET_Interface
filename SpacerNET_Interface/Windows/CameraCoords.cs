@@ -38,6 +38,8 @@ namespace SpacerUnion.Windows
 
             labelCamRot.Text = Localizator.Get("UNION_CAM_ROT");
             labelCamPos.Text = Localizator.Get("UNION_CAM_POS");
+
+            buttonSetClipboard.Text = Localizator.Get("WIN_CAM_SET_TO_BUFFER");
         }
 
 
@@ -155,6 +157,22 @@ namespace SpacerUnion.Windows
             textBoxCamVec0.Text = Convert.ToString(t1);
             textBoxCamVec1.Text = Convert.ToString(t2);
             textBoxCamVec2.Text = Convert.ToString(t3);
+        }
+
+        private void buttonSetClipboard_Click(object sender, EventArgs e)
+        {
+            string x = textBoxCamVec0.Text.Trim();
+            string y = textBoxCamVec1.Text.Trim();
+            string z = textBoxCamVec2.Text.Trim();
+
+            x = x.Replace(",", ".");
+            y = y.Replace(",", ".");
+            z = z.Replace(",", ".");
+
+
+            string textCopy = x + ", " + y + ", " + z;
+
+            Clipboard.SetText(textCopy);
         }
     }
 }

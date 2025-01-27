@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonSetCurrentCoords = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.labelCamPos = new System.Windows.Forms.Label();
+            this.labelCamRot = new System.Windows.Forms.Label();
             this.labelPitch = new System.Windows.Forms.Label();
             this.labelYaw = new System.Windows.Forms.Label();
             this.textBoxCamPitch = new System.Windows.Forms.TextBox();
@@ -42,15 +46,13 @@
             this.textBoxCamVec1 = new System.Windows.Forms.TextBox();
             this.textBoxCamVec0 = new System.Windows.Forms.TextBox();
             this.buttonCameraGo = new System.Windows.Forms.Button();
-            this.labelCamRot = new System.Windows.Forms.Label();
-            this.labelCamPos = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.buttonSetCurrentCoords = new System.Windows.Forms.Button();
+            this.buttonSetClipboard = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonSetClipboard);
             this.panel1.Controls.Add(this.buttonSetCurrentCoords);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.labelCamPos);
@@ -71,9 +73,45 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(401, 201);
+            this.panel1.Size = new System.Drawing.Size(401, 242);
             this.panel1.TabIndex = 8;
             this.panel1.TabStop = true;
+            // 
+            // buttonSetCurrentCoords
+            // 
+            this.buttonSetCurrentCoords.Location = new System.Drawing.Point(103, 106);
+            this.buttonSetCurrentCoords.Name = "buttonSetCurrentCoords";
+            this.buttonSetCurrentCoords.Size = new System.Drawing.Size(273, 23);
+            this.buttonSetCurrentCoords.TabIndex = 24;
+            this.buttonSetCurrentCoords.Text = "Input current coordinates";
+            this.buttonSetCurrentCoords.UseVisualStyleBackColor = true;
+            this.buttonSetCurrentCoords.Click += new System.EventHandler(this.buttonSetCurrentCoords_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel2.Location = new System.Drawing.Point(96, 25);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1, 160);
+            this.panel2.TabIndex = 23;
+            // 
+            // labelCamPos
+            // 
+            this.labelCamPos.AutoSize = true;
+            this.labelCamPos.Location = new System.Drawing.Point(194, 9);
+            this.labelCamPos.Name = "labelCamPos";
+            this.labelCamPos.Size = new System.Drawing.Size(85, 13);
+            this.labelCamPos.TabIndex = 22;
+            this.labelCamPos.Text = "Camera position:";
+            // 
+            // labelCamRot
+            // 
+            this.labelCamRot.AutoSize = true;
+            this.labelCamRot.Location = new System.Drawing.Point(6, 9);
+            this.labelCamRot.Name = "labelCamRot";
+            this.labelCamRot.Size = new System.Drawing.Size(84, 13);
+            this.labelCamRot.TabIndex = 21;
+            this.labelCamRot.Text = "Camera rotation:";
             // 
             // labelPitch
             // 
@@ -124,7 +162,7 @@
             this.checkBoxCloseCamWin.AutoSize = true;
             this.checkBoxCloseCamWin.Checked = true;
             this.checkBoxCloseCamWin.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxCloseCamWin.Location = new System.Drawing.Point(162, 146);
+            this.checkBoxCloseCamWin.Location = new System.Drawing.Point(141, 184);
             this.checkBoxCloseCamWin.Name = "checkBoxCloseCamWin";
             this.checkBoxCloseCamWin.Size = new System.Drawing.Size(176, 17);
             this.checkBoxCloseCamWin.TabIndex = 11;
@@ -187,7 +225,7 @@
             // 
             // buttonCameraGo
             // 
-            this.buttonCameraGo.Location = new System.Drawing.Point(162, 169);
+            this.buttonCameraGo.Location = new System.Drawing.Point(141, 207);
             this.buttonCameraGo.Name = "buttonCameraGo";
             this.buttonCameraGo.Size = new System.Drawing.Size(157, 23);
             this.buttonCameraGo.TabIndex = 12;
@@ -195,47 +233,21 @@
             this.buttonCameraGo.UseVisualStyleBackColor = true;
             this.buttonCameraGo.Click += new System.EventHandler(this.buttonCameraGo_Click);
             // 
-            // labelCamRot
+            // buttonSetClipboard
             // 
-            this.labelCamRot.AutoSize = true;
-            this.labelCamRot.Location = new System.Drawing.Point(6, 9);
-            this.labelCamRot.Name = "labelCamRot";
-            this.labelCamRot.Size = new System.Drawing.Size(84, 13);
-            this.labelCamRot.TabIndex = 21;
-            this.labelCamRot.Text = "Camera rotation:";
-            // 
-            // labelCamPos
-            // 
-            this.labelCamPos.AutoSize = true;
-            this.labelCamPos.Location = new System.Drawing.Point(194, 9);
-            this.labelCamPos.Name = "labelCamPos";
-            this.labelCamPos.Size = new System.Drawing.Size(85, 13);
-            this.labelCamPos.TabIndex = 22;
-            this.labelCamPos.Text = "Camera position:";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel2.Location = new System.Drawing.Point(96, 25);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1, 160);
-            this.panel2.TabIndex = 23;
-            // 
-            // buttonSetCurrentCoords
-            // 
-            this.buttonSetCurrentCoords.Location = new System.Drawing.Point(103, 106);
-            this.buttonSetCurrentCoords.Name = "buttonSetCurrentCoords";
-            this.buttonSetCurrentCoords.Size = new System.Drawing.Size(273, 23);
-            this.buttonSetCurrentCoords.TabIndex = 24;
-            this.buttonSetCurrentCoords.Text = "Input current coordinates";
-            this.buttonSetCurrentCoords.UseVisualStyleBackColor = true;
-            this.buttonSetCurrentCoords.Click += new System.EventHandler(this.buttonSetCurrentCoords_Click);
+            this.buttonSetClipboard.Location = new System.Drawing.Point(103, 135);
+            this.buttonSetClipboard.Name = "buttonSetClipboard";
+            this.buttonSetClipboard.Size = new System.Drawing.Size(273, 23);
+            this.buttonSetClipboard.TabIndex = 25;
+            this.buttonSetClipboard.Text = "Copy current coords into clipboard";
+            this.buttonSetClipboard.UseVisualStyleBackColor = true;
+            this.buttonSetClipboard.Click += new System.EventHandler(this.buttonSetClipboard_Click);
             // 
             // CameraCoords
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(401, 201);
+            this.ClientSize = new System.Drawing.Size(401, 242);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -276,5 +288,6 @@
         private System.Windows.Forms.Label labelCamPos;
         private System.Windows.Forms.Label labelCamRot;
         private System.Windows.Forms.Button buttonSetCurrentCoords;
+        private System.Windows.Forms.Button buttonSetClipboard;
     }
 }

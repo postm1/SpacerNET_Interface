@@ -835,7 +835,8 @@ namespace SpacerUnion.Common
             words.Add("labelYaw", new List<string> { "Рысканье", "Yaw", "Yaw", "Odchylenie", "Klopení" });
             words.Add("camSetCurPos", new List<string> { "Установить в поля ввода текущие координаты", "Set current coordinates into text fields", "Aktuelle Koordinaten in Feld eintragen", "Ustaw bieżące koordynaty do pól tekstowych", "Nastavit aktuální souřadnice do polí" });
 
-
+            words.Add("WIN_CAM_SET_TO_BUFFER", new List<string> { "Скопировать введенные координаты в буфер", "Copy entered coordinates to clipboard", "Kopiere die eingegebenen Koordinaten in die Zwischenablage", "Skopiuj wprowadzone współrzędne do schowka", "Zkopírujte zadané souřadnice do schránky" });
+            
         }
 
 
