@@ -65,7 +65,15 @@ namespace SpacerUnion
             checkBoxInfoUseZSpy.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
             Imports.Stack_PushString("infoWinzSpyLevel");
-            trackBarSpy.Value = Imports.Extern_GetSetting();
+
+            int value = Imports.Extern_GetSetting();
+
+            if (value < 1 || value > 10)
+            {
+                value = 1;
+            }
+
+            trackBarSpy.Value = value;
 
 
             checkBoxInfoUseZSpy_CheckedChanged(null, null);
