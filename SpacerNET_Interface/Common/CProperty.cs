@@ -171,7 +171,8 @@ namespace SpacerUnion
 
         public void SetType(string dtw)
         {
-            
+            dtw = dtw.ToLower();
+
             if (dtw.Contains("enum"))
             {
                 type = TPropEditType.PETenum;

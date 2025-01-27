@@ -406,7 +406,7 @@ namespace SpacerUnion
                     SpacerNET.propWin.buttonOpenContainer.Enabled = true;
                 }
 
-                if (props[i].Name == "color")
+                if (props[i].Name == "color" || props[i].Name == "fogColor")
                 {
                     var color = props[i].value;
 
@@ -544,7 +544,7 @@ namespace SpacerUnion
             tree.Refresh();
 
 
-            if (className == "zCVobLight")
+            if (className == "zCVobLight" || className == "zCZoneZFogDefault" || className == "zCZoneZFog")
             {
                 SpacerNET.propWin.colorPanel.Visible = true;
             }
@@ -866,7 +866,7 @@ namespace SpacerUnion
                     //ConsoleEx.WriteLineYellow("Pos was changed");
                 }
 
-                if (props[i].Name == "color")
+                if (props[i].Name == "color" || props[i].Name == "fogColor")
                 {
                     bool result = SpacerNET.propWin.SetColorPanelColor(props[i].value);
 
@@ -956,7 +956,7 @@ namespace SpacerUnion
                     }
 
 
-                    if (classNameGlobal == "zCVobLight")
+                    if (classNameGlobal == "zCVobLight" || classNameGlobal == "zCZoneZFogDefault" || classNameGlobal == "zCZoneZFog")
                     {
                         if (prop.Name != "trafoOSToWSPos" && prop.Name != "trafoOSToWSRot" && prop.Name != "bbox3DWS")
                         {
