@@ -73,7 +73,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(401, 242);
+            this.panel1.Size = new System.Drawing.Size(459, 242);
             this.panel1.TabIndex = 8;
             this.panel1.TabStop = true;
             // 
@@ -81,7 +81,7 @@
             // 
             this.buttonSetCurrentCoords.Location = new System.Drawing.Point(103, 106);
             this.buttonSetCurrentCoords.Name = "buttonSetCurrentCoords";
-            this.buttonSetCurrentCoords.Size = new System.Drawing.Size(273, 23);
+            this.buttonSetCurrentCoords.Size = new System.Drawing.Size(342, 23);
             this.buttonSetCurrentCoords.TabIndex = 24;
             this.buttonSetCurrentCoords.Text = "Input current coordinates";
             this.buttonSetCurrentCoords.UseVisualStyleBackColor = true;
@@ -151,7 +151,7 @@
             // 
             this.buttonGetFrom.Location = new System.Drawing.Point(103, 77);
             this.buttonGetFrom.Name = "buttonGetFrom";
-            this.buttonGetFrom.Size = new System.Drawing.Size(273, 23);
+            this.buttonGetFrom.Size = new System.Drawing.Size(342, 23);
             this.buttonGetFrom.TabIndex = 16;
             this.buttonGetFrom.Text = "Get from clipboard";
             this.buttonGetFrom.UseVisualStyleBackColor = true;
@@ -162,7 +162,7 @@
             this.checkBoxCloseCamWin.AutoSize = true;
             this.checkBoxCloseCamWin.Checked = true;
             this.checkBoxCloseCamWin.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxCloseCamWin.Location = new System.Drawing.Point(141, 184);
+            this.checkBoxCloseCamWin.Location = new System.Drawing.Point(183, 184);
             this.checkBoxCloseCamWin.Name = "checkBoxCloseCamWin";
             this.checkBoxCloseCamWin.Size = new System.Drawing.Size(176, 17);
             this.checkBoxCloseCamWin.TabIndex = 11;
@@ -172,7 +172,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(326, 33);
+            this.label3.Location = new System.Drawing.Point(380, 33);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(14, 13);
             this.label3.TabIndex = 15;
@@ -181,7 +181,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(233, 33);
+            this.label2.Location = new System.Drawing.Point(265, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(14, 13);
             this.label2.TabIndex = 14;
@@ -190,7 +190,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(138, 33);
+            this.label1.Location = new System.Drawing.Point(152, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(14, 13);
             this.label1.TabIndex = 13;
@@ -198,18 +198,18 @@
             // 
             // textBoxCamVec2
             // 
-            this.textBoxCamVec2.Location = new System.Drawing.Point(289, 51);
+            this.textBoxCamVec2.Location = new System.Drawing.Point(335, 51);
             this.textBoxCamVec2.Name = "textBoxCamVec2";
-            this.textBoxCamVec2.Size = new System.Drawing.Size(87, 20);
+            this.textBoxCamVec2.Size = new System.Drawing.Size(110, 20);
             this.textBoxCamVec2.TabIndex = 10;
             this.textBoxCamVec2.Text = "100";
             this.textBoxCamVec2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamVec0_KeyPress_1);
             // 
             // textBoxCamVec1
             // 
-            this.textBoxCamVec1.Location = new System.Drawing.Point(196, 51);
+            this.textBoxCamVec1.Location = new System.Drawing.Point(219, 51);
             this.textBoxCamVec1.Name = "textBoxCamVec1";
-            this.textBoxCamVec1.Size = new System.Drawing.Size(87, 20);
+            this.textBoxCamVec1.Size = new System.Drawing.Size(110, 20);
             this.textBoxCamVec1.TabIndex = 9;
             this.textBoxCamVec1.Text = "100";
             this.textBoxCamVec1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamVec0_KeyPress_1);
@@ -218,14 +218,14 @@
             // 
             this.textBoxCamVec0.Location = new System.Drawing.Point(103, 51);
             this.textBoxCamVec0.Name = "textBoxCamVec0";
-            this.textBoxCamVec0.Size = new System.Drawing.Size(87, 20);
+            this.textBoxCamVec0.Size = new System.Drawing.Size(110, 20);
             this.textBoxCamVec0.TabIndex = 8;
             this.textBoxCamVec0.Text = "100";
             this.textBoxCamVec0.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCamVec0_KeyPress_1);
             // 
             // buttonCameraGo
             // 
-            this.buttonCameraGo.Location = new System.Drawing.Point(141, 207);
+            this.buttonCameraGo.Location = new System.Drawing.Point(183, 207);
             this.buttonCameraGo.Name = "buttonCameraGo";
             this.buttonCameraGo.Size = new System.Drawing.Size(157, 23);
             this.buttonCameraGo.TabIndex = 12;
@@ -237,7 +237,7 @@
             // 
             this.buttonSetClipboard.Location = new System.Drawing.Point(103, 135);
             this.buttonSetClipboard.Name = "buttonSetClipboard";
-            this.buttonSetClipboard.Size = new System.Drawing.Size(273, 23);
+            this.buttonSetClipboard.Size = new System.Drawing.Size(342, 23);
             this.buttonSetClipboard.TabIndex = 25;
             this.buttonSetClipboard.Text = "Copy current coords into clipboard";
             this.buttonSetClipboard.UseVisualStyleBackColor = true;
@@ -247,7 +247,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(401, 242);
+            this.ClientSize = new System.Drawing.Size(459, 242);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
