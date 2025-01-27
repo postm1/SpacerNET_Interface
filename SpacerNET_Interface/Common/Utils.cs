@@ -264,7 +264,7 @@ namespace SpacerUnion
             ConsoleEx.WriteLineYellow(text);
         }
 
-        public static bool IfArrayIsNumvers(string[] stringArray)
+        public static bool IsArrayIsFullNumbers(string[] stringArray)
         {
             bool allAreNumbers = true;
 

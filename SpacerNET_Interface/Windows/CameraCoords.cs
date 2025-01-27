@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace SpacerUnion.Windows
@@ -123,50 +124,22 @@ namespace SpacerUnion.Windows
 
         private void buttonGetFrom_Click(object sender, EventArgs e)
         {
-            string text = Clipboard.GetText();
+            string text = Clipboard.GetText().Trim();
 
-            string[] arr = text.Split(' ');
+            var matches = Regex.Matches(text, @"-?\d+(\.\d+)?");
 
-            if (arr.Length == 3 && !text.Contains(','))
+            if (matches.Count < 3)
             {
-                if (Utils.IfArrayIsNumvers(arr))
-                {
-                    textBoxCamVec0.Text = arr[0].Trim();
-                    textBoxCamVec1.Text = arr[1].Trim();
-                    textBoxCamVec2.Text = arr[2].Trim();
-                }
+                return;
+            }
 
-               
-            }
-            else if (text.Contains(','))
-            {
-                string[] arrComma = text.Split(',');
-                if (arrComma.Length == 3)
-                {
-                    if (Utils.IfArrayIsNumvers(arrComma))
-                    {
-                        textBoxCamVec0.Text = arrComma[0].Trim();
-                        textBoxCamVec1.Text = arrComma[1].Trim();
-                        textBoxCamVec2.Text = arrComma[2].Trim();
-                    }
+            float x = float.Parse(matches[0].Value, CultureInfo.InvariantCulture);
+            float y = float.Parse(matches[1].Value, CultureInfo.InvariantCulture);
+            float z = float.Parse(matches[2].Value, CultureInfo.InvariantCulture);
 
-                    
-                }
-            }
-            else if (text.Contains(';'))
-            {
-                string[] arrComma = text.Split(';');
-                if (arrComma.Length == 3)
-                {
-                    if (Utils.IfArrayIsNumvers(arrComma))
-                    {
-                        textBoxCamVec0.Text = arrComma[0].Trim();
-                        textBoxCamVec1.Text = arrComma[1].Trim();
-                        textBoxCamVec2.Text = arrComma[2].Trim();
-                    }
-                        
-                }
-            }
+            textBoxCamVec0.Text = x.ToString();
+            textBoxCamVec1.Text = y.ToString();
+            textBoxCamVec2.Text = z.ToString();
         }
 
         private void buttonSetCurrentCoords_Click(object sender, EventArgs e)
