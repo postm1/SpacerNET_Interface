@@ -836,7 +836,7 @@ namespace SpacerUnion.Common
             words.Add("camSetCurPos", new List<string> { "Установить в поля ввода текущие координаты", "Set current coordinates into text fields", "Aktuelle Koordinaten in Feld eintragen", "Ustaw bieżące koordynaty do pól tekstowych", "Nastavit aktuální souřadnice do polí" });
 
             words.Add("WIN_CAM_SET_TO_BUFFER", new List<string> { "Скопировать введенные координаты в буфер", "Copy entered coordinates to clipboard", "Kopiere die eingegebenen Koordinaten in die Zwischenablage", "Skopiuj wprowadzone współrzędne do schowka", "Zkopírujte zadané souřadnice do schránky" });
-            
+            words.Add("VISUALINFO_COPY", new List<string> { "Ctrl+C, чтобы скопировать инфу в буфер", "Ctrl+C to copy the info to the clipboard", "Strg+C, um die Informationen in die Zwischenablage zu kopieren", "Ctrl+C, aby skopiować informacje do schowka", "Ctrl+C pro zkopírování informací do schránky" });
         }
 
 
