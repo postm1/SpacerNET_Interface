@@ -171,7 +171,7 @@ namespace SpacerUnion
 
         public void SetType(string dtw)
         {
-            dtw = dtw.ToLower();
+            //dtw = dtw.ToLower();
 
             if (dtw.Contains("enum"))
             {
