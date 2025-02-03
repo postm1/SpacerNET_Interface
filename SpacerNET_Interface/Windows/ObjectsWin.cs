@@ -5229,5 +5229,23 @@ namespace SpacerUnion
                 MessageBox.Show(Localizator.Get("PFX_EDITOR_WRONG_INPUT_NOT_NUMBER"));
             }
         }
+
+        private void radioButtonOverwrite_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton cb = sender as RadioButton;
+
+            if (cb != null)
+            {
+
+                if (cb.Checked)
+                {
+                    buttonNewKey.Text = Utils.CapitalizeFirstLetter(Localizator.Get("radioButtonOverwrite"));
+                }
+                else
+                {
+                    buttonNewKey.Text = Localizator.Get("buttonNewKey");
+                }
+            }
+        }
     }
 }

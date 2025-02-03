@@ -1718,8 +1718,8 @@ namespace SpacerUnion
                 s.Stop();
 
                 string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-                SpacerNET.form.AddText(Localizator.Get("saveZenTime") + " (" + timeSpend + ")", Color.Green);
-                ConsoleEx.WriteLineGreen(Localizator.Get("saveZenTime") + " (" + timeSpend + ")");
+                SpacerNET.form.AddText(Localizator.Get("saveVobsTime") + " (" + timeSpend + ")", Color.Green);
+                ConsoleEx.WriteLineGreen(Localizator.Get("saveVobsTime") + " (" + timeSpend + ")");
 
             }
         }

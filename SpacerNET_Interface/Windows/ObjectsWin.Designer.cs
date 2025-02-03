@@ -1069,6 +1069,7 @@
             this.radioButtonOverwrite.TabIndex = 5;
             this.radioButtonOverwrite.Text = "overwrite";
             this.radioButtonOverwrite.UseVisualStyleBackColor = true;
+            this.radioButtonOverwrite.CheckedChanged += new System.EventHandler(this.radioButtonOverwrite_CheckedChanged);
             // 
             // buttonRemoveKey
             // 

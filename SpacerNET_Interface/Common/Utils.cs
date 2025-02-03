@@ -15,7 +15,7 @@ namespace SpacerUnion
 {
     public class Constants
     {
-        public const string SPACER_VERSION = "1.26";
+        public const string SPACER_VERSION = "1.27";
 
 
         public const string FILE_FILTER_OPEN_ZEN = "Compiled ZEN (*.zen)|*.zen|Uncompiled ZEN (*.zen)|*.zen";
@@ -297,6 +297,14 @@ namespace SpacerUnion
             if (value > max)
                 return max;
             return value;
+        }
+
+        public static string CapitalizeFirstLetter(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                return input;
+
+            return char.ToUpper(input[0]) + input.Substring(1);
         }
 
 

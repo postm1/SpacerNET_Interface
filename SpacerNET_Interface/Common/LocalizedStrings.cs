@@ -36,7 +36,7 @@ namespace SpacerUnion.Common
             words.Add("saveZenTime", new List<string> { "Сохранение ZEN выполнено за", "Saving ZEN time...", "Speichern der ZEN dauerte", @"Czas zapisywania ZEN'a..." , "Čas ukládání ZENu..." });
             words.Add("loadMeshTime", new List<string> { "Загрузка MESH выполнена за", "Loading MESH time...", "Laden des MESH dauerte...", @"Czas wczytywania MESH'a..." , "Čas načítání MESHe..." });
             words.Add("mergeZenTime", new List<string> { "Объединение ZEN выполнено за", "Merging ZEN time...", "Zusammenfügen des MESH dauerte...", @"Czas zapisywania MESH'a..." , "Čas ukládání MESHe" });
-
+            words.Add("saveVobsTime", new List<string> { "Сохранение вобов выполнено за", "Saving vobs time...", "Speichern der VOBS Dauer", @"Zapis VOBOV zakończony w", "Čas ukládání VOBS..." });
 
 
             words.Add("MENU_TOP_FILE", new List<string> { "Файл", "File", "Datei", "Plik" , "Soubor" });
