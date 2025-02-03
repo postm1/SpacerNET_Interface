@@ -79,13 +79,13 @@
             // trackBarRadius
             // 
             this.trackBarRadius.Location = new System.Drawing.Point(116, 3);
-            this.trackBarRadius.Maximum = 5000;
+            this.trackBarRadius.Maximum = 15000;
             this.trackBarRadius.Minimum = 10;
             this.trackBarRadius.Name = "trackBarRadius";
             this.trackBarRadius.Size = new System.Drawing.Size(178, 45);
             this.trackBarRadius.TabIndex = 3;
             this.trackBarRadius.TickFrequency = 10;
-            this.trackBarRadius.Value = 200;
+            this.trackBarRadius.Value = 2000;
             this.trackBarRadius.ValueChanged += new System.EventHandler(this.trackBarRadius_ValueChanged);
             // 
             // labelRadius
@@ -93,9 +93,9 @@
             this.labelRadius.AutoSize = true;
             this.labelRadius.Location = new System.Drawing.Point(3, 9);
             this.labelRadius.Name = "labelRadius";
-            this.labelRadius.Size = new System.Drawing.Size(96, 13);
+            this.labelRadius.Size = new System.Drawing.Size(102, 13);
             this.labelRadius.TabIndex = 4;
-            this.labelRadius.Text = "Search radius: 200";
+            this.labelRadius.Text = "Search radius: 2000";
             // 
             // panelVobList
             // 

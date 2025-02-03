@@ -426,7 +426,7 @@ namespace SpacerUnion
             btn.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
 
-            vobList.trackBarRadius.Value = Imports.Extern_GetSetting(); //voblist radius
+            vobList.trackBarRadius.Value = Utils.Clamp(Imports.Extern_GetSetting(), 0, 15000); //voblist radius
 
             //====================================================================================
 
