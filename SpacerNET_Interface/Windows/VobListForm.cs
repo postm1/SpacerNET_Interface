@@ -16,8 +16,10 @@ namespace SpacerUnion
 
     public partial class VobListForm : Form
     {
-       
 
+        // произошло ли событие клика по элементу списка
+        // (true - да, false - нет)
+        bool vobList_MouseClick = false;
 
 
         public static List<uint> vobList = new List<uint>();
@@ -84,6 +86,7 @@ namespace SpacerUnion
         {
             listBoxVobs.Items.Clear();
             vobList.Clear();
+            vobList_MouseClick = false;
         }
 
         public void OnVobDelete(uint addr)
@@ -117,31 +120,11 @@ namespace SpacerUnion
 
         private void listBoxVobs_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            // получаем индекс выделенного элемента
             int index = listBoxVobs.IndexFromPoint(e.Location);
 
-            if (index != System.Windows.Forms.ListBox.NoMatches)
-            {
-                if (listBoxVobs.Items.Count >= index - 1)
-                {
-                    uint vobAddr = vobList[index];
-                    //ConsoleEx.WriteLineGreen(vobAddr + " index " + index);
-
-                    try
-                    {
-                        SpacerNET.objTreeWin.globalTree.SelectedNode =
-                        ObjTree.globalEntries[vobAddr].node;
-                    }
-                    catch
-                    {
-                        ConsoleEx.WriteLineGreen("vobListSelect. Can't find vob with addr: " + Utils.ToHex(vobAddr));
-                    }
-
-                    Imports.Extern_SelectVob(vobAddr);
-
-
-                }
-                
-            }
+            // выделяем воб в мире с учётом перемещения камеры к нему
+            SelectVobInWorldByListIndex(index, true);
         }
 
         
@@ -158,31 +141,17 @@ namespace SpacerUnion
 
         private void listBoxVobs_MouseClick(object sender, MouseEventArgs e)
         {
+            // устанавливаем флаг одиночного клика
+            vobList_MouseClick = true;
+
+            // получаем индекс выделенного элемента
             int index = listBoxVobs.IndexFromPoint(e.Location);
 
-            if (index != System.Windows.Forms.ListBox.NoMatches)
-            {
-                if (listBoxVobs.Items.Count >= index - 1)
-                {
-                    uint vobAddr = vobList[index];
-                    //ConsoleEx.WriteLineGreen(vobAddr + " index " + index);
-
-                    try
-                    {
-                        SpacerNET.objTreeWin.globalTree.SelectedNode =
-                        ObjTree.globalEntries[vobAddr].node;
-
-                        Imports.Extern_SelectVobSync(vobAddr);
-                    }
-                    catch
-                    {
-                        ConsoleEx.WriteLineGreen("vobListSelect. Can't find vob with addr: " + Utils.ToHex(vobAddr));
-                    }
-
-                   
-                }
-
-            }
+            // пытаемся выделить объект в мире и если успешно, то
+            if (SelectVobInWorldByListIndex(index, false))
+                // после всех манипуляций с древом вобов,
+                // восстанавливаем фокус на текущей форме
+                this.Activate();
         }
 
         private void очиститьСписокToolStripMenuItem_Click(object sender, EventArgs e)
@@ -192,7 +161,22 @@ namespace SpacerUnion
 
         private void listBoxVobs_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // если выделение произошло с помощью курсора мыши
+            if (vobList_MouseClick == true)
+            {
+                // сбрасываем флаг нажатия мыши
+                vobList_MouseClick = false;
 
+                // и выходим, потому что воб уже будет выделен
+                // в событии клика мыши по элементу списка
+                return;
+            }
+
+            // иначе, произошло изменение индекса с помощью клавиш клавиатуры
+            // (обычно - это стрелка вверх или вниз), и если выделение воба прошло успешно
+            if (SelectVobInWorldByListIndex(listBoxVobs.SelectedIndex, false))
+                // активируем потерянный фокус у данной формы
+                this.Activate();
         }
 
         private void comboBoxVobList_SelectedIndexChanged(object sender, EventArgs e)
@@ -253,6 +237,46 @@ namespace SpacerUnion
 
             }
 
+        }
+
+
+        
+
+        // Функция выделения объекта в мире, где:
+        // index - индекс выделенного элемента в списке вобов
+        // bMoveCamToVob - флаг движения камеры к выделенному объекту
+        // (true - двигаться, false - оставить камеру в покое)
+        bool SelectVobInWorldByListIndex(int index, bool bMoveCamToVob)
+        {
+            // если индекс выходит за пределы массива элементов
+            if (index < 0 || index >= listBoxVobs.Items.Count)
+                // выходим
+                return false;
+
+
+            uint vobAddr = vobList[index];
+            // ConsoleEx.WriteLineGreen(vobAddr + " index " + index);
+
+            try
+            {
+                SpacerNET.objTreeWin.globalTree.SelectedNode =
+                ObjTree.globalEntries[vobAddr].node;
+            }
+            catch
+            {
+                ConsoleEx.WriteLineGreen("vobListSelect. Can't find vob with addr: " + Utils.ToHex(vobAddr));
+            }
+
+            // если нужно двигать камеру к объекту
+            if (bMoveCamToVob)
+                // выделяем объект и двигаем к нему камеру
+                Imports.Extern_SelectVob(vobAddr);
+            else // иначе, двигать не нужно
+                 // просто выделяем объект в мире
+                Imports.Extern_SelectVobSync(vobAddr);
+
+            // успешное выделение объекта
+            return true;
         }
     }
 }
