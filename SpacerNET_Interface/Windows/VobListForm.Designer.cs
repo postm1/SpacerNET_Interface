@@ -182,12 +182,12 @@
             "zCVobSpot",
             "oCMOB",
             "Invisible only",
-            "zCVobLight"});
+            "zCVobLight",
+            "PFX (Particles)"});
             this.comboBoxVobList.Location = new System.Drawing.Point(0, 39);
             this.comboBoxVobList.Name = "comboBoxVobList";
             this.comboBoxVobList.Size = new System.Drawing.Size(122, 21);
             this.comboBoxVobList.TabIndex = 5;
-            this.comboBoxVobList.SelectedIndexChanged += new System.EventHandler(this.comboBoxVobList_SelectedIndexChanged);
             // 
             // panelVobListBottom
             // 
