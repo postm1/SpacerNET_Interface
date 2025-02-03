@@ -16,9 +16,6 @@ namespace SpacerUnion
 
     public partial class VobListForm : Form
     {
-
-        // произошло ли событие клика по элементу списка
-        // (true - да, false - нет)
         bool vobList_MouseClick = false;
 
 
@@ -120,10 +117,8 @@ namespace SpacerUnion
 
         private void listBoxVobs_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            // получаем индекс выделенного элемента
             int index = listBoxVobs.IndexFromPoint(e.Location);
 
-            // выделяем воб в мире с учётом перемещения камеры к нему
             SelectVobInWorldByListIndex(index, true);
         }
 
@@ -141,16 +136,11 @@ namespace SpacerUnion
 
         private void listBoxVobs_MouseClick(object sender, MouseEventArgs e)
         {
-            // устанавливаем флаг одиночного клика
             vobList_MouseClick = true;
 
-            // получаем индекс выделенного элемента
             int index = listBoxVobs.IndexFromPoint(e.Location);
 
-            // пытаемся выделить объект в мире и если успешно, то
             if (SelectVobInWorldByListIndex(index, false))
-                // после всех манипуляций с древом вобов,
-                // восстанавливаем фокус на текущей форме
                 this.Activate();
         }
 
@@ -161,21 +151,13 @@ namespace SpacerUnion
 
         private void listBoxVobs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // если выделение произошло с помощью курсора мыши
             if (vobList_MouseClick == true)
             {
-                // сбрасываем флаг нажатия мыши
                 vobList_MouseClick = false;
-
-                // и выходим, потому что воб уже будет выделен
-                // в событии клика мыши по элементу списка
                 return;
             }
 
-            // иначе, произошло изменение индекса с помощью клавиш клавиатуры
-            // (обычно - это стрелка вверх или вниз), и если выделение воба прошло успешно
             if (SelectVobInWorldByListIndex(listBoxVobs.SelectedIndex, false))
-                // активируем потерянный фокус у данной формы
                 this.Activate();
         }
 
@@ -239,16 +221,8 @@ namespace SpacerUnion
 
         }
 
-
-        
-
-        // Функция выделения объекта в мире, где:
-        // index - индекс выделенного элемента в списке вобов
-        // bMoveCamToVob - флаг движения камеры к выделенному объекту
-        // (true - двигаться, false - оставить камеру в покое)
         bool SelectVobInWorldByListIndex(int index, bool bMoveCamToVob)
         {
-            // если индекс выходит за пределы массива элементов
             if (index < 0 || index >= listBoxVobs.Items.Count)
                 // выходим
                 return false;
@@ -267,15 +241,11 @@ namespace SpacerUnion
                 ConsoleEx.WriteLineGreen("vobListSelect. Can't find vob with addr: " + Utils.ToHex(vobAddr));
             }
 
-            // если нужно двигать камеру к объекту
             if (bMoveCamToVob)
-                // выделяем объект и двигаем к нему камеру
                 Imports.Extern_SelectVob(vobAddr);
-            else // иначе, двигать не нужно
-                 // просто выделяем объект в мире
+            else 
                 Imports.Extern_SelectVobSync(vobAddr);
 
-            // успешное выделение объекта
             return true;
         }
 
