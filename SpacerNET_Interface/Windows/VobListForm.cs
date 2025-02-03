@@ -278,5 +278,14 @@ namespace SpacerUnion
             // успешное выделение объекта
             return true;
         }
+
+        private void comboBoxVobList_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            ComboBox cb = sender as ComboBox;
+
+            int selIndex = cb.SelectedIndex;
+
+            Imports.Extern_SetVobListType(selIndex);
+        }
     }
 }

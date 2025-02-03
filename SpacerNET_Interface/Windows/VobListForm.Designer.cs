@@ -188,6 +188,7 @@
             this.comboBoxVobList.Name = "comboBoxVobList";
             this.comboBoxVobList.Size = new System.Drawing.Size(122, 21);
             this.comboBoxVobList.TabIndex = 5;
+            this.comboBoxVobList.SelectedIndexChanged += new System.EventHandler(this.comboBoxVobList_SelectedIndexChanged_1);
             // 
             // panelVobListBottom
             // 
