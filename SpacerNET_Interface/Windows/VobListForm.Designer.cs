@@ -78,11 +78,11 @@
             // 
             // trackBarRadius
             // 
-            this.trackBarRadius.Location = new System.Drawing.Point(116, 3);
+            this.trackBarRadius.Location = new System.Drawing.Point(128, 3);
             this.trackBarRadius.Maximum = 15000;
             this.trackBarRadius.Minimum = 10;
             this.trackBarRadius.Name = "trackBarRadius";
-            this.trackBarRadius.Size = new System.Drawing.Size(178, 45);
+            this.trackBarRadius.Size = new System.Drawing.Size(166, 45);
             this.trackBarRadius.TabIndex = 3;
             this.trackBarRadius.TickFrequency = 10;
             this.trackBarRadius.Value = 2000;
