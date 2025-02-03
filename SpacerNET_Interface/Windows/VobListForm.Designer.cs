@@ -183,7 +183,8 @@
             "oCMOB",
             "Invisible only",
             "zCVobLight",
-            "PFX (Particles)"});
+            "PFX (Particles)",
+            "zCZone (Zones)"});
             this.comboBoxVobList.Location = new System.Drawing.Point(0, 39);
             this.comboBoxVobList.Name = "comboBoxVobList";
             this.comboBoxVobList.Size = new System.Drawing.Size(122, 21);
