@@ -36,7 +36,7 @@ namespace SpacerUnion.Common
             words.Add("saveZenTime", new List<string> { "Сохранение ZEN выполнено за", "Saving ZEN time...", "Speichern der ZEN dauerte", @"Czas zapisywania ZEN'a..." , "Čas ukládání ZENu..." });
             words.Add("loadMeshTime", new List<string> { "Загрузка MESH выполнена за", "Loading MESH time...", "Laden des MESH dauerte...", @"Czas wczytywania MESH'a..." , "Čas načítání MESHe..." });
             words.Add("mergeZenTime", new List<string> { "Объединение ZEN выполнено за", "Merging ZEN time...", "Zusammenfügen des MESH dauerte...", @"Czas zapisywania MESH'a..." , "Čas ukládání MESHe" });
-            words.Add("saveVobsTime", new List<string> { "Сохранение вобов выполнено за", "Saving vobs time...", "Speichern der VOBS Dauer", @"Zapis VOBOV zakończony w", "Čas ukládání VOBS..." });
+            words.Add("saveVobsTime", new List<string> { "Сохранение вобов выполнено за", "Saving vobs time...", "Speichern der VOBS Dauer...", @"Czas zapisywania vobów...", "Čas ukládání VOBS..." });
 
 
             words.Add("MENU_TOP_FILE", new List<string> { "Файл", "File", "Datei", "Plik" , "Soubor" });
@@ -141,7 +141,7 @@ namespace SpacerUnion.Common
             words.Add("UNION_MESH_LOADED", new List<string> { "Меш загружен", "Mesh is loaded", "Mesh geladen", "Mesh jest załadowany", "Mesh je načten" });
             words.Add("UNION_MESH_READY", new List<string> { "Меш и вобы объединены. Скомпилируйте мир", "Mesh and vobs were merged. Compile the world", "Mesh und Vobs zusammengeführt. Bitte Welt kompilieren!", "Mesh i voby zostały połączone. Skompiluj świat.", "Meshe a Voby jsou sloučeny. Zkompiluj svět." });
             words.Add("UNION_EDITOR", new List<string> { "Редактор для ZenGin", "Editor for ZenGin", "Editor für ZenGin", "Edytor dla ZenGine", "Editor pro ZenGin" });
-            words.Add("UNION_TEAM", new List<string> { "Разработчик: Liker. Помогали: Patrix & Feuerbarde & Haart & Saturas & Gratt & Jr", "Author: Liker. Assistance from: Patrix & Feuerbarde Haart & Saturas & Gratt & Jr", "Entwicklerteam: Liker & Patrix  & Feuerbarde & Haart & Saturas & Gratt & Jr", "Deweloperzy: Liker & Patrix & Feuerbarde & Haart & Saturas & Gratt & Jr", "Autoři: Liker & Patrix & Feuerbarde & Haart & Saturas & Gratt & Jr" });
+            words.Add("UNION_TEAM", new List<string> { "Разработчик: Liker. Помогали: Patrix & Feuerbarde & Haart & Saturas & Gratt & Jr", "Author: Liker. Assistance from: Patrix & Feuerbarde & Haart & Saturas & Gratt & Jr", "Entwicklerteam: Liker & Patrix  & Feuerbarde & Haart & Saturas & Gratt & Jr", "Deweloperzy: Liker & Patrix & Feuerbarde & Haart & Saturas & Gratt & Jr", "Autoři: Liker & Patrix & Feuerbarde & Haart & Saturas & Gratt & Jr" });
             words.Add("UNION_DATE_COMPILE", new List<string> { "Дата компиляции: ", "Compilation date: ", "Datum der Kompilation: ", "Data kompilacji: ", "Datum kompilace: " });
             words.Add("UNION_RESOLUTION", new List<string> { "Разрешение рендера: ", "Render resolution: ", "Rendererauflösung: ", "Rozdzielczość renderowania: ", "Rozlišení renderování: " });
             words.Add("UNION_NOWORLD", new List<string> { "Мир не загружен", "World is not loaded", "Welt wurde nicht geladen", "Świat nie został wczytany.", "Svět nebyl načten" });
