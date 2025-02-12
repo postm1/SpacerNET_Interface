@@ -837,6 +837,11 @@ namespace SpacerUnion.Common
 
             words.Add("WIN_CAM_SET_TO_BUFFER", new List<string> { "Скопировать введенные координаты в буфер", "Copy entered coordinates to clipboard", "Kopiere die eingegebenen Koordinaten in die Zwischenablage", "Skopiuj wprowadzone współrzędne do schowka", "Zkopírujte zadané souřadnice do schránky" });
             words.Add("VISUALINFO_COPY", new List<string> { "Ctrl+C, чтобы скопировать инфу в буфер", "Ctrl+C to copy the info to the clipboard", "Strg+C, um die Informationen in die Zwischenablage zu kopieren", "Ctrl+C, aby skopiować informacje do schowka", "Ctrl+C pro zkopírování informací do schránky" });
+
+
+
+            words.Add("WORLD_COMPILED_PRE_WORK_WARN", new List<string> { "Мир скомпилирован. Не меняйте ничего, сначала сохраните и перезагрузите ZEN файл!", "The world is compiled. Don't change anything until you save and reload ZEN file!", "Die Welt ist kompiliert. Ändern Sie nichts, bis Sie die ZEN-Datei speichern und neu laden!", "Świat jest skompilowany. Nie zmieniaj niczego, dopóki nie zapiszesz i nie wczytasz ponownie pliku ZEN!", "Svět je sestaven. Nic neměňte, dokud soubor ZEN neuložíte a znovu nenahrajete!" });
+            
         }
 
 
