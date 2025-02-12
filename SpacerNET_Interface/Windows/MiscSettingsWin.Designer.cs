@@ -30,6 +30,7 @@
         {
             this.checkBoxSetDatePrefix = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxFast3ds = new System.Windows.Forms.CheckBox();
             this.checkBoxUpperCase = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscRemoveAllLevelCompos = new System.Windows.Forms.CheckBox();
             this.checkBoxOnlyLatinInInput = new System.Windows.Forms.CheckBox();
@@ -42,7 +43,6 @@
             this.checkBoxLastZenAuto = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
             this.btnMiscSetApply = new System.Windows.Forms.Button();
-            this.checkBoxFast3ds = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +76,19 @@
             this.groupBox1.Size = new System.Drawing.Size(624, 409);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // checkBoxFast3ds
+            // 
+            this.checkBoxFast3ds.AutoSize = true;
+            this.checkBoxFast3ds.Checked = true;
+            this.checkBoxFast3ds.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxFast3ds.Location = new System.Drawing.Point(13, 325);
+            this.checkBoxFast3ds.Name = "checkBoxFast3ds";
+            this.checkBoxFast3ds.Size = new System.Drawing.Size(575, 17);
+            this.checkBoxFast3ds.TabIndex = 14;
+            this.checkBoxFast3ds.Text = "Skip creating OBBox for location 3ds (gives 30% speed bonus of 3DS file loading)." +
+    " Work version only! Not for release";
+            this.checkBoxFast3ds.UseVisualStyleBackColor = true;
             // 
             // checkBoxUpperCase
             // 
@@ -126,6 +139,8 @@
             // checkBoxSetNearestVobCam
             // 
             this.checkBoxSetNearestVobCam.AutoSize = true;
+            this.checkBoxSetNearestVobCam.Checked = true;
+            this.checkBoxSetNearestVobCam.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxSetNearestVobCam.Location = new System.Drawing.Point(13, 91);
             this.checkBoxSetNearestVobCam.Name = "checkBoxSetNearestVobCam";
             this.checkBoxSetNearestVobCam.Size = new System.Drawing.Size(556, 17);
@@ -208,19 +223,6 @@
             this.btnMiscSetApply.Text = "Apply";
             this.btnMiscSetApply.UseVisualStyleBackColor = true;
             this.btnMiscSetApply.Click += new System.EventHandler(this.btnMiscSetApply_Click);
-            // 
-            // checkBoxFast3ds
-            // 
-            this.checkBoxFast3ds.AutoSize = true;
-            this.checkBoxFast3ds.Checked = true;
-            this.checkBoxFast3ds.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxFast3ds.Location = new System.Drawing.Point(13, 325);
-            this.checkBoxFast3ds.Name = "checkBoxFast3ds";
-            this.checkBoxFast3ds.Size = new System.Drawing.Size(575, 17);
-            this.checkBoxFast3ds.TabIndex = 14;
-            this.checkBoxFast3ds.Text = "Skip creating OBBox for location 3ds (gives 30% speed bonus of 3DS file loading)." +
-    " Work version only! Not for release";
-            this.checkBoxFast3ds.UseVisualStyleBackColor = true;
             // 
             // MiscSettingsWin
             // 

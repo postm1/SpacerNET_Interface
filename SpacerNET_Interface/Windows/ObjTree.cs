@@ -71,7 +71,7 @@ namespace SpacerUnion
 
             contextMenuQuick.Items[0].Text = Localizator.Get("CONTEXTMENU_TREE_REMOVE_PARENT");
             contextMenuQuick.Items[1].Text = Localizator.Get("CONTEXTMENU_FAST_REMOVE_VOB");
-
+            contextMenuQuick.Items[2].Text = Localizator.Get("CONTEXTMENU_TREE_CREATE_CAMERA_START_POS");
             /*
             buttonCollapseMatTree.Text = Localizator.Get("buttonCollapse");
             buttonExpandMatTree.Text = Localizator.Get("buttonExpand");
@@ -1960,6 +1960,18 @@ namespace SpacerUnion
         private void globalTree_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             
+        }
+
+        private void createCONTEXTMENUTREECREATECAMERASTARTPOSVobToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
+            Imports.Extern_CreateVobSpacerCameraStartPos();
+
+            SpacerNET.form.Focus();
         }
     }
 }

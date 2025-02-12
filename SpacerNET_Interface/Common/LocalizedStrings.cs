@@ -841,7 +841,9 @@ namespace SpacerUnion.Common
 
 
             words.Add("WORLD_COMPILED_PRE_WORK_WARN", new List<string> { "Мир скомпилирован. Не меняйте ничего, сначала сохраните и перезагрузите ZEN файл!", "The world is compiled. Don't change anything until you save and reload ZEN file!", "Die Welt ist kompiliert. Ändern Sie nichts, bis Sie die ZEN-Datei speichern und neu laden!", "Świat jest skompilowany. Nie zmieniaj niczego, dopóki nie zapiszesz i nie wczytasz ponownie pliku ZEN!", "Svět je sestaven. Nic neměňte, dokud soubor ZEN neuložíte a znovu nenahrajete!" });
-            
+            words.Add("CONTEXTMENU_TREE_CREATE_CAMERA_START_POS", new List<string> { "Создать стартовую точку камеры VOB_SPACER_CAMERA_START", "Create VOB_SPACER_CAMERA_START vob", "VOB_SPACER_CAMERA_START vob erstellen", "Utwórz plik vob VOB_SPACER_CAMERA_START", "Vytvořit VOB_SPACER_CAMERA_START vob" });
+            words.Add("WRONG_NOT_VOB_MOD", new List<string> { "Выбран неверный режим выделения!", "Wrong selection mode!", "Falscher Auswahlmodus!", "Nieprawidłowy tryb wyboru!", "Špatný režim výběru!" });
+            words.Add("ERR_VOB_EXISTS", new List<string> { "Такой воб уже существует!", "Such vob is already exists!", "Eine solche Vob ist bereits vorhanden!", "Taki vob już istnieje!", "Takový vob již existuje!" });
         }
 
 

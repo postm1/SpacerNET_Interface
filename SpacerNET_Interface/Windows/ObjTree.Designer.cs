@@ -61,6 +61,7 @@
             this.contextMenuQuick = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripClearGlobalPar = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuRemoveQuickVob = new System.Windows.Forms.ToolStripMenuItem();
+            this.createCONTEXTMENUTREECREATECAMERASTARTPOSVobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripTree.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.tabControlObjectList.SuspendLayout();
@@ -328,23 +329,31 @@
             // 
             this.contextMenuQuick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripClearGlobalPar,
-            this.toolStripMenuRemoveQuickVob});
+            this.toolStripMenuRemoveQuickVob,
+            this.createCONTEXTMENUTREECREATECAMERASTARTPOSVobToolStripMenuItem});
             this.contextMenuQuick.Name = "contextMenuQuick";
-            this.contextMenuQuick.Size = new System.Drawing.Size(259, 48);
+            this.contextMenuQuick.Size = new System.Drawing.Size(293, 92);
             // 
             // toolStripClearGlobalPar
             // 
             this.toolStripClearGlobalPar.Name = "toolStripClearGlobalPar";
-            this.toolStripClearGlobalPar.Size = new System.Drawing.Size(258, 22);
-            this.toolStripClearGlobalPar.Text = "Очистить глобального родителя";
+            this.toolStripClearGlobalPar.Size = new System.Drawing.Size(292, 22);
+            this.toolStripClearGlobalPar.Text = "Clean global parent";
             this.toolStripClearGlobalPar.Click += new System.EventHandler(this.toolStripClearGlobalPar_Click);
             // 
             // toolStripMenuRemoveQuickVob
             // 
             this.toolStripMenuRemoveQuickVob.Name = "toolStripMenuRemoveQuickVob";
-            this.toolStripMenuRemoveQuickVob.Size = new System.Drawing.Size(258, 22);
-            this.toolStripMenuRemoveQuickVob.Text = "Удалить воб из быстрого доступа";
+            this.toolStripMenuRemoveQuickVob.Size = new System.Drawing.Size(292, 22);
+            this.toolStripMenuRemoveQuickVob.Text = "Remove vob from Fast access";
             this.toolStripMenuRemoveQuickVob.Click += new System.EventHandler(this.toolStripMenuRemoveQuickVob_Click);
+            // 
+            // createCONTEXTMENUTREECREATECAMERASTARTPOSVobToolStripMenuItem
+            // 
+            this.createCONTEXTMENUTREECREATECAMERASTARTPOSVobToolStripMenuItem.Name = "createCONTEXTMENUTREECREATECAMERASTARTPOSVobToolStripMenuItem";
+            this.createCONTEXTMENUTREECREATECAMERASTARTPOSVobToolStripMenuItem.Size = new System.Drawing.Size(292, 22);
+            this.createCONTEXTMENUTREECREATECAMERASTARTPOSVobToolStripMenuItem.Text = "Create VOB_SPACER_CAMERA_START vob";
+            this.createCONTEXTMENUTREECREATECAMERASTARTPOSVobToolStripMenuItem.Click += new System.EventHandler(this.createCONTEXTMENUTREECREATECAMERASTARTPOSVobToolStripMenuItem_Click);
             // 
             // ObjTree
             // 
@@ -408,5 +417,6 @@
         private System.Windows.Forms.ToolStripMenuItem SaveVisualTofileCommon;
         private System.Windows.Forms.ToolStripMenuItem onlyParentVobToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem allChildrenVobsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createCONTEXTMENUTREECREATECAMERASTARTPOSVobToolStripMenuItem;
     }
 }
