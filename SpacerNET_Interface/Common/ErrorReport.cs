@@ -127,18 +127,17 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME_NOINST: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME_NOINST"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_CONTAINER_BAD_SYMBOLS: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_CONTAINER_BAD_SYMBOLS"); break;
-                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_VISUAL_SYMBOLS: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_VISUAL_SYMBOLS"); break;
-                    
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_TRIGGER: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_TRIGGER"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_USE_WITHITEM: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_USE_WITHITEM"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_ON_STATE_FUNC: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_ON_STATE_FUNC"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_COND_FUNC: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_COND_FUNC"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_VISUAL_SYMBOLS: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_VISUAL_SYMBOLS"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MOBCONT_BAD_LOCKSTRING: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_MOBCONT_BAD_LOCKSTRING"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BBOX_AREA_WRONG_SIZE: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BBOX_AREA_WRONG_SIZE"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_CHANGELEVEL_SPACE: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_CHANGELEVEL_SPACE"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_ITEM_PARENT: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_ITEM_PARENT"); break;
 
-                    
+                //ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_COLLISION NOT USED?   
             }
 
 
