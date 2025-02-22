@@ -1329,7 +1329,7 @@ namespace SpacerUnion
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Spacer.NET (version " + Constants.SPACER_VERSION + ") by Liker, 2020-2024", Localizator.Get("MENU_TOP_ABOUT"));
+            MessageBox.Show("Spacer.NET (version " + Constants.SPACER_VERSION + ") by Liker, 2020-2025", Localizator.Get("MENU_TOP_ABOUT"));
         }
 
         private void enterCoordsToolStipMenuItem_Click(object sender, EventArgs e)
