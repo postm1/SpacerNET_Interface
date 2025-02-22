@@ -1653,6 +1653,12 @@ namespace SpacerUnion
 
             item.Checked = !item.Checked;
 
+            if (Imports.Extern_IsGothic_1() == 1)
+            {
+                MessageBox.Show("No G1 SUPPORT!");
+                return;
+            }
+
             Imports.Stack_PushString("bToggleNewController");
             Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
         }
