@@ -1233,14 +1233,14 @@ namespace SpacerUnion
 
         private void checkBoxDyn_CheckedChanged(object sender, EventArgs e)
         {
-            CheckBox cb = sender as CheckBox;
+            //CheckBox cb = sender as CheckBox;
 
-            triggerEntry.dynColl = cb.Checked;
+            //triggerEntry.dynColl = cb.Checked;
 
-            ObjectsWindow.ChangeProp("cdDyn", Convert.ToInt32(triggerEntry.dynColl).ToString());
+            //ObjectsWindow.ChangeProp("cdDyn", Convert.ToInt32(triggerEntry.dynColl).ToString());
 
 
-            Imports.Extern_SetCollTrigger(0, Convert.ToInt32(triggerEntry.dynColl));
+            //Imports.Extern_SetCollTrigger(0, Convert.ToInt32(triggerEntry.dynColl));
         }
 
         private void checkBoxStat_CheckedChanged(object sender, EventArgs e)
