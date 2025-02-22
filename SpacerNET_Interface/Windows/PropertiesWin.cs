@@ -780,6 +780,7 @@ namespace SpacerUnion
                         if (newName.Contains(' '))
                         {
                             prop.value = prop.backup_value.Length > 0 ? prop.backup_value : "";
+                            node.Text = prop.Name + ": " + prop.ShowValue();
                             MessageBox.Show(Localizator.Get("ERROR_NAME_CANT_CONTAIN_SPACE"));
                             return;
                         }
@@ -787,6 +788,7 @@ namespace SpacerUnion
                         if (newName.Length > 0 && !Utils.IsOnlyLatin(newName))
                         {
                             prop.value = prop.backup_value.Length > 0 ? prop.backup_value : "";
+                            node.Text = prop.Name + ": " + prop.ShowValue();
                             MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
                             return;
                         }
@@ -798,15 +800,17 @@ namespace SpacerUnion
                         if (result == 1)
                         {
                             prop.value = prop.backup_value.Length > 0 ? prop.backup_value : "";
-                            MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
                             node.Text = prop.Name + ": " + prop.ShowValue();
+                            MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
+                           
                             return;
                         }
                         else if (result == 2)
                         {
                             prop.value = prop.backup_value.Length > 0 ? prop.backup_value : "";
-                            MessageBox.Show(Localizator.Get("WIN_OBJ_NO_EMPTY_NAME"));
                             node.Text = prop.Name + ": " + prop.ShowValue();
+                            MessageBox.Show(Localizator.Get("WIN_OBJ_NO_EMPTY_NAME"));
+                           
                             return;
                         }
                     }
