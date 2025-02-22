@@ -847,7 +847,7 @@ namespace SpacerUnion.Common
             words.Add("WRONG_NOT_VOB_MOD", new List<string> { "Выбран неверный режим выделения!", "Wrong selection mode!", "Falscher Auswahlmodus!", "Nieprawidłowy tryb wyboru!", "Špatný režim výběru!" });
             words.Add("ERR_VOB_EXISTS", new List<string> { "Такой воб уже существует!", "Such vob is already exists!", "Eine solche Vob ist bereits vorhanden!", "Taki vob już istnieje!", "Takový vob již existuje!" });
 
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_ITEM_PARENT", new List<string> { "Данный oCItem находится в другом вобе! Этого быть не должно!", "This oCItem is inside another vob! This is bad!", "Dieses oCItem befindet sich in einem anderen VOB! Das darf nicht sein!", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_ITEM_PARENT", new List<string> { "Данный oCItem находится в другом вобе!", "This oCItem is inside another vob!", "Dieses oCItem befindet sich in einem anderen VOB!", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_CHANGELEVEL_SPACE", new List<string> { "Поле levelName содержит пробелы. Это критическая ошибка!", "Field levelName contains spaces. This is a critical error!", "Das Feld levelName enthält Leerzeichen. Das ist ein kritischer Fehler!", "", "" });
 
 

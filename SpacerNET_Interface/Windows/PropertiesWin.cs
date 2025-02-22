@@ -775,7 +775,7 @@ namespace SpacerUnion
 
                     if (prop.Name == "vobName" || prop.Name == "name")
                     {
-                        string newName = prop.value;
+                        string newName = textBoxString.Text.Trim();
 
                         if (newName.Contains(' '))
                         {
@@ -793,11 +793,20 @@ namespace SpacerUnion
 
                         Imports.Stack_PushString(newName);
 
-                        if (Imports.Extern_CheckUniqueNameExist() == 1)
+                        int result = Imports.Extern_CheckUniqueNameExist();
+
+                        if (result == 1)
                         {
                             prop.value = prop.backup_value.Length > 0 ? prop.backup_value : "";
                             MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
-                            
+                            node.Text = prop.Name + ": " + prop.ShowValue();
+                            return;
+                        }
+                        else if (result == 2)
+                        {
+                            prop.value = prop.backup_value.Length > 0 ? prop.backup_value : "";
+                            MessageBox.Show(Localizator.Get("WIN_OBJ_NO_EMPTY_NAME"));
+                            node.Text = prop.Name + ": " + prop.ShowValue();
                             return;
                         }
                     }
