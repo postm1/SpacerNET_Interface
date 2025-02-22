@@ -1211,6 +1211,8 @@ namespace SpacerUnion
 
                     CProperty prop = props[index];
 
+                    //ConsoleEx.WriteLineRed(prop.Name + " " + prop.ShowValue() + " " + node.Text + " " + node.Tag);
+
                     prop.value = prop.backup_value;
                     node.Text = prop.Name + ": " + prop.ShowValue();
 
