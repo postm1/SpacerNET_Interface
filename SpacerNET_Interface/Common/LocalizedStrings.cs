@@ -819,6 +819,8 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_COND_FUNC", new List<string> { "Указанная функция conditionFunc не существует", "Such 'conditionFunc' function does not exist", "Die Funktion 'conditionFunc' existiert nicht", "Taka funkcja 'conditionFunc' nie istnieje", "Taková funkce 'conditionFunc' neexistuje" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_VISUAL_SYMBOLS", new List<string> { "'Visual' воба содержит подозрительные символы", "Vob's 'visual' contains unexpected symbols", "Das 'Visual' vom VOB enthält verdächtige Symbole", "Visual' voba zawiera nieoczekiwane symbole", "Vobův 'vizuál' obsahuje podezřelé symboly" });
 
+        
+
             words.Add("checkBoxUpperCase", new List<string> { "Переводить некоторые поля вобов в верхний регистр при сохранении локации", "Make some vob's fields to upper case when saving a location", "Einige Felder der VOBs beim Speichern einer Location in Großbuchstaben umwandeln", "Podczas zapisywania lokalizacji zmień niektóre pola voba na wielkie litery", "Přeložit některá pole vobů do velkých písmen při ukládání lokace" });
 
 
@@ -844,6 +846,11 @@ namespace SpacerUnion.Common
             words.Add("CONTEXTMENU_TREE_CREATE_CAMERA_START_POS", new List<string> { "Создать стартовую точку камеры VOB_SPACER_CAMERA_START", "Create VOB_SPACER_CAMERA_START vob", "VOB_SPACER_CAMERA_START vob erstellen", "Utwórz plik vob VOB_SPACER_CAMERA_START", "Vytvořit VOB_SPACER_CAMERA_START vob" });
             words.Add("WRONG_NOT_VOB_MOD", new List<string> { "Выбран неверный режим выделения!", "Wrong selection mode!", "Falscher Auswahlmodus!", "Nieprawidłowy tryb wyboru!", "Špatný režim výběru!" });
             words.Add("ERR_VOB_EXISTS", new List<string> { "Такой воб уже существует!", "Such vob is already exists!", "Eine solche Vob ist bereits vorhanden!", "Taki vob już istnieje!", "Takový vob již existuje!" });
+
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_ITEM_PARENT", new List<string> { "Данный oCItem находится в другом вобе! Этого быть не должно!", "This oCItem is inside another vob! This is bad!", "Dieses oCItem befindet sich in einem anderen VOB! Das darf nicht sein!", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_CHANGELEVEL_SPACE", new List<string> { "Поле levelName содержит пробелы. Это критическая ошибка!", "Field levelName contains spaces. This is a critical error!", "Das Feld levelName enthält Leerzeichen. Das ist ein kritischer Fehler!", "", "" });
+
+
         }
 
 
