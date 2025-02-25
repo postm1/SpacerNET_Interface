@@ -152,5 +152,17 @@
     <Setting Name="VobCatalogWinShowNext" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="UVWinLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">1000, 500</Value>
+    </Setting>
+    <Setting Name="UVWinSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">702, 597</Value>
+    </Setting>
+    <Setting Name="UVWinShow" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="UVWinShowNext" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

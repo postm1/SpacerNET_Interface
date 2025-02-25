@@ -2304,6 +2304,7 @@ namespace SpacerUnion
             SpacerNET.comLightWin.Font = font;
             SpacerNET.compWorldWin.Font = font;
             SpacerNET.errorForm.Font = font;
+            SpacerNET.uvForm.Font = font;
 
             SpacerNET.vobCatForm.Font = font;
             SpacerNET.vobCatForm.formConf.Font = font;
@@ -2442,6 +2443,18 @@ namespace SpacerUnion
             else
             {
                 SpacerNET.vobCatForm.Show();
+            }
+        }
+
+        private void toolStripButtonUV_Click(object sender, EventArgs e)
+        {
+            if (SpacerNET.uvForm.Visible)
+            {
+                SpacerNET.uvForm.Hide();
+            }
+            else
+            {
+                SpacerNET.uvForm.Show();
             }
         }
     }

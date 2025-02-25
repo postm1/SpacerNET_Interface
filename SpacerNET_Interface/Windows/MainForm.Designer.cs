@@ -125,6 +125,7 @@
             this.toolStripButtonPfxEditor = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonErrorReport = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCatalog = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonUV = new System.Windows.Forms.ToolStripButton();
             this.menuStripTopMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
@@ -745,7 +746,8 @@
             this.toolStripSeparator3,
             this.toolStripButtonPfxEditor,
             this.toolStripButtonErrorReport,
-            this.toolStripButtonCatalog});
+            this.toolStripButtonCatalog,
+            this.toolStripButtonUV});
             this.toolStripTop.Location = new System.Drawing.Point(0, 0);
             this.toolStripTop.Name = "toolStripTop";
             this.toolStripTop.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -992,6 +994,16 @@
             this.toolStripButtonCatalog.ToolTipText = "Vobs catalog";
             this.toolStripButtonCatalog.Click += new System.EventHandler(this.toolStripButtonCatalog_Click);
             // 
+            // toolStripButtonUV
+            // 
+            this.toolStripButtonUV.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonUV.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonUV.Image")));
+            this.toolStripButtonUV.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonUV.Name = "toolStripButtonUV";
+            this.toolStripButtonUV.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonUV.Text = "UV";
+            this.toolStripButtonUV.Click += new System.EventHandler(this.toolStripButtonUV_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1006,7 +1018,7 @@
             this.MainMenuStrip = this.menuStripTopMain;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Spacer.NET (" + Constants.SPACER_VERSION + ")";
+            this.Text = "Spacer.NET (1.28)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
@@ -1119,5 +1131,6 @@
         public System.Windows.Forms.ToolStripButton toolStripButtonErrorReport;
         public System.Windows.Forms.ToolStripButton toolStripButtonCatalog;
         public System.Windows.Forms.ToolStripButton toolStripButtonHelpVobs;
+        public System.Windows.Forms.ToolStripButton toolStripButtonUV;
     }
 }

@@ -622,5 +622,53 @@ namespace SpacerUnion.Properties {
                 this["VobCatalogWinShowNext"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000, 500")]
+        public global::System.Drawing.Point UVWinLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["UVWinLocation"]));
+            }
+            set {
+                this["UVWinLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("702, 597")]
+        public global::System.Drawing.Size UVWinSize {
+            get {
+                return ((global::System.Drawing.Size)(this["UVWinSize"]));
+            }
+            set {
+                this["UVWinSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UVWinShow {
+            get {
+                return ((bool)(this["UVWinShow"]));
+            }
+            set {
+                this["UVWinShow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UVWinShowNext {
+            get {
+                return ((bool)(this["UVWinShowNext"]));
+            }
+            set {
+                this["UVWinShowNext"] = value;
+            }
+        }
     }
 }

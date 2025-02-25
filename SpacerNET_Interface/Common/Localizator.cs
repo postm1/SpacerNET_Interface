@@ -119,6 +119,7 @@ namespace SpacerUnion.Common
             SpacerNET.errorForm.UpdateLang();
             SpacerNET.vobCatForm.UpdateLang();
             SpacerNET.vobCatForm.propsForm.UpdateLang();
+            SpacerNET.uvForm.UpdateLang();
         }
 
         [DllExport]

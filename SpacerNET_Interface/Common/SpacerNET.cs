@@ -42,7 +42,7 @@ namespace SpacerUnion
         public static MaterialFilterForm matFilterWin;
         public static SearchErrorsForm errorForm;
         public static VobCatalogForm vobCatForm;
-
+        public static UVReporterForm uvForm;
         // Список скрытых окон
         static List<Form> windowsToHideList = null;
 
@@ -96,6 +96,7 @@ namespace SpacerUnion
             matFilterWin = new MaterialFilterForm();
             errorForm = new SearchErrorsForm();
             vobCatForm = new VobCatalogForm();
+            uvForm = new UVReporterForm();
 
             windowsList.Add(objTreeWin);
             windowsList.Add(objectsWin);
@@ -117,7 +118,9 @@ namespace SpacerUnion
             windowsList.Add(macrosWin);
             windowsList.Add(errorForm);
             windowsList.Add(vobCatForm);
+            windowsList.Add(uvForm);
 
+            
             // каждому окну из списка задаем владельца: главную форму
             windowsList.ForEach(x => x.Owner = form);
 
