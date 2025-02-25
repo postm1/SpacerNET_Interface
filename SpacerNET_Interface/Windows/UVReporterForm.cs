@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -69,7 +70,77 @@ namespace SpacerUnion.Windows
 
         private void buttonFindBadUV_Click(object sender, EventArgs e)
         {
+            if (!SpacerNET.form.toolStripButtonMaterial.Checked)
+            {
+                MessageBox.Show(Localizator.Get("UV_WIN_POLY_SELECT_MUST_BE_ON"));
+                return;
+            }
 
+            float minArea = Convert.ToSingle(textBoxAreaMin.Text, CultureInfo.InvariantCulture);
+            float maxArea = Convert.ToSingle(textBoxAreaMax.Text, CultureInfo.InvariantCulture);
+            float angleDist = Convert.ToSingle(textBoxAngleDist.Text, CultureInfo.InvariantCulture);
+            int ignoreNoColl = Convert.ToInt32(checkBoxUVNoColl.Checked);
+
+            Imports.Extern_SetUV_Settings(minArea, maxArea, angleDist, ignoreNoColl);
+
+            Imports.Extern_UV_FindErrors();
+        }
+
+        private void textBoxAreaMin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !Utils.IsNumberInput(e.KeyChar, true, false))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == (char)0x09)
+            {
+                e.Handled = false;
+            }
+        }
+
+        private void textBoxAreaMax_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !Utils.IsNumberInput(e.KeyChar, true, false))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == (char)0x09)
+            {
+                e.Handled = false;
+            }
+        }
+
+        private void textBoxAngleDist_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !Utils.IsNumberInput(e.KeyChar, true, false))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == (char)0x09)
+            {
+                e.Handled = false;
+            }
         }
     }
 

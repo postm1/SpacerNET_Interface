@@ -61,7 +61,7 @@ namespace SpacerUnion.Windows
             this.listUVErrors.Location = new System.Drawing.Point(0, 86);
             this.listUVErrors.MultiSelect = false;
             this.listUVErrors.Name = "listUVErrors";
-            this.listUVErrors.Size = new System.Drawing.Size(702, 318);
+            this.listUVErrors.Size = new System.Drawing.Size(664, 318);
             this.listUVErrors.TabIndex = 1;
             this.listUVErrors.UseCompatibleStateImageBehavior = false;
             this.listUVErrors.View = System.Windows.Forms.View.Details;
@@ -73,7 +73,7 @@ namespace SpacerUnion.Windows
             // columnType
             // 
             this.columnType.Text = "Polygon";
-            this.columnType.Width = 620;
+            this.columnType.Width = 600;
             // 
             // panelDescTop
             // 
@@ -85,7 +85,7 @@ namespace SpacerUnion.Windows
             this.panelDescTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDescTop.Location = new System.Drawing.Point(0, 0);
             this.panelDescTop.Name = "panelDescTop";
-            this.panelDescTop.Size = new System.Drawing.Size(702, 86);
+            this.panelDescTop.Size = new System.Drawing.Size(664, 86);
             this.panelDescTop.TabIndex = 2;
             // 
             // labelDescr2
@@ -120,7 +120,7 @@ namespace SpacerUnion.Windows
             this.panelBottomControls.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelBottomControls.Location = new System.Drawing.Point(0, 404);
             this.panelBottomControls.Name = "panelBottomControls";
-            this.panelBottomControls.Size = new System.Drawing.Size(702, 142);
+            this.panelBottomControls.Size = new System.Drawing.Size(664, 142);
             this.panelBottomControls.TabIndex = 3;
             // 
             // checkBoxUVNoColl
@@ -160,7 +160,8 @@ namespace SpacerUnion.Windows
             this.textBoxAngleDist.Name = "textBoxAngleDist";
             this.textBoxAngleDist.Size = new System.Drawing.Size(51, 20);
             this.textBoxAngleDist.TabIndex = 4;
-            this.textBoxAngleDist.Text = "30";
+            this.textBoxAngleDist.Text = "15";
+            this.textBoxAngleDist.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAngleDist_KeyPress);
             // 
             // labelMaxUVArea
             // 
@@ -178,6 +179,7 @@ namespace SpacerUnion.Windows
             this.textBoxAreaMax.Size = new System.Drawing.Size(51, 20);
             this.textBoxAreaMax.TabIndex = 2;
             this.textBoxAreaMax.Text = "5";
+            this.textBoxAreaMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAreaMax_KeyPress);
             // 
             // labelMinUVArea
             // 
@@ -195,6 +197,7 @@ namespace SpacerUnion.Windows
             this.textBoxAreaMin.Size = new System.Drawing.Size(51, 20);
             this.textBoxAreaMin.TabIndex = 0;
             this.textBoxAreaMin.Text = "0.001";
+            this.textBoxAreaMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAreaMin_KeyPress);
             // 
             // labelDescr3
             // 
@@ -209,7 +212,7 @@ namespace SpacerUnion.Windows
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(702, 546);
+            this.ClientSize = new System.Drawing.Size(664, 546);
             this.Controls.Add(this.listUVErrors);
             this.Controls.Add(this.panelBottomControls);
             this.Controls.Add(this.panelDescTop);
