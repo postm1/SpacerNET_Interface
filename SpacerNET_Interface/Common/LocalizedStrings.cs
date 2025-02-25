@@ -853,19 +853,17 @@ namespace SpacerUnion.Common
             
             words.Add("ERROR_REPORT_PROBLEM_TYPE_CHANGELEVEL_SPACE", new List<string> { "Поле levelName содержит пробел. Это критическая ошибка!", "Field levelName contains space symbol. This is a critical error!", "Das Feld levelName enthält Leerzeichen. Das ist ein kritischer Fehler!", "Pole levelName zawiera symbol spacji. Jest to błąd krytyczny!", "Pole levelName obsahuje symbol mezery. Jedná se o kritickou chybu!" });
 
-            words.Add("UV_WIN_TITLE", new List<string> { "Окно поиска проблем в UV развертке", "Finding UV wrapping problems", "", "", "" });
-            words.Add("UV_WIN_DESCR_1", new List<string> { "Данный инструмент может найти проблемы в UV развертке в меше локации", "This tool can find problems in UV mapping in a location mesh", "", "", "" });
-            words.Add("UV_WIN_DESCR_2", new List<string> { "Внимание! Инструмент показывает ПРЕДПОЛАГАЕМЫЕ проблемы.", "Attention! The tool shows POTENTIAL problems.", "", "", "" });
-            words.Add("UV_WIN_DESCR_3", new List<string> { "UV развертку найденного полигона вы оцениваете визуально самостоятельно! ", "You must visually check the UV mapping of the found polygon!", "", "", "" });
-
-            words.Add("UV_WIN_BUTTON_FIND_UV", new List<string> { "Найти проблемы UV", "Find UV problems", "", "", "" });
-
-            words.Add("UV_WIN_MIN_AREA", new List<string> { "Минимальная площадь UV. Плохие развертки имеют значение <= 0.001", "Minimal UV area. Bad UV's have value <= 0.001", "", "", "" });
-            words.Add("UV_WIN_MAX_AREA", new List<string> { "Максимальная площадь UV. Плохие развертки имеют значение >= 5 (не всегда)", "Max UV area. Bad UV's can have value >= 5 (not always)", "", "", "" });
-            words.Add("UV_WIN_MAX_ANGLE_DIST", new List<string> { "Угол искажения (от 1 до 179). Плохие развертки имеют значение >= 10 (не всегда)", "Distortion angle (from 0 to 179). Bad UV's can have value >= 10 (not always)", "", "", "" });
-            words.Add("UV_WIN_IGNORE_NOCOLL", new List<string> { "Игнорировать материалы/полигоны без коллизии", "Ignore materials/polygons without collision", "", "", "" });
-            words.Add("UV_WIN_POLY_SELECT_MUST_BE_ON", new List<string> { "Сначала ВКЛЮЧИТЕ режим выделения полигонов!", "Turn ON polygon select mod first!", "", "", "" });
-            words.Add("UV_WIN_SLIDER_DIST", new List<string> { "Радиус прорисовки 'плохих' полигонов: ", "Draw distance of 'bad' polygons: ", "", "", "" });
+            words.Add("UV_WIN_TITLE", new List<string> { "Окно поиска проблем в UV развертке", "Finding UV wrapping problems", "Suchfenster von UV-Mapping-Problemen", "", "" });
+            words.Add("UV_WIN_DESCR_1", new List<string> { "Данный инструмент может найти проблемы в UV развертке в меше локации", "This tool can find problems in UV mapping in a location mesh", "Dieses Werkzeug kann Probleme im UV-Mapping eines Standort-Meshes finden", "", "" });
+            words.Add("UV_WIN_DESCR_2", new List<string> { "Внимание! Инструмент показывает ПРЕДПОЛАГАЕМЫЕ проблемы.", "Attention! The tool shows POTENTIAL problems.", "Achtung! Das Werkzeug zeigt MÖGLICHE Probleme an.", "", "" });
+            words.Add("UV_WIN_DESCR_3", new List<string> { "UV развертку найденного полигона вы оцениваете визуально самостоятельно! ", "You must visually check the UV mapping of the found polygon!", "Du musst das UV-Mapping des gefundenen Polygons selbst visuell überprüfen!", "", "" });
+            words.Add("UV_WIN_BUTTON_FIND_UV", new List<string> { "Найти проблемы UV", "Find UV problems", "UV-Probleme finden", "", "" });
+            words.Add("UV_WIN_MIN_AREA", new List<string> { "Минимальная площадь UV. Плохие развертки имеют значение <= 0.001", "Minimal UV area. Bad UV's have value <= 0.001", "Minimale UV-Fläche. Schlechte UVs haben einen Wert ≤ 0,001", "", "" });
+            words.Add("UV_WIN_MAX_AREA", new List<string> { "Максимальная площадь UV. Плохие развертки имеют значение >= 5 (не всегда)", "Max UV area. Bad UV's can have value >= 5 (not always)", "Maximale UV-Fläche. Schlechte UVs können einen Wert ≥ 5 haben (nicht immer)", "", "" });
+            words.Add("UV_WIN_MAX_ANGLE_DIST", new List<string> { "Угол искажения (от 1 до 179). Плохие развертки имеют значение >= 30 (не всегда)", "Distortion angle (from 0 to 179). Bad UV's can have value >= 30 (not always)", "Verzerrungswinkel (von 1 bis 179). Schlechte UVs können einen Wert ≥ 30 haben (nicht immer)", "", "" });
+            words.Add("UV_WIN_IGNORE_NOCOLL", new List<string> { "Игнорировать материалы/полигоны без коллизии", "Ignore materials/polygons without collision", "Materialien/Polygone ohne Kollision ignorieren", "", "" });
+            words.Add("UV_WIN_POLY_SELECT_MUST_BE_ON", new List<string> { "Сначала ВКЛЮЧИТЕ режим выделения полигонов!", "Turn ON polygon select mod first!", "Schalte zuerst den Polygon-Auswahlmodus EIN!", "", "" });
+            words.Add("UV_WIN_SLIDER_DIST", new List<string> { "Радиус прорисовки 'плохих' полигонов: ", "Draw distance of 'bad' polygons: ", "Darstellungsradius der „schlechten“ Polygone: ", "", "" });
             
         }
 

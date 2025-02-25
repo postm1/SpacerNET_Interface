@@ -65,7 +65,6 @@ namespace SpacerUnion.Windows
             // labelDescr3
             // 
             this.labelDescr3.AutoSize = true;
-            this.labelDescr3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.labelDescr3.Location = new System.Drawing.Point(3, 44);
             this.labelDescr3.Name = "labelDescr3";
             this.labelDescr3.Size = new System.Drawing.Size(41, 13);
