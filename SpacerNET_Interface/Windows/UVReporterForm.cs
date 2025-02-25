@@ -32,6 +32,18 @@ namespace SpacerUnion.Windows
             e.Cancel = true;
         }
 
+        public void ToggleInterface(bool toggle)
+        {
+
+            if (!toggle)
+            {
+                listUVErrors.Items.Clear();
+            }
+
+            panelBottomControls.Enabled = toggle;
+
+        }
+
         public void UpdateLang()
         {
 

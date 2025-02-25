@@ -153,6 +153,7 @@ namespace SpacerUnion
             SpacerNET.pfxWin.ToggleInterface(false);
             SpacerNET.errorForm.ToggleInterface(false);
             SpacerNET.vobCatForm.ToggleInterface(false);
+            SpacerNET.uvForm.ToggleInterface(false);
             // UnionNET.partWin.listBoxParticles.Items.Clear();
             // UnionNET.partWin.listBoxItems.Items.Clear();
         }
@@ -490,6 +491,7 @@ namespace SpacerUnion
                 SpacerNET.pfxWin.ToggleSelectPFX(true);
                 SpacerNET.errorForm.ToggleInterface(true);
                 SpacerNET.vobCatForm.ToggleInterface(true);
+                SpacerNET.uvForm.ToggleInterface(true);
             }
 
 

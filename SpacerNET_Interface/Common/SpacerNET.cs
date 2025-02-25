@@ -271,7 +271,13 @@ namespace SpacerUnion
                 vobCatForm.Show(); 
             }
 
-           
+
+            if (Properties.Settings.Default.UVWinShow || Properties.Settings.Default.UVWinShowNext)
+            {
+                uvForm.Show();
+            }
+            
+
 
             //==========================================================================================
 
@@ -333,7 +339,12 @@ namespace SpacerUnion
             {
                 errorForm.Location = Properties.Settings.Default.ErrorWinLocation;
             }
-
+            // UV form 
+            if (Properties.Settings.Default.UVWinLocation != null)
+            {
+                uvForm.Location = Properties.Settings.Default.UVWinLocation;
+            }
+            
             // Vob catalog form
             if (Properties.Settings.Default.VobCatalogWinLocation != null)
             {
@@ -380,7 +391,12 @@ namespace SpacerUnion
                 vobCatForm.Size = Properties.Settings.Default.VobCatalogWinSize;
             }
 
+            if (Properties.Settings.Default.UVWinSize != null)
+            {
+                uvForm.Size = Properties.Settings.Default.UVWinSize;
+            }
 
+            
 
 
 
@@ -568,6 +584,9 @@ namespace SpacerUnion
             Properties.Settings.Default.PFXEditorLocation = pfxWin.Location;
             Properties.Settings.Default.ErrorWinLocation = errorForm.Location;
             Properties.Settings.Default.VobCatalogWinLocation = vobCatForm.Location;
+            Properties.Settings.Default.UVWinLocation = uvForm.Location;
+
+            
 
             Properties.Settings.Default.InfoWinShow = infoWin.Visible;
             Properties.Settings.Default.ObjectWinShow = objectsWin.Visible;
@@ -581,6 +600,9 @@ namespace SpacerUnion
             Properties.Settings.Default.PFXEditorShow = pfxWin.Visible;
             Properties.Settings.Default.ErrorWinShow = errorForm.Visible;
             Properties.Settings.Default.VobCatalogWinShow = vobCatForm.Visible;
+            Properties.Settings.Default.UVWinShow = uvForm.Visible;
+
+            
 
             Properties.Settings.Default.ObjWinShowNext = !objectsWin.Visible && windowsToHideList.Contains(objectsWin);
             Properties.Settings.Default.VobListWinShowNext = !vobList.Visible && windowsToHideList.Contains(vobList);
@@ -594,6 +616,9 @@ namespace SpacerUnion
             Properties.Settings.Default.PFXEditorShowNext = !pfxWin.Visible && windowsToHideList.Contains(pfxWin);
             Properties.Settings.Default.ErrorWinShowNext = !errorForm.Visible && windowsToHideList.Contains(errorForm);
             Properties.Settings.Default.VobCatalogWinShowNext = !vobCatForm.Visible && windowsToHideList.Contains(vobCatForm);
+            Properties.Settings.Default.UVWinShowNext = !uvForm.Visible && windowsToHideList.Contains(uvForm);
+
+            
             //ConsoleEx.WriteLineRed(Properties.Settings.Default.MacrosWinShowNext + "/" + Properties.Settings.Default.MacrosWinShowNext);
 
             Properties.Settings.Default.MainWindowPos = form.Location;
@@ -608,6 +633,9 @@ namespace SpacerUnion
             Properties.Settings.Default.PFXEditorSize = pfxWin.Size;
             Properties.Settings.Default.ErrorWinSize = errorForm.Size;
             Properties.Settings.Default.VobCatalogWinSize = vobCatForm.Size;
+            Properties.Settings.Default.UVWinSize = uvForm.Size;
+
+            
 
             Properties.Settings.Default.Save();
 
