@@ -34,16 +34,17 @@ namespace SpacerUnion.Windows
             this.columnType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelDescTop = new System.Windows.Forms.Panel();
             this.labelDescr2 = new System.Windows.Forms.Label();
-            this.labelDescr = new System.Windows.Forms.Label();
+            this.labelDescr1 = new System.Windows.Forms.Label();
             this.panelBottomControls = new System.Windows.Forms.Panel();
             this.checkBoxUVNoColl = new System.Windows.Forms.CheckBox();
             this.buttonFindBadUV = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.labelDistAngle = new System.Windows.Forms.Label();
+            this.textBoxAngleDist = new System.Windows.Forms.TextBox();
+            this.labelMaxUVArea = new System.Windows.Forms.Label();
+            this.textBoxAreaMax = new System.Windows.Forms.TextBox();
             this.labelMinUVArea = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxAreaMin = new System.Windows.Forms.TextBox();
+            this.labelDescr3 = new System.Windows.Forms.Label();
             this.panelDescTop.SuspendLayout();
             this.panelBottomControls.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +61,7 @@ namespace SpacerUnion.Windows
             this.listUVErrors.Location = new System.Drawing.Point(0, 86);
             this.listUVErrors.MultiSelect = false;
             this.listUVErrors.Name = "listUVErrors";
-            this.listUVErrors.Size = new System.Drawing.Size(686, 330);
+            this.listUVErrors.Size = new System.Drawing.Size(702, 318);
             this.listUVErrors.TabIndex = 1;
             this.listUVErrors.UseCompatibleStateImageBehavior = false;
             this.listUVErrors.View = System.Windows.Forms.View.Details;
@@ -72,54 +73,54 @@ namespace SpacerUnion.Windows
             // columnType
             // 
             this.columnType.Text = "Polygon";
-            this.columnType.Width = 600;
+            this.columnType.Width = 620;
             // 
             // panelDescTop
             // 
             this.panelDescTop.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelDescTop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelDescTop.Controls.Add(this.labelDescr3);
             this.panelDescTop.Controls.Add(this.labelDescr2);
-            this.panelDescTop.Controls.Add(this.labelDescr);
+            this.panelDescTop.Controls.Add(this.labelDescr1);
             this.panelDescTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDescTop.Location = new System.Drawing.Point(0, 0);
             this.panelDescTop.Name = "panelDescTop";
-            this.panelDescTop.Size = new System.Drawing.Size(686, 86);
+            this.panelDescTop.Size = new System.Drawing.Size(702, 86);
             this.panelDescTop.TabIndex = 2;
             // 
             // labelDescr2
             // 
             this.labelDescr2.AutoSize = true;
-            this.labelDescr2.Location = new System.Drawing.Point(4, 52);
+            this.labelDescr2.Location = new System.Drawing.Point(3, 26);
             this.labelDescr2.Name = "labelDescr2";
-            this.labelDescr2.Size = new System.Drawing.Size(335, 13);
+            this.labelDescr2.Size = new System.Drawing.Size(41, 13);
             this.labelDescr2.TabIndex = 1;
-            this.labelDescr2.Text = "This tool ignores: water, ghost occluders, sun blockers, alpha textures";
+            this.labelDescr2.Text = "Descr2";
             // 
-            // labelDescr
+            // labelDescr1
             // 
-            this.labelDescr.AutoSize = true;
-            this.labelDescr.Location = new System.Drawing.Point(3, 8);
-            this.labelDescr.Name = "labelDescr";
-            this.labelDescr.Size = new System.Drawing.Size(483, 39);
-            this.labelDescr.TabIndex = 0;
-            this.labelDescr.Text = "This window can find polygons with bad UV. \r\nWarning! \r\nThis instrument shows onl" +
-    "y POSSIBLE UV problems, if your polygon is shown as bad, it still can be ok";
+            this.labelDescr1.AutoSize = true;
+            this.labelDescr1.Location = new System.Drawing.Point(3, 8);
+            this.labelDescr1.Name = "labelDescr1";
+            this.labelDescr1.Size = new System.Drawing.Size(219, 13);
+            this.labelDescr1.TabIndex = 0;
+            this.labelDescr1.Text = "This window can find polygons with bad UV. \r\n";
             // 
             // panelBottomControls
             // 
             this.panelBottomControls.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelBottomControls.Controls.Add(this.checkBoxUVNoColl);
             this.panelBottomControls.Controls.Add(this.buttonFindBadUV);
-            this.panelBottomControls.Controls.Add(this.label2);
-            this.panelBottomControls.Controls.Add(this.textBox3);
-            this.panelBottomControls.Controls.Add(this.label1);
-            this.panelBottomControls.Controls.Add(this.textBox2);
+            this.panelBottomControls.Controls.Add(this.labelDistAngle);
+            this.panelBottomControls.Controls.Add(this.textBoxAngleDist);
+            this.panelBottomControls.Controls.Add(this.labelMaxUVArea);
+            this.panelBottomControls.Controls.Add(this.textBoxAreaMax);
             this.panelBottomControls.Controls.Add(this.labelMinUVArea);
-            this.panelBottomControls.Controls.Add(this.textBox1);
+            this.panelBottomControls.Controls.Add(this.textBoxAreaMin);
             this.panelBottomControls.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottomControls.Location = new System.Drawing.Point(0, 416);
+            this.panelBottomControls.Location = new System.Drawing.Point(0, 404);
             this.panelBottomControls.Name = "panelBottomControls";
-            this.panelBottomControls.Size = new System.Drawing.Size(686, 142);
+            this.panelBottomControls.Size = new System.Drawing.Size(702, 142);
             this.panelBottomControls.TabIndex = 3;
             // 
             // checkBoxUVNoColl
@@ -142,40 +143,41 @@ namespace SpacerUnion.Windows
             this.buttonFindBadUV.TabIndex = 6;
             this.buttonFindBadUV.Text = "Find bad UV\'s";
             this.buttonFindBadUV.UseVisualStyleBackColor = true;
+            this.buttonFindBadUV.Click += new System.EventHandler(this.buttonFindBadUV_Click);
             // 
-            // label2
+            // labelDistAngle
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(68, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(256, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Distortion angle. Bad UV\'s can have this angle >= 10";
+            this.labelDistAngle.AutoSize = true;
+            this.labelDistAngle.Location = new System.Drawing.Point(68, 60);
+            this.labelDistAngle.Name = "labelDistAngle";
+            this.labelDistAngle.Size = new System.Drawing.Size(256, 13);
+            this.labelDistAngle.TabIndex = 5;
+            this.labelDistAngle.Text = "Distortion angle. Bad UV\'s can have this angle >= 10";
             // 
-            // textBox3
+            // textBoxAngleDist
             // 
-            this.textBox3.Location = new System.Drawing.Point(11, 57);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(51, 20);
-            this.textBox3.TabIndex = 4;
-            this.textBox3.Text = "30";
+            this.textBoxAngleDist.Location = new System.Drawing.Point(11, 57);
+            this.textBoxAngleDist.Name = "textBoxAngleDist";
+            this.textBoxAngleDist.Size = new System.Drawing.Size(51, 20);
+            this.textBoxAngleDist.TabIndex = 4;
+            this.textBoxAngleDist.Text = "30";
             // 
-            // label1
+            // labelMaxUVArea
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(68, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(191, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Max UV area. Bad UV\'s can have >= 5";
+            this.labelMaxUVArea.AutoSize = true;
+            this.labelMaxUVArea.Location = new System.Drawing.Point(68, 34);
+            this.labelMaxUVArea.Name = "labelMaxUVArea";
+            this.labelMaxUVArea.Size = new System.Drawing.Size(191, 13);
+            this.labelMaxUVArea.TabIndex = 3;
+            this.labelMaxUVArea.Text = "Max UV area. Bad UV\'s can have >= 5";
             // 
-            // textBox2
+            // textBoxAreaMax
             // 
-            this.textBox2.Location = new System.Drawing.Point(11, 31);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(51, 20);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.Text = "5";
+            this.textBoxAreaMax.Location = new System.Drawing.Point(11, 31);
+            this.textBoxAreaMax.Name = "textBoxAreaMax";
+            this.textBoxAreaMax.Size = new System.Drawing.Size(51, 20);
+            this.textBoxAreaMax.TabIndex = 2;
+            this.textBoxAreaMax.Text = "5";
             // 
             // labelMinUVArea
             // 
@@ -186,24 +188,34 @@ namespace SpacerUnion.Windows
             this.labelMinUVArea.TabIndex = 1;
             this.labelMinUVArea.Text = "Minimal UV area. Bad UV\'s have <= 0.001";
             // 
-            // textBox1
+            // textBoxAreaMin
             // 
-            this.textBox1.Location = new System.Drawing.Point(11, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(51, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "0.001";
+            this.textBoxAreaMin.Location = new System.Drawing.Point(11, 5);
+            this.textBoxAreaMin.Name = "textBoxAreaMin";
+            this.textBoxAreaMin.Size = new System.Drawing.Size(51, 20);
+            this.textBoxAreaMin.TabIndex = 0;
+            this.textBoxAreaMin.Text = "0.001";
+            // 
+            // labelDescr3
+            // 
+            this.labelDescr3.AutoSize = true;
+            this.labelDescr3.Location = new System.Drawing.Point(3, 44);
+            this.labelDescr3.Name = "labelDescr3";
+            this.labelDescr3.Size = new System.Drawing.Size(41, 13);
+            this.labelDescr3.TabIndex = 2;
+            this.labelDescr3.Text = "Descr3";
             // 
             // UVReporterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 558);
+            this.ClientSize = new System.Drawing.Size(702, 546);
             this.Controls.Add(this.listUVErrors);
             this.Controls.Add(this.panelBottomControls);
             this.Controls.Add(this.panelDescTop);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(483, 400);
             this.Name = "UVReporterForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -225,15 +237,16 @@ namespace SpacerUnion.Windows
         private System.Windows.Forms.ColumnHeader columnType;
         private System.Windows.Forms.Panel panelDescTop;
         private System.Windows.Forms.Panel panelBottomControls;
-        private System.Windows.Forms.Label labelDescr;
+        private System.Windows.Forms.Label labelDescr1;
         private System.Windows.Forms.Label labelMinUVArea;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxAreaMin;
+        private System.Windows.Forms.Label labelMaxUVArea;
+        private System.Windows.Forms.TextBox textBoxAreaMax;
+        private System.Windows.Forms.Label labelDistAngle;
+        private System.Windows.Forms.TextBox textBoxAngleDist;
         private System.Windows.Forms.Button buttonFindBadUV;
         private System.Windows.Forms.Label labelDescr2;
         private System.Windows.Forms.CheckBox checkBoxUVNoColl;
+        private System.Windows.Forms.Label labelDescr3;
     }
 }

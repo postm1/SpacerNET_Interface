@@ -637,7 +637,7 @@ namespace SpacerUnion.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("702, 597")]
+        [global::System.Configuration.DefaultSettingValueAttribute("700, 597")]
         public global::System.Drawing.Size UVWinSize {
             get {
                 return ((global::System.Drawing.Size)(this["UVWinSize"]));

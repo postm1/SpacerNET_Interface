@@ -156,7 +156,7 @@
       <Value Profile="(Default)">1000, 500</Value>
     </Setting>
     <Setting Name="UVWinSize" Type="System.Drawing.Size" Scope="User">
-      <Value Profile="(Default)">702, 597</Value>
+      <Value Profile="(Default)">700, 597</Value>
     </Setting>
     <Setting Name="UVWinShow" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
