@@ -36,12 +36,6 @@ namespace SpacerUnion.Windows
 
         public void ToggleInterface(bool toggle)
         {
-
-            if (!toggle)
-            {
-                listUVErrors.Items.Clear();
-            }
-
             panelBottomControls.Enabled = toggle;
 
         }
@@ -60,7 +54,9 @@ namespace SpacerUnion.Windows
             labelDistAngle.Text = Localizator.Get("UV_WIN_MAX_ANGLE_DIST");
             checkBoxUVNoColl.Text = Localizator.Get("UV_WIN_IGNORE_NOCOLL");
 
-            
+            labelRadius.Text = Localizator.Get("UV_WIN_SLIDER_DIST") + trackBarRadiusShow.Value;
+
+
         }
 
         private void UVReporterForm_VisibleChanged(object sender, EventArgs e)
@@ -81,7 +77,14 @@ namespace SpacerUnion.Windows
             float angleDist = Convert.ToSingle(textBoxAngleDist.Text, CultureInfo.InvariantCulture);
             int ignoreNoColl = Convert.ToInt32(checkBoxUVNoColl.Checked);
 
+            if (angleDist < 1 || angleDist > 179)
+            {
+                angleDist = 35;
+                textBoxAngleDist.Text = "35";
+            }
+
             Imports.Extern_SetUV_Settings(minArea, maxArea, angleDist, ignoreNoColl);
+            Imports.Extern_UV_SetPolyRadius(trackBarRadiusShow.Value);
 
             Imports.Extern_UV_FindErrors();
         }
@@ -141,6 +144,13 @@ namespace SpacerUnion.Windows
             {
                 e.Handled = false;
             }
+        }
+
+        private void trackBarRadiusShow_ValueChanged(object sender, EventArgs e)
+        {
+            labelRadius.Text = Localizator.Get("UV_WIN_SLIDER_DIST") + trackBarRadiusShow.Value;
+
+            Imports.Extern_UV_SetPolyRadius(trackBarRadiusShow.Value);
         }
     }
 

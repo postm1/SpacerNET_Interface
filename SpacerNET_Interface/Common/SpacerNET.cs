@@ -393,7 +393,7 @@ namespace SpacerUnion
 
             if (Properties.Settings.Default.UVWinSize != null)
             {
-                uvForm.Size = Properties.Settings.Default.UVWinSize;
+                //uvForm.Size = Properties.Settings.Default.UVWinSize;
             }
 
             

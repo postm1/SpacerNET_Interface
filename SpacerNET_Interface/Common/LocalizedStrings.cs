@@ -862,11 +862,11 @@ namespace SpacerUnion.Common
 
             words.Add("UV_WIN_MIN_AREA", new List<string> { "Минимальная площадь UV. Плохие развертки имеют значение <= 0.001", "Minimal UV area. Bad UV's have value <= 0.001", "", "", "" });
             words.Add("UV_WIN_MAX_AREA", new List<string> { "Максимальная площадь UV. Плохие развертки имеют значение >= 5 (не всегда)", "Max UV area. Bad UV's can have value >= 5 (not always)", "", "", "" });
-            words.Add("UV_WIN_MAX_ANGLE_DIST", new List<string> { "Угол искажения. Плохие развертки имеют значение >= 10 (не всегда)", "Distortion angle. Bad UV's can have value >= 10 (not always)", "", "", "" });
+            words.Add("UV_WIN_MAX_ANGLE_DIST", new List<string> { "Угол искажения (от 1 до 179). Плохие развертки имеют значение >= 10 (не всегда)", "Distortion angle (from 0 to 179). Bad UV's can have value >= 10 (not always)", "", "", "" });
             words.Add("UV_WIN_IGNORE_NOCOLL", new List<string> { "Игнорировать материалы/полигоны без коллизии", "Ignore materials/polygons without collision", "", "", "" });
-            words.Add("UV_WIN_POLY_SELECT_MUST_BE_ON", new List<string> { "Сначала ВКЛЮЧИТЕ режим выделения полигонов!", "Turn On polygon select mod first!", "", "", "" });
-
-
+            words.Add("UV_WIN_POLY_SELECT_MUST_BE_ON", new List<string> { "Сначала ВКЛЮЧИТЕ режим выделения полигонов!", "Turn ON polygon select mod first!", "", "", "" });
+            words.Add("UV_WIN_SLIDER_DIST", new List<string> { "Радиус прорисовки 'плохих' полигонов: ", "Draw distance of 'bad' polygons: ", "", "", "" });
+            
         }
 
 

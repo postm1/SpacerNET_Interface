@@ -29,13 +29,13 @@ namespace SpacerUnion.Windows
         /// </summary>
         private void InitializeComponent()
         {
-            this.listUVErrors = new System.Windows.Forms.ListView();
-            this.columnHeaderNum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelDescTop = new System.Windows.Forms.Panel();
+            this.labelDescr3 = new System.Windows.Forms.Label();
             this.labelDescr2 = new System.Windows.Forms.Label();
             this.labelDescr1 = new System.Windows.Forms.Label();
             this.panelBottomControls = new System.Windows.Forms.Panel();
+            this.labelRadius = new System.Windows.Forms.Label();
+            this.trackBarRadiusShow = new System.Windows.Forms.TrackBar();
             this.checkBoxUVNoColl = new System.Windows.Forms.CheckBox();
             this.buttonFindBadUV = new System.Windows.Forms.Button();
             this.labelDistAngle = new System.Windows.Forms.Label();
@@ -44,36 +44,10 @@ namespace SpacerUnion.Windows
             this.textBoxAreaMax = new System.Windows.Forms.TextBox();
             this.labelMinUVArea = new System.Windows.Forms.Label();
             this.textBoxAreaMin = new System.Windows.Forms.TextBox();
-            this.labelDescr3 = new System.Windows.Forms.Label();
             this.panelDescTop.SuspendLayout();
             this.panelBottomControls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarRadiusShow)).BeginInit();
             this.SuspendLayout();
-            // 
-            // listUVErrors
-            // 
-            this.listUVErrors.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeaderNum,
-            this.columnType});
-            this.listUVErrors.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listUVErrors.FullRowSelect = true;
-            this.listUVErrors.HideSelection = false;
-            this.listUVErrors.LabelWrap = false;
-            this.listUVErrors.Location = new System.Drawing.Point(0, 86);
-            this.listUVErrors.MultiSelect = false;
-            this.listUVErrors.Name = "listUVErrors";
-            this.listUVErrors.Size = new System.Drawing.Size(664, 318);
-            this.listUVErrors.TabIndex = 1;
-            this.listUVErrors.UseCompatibleStateImageBehavior = false;
-            this.listUVErrors.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeaderNum
-            // 
-            this.columnHeaderNum.Text = "№";
-            // 
-            // columnType
-            // 
-            this.columnType.Text = "Polygon";
-            this.columnType.Width = 600;
             // 
             // panelDescTop
             // 
@@ -85,8 +59,18 @@ namespace SpacerUnion.Windows
             this.panelDescTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDescTop.Location = new System.Drawing.Point(0, 0);
             this.panelDescTop.Name = "panelDescTop";
-            this.panelDescTop.Size = new System.Drawing.Size(664, 86);
+            this.panelDescTop.Size = new System.Drawing.Size(613, 86);
             this.panelDescTop.TabIndex = 2;
+            // 
+            // labelDescr3
+            // 
+            this.labelDescr3.AutoSize = true;
+            this.labelDescr3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.labelDescr3.Location = new System.Drawing.Point(3, 44);
+            this.labelDescr3.Name = "labelDescr3";
+            this.labelDescr3.Size = new System.Drawing.Size(41, 13);
+            this.labelDescr3.TabIndex = 2;
+            this.labelDescr3.Text = "Descr3";
             // 
             // labelDescr2
             // 
@@ -109,6 +93,8 @@ namespace SpacerUnion.Windows
             // panelBottomControls
             // 
             this.panelBottomControls.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelBottomControls.Controls.Add(this.labelRadius);
+            this.panelBottomControls.Controls.Add(this.trackBarRadiusShow);
             this.panelBottomControls.Controls.Add(this.checkBoxUVNoColl);
             this.panelBottomControls.Controls.Add(this.buttonFindBadUV);
             this.panelBottomControls.Controls.Add(this.labelDistAngle);
@@ -117,11 +103,33 @@ namespace SpacerUnion.Windows
             this.panelBottomControls.Controls.Add(this.textBoxAreaMax);
             this.panelBottomControls.Controls.Add(this.labelMinUVArea);
             this.panelBottomControls.Controls.Add(this.textBoxAreaMin);
-            this.panelBottomControls.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottomControls.Location = new System.Drawing.Point(0, 404);
+            this.panelBottomControls.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBottomControls.Location = new System.Drawing.Point(0, 86);
             this.panelBottomControls.Name = "panelBottomControls";
-            this.panelBottomControls.Size = new System.Drawing.Size(664, 142);
+            this.panelBottomControls.Size = new System.Drawing.Size(613, 197);
             this.panelBottomControls.TabIndex = 3;
+            // 
+            // labelRadius
+            // 
+            this.labelRadius.AutoSize = true;
+            this.labelRadius.Location = new System.Drawing.Point(198, 111);
+            this.labelRadius.Name = "labelRadius";
+            this.labelRadius.Size = new System.Drawing.Size(163, 13);
+            this.labelRadius.TabIndex = 9;
+            this.labelRadius.Text = "Draw distance of \"bad\" polygons";
+            // 
+            // trackBarRadiusShow
+            // 
+            this.trackBarRadiusShow.LargeChange = 2000;
+            this.trackBarRadiusShow.Location = new System.Drawing.Point(11, 107);
+            this.trackBarRadiusShow.Maximum = 30000;
+            this.trackBarRadiusShow.Minimum = 2000;
+            this.trackBarRadiusShow.Name = "trackBarRadiusShow";
+            this.trackBarRadiusShow.Size = new System.Drawing.Size(183, 45);
+            this.trackBarRadiusShow.SmallChange = 500;
+            this.trackBarRadiusShow.TabIndex = 8;
+            this.trackBarRadiusShow.Value = 8000;
+            this.trackBarRadiusShow.ValueChanged += new System.EventHandler(this.trackBarRadiusShow_ValueChanged);
             // 
             // checkBoxUVNoColl
             // 
@@ -137,7 +145,7 @@ namespace SpacerUnion.Windows
             // 
             // buttonFindBadUV
             // 
-            this.buttonFindBadUV.Location = new System.Drawing.Point(237, 106);
+            this.buttonFindBadUV.Location = new System.Drawing.Point(201, 161);
             this.buttonFindBadUV.Name = "buttonFindBadUV";
             this.buttonFindBadUV.Size = new System.Drawing.Size(214, 23);
             this.buttonFindBadUV.TabIndex = 6;
@@ -160,7 +168,7 @@ namespace SpacerUnion.Windows
             this.textBoxAngleDist.Name = "textBoxAngleDist";
             this.textBoxAngleDist.Size = new System.Drawing.Size(51, 20);
             this.textBoxAngleDist.TabIndex = 4;
-            this.textBoxAngleDist.Text = "15";
+            this.textBoxAngleDist.Text = "35";
             this.textBoxAngleDist.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAngleDist_KeyPress);
             // 
             // labelMaxUVArea
@@ -199,26 +207,18 @@ namespace SpacerUnion.Windows
             this.textBoxAreaMin.Text = "0.001";
             this.textBoxAreaMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAreaMin_KeyPress);
             // 
-            // labelDescr3
-            // 
-            this.labelDescr3.AutoSize = true;
-            this.labelDescr3.Location = new System.Drawing.Point(3, 44);
-            this.labelDescr3.Name = "labelDescr3";
-            this.labelDescr3.Size = new System.Drawing.Size(41, 13);
-            this.labelDescr3.TabIndex = 2;
-            this.labelDescr3.Text = "Descr3";
-            // 
             // UVReporterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 546);
-            this.Controls.Add(this.listUVErrors);
+            this.ClientSize = new System.Drawing.Size(613, 283);
             this.Controls.Add(this.panelBottomControls);
             this.Controls.Add(this.panelDescTop);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(483, 400);
+            this.MinimumSize = new System.Drawing.Size(629, 322);
             this.Name = "UVReporterForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -229,15 +229,12 @@ namespace SpacerUnion.Windows
             this.panelDescTop.PerformLayout();
             this.panelBottomControls.ResumeLayout(false);
             this.panelBottomControls.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarRadiusShow)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        public System.Windows.Forms.ListView listUVErrors;
-        private System.Windows.Forms.ColumnHeader columnHeaderNum;
-        private System.Windows.Forms.ColumnHeader columnType;
         private System.Windows.Forms.Panel panelDescTop;
         private System.Windows.Forms.Panel panelBottomControls;
         private System.Windows.Forms.Label labelDescr1;
@@ -251,5 +248,7 @@ namespace SpacerUnion.Windows
         private System.Windows.Forms.Label labelDescr2;
         private System.Windows.Forms.CheckBox checkBoxUVNoColl;
         private System.Windows.Forms.Label labelDescr3;
+        private System.Windows.Forms.Label labelRadius;
+        private System.Windows.Forms.TrackBar trackBarRadiusShow;
     }
 }
