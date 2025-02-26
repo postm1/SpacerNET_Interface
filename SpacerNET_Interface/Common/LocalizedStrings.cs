@@ -864,6 +864,9 @@ namespace SpacerUnion.Common
             words.Add("UV_WIN_IGNORE_NOCOLL", new List<string> { "Игнорировать материалы/полигоны без коллизии", "Ignore materials/polygons without collision", "Materialien/Polygone ohne Kollision ignorieren", "", "" });
             words.Add("UV_WIN_POLY_SELECT_MUST_BE_ON", new List<string> { "Сначала ВКЛЮЧИТЕ режим выделения полигонов!", "Turn ON polygon select mod first!", "Schalte zuerst den Polygon-Auswahlmodus EIN!", "", "" });
             words.Add("UV_WIN_SLIDER_DIST", new List<string> { "Радиус прорисовки 'плохих' полигонов: ", "Draw distance of 'bad' polygons: ", "Darstellungsradius der „schlechten“ Polygone: ", "", "" });
+
+
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_VISUAL_SPACE", new List<string> { "В поле 'visual' воба есть пробел", "Field 'visual' contains space symbol", "", "", "" });
             
         }
 
