@@ -232,7 +232,8 @@ namespace SpacerUnion
             string[] words = inputStr.Replace("\t", "").Split('\n');
 
             // сохраняем нетронутую строку
-           
+
+            //ConsoleEx.WriteLineGreen(inputStr);
 
             for (int i = 0; i < words.Length; i++)
             {

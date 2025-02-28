@@ -43,6 +43,7 @@
             this.checkBoxLastZenAuto = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
             this.btnMiscSetApply = new System.Windows.Forms.Button();
+            this.checkBoxDisableUpper = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +59,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxDisableUpper);
             this.groupBox1.Controls.Add(this.checkBoxFast3ds);
             this.groupBox1.Controls.Add(this.checkBoxUpperCase);
             this.groupBox1.Controls.Add(this.checkBoxMiscRemoveAllLevelCompos);
@@ -82,7 +84,7 @@
             this.checkBoxFast3ds.AutoSize = true;
             this.checkBoxFast3ds.Checked = true;
             this.checkBoxFast3ds.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxFast3ds.Location = new System.Drawing.Point(13, 325);
+            this.checkBoxFast3ds.Location = new System.Drawing.Point(13, 344);
             this.checkBoxFast3ds.Name = "checkBoxFast3ds";
             this.checkBoxFast3ds.Size = new System.Drawing.Size(575, 17);
             this.checkBoxFast3ds.TabIndex = 14;
@@ -93,8 +95,6 @@
             // checkBoxUpperCase
             // 
             this.checkBoxUpperCase.AutoSize = true;
-            this.checkBoxUpperCase.Checked = true;
-            this.checkBoxUpperCase.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxUpperCase.Location = new System.Drawing.Point(13, 302);
             this.checkBoxUpperCase.Name = "checkBoxUpperCase";
             this.checkBoxUpperCase.Size = new System.Drawing.Size(174, 17);
@@ -224,6 +224,17 @@
             this.btnMiscSetApply.UseVisualStyleBackColor = true;
             this.btnMiscSetApply.Click += new System.EventHandler(this.btnMiscSetApply_Click);
             // 
+            // checkBoxDisableUpper
+            // 
+            this.checkBoxDisableUpper.AutoSize = true;
+            this.checkBoxDisableUpper.Location = new System.Drawing.Point(13, 323);
+            this.checkBoxDisableUpper.Name = "checkBoxDisableUpper";
+            this.checkBoxDisableUpper.Size = new System.Drawing.Size(206, 17);
+            this.checkBoxDisableUpper.TabIndex = 15;
+            this.checkBoxDisableUpper.Text = "Disable converting fields to uppercase";
+            this.checkBoxDisableUpper.UseVisualStyleBackColor = true;
+            this.checkBoxDisableUpper.CheckedChanged += new System.EventHandler(this.checkBoxDisableUpper_CheckedChanged);
+            // 
             // MiscSettingsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,5 +274,6 @@
         public System.Windows.Forms.CheckBox checkBoxMiscRemoveAllLevelCompos;
         public System.Windows.Forms.CheckBox checkBoxUpperCase;
         public System.Windows.Forms.CheckBox checkBoxFast3ds;
+        public System.Windows.Forms.CheckBox checkBoxDisableUpper;
     }
 }

@@ -866,6 +866,10 @@ namespace SpacerUnion.Common
             words.Add("UV_WIN_SLIDER_DIST", new List<string> { "Радиус прорисовки 'плохих' полигонов: ", "Draw distance of 'bad' polygons: ", "Darstellungsradius der „schlechten“ Polygone: ", "Zasięg rysowania 'złych' poligonów: ", "" });
 
             words.Add("ERROR_REPORT_PROBLEM_TYPE_VISUAL_SPACE", new List<string> { "В поле 'visual' есть символ 'пробел'. Пробел можно удалить введя другой визуал воба, а затем вернув оригинальный без пробела.", "Field 'visual' contains space symbol. The space can be removed by entering a different visual and then returning the original one without the space symbol.", "Das Feld 'visual' enthält ein Leerzeichen. Das Leerzeichen kann entfernt werden, indem du ein anderes Visual eingibst und anschließend das ursprüngliche ohne Leerzeichen wiederherstellst.", "Pole 'visual' zawiera znak spacji. Spacja może zostać usunięta poprzez wprowadzenie innego visuala i przywróceniu oryginalnego bez znaku spacji.", "" });
+
+
+            words.Add("checkBoxDisableUpper", new List<string> { "Запретить переводить значения свойств воба в верхний регистр", "Disable converting vob's fields to uppercase", "", "", "" });
+
             
         }
 

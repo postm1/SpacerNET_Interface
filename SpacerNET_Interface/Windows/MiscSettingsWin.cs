@@ -33,8 +33,13 @@ namespace SpacerUnion.Windows
             checkBoxShowPolysSort.Text = Localizator.Get("checkBoxShowPolysSort");
             checkBoxOnlyLatinInInput.Text = Localizator.Get("checkBoxOnlyLatinInInput");
             checkBoxUpperCase.Text = Localizator.Get("checkBoxUpperCase");
+            checkBoxDisableUpper.Text = Localizator.Get("checkBoxDisableUpper");
             checkBoxFast3ds.Text = Localizator.Get("TITLE_3DS_FAST_MODE");
+
+
             
+
+
             btnMiscSetApply.Text = Localizator.Get("BTN_APPLY");
         }
 
@@ -87,6 +92,9 @@ namespace SpacerUnion.Windows
 
             Imports.Stack_PushString("bFastLoad3DSLocation");
             SpacerNET.miscSetWin.checkBoxFast3ds.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("checkBoxDisableUpper");
+            SpacerNET.miscSetWin.checkBoxDisableUpper.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
         }
 
         public void OnApplySettings()
@@ -127,7 +135,12 @@ namespace SpacerUnion.Windows
 
             Imports.Stack_PushString("bFastLoad3DSLocation");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxFast3ds.Checked));
+
+            Imports.Stack_PushString("checkBoxDisableUpper");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxDisableUpper.Checked));
             
+
+
         }
 
         private void MiscSettingsWin_FormClosing(object sender, FormClosingEventArgs e)
@@ -159,6 +172,13 @@ namespace SpacerUnion.Windows
         private void checkBoxMiscExitAsk_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBoxDisableUpper_CheckedChanged(object sender, EventArgs e)
+        {
+            var box = sender as CheckBox;
+
+            checkBoxUpperCase.Enabled = !box.Checked;
         }
     }
 }

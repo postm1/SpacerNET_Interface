@@ -246,7 +246,11 @@ namespace SpacerUnion
 
         public void SetValue(string v)
         {
-            v = v.ToUpper();
+            if (!SpacerNET.miscSetWin.checkBoxDisableUpper.Checked)
+            {
+                v = v.ToUpper();
+            }
+           
 
             value = v;
 
