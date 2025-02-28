@@ -51,7 +51,8 @@ namespace SpacerUnion.Common
         ERROR_REPORT_PROBLEM_TYPE_BBOX_AREA_WRONG_SIZE,
         ERROR_REPORT_PROBLEM_TYPE_CHANGELEVEL_SPACE,
         ERROR_REPORT_PROBLEM_TYPE_ITEM_PARENT,
-        ERROR_REPORT_PROBLEM_TYPE_VISUAL_SPACE
+        ERROR_REPORT_PROBLEM_TYPE_VISUAL_SPACE,
+        ERROR_REPORT_PROBLEM_TYPE_TRIGGER_SCRIPT_FUNC
     }
 
     public class ErrorReportEntry
@@ -138,8 +139,8 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_CHANGELEVEL_SPACE: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_CHANGELEVEL_SPACE"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_ITEM_PARENT: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_ITEM_PARENT"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_VISUAL_SPACE: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_VISUAL_SPACE"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_TRIGGER_SCRIPT_FUNC: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_TRIGGER_SCRIPT_FUNC"); break;
                     
-
                     //ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_COLLISION NOT USED?   
             }
 
@@ -446,7 +447,19 @@ namespace SpacerUnion.Common
 
                         result = String.Format(stringFormat, vobName);
                     };
-                    break;     
+                    break;
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_TRIGGER_SCRIPT_FUNC:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_TRIGGER_SCRIPT_FUNC") + ": {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+
+
+                    
             }
 
 

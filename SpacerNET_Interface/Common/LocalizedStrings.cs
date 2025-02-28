@@ -869,7 +869,7 @@ namespace SpacerUnion.Common
 
 
             words.Add("checkBoxDisableUpper", new List<string> { "Запретить переводить значения свойств воба в верхний регистр", "Disable converting vob's fields to uppercase", "", "", "" });
-
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_TRIGGER_SCRIPT_FUNC", new List<string> { "Функция в поле 'scriptFunc' не существует в скриптах", "Function in field 'scriptFunc' does not exist in scripts", "", "", "" });
             
         }
 
