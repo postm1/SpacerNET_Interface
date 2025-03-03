@@ -872,7 +872,7 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_TRIGGER_SCRIPT_FUNC", new List<string> { "Функция в поле 'scriptFunc' не существует в скриптах", "Function in field 'scriptFunc' does not exist in scripts", "Die Funktion im Feld 'scriptFunc' existiert nicht in den Skripten", "Funkcja użyta w polu 'scriptFunc' nie jest zdefiniowana w skryptach", "" });
 
 
-            words.Add("WIN_VOBCATALOG_COMPARE_COLL_TITLE", new List<string> { "Данная опция сравнит динамическую коллизию всех объектов с базой каталога. Если коллизия не совпадает, то на карте такой воб будет выделен", "", "", "", "" });
+            words.Add("WIN_VOBCATALOG_COMPARE_COLL_TITLE", new List<string> { "Данная функция сравнит динамическую коллизию всех объектов с базой каталога. Если коллизия не совпадает, то воб будет показан красной линией. Если воба вообще нет в каталоге, то линия будет зеленая.", "", "", "", "" });
 
 
             words.Add("ERROR_REPORT_PROBLEM_TYPE_TGA_DYNCOLL", new List<string> { "У воба c TGA визуалом динамическая коллизия. Вы уверены?", "Vob with TGA visual has dynamic collision. Are you sure?", "", "", "" });

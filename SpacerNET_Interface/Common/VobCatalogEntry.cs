@@ -58,6 +58,11 @@ namespace SpacerUnion.Common
             return entries.Where(x => x.GroupName == group && x.Visual == visual).FirstOrDefault();
         }
 
+        public List<VobCatalogEntry> GetByVisualAll(string visual)
+        {
+            return entries.Where(x => x.Visual == visual).ToList();
+        }
+
         public int GetAmountInGroup(string group)
         {
             return entries.Where(x => x.GroupName == group).Count();

@@ -254,6 +254,24 @@ namespace SpacerUnion.Windows
 
                     listBoxItems.Items[listBoxItems.SelectedIndex] = name;
 
+
+
+                    // update all other entries with such visual
+                    var list = vobMan.GetByVisualAll(name);
+
+                    //ConsoleEx.WriteLineGreen("COUNT: " + list.Count);
+
+                    foreach (var element in list)
+                    {
+                        if (element != newEntry)
+                        {
+                            element.DynColl = newEntry.DynColl;
+                            element.StatColl = newEntry.StatColl;
+                            element.IsStaticVob = newEntry.IsStaticVob;
+                        }
+
+                    }
+
                     this.Focus();
                 }
 
@@ -650,7 +668,7 @@ namespace SpacerUnion.Windows
 
                     propsForm.ShowDialog();
                 }
-                
+
             }
         }
 
@@ -1013,14 +1031,6 @@ namespace SpacerUnion.Windows
                 foreach (var item in vobMan.entries)
                 {
                     var visual = item.Visual;
-
-                    if (!visual.Contains(".3DS"))
-                    {
-                        continue;
-                    }
-
-
-                   
 
                     Imports.Stack_PushString(visual);
                     Imports.Stack_PushInt(Convert.ToInt32(item.DynColl));
