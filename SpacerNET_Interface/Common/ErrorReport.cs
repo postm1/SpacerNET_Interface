@@ -468,7 +468,7 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_HAVE_DYNCOLL:
                     {
 
-                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_HAVE_DYNCOLL") + ": {0}";
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_HAVE_DYNCOLL") + " {0}";
 
                         result = String.Format(stringFormat, vobName);
                     };
@@ -478,7 +478,7 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_TGA_DYNCOLL:
                     {
 
-                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_TGA_DYNCOLL") + ": {0}";
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_TGA_DYNCOLL") + " {0}";
 
                         result = String.Format(stringFormat, vobName);
                     };
