@@ -868,8 +868,12 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_VISUAL_SPACE", new List<string> { "В поле 'visual' есть символ 'пробел'. Пробел можно удалить введя другой визуал воба, а затем вернув оригинальный без пробела.", "Field 'visual' contains space symbol. The space can be removed by entering a different visual and then returning the original one without the space symbol.", "Das Feld 'visual' enthält ein Leerzeichen. Das Leerzeichen kann entfernt werden, indem du ein anderes Visual eingibst und anschließend das ursprüngliche ohne Leerzeichen wiederherstellst.", "Pole 'visual' zawiera znak spacji. Spacja może zostać usunięta poprzez wprowadzenie innego visuala i przywróceniu oryginalnego bez znaku spacji.", "" });
 
 
-            words.Add("checkBoxDisableUpper", new List<string> { "Запретить переводить значения свойств воба в верхний регистр", "Disable converting vob's fields to uppercase", "", "", "" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_TRIGGER_SCRIPT_FUNC", new List<string> { "Функция в поле 'scriptFunc' не существует в скриптах", "Function in field 'scriptFunc' does not exist in scripts", "", "", "" });
+            words.Add("checkBoxDisableUpper", new List<string> { "Запретить переводить значения свойств воба в верхний регистр", "Disable converting vob's fields to uppercase", "Verhindert die Umwandlung von Vob-Feldern in Großbuchstaben", "Wyłacz konwersje nazw pól voba do DUŻYCH LITER", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_TRIGGER_SCRIPT_FUNC", new List<string> { "Функция в поле 'scriptFunc' не существует в скриптах", "Function in field 'scriptFunc' does not exist in scripts", "Die Funktion im Feld 'scriptFunc' existiert nicht in den Skripten", "Funkcja użyta w polu 'scriptFunc' nie jest zdefiniowana w skryptach", "" });
+
+
+            words.Add("WIN_VOBCATALOG_COMPARE_COLL_TITLE", new List<string> { "Данная опция сравнит динамическую коллизию всех объектов с базой каталога. Если коллизия не совпадает, то на карте такой воб будет выделен", "", "", "", "" });
+
             
         }
 

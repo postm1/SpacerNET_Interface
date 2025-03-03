@@ -998,5 +998,41 @@ namespace SpacerUnion.Windows
                 moveForm.ShowDialog();
             }
         }
+
+        private void buttonCompareColl_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show(Localizator.Get("WIN_VOBCATALOG_COMPARE_COLL_TITLE"), Localizator.Get("confirmation"), MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+
+                List<string> foundNoRes = new List<string>();
+
+                Imports.Extern_CompareVobsPrepare();
+
+                foreach (var item in vobMan.entries)
+                {
+                    var visual = item.Visual;
+
+                    if (!visual.Contains(".3DS"))
+                    {
+                        continue;
+                    }
+
+
+                   
+
+                    Imports.Stack_PushString(visual);
+                    Imports.Stack_PushInt(Convert.ToInt32(item.DynColl));
+
+                    Imports.Extern_CompareVobsDynColl();
+
+                }
+
+
+                Imports.Extern_CompareVobsAfter();
+
+            }
+        }
     }
 }

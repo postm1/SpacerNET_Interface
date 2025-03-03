@@ -34,6 +34,7 @@ namespace SpacerUnion.Windows
             this.listBoxItems = new System.Windows.Forms.ListBox();
             this.contextMenuStripElem = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemCopy = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemMove = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonAddNewGroup = new System.Windows.Forms.Button();
             this.buttonRemoveSelected = new System.Windows.Forms.Button();
             this.buttonRenameSelected = new System.Windows.Forms.Button();
@@ -65,7 +66,7 @@ namespace SpacerUnion.Windows
             this.labelSearch = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.panelSearch = new System.Windows.Forms.Panel();
-            this.toolStripMenuItemMove = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonCompareColl = new System.Windows.Forms.Button();
             this.contextMenuStripElem.SuspendLayout();
             this.groupBoxGroups.SuspendLayout();
             this.groupBoxItems.SuspendLayout();
@@ -108,7 +109,7 @@ namespace SpacerUnion.Windows
             this.toolStripMenuItemCopy,
             this.toolStripMenuItemMove});
             this.contextMenuStripElem.Name = "contextMenuStripElem";
-            this.contextMenuStripElem.Size = new System.Drawing.Size(231, 70);
+            this.contextMenuStripElem.Size = new System.Drawing.Size(231, 48);
             // 
             // toolStripMenuItemCopy
             // 
@@ -116,6 +117,13 @@ namespace SpacerUnion.Windows
             this.toolStripMenuItemCopy.Size = new System.Drawing.Size(230, 22);
             this.toolStripMenuItemCopy.Text = "Copy visual to another group";
             this.toolStripMenuItemCopy.Click += new System.EventHandler(this.toolStripMenuItemCopy_Click);
+            // 
+            // toolStripMenuItemMove
+            // 
+            this.toolStripMenuItemMove.Name = "toolStripMenuItemMove";
+            this.toolStripMenuItemMove.Size = new System.Drawing.Size(230, 22);
+            this.toolStripMenuItemMove.Text = "Move visual to another group";
+            this.toolStripMenuItemMove.Click += new System.EventHandler(this.toolStripMenuItemMove_Click);
             // 
             // buttonAddNewGroup
             // 
@@ -321,6 +329,7 @@ namespace SpacerUnion.Windows
             // 
             // groupBoxAdv
             // 
+            this.groupBoxAdv.Controls.Add(this.buttonCompareColl);
             this.groupBoxAdv.Controls.Add(this.buttonNoModels);
             this.groupBoxAdv.Controls.Add(this.buttonDebugRemove);
             this.groupBoxAdv.Location = new System.Drawing.Point(601, 4);
@@ -332,7 +341,7 @@ namespace SpacerUnion.Windows
             // 
             // buttonNoModels
             // 
-            this.buttonNoModels.Location = new System.Drawing.Point(6, 48);
+            this.buttonNoModels.Location = new System.Drawing.Point(6, 46);
             this.buttonNoModels.Name = "buttonNoModels";
             this.buttonNoModels.Size = new System.Drawing.Size(240, 23);
             this.buttonNoModels.TabIndex = 17;
@@ -448,12 +457,15 @@ namespace SpacerUnion.Windows
             this.panelSearch.Size = new System.Drawing.Size(589, 77);
             this.panelSearch.TabIndex = 15;
             // 
-            // toolStripMenuItemMove
+            // buttonCompareColl
             // 
-            this.toolStripMenuItemMove.Name = "toolStripMenuItemMove";
-            this.toolStripMenuItemMove.Size = new System.Drawing.Size(230, 22);
-            this.toolStripMenuItemMove.Text = "Move visual to another group";
-            this.toolStripMenuItemMove.Click += new System.EventHandler(this.toolStripMenuItemMove_Click);
+            this.buttonCompareColl.Location = new System.Drawing.Point(6, 74);
+            this.buttonCompareColl.Name = "buttonCompareColl";
+            this.buttonCompareColl.Size = new System.Drawing.Size(240, 23);
+            this.buttonCompareColl.TabIndex = 18;
+            this.buttonCompareColl.Text = "Compare dynColl for objects";
+            this.buttonCompareColl.UseVisualStyleBackColor = true;
+            this.buttonCompareColl.Click += new System.EventHandler(this.buttonCompareColl_Click);
             // 
             // VobCatalogForm
             // 
@@ -530,5 +542,6 @@ namespace SpacerUnion.Windows
         private System.Windows.Forms.ContextMenuStrip contextMenuStripElem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCopy;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMove;
+        private System.Windows.Forms.Button buttonCompareColl;
     }
 }
