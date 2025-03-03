@@ -52,7 +52,9 @@ namespace SpacerUnion.Common
         ERROR_REPORT_PROBLEM_TYPE_CHANGELEVEL_SPACE,
         ERROR_REPORT_PROBLEM_TYPE_ITEM_PARENT,
         ERROR_REPORT_PROBLEM_TYPE_VISUAL_SPACE,
-        ERROR_REPORT_PROBLEM_TYPE_TRIGGER_SCRIPT_FUNC
+        ERROR_REPORT_PROBLEM_TYPE_TRIGGER_SCRIPT_FUNC,
+        ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_HAVE_DYNCOLL,
+        ERROR_REPORT_PROBLEM_TYPE_TGA_DYNCOLL
     }
 
     public class ErrorReportEntry
@@ -140,6 +142,10 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_ITEM_PARENT: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_ITEM_PARENT"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_VISUAL_SPACE: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_VISUAL_SPACE"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_TRIGGER_SCRIPT_FUNC: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_TRIGGER_SCRIPT_FUNC"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_HAVE_DYNCOLL: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_HAVE_DYNCOLL"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_TGA_DYNCOLL: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_TGA_DYNCOLL"); break;
+
+
                     
                     //ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_COLLISION NOT USED?   
             }
@@ -459,7 +465,25 @@ namespace SpacerUnion.Common
                     break;
 
 
-                    
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_HAVE_DYNCOLL:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_HAVE_DYNCOLL") + ": {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_TGA_DYNCOLL:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_TGA_DYNCOLL") + ": {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+
             }
 
 

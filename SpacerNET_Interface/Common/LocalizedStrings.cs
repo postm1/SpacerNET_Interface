@@ -874,7 +874,9 @@ namespace SpacerUnion.Common
 
             words.Add("WIN_VOBCATALOG_COMPARE_COLL_TITLE", new List<string> { "Данная опция сравнит динамическую коллизию всех объектов с базой каталога. Если коллизия не совпадает, то на карте такой воб будет выделен", "", "", "", "" });
 
-            
+
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_TGA_DYNCOLL", new List<string> { "У воба c TGA визуалом динамическая коллизия. Вы уверены?", "Vob with TGA visual has dynamic collision. Are you sure?", "", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_HAVE_DYNCOLL", new List<string> { "У PFX не может быть динамической коллизии!", "PFX can't have dynamic collision!", "", "", "" });
         }
 
 
