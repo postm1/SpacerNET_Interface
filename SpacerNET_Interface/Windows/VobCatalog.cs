@@ -1035,7 +1035,7 @@ namespace SpacerUnion.Windows
                     Imports.Stack_PushString(visual);
                     Imports.Stack_PushInt(Convert.ToInt32(item.DynColl));
 
-                    Imports.Extern_CompareVobsDynColl();
+                    Imports.Extern_AddVobsDynCollListCompare();
 
                 }
 

@@ -55,6 +55,7 @@ namespace SpacerUnion.Windows
             this.buttonDebugRemove = new System.Windows.Forms.Button();
             this.panelBottom = new System.Windows.Forms.Panel();
             this.groupBoxAdv = new System.Windows.Forms.GroupBox();
+            this.buttonCompareColl = new System.Windows.Forms.Button();
             this.buttonNoModels = new System.Windows.Forms.Button();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.buttonSortAlph = new System.Windows.Forms.Button();
@@ -66,7 +67,6 @@ namespace SpacerUnion.Windows
             this.labelSearch = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.panelSearch = new System.Windows.Forms.Panel();
-            this.buttonCompareColl = new System.Windows.Forms.Button();
             this.contextMenuStripElem.SuspendLayout();
             this.groupBoxGroups.SuspendLayout();
             this.groupBoxItems.SuspendLayout();
@@ -339,6 +339,16 @@ namespace SpacerUnion.Windows
             this.groupBoxAdv.TabStop = false;
             this.groupBoxAdv.Text = "Advanced / Debug";
             // 
+            // buttonCompareColl
+            // 
+            this.buttonCompareColl.Location = new System.Drawing.Point(6, 74);
+            this.buttonCompareColl.Name = "buttonCompareColl";
+            this.buttonCompareColl.Size = new System.Drawing.Size(240, 23);
+            this.buttonCompareColl.TabIndex = 18;
+            this.buttonCompareColl.Text = "Compare DynColl for objects";
+            this.buttonCompareColl.UseVisualStyleBackColor = true;
+            this.buttonCompareColl.Click += new System.EventHandler(this.buttonCompareColl_Click);
+            // 
             // buttonNoModels
             // 
             this.buttonNoModels.Location = new System.Drawing.Point(6, 46);
@@ -456,16 +466,6 @@ namespace SpacerUnion.Windows
             this.panelSearch.Name = "panelSearch";
             this.panelSearch.Size = new System.Drawing.Size(589, 77);
             this.panelSearch.TabIndex = 15;
-            // 
-            // buttonCompareColl
-            // 
-            this.buttonCompareColl.Location = new System.Drawing.Point(6, 74);
-            this.buttonCompareColl.Name = "buttonCompareColl";
-            this.buttonCompareColl.Size = new System.Drawing.Size(240, 23);
-            this.buttonCompareColl.TabIndex = 18;
-            this.buttonCompareColl.Text = "Compare dynColl for objects";
-            this.buttonCompareColl.UseVisualStyleBackColor = true;
-            this.buttonCompareColl.Click += new System.EventHandler(this.buttonCompareColl_Click);
             // 
             // VobCatalogForm
             // 
