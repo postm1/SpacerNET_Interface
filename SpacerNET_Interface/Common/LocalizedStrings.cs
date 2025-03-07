@@ -884,8 +884,13 @@ namespace SpacerUnion.Common
             words.Add("COLL_REPORT_ALL_CONSOLE", new List<string> { "Информация выведена в консоль!", "All info is in console!", "", "", "" });
 
 
+            words.Add("ERROR_REPORT_AUTO_FIX_BUTTON", new List<string> { "Автоматически исправить", "Auto fix some problems", "", "", "" });
+            words.Add("ERROR_REPORT_AUTO_FIX_DESCR", new List<string> { "Данная функция автоматически исправит некоторые проблемы, которые возможно исправить автоматически. Например, проставить значение vobFarClipZScale, удалить лишнее имя из zCVob и т.д. Список исправленных вобов будет выведен в консоль.", "This function will automatically fix some problems that can be fixed automatically. For example, set the value vobFarClipZScale, remove the extra name from zCVob, etc. The list of fixed vobs will be output to the console.", "", "", "" });
 
-            
+
+
+
+
         }
 
 

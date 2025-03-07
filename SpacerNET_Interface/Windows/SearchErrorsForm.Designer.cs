@@ -42,6 +42,7 @@ namespace SpacerUnion.Windows
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonSaveReport = new System.Windows.Forms.Button();
             this.comboBoxErrFilter = new System.Windows.Forms.ComboBox();
+            this.buttonAutoFix = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +61,7 @@ namespace SpacerUnion.Windows
             this.listViewErrors.Location = new System.Drawing.Point(0, 0);
             this.listViewErrors.MultiSelect = false;
             this.listViewErrors.Name = "listViewErrors";
-            this.listViewErrors.Size = new System.Drawing.Size(670, 211);
+            this.listViewErrors.Size = new System.Drawing.Size(716, 212);
             this.listViewErrors.TabIndex = 0;
             this.listViewErrors.UseCompatibleStateImageBehavior = false;
             this.listViewErrors.View = System.Windows.Forms.View.Details;
@@ -113,13 +114,14 @@ namespace SpacerUnion.Windows
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.buttonAutoFix);
             this.panel1.Controls.Add(this.buttonSaveReport);
             this.panel1.Controls.Add(this.comboBoxErrFilter);
             this.panel1.Controls.Add(this.buttonErrorsSearch);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 211);
+            this.panel1.Location = new System.Drawing.Point(0, 212);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(670, 50);
+            this.panel1.Size = new System.Drawing.Size(716, 50);
             this.panel1.TabIndex = 2;
             // 
             // buttonSaveReport
@@ -147,17 +149,27 @@ namespace SpacerUnion.Windows
             this.comboBoxErrFilter.TabIndex = 2;
             this.comboBoxErrFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxErrFilter_SelectedIndexChanged);
             // 
+            // buttonAutoFix
+            // 
+            this.buttonAutoFix.Location = new System.Drawing.Point(540, 11);
+            this.buttonAutoFix.Name = "buttonAutoFix";
+            this.buttonAutoFix.Size = new System.Drawing.Size(159, 23);
+            this.buttonAutoFix.TabIndex = 4;
+            this.buttonAutoFix.Text = "Auto fix problems";
+            this.buttonAutoFix.UseVisualStyleBackColor = true;
+            this.buttonAutoFix.Click += new System.EventHandler(this.buttonAutoFix_Click);
+            // 
             // SearchErrorsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(670, 261);
+            this.ClientSize = new System.Drawing.Size(716, 262);
             this.Controls.Add(this.listViewErrors);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(550, 300);
+            this.MinimumSize = new System.Drawing.Size(732, 301);
             this.Name = "SearchErrorsForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -183,5 +195,6 @@ namespace SpacerUnion.Windows
         public System.Windows.Forms.ListView listViewErrors;
         private System.Windows.Forms.ComboBox comboBoxErrFilter;
         private System.Windows.Forms.Button buttonSaveReport;
+        private System.Windows.Forms.Button buttonAutoFix;
     }
 }

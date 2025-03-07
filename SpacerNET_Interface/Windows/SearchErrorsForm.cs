@@ -43,7 +43,7 @@ namespace SpacerUnion.Windows
 
             buttonErrorsSearch.Text = Localizator.Get("ERROR_REPORT_BUTTON_FIND_ALL");
             buttonSaveReport.Text = Localizator.Get("ERROR_REPORT_SAVE_REPORT");
-
+            buttonAutoFix.Text = Localizator.Get("ERROR_REPORT_AUTO_FIX_BUTTON");
             
 
             comboBoxErrFilter.Items.Clear();
@@ -245,7 +245,7 @@ namespace SpacerUnion.Windows
             }
 
             entriesList.Clear();
-            Imports.Extern_ReportCreateAll();
+            Imports.Extern_ReportCreateAll(0);
 
             UpdateListFilter(comboBoxErrFilter.SelectedIndex);
 
@@ -365,6 +365,34 @@ namespace SpacerUnion.Windows
             
 
             
+        }
+
+        private void buttonAutoFix_Click(object sender, EventArgs e)
+        {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
+            DialogResult dialogResult = MessageBox.Show(Localizator.Get("ERROR_REPORT_AUTO_FIX_DESCR"), Localizator.Get("confirmation"), MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                entriesList.Clear();
+                Imports.Extern_ReportCreateAll(1);
+
+                comboBoxErrFilter.SelectedIndex = 0;
+
+                UpdateListFilter(comboBoxErrFilter.SelectedIndex);
+
+
+                if (listViewErrors.Items.Count == 0)
+                {
+                    MessageBox.Show(Localizator.Get("ERROR_REPORT_NO_ERRORS"));
+                }
+            }
+
+                
         }
     }
 }
