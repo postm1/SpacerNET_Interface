@@ -877,9 +877,15 @@ namespace SpacerUnion.Common
 
             words.Add("ERROR_REPORT_PROBLEM_TYPE_TGA_DYNCOLL", new List<string> { "У воба c TGA визуалом динамическая коллизия. Вы уверены?", "Vob with TGA visual has dynamic collision. Are you sure?", "", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_HAVE_DYNCOLL", new List<string> { "У PFX не может быть динамической коллизии!", "PFX can't have dynamic collision!", "", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_BAD_ZFARVOB", new List<string> { "Подозрительное значение поля 'vobFarClipZScale'. Оно должно быть от 0 до 3", "Suspicious value of field 'vobFarClipZScale'. It should be from 0 to 3", "", "", "" });
+
             words.Add("COLL_REPORT_ALL_BAD_COLL", new List<string> { "Всего найдено вобов: ", "Found vobs count: ", "", "", "" });
             words.Add("COLL_REPORT_ALL_NOT_CATALOG", new List<string> { "Всего вобов вне Каталога: ", "Vobs which are not in Catalog: ", "", "", "" });
             words.Add("COLL_REPORT_ALL_CONSOLE", new List<string> { "Информация выведена в консоль!", "All info is in console!", "", "", "" });
+
+
+
+            
         }
 
 
