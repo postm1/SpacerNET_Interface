@@ -871,12 +871,15 @@ namespace SpacerUnion.Common
             words.Add("checkBoxDisableUpper", new List<string> { "Запретить переводить значения свойств воба в верхний регистр", "Disable converting vob's fields to uppercase", "Verhindert die Umwandlung von Vob-Feldern in Großbuchstaben", "Wyłacz konwersje nazw pól voba do DUŻYCH LITER", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_TRIGGER_SCRIPT_FUNC", new List<string> { "Функция в поле 'scriptFunc' не существует в скриптах", "Function in field 'scriptFunc' does not exist in scripts", "Die Funktion im Feld 'scriptFunc' existiert nicht in den Skripten", "Funkcja użyta w polu 'scriptFunc' nie jest zdefiniowana w skryptach", "" });
 
-
-            words.Add("WIN_VOBCATALOG_COMPARE_COLL_TITLE", new List<string> { "Данная функция сравнит динамическую коллизию всех объектов с базой каталога. Если коллизия не совпадает, то воб будет показан красной линией. Если воба вообще нет в каталоге, то линия будет зеленая.", "", "", "", "" });
+            words.Add("WIN_VOBCATALOG_COMPARE_BUTTON", new List<string> { "Сравнить динам. коллизию", "Compare dyn. collision", "", "", "" });
+            words.Add("WIN_VOBCATALOG_COMPARE_COLL_TITLE", new List<string> { "Данная функция сравнит динамическую коллизию всех объектов с базой Каталога. Если коллизия не совпадает, то воб будет показан красной линией. Если воба вообще нет в каталоге, то линия будет зеленая. Список подозрительных визуалов будет выведен в консоль.", "This function will compare the dynamic collision of all objects with the Catalog base. If the collision does not match, the vob will be shown as a red line. If the vob is not in the Catalog at all, the line will be green. The list of suspicious visuals will be output to the console.", "", "", "" });
 
 
             words.Add("ERROR_REPORT_PROBLEM_TYPE_TGA_DYNCOLL", new List<string> { "У воба c TGA визуалом динамическая коллизия. Вы уверены?", "Vob with TGA visual has dynamic collision. Are you sure?", "", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_HAVE_DYNCOLL", new List<string> { "У PFX не может быть динамической коллизии!", "PFX can't have dynamic collision!", "", "", "" });
+            words.Add("COLL_REPORT_ALL_BAD_COLL", new List<string> { "Всего найдено вобов: ", "Found vobs count: ", "", "", "" });
+            words.Add("COLL_REPORT_ALL_NOT_CATALOG", new List<string> { "Всего вобов вне Каталога: ", "Vobs which are not in Catalog: ", "", "", "" });
+            words.Add("COLL_REPORT_ALL_CONSOLE", new List<string> { "Информация выведена в консоль!", "All info is in console!", "", "", "" });
         }
 
 

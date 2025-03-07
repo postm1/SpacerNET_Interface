@@ -97,6 +97,9 @@ namespace SpacerUnion.Windows
             contextMenuStripElem.Items[0].Text = Localizator.Get("WIN_VOBCATALOG_COPY_VISUAL");
             contextMenuStripElem.Items[1].Text = Localizator.Get("WIN_VOBCATALOG_MOVE_VISUAL");
 
+            buttonCompareColl.Text = Localizator.Get("WIN_VOBCATALOG_COMPARE_BUTTON");
+            
+
             UpdateTitle();
         }
 
