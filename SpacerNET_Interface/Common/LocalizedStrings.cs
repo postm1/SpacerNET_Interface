@@ -894,6 +894,10 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_WP_NO_CONNECTIONS", new List<string> { "Waypoint не имеет никаких связей с другими WP: ", "Waypoint has no connections with other waypoints: ", "", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_LIGHT_CLOSE_TOGETHER", new List<string> { "zCVobLight расположены вплотную. Дубликат? ", "zCVobLight has almost the same position. A duplicate? ", "", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_LIGHT_DYNCOLL", new List<string> { "У zCVobLight не может быть динамической коллизии!", "zCVobLight can't have dynamic collision!", "", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_MOB_NO_COLL", new List<string> { "У oCMob нет динамической коллизии: ", "oCMob does not have a dynamic collision: ", "", "", "" });
+
+
+            
 
         }
 
