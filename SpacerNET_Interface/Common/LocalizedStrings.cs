@@ -890,7 +890,7 @@ namespace SpacerUnion.Common
 
 
 
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_WP_NOT_IN_WAYNET", new List<string> { "Waypoint не находится в Waynet сети. Это лишь оповещение: ", "Waypoint is not in the Waynet list. This is just a notification: ", "", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_WP_NOT_IN_WAYNET", new List<string> { "Waypoint не находится в Waynet сети! Удалите и пересоздайте WP: ", "Waypoint is not in the Waynet list! Remove and create it again: ", "", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_WP_NO_CONNECTIONS", new List<string> { "Waypoint не имеет никаких связей с другими WP: ", "Waypoint has no connections with other waypoints: ", "", "", "" });
         }
 
