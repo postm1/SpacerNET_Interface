@@ -55,7 +55,9 @@ namespace SpacerUnion.Common
         ERROR_REPORT_PROBLEM_TYPE_TRIGGER_SCRIPT_FUNC,
         ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_HAVE_DYNCOLL,
         ERROR_REPORT_PROBLEM_TYPE_TGA_DYNCOLL,
-        ERROR_REPORT_PROBLEM_TYPE_BAD_ZFARVOB
+        ERROR_REPORT_PROBLEM_TYPE_BAD_ZFARVOB,
+        ERROR_REPORT_PROBLEM_TYPE_WP_NOT_IN_WAYNET,
+        ERROR_REPORT_PROBLEM_TYPE_WP_NO_CONNECTIONS
     }
 
     public class ErrorReportEntry
@@ -92,9 +94,7 @@ namespace SpacerUnion.Common
             {
                 case ErrorReportType.ERROR_REPORT_TYPE_INFO: result = Localizator.Get("ERROR_REPORT_TYPE_INFO"); break;
                 case ErrorReportType.ERROR_REPORT_TYPE_WARNING: result = Localizator.Get("ERROR_REPORT_TYPE_WARNING"); break;
-                case ErrorReportType.ERROR_REPORT_TYPE_CRITICAL: result = Localizator.Get("ERROR_REPORT_TYPE_CRITICAL"); break;
-
-                    
+                case ErrorReportType.ERROR_REPORT_TYPE_CRITICAL: result = Localizator.Get("ERROR_REPORT_TYPE_CRITICAL"); break;  
             }
 
 
@@ -146,8 +146,9 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_HAVE_DYNCOLL: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_PFX_CANT_HAVE_DYNCOLL"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_TGA_DYNCOLL: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_TGA_DYNCOLL"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_BAD_ZFARVOB: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_BAD_ZFARVOB"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_WP_NOT_IN_WAYNET: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_WP_NOT_IN_WAYNET"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_WP_NO_CONNECTIONS: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_WP_NO_CONNECTIONS"); break;
 
-                    
                     //ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_COLLISION NOT USED?   
             }
 
@@ -493,8 +494,24 @@ namespace SpacerUnion.Common
                         result = String.Format(stringFormat, vobName);
                     };
                     break;
-                    
 
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_WP_NOT_IN_WAYNET:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_WP_NOT_IN_WAYNET") + " {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_WP_NO_CONNECTIONS:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_WP_NO_CONNECTIONS") + " {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
             }
 
 
