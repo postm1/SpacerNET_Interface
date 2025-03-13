@@ -58,7 +58,8 @@ namespace SpacerUnion.Common
         ERROR_REPORT_PROBLEM_TYPE_BAD_ZFARVOB,
         ERROR_REPORT_PROBLEM_TYPE_WP_NOT_IN_WAYNET,
         ERROR_REPORT_PROBLEM_TYPE_WP_NO_CONNECTIONS,
-        ERROR_REPORT_PROBLEM_TYPE_LIGHT_CLOSE_TOGETHER
+        ERROR_REPORT_PROBLEM_TYPE_LIGHT_CLOSE_TOGETHER,
+        ERROR_REPORT_PROBLEM_TYPE_LIGHT_DYNCOLL
     }
 
     public class ErrorReportEntry
@@ -150,7 +151,7 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_WP_NOT_IN_WAYNET: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_WP_NOT_IN_WAYNET"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_WP_NO_CONNECTIONS: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_WP_NO_CONNECTIONS"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_LIGHT_CLOSE_TOGETHER: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_LIGHT_CLOSE_TOGETHER"); break;
-
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_LIGHT_DYNCOLL: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_LIGHT_DYNCOLL"); break;
                     
                     //ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_COLLISION NOT USED?   
             }
@@ -522,7 +523,18 @@ namespace SpacerUnion.Common
 
                         result = String.Format(stringFormat, vobName);
                     };
-                    break;  
+                    break;
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_LIGHT_DYNCOLL:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_LIGHT_DYNCOLL") + " {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+
+                    
             }
 
 
