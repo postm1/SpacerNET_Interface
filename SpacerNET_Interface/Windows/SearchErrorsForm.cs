@@ -307,7 +307,7 @@ namespace SpacerUnion.Windows
 
             SelectEntry(rowIndex);
 
-            // MessageBox.Show(rowIndex + "/" + columnindex + " " + hit.SubItem.Text);
+             //MessageBox.Show(rowIndex + "/" + columnindex + " " + hit.SubItem.Text);
         }
 
         private void comboBoxErrFilter_SelectedIndexChanged(object sender, EventArgs e)
