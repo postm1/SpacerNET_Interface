@@ -60,7 +60,8 @@ namespace SpacerUnion.Common
         ERROR_REPORT_PROBLEM_TYPE_WP_NO_CONNECTIONS,
         ERROR_REPORT_PROBLEM_TYPE_LIGHT_CLOSE_TOGETHER,
         ERROR_REPORT_PROBLEM_TYPE_LIGHT_DYNCOLL,
-        ERROR_REPORT_PROBLEM_TYPE_MOB_NO_COLL
+        ERROR_REPORT_PROBLEM_TYPE_MOB_NO_COLL,
+        ERROR_REPORT_PROBLEM_TYPE_STATIC_LIGHT_NO_PORTAL
     }
 
     public class ErrorReportEntry
@@ -154,7 +155,7 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_LIGHT_CLOSE_TOGETHER: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_LIGHT_CLOSE_TOGETHER"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_LIGHT_DYNCOLL: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_LIGHT_DYNCOLL"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MOB_NO_COLL: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_MOB_NO_COLL"); break;
-
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_STATIC_LIGHT_NO_PORTAL: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_STATIC_LIGHT_NO_PORTAL"); break;
 
                     
                     //ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_COLLISION NOT USED?   
@@ -545,6 +546,16 @@ namespace SpacerUnion.Common
                         result = String.Format(stringFormat, vobName);
                     };
                     break;
+
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_STATIC_LIGHT_NO_PORTAL:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_STATIC_LIGHT_NO_PORTAL") + " {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+
                     
             }
 
