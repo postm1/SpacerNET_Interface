@@ -895,7 +895,7 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_LIGHT_CLOSE_TOGETHER", new List<string> { "zCVobLight расположены вплотную. Дубликат? ", "zCVobLight has almost the same position. A duplicate? ", "", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_LIGHT_DYNCOLL", new List<string> { "У zCVobLight не может быть динамической коллизии!", "zCVobLight can't have dynamic collision!", "", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_MOB_NO_COLL", new List<string> { "У oCMob нет динамической коллизии: ", "oCMob does not have a dynamic collision: ", "", "", "" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_STATIC_LIGHT_NO_PORTAL", new List<string> { "zCVobLight находится вне портала и имеет значение lightStatic: TRUE. Возможно, это ошибка.", "zCVobLight is not in a portal and it has lightStatic: TRUE. This may be a bug.", "", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_STATIC_LIGHT_NO_PORTAL", new List<string> { "zCVobLight находится вне портала и имеет значение lightStatic: TRUE. Возможно, это ошибка, но не обязательно.", "zCVobLight is not in a portal and it has lightStatic: TRUE. This may be a bug, but may be not.", "", "", "" });
 
             
 
