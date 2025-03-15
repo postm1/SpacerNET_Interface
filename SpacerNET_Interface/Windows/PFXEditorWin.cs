@@ -61,6 +61,9 @@ namespace SpacerUnion.Windows
             comboBoxFieldsStyle.Items[0] = Localizator.Get("OPTION_CHECK_NONE");
             comboBoxFieldsStyle.Items[1] = Localizator.Get("PFX_EDITOR_HIGHTLIGHT_LINE");
             comboBoxFieldsStyle.Items[2] = Localizator.Get("PFX_EDITOR_HIGHTLIGHT_BOLD");
+
+            tabControlPFX.TabPages[0].Text = Localizator.Get("tabControlProps_0");
+            tabControlPFX.TabPages[1].Text = Localizator.Get("MENU_TOP_SETTINGS");
         }
 
         public void OnFontUpdate()
@@ -92,6 +95,7 @@ namespace SpacerUnion.Windows
 
             labelPFXName.Enabled = toggle;
             labelStyleFields.Enabled = toggle;
+            tabControlPFX.Enabled = toggle;
 
             if (!toggle)
             {
