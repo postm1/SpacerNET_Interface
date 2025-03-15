@@ -70,16 +70,25 @@ namespace SpacerUnion.Windows
 
         public void SetNodeStyle(CProperty prop)
         {
-            FontStyle style = FontStyle.Underline;
+            FontStyle style = FontStyle.Bold;
 
-            if (prop.Name == "shpType_s" 
+            if (prop.Name == "ppsValue"
+                || prop.Name == "ppsIsLooping"
+                || prop.Name == "shpType_s" 
                 || prop.Name == "visName_s" 
                 || prop.Name == "trlTexture_s" 
-                || prop.Name == "shpMesh_s" 
+                || prop.Name == "shpDim_s"
+                || prop.Name == "dirMode_s"
                 || prop.Name == "ppsCreateEm_s"
                 || prop.Name == "visTexColorStart_s"
                 || prop.Name == "visTexColorEnd_s"
                 || prop.Name == "visAlphaFunc_s"
+                || prop.Name == "shpScaleKeys_s"
+                || prop.Name == "ppsScaleKeys_s"
+
+                || prop.Name == "velAvg"
+                || prop.Name == "lspPartAvg"
+                || prop.Name == "visOrientation_s"
                 )
             {
                 prop.ownNode.NodeFont = new Font(treeViewPFX.Font, style);
