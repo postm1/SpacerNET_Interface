@@ -50,6 +50,11 @@ namespace SpacerUnion.Windows
             node.SelectedImageIndex = 0;
             node.ImageIndex = 0;
 
+            node = treeViewPFX.Nodes.Add("QUADMARK");
+            node.Tag = Constants.TAG_FOLDER;
+            node.SelectedImageIndex = 0;
+            node.ImageIndex = 0;
+
             node = treeViewPFX.Nodes.Add("OTHER");
             node.Tag = Constants.TAG_FOLDER;
             node.SelectedImageIndex = 0;
@@ -265,9 +270,10 @@ namespace SpacerUnion.Windows
             AddNewProp("trlFadeSpeed", "TRAIL", "float", "1.0");
             AddNewProp("trlTexture_s", "TRAIL", "string", "");
             AddNewProp("trlWidth", "TRAIL", "float", "1.0");
-            AddNewProp("mrkFadeSpeed", "TRAIL", "float", "1.0");
-            AddNewProp("mrkTexture_s", "TRAIL", "string", "1.0");
-            AddNewProp("mrkSize", "TRAIL", "float", "1.0");
+
+            AddNewProp("mrkFadeSpeed", "QUADMARK", "float", "1.0");
+            AddNewProp("mrkTexture_s", "QUADMARK", "string", "1.0");
+            AddNewProp("mrkSize", "QUADMARK", "float", "1.0");
 
             if (Imports.Extern_IsGothic_1() == 0)
             {
