@@ -39,7 +39,7 @@ namespace SpacerUnion.Windows
 
             ToggleInterface(false);
 
-            comboBoxFieldsStyle.SelectedIndex = 0;
+            
         }
         public void UpdateLang()
         {
@@ -61,9 +61,19 @@ namespace SpacerUnion.Windows
             comboBoxFieldsStyle.Items[0] = Localizator.Get("OPTION_CHECK_NONE");
             comboBoxFieldsStyle.Items[1] = Localizator.Get("PFX_EDITOR_HIGHTLIGHT_LINE");
             comboBoxFieldsStyle.Items[2] = Localizator.Get("PFX_EDITOR_HIGHTLIGHT_BOLD");
+            comboBoxFieldsStyle.Items[3] = Localizator.Get("PFX_EDITOR_HIGHTLIGHT_ITALIC");
 
             tabControlPFX.TabPages[0].Text = Localizator.Get("tabControlProps_0");
             tabControlPFX.TabPages[1].Text = Localizator.Get("MENU_TOP_SETTINGS");
+
+
+            labelShowEffect.Text = Localizator.Get("PFX_EDITOR_SHOW_MOTION_TYPE");
+
+            comboBoxShowEffectMotion.Items[0] = Localizator.Get("PFX_EDITOR_SHOW_MOTION_TYPE_STATIC");
+            comboBoxShowEffectMotion.Items[1] = Localizator.Get("PFX_EDITOR_SHOW_MOTION_TYPE_CIRCLE");
+            comboBoxShowEffectMotion.Items[2] = Localizator.Get("PFX_EDITOR_SHOW_MOTION_TYPE_FORW");
+            comboBoxShowEffectMotion.Items[3] = Localizator.Get("PFX_EDITOR_SHOW_MOTION_TYPE_ROTATE");
+
         }
 
         public void OnFontUpdate()
@@ -295,6 +305,9 @@ namespace SpacerUnion.Windows
             {
                 comboBoxStyleValue = 0;
             }
+
+            comboBoxFieldsStyle.SelectedIndex = 0;
+            comboBoxShowEffectMotion.SelectedIndex = 0;
 
             comboBoxFieldsStyle.SelectedIndex = comboBoxStyleValue;
         }
@@ -1014,6 +1027,11 @@ namespace SpacerUnion.Windows
                 Imports.Stack_PushString("intPfxEditorHighlightValues");
                 Imports.Extern_SetSetting(comboBoxFieldsStyle.SelectedIndex);
             }
+        }
+
+        private void comboBoxShowEffectMotion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Imports.Extern_SetPFXMotionType(comboBoxShowEffectMotion.SelectedIndex);
         }
     }
 }

@@ -77,6 +77,7 @@ namespace SpacerUnion.Windows
                 case 0: style = FontStyle.Regular; break;
                 case 1: style = FontStyle.Underline; break;
                 case 2: style = FontStyle.Bold; break;
+                case 3: style = FontStyle.Italic; break;
             }
 
 

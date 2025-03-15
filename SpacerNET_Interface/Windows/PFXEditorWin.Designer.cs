@@ -53,6 +53,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panelSettings = new System.Windows.Forms.Panel();
+            this.comboBoxShowEffectMotion = new System.Windows.Forms.ComboBox();
+            this.labelShowEffect = new System.Windows.Forms.Label();
             this.panelPFXButtons.SuspendLayout();
             this.panelPFXTop.SuspendLayout();
             this.tabControlPFX.SuspendLayout();
@@ -66,7 +68,7 @@
             this.labelPFXName.AutoSize = true;
             this.labelPFXName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelPFXName.ForeColor = System.Drawing.Color.IndianRed;
-            this.labelPFXName.Location = new System.Drawing.Point(9, 9);
+            this.labelPFXName.Location = new System.Drawing.Point(3, 9);
             this.labelPFXName.Name = "labelPFXName";
             this.labelPFXName.Size = new System.Drawing.Size(86, 13);
             this.labelPFXName.TabIndex = 1;
@@ -75,7 +77,7 @@
             // 
             // savePFXButton
             // 
-            this.savePFXButton.Location = new System.Drawing.Point(9, 58);
+            this.savePFXButton.Location = new System.Drawing.Point(3, 58);
             this.savePFXButton.Name = "savePFXButton";
             this.savePFXButton.Size = new System.Drawing.Size(132, 23);
             this.savePFXButton.TabIndex = 3;
@@ -87,9 +89,9 @@
             // 
             this.treeViewPFX.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewPFX.HideSelection = false;
-            this.treeViewPFX.Location = new System.Drawing.Point(3, 91);
+            this.treeViewPFX.Location = new System.Drawing.Point(3, 118);
             this.treeViewPFX.Name = "treeViewPFX";
-            this.treeViewPFX.Size = new System.Drawing.Size(399, 265);
+            this.treeViewPFX.Size = new System.Drawing.Size(399, 238);
             this.treeViewPFX.TabIndex = 4;
             this.treeViewPFX.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewPFX_AfterSelect);
             this.treeViewPFX.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewPFX_NodeMouseDoubleClick);
@@ -173,6 +175,8 @@
             // 
             // panelPFXTop
             // 
+            this.panelPFXTop.Controls.Add(this.labelShowEffect);
+            this.panelPFXTop.Controls.Add(this.comboBoxShowEffectMotion);
             this.panelPFXTop.Controls.Add(this.checkBoxShowHints);
             this.panelPFXTop.Controls.Add(this.buttonApplyOnMesh);
             this.panelPFXTop.Controls.Add(this.buttonRemovePFX);
@@ -183,7 +187,7 @@
             this.panelPFXTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPFXTop.Location = new System.Drawing.Point(3, 3);
             this.panelPFXTop.Name = "panelPFXTop";
-            this.panelPFXTop.Size = new System.Drawing.Size(399, 88);
+            this.panelPFXTop.Size = new System.Drawing.Size(399, 115);
             this.panelPFXTop.TabIndex = 7;
             // 
             // checkBoxShowHints
@@ -213,9 +217,9 @@
             // 
             // buttonRemovePFX
             // 
-            this.buttonRemovePFX.Location = new System.Drawing.Point(147, 29);
+            this.buttonRemovePFX.Location = new System.Drawing.Point(141, 29);
             this.buttonRemovePFX.Name = "buttonRemovePFX";
-            this.buttonRemovePFX.Size = new System.Drawing.Size(191, 23);
+            this.buttonRemovePFX.Size = new System.Drawing.Size(218, 23);
             this.buttonRemovePFX.TabIndex = 9;
             this.buttonRemovePFX.Text = "Remove effect";
             this.buttonRemovePFX.UseVisualStyleBackColor = true;
@@ -223,9 +227,9 @@
             // 
             // buttonPFXPlaceNearCam
             // 
-            this.buttonPFXPlaceNearCam.Location = new System.Drawing.Point(147, 58);
+            this.buttonPFXPlaceNearCam.Location = new System.Drawing.Point(141, 58);
             this.buttonPFXPlaceNearCam.Name = "buttonPFXPlaceNearCam";
-            this.buttonPFXPlaceNearCam.Size = new System.Drawing.Size(191, 23);
+            this.buttonPFXPlaceNearCam.Size = new System.Drawing.Size(218, 23);
             this.buttonPFXPlaceNearCam.TabIndex = 8;
             this.buttonPFXPlaceNearCam.Text = "Place effect near camera";
             this.buttonPFXPlaceNearCam.UseVisualStyleBackColor = true;
@@ -237,7 +241,7 @@
             this.checkBoxPlayAuto.BackColor = System.Drawing.Color.White;
             this.checkBoxPlayAuto.Checked = true;
             this.checkBoxPlayAuto.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxPlayAuto.Location = new System.Drawing.Point(4, 3);
+            this.checkBoxPlayAuto.Location = new System.Drawing.Point(4, 5);
             this.checkBoxPlayAuto.Name = "checkBoxPlayAuto";
             this.checkBoxPlayAuto.Size = new System.Drawing.Size(160, 17);
             this.checkBoxPlayAuto.TabIndex = 7;
@@ -247,7 +251,7 @@
             // 
             // buttonPFXPlayAgain
             // 
-            this.buttonPFXPlayAgain.Location = new System.Drawing.Point(9, 29);
+            this.buttonPFXPlayAgain.Location = new System.Drawing.Point(3, 29);
             this.buttonPFXPlayAgain.Name = "buttonPFXPlayAgain";
             this.buttonPFXPlayAgain.Size = new System.Drawing.Size(132, 23);
             this.buttonPFXPlayAgain.TabIndex = 5;
@@ -261,7 +265,7 @@
             this.checkBoxPfxSaveAllFields.BackColor = System.Drawing.Color.White;
             this.checkBoxPfxSaveAllFields.Checked = true;
             this.checkBoxPfxSaveAllFields.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxPfxSaveAllFields.Location = new System.Drawing.Point(4, 26);
+            this.checkBoxPfxSaveAllFields.Location = new System.Drawing.Point(4, 28);
             this.checkBoxPfxSaveAllFields.Name = "checkBoxPfxSaveAllFields";
             this.checkBoxPfxSaveAllFields.Size = new System.Drawing.Size(91, 17);
             this.checkBoxPfxSaveAllFields.TabIndex = 6;
@@ -287,8 +291,9 @@
             this.comboBoxFieldsStyle.Items.AddRange(new object[] {
             "NONE",
             "STROKE",
-            "BOLD"});
-            this.comboBoxFieldsStyle.Location = new System.Drawing.Point(4, 49);
+            "BOLD",
+            "ITALIC"});
+            this.comboBoxFieldsStyle.Location = new System.Drawing.Point(4, 51);
             this.comboBoxFieldsStyle.Name = "comboBoxFieldsStyle";
             this.comboBoxFieldsStyle.Size = new System.Drawing.Size(130, 21);
             this.comboBoxFieldsStyle.TabIndex = 13;
@@ -298,7 +303,7 @@
             // 
             this.labelStyleFields.AutoSize = true;
             this.labelStyleFields.BackColor = System.Drawing.Color.White;
-            this.labelStyleFields.Location = new System.Drawing.Point(139, 52);
+            this.labelStyleFields.Location = new System.Drawing.Point(139, 54);
             this.labelStyleFields.Name = "labelStyleFields";
             this.labelStyleFields.Size = new System.Drawing.Size(94, 13);
             this.labelStyleFields.TabIndex = 14;
@@ -352,6 +357,30 @@
             this.panelSettings.Name = "panelSettings";
             this.panelSettings.Size = new System.Drawing.Size(399, 84);
             this.panelSettings.TabIndex = 15;
+            // 
+            // comboBoxShowEffectMotion
+            // 
+            this.comboBoxShowEffectMotion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxShowEffectMotion.FormattingEnabled = true;
+            this.comboBoxShowEffectMotion.Items.AddRange(new object[] {
+            "STATIC",
+            "CIRCLE",
+            "MOVE_FORW_BACK",
+            "ROTATE_LOCAL_Y"});
+            this.comboBoxShowEffectMotion.Location = new System.Drawing.Point(141, 88);
+            this.comboBoxShowEffectMotion.Name = "comboBoxShowEffectMotion";
+            this.comboBoxShowEffectMotion.Size = new System.Drawing.Size(218, 21);
+            this.comboBoxShowEffectMotion.TabIndex = 12;
+            this.comboBoxShowEffectMotion.SelectedIndexChanged += new System.EventHandler(this.comboBoxShowEffectMotion_SelectedIndexChanged);
+            // 
+            // labelShowEffect
+            // 
+            this.labelShowEffect.Location = new System.Drawing.Point(9, 91);
+            this.labelShowEffect.Name = "labelShowEffect";
+            this.labelShowEffect.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.labelShowEffect.Size = new System.Drawing.Size(126, 14);
+            this.labelShowEffect.TabIndex = 13;
+            this.labelShowEffect.Text = "ShowEffect";
             // 
             // PFXEditorWin
             // 
@@ -413,5 +442,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panelSettings;
+        private System.Windows.Forms.Label labelShowEffect;
+        private System.Windows.Forms.ComboBox comboBoxShowEffectMotion;
     }
 }

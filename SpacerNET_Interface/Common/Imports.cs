@@ -598,6 +598,9 @@ namespace SpacerUnion.Common
 
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_CompareVobsAfter();
+
+        [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SetPFXMotionType(int motionType);
     }
     
 }
