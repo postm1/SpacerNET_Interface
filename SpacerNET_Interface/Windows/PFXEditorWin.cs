@@ -39,7 +39,7 @@ namespace SpacerUnion.Windows
 
             ToggleInterface(false);
 
-
+            comboBoxFieldsStyle.SelectedIndex = 0;
         }
         public void UpdateLang()
         {
@@ -57,7 +57,10 @@ namespace SpacerUnion.Windows
             buttonPFXPlaceNearCam.Text = Localizator.Get("PFX_EDITOR_SET_NEAR_CAMERA");
             buttonRemovePFX.Text = Localizator.Get("PFX_EDITOR_REMOVE_EFFECT");
 
-            
+            labelStyleFields.Text = Localizator.Get("PFX_EDITOR_HIGHTLIGHT_FIELDS");
+            comboBoxFieldsStyle.Items[0] = Localizator.Get("OPTION_CHECK_NONE");
+            comboBoxFieldsStyle.Items[1] = Localizator.Get("PFX_EDITOR_HIGHTLIGHT_LINE");
+            comboBoxFieldsStyle.Items[2] = Localizator.Get("PFX_EDITOR_HIGHTLIGHT_BOLD");
         }
 
         public void OnFontUpdate()
@@ -276,6 +279,16 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("pfxSaveFullFields");
             checkBoxPfxSaveAllFields.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
+
+            Imports.Stack_PushString("intPfxEditorHighlightValues");
+            int comboBoxStyleValue = Imports.Extern_GetSetting();
+            
+            if (comboBoxStyleValue < 0 || comboBoxStyleValue > 2)
+            {
+                comboBoxStyleValue = 0;
+            }
+
+            comboBoxFieldsStyle.SelectedIndex = comboBoxStyleValue;
         }
 
         private void PFXEditorWin_VisibleChanged(object sender, EventArgs e)
@@ -981,6 +994,12 @@ namespace SpacerUnion.Windows
                     Utils.SetCopyText(prop.ShowValue());
                 }
             }
+        }
+
+
+        private void comboBoxFieldsStyle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdatePropsStyle();
         }
     }
 }

@@ -47,6 +47,8 @@
             this.buttonPFXPlayAgain = new System.Windows.Forms.Button();
             this.checkBoxPfxSaveAllFields = new System.Windows.Forms.CheckBox();
             this.labelHint = new System.Windows.Forms.Label();
+            this.comboBoxFieldsStyle = new System.Windows.Forms.ComboBox();
+            this.labelStyleFields = new System.Windows.Forms.Label();
             this.panelPFXButtons.SuspendLayout();
             this.panelPFXTop.SuspendLayout();
             this.SuspendLayout();
@@ -75,9 +77,9 @@
             // 
             this.treeViewPFX.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewPFX.HideSelection = false;
-            this.treeViewPFX.Location = new System.Drawing.Point(0, 116);
+            this.treeViewPFX.Location = new System.Drawing.Point(0, 148);
             this.treeViewPFX.Name = "treeViewPFX";
-            this.treeViewPFX.Size = new System.Drawing.Size(404, 540);
+            this.treeViewPFX.Size = new System.Drawing.Size(404, 508);
             this.treeViewPFX.TabIndex = 4;
             this.treeViewPFX.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewPFX_AfterSelect);
             this.treeViewPFX.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewPFX_NodeMouseDoubleClick);
@@ -161,6 +163,8 @@
             // 
             // panelPFXTop
             // 
+            this.panelPFXTop.Controls.Add(this.labelStyleFields);
+            this.panelPFXTop.Controls.Add(this.comboBoxFieldsStyle);
             this.panelPFXTop.Controls.Add(this.checkBoxShowHints);
             this.panelPFXTop.Controls.Add(this.buttonApplyOnMesh);
             this.panelPFXTop.Controls.Add(this.buttonRemovePFX);
@@ -173,7 +177,7 @@
             this.panelPFXTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPFXTop.Location = new System.Drawing.Point(0, 0);
             this.panelPFXTop.Name = "panelPFXTop";
-            this.panelPFXTop.Size = new System.Drawing.Size(404, 116);
+            this.panelPFXTop.Size = new System.Drawing.Size(404, 148);
             this.panelPFXTop.TabIndex = 7;
             // 
             // checkBoxShowHints
@@ -181,7 +185,7 @@
             this.checkBoxShowHints.AutoSize = true;
             this.checkBoxShowHints.Checked = true;
             this.checkBoxShowHints.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxShowHints.Location = new System.Drawing.Point(270, 62);
+            this.checkBoxShowHints.Location = new System.Drawing.Point(260, 5);
             this.checkBoxShowHints.Name = "checkBoxShowHints";
             this.checkBoxShowHints.Size = new System.Drawing.Size(78, 17);
             this.checkBoxShowHints.TabIndex = 11;
@@ -268,6 +272,29 @@
             this.labelHint.Text = "HintLabel";
             this.labelHint.Visible = false;
             // 
+            // comboBoxFieldsStyle
+            // 
+            this.comboBoxFieldsStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFieldsStyle.FormattingEnabled = true;
+            this.comboBoxFieldsStyle.Items.AddRange(new object[] {
+            "NONE",
+            "STROKE",
+            "BOLD"});
+            this.comboBoxFieldsStyle.Location = new System.Drawing.Point(12, 117);
+            this.comboBoxFieldsStyle.Name = "comboBoxFieldsStyle";
+            this.comboBoxFieldsStyle.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxFieldsStyle.TabIndex = 13;
+            this.comboBoxFieldsStyle.SelectedIndexChanged += new System.EventHandler(this.comboBoxFieldsStyle_SelectedIndexChanged);
+            // 
+            // labelStyleFields
+            // 
+            this.labelStyleFields.AutoSize = true;
+            this.labelStyleFields.Location = new System.Drawing.Point(150, 120);
+            this.labelStyleFields.Name = "labelStyleFields";
+            this.labelStyleFields.Size = new System.Drawing.Size(94, 13);
+            this.labelStyleFields.TabIndex = 14;
+            this.labelStyleFields.Text = "Style of main fields";
+            // 
             // PFXEditorWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -319,5 +346,7 @@
         private System.Windows.Forms.Button buttonApplyOnMesh;
         private System.Windows.Forms.Label labelHint;
         private System.Windows.Forms.CheckBox checkBoxShowHints;
+        private System.Windows.Forms.Label labelStyleFields;
+        private System.Windows.Forms.ComboBox comboBoxFieldsStyle;
     }
 }

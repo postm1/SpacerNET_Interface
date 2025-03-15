@@ -72,6 +72,14 @@ namespace SpacerUnion.Windows
         {
             FontStyle style = FontStyle.Bold;
 
+            switch (comboBoxFieldsStyle.SelectedIndex)
+            {
+                case 0: style = FontStyle.Regular; break;
+                case 1: style = FontStyle.Underline; break;
+                case 2: style = FontStyle.Bold; break;
+            }
+
+
             if (prop.Name == "ppsValue"
                 || prop.Name == "ppsIsLooping"
                 || prop.Name == "shpType_s" 
@@ -85,10 +93,10 @@ namespace SpacerUnion.Windows
                 || prop.Name == "visAlphaFunc_s"
                 || prop.Name == "shpScaleKeys_s"
                 || prop.Name == "ppsScaleKeys_s"
-
                 || prop.Name == "velAvg"
                 || prop.Name == "lspPartAvg"
                 || prop.Name == "visOrientation_s"
+                || prop.Name == "flyGravity_s"
                 )
             {
                 prop.ownNode.NodeFont = new Font(treeViewPFX.Font, style);
@@ -204,7 +212,11 @@ namespace SpacerUnion.Windows
 
 
                 SetPFXIcon(prop);
+
+                
                 SetNodeStyle(prop);
+                
+                
             }
             else
             {
@@ -697,6 +709,16 @@ namespace SpacerUnion.Windows
                 
 
             return true;
+        }
+
+        void UpdatePropsStyle()
+        {
+            foreach (var prop in props)
+            {
+                SetNodeStyle(prop);
+            }
+
+            treeViewPFX.Update();
         }
     }
 

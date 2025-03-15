@@ -897,12 +897,12 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_MOB_NO_COLL", new List<string> { "У oCMob нет динамической коллизии: ", "oCMob does not have a dynamic collision: ", "", "", "" });
             words.Add("ERROR_REPORT_PROBLEM_TYPE_STATIC_LIGHT_NO_PORTAL", new List<string> { "zCVobLight находится вне портала и имеет значение lightStatic: TRUE. Возможно, это ошибка, но не обязательно.", "zCVobLight is not in a portal and it has lightStatic: TRUE. This may be a bug, but may be not.", "", "", "" });
 
-            
 
 
 
-
-
+            words.Add("PFX_EDITOR_HIGHTLIGHT_FIELDS", new List<string> { "Подсвечивать основные поля", "Highlight important fields", "", "", "" });
+            words.Add("PFX_EDITOR_HIGHTLIGHT_LINE", new List<string> { "Почеркивание", "Underline", "", "", "" });
+            words.Add("PFX_EDITOR_HIGHTLIGHT_BOLD", new List<string> { "Жирный шрифт", "Bold", "", "", "" });
         }
 
 
