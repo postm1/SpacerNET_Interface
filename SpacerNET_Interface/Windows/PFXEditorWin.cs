@@ -88,7 +88,11 @@ namespace SpacerUnion.Windows
             checkBoxPlayAuto.Enabled = toggle;
             buttonPFXPlaceNearCam.Enabled = toggle;
             buttonRemovePFX.Enabled = toggle;
-            
+            comboBoxFieldsStyle.Enabled = toggle;
+
+            labelPFXName.Enabled = toggle;
+            labelStyleFields.Enabled = toggle;
+
             if (!toggle)
             {
                 buttonFile.Enabled = toggle;
@@ -999,7 +1003,13 @@ namespace SpacerUnion.Windows
 
         private void comboBoxFieldsStyle_SelectedIndexChanged(object sender, EventArgs e)
         {
-            UpdatePropsStyle();
+            if (SpacerNET.isInit)
+            {
+                UpdatePropsStyle();
+
+                Imports.Stack_PushString("intPfxEditorHighlightValues");
+                Imports.Extern_SetSetting(comboBoxFieldsStyle.SelectedIndex);
+            }
         }
     }
 }
