@@ -282,14 +282,14 @@
             "BOLD"});
             this.comboBoxFieldsStyle.Location = new System.Drawing.Point(12, 117);
             this.comboBoxFieldsStyle.Name = "comboBoxFieldsStyle";
-            this.comboBoxFieldsStyle.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxFieldsStyle.Size = new System.Drawing.Size(119, 21);
             this.comboBoxFieldsStyle.TabIndex = 13;
             this.comboBoxFieldsStyle.SelectedIndexChanged += new System.EventHandler(this.comboBoxFieldsStyle_SelectedIndexChanged);
             // 
             // labelStyleFields
             // 
             this.labelStyleFields.AutoSize = true;
-            this.labelStyleFields.Location = new System.Drawing.Point(150, 120);
+            this.labelStyleFields.Location = new System.Drawing.Point(135, 121);
             this.labelStyleFields.Name = "labelStyleFields";
             this.labelStyleFields.Size = new System.Drawing.Size(94, 13);
             this.labelStyleFields.TabIndex = 14;

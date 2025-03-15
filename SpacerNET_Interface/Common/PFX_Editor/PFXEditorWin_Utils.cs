@@ -97,6 +97,9 @@ namespace SpacerUnion.Windows
                 || prop.Name == "lspPartAvg"
                 || prop.Name == "visOrientation_s"
                 || prop.Name == "flyGravity_s"
+                || prop.Name == "dirAngleHead"
+                || prop.Name == "dirAngleElev"
+                || prop.Name == "shpOffsetVec_s"
                 )
             {
                 prop.ownNode.NodeFont = new Font(treeViewPFX.Font, style);
