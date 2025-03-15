@@ -120,7 +120,7 @@ namespace SpacerUnion.Windows
             }
 
 
-            labelPFXName.Text = Localizator.Get("PFX_EDITOR_INSTANCE") + name;
+            labelPFXName.Text = name;
             currentPfxName = name;
             ToggleInterface(true);
 

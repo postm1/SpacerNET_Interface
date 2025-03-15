@@ -64,9 +64,11 @@
             // labelPFXName
             // 
             this.labelPFXName.AutoSize = true;
+            this.labelPFXName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPFXName.ForeColor = System.Drawing.Color.IndianRed;
             this.labelPFXName.Location = new System.Drawing.Point(9, 9);
             this.labelPFXName.Name = "labelPFXName";
-            this.labelPFXName.Size = new System.Drawing.Size(73, 13);
+            this.labelPFXName.Size = new System.Drawing.Size(86, 13);
             this.labelPFXName.TabIndex = 1;
             this.labelPFXName.Text = "PFX instance:";
             this.labelPFXName.Click += new System.EventHandler(this.labelPFXName_Click);
@@ -235,7 +237,7 @@
             this.checkBoxPlayAuto.BackColor = System.Drawing.Color.White;
             this.checkBoxPlayAuto.Checked = true;
             this.checkBoxPlayAuto.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxPlayAuto.Location = new System.Drawing.Point(7, 34);
+            this.checkBoxPlayAuto.Location = new System.Drawing.Point(4, 3);
             this.checkBoxPlayAuto.Name = "checkBoxPlayAuto";
             this.checkBoxPlayAuto.Size = new System.Drawing.Size(160, 17);
             this.checkBoxPlayAuto.TabIndex = 7;
@@ -259,7 +261,7 @@
             this.checkBoxPfxSaveAllFields.BackColor = System.Drawing.Color.White;
             this.checkBoxPfxSaveAllFields.Checked = true;
             this.checkBoxPfxSaveAllFields.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxPfxSaveAllFields.Location = new System.Drawing.Point(7, 57);
+            this.checkBoxPfxSaveAllFields.Location = new System.Drawing.Point(4, 26);
             this.checkBoxPfxSaveAllFields.Name = "checkBoxPfxSaveAllFields";
             this.checkBoxPfxSaveAllFields.Size = new System.Drawing.Size(91, 17);
             this.checkBoxPfxSaveAllFields.TabIndex = 6;
@@ -286,7 +288,7 @@
             "NONE",
             "STROKE",
             "BOLD"});
-            this.comboBoxFieldsStyle.Location = new System.Drawing.Point(7, 3);
+            this.comboBoxFieldsStyle.Location = new System.Drawing.Point(4, 49);
             this.comboBoxFieldsStyle.Name = "comboBoxFieldsStyle";
             this.comboBoxFieldsStyle.Size = new System.Drawing.Size(130, 21);
             this.comboBoxFieldsStyle.TabIndex = 13;
@@ -296,7 +298,7 @@
             // 
             this.labelStyleFields.AutoSize = true;
             this.labelStyleFields.BackColor = System.Drawing.Color.White;
-            this.labelStyleFields.Location = new System.Drawing.Point(144, 7);
+            this.labelStyleFields.Location = new System.Drawing.Point(139, 52);
             this.labelStyleFields.Name = "labelStyleFields";
             this.labelStyleFields.Size = new System.Drawing.Size(94, 13);
             this.labelStyleFields.TabIndex = 14;
@@ -348,7 +350,7 @@
             this.panelSettings.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSettings.Location = new System.Drawing.Point(3, 3);
             this.panelSettings.Name = "panelSettings";
-            this.panelSettings.Size = new System.Drawing.Size(399, 90);
+            this.panelSettings.Size = new System.Drawing.Size(399, 84);
             this.panelSettings.TabIndex = 15;
             // 
             // PFXEditorWin
