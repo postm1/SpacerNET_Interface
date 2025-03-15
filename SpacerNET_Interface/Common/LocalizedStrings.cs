@@ -907,9 +907,10 @@ namespace SpacerUnion.Common
             words.Add("PFX_EDITOR_SHOW_MOTION_TYPE", new List<string> { "Движение эффекта", "Effect motion", "", "", "" });
 
             words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_STATIC", new List<string> { "Статичное", "Static", "", "", "" });
-            words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_CIRCLE", new List<string> { "Двигать по кругу", "Move on circle", "", "", "" });
+            words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_CIRCLE", new List<string> { "Двигать по окружности", "Move in a circle", "", "", "" });
             words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_FORW", new List<string> { "Двигать туда-сюда", "Move forward/backward", "", "", "" });
             words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_ROTATE", new List<string> { "Вращать вокруг вертикальной оси", "Rotate around local vertical axis", "", "", "" });
+            words.Add("PFX_EDITOR_SHOW_MOTION_SPEED", new List<string> { "Скорость: ", "Speed: ", "", "", "" });
         }
 
 

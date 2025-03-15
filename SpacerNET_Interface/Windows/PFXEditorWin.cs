@@ -73,7 +73,7 @@ namespace SpacerUnion.Windows
             comboBoxShowEffectMotion.Items[1] = Localizator.Get("PFX_EDITOR_SHOW_MOTION_TYPE_CIRCLE");
             comboBoxShowEffectMotion.Items[2] = Localizator.Get("PFX_EDITOR_SHOW_MOTION_TYPE_FORW");
             comboBoxShowEffectMotion.Items[3] = Localizator.Get("PFX_EDITOR_SHOW_MOTION_TYPE_ROTATE");
-
+            trackBarSpeed_ValueChanged(null, null);
         }
 
         public void OnFontUpdate()
@@ -310,6 +310,12 @@ namespace SpacerUnion.Windows
             comboBoxShowEffectMotion.SelectedIndex = 0;
 
             comboBoxFieldsStyle.SelectedIndex = comboBoxStyleValue;
+
+
+            Imports.Stack_PushString("intPfxEditorSpeedMotion");
+            trackBarSpeed.Value = Imports.Extern_GetSetting();
+
+            trackBarSpeed_ValueChanged(null, null);
         }
 
         private void PFXEditorWin_VisibleChanged(object sender, EventArgs e)
@@ -1032,6 +1038,19 @@ namespace SpacerUnion.Windows
         private void comboBoxShowEffectMotion_SelectedIndexChanged(object sender, EventArgs e)
         {
             Imports.Extern_SetPFXMotionType(comboBoxShowEffectMotion.SelectedIndex);
+
+            trackBarSpeed.Enabled = comboBoxShowEffectMotion.SelectedIndex != 0;
+        }
+
+        private void trackBarSpeed_ValueChanged(object sender, EventArgs e)
+        {
+            if (SpacerNET.isInit)
+            {
+                labelSpeed.Text = Localizator.Get("PFX_EDITOR_SHOW_MOTION_SPEED") + trackBarSpeed.Value + "%";
+
+                Imports.Stack_PushString("intPfxEditorSpeedMotion");
+                Imports.Extern_SetSetting(trackBarSpeed.Value);
+            }
         }
     }
 }

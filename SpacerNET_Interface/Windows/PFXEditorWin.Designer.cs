@@ -55,12 +55,15 @@
             this.panelSettings = new System.Windows.Forms.Panel();
             this.comboBoxShowEffectMotion = new System.Windows.Forms.ComboBox();
             this.labelShowEffect = new System.Windows.Forms.Label();
+            this.labelSpeed = new System.Windows.Forms.Label();
+            this.trackBarSpeed = new System.Windows.Forms.TrackBar();
             this.panelPFXButtons.SuspendLayout();
             this.panelPFXTop.SuspendLayout();
             this.tabControlPFX.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panelSettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
             this.SuspendLayout();
             // 
             // labelPFXName
@@ -89,9 +92,9 @@
             // 
             this.treeViewPFX.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewPFX.HideSelection = false;
-            this.treeViewPFX.Location = new System.Drawing.Point(3, 118);
+            this.treeViewPFX.Location = new System.Drawing.Point(3, 140);
             this.treeViewPFX.Name = "treeViewPFX";
-            this.treeViewPFX.Size = new System.Drawing.Size(399, 238);
+            this.treeViewPFX.Size = new System.Drawing.Size(399, 216);
             this.treeViewPFX.TabIndex = 4;
             this.treeViewPFX.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewPFX_AfterSelect);
             this.treeViewPFX.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewPFX_NodeMouseDoubleClick);
@@ -175,6 +178,8 @@
             // 
             // panelPFXTop
             // 
+            this.panelPFXTop.Controls.Add(this.trackBarSpeed);
+            this.panelPFXTop.Controls.Add(this.labelSpeed);
             this.panelPFXTop.Controls.Add(this.labelShowEffect);
             this.panelPFXTop.Controls.Add(this.comboBoxShowEffectMotion);
             this.panelPFXTop.Controls.Add(this.checkBoxShowHints);
@@ -187,7 +192,7 @@
             this.panelPFXTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPFXTop.Location = new System.Drawing.Point(3, 3);
             this.panelPFXTop.Name = "panelPFXTop";
-            this.panelPFXTop.Size = new System.Drawing.Size(399, 115);
+            this.panelPFXTop.Size = new System.Drawing.Size(399, 137);
             this.panelPFXTop.TabIndex = 7;
             // 
             // checkBoxShowHints
@@ -382,6 +387,28 @@
             this.labelShowEffect.TabIndex = 13;
             this.labelShowEffect.Text = "ShowEffect";
             // 
+            // labelSpeed
+            // 
+            this.labelSpeed.Location = new System.Drawing.Point(9, 115);
+            this.labelSpeed.Name = "labelSpeed";
+            this.labelSpeed.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.labelSpeed.Size = new System.Drawing.Size(126, 14);
+            this.labelSpeed.TabIndex = 14;
+            this.labelSpeed.Text = "Speed motion";
+            // 
+            // trackBarSpeed
+            // 
+            this.trackBarSpeed.LargeChange = 30;
+            this.trackBarSpeed.Location = new System.Drawing.Point(141, 115);
+            this.trackBarSpeed.Maximum = 500;
+            this.trackBarSpeed.Minimum = 1;
+            this.trackBarSpeed.Name = "trackBarSpeed";
+            this.trackBarSpeed.Size = new System.Drawing.Size(218, 45);
+            this.trackBarSpeed.SmallChange = 10;
+            this.trackBarSpeed.TabIndex = 15;
+            this.trackBarSpeed.Value = 100;
+            this.trackBarSpeed.ValueChanged += new System.EventHandler(this.trackBarSpeed_ValueChanged);
+            // 
             // PFXEditorWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -411,6 +438,7 @@
             this.tabPage2.ResumeLayout(false);
             this.panelSettings.ResumeLayout(false);
             this.panelSettings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -444,5 +472,7 @@
         private System.Windows.Forms.Panel panelSettings;
         private System.Windows.Forms.Label labelShowEffect;
         private System.Windows.Forms.ComboBox comboBoxShowEffectMotion;
+        private System.Windows.Forms.TrackBar trackBarSpeed;
+        private System.Windows.Forms.Label labelSpeed;
     }
 }
