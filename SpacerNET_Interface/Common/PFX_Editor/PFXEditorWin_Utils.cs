@@ -55,6 +55,11 @@ namespace SpacerUnion.Windows
             node.SelectedImageIndex = 0;
             node.ImageIndex = 0;
 
+            node = treeViewPFX.Nodes.Add("WIND");
+            node.Tag = Constants.TAG_FOLDER;
+            node.SelectedImageIndex = 0;
+            node.ImageIndex = 0;
+
             node = treeViewPFX.Nodes.Add("OTHER");
             node.Tag = Constants.TAG_FOLDER;
             node.SelectedImageIndex = 0;
@@ -277,8 +282,8 @@ namespace SpacerUnion.Windows
 
             if (Imports.Extern_IsGothic_1() == 0)
             {
-                AddNewProp("flockMode", "OTHER", "enum", "0");
-                AddNewProp("flockStrength", "OTHER", "float", "0");
+                AddNewProp("flockMode", "WIND", "enum", "0");
+                AddNewProp("flockStrength", "WIND", "float", "0");
                 AddNewProp("useEmittersFor", "OTHER", "bool", "0");
                 AddNewProp("timeStartEnd_s", "OTHER", "string", "0 0");
                 AddNewProp("m_bIsAmbientPFX", "OTHER", "bool", "0"); //57 END
