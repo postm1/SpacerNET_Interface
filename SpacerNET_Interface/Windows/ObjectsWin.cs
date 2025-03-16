@@ -275,7 +275,11 @@ namespace SpacerUnion
             buttonFuncDelete.Text = Localizator.Get("WIN_VOBCATALOG_BTN_ELEM_REMOVE");
             buttonSpawnSaveBase.Text = Localizator.Get("WIN_SPAWN_SAVE_FILE");
 
-            
+
+            comboBoxSphereType.Items[0] = Localizator.Get("OPTION_CHECK_NONE");
+            comboBoxSphereType.Items[1] = Localizator.Get("LIGHT_EDITOR_SPHERE_TYPE_ORBITS");
+            comboBoxSphereType.Items[2] = Localizator.Get("LIGHT_EDITOR_SPHERE_TYPE_SPHERE");
+
         }
 
 

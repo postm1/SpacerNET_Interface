@@ -911,6 +911,10 @@ namespace SpacerUnion.Common
             words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_FORW_ONLY", new List<string> { "Двигать только вперед", "Move forward only", "", "", "" });
             words.Add("PFX_EDITOR_SHOW_MOTION_SPEED", new List<string> { "Скорость: ", "Speed: ", "", "", "" });
             words.Add("PFX_EDITOR_SAVE_ALL_FIELDS", new List<string> { "Сохранять в файл все поля PFX (даже пустые)", "Save all PFX fields in a file (even empty ones)", "", "", "" });
+
+
+            words.Add("LIGHT_EDITOR_SPHERE_TYPE_SPHERE", new List<string> { "Сфера", "Sphere", "", "", "" });
+            words.Add("LIGHT_EDITOR_SPHERE_TYPE_ORBITS", new List<string> { "Орбиты", "Orbits", "", "", "" });
         }
 
 

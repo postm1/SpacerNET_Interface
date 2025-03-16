@@ -2396,6 +2396,7 @@
             this.checkBoxShowLightVobRadius.TabIndex = 30;
             this.checkBoxShowLightVobRadius.Text = "Show radius";
             this.checkBoxShowLightVobRadius.UseVisualStyleBackColor = true;
+            this.checkBoxShowLightVobRadius.Visible = false;
             this.checkBoxShowLightVobRadius.CheckedChanged += new System.EventHandler(this.checkBoxShowLightVobRadius_CheckedChanged);
             // 
             // labelLightVobName
