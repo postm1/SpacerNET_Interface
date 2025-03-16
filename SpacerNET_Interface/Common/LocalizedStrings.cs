@@ -919,6 +919,10 @@ namespace SpacerUnion.Common
             words.Add("FORM_ENTER_BAD_STRING_NOPFX", new List<string> { "Добавлять .PFX к имени не нужно!", "Don't add .PFX in the name!", "", "", "" });
             words.Add("PFX_EDITOR_NEW_PFX_NAME", new List<string> { "Имя PFX эффекта: ", "PFX name: ", "", "", "" });
             words.Add("PFX_EDITOR_NEW_CREATED", new List<string> { "Новый PFX успешно создан и выбран как текущий активный эффект", "New PFX was created and selected as active current one", "", "", "" });
+
+            words.Add("checkBoxDx11Amb", new List<string> { "Внешнее освещения для dx11. NumPad+- для изменения радиуса", "Ambient light source for dx11. NumPad+- for radius change", "", "", "" });
+
+            
         }
 
 

@@ -30,6 +30,7 @@
         {
             this.checkBoxSetDatePrefix = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxDisableUpper = new System.Windows.Forms.CheckBox();
             this.checkBoxFast3ds = new System.Windows.Forms.CheckBox();
             this.checkBoxUpperCase = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscRemoveAllLevelCompos = new System.Windows.Forms.CheckBox();
@@ -43,7 +44,7 @@
             this.checkBoxLastZenAuto = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
             this.btnMiscSetApply = new System.Windows.Forms.Button();
-            this.checkBoxDisableUpper = new System.Windows.Forms.CheckBox();
+            this.checkBoxDx11Amb = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +60,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxDx11Amb);
             this.groupBox1.Controls.Add(this.checkBoxDisableUpper);
             this.groupBox1.Controls.Add(this.checkBoxFast3ds);
             this.groupBox1.Controls.Add(this.checkBoxUpperCase);
@@ -78,6 +80,17 @@
             this.groupBox1.Size = new System.Drawing.Size(624, 409);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // checkBoxDisableUpper
+            // 
+            this.checkBoxDisableUpper.AutoSize = true;
+            this.checkBoxDisableUpper.Location = new System.Drawing.Point(13, 323);
+            this.checkBoxDisableUpper.Name = "checkBoxDisableUpper";
+            this.checkBoxDisableUpper.Size = new System.Drawing.Size(206, 17);
+            this.checkBoxDisableUpper.TabIndex = 15;
+            this.checkBoxDisableUpper.Text = "Disable converting fields to uppercase";
+            this.checkBoxDisableUpper.UseVisualStyleBackColor = true;
+            this.checkBoxDisableUpper.CheckedChanged += new System.EventHandler(this.checkBoxDisableUpper_CheckedChanged);
             // 
             // checkBoxFast3ds
             // 
@@ -224,16 +237,17 @@
             this.btnMiscSetApply.UseVisualStyleBackColor = true;
             this.btnMiscSetApply.Click += new System.EventHandler(this.btnMiscSetApply_Click);
             // 
-            // checkBoxDisableUpper
+            // checkBoxDx11Amb
             // 
-            this.checkBoxDisableUpper.AutoSize = true;
-            this.checkBoxDisableUpper.Location = new System.Drawing.Point(13, 323);
-            this.checkBoxDisableUpper.Name = "checkBoxDisableUpper";
-            this.checkBoxDisableUpper.Size = new System.Drawing.Size(206, 17);
-            this.checkBoxDisableUpper.TabIndex = 15;
-            this.checkBoxDisableUpper.Text = "Disable converting fields to uppercase";
-            this.checkBoxDisableUpper.UseVisualStyleBackColor = true;
-            this.checkBoxDisableUpper.CheckedChanged += new System.EventHandler(this.checkBoxDisableUpper_CheckedChanged);
+            this.checkBoxDx11Amb.AutoSize = true;
+            this.checkBoxDx11Amb.Checked = true;
+            this.checkBoxDx11Amb.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDx11Amb.Location = new System.Drawing.Point(13, 367);
+            this.checkBoxDx11Amb.Name = "checkBoxDx11Amb";
+            this.checkBoxDx11Amb.Size = new System.Drawing.Size(141, 17);
+            this.checkBoxDx11Amb.TabIndex = 16;
+            this.checkBoxDx11Amb.Text = "Show dx11 ambient light";
+            this.checkBoxDx11Amb.UseVisualStyleBackColor = true;
             // 
             // MiscSettingsWin
             // 
@@ -275,5 +289,6 @@
         public System.Windows.Forms.CheckBox checkBoxUpperCase;
         public System.Windows.Forms.CheckBox checkBoxFast3ds;
         public System.Windows.Forms.CheckBox checkBoxDisableUpper;
+        public System.Windows.Forms.CheckBox checkBoxDx11Amb;
     }
 }

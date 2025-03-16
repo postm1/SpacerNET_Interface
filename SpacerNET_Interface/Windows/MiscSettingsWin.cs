@@ -35,9 +35,10 @@ namespace SpacerUnion.Windows
             checkBoxUpperCase.Text = Localizator.Get("checkBoxUpperCase");
             checkBoxDisableUpper.Text = Localizator.Get("checkBoxDisableUpper");
             checkBoxFast3ds.Text = Localizator.Get("TITLE_3DS_FAST_MODE");
+            checkBoxDx11Amb.Text = Localizator.Get("checkBoxDx11Amb");
 
 
-            
+
 
 
             btnMiscSetApply.Text = Localizator.Get("BTN_APPLY");
@@ -95,6 +96,10 @@ namespace SpacerUnion.Windows
 
             Imports.Stack_PushString("checkBoxDisableUpper");
             SpacerNET.miscSetWin.checkBoxDisableUpper.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("bShowAmbientLightDx11");
+            SpacerNET.miscSetWin.checkBoxDx11Amb.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+            
         }
 
         public void OnApplySettings()
@@ -138,9 +143,10 @@ namespace SpacerUnion.Windows
 
             Imports.Stack_PushString("checkBoxDisableUpper");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxDisableUpper.Checked));
-            
 
 
+            Imports.Stack_PushString("bShowAmbientLightDx11");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxDx11Amb.Checked));
         }
 
         private void MiscSettingsWin_FormClosing(object sender, FormClosingEventArgs e)
