@@ -898,8 +898,6 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_STATIC_LIGHT_NO_PORTAL", new List<string> { "zCVobLight находится вне портала и имеет значение lightStatic: TRUE. Возможно, это ошибка, но не обязательно.", "zCVobLight is not in a portal and it has lightStatic: TRUE. This may be a bug, but may be not.", "", "", "" });
 
 
-
-
             words.Add("PFX_EDITOR_HIGHTLIGHT_FIELDS", new List<string> { "Подсвечивать основные поля", "Highlight important fields", "", "", "" });
             words.Add("PFX_EDITOR_HIGHTLIGHT_LINE", new List<string> { "Почеркивание", "Underline", "", "", "" });
             words.Add("PFX_EDITOR_HIGHTLIGHT_BOLD", new List<string> { "Жирный шрифт", "Bold", "", "", "" });
@@ -908,8 +906,9 @@ namespace SpacerUnion.Common
 
             words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_STATIC", new List<string> { "Статичное", "Static", "", "", "" });
             words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_CIRCLE", new List<string> { "Двигать по окружности", "Move in a circle", "", "", "" });
-            words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_FORW", new List<string> { "Двигать туда-сюда", "Move forward/backward", "", "", "" });
-            words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_ROTATE", new List<string> { "Вращать вокруг вертикальной оси", "Rotate around local vertical axis", "", "", "" });
+            words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_FORW", new List<string> { "Двигать вперед-назад", "Move forward/backward", "", "", "" });
+            words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_ROTATE", new List<string> { "Вращать вокруг вертикальной оси", "Rotate around vertical axis", "", "", "" });
+            words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_FORW_ONLY", new List<string> { "Двигать только вперед", "Move forward only", "", "", "" });
             words.Add("PFX_EDITOR_SHOW_MOTION_SPEED", new List<string> { "Скорость: ", "Speed: ", "", "", "" });
         }
 

@@ -39,12 +39,16 @@
             this.textBoxPfxInput = new System.Windows.Forms.TextBox();
             this.comboBoxPfxField = new System.Windows.Forms.ComboBox();
             this.panelPFXTop = new System.Windows.Forms.Panel();
+            this.trackBarSpeed = new System.Windows.Forms.TrackBar();
+            this.labelSpeed = new System.Windows.Forms.Label();
+            this.labelShowEffect = new System.Windows.Forms.Label();
+            this.comboBoxShowEffectMotion = new System.Windows.Forms.ComboBox();
             this.checkBoxShowHints = new System.Windows.Forms.CheckBox();
             this.buttonApplyOnMesh = new System.Windows.Forms.Button();
             this.buttonRemovePFX = new System.Windows.Forms.Button();
             this.buttonPFXPlaceNearCam = new System.Windows.Forms.Button();
-            this.checkBoxPlayAuto = new System.Windows.Forms.CheckBox();
             this.buttonPFXPlayAgain = new System.Windows.Forms.Button();
+            this.checkBoxPlayAuto = new System.Windows.Forms.CheckBox();
             this.checkBoxPfxSaveAllFields = new System.Windows.Forms.CheckBox();
             this.labelHint = new System.Windows.Forms.Label();
             this.comboBoxFieldsStyle = new System.Windows.Forms.ComboBox();
@@ -53,17 +57,13 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panelSettings = new System.Windows.Forms.Panel();
-            this.comboBoxShowEffectMotion = new System.Windows.Forms.ComboBox();
-            this.labelShowEffect = new System.Windows.Forms.Label();
-            this.labelSpeed = new System.Windows.Forms.Label();
-            this.trackBarSpeed = new System.Windows.Forms.TrackBar();
             this.panelPFXButtons.SuspendLayout();
             this.panelPFXTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
             this.tabControlPFX.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panelSettings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
             this.SuspendLayout();
             // 
             // labelPFXName
@@ -195,6 +195,53 @@
             this.panelPFXTop.Size = new System.Drawing.Size(399, 137);
             this.panelPFXTop.TabIndex = 7;
             // 
+            // trackBarSpeed
+            // 
+            this.trackBarSpeed.LargeChange = 30;
+            this.trackBarSpeed.Location = new System.Drawing.Point(141, 115);
+            this.trackBarSpeed.Maximum = 500;
+            this.trackBarSpeed.Minimum = 1;
+            this.trackBarSpeed.Name = "trackBarSpeed";
+            this.trackBarSpeed.Size = new System.Drawing.Size(218, 45);
+            this.trackBarSpeed.SmallChange = 10;
+            this.trackBarSpeed.TabIndex = 15;
+            this.trackBarSpeed.Value = 100;
+            this.trackBarSpeed.ValueChanged += new System.EventHandler(this.trackBarSpeed_ValueChanged);
+            // 
+            // labelSpeed
+            // 
+            this.labelSpeed.Location = new System.Drawing.Point(9, 115);
+            this.labelSpeed.Name = "labelSpeed";
+            this.labelSpeed.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.labelSpeed.Size = new System.Drawing.Size(126, 14);
+            this.labelSpeed.TabIndex = 14;
+            this.labelSpeed.Text = "Speed motion";
+            // 
+            // labelShowEffect
+            // 
+            this.labelShowEffect.Location = new System.Drawing.Point(9, 91);
+            this.labelShowEffect.Name = "labelShowEffect";
+            this.labelShowEffect.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.labelShowEffect.Size = new System.Drawing.Size(126, 14);
+            this.labelShowEffect.TabIndex = 13;
+            this.labelShowEffect.Text = "ShowEffect";
+            // 
+            // comboBoxShowEffectMotion
+            // 
+            this.comboBoxShowEffectMotion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxShowEffectMotion.FormattingEnabled = true;
+            this.comboBoxShowEffectMotion.Items.AddRange(new object[] {
+            "STATIC",
+            "CIRCLE",
+            "MOVE_FORW_BACK",
+            "ROTATE_LOCAL_Y",
+            "FORW_ONLY"});
+            this.comboBoxShowEffectMotion.Location = new System.Drawing.Point(141, 88);
+            this.comboBoxShowEffectMotion.Name = "comboBoxShowEffectMotion";
+            this.comboBoxShowEffectMotion.Size = new System.Drawing.Size(218, 21);
+            this.comboBoxShowEffectMotion.TabIndex = 12;
+            this.comboBoxShowEffectMotion.SelectedIndexChanged += new System.EventHandler(this.comboBoxShowEffectMotion_SelectedIndexChanged);
+            // 
             // checkBoxShowHints
             // 
             this.checkBoxShowHints.AutoSize = true;
@@ -240,6 +287,16 @@
             this.buttonPFXPlaceNearCam.UseVisualStyleBackColor = true;
             this.buttonPFXPlaceNearCam.Click += new System.EventHandler(this.buttonPFXPlaceNearCam_Click);
             // 
+            // buttonPFXPlayAgain
+            // 
+            this.buttonPFXPlayAgain.Location = new System.Drawing.Point(3, 29);
+            this.buttonPFXPlayAgain.Name = "buttonPFXPlayAgain";
+            this.buttonPFXPlayAgain.Size = new System.Drawing.Size(132, 23);
+            this.buttonPFXPlayAgain.TabIndex = 5;
+            this.buttonPFXPlayAgain.Text = "Play again";
+            this.buttonPFXPlayAgain.UseVisualStyleBackColor = true;
+            this.buttonPFXPlayAgain.Click += new System.EventHandler(this.buttonPFXPlayAgain_Click);
+            // 
             // checkBoxPlayAuto
             // 
             this.checkBoxPlayAuto.AutoSize = true;
@@ -253,16 +310,6 @@
             this.checkBoxPlayAuto.Text = "Repeat effect after it is done";
             this.checkBoxPlayAuto.UseVisualStyleBackColor = false;
             this.checkBoxPlayAuto.CheckedChanged += new System.EventHandler(this.checkBoxPlayAuto_CheckedChanged);
-            // 
-            // buttonPFXPlayAgain
-            // 
-            this.buttonPFXPlayAgain.Location = new System.Drawing.Point(3, 29);
-            this.buttonPFXPlayAgain.Name = "buttonPFXPlayAgain";
-            this.buttonPFXPlayAgain.Size = new System.Drawing.Size(132, 23);
-            this.buttonPFXPlayAgain.TabIndex = 5;
-            this.buttonPFXPlayAgain.Text = "Play again";
-            this.buttonPFXPlayAgain.UseVisualStyleBackColor = true;
-            this.buttonPFXPlayAgain.Click += new System.EventHandler(this.buttonPFXPlayAgain_Click);
             // 
             // checkBoxPfxSaveAllFields
             // 
@@ -363,52 +410,6 @@
             this.panelSettings.Size = new System.Drawing.Size(399, 84);
             this.panelSettings.TabIndex = 15;
             // 
-            // comboBoxShowEffectMotion
-            // 
-            this.comboBoxShowEffectMotion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxShowEffectMotion.FormattingEnabled = true;
-            this.comboBoxShowEffectMotion.Items.AddRange(new object[] {
-            "STATIC",
-            "CIRCLE",
-            "MOVE_FORW_BACK",
-            "ROTATE_LOCAL_Y"});
-            this.comboBoxShowEffectMotion.Location = new System.Drawing.Point(141, 88);
-            this.comboBoxShowEffectMotion.Name = "comboBoxShowEffectMotion";
-            this.comboBoxShowEffectMotion.Size = new System.Drawing.Size(218, 21);
-            this.comboBoxShowEffectMotion.TabIndex = 12;
-            this.comboBoxShowEffectMotion.SelectedIndexChanged += new System.EventHandler(this.comboBoxShowEffectMotion_SelectedIndexChanged);
-            // 
-            // labelShowEffect
-            // 
-            this.labelShowEffect.Location = new System.Drawing.Point(9, 91);
-            this.labelShowEffect.Name = "labelShowEffect";
-            this.labelShowEffect.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.labelShowEffect.Size = new System.Drawing.Size(126, 14);
-            this.labelShowEffect.TabIndex = 13;
-            this.labelShowEffect.Text = "ShowEffect";
-            // 
-            // labelSpeed
-            // 
-            this.labelSpeed.Location = new System.Drawing.Point(9, 115);
-            this.labelSpeed.Name = "labelSpeed";
-            this.labelSpeed.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.labelSpeed.Size = new System.Drawing.Size(126, 14);
-            this.labelSpeed.TabIndex = 14;
-            this.labelSpeed.Text = "Speed motion";
-            // 
-            // trackBarSpeed
-            // 
-            this.trackBarSpeed.LargeChange = 30;
-            this.trackBarSpeed.Location = new System.Drawing.Point(141, 115);
-            this.trackBarSpeed.Maximum = 500;
-            this.trackBarSpeed.Minimum = 1;
-            this.trackBarSpeed.Name = "trackBarSpeed";
-            this.trackBarSpeed.Size = new System.Drawing.Size(218, 45);
-            this.trackBarSpeed.SmallChange = 10;
-            this.trackBarSpeed.TabIndex = 15;
-            this.trackBarSpeed.Value = 100;
-            this.trackBarSpeed.ValueChanged += new System.EventHandler(this.trackBarSpeed_ValueChanged);
-            // 
             // PFXEditorWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -433,12 +434,12 @@
             this.panelPFXButtons.PerformLayout();
             this.panelPFXTop.ResumeLayout(false);
             this.panelPFXTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).EndInit();
             this.tabControlPFX.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.panelSettings.ResumeLayout(false);
             this.panelSettings.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

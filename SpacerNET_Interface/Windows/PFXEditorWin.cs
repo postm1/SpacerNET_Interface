@@ -73,6 +73,8 @@ namespace SpacerUnion.Windows
             comboBoxShowEffectMotion.Items[1] = Localizator.Get("PFX_EDITOR_SHOW_MOTION_TYPE_CIRCLE");
             comboBoxShowEffectMotion.Items[2] = Localizator.Get("PFX_EDITOR_SHOW_MOTION_TYPE_FORW");
             comboBoxShowEffectMotion.Items[3] = Localizator.Get("PFX_EDITOR_SHOW_MOTION_TYPE_ROTATE");
+            comboBoxShowEffectMotion.Items[4] = Localizator.Get("PFX_EDITOR_SHOW_MOTION_TYPE_FORW_ONLY");
+            
             trackBarSpeed_ValueChanged(null, null);
         }
 
