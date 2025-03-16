@@ -890,37 +890,37 @@ namespace SpacerUnion.Common
 
 
 
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_WP_NOT_IN_WAYNET", new List<string> { "Waypoint не находится в Waynet сети! Удалите и пересоздайте WP: ", "Waypoint is not in the Waynet list! Remove and create it again: ", "", "", "" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_WP_NO_CONNECTIONS", new List<string> { "Waypoint не имеет никаких связей с другими WP: ", "Waypoint has no connections with other waypoints: ", "", "", "" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_LIGHT_CLOSE_TOGETHER", new List<string> { "zCVobLight расположены вплотную. Дубликат? ", "zCVobLight has almost the same position. A duplicate? ", "", "", "" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_LIGHT_DYNCOLL", new List<string> { "У zCVobLight не может быть динамической коллизии!", "zCVobLight can't have dynamic collision!", "", "", "" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_MOB_NO_COLL", new List<string> { "У oCMob нет динамической коллизии: ", "oCMob does not have a dynamic collision: ", "", "", "" });
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_STATIC_LIGHT_NO_PORTAL", new List<string> { "zCVobLight находится вне портала и имеет значение lightStatic: TRUE. Возможно, это ошибка, но не обязательно.", "zCVobLight is not in a portal and it has lightStatic: TRUE. This may be a bug, but may be not.", "", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_WP_NOT_IN_WAYNET", new List<string> { "Waypoint не находится в Waynet сети! Удалите и пересоздайте WP: ", "Waypoint is not in the Waynet list! Remove and create it again: ", "Waypoint befindet sich nicht im Waynet-Netzwerk! Lösche und erstelle neu: ", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_WP_NO_CONNECTIONS", new List<string> { "Waypoint не имеет никаких связей с другими WP: ", "Waypoint has no connections with other waypoints: ", "Waypoint hat keine Verbindungen zu anderen Wegpunkten: ", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_LIGHT_CLOSE_TOGETHER", new List<string> { "zCVobLight расположены вплотную. Дубликат? ", "zCVobLight has almost the same position. A duplicate? ", "zCVobLight befindet sich fast an derselben Position. Ein Duplikat? ", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_LIGHT_DYNCOLL", new List<string> { "У zCVobLight не может быть динамической коллизии!", "zCVobLight can't have dynamic collision!", "zCVobLight darf keine dynamische Kollision haben!", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_MOB_NO_COLL", new List<string> { "У oCMob нет динамической коллизии: ", "oCMob does not have a dynamic collision: ", "oCMob hat keine dynamische Kollision: ", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_STATIC_LIGHT_NO_PORTAL", new List<string> { "zCVobLight находится вне портала и имеет значение lightStatic: TRUE. Возможно, это ошибка, но не обязательно.", "zCVobLight is not in a portal and it has lightStatic: TRUE. This may be a bug, but may be not.", "zCVobLight befindet sich außerhalb eines Portals und hat den Wert lightStatic: TRUE. Möglicherweise ein Fehler, aber nicht zwingend.", "", "" });
 
 
-            words.Add("PFX_EDITOR_HIGHTLIGHT_FIELDS", new List<string> { "Подсвечивать основные поля", "Highlight important fields", "", "", "" });
-            words.Add("PFX_EDITOR_HIGHTLIGHT_LINE", new List<string> { "Подчеркивание", "Underline", "", "", "" });
-            words.Add("PFX_EDITOR_HIGHTLIGHT_BOLD", new List<string> { "Жирный шрифт", "Bold", "", "", "" });
-            words.Add("PFX_EDITOR_HIGHTLIGHT_ITALIC", new List<string> { "Курсив", "Italic", "", "", "" });
-            words.Add("PFX_EDITOR_SHOW_MOTION_TYPE", new List<string> { "Движение эффекта", "Effect motion", "", "", "" });
+            words.Add("PFX_EDITOR_HIGHTLIGHT_FIELDS", new List<string> { "Подсвечивать основные поля", "Highlight important fields", "Wichtige Felder hervorheben", "", "" });
+            words.Add("PFX_EDITOR_HIGHTLIGHT_LINE", new List<string> { "Подчеркивание", "Underline", "Unterstreichen", "", "" });
+            words.Add("PFX_EDITOR_HIGHTLIGHT_BOLD", new List<string> { "Жирный шрифт", "Bold", "Fettschrift", "", "" });
+            words.Add("PFX_EDITOR_HIGHTLIGHT_ITALIC", new List<string> { "Курсив", "Italic", "Kursiv", "", "" });
+            words.Add("PFX_EDITOR_SHOW_MOTION_TYPE", new List<string> { "Движение эффекта", "Effect motion", "Effektbewegung", "", "" });
 
-            words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_STATIC", new List<string> { "Статичное", "Static", "", "", "" });
-            words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_CIRCLE", new List<string> { "Двигать по окружности", "Move in a circle", "", "", "" });
-            words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_FORW", new List<string> { "Двигать вперед-назад", "Move forward/backward", "", "", "" });
-            words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_ROTATE", new List<string> { "Вращать вокруг вертикальной оси", "Rotate around vertical axis", "", "", "" });
-            words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_FORW_ONLY", new List<string> { "Двигать только вперед", "Move forward only", "", "", "" });
-            words.Add("PFX_EDITOR_SHOW_MOTION_SPEED", new List<string> { "Скорость: ", "Speed: ", "", "", "" });
-            words.Add("PFX_EDITOR_SAVE_ALL_FIELDS", new List<string> { "Сохранять в файл все поля PFX (даже пустые)", "Save all PFX fields in a file (even empty ones)", "", "", "" });
+            words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_STATIC", new List<string> { "Статичное", "Static", "Statisch", "", "" });
+            words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_CIRCLE", new List<string> { "Двигать по окружности", "Move in a circle", "Kreisförmig bewegen", "", "" });
+            words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_FORW", new List<string> { "Двигать вперед-назад", "Move forward/backward", "Vor- und zurückbewegen", "", "" });
+            words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_ROTATE", new List<string> { "Вращать вокруг вертикальной оси", "Rotate around vertical axis", "Um die vertikale Achse drehen", "", "" });
+            words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_FORW_ONLY", new List<string> { "Двигать только вперед", "Move forward only", "Nur vorwärts bewegen", "", "" });
+            words.Add("PFX_EDITOR_SHOW_MOTION_SPEED", new List<string> { "Скорость: ", "Speed: ", "Geschwindigkeit: ", "", "" });
+            words.Add("PFX_EDITOR_SAVE_ALL_FIELDS", new List<string> { "Сохранять в файл все поля PFX (даже пустые)", "Save all PFX fields in a file (even empty ones)", "Alle PFX-Felder in Datei speichern (auch leere)", "", "" });
 
 
-            words.Add("LIGHT_EDITOR_SPHERE_TYPE_SPHERE", new List<string> { "Сфера", "Sphere", "", "", "" });
-            words.Add("LIGHT_EDITOR_SPHERE_TYPE_ORBITS", new List<string> { "Орбиты", "Orbits", "", "", "" });
+            words.Add("LIGHT_EDITOR_SPHERE_TYPE_SPHERE", new List<string> { "Сфера", "Sphere", "Kugel", "", "" });
+            words.Add("LIGHT_EDITOR_SPHERE_TYPE_ORBITS", new List<string> { "Орбиты", "Orbits", "Umlaufbahnen", "", "" });
 
-            words.Add("FORM_ENTER_BAD_STRING_NOPFX", new List<string> { "Добавлять .PFX к имени не нужно!", "Don't add .PFX in the name!", "", "", "" });
-            words.Add("PFX_EDITOR_NEW_PFX_NAME", new List<string> { "Имя PFX эффекта: ", "PFX name: ", "", "", "" });
-            words.Add("PFX_EDITOR_NEW_CREATED", new List<string> { "Новый PFX успешно создан и выбран как текущий активный эффект", "New PFX was created and selected as active current one", "", "", "" });
+            words.Add("FORM_ENTER_BAD_STRING_NOPFX", new List<string> { "Добавлять .PFX к имени не нужно!", "Don't add .PFX in the name!", "Füge kein .PFX zum Namen hinzu!", "", "" });
+            words.Add("PFX_EDITOR_NEW_PFX_NAME", new List<string> { "Имя PFX эффекта: ", "PFX name: ", "Name des PFX-Effekts: ", "", "" });
+            words.Add("PFX_EDITOR_NEW_CREATED", new List<string> { "Новый PFX успешно создан и выбран как текущий активный эффект", "New PFX was created and selected as active current one", "Neuer PFX wurde erstellt und als aktuell aktiver Effekt ausgewählt", "", "" });
 
-            words.Add("checkBoxDx11Amb", new List<string> { "Внешнее освещения для dx11. NumPad+- для изменения радиуса", "Ambient light source for dx11. NumPad+- for radius change", "", "", "" });
+            words.Add("checkBoxDx11Amb", new List<string> { "Внешнее освещения для dx11. NumPad+- для изменения радиуса", "Ambient light source for dx11. NumPad+- for radius change", "Umgebungslichtquelle für dx11. NumPad+- zum Ändern des Radius", "", "" });
 
             
         }
