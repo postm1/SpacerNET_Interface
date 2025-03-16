@@ -157,8 +157,41 @@ namespace SpacerUnion.Windows
 
                 SpacerNET.objectsWin.SetNewSpawnFuncText(text);
             }
+            else if (confType == "PFX_EDITOR_NEW_PFX")
+            {
+                string text = textBoxValueEnter.Text.Trim().ToUpper();
 
-            
+                if (!Utils.IsOnlyLatin(text))
+                {
+                    MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+                    return;
+                }
+
+                if (text.EndsWith(".PFX"))
+                {
+                    MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_NOPFX"));
+                    return;
+                }
+
+                Imports.Stack_PushString(text);
+
+                if (Imports.Extern_PFX_NameExists() == 1)
+                {
+                    MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
+                    return;
+                }
+
+                Imports.Stack_PushString(text);
+                Imports.Extern_CreateNewPFX_Clean();
+
+
+                SpacerNET.pfxWin.tabControlPFX.SelectedIndex = 0;
+
+                Imports.Stack_PushString(Localizator.Get("PFX_EDITOR_NEW_CREATED"));
+                Imports.Extern_PrintGreen();
+            }
+
+
 
             this.Hide();
         }

@@ -915,6 +915,10 @@ namespace SpacerUnion.Common
 
             words.Add("LIGHT_EDITOR_SPHERE_TYPE_SPHERE", new List<string> { "Сфера", "Sphere", "", "", "" });
             words.Add("LIGHT_EDITOR_SPHERE_TYPE_ORBITS", new List<string> { "Орбиты", "Orbits", "", "", "" });
+
+            words.Add("FORM_ENTER_BAD_STRING_NOPFX", new List<string> { "Добавлять .PFX к имени не нужно!", "Don't add .PFX in the name!", "", "", "" });
+            words.Add("PFX_EDITOR_NEW_PFX_NAME", new List<string> { "Имя PFX эффекта: ", "PFX name: ", "", "", "" });
+            words.Add("PFX_EDITOR_NEW_CREATED", new List<string> { "Новый PFX успешно создан и выбран как текущий активный эффект", "New PFX was created and selected as active current one", "", "", "" });
         }
 
 

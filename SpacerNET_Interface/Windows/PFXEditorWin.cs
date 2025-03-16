@@ -25,6 +25,8 @@ namespace SpacerUnion.Windows
 
         Dictionary<string, string> backupFieldsValues = new Dictionary<string, string>();
 
+        public ConfirmForm formConf;
+
         public PFXEditorWin()
         {
 
@@ -37,6 +39,7 @@ namespace SpacerUnion.Windows
 
             Helper.EnableDoubleBuffering(this.treeViewPFX);
 
+            formConf = new ConfirmForm(null);
             ToggleInterface(false);
 
             
@@ -64,7 +67,8 @@ namespace SpacerUnion.Windows
             comboBoxFieldsStyle.Items[3] = Localizator.Get("PFX_EDITOR_HIGHTLIGHT_ITALIC");
 
             tabControlPFX.TabPages[0].Text = Localizator.Get("tabControlProps_0");
-            tabControlPFX.TabPages[1].Text = Localizator.Get("MENU_TOP_SETTINGS");
+            tabControlPFX.TabPages[1].Text = Localizator.Get("FORM_COMMON_CREATE");
+            tabControlPFX.TabPages[2].Text = Localizator.Get("MENU_TOP_SETTINGS");
 
 
             labelShowEffect.Text = Localizator.Get("PFX_EDITOR_SHOW_MOTION_TYPE");
@@ -1053,6 +1057,16 @@ namespace SpacerUnion.Windows
                 Imports.Stack_PushString("intPfxEditorSpeedMotion");
                 Imports.Extern_SetSetting(trackBarSpeed.Value);
             }
+        }
+
+        private void buttonPfxCreateClean_Click(object sender, EventArgs e)
+        {
+            formConf.buttonConfirmNo.Text = Localizator.Get("WIN_COMPLIGHT_CLOSEBUTTON");
+            formConf.buttonConfirmYes.Text = Localizator.Get("WIN_BTN_CONFIRM");
+            formConf.labelTextShow.Text = Localizator.Get("PFX_EDITOR_NEW_PFX_NAME");
+            formConf.confType = "PFX_EDITOR_NEW_PFX";
+            formConf.clearText = true;
+            formConf.ShowDialog();
         }
     }
 }

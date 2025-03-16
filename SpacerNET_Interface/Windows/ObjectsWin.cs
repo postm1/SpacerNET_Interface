@@ -398,6 +398,16 @@ namespace SpacerUnion
             SpacerNET.objectsWin.listBoxParticles.Items.Add(name);
         }
 
+        [DllExport]
+        public static void AddPacticleToListNew()
+        {
+            string name = Imports.Stack_PeekString();
+
+            SpacerNET.objectsWin.listBoxParticles.Items.Add(name);
+            SpacerNET.objectsWin.listBoxParticles.SelectedIndex = SpacerNET.objectsWin.listBoxParticles.Items.Count - 1;
+            SpacerNET.objectsWin.listBoxParticles.TopIndex = SpacerNET.objectsWin.listBoxParticles.SelectedIndex;
+        }
+
         public static HashSet<string> ignoreFileNameSet = new HashSet<string>()
         {
             ".WAV", ".DAT", ".D", ".FNT", ".BIN", ".ZEN", ".M3D", ".BMP", ".SGT",

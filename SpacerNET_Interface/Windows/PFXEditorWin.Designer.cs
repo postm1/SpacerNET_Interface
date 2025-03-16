@@ -57,6 +57,10 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panelSettings = new System.Windows.Forms.Panel();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.buttonPfxCreateClean = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelPFXButtons.SuspendLayout();
             this.panelPFXTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
@@ -64,6 +68,7 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panelSettings.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelPFXName
@@ -94,7 +99,7 @@
             this.treeViewPFX.HideSelection = false;
             this.treeViewPFX.Location = new System.Drawing.Point(3, 140);
             this.treeViewPFX.Name = "treeViewPFX";
-            this.treeViewPFX.Size = new System.Drawing.Size(399, 216);
+            this.treeViewPFX.Size = new System.Drawing.Size(390, 216);
             this.treeViewPFX.TabIndex = 4;
             this.treeViewPFX.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewPFX_AfterSelect);
             this.treeViewPFX.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewPFX_NodeMouseDoubleClick);
@@ -123,7 +128,7 @@
             this.panelPFXButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelPFXButtons.Location = new System.Drawing.Point(3, 356);
             this.panelPFXButtons.Name = "panelPFXButtons";
-            this.panelPFXButtons.Size = new System.Drawing.Size(399, 76);
+            this.panelPFXButtons.Size = new System.Drawing.Size(390, 76);
             this.panelPFXButtons.TabIndex = 6;
             // 
             // buttonColor
@@ -192,7 +197,7 @@
             this.panelPFXTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPFXTop.Location = new System.Drawing.Point(3, 3);
             this.panelPFXTop.Name = "panelPFXTop";
-            this.panelPFXTop.Size = new System.Drawing.Size(399, 137);
+            this.panelPFXTop.Size = new System.Drawing.Size(390, 137);
             this.panelPFXTop.TabIndex = 7;
             // 
             // trackBarSpeed
@@ -258,9 +263,9 @@
             // 
             // buttonApplyOnMesh
             // 
-            this.buttonApplyOnMesh.Location = new System.Drawing.Point(270, 12);
+            this.buttonApplyOnMesh.Location = new System.Drawing.Point(140, -1);
             this.buttonApplyOnMesh.Name = "buttonApplyOnMesh";
-            this.buttonApplyOnMesh.Size = new System.Drawing.Size(176, 23);
+            this.buttonApplyOnMesh.Size = new System.Drawing.Size(114, 23);
             this.buttonApplyOnMesh.TabIndex = 10;
             this.buttonApplyOnMesh.Text = "Apply on mesh";
             this.buttonApplyOnMesh.UseVisualStyleBackColor = true;
@@ -364,12 +369,13 @@
             // tabControlPFX
             // 
             this.tabControlPFX.Controls.Add(this.tabPage1);
+            this.tabControlPFX.Controls.Add(this.tabPage3);
             this.tabControlPFX.Controls.Add(this.tabPage2);
             this.tabControlPFX.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlPFX.Location = new System.Drawing.Point(0, 0);
             this.tabControlPFX.Name = "tabControlPFX";
             this.tabControlPFX.SelectedIndex = 0;
-            this.tabControlPFX.Size = new System.Drawing.Size(413, 461);
+            this.tabControlPFX.Size = new System.Drawing.Size(404, 461);
             this.tabControlPFX.TabIndex = 15;
             // 
             // tabPage1
@@ -380,7 +386,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(405, 435);
+            this.tabPage1.Size = new System.Drawing.Size(396, 435);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Editing";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -391,7 +397,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(405, 435);
+            this.tabPage2.Size = new System.Drawing.Size(396, 435);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Settings";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -407,14 +413,58 @@
             this.panelSettings.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSettings.Location = new System.Drawing.Point(3, 3);
             this.panelSettings.Name = "panelSettings";
-            this.panelSettings.Size = new System.Drawing.Size(399, 84);
+            this.panelSettings.Size = new System.Drawing.Size(390, 84);
             this.panelSettings.TabIndex = 15;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.label1);
+            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.buttonPfxCreateClean);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(396, 435);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Create";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // buttonPfxCreateClean
+            // 
+            this.buttonPfxCreateClean.Enabled = false;
+            this.buttonPfxCreateClean.Location = new System.Drawing.Point(37, 27);
+            this.buttonPfxCreateClean.Name = "buttonPfxCreateClean";
+            this.buttonPfxCreateClean.Size = new System.Drawing.Size(315, 23);
+            this.buttonPfxCreateClean.TabIndex = 0;
+            this.buttonPfxCreateClean.Text = "Create new clean effect";
+            this.buttonPfxCreateClean.UseVisualStyleBackColor = true;
+            this.buttonPfxCreateClean.Click += new System.EventHandler(this.buttonPfxCreateClean_Click);
+            // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(37, 56);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(315, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Create new from current effect";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(93, 129);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(175, 18);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "NOT WORKING NOW";
             // 
             // PFXEditorWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 461);
+            this.ClientSize = new System.Drawing.Size(404, 461);
             this.Controls.Add(this.tabControlPFX);
             this.Controls.Add(this.labelHint);
             this.DoubleBuffered = true;
@@ -440,6 +490,8 @@
             this.tabPage2.ResumeLayout(false);
             this.panelSettings.ResumeLayout(false);
             this.panelSettings.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -467,7 +519,6 @@
         private System.Windows.Forms.CheckBox checkBoxShowHints;
         private System.Windows.Forms.Label labelStyleFields;
         private System.Windows.Forms.ComboBox comboBoxFieldsStyle;
-        private System.Windows.Forms.TabControl tabControlPFX;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panelSettings;
@@ -475,5 +526,10 @@
         private System.Windows.Forms.ComboBox comboBoxShowEffectMotion;
         private System.Windows.Forms.TrackBar trackBarSpeed;
         private System.Windows.Forms.Label labelSpeed;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonPfxCreateClean;
+        public System.Windows.Forms.TabControl tabControlPFX;
+        private System.Windows.Forms.Label label1;
     }
 }
