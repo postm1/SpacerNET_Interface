@@ -53,6 +53,7 @@ namespace SpacerUnion
             InitializeComponent();
             comboBoxSearchType.SelectedIndex = 0;
             comboBoxLightVobLightQuality.SelectedIndex = 1;
+            comboBoxSphereType.SelectedIndex = 0;
             camEntry = new CameraKeyEntry(this);
             formConf = new ConfirmForm(null);
             spawnListData = new Dictionary<string, List<string>>();
@@ -342,6 +343,29 @@ namespace SpacerUnion
 
             Imports.Stack_PushString("showSpawnListRadius");
             textBoxSpawnSetRad.Text = Imports.Extern_GetSetting().ToString();
+
+
+ 
+
+            Imports.Stack_PushString("sphereWireColorR");
+            int r = Imports.Extern_GetSetting();
+
+            Imports.Stack_PushString("sphereWireColorG");
+            int g = Imports.Extern_GetSetting();
+
+            Imports.Stack_PushString("sphereWireColorB");
+            int b = Imports.Extern_GetSetting();
+
+            panelColor.BackColor = Color.FromArgb(r, g, b);
+
+
+
+            Imports.Stack_PushString("bDrawRadiusValue");
+            checkBoxShowLightRadiusAsText.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("sphereDrawMode");
+            comboBoxSphereType.SelectedIndex = Convert.ToInt32(Imports.Extern_GetSetting());
+
         }
 
         public void GetVdfArchivesList()
@@ -5245,6 +5269,50 @@ namespace SpacerUnion
                 {
                     buttonNewKey.Text = Localizator.Get("buttonNewKey");
                 }
+            }
+        }
+
+        private void panelColor_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void panelColor_MouseClick(object sender, MouseEventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+
+            colorDialog.Color = panelColor.BackColor;
+
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                panelColor.BackColor = colorDialog.Color;
+
+                Imports.Stack_PushString("sphereWireColorR");
+                Imports.Extern_SetSetting(colorDialog.Color.R);
+
+                Imports.Stack_PushString("sphereWireColorG");
+                Imports.Extern_SetSetting(colorDialog.Color.G);
+
+                Imports.Stack_PushString("sphereWireColorB");
+                Imports.Extern_SetSetting(colorDialog.Color.B);
+
+
+            }
+        }
+
+        private void checkBoxShowLightRadiusAsText_CheckedChanged(object sender, EventArgs e)
+        {
+            Imports.Stack_PushString("bDrawRadiusValue");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxShowLightRadiusAsText.Checked));
+            //checkBoxShowLightRadiusAsText
+        }
+
+        private void comboBoxSphereType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (SpacerNET.isInit)
+            {
+                Imports.Stack_PushString("sphereDrawMode");
+                Imports.Extern_SetSetting(comboBoxSphereType.SelectedIndex);
             }
         }
     }

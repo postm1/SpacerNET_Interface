@@ -257,6 +257,9 @@
             this.labelScriptFunction = new System.Windows.Forms.Label();
             this.listBoxFuncs = new System.Windows.Forms.ListBox();
             this.colorDialogLightPresetColor = new System.Windows.Forms.ColorDialog();
+            this.comboBoxSphereType = new System.Windows.Forms.ComboBox();
+            this.panelColor = new System.Windows.Forms.Panel();
+            this.checkBoxShowLightRadiusAsText = new System.Windows.Forms.CheckBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -2245,6 +2248,9 @@
             // 
             // groupBoxLightSelected
             // 
+            this.groupBoxLightSelected.Controls.Add(this.checkBoxShowLightRadiusAsText);
+            this.groupBoxLightSelected.Controls.Add(this.panelColor);
+            this.groupBoxLightSelected.Controls.Add(this.comboBoxSphereType);
             this.groupBoxLightSelected.Controls.Add(this.buttonCreateLightVob);
             this.groupBoxLightSelected.Controls.Add(this.numericUpDownLightVobRange);
             this.groupBoxLightSelected.Controls.Add(this.labelLightVobLightQuality);
@@ -2289,7 +2295,7 @@
             0,
             -2147483648});
             this.numericUpDownLightVobRange.Name = "numericUpDownLightVobRange";
-            this.numericUpDownLightVobRange.Size = new System.Drawing.Size(97, 20);
+            this.numericUpDownLightVobRange.Size = new System.Drawing.Size(58, 20);
             this.numericUpDownLightVobRange.TabIndex = 52;
             this.numericUpDownLightVobRange.Value = new decimal(new int[] {
             10000,
@@ -2373,7 +2379,7 @@
             // checkBoxLightVobInstantCompile
             // 
             this.checkBoxLightVobInstantCompile.AutoSize = true;
-            this.checkBoxLightVobInstantCompile.Location = new System.Drawing.Point(6, 162);
+            this.checkBoxLightVobInstantCompile.Location = new System.Drawing.Point(70, 121);
             this.checkBoxLightVobInstantCompile.Name = "checkBoxLightVobInstantCompile";
             this.checkBoxLightVobInstantCompile.Size = new System.Drawing.Size(97, 17);
             this.checkBoxLightVobInstantCompile.TabIndex = 31;
@@ -2384,7 +2390,7 @@
             // checkBoxShowLightVobRadius
             // 
             this.checkBoxShowLightVobRadius.AutoSize = true;
-            this.checkBoxShowLightVobRadius.Location = new System.Drawing.Point(6, 146);
+            this.checkBoxShowLightVobRadius.Location = new System.Drawing.Point(70, 102);
             this.checkBoxShowLightVobRadius.Name = "checkBoxShowLightVobRadius";
             this.checkBoxShowLightVobRadius.Size = new System.Drawing.Size(84, 17);
             this.checkBoxShowLightVobRadius.TabIndex = 30;
@@ -2815,6 +2821,44 @@
             this.listBoxFuncs.Size = new System.Drawing.Size(195, 225);
             this.listBoxFuncs.TabIndex = 0;
             // 
+            // comboBoxSphereType
+            // 
+            this.comboBoxSphereType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSphereType.FormattingEnabled = true;
+            this.comboBoxSphereType.Items.AddRange(new object[] {
+            "None",
+            "Orbits",
+            "Sphere"});
+            this.comboBoxSphereType.Location = new System.Drawing.Point(6, 152);
+            this.comboBoxSphereType.Name = "comboBoxSphereType";
+            this.comboBoxSphereType.Size = new System.Drawing.Size(126, 21);
+            this.comboBoxSphereType.TabIndex = 55;
+            this.comboBoxSphereType.SelectedIndexChanged += new System.EventHandler(this.comboBoxSphereType_SelectedIndexChanged);
+            // 
+            // panelColor
+            // 
+            this.panelColor.BackColor = System.Drawing.Color.Maroon;
+            this.panelColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelColor.Location = new System.Drawing.Point(138, 152);
+            this.panelColor.Name = "panelColor";
+            this.panelColor.Size = new System.Drawing.Size(30, 21);
+            this.panelColor.TabIndex = 56;
+            this.panelColor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelColor_MouseClick);
+            this.panelColor.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panelColor_MouseDoubleClick);
+            // 
+            // checkBoxShowLightRadiusAsText
+            // 
+            this.checkBoxShowLightRadiusAsText.AutoSize = true;
+            this.checkBoxShowLightRadiusAsText.Checked = true;
+            this.checkBoxShowLightRadiusAsText.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxShowLightRadiusAsText.Location = new System.Drawing.Point(174, 155);
+            this.checkBoxShowLightRadiusAsText.Name = "checkBoxShowLightRadiusAsText";
+            this.checkBoxShowLightRadiusAsText.Size = new System.Drawing.Size(34, 17);
+            this.checkBoxShowLightRadiusAsText.TabIndex = 57;
+            this.checkBoxShowLightRadiusAsText.Text = "R";
+            this.checkBoxShowLightRadiusAsText.UseVisualStyleBackColor = true;
+            this.checkBoxShowLightRadiusAsText.CheckedChanged += new System.EventHandler(this.checkBoxShowLightRadiusAsText_CheckedChanged);
+            // 
             // ObjectsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3124,5 +3168,8 @@
         private System.Windows.Forms.TextBox textBoxSpawnSetRad;
         private System.Windows.Forms.Button buttonSpawnSaveBase;
         private System.Windows.Forms.Button buttonSpawnSetRadius;
+        private System.Windows.Forms.CheckBox checkBoxShowLightRadiusAsText;
+        private System.Windows.Forms.Panel panelColor;
+        private System.Windows.Forms.ComboBox comboBoxSphereType;
     }
 }
