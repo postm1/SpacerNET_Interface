@@ -899,7 +899,7 @@ namespace SpacerUnion.Common
 
 
             words.Add("PFX_EDITOR_HIGHTLIGHT_FIELDS", new List<string> { "Подсвечивать основные поля", "Highlight important fields", "", "", "" });
-            words.Add("PFX_EDITOR_HIGHTLIGHT_LINE", new List<string> { "Почеркивание", "Underline", "", "", "" });
+            words.Add("PFX_EDITOR_HIGHTLIGHT_LINE", new List<string> { "Подчеркивание", "Underline", "", "", "" });
             words.Add("PFX_EDITOR_HIGHTLIGHT_BOLD", new List<string> { "Жирный шрифт", "Bold", "", "", "" });
             words.Add("PFX_EDITOR_HIGHTLIGHT_ITALIC", new List<string> { "Курсив", "Italic", "", "", "" });
             words.Add("PFX_EDITOR_SHOW_MOTION_TYPE", new List<string> { "Движение эффекта", "Effect motion", "", "", "" });
