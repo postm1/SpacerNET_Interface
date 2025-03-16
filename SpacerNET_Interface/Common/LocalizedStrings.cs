@@ -658,7 +658,7 @@ namespace SpacerUnion.Common
             words.Add("PFX_EDITOR_TITLE", new List<string> { "Редактор частиц", "Particles editor", "Partikel-Editor", "Edytor cząsteczek", "Editor částic" });
             words.Add("PFX_EDITOR_INSTANCE", new List<string> { "Инстанция PFX: ", "PFX instance: ", "PFX-Instanz: ", "Instancja PFX: ", "PFX instance: " });
             words.Add("PFX_EDITOR_PLAY_AGAIN", new List<string> { "Вызвать эффект снова", "Play effect again", "Effekt erneut abspielen", "Odtwórz efekt ponownie", "Znovu přehrát efekt" });
-            words.Add("PFX_EDITOR_SAVE_ALL_FIELDS", new List<string> { "Сохранять все поля (даже пустые)", "Save all fields (even empty ones)", "Alle Felder speichern (auch leere)", "Zapisz wszystkie pola (również te puste)", "Uložit všechna pole (i prázdná)" });
+            
             words.Add("PFX_EDITOR_SAVE_IN_FILE", new List<string> { "Сохранить в файл", "Save into a file", "In Datei speichern", "Zapisz do pliku", "Uložit do souboru" });
             words.Add("PFX_EDITOR_AUTO_PLAY", new List<string> { "Повторно вызвать эффект", "Repeat playing effect", "Effekt wiederholen", "Powtarzaj odtwarzany efekt", "Efekt opakovaného přehrávání" });
             words.Add("PFX_EDITOR_SET_NEAR_CAMERA", new List<string> { "Переместить эффект к камере", "Place effect near camera", "Platziere Effekt nahe der Kamera", "Ustaw efekt w pobliżu kamery", "Umístění efektu v blízkosti kamery" });
@@ -910,6 +910,7 @@ namespace SpacerUnion.Common
             words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_ROTATE", new List<string> { "Вращать вокруг вертикальной оси", "Rotate around vertical axis", "", "", "" });
             words.Add("PFX_EDITOR_SHOW_MOTION_TYPE_FORW_ONLY", new List<string> { "Двигать только вперед", "Move forward only", "", "", "" });
             words.Add("PFX_EDITOR_SHOW_MOTION_SPEED", new List<string> { "Скорость: ", "Speed: ", "", "", "" });
+            words.Add("PFX_EDITOR_SAVE_ALL_FIELDS", new List<string> { "Сохранять в файл все поля PFX (даже пустые)", "Save all PFX fields in a file (even empty ones)", "", "", "" });
         }
 
 
