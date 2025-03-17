@@ -135,8 +135,11 @@ namespace SpacerUnion.Common
             return GetCodePage();
         }
 
-
-
+        [DllExport]
+        public static int GetCurrentLangId()
+        {
+            return (int)Localizator.curLang;
+        }
 
     }
 }
