@@ -66,6 +66,7 @@ namespace SpacerUnion
             listBoxSearchResult.Items.Clear();
             comboBoxSearchType.SelectedIndex = 0;
             labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ":";
+            UpdateLightWindow(false);
         }
 
         public void UpdateLang()
@@ -276,7 +277,7 @@ namespace SpacerUnion
             buttonSpawnSaveBase.Text = Localizator.Get("WIN_SPAWN_SAVE_FILE");
 
 
-            comboBoxSphereType.Items[0] = Localizator.Get("OPTION_CHECK_NONE");
+            //comboBoxSphereType.Items[0] = Localizator.Get("OPTION_CHECK_NONE");
             comboBoxSphereType.Items[1] = Localizator.Get("LIGHT_EDITOR_SPHERE_TYPE_ORBITS");
             comboBoxSphereType.Items[2] = Localizator.Get("LIGHT_EDITOR_SPHERE_TYPE_SPHERE");
 
@@ -4388,6 +4389,8 @@ namespace SpacerUnion
 
             SpacerNET.objectsWin.textBoxLightVobName.Text = vobName;
             SpacerNET.objectsWin.textBoxLightVobPresetName.Text = presetName;
+
+            SpacerNET.objectsWin.UpdateLightWindow(true);
         }
 
         [DllExport]
@@ -4401,6 +4404,8 @@ namespace SpacerUnion
                 Imports.Stack_PushString(SpacerNET.objectsWin.listBoxLightPresets.SelectedItem.ToString());
                 Imports.Extern_Light_QueryPresetData();
             }
+
+            SpacerNET.objectsWin.UpdateLightWindow(false);
         }
 
         private void PushLightPresetData()
@@ -5329,5 +5334,23 @@ namespace SpacerUnion
                 Imports.Extern_SetSetting(comboBoxSphereType.SelectedIndex);
             }
         }
+
+        void UpdateLightWindow(bool toggleButtons)
+        {
+            buttonApplyChangesLight.Enabled = toggleButtons;
+            buttonUpdateLightPresetFromLightVob.Enabled = toggleButtons;
+            buttonUsePresetOnLightVob.Enabled = toggleButtons;
+        }
+
+        [DllExport]
+        public static void UpdateLightWindowButtons()
+        {
+            int mode = Imports.Stack_PeekInt();
+
+            SpacerNET.objectsWin.UpdateLightWindow(Convert.ToBoolean(mode));
+
+        }
+
+        
     }
 }

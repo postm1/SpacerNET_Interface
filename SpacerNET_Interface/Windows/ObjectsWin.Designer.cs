@@ -204,6 +204,9 @@
             this.labelLightVobRangeAniFPS = new System.Windows.Forms.Label();
             this.checkBoxLightVobRangeAniSmooth = new System.Windows.Forms.CheckBox();
             this.groupBoxLightSelected = new System.Windows.Forms.GroupBox();
+            this.checkBoxShowLightRadiusAsText = new System.Windows.Forms.CheckBox();
+            this.panelColor = new System.Windows.Forms.Panel();
+            this.comboBoxSphereType = new System.Windows.Forms.ComboBox();
             this.buttonCreateLightVob = new System.Windows.Forms.Button();
             this.numericUpDownLightVobRange = new System.Windows.Forms.NumericUpDown();
             this.labelLightVobLightQuality = new System.Windows.Forms.Label();
@@ -257,9 +260,6 @@
             this.labelScriptFunction = new System.Windows.Forms.Label();
             this.listBoxFuncs = new System.Windows.Forms.ListBox();
             this.colorDialogLightPresetColor = new System.Windows.Forms.ColorDialog();
-            this.comboBoxSphereType = new System.Windows.Forms.ComboBox();
-            this.panelColor = new System.Windows.Forms.Panel();
-            this.checkBoxShowLightRadiusAsText = new System.Windows.Forms.CheckBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -2271,6 +2271,44 @@
             this.groupBoxLightSelected.TabStop = false;
             this.groupBoxLightSelected.Text = "Selected preset";
             // 
+            // checkBoxShowLightRadiusAsText
+            // 
+            this.checkBoxShowLightRadiusAsText.AutoSize = true;
+            this.checkBoxShowLightRadiusAsText.Checked = true;
+            this.checkBoxShowLightRadiusAsText.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxShowLightRadiusAsText.Location = new System.Drawing.Point(42, 157);
+            this.checkBoxShowLightRadiusAsText.Name = "checkBoxShowLightRadiusAsText";
+            this.checkBoxShowLightRadiusAsText.Size = new System.Drawing.Size(34, 17);
+            this.checkBoxShowLightRadiusAsText.TabIndex = 57;
+            this.checkBoxShowLightRadiusAsText.Text = "R";
+            this.checkBoxShowLightRadiusAsText.UseVisualStyleBackColor = true;
+            this.checkBoxShowLightRadiusAsText.CheckedChanged += new System.EventHandler(this.checkBoxShowLightRadiusAsText_CheckedChanged);
+            // 
+            // panelColor
+            // 
+            this.panelColor.BackColor = System.Drawing.Color.Maroon;
+            this.panelColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelColor.Location = new System.Drawing.Point(6, 154);
+            this.panelColor.Name = "panelColor";
+            this.panelColor.Size = new System.Drawing.Size(30, 21);
+            this.panelColor.TabIndex = 56;
+            this.panelColor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelColor_MouseClick);
+            this.panelColor.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panelColor_MouseDoubleClick);
+            // 
+            // comboBoxSphereType
+            // 
+            this.comboBoxSphereType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSphereType.FormattingEnabled = true;
+            this.comboBoxSphereType.Items.AddRange(new object[] {
+            "BBOX",
+            "Orbits",
+            "Sphere"});
+            this.comboBoxSphereType.Location = new System.Drawing.Point(6, 130);
+            this.comboBoxSphereType.Name = "comboBoxSphereType";
+            this.comboBoxSphereType.Size = new System.Drawing.Size(110, 21);
+            this.comboBoxSphereType.TabIndex = 55;
+            this.comboBoxSphereType.SelectedIndexChanged += new System.EventHandler(this.comboBoxSphereType_SelectedIndexChanged);
+            // 
             // buttonCreateLightVob
             // 
             this.buttonCreateLightVob.Location = new System.Drawing.Point(260, 126);
@@ -2283,7 +2321,7 @@
             // 
             // numericUpDownLightVobRange
             // 
-            this.numericUpDownLightVobRange.Location = new System.Drawing.Point(6, 120);
+            this.numericUpDownLightVobRange.Location = new System.Drawing.Point(197, 154);
             this.numericUpDownLightVobRange.Maximum = new decimal(new int[] {
             2147483647,
             0,
@@ -2315,7 +2353,7 @@
             // labelLightVobRange
             // 
             this.labelLightVobRange.AutoSize = true;
-            this.labelLightVobRange.Location = new System.Drawing.Point(6, 103);
+            this.labelLightVobRange.Location = new System.Drawing.Point(197, 137);
             this.labelLightVobRange.Name = "labelLightVobRange";
             this.labelLightVobRange.Size = new System.Drawing.Size(37, 13);
             this.labelLightVobRange.TabIndex = 50;
@@ -2379,7 +2417,7 @@
             // checkBoxLightVobInstantCompile
             // 
             this.checkBoxLightVobInstantCompile.AutoSize = true;
-            this.checkBoxLightVobInstantCompile.Location = new System.Drawing.Point(70, 121);
+            this.checkBoxLightVobInstantCompile.Location = new System.Drawing.Point(6, 102);
             this.checkBoxLightVobInstantCompile.Name = "checkBoxLightVobInstantCompile";
             this.checkBoxLightVobInstantCompile.Size = new System.Drawing.Size(97, 17);
             this.checkBoxLightVobInstantCompile.TabIndex = 31;
@@ -2390,7 +2428,7 @@
             // checkBoxShowLightVobRadius
             // 
             this.checkBoxShowLightVobRadius.AutoSize = true;
-            this.checkBoxShowLightVobRadius.Location = new System.Drawing.Point(70, 102);
+            this.checkBoxShowLightVobRadius.Location = new System.Drawing.Point(124, 12);
             this.checkBoxShowLightVobRadius.Name = "checkBoxShowLightVobRadius";
             this.checkBoxShowLightVobRadius.Size = new System.Drawing.Size(84, 17);
             this.checkBoxShowLightVobRadius.TabIndex = 30;
@@ -2821,44 +2859,6 @@
             this.listBoxFuncs.Name = "listBoxFuncs";
             this.listBoxFuncs.Size = new System.Drawing.Size(195, 225);
             this.listBoxFuncs.TabIndex = 0;
-            // 
-            // comboBoxSphereType
-            // 
-            this.comboBoxSphereType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSphereType.FormattingEnabled = true;
-            this.comboBoxSphereType.Items.AddRange(new object[] {
-            "None",
-            "Orbits",
-            "Sphere"});
-            this.comboBoxSphereType.Location = new System.Drawing.Point(6, 152);
-            this.comboBoxSphereType.Name = "comboBoxSphereType";
-            this.comboBoxSphereType.Size = new System.Drawing.Size(126, 21);
-            this.comboBoxSphereType.TabIndex = 55;
-            this.comboBoxSphereType.SelectedIndexChanged += new System.EventHandler(this.comboBoxSphereType_SelectedIndexChanged);
-            // 
-            // panelColor
-            // 
-            this.panelColor.BackColor = System.Drawing.Color.Maroon;
-            this.panelColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelColor.Location = new System.Drawing.Point(138, 152);
-            this.panelColor.Name = "panelColor";
-            this.panelColor.Size = new System.Drawing.Size(30, 21);
-            this.panelColor.TabIndex = 56;
-            this.panelColor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelColor_MouseClick);
-            this.panelColor.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panelColor_MouseDoubleClick);
-            // 
-            // checkBoxShowLightRadiusAsText
-            // 
-            this.checkBoxShowLightRadiusAsText.AutoSize = true;
-            this.checkBoxShowLightRadiusAsText.Checked = true;
-            this.checkBoxShowLightRadiusAsText.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxShowLightRadiusAsText.Location = new System.Drawing.Point(174, 155);
-            this.checkBoxShowLightRadiusAsText.Name = "checkBoxShowLightRadiusAsText";
-            this.checkBoxShowLightRadiusAsText.Size = new System.Drawing.Size(34, 17);
-            this.checkBoxShowLightRadiusAsText.TabIndex = 57;
-            this.checkBoxShowLightRadiusAsText.Text = "R";
-            this.checkBoxShowLightRadiusAsText.UseVisualStyleBackColor = true;
-            this.checkBoxShowLightRadiusAsText.CheckedChanged += new System.EventHandler(this.checkBoxShowLightRadiusAsText_CheckedChanged);
             // 
             // ObjectsWin
             // 
