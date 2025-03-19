@@ -922,7 +922,12 @@ namespace SpacerUnion.Common
 
             words.Add("checkBoxDx11Amb", new List<string> { "Внешнее освещения для dx11. NumPad+- для изменения радиуса", "Ambient light source for dx11. NumPad+- for radius change", "Umgebungslichtquelle für dx11. NumPad+- zum Ändern des Radius", "", "" });
 
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_DECAL_BAD_BLEND", new List<string> { "У декали не настроен decalAlphaFunc", "Decal vob does not have decalAlphaFunc configured", "Decal-Vob hat keine decalAlphaFunc-Konfiguration", "", "" });
+
+
             
+
+
         }
 
 
