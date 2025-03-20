@@ -1926,10 +1926,23 @@ namespace SpacerUnion
 
             if (saveFileDialogVobTree.ShowDialog() == DialogResult.OK)
             {
+                string pathSave = Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(saveFileDialogVobTree.FileName)));
+
+                string selectedPath = Utils.FixPath(Path.GetFullPath(saveFileDialogVobTree.FileName));
+                string appDirectory = Utils.FixPath(Path.GetDirectoryName(Path.Combine(Path.GetDirectoryName(Application.ExecutablePath)))) + Constants.FILE_PATH_SAVE_VOB_MESH;
+
+                Console.WriteLine(selectedPath);
+                Console.WriteLine(appDirectory);
+
+                if (!selectedPath.StartsWith(appDirectory, StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show(Localizator.Get("MSG_COMMON_FILE_PATH_SAVE_VOB_MESH"));
+                    return;
+                }
+ 
 
 
-
-                Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(saveFileDialogVobTree.FileName))));
+                Imports.Stack_PushString(pathSave);
                 Imports.Stack_PushString("savedVobsVisualPath");
                 Imports.Extern_SetSettingStr();
 

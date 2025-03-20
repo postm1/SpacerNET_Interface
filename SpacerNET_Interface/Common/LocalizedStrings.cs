@@ -925,9 +925,12 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_DECAL_BAD_BLEND", new List<string> { "У декали не настроен decalAlphaFunc", "Decal vob does not have decalAlphaFunc configured", "Decal-Vob hat keine decalAlphaFunc-Konfiguration", "", "" });
 
 
+
+
+            words.Add("MSG_COMMON_CANT_SAVE_OUTSIDE", new List<string> { "Сохранять файлы можно только внутри папки _WORK/DATA", "You can save files only inside _WORK/DATA folder!", "Du kannst Dateien nur im Ordner _WORK/DATA speichern!", "", "" });
+            words.Add("MSG_COMMON_FILE_PATH_SAVE_VOB_MESH", new List<string> { "Сохранять MESH вобов можно только внутри папки _WORK/DATA/MESHES/_COMPILED/", "You can save vob's mesh only inside _WORK/DATA/MESHES/_COMPILED/ folder!", "", "", "" });
+
             
-
-
         }
 
 
