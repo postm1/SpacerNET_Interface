@@ -1785,6 +1785,22 @@ namespace SpacerUnion
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
 
+
+                string pathSave = Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(saveFileDialog.FileName)));
+
+                string selectedPath = Utils.FixPath(Path.GetFullPath(saveFileDialog.FileName));
+                string appDirectory = Utils.FixPath(Path.GetDirectoryName(Path.Combine(Path.GetDirectoryName(Application.ExecutablePath)))) + Constants.FILE_PATH_SAVE_VOB_MESH;
+
+                //Console.WriteLine(selectedPath);
+                //Console.WriteLine(appDirectory);
+
+                if (!selectedPath.StartsWith(appDirectory, StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show(Localizator.Get("MSG_COMMON_FILE_PATH_SAVE_LOCATION_MESH"));
+                    return;
+                }
+
+
                 string filePath = saveFileDialog.FileName;
                 string selectedFileName = Path.GetFileName(saveFileDialog.FileName);
 
