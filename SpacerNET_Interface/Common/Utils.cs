@@ -27,7 +27,7 @@ namespace SpacerUnion
         public const string FILE_FILTER_SAVE_ONLY_MESH = "COMPILED MESH |*.MSH";
         public const string FILE_FILTER_ALL = "All files (*.)|";
         public const string FILE_PATH_WORK_DATA = "/_WORK/DATA";
-        public const string FILE_PATH_SAVE_VOB_MESH = "/_WORK/DATA/MESHES/_COMPILED";
+        public const string FILE_PATH_SAVE_VOB_MESH = "/_WORK/DATA/MESHES/";
 
         public const string TAG_FOLDER = "folder";
 
