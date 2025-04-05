@@ -81,7 +81,7 @@ namespace SpacerUnion.Windows
             buttonErrorsSearch.Enabled = toggle;
             comboBoxErrFilter.Enabled = toggle;
             buttonSaveReport.Enabled = toggle;
-            
+            buttonAutoFix.Enabled = toggle;
         }
 
 
