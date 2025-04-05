@@ -30,6 +30,7 @@
         {
             this.checkBoxSetDatePrefix = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxDx11Amb = new System.Windows.Forms.CheckBox();
             this.checkBoxDisableUpper = new System.Windows.Forms.CheckBox();
             this.checkBoxFast3ds = new System.Windows.Forms.CheckBox();
             this.checkBoxUpperCase = new System.Windows.Forms.CheckBox();
@@ -44,7 +45,7 @@
             this.checkBoxLastZenAuto = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
             this.btnMiscSetApply = new System.Windows.Forms.Button();
-            this.checkBoxDx11Amb = new System.Windows.Forms.CheckBox();
+            this.checkBoxSkipPolysCut = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +61,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxSkipPolysCut);
             this.groupBox1.Controls.Add(this.checkBoxDx11Amb);
             this.groupBox1.Controls.Add(this.checkBoxDisableUpper);
             this.groupBox1.Controls.Add(this.checkBoxFast3ds);
@@ -77,14 +79,26 @@
             this.groupBox1.Controls.Add(this.checkBoxSetDatePrefix);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(624, 409);
+            this.groupBox1.Size = new System.Drawing.Size(624, 451);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // checkBoxDx11Amb
+            // 
+            this.checkBoxDx11Amb.AutoSize = true;
+            this.checkBoxDx11Amb.Checked = true;
+            this.checkBoxDx11Amb.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDx11Amb.Location = new System.Drawing.Point(13, 401);
+            this.checkBoxDx11Amb.Name = "checkBoxDx11Amb";
+            this.checkBoxDx11Amb.Size = new System.Drawing.Size(141, 17);
+            this.checkBoxDx11Amb.TabIndex = 16;
+            this.checkBoxDx11Amb.Text = "Show dx11 ambient light";
+            this.checkBoxDx11Amb.UseVisualStyleBackColor = true;
             // 
             // checkBoxDisableUpper
             // 
             this.checkBoxDisableUpper.AutoSize = true;
-            this.checkBoxDisableUpper.Location = new System.Drawing.Point(13, 323);
+            this.checkBoxDisableUpper.Location = new System.Drawing.Point(13, 381);
             this.checkBoxDisableUpper.Name = "checkBoxDisableUpper";
             this.checkBoxDisableUpper.Size = new System.Drawing.Size(206, 17);
             this.checkBoxDisableUpper.TabIndex = 15;
@@ -97,7 +111,7 @@
             this.checkBoxFast3ds.AutoSize = true;
             this.checkBoxFast3ds.Checked = true;
             this.checkBoxFast3ds.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxFast3ds.Location = new System.Drawing.Point(13, 344);
+            this.checkBoxFast3ds.Location = new System.Drawing.Point(13, 260);
             this.checkBoxFast3ds.Name = "checkBoxFast3ds";
             this.checkBoxFast3ds.Size = new System.Drawing.Size(575, 17);
             this.checkBoxFast3ds.TabIndex = 14;
@@ -108,7 +122,7 @@
             // checkBoxUpperCase
             // 
             this.checkBoxUpperCase.AutoSize = true;
-            this.checkBoxUpperCase.Location = new System.Drawing.Point(13, 302);
+            this.checkBoxUpperCase.Location = new System.Drawing.Point(13, 360);
             this.checkBoxUpperCase.Name = "checkBoxUpperCase";
             this.checkBoxUpperCase.Size = new System.Drawing.Size(174, 17);
             this.checkBoxUpperCase.TabIndex = 13;
@@ -130,7 +144,7 @@
             this.checkBoxOnlyLatinInInput.AutoSize = true;
             this.checkBoxOnlyLatinInInput.Checked = true;
             this.checkBoxOnlyLatinInInput.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxOnlyLatinInInput.Location = new System.Drawing.Point(13, 279);
+            this.checkBoxOnlyLatinInInput.Location = new System.Drawing.Point(13, 337);
             this.checkBoxOnlyLatinInInput.Name = "checkBoxOnlyLatinInInput";
             this.checkBoxOnlyLatinInInput.Size = new System.Drawing.Size(213, 17);
             this.checkBoxOnlyLatinInInput.TabIndex = 11;
@@ -229,7 +243,7 @@
             // 
             // btnMiscSetApply
             // 
-            this.btnMiscSetApply.Location = new System.Drawing.Point(276, 427);
+            this.btnMiscSetApply.Location = new System.Drawing.Point(275, 469);
             this.btnMiscSetApply.Name = "btnMiscSetApply";
             this.btnMiscSetApply.Size = new System.Drawing.Size(115, 23);
             this.btnMiscSetApply.TabIndex = 11;
@@ -237,23 +251,23 @@
             this.btnMiscSetApply.UseVisualStyleBackColor = true;
             this.btnMiscSetApply.Click += new System.EventHandler(this.btnMiscSetApply_Click);
             // 
-            // checkBoxDx11Amb
+            // checkBoxSkipPolysCut
             // 
-            this.checkBoxDx11Amb.AutoSize = true;
-            this.checkBoxDx11Amb.Checked = true;
-            this.checkBoxDx11Amb.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxDx11Amb.Location = new System.Drawing.Point(13, 367);
-            this.checkBoxDx11Amb.Name = "checkBoxDx11Amb";
-            this.checkBoxDx11Amb.Size = new System.Drawing.Size(141, 17);
-            this.checkBoxDx11Amb.TabIndex = 16;
-            this.checkBoxDx11Amb.Text = "Show dx11 ambient light";
-            this.checkBoxDx11Amb.UseVisualStyleBackColor = true;
+            this.checkBoxSkipPolysCut.AutoSize = true;
+            this.checkBoxSkipPolysCut.Checked = true;
+            this.checkBoxSkipPolysCut.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxSkipPolysCut.Location = new System.Drawing.Point(13, 283);
+            this.checkBoxSkipPolysCut.Name = "checkBoxSkipPolysCut";
+            this.checkBoxSkipPolysCut.Size = new System.Drawing.Size(389, 17);
+            this.checkBoxSkipPolysCut.TabIndex = 17;
+            this.checkBoxSkipPolysCut.Text = "Ask for sorting polygons while saving big locations (more than 200k polygons)";
+            this.checkBoxSkipPolysCut.UseVisualStyleBackColor = true;
             // 
             // MiscSettingsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 462);
+            this.ClientSize = new System.Drawing.Size(648, 504);
             this.Controls.Add(this.btnMiscSetApply);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -290,5 +304,6 @@
         public System.Windows.Forms.CheckBox checkBoxFast3ds;
         public System.Windows.Forms.CheckBox checkBoxDisableUpper;
         public System.Windows.Forms.CheckBox checkBoxDx11Amb;
+        public System.Windows.Forms.CheckBox checkBoxSkipPolysCut;
     }
 }

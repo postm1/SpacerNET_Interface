@@ -932,7 +932,10 @@ namespace SpacerUnion.Common
             words.Add("MSG_COMMON_FILE_PATH_SAVE_LOCATION_MESH", new List<string> { "Сохранять MESH локации можно только внутри папки _WORK/DATA/MESHES/_COMPILED/", "You can save location mesh only inside _WORK/DATA/MESHES/_COMPILED/ folder!", "Du kannst Location Meshes nur im Ordner _WORK/DATA/MESHES/_COMPILED/ speichern!", "", "" });
 
 
+            words.Add("checkBoxSkipPolysCut", new List<string> { "Не удалять 'Лишние' полигоны в локации (если отключено, могут быть дырки в меше локации)", "Do not delete 'Redundant' polygons in the location (if disabled, there may be holes in the mesh of the location)", "", "", "" });
             
+
+
         }
 
 

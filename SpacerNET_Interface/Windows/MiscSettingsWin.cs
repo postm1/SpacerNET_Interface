@@ -36,7 +36,7 @@ namespace SpacerUnion.Windows
             checkBoxDisableUpper.Text = Localizator.Get("checkBoxDisableUpper");
             checkBoxFast3ds.Text = Localizator.Get("TITLE_3DS_FAST_MODE");
             checkBoxDx11Amb.Text = Localizator.Get("checkBoxDx11Amb");
-
+            checkBoxSkipPolysCut.Text = Localizator.Get("checkBoxSkipPolysCut");
 
 
 
@@ -99,7 +99,13 @@ namespace SpacerUnion.Windows
 
             Imports.Stack_PushString("bShowAmbientLightDx11");
             SpacerNET.miscSetWin.checkBoxDx11Amb.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("bSkipPolysCut");
+            SpacerNET.miscSetWin.checkBoxSkipPolysCut.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
             
+
+
         }
 
         public void OnApplySettings()
@@ -140,6 +146,10 @@ namespace SpacerUnion.Windows
 
             Imports.Stack_PushString("bFastLoad3DSLocation");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxFast3ds.Checked));
+
+            Imports.Stack_PushString("bSkipPolysCut");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxSkipPolysCut.Checked));
+            
 
             Imports.Stack_PushString("checkBoxDisableUpper");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxDisableUpper.Checked));
