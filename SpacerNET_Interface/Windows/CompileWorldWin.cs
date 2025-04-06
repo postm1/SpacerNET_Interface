@@ -84,6 +84,9 @@ namespace SpacerUnion
             Stopwatch s = new Stopwatch();
             s.Start();
 
+            SpacerNET.form.MainMenuInterfaceToggle(false);
+            this.Enabled = false;
+
             SpacerNET.form.ResetInterface();
 
             Imports.Extern_CompileWorld(type);
@@ -95,6 +98,10 @@ namespace SpacerUnion
             // SpacerNET.form.AddText(Localizator.Get("WIN_COMPWORLD_LEVELCOMPO"));
 
             OnWorldCompile();
+
+            SpacerNET.form.MainMenuInterfaceToggle(true);
+            this.Enabled = true;
+
             this.Hide();
         }
 

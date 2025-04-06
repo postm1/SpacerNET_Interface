@@ -295,13 +295,17 @@ namespace SpacerUnion
             //toolStripTop.BringToFront();
         }
 
+        public void MainMenuInterfaceToggle(bool mode)
+        {
+            menuStripTopMain.Enabled = mode;
+            toolStripTop.Enabled = mode;
+        }
+
 
         [DllExport]
-        public static void GameModeToggleInterface(int mode)
+        public static void ToggleMainMenuInterface(int mode)
         {
-            SpacerNET.form.menuStripTopMain.Enabled = Convert.ToBoolean(mode);
-            SpacerNET.form.toolStripTop.Enabled = Convert.ToBoolean(mode);
-  
+            SpacerNET.form.MainMenuInterfaceToggle(Convert.ToBoolean(mode));
         }
         
 
@@ -444,8 +448,10 @@ namespace SpacerUnion
 
                 Imports.Stack_PushInt(openFileDialog.FilterIndex);
                 Imports.Stack_PushString(filePath);
-                Imports.Extern_LoadWorld();
 
+                MainMenuInterfaceToggle(false);
+                Imports.Extern_LoadWorld();
+                MainMenuInterfaceToggle(true);
                 s.Stop();
 
                 string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
@@ -734,11 +740,13 @@ namespace SpacerUnion
                // ConsoleEx.WriteLineGreen(selectedFileName + " " + Localizator.Get("IS_SAVING"));
                 SpacerNET.form.AddText(selectedFileName + " " + Localizator.Get("IS_SAVING"));
 
-               
+                MainMenuInterfaceToggle(false);
 
                 Imports.Stack_PushString(filePath);
                 Imports.Stack_PushInt(Convert.ToInt32(sortPolys));
                 Imports.Extern_SaveWorld( saveFileDialog.FilterIndex - 1);
+
+                MainMenuInterfaceToggle(true);
 
                 s.Stop();
 
@@ -813,7 +821,7 @@ namespace SpacerUnion
                 ResetInterface();
                 UpdateSpacerCaption(openFileDialog.SafeFileName);
 
-                
+                MainMenuInterfaceToggle(false);
                 sAll.Start();
 
                
@@ -859,6 +867,8 @@ namespace SpacerUnion
                     SpacerNET.form.AddText(Localizator.Get("loadMeshTime") + " (" + timeSpend + ")");
                 }
 
+
+                MainMenuInterfaceToggle(true);
                 sAll.Stop();
 
                 if (countLoaded > 1)
@@ -937,7 +947,7 @@ namespace SpacerUnion
 
                 Stopwatch sAll = new Stopwatch();
                 sAll.Start();
-
+                MainMenuInterfaceToggle(false);
                 ResetInterface();
 
 
@@ -949,6 +959,8 @@ namespace SpacerUnion
                 Imports.Extern_MergeZen();
 
                 sAll.Stop();
+
+                MainMenuInterfaceToggle(true);
 
                 string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(sAll.Elapsed.Ticks));
                 SpacerNET.form.AddText(Localizator.Get("mergeZenTime") + " (" + timeSpend + ")", Color.Green);
@@ -1466,6 +1478,8 @@ namespace SpacerUnion
                 Stopwatch sAll = new Stopwatch();
                 sAll.Start();
 
+                MainMenuInterfaceToggle(false);
+
                 foreach (string filePath in openFileDialog.FileNames)
                 {
 
@@ -1494,6 +1508,8 @@ namespace SpacerUnion
                     SpacerNET.form.AddText(Localizator.Get("loadMeshTime") + " (" + timeSpend + ")");
                 }
 
+
+                MainMenuInterfaceToggle(true);
                 sAll.Stop();
 
                 string timeSpendAll = string.Format("{0:HH:mm:ss.fff}", new DateTime(sAll.Elapsed.Ticks));

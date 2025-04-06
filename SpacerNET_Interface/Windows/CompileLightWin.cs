@@ -166,7 +166,8 @@ namespace SpacerUnion
             s.Start();
             SpacerNET.form.AddText(Localizator.Get("compileLight"));
 
-            
+            SpacerNET.form.MainMenuInterfaceToggle(false);
+            this.Enabled = false;
 
             for (int i = 0; i < RADIO_BUTTONS_MAX; i++)
             {
@@ -177,6 +178,9 @@ namespace SpacerUnion
                     break;
                 }
             }
+
+            SpacerNET.form.MainMenuInterfaceToggle(true);
+            this.Enabled = true;
             s.Stop();
 
             string timeSpend = string.Format("{0:HH:mm:ss}", new DateTime(s.Elapsed.Ticks));
