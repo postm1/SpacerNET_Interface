@@ -1910,7 +1910,7 @@ namespace SpacerUnion
             if (path.Length == 0)
             {
 
-                path = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "..\\_work\\data\\meshes\\_compiled"));
+                path = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "..\\_work\\data\\meshes\\"));
 
                 ConsoleEx.WriteLineRed(path);
             }

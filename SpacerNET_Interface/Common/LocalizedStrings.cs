@@ -928,7 +928,7 @@ namespace SpacerUnion.Common
 
 
             words.Add("MSG_COMMON_CANT_SAVE_OUTSIDE", new List<string> { "Сохранять файлы можно только внутри папки _WORK/DATA", "You can save files only inside _WORK/DATA folder!", "Du kannst Dateien nur im Ordner _WORK/DATA speichern!", "", "" });
-            words.Add("MSG_COMMON_FILE_PATH_SAVE_VOB_MESH", new List<string> { "Сохранять MESH вобов можно только внутри папки _WORK/DATA/MESHES/_COMPILED/", "You can save vob's mesh only inside _WORK/DATA/MESHES/_COMPILED/ folder!", "Du kannst VOB Meshes nur im Ordner _WORK/DATA/MESHES/_COMPILED/ speichern!", "", "" });
+            words.Add("MSG_COMMON_FILE_PATH_SAVE_VOB_MESH", new List<string> { "Сохранять MESH вобов можно только внутри папки _WORK/DATA/MESHES/", "You can save vob's mesh only inside _WORK/DATA/MESHES/ folder!", "Du kannst VOB Meshes nur im Ordner _WORK/DATA/MESHES/ speichern!", "", "" });
             words.Add("MSG_COMMON_FILE_PATH_SAVE_LOCATION_MESH", new List<string> { "Сохранять MESH локации можно только внутри папки _WORK/DATA/MESHES/", "You can save location mesh only inside _WORK/DATA/MESHES/ folder!", "Du kannst Location Meshes nur im Ordner _WORK/DATA/MESHES/ speichern!", "", "" });
 
 
