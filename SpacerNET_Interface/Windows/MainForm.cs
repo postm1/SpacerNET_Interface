@@ -993,10 +993,12 @@ namespace SpacerUnion
 
             if (res == DialogResult.OK)
             {
+                SpacerNET.form.MainMenuInterfaceToggle(false);
                 currentWorldName = "";
                 UpdateSpacerCaption(currentWorldName);
                 ResetInterface();
                 Imports.Extern_ResetWorld();
+                SpacerNET.form.MainMenuInterfaceToggle(true);
             }
 
            
