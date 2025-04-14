@@ -936,9 +936,9 @@ namespace SpacerUnion.Common
 
             words.Add("ERROR_REPORT_PROBLEM_TYPE_MAT_NOT_UNIQ_MAT", new List<string> { "Кривой материал! Его имя не уникально и эти материалы используют разные текстуры!", "", "", "", "" });
             words.Add("VOB_CHANGE_POS_BLOCKED", new List<string> { "Текущий воб имеет вложенные вобы. Изменение позиции/вращения заблокировано!", "Current vob has children vobs. Changing position/rotation is blocked!", "Der aktuelle Vob hat Child-Vobs. Positions- oder Rotationsänderung ist gesperrt!", "", "" });
-            words.Add("CHANGE_VOB_COMPLEX_MOVE", new List<string> { "Режим блокировки перемещения воба", "Vob blocking movement mod", "", "", "" });
-            words.Add("COMMON_TURN_ON", new List<string> { "включен", "is on", "", "", "" });
-            words.Add("COMMON_TURN_OFF", new List<string> { "отключен", "is off", "", "", "" });
+            words.Add("CHANGE_VOB_COMPLEX_MOVE", new List<string> { "Режим блокировки перемещения воба", "Vob blocking movement mod", "Modus zur Blockierung der Vob-Bewegung", "", "" });
+            words.Add("COMMON_TURN_ON", new List<string> { "включен", "is on", "aktiviert", "", "" });
+            words.Add("COMMON_TURN_OFF", new List<string> { "отключен", "is off", "deaktiviert", "", "" });
         }
 
 
