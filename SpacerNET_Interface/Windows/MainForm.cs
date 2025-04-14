@@ -1233,9 +1233,6 @@ namespace SpacerUnion
             Imports.Stack_PushString("checkBoxShowVobTraceFloor");
             SpacerNET.settingsControl.checkBoxShowVobTraceFloor.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
-            Imports.Stack_PushString("checkBoxBlockComplexVob");
-            SpacerNET.settingsControl.checkBoxBlockComplexVob.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
-
 
 
             SpacerNET.settingsControl.UpdateAll();

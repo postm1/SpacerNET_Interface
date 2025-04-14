@@ -47,7 +47,6 @@
             this.checkBoxVobInsertHierarchy = new System.Windows.Forms.CheckBox();
             this.checkBoxVobRotRandAngle = new System.Windows.Forms.CheckBox();
             this.checkBoxInsertVob = new System.Windows.Forms.CheckBox();
-            this.checkBoxBlockComplexVob = new System.Windows.Forms.CheckBox();
             this.groupBoxControlVob.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobRotSpeed)).BeginInit();
@@ -140,7 +139,6 @@
             // 
             // groupBoxSet
             // 
-            this.groupBoxSet.Controls.Add(this.checkBoxBlockComplexVob);
             this.groupBoxSet.Controls.Add(this.radioButtonWPTurnOnRandom);
             this.groupBoxSet.Controls.Add(this.checkBoxShowVobTraceFloor);
             this.groupBoxSet.Controls.Add(this.checkBoxSelectMoveInsert);
@@ -276,17 +274,6 @@
             this.checkBoxInsertVob.UseVisualStyleBackColor = true;
             this.checkBoxInsertVob.CheckedChanged += new System.EventHandler(this.checkBoxInsertVob_CheckedChanged);
             // 
-            // checkBoxBlockComplexVob
-            // 
-            this.checkBoxBlockComplexVob.AutoSize = true;
-            this.checkBoxBlockComplexVob.Location = new System.Drawing.Point(9, 138);
-            this.checkBoxBlockComplexVob.Name = "checkBoxBlockComplexVob";
-            this.checkBoxBlockComplexVob.Size = new System.Drawing.Size(227, 17);
-            this.checkBoxBlockComplexVob.TabIndex = 10;
-            this.checkBoxBlockComplexVob.Text = "Block moving/rotating vob if it has children";
-            this.checkBoxBlockComplexVob.UseVisualStyleBackColor = true;
-            this.checkBoxBlockComplexVob.CheckedChanged += new System.EventHandler(this.checkBoxBlockComplexVob_CheckedChanged);
-            // 
             // SettingsVobs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -335,6 +322,5 @@
         public System.Windows.Forms.CheckBox checkBoxSelectMoveInsert;
         public System.Windows.Forms.CheckBox checkBoxShowVobTraceFloor;
         private System.Windows.Forms.RadioButton radioButtonWPTurnOnRandom;
-        public System.Windows.Forms.CheckBox checkBoxBlockComplexVob;
     }
 }
