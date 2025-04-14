@@ -42,6 +42,8 @@ namespace SpacerUnion.Windows
 
             labelVobTrans.Text = Localizator.Get("WIN_CONTROLSET_TRANSSPEED") + trackBarVobTransSpeed.Value;
             labelVobRot.Text = Localizator.Get("WIN_CONTROLSET_ROTSPEED") + trackBarVobRotSpeed.Value;
+
+            checkBoxBlockComplexVob.Text = Localizator.Get("checkBoxBlockComplexVob");
         }
 
         private void SettingsControls_FormClosing(object sender, FormClosingEventArgs e)
@@ -225,6 +227,13 @@ namespace SpacerUnion.Windows
         {
             CheckBox cb = sender as CheckBox;
             Imports.Stack_PushString("checkBoxShowVobTraceFloor");
+            Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
+        }
+
+        private void checkBoxBlockComplexVob_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+            Imports.Stack_PushString("checkBoxBlockComplexVob");
             Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
         }
     }

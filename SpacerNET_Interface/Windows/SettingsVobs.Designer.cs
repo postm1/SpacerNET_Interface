@@ -37,6 +37,7 @@
             this.trackBarVobRotSpeed = new System.Windows.Forms.TrackBar();
             this.buttonVobControlApply = new System.Windows.Forms.Button();
             this.groupBoxSet = new System.Windows.Forms.GroupBox();
+            this.radioButtonWPTurnOnRandom = new System.Windows.Forms.RadioButton();
             this.checkBoxShowVobTraceFloor = new System.Windows.Forms.CheckBox();
             this.checkBoxSelectMoveInsert = new System.Windows.Forms.CheckBox();
             this.labelRotWpFP = new System.Windows.Forms.Label();
@@ -46,7 +47,7 @@
             this.checkBoxVobInsertHierarchy = new System.Windows.Forms.CheckBox();
             this.checkBoxVobRotRandAngle = new System.Windows.Forms.CheckBox();
             this.checkBoxInsertVob = new System.Windows.Forms.CheckBox();
-            this.radioButtonWPTurnOnRandom = new System.Windows.Forms.RadioButton();
+            this.checkBoxBlockComplexVob = new System.Windows.Forms.CheckBox();
             this.groupBoxControlVob.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobRotSpeed)).BeginInit();
@@ -63,7 +64,7 @@
             this.groupBoxControlVob.Controls.Add(this.trackBarVobRotSpeed);
             this.groupBoxControlVob.Location = new System.Drawing.Point(12, 12);
             this.groupBoxControlVob.Name = "groupBoxControlVob";
-            this.groupBoxControlVob.Size = new System.Drawing.Size(413, 139);
+            this.groupBoxControlVob.Size = new System.Drawing.Size(478, 139);
             this.groupBoxControlVob.TabIndex = 9;
             this.groupBoxControlVob.TabStop = false;
             this.groupBoxControlVob.Text = "Vob control";
@@ -129,7 +130,7 @@
             // 
             // buttonVobControlApply
             // 
-            this.buttonVobControlApply.Location = new System.Drawing.Point(168, 451);
+            this.buttonVobControlApply.Location = new System.Drawing.Point(189, 451);
             this.buttonVobControlApply.Name = "buttonVobControlApply";
             this.buttonVobControlApply.Size = new System.Drawing.Size(115, 23);
             this.buttonVobControlApply.TabIndex = 11;
@@ -139,6 +140,7 @@
             // 
             // groupBoxSet
             // 
+            this.groupBoxSet.Controls.Add(this.checkBoxBlockComplexVob);
             this.groupBoxSet.Controls.Add(this.radioButtonWPTurnOnRandom);
             this.groupBoxSet.Controls.Add(this.checkBoxShowVobTraceFloor);
             this.groupBoxSet.Controls.Add(this.checkBoxSelectMoveInsert);
@@ -151,10 +153,23 @@
             this.groupBoxSet.Controls.Add(this.checkBoxInsertVob);
             this.groupBoxSet.Location = new System.Drawing.Point(13, 168);
             this.groupBoxSet.Name = "groupBoxSet";
-            this.groupBoxSet.Size = new System.Drawing.Size(412, 277);
+            this.groupBoxSet.Size = new System.Drawing.Size(477, 277);
             this.groupBoxSet.TabIndex = 10;
             this.groupBoxSet.TabStop = false;
             this.groupBoxSet.Text = "Vob insertion";
+            // 
+            // radioButtonWPTurnOnRandom
+            // 
+            this.radioButtonWPTurnOnRandom.AutoSize = true;
+            this.radioButtonWPTurnOnRandom.Location = new System.Drawing.Point(11, 253);
+            this.radioButtonWPTurnOnRandom.Name = "radioButtonWPTurnOnRandom";
+            this.radioButtonWPTurnOnRandom.Size = new System.Drawing.Size(65, 17);
+            this.radioButtonWPTurnOnRandom.TabIndex = 9;
+            this.radioButtonWPTurnOnRandom.TabStop = true;
+            this.radioButtonWPTurnOnRandom.Tag = "3";
+            this.radioButtonWPTurnOnRandom.Text = "Random";
+            this.radioButtonWPTurnOnRandom.UseVisualStyleBackColor = true;
+            this.radioButtonWPTurnOnRandom.CheckedChanged += new System.EventHandler(this.radioButtonWPTurnNone_CheckedChanged);
             // 
             // checkBoxShowVobTraceFloor
             // 
@@ -261,24 +276,22 @@
             this.checkBoxInsertVob.UseVisualStyleBackColor = true;
             this.checkBoxInsertVob.CheckedChanged += new System.EventHandler(this.checkBoxInsertVob_CheckedChanged);
             // 
-            // radioButtonWPTurnOnRandom
+            // checkBoxBlockComplexVob
             // 
-            this.radioButtonWPTurnOnRandom.AutoSize = true;
-            this.radioButtonWPTurnOnRandom.Location = new System.Drawing.Point(11, 253);
-            this.radioButtonWPTurnOnRandom.Name = "radioButtonWPTurnOnRandom";
-            this.radioButtonWPTurnOnRandom.Size = new System.Drawing.Size(65, 17);
-            this.radioButtonWPTurnOnRandom.TabIndex = 9;
-            this.radioButtonWPTurnOnRandom.TabStop = true;
-            this.radioButtonWPTurnOnRandom.Tag = "3";
-            this.radioButtonWPTurnOnRandom.Text = "Random";
-            this.radioButtonWPTurnOnRandom.UseVisualStyleBackColor = true;
-            this.radioButtonWPTurnOnRandom.CheckedChanged += new System.EventHandler(this.radioButtonWPTurnNone_CheckedChanged);
+            this.checkBoxBlockComplexVob.AutoSize = true;
+            this.checkBoxBlockComplexVob.Location = new System.Drawing.Point(9, 138);
+            this.checkBoxBlockComplexVob.Name = "checkBoxBlockComplexVob";
+            this.checkBoxBlockComplexVob.Size = new System.Drawing.Size(227, 17);
+            this.checkBoxBlockComplexVob.TabIndex = 10;
+            this.checkBoxBlockComplexVob.Text = "Block moving/rotating vob if it has children";
+            this.checkBoxBlockComplexVob.UseVisualStyleBackColor = true;
+            this.checkBoxBlockComplexVob.CheckedChanged += new System.EventHandler(this.checkBoxBlockComplexVob_CheckedChanged);
             // 
             // SettingsVobs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(437, 486);
+            this.ClientSize = new System.Drawing.Size(502, 486);
             this.Controls.Add(this.groupBoxSet);
             this.Controls.Add(this.buttonVobControlApply);
             this.Controls.Add(this.groupBoxControlVob);
@@ -322,5 +335,6 @@
         public System.Windows.Forms.CheckBox checkBoxSelectMoveInsert;
         public System.Windows.Forms.CheckBox checkBoxShowVobTraceFloor;
         private System.Windows.Forms.RadioButton radioButtonWPTurnOnRandom;
+        public System.Windows.Forms.CheckBox checkBoxBlockComplexVob;
     }
 }

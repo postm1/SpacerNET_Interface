@@ -933,7 +933,10 @@ namespace SpacerUnion.Common
 
 
             words.Add("checkBoxSkipPolysCut", new List<string> { "Не удалять 'Лишние' полигоны в локации (если отключено, могут быть дырки в меше локации)", "Do not delete 'Redundant' polygons in the location (if disabled, there may be holes in the mesh of the location)", "Lösche keine „Redundanten“ Polygone im Gebiet (wenn deaktiviert, könnten Löcher im Mesh der Umgebung entstehen)", "", "" });
-            
+
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_MAT_NOT_UNIQ_MAT", new List<string> { "Кривой материал! Его имя не уникально и эти материалы используют разные текстуры!", "", "", "", "" });
+            words.Add("checkBoxBlockComplexVob", new List<string> { "Блокировать перемещение/вращение воба, если внутри него есть вложенные вобы", "Block current vob from moving/rotating if there are other vobs inside it", "Blockiere die Bewegung/Drehung des aktuellen Vobs, wenn sich andere Vobs darin befinden", "", "" });
+            words.Add("VOB_CHANGE_POS_BLOCKED", new List<string> { "Текущий воб имеет вложенные вобы. Изменение позиции/вращения заблокировано!", "Current vob has children vobs. Changing position/rotation is blocked!", "Der aktuelle Vob hat Child-Vobs. Positions- oder Rotationsänderung ist gesperrt!", "", "" });
 
 
         }
