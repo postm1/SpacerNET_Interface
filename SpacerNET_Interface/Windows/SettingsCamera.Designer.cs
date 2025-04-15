@@ -47,6 +47,7 @@
             this.textBoxWorldRange = new System.Windows.Forms.TextBox();
             this.btnSetCamApply = new System.Windows.Forms.Button();
             this.groupBoxInfo = new System.Windows.Forms.GroupBox();
+            this.labelRestartRequired = new System.Windows.Forms.Label();
             this.checkBoxCamShowPortalsInfo = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.trackBarSpeedPreview = new System.Windows.Forms.TrackBar();
@@ -60,7 +61,6 @@
             this.checkBoxCamCoord = new System.Windows.Forms.CheckBox();
             this.checkBoxTris = new System.Windows.Forms.CheckBox();
             this.checkBoxFPS = new System.Windows.Forms.CheckBox();
-            this.labelRestartRequired = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTransSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRotSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVobs)).BeginInit();
@@ -76,7 +76,7 @@
             // trackBarTransSpeed
             // 
             this.trackBarTransSpeed.Location = new System.Drawing.Point(1, 35);
-            this.trackBarTransSpeed.Maximum = 100;
+            this.trackBarTransSpeed.Maximum = 200;
             this.trackBarTransSpeed.Minimum = 1;
             this.trackBarTransSpeed.Name = "trackBarTransSpeed";
             this.trackBarTransSpeed.Size = new System.Drawing.Size(237, 45);
@@ -283,6 +283,15 @@
             this.groupBoxInfo.TabStop = false;
             this.groupBoxInfo.Text = "Information";
             // 
+            // labelRestartRequired
+            // 
+            this.labelRestartRequired.AutoSize = true;
+            this.labelRestartRequired.Location = new System.Drawing.Point(137, 183);
+            this.labelRestartRequired.Name = "labelRestartRequired";
+            this.labelRestartRequired.Size = new System.Drawing.Size(81, 13);
+            this.labelRestartRequired.TabIndex = 12;
+            this.labelRestartRequired.Text = "*restart required";
+            // 
             // checkBoxCamShowPortalsInfo
             // 
             this.checkBoxCamShowPortalsInfo.AutoSize = true;
@@ -418,15 +427,6 @@
             this.checkBoxFPS.Text = "Show FPS";
             this.checkBoxFPS.UseVisualStyleBackColor = true;
             this.checkBoxFPS.CheckedChanged += new System.EventHandler(this.checkBoxFPS_CheckedChanged);
-            // 
-            // labelRestartRequired
-            // 
-            this.labelRestartRequired.AutoSize = true;
-            this.labelRestartRequired.Location = new System.Drawing.Point(137, 183);
-            this.labelRestartRequired.Name = "labelRestartRequired";
-            this.labelRestartRequired.Size = new System.Drawing.Size(81, 13);
-            this.labelRestartRequired.TabIndex = 12;
-            this.labelRestartRequired.Text = "*restart required";
             // 
             // SettingsCamera
             // 
