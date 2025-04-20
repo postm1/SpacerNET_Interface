@@ -28,6 +28,12 @@ namespace SpacerUnion.Common
         UI_CAM_PRESETS
     };
 
+    public enum SpacerNetInterfaceAction
+    {
+        SPACER_UI_ACTION_OPEN_ZEN = 0,
+        SPACER_UI_ACTION_OPEN_MESH = 1
+    };
+
 
     public class Exports
     {

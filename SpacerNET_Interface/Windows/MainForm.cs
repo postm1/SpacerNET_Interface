@@ -2493,5 +2493,26 @@ namespace SpacerUnion
                 SpacerNET.uvForm.Show();
             }
         }
+
+        [DllExport]
+        public static void CallUIAction(int value)
+        {
+            SpacerNetInterfaceAction actionType = (SpacerNetInterfaceAction)value;
+
+            switch (actionType)
+            {
+                case SpacerNetInterfaceAction.SPACER_UI_ACTION_OPEN_ZEN:
+                    {
+                        SpacerNET.form.openZENToolStripMenuItem_Click(null, EventArgs.Empty);
+                        break;
+                    }
+                case SpacerNetInterfaceAction.SPACER_UI_ACTION_OPEN_MESH:
+                    {
+                        SpacerNET.form.toolStripMenuItem1_Click(null, EventArgs.Empty);
+                        break;
+                    }
+            }
+        }
+        //
     }
 }
