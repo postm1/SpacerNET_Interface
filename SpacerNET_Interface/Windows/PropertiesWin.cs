@@ -123,6 +123,8 @@ namespace SpacerUnion
                 {
                     props[i].value = value;
                     props[i].ownNode.Text = props[i].Name + ": " + props[i].ShowValue();
+
+                    //ConsoleEx.WriteLineRed(propName + ": " + value + " | " + props[i].backup_value);
                     break;
                 }
             }
@@ -919,7 +921,7 @@ namespace SpacerUnion
                 if (props[i].Name == "trafoOSToWSPos" && props[i].value != props[i].backup_value)
                 {
                     wasPositionChanged = 1;
-                    ConsoleEx.WriteLineYellow("Pos was changed");
+                    //ConsoleEx.WriteLineYellow("Pos was changed");
                 }
 
                 if (props[i].Name == "color" || props[i].Name == "fogColor")
