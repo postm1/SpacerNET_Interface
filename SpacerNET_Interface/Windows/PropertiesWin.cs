@@ -177,7 +177,49 @@ namespace SpacerUnion
 
         }
 
-        
+        //update matrix info only
+        [DllExport]
+        public static void UpdateMatrixVob()
+        {
+            string inputStr = Imports.Stack_PeekString();
+            TreeView tree = SpacerNET.propWin.treeViewProp;
+
+            string[] words = inputStr.Replace("\t", "").Split('\n');
+
+            tree.BeginUpdate();
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                words[i] = words[i].Trim();
+
+                if (words[i].Length == 0 || words[i].Contains('[') || (!words[i].Contains(':') || !words[i].Contains('=')))
+                {
+                    continue;
+                }
+
+                var name = words[i].Substring(0, words[i].IndexOf('='));
+                int pos = words[i].IndexOf(':');
+                var value = words[i].Substring(pos + 1, words[i].Length - pos - 1);
+
+                if (name == "bbox3DWS")
+                {
+                    ChangeProp("bbox3DWS", value);
+                }
+                else if (name == "trafoOSToWSRot")
+                {
+                    ChangeProp("trafoOSToWSRot", value);
+                }
+                else if (name == "trafoOSToWSPos")
+                {
+                    ChangeProp("trafoOSToWSPos", value);
+                }
+                
+
+            }
+
+            tree.EndUpdate();
+        }
+
         [DllExport]
         public static void AddProps()
         {
@@ -877,7 +919,7 @@ namespace SpacerUnion
                 if (props[i].Name == "trafoOSToWSPos" && props[i].value != props[i].backup_value)
                 {
                     wasPositionChanged = 1;
-                    //ConsoleEx.WriteLineYellow("Pos was changed");
+                    ConsoleEx.WriteLineYellow("Pos was changed");
                 }
 
                 if (props[i].Name == "color" || props[i].Name == "fogColor")
