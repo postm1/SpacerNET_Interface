@@ -27,6 +27,9 @@ namespace SpacerUnion
         public static Dictionary<uint, TreeEntry> globalEntries = new Dictionary<uint, TreeEntry>();
         public static Dictionary<uint, TreeEntry> matEntries = new Dictionary<uint, TreeEntry>();
         public static Dictionary<uint, TreeEntry> tempEntries = new Dictionary<uint, TreeEntry>();
+        private static Dictionary<string, TreeNode> _folderCache = new Dictionary<string, TreeNode>();
+
+
         static bool nextAfterEventBlocked = false;
         static TreeNode lastSelectedNode = null;
         static bool IsWaypointReload = false;
@@ -84,6 +87,7 @@ namespace SpacerUnion
   
         public static int CreateAndGetFolder(string className)
         {
+            /*
             TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
 
             int classNameFoundPos = -1;
@@ -109,6 +113,20 @@ namespace SpacerUnion
             }
 
             return classNameFoundPos;
+            */
+            if (_folderCache.TryGetValue(className, out TreeNode cachedNode))
+                return cachedNode.Index;
+
+            TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
+
+            // Создаем новую папку только если её нет в кэше
+            TreeNode newNode = nodes.Add(className);
+            newNode.Tag = Constants.TAG_FOLDER;
+            newNode.ImageIndex = 0;
+            newNode.SelectedImageIndex = 0;
+
+            _folderCache[className] = newNode;
+            return newNode.Index;
         }
 
 
@@ -265,10 +283,12 @@ namespace SpacerUnion
             SpacerNET.objTreeWin.globalTree.Nodes.Clear();
             SpacerNET.objTreeWin.quickTree.Nodes.Clear();
            // SpacerNET.objTreeWin.matTree.Nodes.Clear();
-            ObjTree.globalEntries.Clear();
-            ObjTree.matEntries.Clear();
-            ObjTree.quickVobMan.Clear();
-            ObjTree.quickVobMan.Clear();
+
+            globalEntries.Clear();
+            matEntries.Clear();
+            quickVobMan.Clear();
+            quickVobMan.Clear();
+            _folderCache.Clear();
 
             //SpacerNET.objTreeWin.tabControlObjectList.SelectedIndex = 0;
 
