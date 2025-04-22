@@ -170,17 +170,18 @@ namespace SpacerUnion
                 node.SelectedImageIndex = 3;
                 return;
             }
-
+            /*
             if (className == "zCVobWaypoint" || className == "zCVobSpot")
             {
                 node.ImageIndex = 1;
                 node.SelectedImageIndex = 1;
             }
             else
-            {
+            */
+           // {
                 node.ImageIndex = 1;
                 node.SelectedImageIndex = 1;
-            }
+           // }
 
             if (node.Tag.ToString() == Constants.TAG_FOLDER)
             {
