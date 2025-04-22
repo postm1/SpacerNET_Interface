@@ -190,6 +190,20 @@ namespace SpacerUnion
 
         }
 
+        [DllExport]
+        public static void CreateTree()
+        {
+            noParentCount = 0;
+
+            foreach (var entry in globalEntries)
+            {
+                AddVobToNodes(entry.Value);
+            }
+
+            ConsoleEx.WriteLineGreen("Tree is ready. GlobalEntries count: " + globalEntries.Count);
+
+        }
+
         public static void AddVobToNodes(TreeEntry entry)
         {
             TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
@@ -906,26 +920,7 @@ namespace SpacerUnion
         }
 
 
-        [DllExport]
-        public static void CreateTree()
-        {
-            noParentCount = 0;
-
-           // SpacerNET.objTreeWin.globalTree.Visible = false;
-
-
-            //globalEntries = globalEntries.OrderBy(x => x.Value.name).ToDictionary(x => x.Key, x => x.Value);
-
-            foreach (var entry in globalEntries)
-            {
-                AddVobToNodes(entry.Value);
-            }
-
-            ConsoleEx.WriteLineGreen("Tree is ready. GlobalEntries count: " + globalEntries.Count);
-
-            //Application.DoEvents();
-
-        }
+       
 
         [DllExport]
         public static void AddGlobalEntry(uint vob, uint parent)
