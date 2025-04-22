@@ -119,7 +119,7 @@ namespace SpacerUnion
 
             TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
 
-            // Создаем новую папку только если её нет в кэше
+            // Create new folder if not found in cache list
             TreeNode newNode = nodes.Add(className);
             newNode.Tag = Constants.TAG_FOLDER;
             newNode.ImageIndex = 0;
