@@ -194,6 +194,82 @@ namespace SpacerUnion
         [DllExport]
         public static void CreateTree()
         {
+
+            // Temporary list for our data
+            var nodesTreeData = new Dictionary<string, TreeNode>();
+
+            //  Folders nodes
+            foreach (var className in globalEntries.Values.Select(e => e.className).Distinct())
+            {
+                //new node for FOLDER
+                var newNode = new TreeNode(className)
+                {
+                    ImageIndex = 0,
+                    SelectedImageIndex = 0,
+                    Tag = Constants.TAG_FOLDER
+                };
+
+                nodesTreeData[className] = newNode;
+                _folderCache[className] = newNode;
+            }
+
+            // Creating main tree of nodes
+            foreach (var entry in globalEntries.Values)
+            {
+                var newNode = new TreeNode(entry.name)
+                {
+                    Tag = entry.zCVob,
+                    ImageIndex = 1,
+                    SelectedImageIndex = 1
+                };
+
+                //Parent node
+                TreeNode parentNode = null;
+
+                // if it is levelCompo, OR vob has no parent (WP), OR parent is LevelCompo => just add it in FOLDER
+                if (entry.isLevel || entry.parent == 0 || (entry.parentEntry != null && entry.parentEntry.isLevel))
+                {
+                    parentNode = nodesTreeData[entry.className];
+                }
+                else if (entry.parentEntry != null)
+                {
+                    // if it is a vob inside another vob
+                    if (!entry.parentEntry.isLevel)
+                    {
+                        if (entry.parentEntry.node == null)
+                        {
+                            noParentCount++;
+                            ConsoleEx.WriteLineRed(noParentCount + " ParentNode " + Utils.ToHex(entry.parent) + " is null: " + entry.name);
+                            continue;
+                        }
+
+                        parentNode = entry.parentEntry.node;
+                    }
+                }
+                else
+                {
+                    noParentCount++;
+                    ConsoleEx.WriteLineRed(noParentCount + " ParentEntry " + Utils.ToHex(entry.parent) + " is null: " + entry.name);
+                    continue;
+                }
+
+                parentNode.Nodes.Add(newNode);
+                newNode.Tag = entry.zCVob;
+                entry.node = newNode;
+            }
+
+            foreach (var entry in nodesTreeData.Values)
+            {
+                if (entry.Nodes.Count > 0)
+                {
+                    SpacerNET.objTreeWin.globalTree.Nodes.Add(entry);
+                }
+            }
+
+            Console.WriteLine($"Total entries: {globalEntries.Count}, No parent cases: {noParentCount}");
+
+
+            /*
             noParentCount = 0;
 
             foreach (var entry in globalEntries)
@@ -202,6 +278,7 @@ namespace SpacerUnion
             }
 
             ConsoleEx.WriteLineGreen("Tree is ready. GlobalEntries count: " + globalEntries.Count);
+            */
 
         }
 
@@ -762,6 +839,8 @@ namespace SpacerUnion
             int classNameFoundPos = -1;
 
             classNameFoundPos = CreateAndGetFolder(className);
+
+            //ConsoleEx.WriteLineYellow(String.Format("OnVobInsert() -> className: {0} pos: {1}", className, classNameFoundPos));
 
             TreeEntry entry = new TreeEntry();
 
