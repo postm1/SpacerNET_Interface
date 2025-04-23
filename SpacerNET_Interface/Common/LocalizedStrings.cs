@@ -939,6 +939,10 @@ namespace SpacerUnion.Common
             words.Add("CHANGE_VOB_COMPLEX_MOVE", new List<string> { "Режим блокировки перемещения воба", "Vob blocking movement mod", "Modus zur Blockierung der Vob-Bewegung", "", "" });
             words.Add("COMMON_TURN_ON", new List<string> { "включен", "is on", "aktiviert", "", "" });
             words.Add("COMMON_TURN_OFF", new List<string> { "отключен", "is off", "deaktiviert", "", "" });
+
+
+            words.Add("COMMON_WARN_NOT_USUAL_VISUAL", new List<string> { "Тип воба не zCVob, а визуал 3DS или TGA. Вы уверены?", "The type of the vob is not zCVob, but visual has 3DS or TGA . Are you sure?", "", "", "" });
+            
         }
 
 
