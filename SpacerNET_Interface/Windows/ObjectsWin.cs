@@ -21,7 +21,7 @@ using static SpacerUnion.ObjTree;
 
 namespace SpacerUnion
 {
-    
+
 
     public partial class ObjectsWin : Form
     {
@@ -40,7 +40,7 @@ namespace SpacerUnion
 
         public Dictionary<string, List<string>> spawnListData;
         string pathFile;
-        
+
 
         public static bool dontUpdateNumType = false;
 
@@ -350,7 +350,7 @@ namespace SpacerUnion
             textBoxSpawnSetRad.Text = Imports.Extern_GetSetting().ToString();
 
 
- 
+
 
             Imports.Stack_PushString("sphereWireColorR");
             int r = Imports.Extern_GetSetting();
@@ -375,7 +375,7 @@ namespace SpacerUnion
 
         public void GetVdfArchivesList()
         {
-            DirectoryInfo d = new DirectoryInfo(@"./Data/"); 
+            DirectoryInfo d = new DirectoryInfo(@"./Data/");
 
             FileInfo[] Files = d.GetFiles("*.vdf");
 
@@ -466,7 +466,7 @@ namespace SpacerUnion
             return false;
         }
 
-        public static void AddVisualsFiles(string name, bool isVDF=true)
+        public static void AddVisualsFiles(string name, bool isVDF = true)
         {
             StringBuilder fileName = new StringBuilder();
 
@@ -484,7 +484,7 @@ namespace SpacerUnion
                 }
             }
 
-            
+
         }
 
         [DllExport]
@@ -493,7 +493,7 @@ namespace SpacerUnion
             string name = Imports.Stack_PeekString();
 
             AddVisualsFiles(Path.GetFileName(name).ToUpper());
- 
+
         }
 
         [DllExport]
@@ -517,7 +517,7 @@ namespace SpacerUnion
             ObjectsWin.listVisualsWORK.Sort();
 
 
-            
+
             //UnionNET.partWin.labelSearchVisual.Text = "Поиск визуала. Всего: " + listVisualsVDF.Count + "/" + listVisualsWORK.Count;
             SpacerNET.objectsWin.labelAllModels.Text = Localizator.Get("WIN_OBJ_ALLMODELS") + ": " + listVisualsVDF.Count + "/" + listVisualsWORK.Count;
         }
@@ -530,7 +530,7 @@ namespace SpacerUnion
             ListBox lstBox = SpacerNET.objectsWin.listBoxParticles;
             Utils.SortListBox(lstBox);
 
-            SpacerNET.objectsWin.groupBoxPFX.Text += ", " + Localizator.Get("WIN_OBJ_ALL") 
+            SpacerNET.objectsWin.groupBoxPFX.Text += ", " + Localizator.Get("WIN_OBJ_ALL")
                 + ": " + SpacerNET.objectsWin.listBoxParticles.Items.Count;
         }
 
@@ -549,7 +549,7 @@ namespace SpacerUnion
             //UnionNET.partWin.listBoxItems.Sorted = true;
             Utils.SortListBox(SpacerNET.objectsWin.listBoxItems);
 
-            SpacerNET.objectsWin.groupBoxObjItems.Text += ", " + Localizator.Get("WIN_OBJ_ALL") 
+            SpacerNET.objectsWin.groupBoxObjItems.Text += ", " + Localizator.Get("WIN_OBJ_ALL")
                 + ": " + SpacerNET.objectsWin.listBoxItems.Items.Count;
         }
 
@@ -561,7 +561,7 @@ namespace SpacerUnion
         }
 
 
-        
+
 
         private void buttonItems_Click(object sender, EventArgs e)
         {
@@ -589,7 +589,7 @@ namespace SpacerUnion
             //ConsoleEx.WriteLineYellow("=========================");
             SpacerNET.form.Focus();
 
-            
+
 
         }
 
@@ -629,12 +629,12 @@ namespace SpacerUnion
 
         private void textBoxItems_KeyDown(object sender, KeyEventArgs e)
         {
-           
+
         }
 
         private void textBoxItems_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void buttonParticles_Click(object sender, EventArgs e)
@@ -656,7 +656,7 @@ namespace SpacerUnion
 
             Imports.Stack_PushString(name);
             Imports.Extern_CreatePFX();
-            Imports.Extern_KillPFX();   
+            Imports.Extern_KillPFX();
 
             SpacerNET.form.Focus();
         }
@@ -665,7 +665,7 @@ namespace SpacerUnion
 
         public static void FindClass(TreeNodeCollection nodes, string name, ZenGinClass entry)
         {
-            
+
 
             if (entry.parentName == String.Empty)
             {
@@ -692,12 +692,12 @@ namespace SpacerUnion
                         {
                             SpacerNET.objectsWin.comboBoxSearchClass.Items.Add(new String('.', deep * 2) + name);
                         }
-                       
+
                     }
                 }
-                
+
                 FindClass(nodes[i].Nodes, entry.name, entry);
-               
+
             }
             deep--;
 
@@ -737,7 +737,7 @@ namespace SpacerUnion
             string postFixName = Imports.Stack_PeekString();
             string name = Imports.Stack_PeekString();
             string baseClassName = Imports.Stack_PeekString();
-            
+
 
 
             classesList.Add(name, new ZenGinClass()
@@ -749,7 +749,7 @@ namespace SpacerUnion
             );
 
 
-           
+
 
             // ConsoleEx.WriteLineGreen(String.Format("prefixName: {0}, name: {1}, baseClassName: {2}", postFixName, name, baseClassName));
 
@@ -797,7 +797,7 @@ namespace SpacerUnion
             string name = entry.name;
             string vobName = textBoxVobName.Text.Trim();
 
-            
+
 
             if (vobName.Length > 0 && !Utils.IsOnlyLatin(vobName) && Utils.IsOptionActive("checkBoxOnlyLatinInInput"))
             {
@@ -832,7 +832,7 @@ namespace SpacerUnion
             Imports.Stack_PushInt(0); //isStaticVob
             Imports.Extern_CreateNewVobVisual(isDyn, isStat);
 
-            
+
 
         }
 
@@ -862,7 +862,7 @@ namespace SpacerUnion
         private void buttonFP_Click(object sender, EventArgs e)
         {
 
-            
+
         }
 
         [DllExport]
@@ -906,7 +906,7 @@ namespace SpacerUnion
                 MessageBox.Show(Localizator.Get("ERROR_NAME_CANT_CONTAIN_SPACE"));
                 return;
             }
-            
+
 
             Imports.Stack_PushString(vobName);
             int nameFound = Imports.Extern_VobNameExist(true);
@@ -914,7 +914,7 @@ namespace SpacerUnion
             if (nameFound == 1 && !autoGenerate)
             {
                 MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
-                
+
                 return;
             }
 
@@ -978,7 +978,7 @@ namespace SpacerUnion
             int nameFound = Imports.Extern_VobNameExist(false);
             if (nameFound == 1)
             {
-                
+
                 MessageBox.Show(Localizator.Get("NAME_ALREADY_EXISTS"));
                 return;
             }
@@ -1036,7 +1036,7 @@ namespace SpacerUnion
 
         private void textBoxPfxReg_TextChanged(object sender, EventArgs e)
         {
-         
+
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -1106,7 +1106,7 @@ namespace SpacerUnion
 
         }
 
-        
+
         private void textBoxVisuals_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Imports.Extern_IsWorldLoaded() == 0)
@@ -1181,7 +1181,7 @@ namespace SpacerUnion
                                         {
                                             listBoxVisuals.Items.Add(listVisualsVDF[i]);
                                         }
-                                        
+
                                     }
                                 }
                             }
@@ -1202,13 +1202,13 @@ namespace SpacerUnion
                                     {
                                         listBoxVisuals.Items.Add(name);
                                     }
-                                    
+
                                 }
                                 else
                                 {
                                     listBoxVisuals.Items.Add(listVisualsVDF[i]);
                                 }
-                                
+
                             }
                         }
                     }
@@ -1241,7 +1241,7 @@ namespace SpacerUnion
                                 listBoxVisuals.Items.Add(listVisualsWORK[i]);
                             }
 
-                            
+
                         }
                     }
                 }
@@ -1262,11 +1262,11 @@ namespace SpacerUnion
             SpacerNET.objectsWin.labelSearchVisual.Text = Localizator.Get("WIN_OBJ_ALLMODELS");
 
             string visual = "";
- 
+
 
             Imports.Stack_PushString(visual);
             Imports.Extern_RenderSelectedVob();
-            
+
 
         }
 
@@ -1338,7 +1338,7 @@ namespace SpacerUnion
         }
 
 
-        public void UpdateTriggerWindow(bool block=true, bool collisionBlock = true)
+        public void UpdateTriggerWindow(bool block = true, bool collisionBlock = true)
         {
             labelTriggerName.Text = triggerEntry.name;
             labelTriggerClassName.Text = triggerEntry.className;
@@ -1413,7 +1413,7 @@ namespace SpacerUnion
             SpacerNET.objectsWin.listBoxActionType.Items.Clear();
             SpacerNET.objectsWin.triggerEntry.targetListAddr.Clear();
             SpacerNET.objectsWin.triggerEntry.sourcesListAddr.Clear();
-           
+
             SpacerNET.objectsWin.labelCurrentKey.Text = "0/0";
             SpacerNET.objectsWin.labelCurrentKey.Enabled = false;
 
@@ -1424,7 +1424,7 @@ namespace SpacerUnion
 
             SpacerNET.objectsWin.checkBoxDyn.Enabled = false;
             SpacerNET.objectsWin.checkBoxStat.Enabled = false;
-     
+
 
 
 
@@ -1463,23 +1463,23 @@ namespace SpacerUnion
             {
                 SpacerNET.objectsWin.tabControlObjects.SelectedIndex = num;
             }
-            
+
         }
 
         [DllExport]
         public static void SelectMoversTab()
         {
-           // ConsoleEx.WriteLineRed("SelectMoversTab");
+            // ConsoleEx.WriteLineRed("SelectMoversTab");
             ChangeTab(3);
         }
 
         [DllExport]
         public static void SelectWPTab()
         {
-           // ConsoleEx.WriteLineRed("SelectWPTab");
+            // ConsoleEx.WriteLineRed("SelectWPTab");
             ChangeTab(4);
         }
-        
+
         [DllExport]
         public static void SelectCameraTab()
         {
@@ -1651,7 +1651,7 @@ namespace SpacerUnion
             Imports.Extern_SendTrigger(triggerEntry.currentActionIndex);
             triggerEntry.m_kf_pos = Imports.Extern_GetCurrentKey();
 
-           // UpdateTriggerWindow(false);
+            // UpdateTriggerWindow(false);
         }
 
         private void ParticleWin_Shown(object sender, EventArgs e)
@@ -1794,7 +1794,7 @@ namespace SpacerUnion
                         SpacerNET.grassWin.textBoxGrassWinModel.Text = visual;
                         SpacerNET.grassWin.buttonGrassWinApply_Click(null, null);
                     }
-                   
+
                 }
 
                 Imports.Stack_PushString(visual);
@@ -1804,7 +1804,7 @@ namespace SpacerUnion
 
                 SpacerNET.form.Focus();
             }
-            
+
         }
 
         private void checkBoxShowPreview_CheckedChanged(object sender, EventArgs e)
@@ -1819,7 +1819,7 @@ namespace SpacerUnion
             if (!ch.Checked)
             {
                 string visual = "";
-  
+
 
                 Imports.Stack_PushString(visual);
                 Imports.Extern_RenderSelectedVob();
@@ -1835,11 +1835,11 @@ namespace SpacerUnion
                     Imports.Stack_PushString(visual);
                     Imports.Extern_RenderSelectedVob();
 
-              
+
 
                     SpacerNET.form.Focus();
                 }
-                
+
             }
         }
 
@@ -1884,7 +1884,7 @@ namespace SpacerUnion
 
         private void listBoxVisuals_MouseClick(object sender, MouseEventArgs e)
         {
-            
+
         }
 
         private void listBoxVisuals_MouseDown(object sender, MouseEventArgs e)
@@ -1901,7 +1901,7 @@ namespace SpacerUnion
                     string visual = lb.GetItemText(lb.Items[index]);
                     Utils.SetCopyText(visual);
                 }
-                
+
             }
         }
 
@@ -1932,7 +1932,7 @@ namespace SpacerUnion
         private void checkBoxFPGround_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
-  
+
             Imports.Stack_PushString("downFPToGround");
             Imports.Extern_SetSetting(Convert.ToInt32(cb.Checked));
         }
@@ -1967,7 +1967,7 @@ namespace SpacerUnion
                 SpacerNET.pfxWin.SetCurrentPFX(visual);
             }
 
-           
+
         }
 
         private void listBoxPfxResult_SelectedIndexChanged(object sender, EventArgs e)
@@ -2018,7 +2018,7 @@ namespace SpacerUnion
                     SendRenderPFX(visual);
                 }
 
-                
+
             }
             else
             {
@@ -2142,9 +2142,10 @@ namespace SpacerUnion
 
 
         public static List<uint> searchResultVobsAddr = new List<uint>();
+        public static List<string> searchResultVobsNamesTemp = new List<string>();
         public static string replaceZenPath = "";
 
-        
+
         private void CleanNewProps()
         {
             treeViewSearchClass.Nodes.Clear();
@@ -2266,11 +2267,11 @@ namespace SpacerUnion
                         prop.node = folders[currentFolderName].node;
                     }
                 }
-                
+
 
             }
 
-            
+
             for (int i = 0; i < searchProps.Count; i++)
             {
                 TreeNode baseNode = searchProps[i].node;
@@ -2329,7 +2330,7 @@ namespace SpacerUnion
         }
 
 
-        public void FillClassFieldsConvert(string inputStr, bool clean=true)
+        public void FillClassFieldsConvert(string inputStr, bool clean = true)
         {
             if (clean)
             {
@@ -2432,7 +2433,7 @@ namespace SpacerUnion
                         prop.node = foldersConvert[currentFolderNameConvert].node;
                     }
                 }
-                
+
 
             }
 
@@ -2515,14 +2516,14 @@ namespace SpacerUnion
             }
 
             string selectedClass = cb.Text.Replace(".", "").Trim();
-           // ConsoleEx.WriteLineRed(selectedClass);
+            // ConsoleEx.WriteLineRed(selectedClass);
 
             Imports.Stack_PushString(selectedClass);
             Imports.Extern_GetClassFields(false);
 
             string result = Imports.Stack_PeekString();
 
-            
+
             FillClassFields(result);
 
             comboBoxSearchClassReplace.Items.Clear();
@@ -2545,7 +2546,7 @@ namespace SpacerUnion
 
             int.TryParse(node.Tag.ToString(), out index);
 
-           // ConsoleEx.WriteLineRed("ModeMouseDoubleClick index: " + index);
+            // ConsoleEx.WriteLineRed("ModeMouseDoubleClick index: " + index);
 
             if (index >= 0 && node.Tag != null && node.Tag.ToString() != Constants.TAG_FOLDER)
             {
@@ -2592,8 +2593,8 @@ namespace SpacerUnion
                     }
                 }
 
-               
-                
+
+
             }
         }
 
@@ -2664,7 +2665,7 @@ namespace SpacerUnion
                         {
                             textBoxSearchVobs.Width = 75;
 
-                            
+
                             dontUpdateNumType = true;
 
                             panelRadioNumType.Visible = true;
@@ -2673,7 +2674,7 @@ namespace SpacerUnion
                             radioButtonSearchEquals.Checked = true;
 
                             dontUpdateNumType = false;
-                            
+
                         }
                     }
 
@@ -2691,7 +2692,7 @@ namespace SpacerUnion
 
                     }
 
-                     if (prop.type == TPropEditType.PETenum)
+                    if (prop.type == TPropEditType.PETenum)
                     {
                         comboBoxPropsEnumSearch.Visible = true;
                         comboBoxPropsEnumSearch.Items.Clear();
@@ -2761,7 +2762,7 @@ namespace SpacerUnion
                             prop = newProps[index];
                         }
 
-                       
+
 
                         if (prop.type == TPropEditType.PETenum)
                         {
@@ -2837,7 +2838,7 @@ namespace SpacerUnion
                             prop.numSearchType = TSearchNumberType.TS_EQUALS;
                         }
                     }
-                    
+
 
                     prop.value = textBox.Text.Trim().ToUpper();
                     node.Text = prop.Name + ": " + prop.ShowValue();
@@ -3053,9 +3054,9 @@ namespace SpacerUnion
                         collectRadius = -1;
                     }
                 }
-                
+
             }
-       
+
 
             SpacerNET.form.AddText(Localizator.Get("VOB_SEARCH_START"));
 
@@ -3063,6 +3064,7 @@ namespace SpacerUnion
             s.Start();
 
             listBoxSearchResult.Items.Clear();
+            searchResultVobsNamesTemp.Clear();
             searchResultVobsAddr.Clear();
 
 
@@ -3072,12 +3074,12 @@ namespace SpacerUnion
 
             //ConsoleEx.WriteLineYellow(searchName);
 
-            
+
             Imports.Stack_PushString(searchName);
             Imports.Stack_PushString(replaceZenPath);
             Imports.Extern_SetSearchVobName();
 
-            
+
             Imports.Stack_PushInt(countSelected);
             Imports.Stack_PushInt(Convert.ToInt32(checkBoxSearchItem.Checked));
             Imports.Stack_PushInt(Convert.ToInt32(checkBoxMatchNames.Checked));
@@ -3088,11 +3090,11 @@ namespace SpacerUnion
 
             s.Stop();
 
-  
+
 
             string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
 
-   
+
             if (comboBoxSearchType.SelectedIndex == 0 || comboBoxSearchType.SelectedIndex == 5)
             {
                 labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": " + listBoxSearchResult.Items.Count;
@@ -3110,7 +3112,7 @@ namespace SpacerUnion
             {
                 //labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": " + listBoxSearchResult.Items.Count;
                 labelSearchResult.Text = Localizator.Get("vobs_found_amount") + ": ";
-                SpacerNET.form.AddText(Localizator.Get("VOB_SEARCH_REPLACEZEN") + result.ToString() +  " (" + timeSpend + ")");
+                SpacerNET.form.AddText(Localizator.Get("VOB_SEARCH_REPLACEZEN") + result.ToString() + " (" + timeSpend + ")");
             }
 
             if (comboBoxSearchType.SelectedIndex == 3)
@@ -3121,8 +3123,8 @@ namespace SpacerUnion
             }
 
 
-            
-            
+
+
 
             if (comboBoxSearchType.SelectedIndex == 4)
             {
@@ -3166,8 +3168,17 @@ namespace SpacerUnion
                 return;
             }
             */
-            SpacerNET.objectsWin.listBoxSearchResult.Items.Add(Imports.Stack_PeekString());
+            //SpacerNET.objectsWin.listBoxSearchResult.Items.Add(Imports.Stack_PeekString());
+            searchResultVobsNamesTemp.Add(Imports.Stack_PeekString());
             searchResultVobsAddr.Add(addr);
+        }
+
+        [DllExport]
+        public static void OnSearchResultEnd()
+        {
+            SpacerNET.objectsWin.listBoxSearchResult.Items.AddRange(searchResultVobsNamesTemp.ToArray());
+
+            searchResultVobsNamesTemp.Clear();
         }
 
         [DllExport]
