@@ -2950,8 +2950,6 @@ namespace SpacerUnion
             }
 
             bool checkValueFound = false;
-            bool onlyNameVisualSearchFoundName = false;
-            bool onlyNameVisualSearchFoundVisual = false;
 
             if (comboBoxSearchType.SelectedItem == null)
             {
@@ -2963,6 +2961,8 @@ namespace SpacerUnion
 
             string searchName = "";
 
+            SpaceFastVobFieldsSearch fastSearchType = SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_NONE;
+
             for (int i = 0; i < searchProps.Count; i++)
             {
                 if (searchProps[i].selectedForSearch)
@@ -2972,12 +2972,24 @@ namespace SpacerUnion
 
                     if (searchProps[i].Name == "vobName")
                     {
-                        onlyNameVisualSearchFoundName = true;
+                        fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_NAME;
                         searchName = searchProps[i].value;
                     }
                     else if (searchProps[i].Name == "visual")
                     {
-                        onlyNameVisualSearchFoundVisual = true;
+                        fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_VISUAL;
+                    }
+                    else if (searchProps[i].Name == "showVisual")
+                    {
+                        fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_SHOW_VISUAL;
+                    }
+                    else if (searchProps[i].Name == "cdDyn")
+                    {
+                        fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_CD_DYNYAMIC;
+                    }
+                    else if (searchProps[i].Name == "cdStatic")
+                    {
+                        fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_CD_STATIC;
                     }
 
                     if (searchProps[i].type == TPropEditType.PETstring && checkBoxSearchUseRegex.Checked)
@@ -2999,17 +3011,10 @@ namespace SpacerUnion
                 }
             }
 
-
-            if (countSelected == 1 && (onlyNameVisualSearchFoundName || onlyNameVisualSearchFoundVisual))
+            // if we found ANY selected field which CAN'T be checked in a fast way => no fast search AT ALL
+            if (countSelected != Utils.GetIntMaskCountTrue(Convert.ToInt32(fastSearchType)))
             {
-                if (onlyNameVisualSearchFoundName)
-                {
-                    onlyNameVisualSearch = 1;
-                }
-                else
-                {
-                    onlyNameVisualSearch = 2;
-                }
+                fastSearchType = SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_NONE;
             }
 
             //ConsoleEx.WriteLineRed(countSelected + " " + isNameSelected + " " + isVisualSelected);
@@ -3085,7 +3090,8 @@ namespace SpacerUnion
             Imports.Stack_PushInt(Convert.ToInt32(checkBoxMatchNames.Checked));
             Imports.Stack_PushInt(collectRadius);
 
-            int result = Imports.Extern_SearchVobs(checkBoxSearchDerived.Checked, checkBoxSearchHasChildren.Checked, comboBoxSearchType.SelectedIndex, onlyNameVisualSearch);
+            int result = Imports.Extern_SearchVobs(checkBoxSearchDerived.Checked, 
+                checkBoxSearchHasChildren.Checked, comboBoxSearchType.SelectedIndex, Convert.ToInt32(fastSearchType));
 
 
             s.Stop();

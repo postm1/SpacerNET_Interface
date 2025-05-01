@@ -34,6 +34,17 @@ namespace SpacerUnion.Common
         SPACER_UI_ACTION_OPEN_MESH = 1
     };
 
+    public enum SpaceFastVobFieldsSearch
+    {
+        FAST_SEARCH_FIELD_NONE          = 0,
+        FAST_SEARCH_FIELD_NAME          = 1 << 0,
+        FAST_SEARCH_FIELD_VISUAL        = 1 << 1,
+        FAST_SEARCH_FIELD_SHOW_VISUAL   = 1 << 2,
+        FAST_SEARCH_FIELD_CD_STATIC     = 1 << 3,
+        FAST_SEARCH_FIELD_CD_DYNYAMIC   = 1 << 4,
+    }
+
+
 
     public class Exports
     {

@@ -309,6 +309,16 @@ namespace SpacerUnion
             return char.ToUpper(input[0]) + input.Substring(1);
         }
 
+        public static int GetIntMaskCountTrue(int mask)
+        {
+            int count = 0;
+            for (int i = 0; i < 32; i++)
+            {
+                if ((mask & (1 << i)) != 0)
+                    count++;
+            }
+            return count;
+        }
 
         [DllExport]
         public static void GetConfirmWindowYesNo()
