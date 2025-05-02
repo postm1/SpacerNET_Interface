@@ -2963,43 +2963,58 @@ namespace SpacerUnion
 
             SpaceFastVobFieldsSearch fastSearchType = SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_NONE;
 
+            Imports.Extern_PrepareSearchEntry(Convert.ToInt32(checkBoxSearchUseRegex.Checked));
+
             for (int i = 0; i < searchProps.Count; i++)
             {
-                if (searchProps[i].selectedForSearch)
+                var curProp = searchProps[i];
+
+                if (curProp.selectedForSearch)
                 {
                     checkValueFound = true;
                     countSelected++;
 
-                    if (searchProps[i].Name == "vobName")
-                    {
-                        fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_NAME;
-                        searchName = searchProps[i].value;
-                    }
-                    else if (searchProps[i].Name == "visual")
-                    {
-                        fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_VISUAL;
-                    }
-                    else if (searchProps[i].Name == "showVisual")
-                    {
-                        fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_SHOW_VISUAL;
-                    }
-                    else if (searchProps[i].Name == "cdDyn")
-                    {
-                        fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_CD_DYNYAMIC;
-                    }
-                    else if (searchProps[i].Name == "cdStatic")
-                    {
-                        fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_CD_STATIC;
-                    }
+                    // vobName, TPropEditType, value (string)
+                    Imports.Stack_PushString(curProp.Name);
+                    Imports.Stack_PushString(curProp.GroupName);
+                    Imports.Stack_PushInt((int)curProp.type);
+                    Imports.Stack_PushString(curProp.value);
+                    Imports.Extern_AddSearchEntry();
 
-                    if (searchProps[i].type == TPropEditType.PETstring && checkBoxSearchUseRegex.Checked)
+                    if (curProp.GroupName == "Vob")
+                    {
+                        if (curProp.Name == "vobName")
+                        {
+                            fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_NAME;
+                            searchName = searchProps[i].value;
+                        }
+                        else if (curProp.Name == "visual")
+                        {
+                            fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_VISUAL;
+                        }
+                        else if (curProp.Name == "showVisual")
+                        {
+                            fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_SHOW_VISUAL;
+                        }
+                        else if (curProp.Name == "cdDyn")
+                        {
+                            fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_CD_DYNYAMIC;
+                        }
+                        else if (curProp.Name == "cdStatic")
+                        {
+                            fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_CD_STATIC;
+                        }
+                    }
+                    
+
+                    if (curProp.type == TPropEditType.PETstring && checkBoxSearchUseRegex.Checked)
                     {
 
                         Regex regEx = null;
 
                         try
                         {
-                            regEx = new Regex(@searchProps[i].value, RegexOptions.IgnoreCase | RegexOptions.Compiled);
+                            regEx = new Regex(@curProp.value, RegexOptions.IgnoreCase | RegexOptions.Compiled);
                         }
                         catch (ArgumentException)
                         {
