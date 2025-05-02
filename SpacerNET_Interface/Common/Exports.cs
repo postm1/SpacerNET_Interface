@@ -42,6 +42,7 @@ namespace SpacerUnion.Common
         FAST_SEARCH_FIELD_SHOW_VISUAL   = 1 << 2,
         FAST_SEARCH_FIELD_CD_STATIC     = 1 << 3,
         FAST_SEARCH_FIELD_CD_DYNYAMIC   = 1 << 4,
+        FAST_SEARCH_FIELD_STATIC_VOB    = 1 << 5,
     }
 
 

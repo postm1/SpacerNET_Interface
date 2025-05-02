@@ -3004,6 +3004,10 @@ namespace SpacerUnion
                         {
                             fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_CD_STATIC;
                         }
+                        else if (curProp.Name == "staticVob")
+                        {
+                            fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_STATIC_VOB;
+                        }
                     }
                     
 
