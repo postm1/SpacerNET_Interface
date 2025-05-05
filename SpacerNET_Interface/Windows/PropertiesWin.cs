@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -1194,6 +1195,19 @@ namespace SpacerUnion
                     if (prop.type == TPropEditType.PETfloat)
                     {
                         textTry = textTry.Replace(',', '.');
+
+                        bool isFloat = float.TryParse(
+                            textTry,
+                            NumberStyles.Float | NumberStyles.AllowThousands,
+                            CultureInfo.InvariantCulture, // Разрешает точку как разделитель
+                            out float number
+                        );
+
+                        if (!isFloat)
+                        {
+                            MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+                            return;
+                        }
                     }
                     else if (prop.type == TPropEditType.PETint)
                     {
