@@ -44,6 +44,7 @@ namespace SpacerUnion
         public static string originalStrPropsWindow;
         public static string originalStrSearchWindow;
         public TSearchNumberType numSearchType;
+        public bool moreThanZero;
 
         public bool selectedForSearch;
 
@@ -55,6 +56,7 @@ namespace SpacerUnion
             oldValueInit = false;
             value = "";
             selectedForSearch = false;
+            moreThanZero = false;
             numSearchType = TSearchNumberType.TS_EQUALS;
         }
 

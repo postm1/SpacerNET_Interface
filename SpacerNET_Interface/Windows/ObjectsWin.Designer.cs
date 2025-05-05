@@ -260,6 +260,7 @@
             this.labelScriptFunction = new System.Windows.Forms.Label();
             this.listBoxFuncs = new System.Windows.Forms.ListBox();
             this.colorDialogLightPresetColor = new System.Windows.Forms.ColorDialog();
+            this.checkBoxMoreThanZero = new System.Windows.Forms.CheckBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -1542,12 +1543,13 @@
             // 
             // panelRadioNumType
             // 
+            this.panelRadioNumType.Controls.Add(this.checkBoxMoreThanZero);
             this.panelRadioNumType.Controls.Add(this.radioButtonSearchEquals);
             this.panelRadioNumType.Controls.Add(this.radioButtonSearchBiggerThan);
             this.panelRadioNumType.Controls.Add(this.radioButtonSearchLessThan);
             this.panelRadioNumType.Location = new System.Drawing.Point(332, 110);
             this.panelRadioNumType.Name = "panelRadioNumType";
-            this.panelRadioNumType.Size = new System.Drawing.Size(125, 20);
+            this.panelRadioNumType.Size = new System.Drawing.Size(215, 20);
             this.panelRadioNumType.TabIndex = 28;
             this.panelRadioNumType.Visible = false;
             // 
@@ -1567,12 +1569,12 @@
             // radioButtonSearchBiggerThan
             // 
             this.radioButtonSearchBiggerThan.AutoSize = true;
-            this.radioButtonSearchBiggerThan.Location = new System.Drawing.Point(87, -1);
+            this.radioButtonSearchBiggerThan.Location = new System.Drawing.Point(87, 0);
             this.radioButtonSearchBiggerThan.Name = "radioButtonSearchBiggerThan";
-            this.radioButtonSearchBiggerThan.Size = new System.Drawing.Size(37, 17);
+            this.radioButtonSearchBiggerThan.Size = new System.Drawing.Size(31, 17);
             this.radioButtonSearchBiggerThan.TabIndex = 26;
             this.radioButtonSearchBiggerThan.TabStop = true;
-            this.radioButtonSearchBiggerThan.Text = ">=";
+            this.radioButtonSearchBiggerThan.Text = ">";
             this.radioButtonSearchBiggerThan.UseVisualStyleBackColor = true;
             this.radioButtonSearchBiggerThan.CheckedChanged += new System.EventHandler(this.radioButtonSearchEquals_CheckedChanged);
             // 
@@ -1581,10 +1583,10 @@
             this.radioButtonSearchLessThan.AutoSize = true;
             this.radioButtonSearchLessThan.Location = new System.Drawing.Point(44, 0);
             this.radioButtonSearchLessThan.Name = "radioButtonSearchLessThan";
-            this.radioButtonSearchLessThan.Size = new System.Drawing.Size(37, 17);
+            this.radioButtonSearchLessThan.Size = new System.Drawing.Size(31, 17);
             this.radioButtonSearchLessThan.TabIndex = 25;
             this.radioButtonSearchLessThan.TabStop = true;
-            this.radioButtonSearchLessThan.Text = "<=";
+            this.radioButtonSearchLessThan.Text = "<";
             this.radioButtonSearchLessThan.UseVisualStyleBackColor = true;
             this.radioButtonSearchLessThan.CheckedChanged += new System.EventHandler(this.radioButtonSearchEquals_CheckedChanged);
             // 
@@ -2860,6 +2862,17 @@
             this.listBoxFuncs.Size = new System.Drawing.Size(195, 225);
             this.listBoxFuncs.TabIndex = 0;
             // 
+            // checkBoxMoreThanZero
+            // 
+            this.checkBoxMoreThanZero.AutoSize = true;
+            this.checkBoxMoreThanZero.Location = new System.Drawing.Point(130, 1);
+            this.checkBoxMoreThanZero.Name = "checkBoxMoreThanZero";
+            this.checkBoxMoreThanZero.Size = new System.Drawing.Size(41, 17);
+            this.checkBoxMoreThanZero.TabIndex = 28;
+            this.checkBoxMoreThanZero.Text = "> 0";
+            this.checkBoxMoreThanZero.UseVisualStyleBackColor = true;
+            this.checkBoxMoreThanZero.CheckedChanged += new System.EventHandler(this.checkBoxMoreThanZero_CheckedChanged);
+            // 
             // ObjectsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3172,5 +3185,6 @@
         private System.Windows.Forms.CheckBox checkBoxShowLightRadiusAsText;
         private System.Windows.Forms.Panel panelColor;
         private System.Windows.Forms.ComboBox comboBoxSphereType;
+        private System.Windows.Forms.CheckBox checkBoxMoreThanZero;
     }
 }

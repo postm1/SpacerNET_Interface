@@ -2837,8 +2837,11 @@ namespace SpacerUnion
                         {
                             prop.numSearchType = TSearchNumberType.TS_EQUALS;
                         }
+
+                        
                     }
 
+                    prop.moreThanZero = checkBoxMoreThanZero.Checked;
 
                     prop.value = textBox.Text.Trim().ToUpper();
                     node.Text = prop.Name + ": " + prop.ShowValue();
@@ -2980,6 +2983,7 @@ namespace SpacerUnion
                     Imports.Stack_PushInt((int)curProp.type);
                     Imports.Stack_PushString(curProp.value);
                     Imports.Stack_PushInt((int)curProp.numSearchType);
+                    Imports.Stack_PushInt(Convert.ToInt32(curProp.moreThanZero));
                     Imports.Extern_AddSearchEntry();
 
                     if (curProp.GroupName == "Vob")
@@ -3533,10 +3537,22 @@ namespace SpacerUnion
                                         if (searchProps[j].numSearchType == TSearchNumberType.TS_LESSTHAN)
                                         {
                                             match = vobIntValue <= searchIntValue;
+
+                                            // check > 0
+                                            if (match && searchProps[j].moreThanZero)
+                                            {
+                                                match = vobIntValue > 0;
+                                            }
                                         }
                                         else if (searchProps[j].numSearchType == TSearchNumberType.TS_MORETHAN)
                                         {
                                             match = vobIntValue >= searchIntValue;
+
+                                            // check > 0
+                                            if (match && searchProps[j].moreThanZero)
+                                            {
+                                                match = vobIntValue > 0;
+                                            }
                                         }
                                     }
                                     else if (compareProps[pc].type == TPropEditType.PETfloat)
@@ -3559,10 +3575,20 @@ namespace SpacerUnion
                                             if (searchProps[j].numSearchType == TSearchNumberType.TS_LESSTHAN)
                                             {
                                                 match = valVob <= valCompare;
+                                                // check > 0
+                                                if (match && searchProps[j].moreThanZero)
+                                                {
+                                                    match = valVob > 0;
+                                                }
                                             }
                                             else if (searchProps[j].numSearchType == TSearchNumberType.TS_MORETHAN)
                                             {
                                                 match = valVob >= valCompare;
+                                                // check > 0
+                                                if (match && searchProps[j].moreThanZero)
+                                                {
+                                                    match = valVob > 0;
+                                                }
                                             }
                                         }
 
@@ -5404,6 +5430,11 @@ namespace SpacerUnion
 
         }
 
-        
+        private void checkBoxMoreThanZero_CheckedChanged(object sender, EventArgs e)
+        {
+            if (dontUpdateNumType || Imports.Extern_IsWorldLoaded() == 0) return;
+
+            textBoxSearchVobs_TextChanged(textBoxSearchVobs, null);
+        }
     }
 }
