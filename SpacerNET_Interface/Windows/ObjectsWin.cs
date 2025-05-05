@@ -2979,6 +2979,7 @@ namespace SpacerUnion
                     Imports.Stack_PushString(curProp.GroupName);
                     Imports.Stack_PushInt((int)curProp.type);
                     Imports.Stack_PushString(curProp.value);
+                    Imports.Stack_PushInt((int)curProp.numSearchType);
                     Imports.Extern_AddSearchEntry();
 
                     if (curProp.GroupName == "Vob")
@@ -3007,6 +3008,14 @@ namespace SpacerUnion
                         else if (curProp.Name == "staticVob")
                         {
                             fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_STATIC_VOB;
+                        }
+                        else if (curProp.Name == "visualAniMode")
+                        {
+                            fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_ANI_MODE;
+                        }
+                        else if (curProp.Name == "visualAniModeStrength")
+                        {
+                            fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_ANI_MODE_STR;
                         }
                     }
                     
