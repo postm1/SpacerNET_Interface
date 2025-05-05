@@ -36,15 +36,17 @@ namespace SpacerUnion.Common
 
     public enum SpaceFastVobFieldsSearch
     {
-        FAST_SEARCH_FIELD_NONE          = 0,
-        FAST_SEARCH_FIELD_NAME          = 1 << 0,
-        FAST_SEARCH_FIELD_VISUAL        = 1 << 1,
-        FAST_SEARCH_FIELD_SHOW_VISUAL   = 1 << 2,
-        FAST_SEARCH_FIELD_CD_STATIC     = 1 << 3,
-        FAST_SEARCH_FIELD_CD_DYNYAMIC   = 1 << 4,
-        FAST_SEARCH_FIELD_STATIC_VOB    = 1 << 5,
-        FAST_SEARCH_FIELD_ANI_MODE      = 1 << 6,
-        FAST_SEARCH_FIELD_ANI_MODE_STR  = 1 << 7,
+        FAST_SEARCH_FIELD_NONE                   = 0,
+        FAST_SEARCH_FIELD_NAME                   = 1 << 0,
+        FAST_SEARCH_FIELD_VISUAL                 = 1 << 1,
+        FAST_SEARCH_FIELD_SHOW_VISUAL            = 1 << 2,
+        FAST_SEARCH_FIELD_CD_STATIC              = 1 << 3,
+        FAST_SEARCH_FIELD_CD_DYNYAMIC            = 1 << 4,
+        FAST_SEARCH_FIELD_STATIC_VOB             = 1 << 5,
+        FAST_SEARCH_FIELD_ANI_MODE               = 1 << 6,
+        FAST_SEARCH_FIELD_ANI_MODE_STR           = 1 << 7,
+        FAST_SEARCH_FIELD_FAR_CLIP_ZSCALE        = 1 << 8,
+        FAST_SEARCH_FIELD_VISUAL_CAM_ALIGN       = 1 << 9,
     }
 
 

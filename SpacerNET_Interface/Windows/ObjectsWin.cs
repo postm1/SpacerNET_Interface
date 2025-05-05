@@ -3017,6 +3017,14 @@ namespace SpacerUnion
                         {
                             fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_ANI_MODE_STR;
                         }
+                        else if (curProp.Name == "vobFarClipZScale")
+                        {
+                            fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_FAR_CLIP_ZSCALE;
+                        }
+                        else if (curProp.Name == "visualCamAlign")
+                        {
+                            fastSearchType |= SpaceFastVobFieldsSearch.FAST_SEARCH_FIELD_VISUAL_CAM_ALIGN;
+                        }
                     }
                     
 
