@@ -1196,18 +1196,22 @@ namespace SpacerUnion
                     {
                         textTry = textTry.Replace(',', '.');
 
-                        bool isFloat = float.TryParse(
+                        if (textTry.Trim().Length > 0)
+                        {
+                            bool isFloat = float.TryParse(
                             textTry,
                             NumberStyles.Float | NumberStyles.AllowThousands,
                             CultureInfo.InvariantCulture, // Разрешает точку как разделитель
                             out float number
                         );
 
-                        if (!isFloat)
-                        {
-                            MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
-                            return;
+                            if (!isFloat)
+                            {
+                                MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+                                return;
+                            }
                         }
+                        
                     }
                     else if (prop.type == TPropEditType.PETint)
                     {
