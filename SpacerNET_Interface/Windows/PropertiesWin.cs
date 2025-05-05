@@ -1204,6 +1204,20 @@ namespace SpacerUnion
                             textBox.Text = String.Empty;
                             return;
                         }
+
+                        if (prop.Name == "decalAlphaWeight")
+                        {
+
+                            if (int.TryParse(textTry, out int number))
+                            {
+                                if (number < 0 || number > 255)
+                                {
+                                    MessageBox.Show(Localizator.Get("PFX_EDITOR_WRONG_INPUT_0_255"));
+                                    return;
+                                }
+ 
+                            }
+                        }
                     }
                     else if (prop.Name == "trafoOSToWSPos")
                     {
