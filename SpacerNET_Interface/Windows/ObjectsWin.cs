@@ -3908,16 +3908,19 @@ namespace SpacerUnion
 
             //ConsoleEx.WriteLineRed(text);
 
-            if (text.Contains(' '))
+            if (text.Length > 0)
             {
-                MessageBox.Show(Localizator.Get("ERROR_NAME_CANT_CONTAIN_SPACE"));
-                return;
-            }
+                if (text.Contains(' '))
+                {
+                    MessageBox.Show(Localizator.Get("ERROR_NAME_CANT_CONTAIN_SPACE"));
+                    return;
+                }
 
-            if (!Utils.IsOnlyLatin(text))
-            {
-                MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
-                return;
+                if (!Utils.IsOnlyLatin(text))
+                {
+                    MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
+                    return;
+                }
             }
 
             Imports.Stack_PushString(text);
