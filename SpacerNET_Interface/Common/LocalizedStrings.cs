@@ -942,7 +942,10 @@ namespace SpacerUnion.Common
 
 
             words.Add("COMMON_WARN_NOT_USUAL_VISUAL", new List<string> { "Тип воба не zCVob, а его визуал 3DS или TGA. Вы уверены?", "The type of the vob is not zCVob, but its visual is 3DS or TGA. Are you sure?", "Der Typ des Vobs ist nicht zCVob, aber das Visual hat 3DS oder TGA. Bist du sicher?", "", "" });
-            words.Add("COMMON_WARN_MEMORY_FULL", new List<string> { "Память начинается заканчиваться. Сохраните результат работы и перезапустите SpacerNET!", "Memory is starting to run out. Save your work and restart SpacerNET!", "", "", "" });
+            words.Add("COMMON_WARN_MEMORY_FULL", new List<string> { "Память начинается заканчиваться. Сохраните результат работы и перезапустите SpacerNET!", "Memory is starting to run out. Save your work and restart SpacerNET!", "Der Speicher geht langsam zur Neige. Speichere deine Arbeit und starte SpacerNET neu!", "", "" });
+            words.Add("CANT_COPY_INITSELF_USUAL_VOB", new List<string> { "Нельзя скопировать и вставить воб в самого себя!", "Can't copy vob into itself!", "Kann VOB nicht in sich selbst kopieren!", "", "" });
+
+
         }
 
 
