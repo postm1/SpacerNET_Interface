@@ -660,7 +660,7 @@ namespace SpacerUnion.Common
             words.Add("PFX_EDITOR_PLAY_AGAIN", new List<string> { "Вызвать эффект снова", "Play effect again", "Effekt erneut abspielen", "Odtwórz efekt ponownie", "Znovu přehrát efekt" });
             
             words.Add("PFX_EDITOR_SAVE_IN_FILE", new List<string> { "Сохранить в файл", "Save into a file", "In Datei speichern", "Zapisz do pliku", "Uložit do souboru" });
-            words.Add("PFX_EDITOR_AUTO_PLAY", new List<string> { "Повторно вызвать эффект", "Repeat playing effect", "Effekt wiederholen", "Powtarzaj odtwarzany efekt", "Efekt opakovaného přehrávání" });
+            words.Add("PFX_EDITOR_AUTO_PLAY", new List<string> { "Повторно вызывать эффект", "Repeat playing effect", "Effekt wiederholen", "Powtarzaj odtwarzany efekt", "Efekt opakovaného přehrávání" });
             words.Add("PFX_EDITOR_SET_NEAR_CAMERA", new List<string> { "Переместить эффект к камере", "Place effect near camera", "Platziere Effekt nahe der Kamera", "Ustaw efekt w pobliżu kamery", "Umístění efektu v blízkosti kamery" });
             words.Add("PFX_EDITOR_SET_NEAR_CAMERA_DONE", new List<string> { "Эффект перемещен к камере", "The effect was placed near camera", "Effekt wurde nahe der Kamera platziert", "Efekt został umieszony w pobliżu kamery", "Efekt byl umístěn v blízkosti kamery" });
             words.Add("PFX_EDITOR_REMOVE_EFFECT", new List<string> { "Удалить эффект с экрана", "Remove effect from screen", "Effekt vom Bildschirm entfernen", "Usuń efekt z ekranu", "Odstranit efekt z obrazovky" });
@@ -701,7 +701,7 @@ namespace SpacerUnion.Common
 
  
             words.Add("ERROR_REPORT_PROBLEM_TYPE_EMPTY_NAME_MOB_FOCUS", new List<string> { "oCMob не имеет focusName", "oCMob does not have focusName", "oCMob hat keinen focusName", "oCMob nie ma ustawionego focusName", "oCMob nemá focusName" });
-            words.Add("CANT_CHANGE_PARENT_INTO_INSELF", new List<string> { "Нельзя установить родителя воба самого себя!", "Can't set vob parent as the vob itself!", "Ich kann dem Haupt VOB nicht als die VOB selbst festlegen!", "Nie można ustawić rodzica voba jako samego siebie!", "Nelze nastavit rodičovský vob jako samotný vob!" });
+            words.Add("CANT_CHANGE_PARENT_INTO_ITSELF", new List<string> { "Нельзя установить родителя воба самого себя!", "Can't set vob parent as the vob itself!", "Ich kann dem Haupt VOB nicht als die VOB selbst festlegen!", "Nie można ustawić rodzica voba jako samego siebie!", "Nelze nastavit rodičovský vob jako samotný vob!" });
             words.Add("WIN_GRASS_INSERT_INTO_GLOBAL_PARENT", new List<string> { "Вставлять воб в Глобального родителя", "Insert the vob into Global parent", "Füge die VOB in die übergeordnete Gruppe ein", "Dodaj voba do globalnego rodzica", "Vložení vobu do globálního rodiče" });
             words.Add("SEWER_NO_PLACE_TO_PUT_VOB", new List<string> { "Нет места для размещения воба", "No place to put vob", "Kein Platz zum Ablegen von VOB", "Brak miejsca by dodać voba", "Není kam umístit vob" });
             words.Add("checkBoxSearchInRadius", new List<string> { "В радиусе:", "In radius:", "Im Radius:", "W promieniu:", "V rozsahu:" });
