@@ -945,7 +945,8 @@ namespace SpacerUnion.Common
             words.Add("COMMON_WARN_MEMORY_FULL", new List<string> { "Память начинается заканчиваться. Сохраните результат работы и перезапустите SpacerNET!", "Memory is starting to run out. Save your work and restart SpacerNET!", "Der Speicher geht langsam zur Neige. Speichere deine Arbeit und starte SpacerNET neu!", "", "" });
             words.Add("CANT_COPY_INITSELF_USUAL_VOB", new List<string> { "Нельзя скопировать и вставить воб в самого себя!", "Can't copy vob into itself!", "Kann VOB nicht in sich selbst kopieren!", "", "" });
 
-
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_WP_NO_TOT", new List<string> { "В локации не существует Waypoint с именем TOT", "There is no TOT waypoint", "Es gibt keinen TOT-Wegpunkt", "", "" });
+            
         }
 
 
