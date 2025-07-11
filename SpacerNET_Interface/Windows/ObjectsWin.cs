@@ -1122,10 +1122,12 @@ namespace SpacerUnion
 
                 string strToFind = textBoxVisuals.Text.Trim().ToUpper();
 
-                if (checkBoxSearchOnly3DS.Checked)
+                if (checkBoxSearchOnly3DS.Checked && !strToFind.ToUpper().Contains("3DS"))
                 {
                     strToFind += ".*3DS";
                 }
+
+                //ConsoleEx.WriteLineRed(strToFind);
 
                 Regex regEx = null;
 
