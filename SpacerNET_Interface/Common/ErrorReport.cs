@@ -63,7 +63,8 @@ namespace SpacerUnion.Common
         ERROR_REPORT_PROBLEM_TYPE_LIGHT_DYNCOLL,
         ERROR_REPORT_PROBLEM_TYPE_MOB_NO_COLL,
         ERROR_REPORT_PROBLEM_TYPE_STATIC_LIGHT_NO_PORTAL,
-        ERROR_REPORT_PROBLEM_TYPE_MAT_NOT_UNIQ_MAT
+        ERROR_REPORT_PROBLEM_TYPE_MAT_NOT_UNIQ_MAT,
+        ERROR_REPORT_PROBLEM_TYPE_WP_NO_TOT
     }
 
     public class ErrorReportEntry
@@ -160,6 +161,8 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_STATIC_LIGHT_NO_PORTAL: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_STATIC_LIGHT_NO_PORTAL"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_DECAL_BAD_BLEND: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_DECAL_BAD_BLEND"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MAT_NOT_UNIQ_MAT: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_MAT_NOT_UNIQ_MAT"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_WP_NO_TOT: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_WP_NO_TOT"); break;
+
 
                     
                     //ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_COLLISION NOT USED?   
@@ -578,6 +581,14 @@ namespace SpacerUnion.Common
                     };
                     break;
 
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_WP_NO_TOT:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_WP_NO_TOT") + " {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    }; 
+                    break;
 
                     
             }
