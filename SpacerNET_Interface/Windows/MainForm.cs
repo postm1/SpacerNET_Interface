@@ -2524,11 +2524,20 @@ namespace SpacerUnion
 
         private void startRainsmoothlyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Imports.Stack_PushString("holdTime");
+            Imports.Extern_SetSetting(0);
+            Imports.Extern_FreezeTime(0);
+
             Imports.Extern_ChangeRain((int)SpacerRainType.SPACER_RAIN_TYPE_SMOOTH);
         }
 
         private void startRainfullyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            Imports.Stack_PushString("holdTime");
+            Imports.Extern_SetSetting(0);
+            Imports.Extern_FreezeTime(0);
+
             Imports.Extern_ChangeRain((int)SpacerRainType.SPACER_RAIN_TYPE_FULL);
         }
     }
