@@ -946,7 +946,12 @@ namespace SpacerUnion.Common
             words.Add("CANT_COPY_INITSELF_USUAL_VOB", new List<string> { "Нельзя скопировать и вставить воб в самого себя!", "Can't copy vob into itself!", "Kann VOB nicht in sich selbst kopieren!", "", "" });
 
             words.Add("ERROR_REPORT_PROBLEM_TYPE_WP_NO_TOT", new List<string> { "В локации не существует Waypoint с именем TOT", "There is no TOT waypoint", "Es gibt keinen TOT-Wegpunkt", "", "" });
-            
+
+
+            words.Add("MENU_TOP_RAIN_COMMON", new List<string> { "Дождь", "Rain", "Regen", "Deszcz", "" });
+            words.Add("MENU_TOP_RAIN_STOP", new List<string> { "Остановить дождь", "Stop rain", "Regen stoppen", "Zatrzymaj deszcz", "" });
+            words.Add("MENU_TOP_RAIN_START_SMOOTHLY", new List<string> { "Запустить дождь (плавно)", "Start rain (smoothly)", "Regen (sanft) starten", "Rozpocznij deszcz (stopniowo)", "" });
+            words.Add("MENU_TOP_RAIN_START_FULLY", new List<string> { "Запустить дождь (полностью)", "Start rain (fully)", "Regen (vollständig) starten", "Rozpocznij deszcz (natychmiastowo)", "" });
         }
 
 

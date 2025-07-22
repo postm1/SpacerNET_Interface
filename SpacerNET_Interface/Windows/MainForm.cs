@@ -273,6 +273,12 @@ namespace SpacerUnion
             toolStripButtonCatalog.ToolTipText = toolStripButtonCatalog.Text;
             toolStripButtonErrorReport.ToolTipText = toolStripButtonErrorReport.Text;
 
+
+            rainToolStripMenuItem.Text = Localizator.Get("MENU_TOP_RAIN_COMMON");
+            stopRainToolStripMenuItem.Text = Localizator.Get("MENU_TOP_RAIN_STOP");
+            startRainsmoothlyToolStripMenuItem.Text = Localizator.Get("MENU_TOP_RAIN_START_SMOOTHLY");
+            startRainfullyToolStripMenuItem.Text = Localizator.Get("MENU_TOP_RAIN_START_FULLY");
+
             if (SpacerNET.isInit)
             {
                 this.UpdateLangAfter();
