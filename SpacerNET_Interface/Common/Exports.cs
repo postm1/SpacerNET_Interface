@@ -51,7 +51,7 @@ namespace SpacerUnion.Common
 
     public enum SpacerRainType
     {
-        SPACER_RAIN_TYPE_STOP,
+        SPACER_RAIN_TYPE_STOP = 0,
         SPACER_RAIN_TYPE_SMOOTH,
         SPACER_RAIN_TYPE_FULL
     }
