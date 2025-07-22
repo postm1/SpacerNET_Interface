@@ -49,6 +49,13 @@ namespace SpacerUnion.Common
         FAST_SEARCH_FIELD_VISUAL_CAM_ALIGN       = 1 << 9,
     }
 
+    public enum SpacerRainType
+    {
+        SPACER_RAIN_TYPE_STOP,
+        SPACER_RAIN_TYPE_SMOOTH,
+        SPACER_RAIN_TYPE_FULL
+    }
+
 
 
     public class Exports

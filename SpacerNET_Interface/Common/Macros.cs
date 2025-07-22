@@ -481,8 +481,8 @@ namespace SpacerUnion.Common
                 SpacerNET.form.analyseWaynetToolStripMenuItem.Enabled = true;
                 SpacerNET.form.stripSpecialFunctions.Enabled = true;
                 SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
+                SpacerNET.form.rainToolStripMenuItem.Enabled = true;
 
-   
                 isMacrosRun = false;
 
                 Application.DoEvents();

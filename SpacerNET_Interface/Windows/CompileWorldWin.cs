@@ -54,6 +54,7 @@ namespace SpacerUnion
             
             SpacerNET.form.analyseWaynetToolStripMenuItem.Enabled = true;
             SpacerNET.form.playHeroToolStrip.Enabled = true;
+            SpacerNET.form.rainToolStripMenuItem.Enabled = true;
             SpacerNET.form.stripSpecialFunctions.Enabled = true;
             SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
             SpacerNET.form.dayTimeToolStrip.Enabled = true;

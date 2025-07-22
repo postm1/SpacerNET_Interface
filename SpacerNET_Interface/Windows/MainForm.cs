@@ -145,6 +145,7 @@ namespace SpacerUnion
             compileWorldToolStrip.Enabled = false;
             analyseWaynetToolStripMenuItem.Enabled = false;
             playHeroToolStrip.Enabled = false;
+            rainToolStripMenuItem.Enabled = false;
             cameraCoordsToolStrip.Enabled = false;
             dayTimeToolStrip.Enabled = false;
             toolStripMenuResetWorld.Enabled = false;
@@ -367,6 +368,7 @@ namespace SpacerUnion
 
             SpacerNET.form.analyseWaynetToolStripMenuItem.Enabled = true;
             SpacerNET.form.playHeroToolStrip.Enabled = true;
+            SpacerNET.form.rainToolStripMenuItem.Enabled = true;
             SpacerNET.form.stripSpecialFunctions.Enabled = true;
             SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
             SpacerNET.form.dayTimeToolStrip.Enabled = true;
@@ -487,6 +489,7 @@ namespace SpacerUnion
                 SpacerNET.form.toolStripMenuExtractMesh.Enabled = true;
                 SpacerNET.form.analyseWaynetToolStripMenuItem.Enabled = true;
                 SpacerNET.form.playHeroToolStrip.Enabled = true;
+                SpacerNET.form.rainToolStripMenuItem.Enabled = true;
                 SpacerNET.form.stripSpecialFunctions.Enabled = true;
                 SpacerNET.form.cameraCoordsToolStrip.Enabled = true;
                 SpacerNET.form.dayTimeToolStrip.Enabled = true;
@@ -2513,6 +2516,20 @@ namespace SpacerUnion
                     }
             }
         }
-        //
+
+        private void stopRainToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_ChangeRain((int)SpacerRainType.SPACER_RAIN_TYPE_STOP);
+        }
+
+        private void startRainsmoothlyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_ChangeRain((int)SpacerRainType.SPACER_RAIN_TYPE_SMOOTH);
+        }
+
+        private void startRainfullyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Imports.Extern_ChangeRain((int)SpacerRainType.SPACER_RAIN_TYPE_FULL);
+        }
     }
 }
