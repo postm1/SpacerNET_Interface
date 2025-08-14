@@ -432,6 +432,9 @@ namespace SpacerUnion.Windows
             row = new string[] { "VOB_RESET_AXIS", Localizator.Get("VOB_RESET_AXIS"), "" };
             dataGridKeys.Rows.Add(row);
 
+            row = new string[] { "VOB_SET_UPSIDE_DOWN", Localizator.Get("KEYS_SET_UPSIDE_DOWN"), "" };
+            dataGridKeys.Rows.Add(row);
+
             row = new string[] { "ROT_MOD_CHANGE", Localizator.Get("ROT_MOD_CHANGE"), "" };
             dataGridKeys.Rows.Add(row);
             
