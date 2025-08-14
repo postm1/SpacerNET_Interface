@@ -954,8 +954,8 @@ namespace SpacerUnion.Common
             words.Add("MENU_TOP_RAIN_START_FULLY", new List<string> { "Запустить дождь (полностью)", "Start rain (fully)", "Regen (vollständig) starten", "Rozpocznij deszcz (natychmiastowo)", "" });
 
 
-            words.Add("WIN_GRASS_SET_ON_VOB", new List<string> { "Ставить объекты на вобы", "Set objects on vobs", "", "", "" });
-            words.Add("MISC_SETTINGS_NO_WORK_CHECK", new List<string> { "Не проверять путь загружаемого ZEN (игнорировать папку _WORK)", "Don't check path while loading ZEN (ignore _WORK folder)", "", "", "" });
+            words.Add("WIN_GRASS_SET_ON_VOB", new List<string> { "Ставить объекты на вобы", "Set objects on vobs", "Objekte auf VOBs platzieren", "", "" });
+            words.Add("MISC_SETTINGS_NO_WORK_CHECK", new List<string> { "Не проверять путь загружаемого ZEN (игнорировать папку _WORK)", "Don't check path while loading ZEN (ignore _WORK folder)", "Beim Laden von ZEN den Pfad nicht prüfen (Ordner _WORK ignorieren)", "", "" });
 
             
 
