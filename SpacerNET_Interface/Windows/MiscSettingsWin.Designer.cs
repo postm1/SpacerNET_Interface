@@ -30,6 +30,7 @@
         {
             this.checkBoxSetDatePrefix = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxSkipPolysCut = new System.Windows.Forms.CheckBox();
             this.checkBoxDx11Amb = new System.Windows.Forms.CheckBox();
             this.checkBoxDisableUpper = new System.Windows.Forms.CheckBox();
             this.checkBoxFast3ds = new System.Windows.Forms.CheckBox();
@@ -45,7 +46,7 @@
             this.checkBoxLastZenAuto = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
             this.btnMiscSetApply = new System.Windows.Forms.Button();
-            this.checkBoxSkipPolysCut = new System.Windows.Forms.CheckBox();
+            this.checkBoxNoWorkCheck = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +62,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxNoWorkCheck);
             this.groupBox1.Controls.Add(this.checkBoxSkipPolysCut);
             this.groupBox1.Controls.Add(this.checkBoxDx11Amb);
             this.groupBox1.Controls.Add(this.checkBoxDisableUpper);
@@ -82,6 +84,18 @@
             this.groupBox1.Size = new System.Drawing.Size(624, 451);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // checkBoxSkipPolysCut
+            // 
+            this.checkBoxSkipPolysCut.AutoSize = true;
+            this.checkBoxSkipPolysCut.Checked = true;
+            this.checkBoxSkipPolysCut.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxSkipPolysCut.Location = new System.Drawing.Point(13, 283);
+            this.checkBoxSkipPolysCut.Name = "checkBoxSkipPolysCut";
+            this.checkBoxSkipPolysCut.Size = new System.Drawing.Size(389, 17);
+            this.checkBoxSkipPolysCut.TabIndex = 17;
+            this.checkBoxSkipPolysCut.Text = "Ask for sorting polygons while saving big locations (more than 200k polygons)";
+            this.checkBoxSkipPolysCut.UseVisualStyleBackColor = true;
             // 
             // checkBoxDx11Amb
             // 
@@ -251,17 +265,18 @@
             this.btnMiscSetApply.UseVisualStyleBackColor = true;
             this.btnMiscSetApply.Click += new System.EventHandler(this.btnMiscSetApply_Click);
             // 
-            // checkBoxSkipPolysCut
+            // checkBoxNoWorkCheck
             // 
-            this.checkBoxSkipPolysCut.AutoSize = true;
-            this.checkBoxSkipPolysCut.Checked = true;
-            this.checkBoxSkipPolysCut.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxSkipPolysCut.Location = new System.Drawing.Point(13, 283);
-            this.checkBoxSkipPolysCut.Name = "checkBoxSkipPolysCut";
-            this.checkBoxSkipPolysCut.Size = new System.Drawing.Size(389, 17);
-            this.checkBoxSkipPolysCut.TabIndex = 17;
-            this.checkBoxSkipPolysCut.Text = "Ask for sorting polygons while saving big locations (more than 200k polygons)";
-            this.checkBoxSkipPolysCut.UseVisualStyleBackColor = true;
+            this.checkBoxNoWorkCheck.AutoSize = true;
+            this.checkBoxNoWorkCheck.Checked = true;
+            this.checkBoxNoWorkCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxNoWorkCheck.Location = new System.Drawing.Point(13, 424);
+            this.checkBoxNoWorkCheck.Name = "checkBoxNoWorkCheck";
+            this.checkBoxNoWorkCheck.Size = new System.Drawing.Size(209, 17);
+            this.checkBoxNoWorkCheck.TabIndex = 18;
+            this.checkBoxNoWorkCheck.Text = "Don\'t check _WORK path to ZEN files";
+            this.checkBoxNoWorkCheck.UseVisualStyleBackColor = true;
+            this.checkBoxNoWorkCheck.CheckedChanged += new System.EventHandler(this.checkBoxNoWorkCheck_CheckedChanged);
             // 
             // MiscSettingsWin
             // 
@@ -305,5 +320,6 @@
         public System.Windows.Forms.CheckBox checkBoxDisableUpper;
         public System.Windows.Forms.CheckBox checkBoxDx11Amb;
         public System.Windows.Forms.CheckBox checkBoxSkipPolysCut;
+        public System.Windows.Forms.CheckBox checkBoxNoWorkCheck;
     }
 }

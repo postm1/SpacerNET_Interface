@@ -37,7 +37,7 @@ namespace SpacerUnion.Windows
             checkBoxFast3ds.Text = Localizator.Get("TITLE_3DS_FAST_MODE");
             checkBoxDx11Amb.Text = Localizator.Get("checkBoxDx11Amb");
             checkBoxSkipPolysCut.Text = Localizator.Get("checkBoxSkipPolysCut");
-
+            checkBoxNoWorkCheck.Text = Localizator.Get("MISC_SETTINGS_NO_WORK_CHECK");
 
 
 
@@ -103,8 +103,9 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("bSkipPolysCut");
             SpacerNET.miscSetWin.checkBoxSkipPolysCut.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
-            
 
+            Imports.Stack_PushString("ignorePathWorkCheck");
+            SpacerNET.miscSetWin.checkBoxNoWorkCheck.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
         }
 
@@ -157,6 +158,9 @@ namespace SpacerUnion.Windows
 
             Imports.Stack_PushString("bShowAmbientLightDx11");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxDx11Amb.Checked));
+
+            Imports.Stack_PushString("ignorePathWorkCheck");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxNoWorkCheck.Checked));
         }
 
         private void MiscSettingsWin_FormClosing(object sender, FormClosingEventArgs e)
@@ -195,6 +199,12 @@ namespace SpacerUnion.Windows
             var box = sender as CheckBox;
 
             checkBoxUpperCase.Enabled = !box.Checked;
+        }
+
+        private void checkBoxNoWorkCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Imports.Stack_PushString("ignorePathWorkCheck");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxNoWorkCheck.Checked));
         }
     }
 }
