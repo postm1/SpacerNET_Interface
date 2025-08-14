@@ -957,8 +957,8 @@ namespace SpacerUnion.Common
             words.Add("WIN_GRASS_SET_ON_VOB", new List<string> { "Ставить объекты на вобы", "Set objects on vobs", "Objekte auf VOBs platzieren", "", "" });
             words.Add("MISC_SETTINGS_NO_WORK_CHECK", new List<string> { "Не проверять путь загружаемого ZEN (игнорировать папку _WORK)", "Don't check path while loading ZEN (ignore _WORK folder)", "Beim Laden von ZEN den Pfad nicht prüfen (Ordner _WORK ignorieren)", "", "" });
 
+            words.Add("UNION_VOB_UPSIDE_DOWN", new List<string> { "Воб успешно перевернут", "Vob has been flipped", "VOB wurde erfolgreich gedreht", "", "" });
             
-
 
         }
 
