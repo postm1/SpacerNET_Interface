@@ -93,6 +93,15 @@ namespace SpacerUnion
         {
             bool result = false;
 
+            Imports.Stack_PushString("ignorePathWorkCheck");
+
+            int ignorePathWorkCheck = Imports.Extern_GetSetting();
+
+            if (ignorePathWorkCheck != 0)
+            {
+                return true;
+            }
+
             path = path.Replace('\\', '/');
 
             Regex reg = new Regex("(_work/data/.*)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
