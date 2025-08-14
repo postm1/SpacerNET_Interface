@@ -68,7 +68,73 @@ namespace SpacerUnion.Windows
             this.buttonGrassWinApply.Text = Localizator.Get("BTN_APPLY");
             this.buttonSetDefaultValue.Text = Localizator.Get("BTN_SET_DEFAULT_VALUES");
             this.buttonOpenFile.Text = Localizator.Get("BTN_OPEN_FILE");
+            this.checkBoxSowerSetOnVobs.Text = Localizator.Get("WIN_GRASS_SET_ON_VOB"); 
         }
+
+        public void LoadSettings()
+        {
+
+            Imports.Stack_PushString("grassMinDist");
+            trackBarWinGrassMinRadius.Value = Imports.Extern_GetSetting();
+
+            Imports.Stack_PushString("grassVertOffset");
+            trackBarGrassWinVertical.Value = Imports.Extern_GetSetting();
+
+
+            Imports.Stack_PushString("grassModelName");
+            Imports.Extern_GetSettingStr();
+
+            textBoxGrassWinModel.Text = Imports.Stack_PeekString();
+
+            Imports.Stack_PushString("grassToolRemove");
+            checkBoxGrassWinRemove.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("grassToolIsItem");
+            checkBoxGrassWinIsItem.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("grassToolClearMouse");
+            checkBoxGrassWinClickOnce.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("grassToolDynColl");
+            checkBoxGrassWinDynColl.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("grassToolRotRandAngle");
+            checkBoxGrassWinRotRand.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("grassToolSetNormal");
+            checkBoxGrassWinSetNormal.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("grassToolGlobalParent");
+            checkBoxInsertGlobalParent.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+
+            Imports.Stack_PushString("grassToolcomboBoxVisualCamAlignValue");
+            comboBoxVisualCamAlign.SelectedIndex = Imports.Extern_GetSetting();
+
+
+            Imports.Stack_PushString("grassToolcomboBoxVisualAniModeValue");
+            comboBoxVisualAniMode.SelectedIndex = Imports.Extern_GetSetting();
+
+
+            Imports.Stack_PushString("grassToolvisualAniModeStrengthValue");
+            textBoxVisualAniModeStrength.Text = Convert.ToString(Imports.Extern_GetSettingFloat(), CultureInfo.InvariantCulture);
+
+            Imports.Stack_PushString("grassToolVobFarClipZScaleValue");
+            textBoxVobFarClipZScale.Text = Convert.ToString(Imports.Extern_GetSettingFloat(), CultureInfo.InvariantCulture);
+
+
+
+            Imports.Stack_PushString("grassToolcdStaticValue");
+            checkBoxcdStatic.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("grassToolStaticVobValue");
+           checkBoxstaticVob.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            Imports.Stack_PushString("grassToolSetOnVob");
+            checkBoxSowerSetOnVobs.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+        }
+
 
         private void trackBarWinGrassMinRadius_ValueChanged(object sender, EventArgs e)
         {
@@ -157,6 +223,9 @@ namespace SpacerUnion.Windows
 
             Imports.Stack_PushString("grassToolStaticVobValue");
             Imports.Extern_SetSetting(Convert.ToInt32(staticVobValue));
+
+            Imports.Stack_PushString("grassToolSetOnVob");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxSowerSetOnVobs.Checked));
         }
 
         public void buttonGrassWinApply_Click(object sender, EventArgs e)
@@ -174,7 +243,8 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("grassModelName");
             Imports.Extern_SetSettingStr();
 
-
+            Imports.Stack_PushString("grassToolSetOnVob");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxSowerSetOnVobs.Checked));
 
         }
 
@@ -293,6 +363,7 @@ namespace SpacerUnion.Windows
         {
             checkBoxGrassWinRemove.Checked = false;
             checkBoxGrassWinIsItem.Checked = false;
+            checkBoxSowerSetOnVobs.Checked = false;
             checkBoxGrassWinClickOnce.Checked = true;
             checkBoxGrassWinDynColl.Checked = true;
             comboBoxVisualCamAlign.SelectedIndex = 0;
@@ -335,5 +406,15 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("grassToolGlobalParent");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBox.Checked));
         }
+
+        private void checkBoxSowerSetOnVobs_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkBox = sender as CheckBox;
+
+            Imports.Stack_PushString("grassToolSetOnVob");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBox.Checked));
+        }
+
+        
     }
 }

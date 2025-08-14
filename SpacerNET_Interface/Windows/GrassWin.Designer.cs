@@ -43,6 +43,7 @@
             this.checkBoxGrassWinRotRand = new System.Windows.Forms.CheckBox();
             this.checkBoxGrassWinSetNormal = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBoxInsertGlobalParent = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.checkBoxstaticVob = new System.Windows.Forms.CheckBox();
             this.checkBoxcdStatic = new System.Windows.Forms.CheckBox();
@@ -57,7 +58,7 @@
             this.buttonSetDefaultValue = new System.Windows.Forms.Button();
             this.buttonOpenFile = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.checkBoxInsertGlobalParent = new System.Windows.Forms.CheckBox();
+            this.checkBoxSowerSetOnVobs = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarWinGrassMinRadius)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarGrassWinVertical)).BeginInit();
             this.panel1.SuspendLayout();
@@ -67,7 +68,7 @@
             // labelGrassWinVobName
             // 
             this.labelGrassWinVobName.AutoSize = true;
-            this.labelGrassWinVobName.Location = new System.Drawing.Point(12, 14);
+            this.labelGrassWinVobName.Location = new System.Drawing.Point(12, 10);
             this.labelGrassWinVobName.Name = "labelGrassWinVobName";
             this.labelGrassWinVobName.Size = new System.Drawing.Size(67, 13);
             this.labelGrassWinVobName.TabIndex = 0;
@@ -75,7 +76,7 @@
             // 
             // textBoxGrassWinModel
             // 
-            this.textBoxGrassWinModel.Location = new System.Drawing.Point(15, 31);
+            this.textBoxGrassWinModel.Location = new System.Drawing.Point(15, 27);
             this.textBoxGrassWinModel.Name = "textBoxGrassWinModel";
             this.textBoxGrassWinModel.Size = new System.Drawing.Size(402, 20);
             this.textBoxGrassWinModel.TabIndex = 1;
@@ -84,7 +85,7 @@
             // 
             // trackBarWinGrassMinRadius
             // 
-            this.trackBarWinGrassMinRadius.Location = new System.Drawing.Point(12, 117);
+            this.trackBarWinGrassMinRadius.Location = new System.Drawing.Point(12, 106);
             this.trackBarWinGrassMinRadius.Maximum = 3000;
             this.trackBarWinGrassMinRadius.Name = "trackBarWinGrassMinRadius";
             this.trackBarWinGrassMinRadius.Size = new System.Drawing.Size(409, 45);
@@ -95,7 +96,7 @@
             // labelWinGrassMinRadius
             // 
             this.labelWinGrassMinRadius.AutoSize = true;
-            this.labelWinGrassMinRadius.Location = new System.Drawing.Point(12, 101);
+            this.labelWinGrassMinRadius.Location = new System.Drawing.Point(12, 90);
             this.labelWinGrassMinRadius.Name = "labelWinGrassMinRadius";
             this.labelWinGrassMinRadius.Size = new System.Drawing.Size(179, 13);
             this.labelWinGrassMinRadius.TabIndex = 3;
@@ -103,7 +104,7 @@
             // 
             // buttonGrassWinApply
             // 
-            this.buttonGrassWinApply.Location = new System.Drawing.Point(280, 568);
+            this.buttonGrassWinApply.Location = new System.Drawing.Point(280, 560);
             this.buttonGrassWinApply.Name = "buttonGrassWinApply";
             this.buttonGrassWinApply.Size = new System.Drawing.Size(137, 23);
             this.buttonGrassWinApply.TabIndex = 4;
@@ -113,7 +114,7 @@
             // 
             // trackBarGrassWinVertical
             // 
-            this.trackBarGrassWinVertical.Location = new System.Drawing.Point(12, 187);
+            this.trackBarGrassWinVertical.Location = new System.Drawing.Point(12, 163);
             this.trackBarGrassWinVertical.Maximum = 300;
             this.trackBarGrassWinVertical.Minimum = -300;
             this.trackBarGrassWinVertical.Name = "trackBarGrassWinVertical";
@@ -125,7 +126,7 @@
             // labelWinGrassVertOffset
             // 
             this.labelWinGrassVertOffset.AutoSize = true;
-            this.labelWinGrassVertOffset.Location = new System.Drawing.Point(12, 170);
+            this.labelWinGrassVertOffset.Location = new System.Drawing.Point(12, 146);
             this.labelWinGrassVertOffset.Name = "labelWinGrassVertOffset";
             this.labelWinGrassVertOffset.Size = new System.Drawing.Size(111, 13);
             this.labelWinGrassVertOffset.TabIndex = 6;
@@ -213,7 +214,7 @@
             this.checkBoxGrassWinSetNormal.AutoSize = true;
             this.checkBoxGrassWinSetNormal.Checked = true;
             this.checkBoxGrassWinSetNormal.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxGrassWinSetNormal.Location = new System.Drawing.Point(3, 142);
+            this.checkBoxGrassWinSetNormal.Location = new System.Drawing.Point(3, 140);
             this.checkBoxGrassWinSetNormal.Name = "checkBoxGrassWinSetNormal";
             this.checkBoxGrassWinSetNormal.Size = new System.Drawing.Size(200, 17);
             this.checkBoxGrassWinSetNormal.TabIndex = 13;
@@ -224,6 +225,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.checkBoxSowerSetOnVobs);
             this.panel1.Controls.Add(this.checkBoxInsertGlobalParent);
             this.panel1.Controls.Add(this.checkBoxGrassWinRemove);
             this.panel1.Controls.Add(this.checkBoxGrassWinSetNormal);
@@ -232,10 +234,23 @@
             this.panel1.Controls.Add(this.checkBoxGrassWinIsItem);
             this.panel1.Controls.Add(this.checkBoxGrassWinDynColl);
             this.panel1.Controls.Add(this.checkBoxGrassWinClickOnce);
-            this.panel1.Location = new System.Drawing.Point(12, 230);
+            this.panel1.Location = new System.Drawing.Point(12, 209);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(406, 182);
+            this.panel1.Size = new System.Drawing.Size(406, 205);
             this.panel1.TabIndex = 14;
+            // 
+            // checkBoxInsertGlobalParent
+            // 
+            this.checkBoxInsertGlobalParent.AutoSize = true;
+            this.checkBoxInsertGlobalParent.Checked = true;
+            this.checkBoxInsertGlobalParent.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxInsertGlobalParent.Location = new System.Drawing.Point(3, 162);
+            this.checkBoxInsertGlobalParent.Name = "checkBoxInsertGlobalParent";
+            this.checkBoxInsertGlobalParent.Size = new System.Drawing.Size(154, 17);
+            this.checkBoxInsertGlobalParent.TabIndex = 14;
+            this.checkBoxInsertGlobalParent.Text = "Insert into the global parent";
+            this.checkBoxInsertGlobalParent.UseVisualStyleBackColor = true;
+            this.checkBoxInsertGlobalParent.CheckedChanged += new System.EventHandler(this.checkBoxInsertGlobalParent_CheckedChanged);
             // 
             // panel2
             // 
@@ -249,7 +264,7 @@
             this.panel2.Controls.Add(this.visualAniMode);
             this.panel2.Controls.Add(this.labelVisualCamAlign);
             this.panel2.Controls.Add(this.comboBoxVisualCamAlign);
-            this.panel2.Location = new System.Drawing.Point(12, 428);
+            this.panel2.Location = new System.Drawing.Point(12, 420);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(240, 163);
             this.panel2.TabIndex = 15;
@@ -363,7 +378,7 @@
             // 
             // buttonSetDefaultValue
             // 
-            this.buttonSetDefaultValue.Location = new System.Drawing.Point(280, 428);
+            this.buttonSetDefaultValue.Location = new System.Drawing.Point(280, 420);
             this.buttonSetDefaultValue.Name = "buttonSetDefaultValue";
             this.buttonSetDefaultValue.Size = new System.Drawing.Size(137, 23);
             this.buttonSetDefaultValue.TabIndex = 16;
@@ -373,7 +388,7 @@
             // 
             // buttonOpenFile
             // 
-            this.buttonOpenFile.Location = new System.Drawing.Point(15, 58);
+            this.buttonOpenFile.Location = new System.Drawing.Point(15, 54);
             this.buttonOpenFile.Name = "buttonOpenFile";
             this.buttonOpenFile.Size = new System.Drawing.Size(137, 23);
             this.buttonOpenFile.TabIndex = 17;
@@ -385,24 +400,24 @@
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
-            // checkBoxInsertGlobalParent
+            // checkBoxSowerSetOnVobs
             // 
-            this.checkBoxInsertGlobalParent.AutoSize = true;
-            this.checkBoxInsertGlobalParent.Checked = true;
-            this.checkBoxInsertGlobalParent.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxInsertGlobalParent.Location = new System.Drawing.Point(3, 162);
-            this.checkBoxInsertGlobalParent.Name = "checkBoxInsertGlobalParent";
-            this.checkBoxInsertGlobalParent.Size = new System.Drawing.Size(154, 17);
-            this.checkBoxInsertGlobalParent.TabIndex = 14;
-            this.checkBoxInsertGlobalParent.Text = "Insert into the global parent";
-            this.checkBoxInsertGlobalParent.UseVisualStyleBackColor = true;
-            this.checkBoxInsertGlobalParent.CheckedChanged += new System.EventHandler(this.checkBoxInsertGlobalParent_CheckedChanged);
+            this.checkBoxSowerSetOnVobs.AutoSize = true;
+            this.checkBoxSowerSetOnVobs.Checked = true;
+            this.checkBoxSowerSetOnVobs.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxSowerSetOnVobs.Location = new System.Drawing.Point(3, 185);
+            this.checkBoxSowerSetOnVobs.Name = "checkBoxSowerSetOnVobs";
+            this.checkBoxSowerSetOnVobs.Size = new System.Drawing.Size(120, 17);
+            this.checkBoxSowerSetOnVobs.TabIndex = 15;
+            this.checkBoxSowerSetOnVobs.Text = "Set objects on vobs";
+            this.checkBoxSowerSetOnVobs.UseVisualStyleBackColor = true;
+            this.checkBoxSowerSetOnVobs.CheckedChanged += new System.EventHandler(this.checkBoxSowerSetOnVobs_CheckedChanged);
             // 
             // GrassWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 603);
+            this.ClientSize = new System.Drawing.Size(424, 594);
             this.Controls.Add(this.buttonOpenFile);
             this.Controls.Add(this.buttonSetDefaultValue);
             this.Controls.Add(this.panel2);
@@ -466,5 +481,6 @@
         private System.Windows.Forms.Button buttonOpenFile;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         public System.Windows.Forms.CheckBox checkBoxInsertGlobalParent;
+        public System.Windows.Forms.CheckBox checkBoxSowerSetOnVobs;
     }
 }

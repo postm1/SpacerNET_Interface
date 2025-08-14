@@ -952,6 +952,11 @@ namespace SpacerUnion.Common
             words.Add("MENU_TOP_RAIN_STOP", new List<string> { "Остановить дождь", "Stop rain", "Regen stoppen", "Zatrzymaj deszcz", "" });
             words.Add("MENU_TOP_RAIN_START_SMOOTHLY", new List<string> { "Запустить дождь (плавно)", "Start rain (smoothly)", "Regen (sanft) starten", "Rozpocznij deszcz (stopniowo)", "" });
             words.Add("MENU_TOP_RAIN_START_FULLY", new List<string> { "Запустить дождь (полностью)", "Start rain (fully)", "Regen (vollständig) starten", "Rozpocznij deszcz (natychmiastowo)", "" });
+
+
+            words.Add("WIN_GRASS_SET_ON_VOB", new List<string> { "Ставить объекты на вобы", "Set objects on vobs", "", "", "" });
+
+            
         }
 
 
