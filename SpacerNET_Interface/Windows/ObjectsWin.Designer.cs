@@ -137,6 +137,7 @@
             this.checkBoxSearchItem = new System.Windows.Forms.CheckBox();
             this.checkBoxMatchNames = new System.Windows.Forms.CheckBox();
             this.panelRadioNumType = new System.Windows.Forms.Panel();
+            this.checkBoxMoreThanZero = new System.Windows.Forms.CheckBox();
             this.radioButtonSearchEquals = new System.Windows.Forms.RadioButton();
             this.radioButtonSearchBiggerThan = new System.Windows.Forms.RadioButton();
             this.radioButtonSearchLessThan = new System.Windows.Forms.RadioButton();
@@ -174,6 +175,7 @@
             this.buttonCamInsert = new System.Windows.Forms.Button();
             this.textBoxCamName = new System.Windows.Forms.TextBox();
             this.groupBoxCamSettings = new System.Windows.Forms.GroupBox();
+            this.checkBoxAutoRenameKeys = new System.Windows.Forms.CheckBox();
             this.labelCamGotoKey = new System.Windows.Forms.Label();
             this.checkBoxCameraHide = new System.Windows.Forms.CheckBox();
             this.labelCamKeyCurrent = new System.Windows.Forms.Label();
@@ -260,7 +262,6 @@
             this.labelScriptFunction = new System.Windows.Forms.Label();
             this.listBoxFuncs = new System.Windows.Forms.ListBox();
             this.colorDialogLightPresetColor = new System.Windows.Forms.ColorDialog();
-            this.checkBoxMoreThanZero = new System.Windows.Forms.CheckBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -1553,6 +1554,17 @@
             this.panelRadioNumType.TabIndex = 28;
             this.panelRadioNumType.Visible = false;
             // 
+            // checkBoxMoreThanZero
+            // 
+            this.checkBoxMoreThanZero.AutoSize = true;
+            this.checkBoxMoreThanZero.Location = new System.Drawing.Point(130, 1);
+            this.checkBoxMoreThanZero.Name = "checkBoxMoreThanZero";
+            this.checkBoxMoreThanZero.Size = new System.Drawing.Size(41, 17);
+            this.checkBoxMoreThanZero.TabIndex = 28;
+            this.checkBoxMoreThanZero.Text = "> 0";
+            this.checkBoxMoreThanZero.UseVisualStyleBackColor = true;
+            this.checkBoxMoreThanZero.CheckedChanged += new System.EventHandler(this.checkBoxMoreThanZero_CheckedChanged);
+            // 
             // radioButtonSearchEquals
             // 
             this.radioButtonSearchEquals.AutoSize = true;
@@ -1962,6 +1974,19 @@
             this.groupBoxCamSettings.TabStop = false;
             this.groupBoxCamSettings.Text = "Settings";
             // 
+            // checkBoxAutoRenameKeys
+            // 
+            this.checkBoxAutoRenameKeys.AutoSize = true;
+            this.checkBoxAutoRenameKeys.Checked = true;
+            this.checkBoxAutoRenameKeys.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxAutoRenameKeys.Location = new System.Drawing.Point(7, 19);
+            this.checkBoxAutoRenameKeys.Name = "checkBoxAutoRenameKeys";
+            this.checkBoxAutoRenameKeys.Size = new System.Drawing.Size(142, 17);
+            this.checkBoxAutoRenameKeys.TabIndex = 16;
+            this.checkBoxAutoRenameKeys.Text = "Auto rename empty keys";
+            this.checkBoxAutoRenameKeys.UseVisualStyleBackColor = true;
+            this.checkBoxAutoRenameKeys.CheckedChanged += new System.EventHandler(this.checkBoxAutoRenameKeys_CheckedChanged);
+            // 
             // labelCamGotoKey
             // 
             this.labelCamGotoKey.AutoSize = true;
@@ -2047,6 +2072,7 @@
             // 
             // groupBoxCamKeys
             // 
+            this.groupBoxCamKeys.Controls.Add(this.checkBoxAutoRenameKeys);
             this.groupBoxCamKeys.Controls.Add(this.listBoxCameraTarget);
             this.groupBoxCamKeys.Controls.Add(this.listBoxCameraSpline);
             this.groupBoxCamKeys.Controls.Add(this.buttonCamTargetSpline);
@@ -2062,9 +2088,9 @@
             // 
             this.listBoxCameraTarget.ContextMenuStrip = this.contextMenuStripCamTarget;
             this.listBoxCameraTarget.FormattingEnabled = true;
-            this.listBoxCameraTarget.Location = new System.Drawing.Point(187, 48);
+            this.listBoxCameraTarget.Location = new System.Drawing.Point(187, 74);
             this.listBoxCameraTarget.Name = "listBoxCameraTarget";
-            this.listBoxCameraTarget.Size = new System.Drawing.Size(166, 251);
+            this.listBoxCameraTarget.Size = new System.Drawing.Size(166, 225);
             this.listBoxCameraTarget.TabIndex = 14;
             this.listBoxCameraTarget.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxCameraTarget_MouseClick);
             this.listBoxCameraTarget.DoubleClick += new System.EventHandler(this.listBoxCameraTarget_DoubleClick);
@@ -2095,9 +2121,9 @@
             // 
             this.listBoxCameraSpline.ContextMenuStrip = this.contextMenuStripCam;
             this.listBoxCameraSpline.FormattingEnabled = true;
-            this.listBoxCameraSpline.Location = new System.Drawing.Point(6, 48);
+            this.listBoxCameraSpline.Location = new System.Drawing.Point(6, 74);
             this.listBoxCameraSpline.Name = "listBoxCameraSpline";
-            this.listBoxCameraSpline.Size = new System.Drawing.Size(166, 251);
+            this.listBoxCameraSpline.Size = new System.Drawing.Size(166, 225);
             this.listBoxCameraSpline.TabIndex = 2;
             this.listBoxCameraSpline.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxCameraSpline_MouseClick);
             // 
@@ -2125,7 +2151,7 @@
             // 
             // buttonCamTargetSpline
             // 
-            this.buttonCamTargetSpline.Location = new System.Drawing.Point(187, 20);
+            this.buttonCamTargetSpline.Location = new System.Drawing.Point(187, 45);
             this.buttonCamTargetSpline.Name = "buttonCamTargetSpline";
             this.buttonCamTargetSpline.Size = new System.Drawing.Size(166, 23);
             this.buttonCamTargetSpline.TabIndex = 8;
@@ -2135,7 +2161,7 @@
             // 
             // buttonCamSpline
             // 
-            this.buttonCamSpline.Location = new System.Drawing.Point(6, 19);
+            this.buttonCamSpline.Location = new System.Drawing.Point(6, 44);
             this.buttonCamSpline.Name = "buttonCamSpline";
             this.buttonCamSpline.Size = new System.Drawing.Size(166, 23);
             this.buttonCamSpline.TabIndex = 7;
@@ -2862,17 +2888,6 @@
             this.listBoxFuncs.Size = new System.Drawing.Size(195, 225);
             this.listBoxFuncs.TabIndex = 0;
             // 
-            // checkBoxMoreThanZero
-            // 
-            this.checkBoxMoreThanZero.AutoSize = true;
-            this.checkBoxMoreThanZero.Location = new System.Drawing.Point(130, 1);
-            this.checkBoxMoreThanZero.Name = "checkBoxMoreThanZero";
-            this.checkBoxMoreThanZero.Size = new System.Drawing.Size(41, 17);
-            this.checkBoxMoreThanZero.TabIndex = 28;
-            this.checkBoxMoreThanZero.Text = "> 0";
-            this.checkBoxMoreThanZero.UseVisualStyleBackColor = true;
-            this.checkBoxMoreThanZero.CheckedChanged += new System.EventHandler(this.checkBoxMoreThanZero_CheckedChanged);
-            // 
             // ObjectsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2930,6 +2945,7 @@
             this.groupBoxCamSettings.ResumeLayout(false);
             this.groupBoxCamSettings.PerformLayout();
             this.groupBoxCamKeys.ResumeLayout(false);
+            this.groupBoxCamKeys.PerformLayout();
             this.contextMenuStripCamTarget.ResumeLayout(false);
             this.contextMenuStripCam.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
@@ -3186,5 +3202,6 @@
         private System.Windows.Forms.Panel panelColor;
         private System.Windows.Forms.ComboBox comboBoxSphereType;
         private System.Windows.Forms.CheckBox checkBoxMoreThanZero;
+        private System.Windows.Forms.CheckBox checkBoxAutoRenameKeys;
     }
 }

@@ -215,6 +215,7 @@ namespace SpacerUnion
             groupBoxCamSettings.Text = Localizator.Get("groupBoxCamSettings");
             labelCamTimeSec.Text = Localizator.Get("labelCamTimeSec");
             checkBoxCameraHide.Text = Localizator.Get("checkBoxCameraHide");
+            checkBoxAutoRenameKeys.Text = Localizator.Get("WIN_CAMERA_AUTO_RENAME");
 
             if (camEntry.cameraRun)
             {
@@ -370,6 +371,10 @@ namespace SpacerUnion
 
             Imports.Stack_PushString("sphereDrawMode");
             comboBoxSphereType.SelectedIndex = Convert.ToInt32(Imports.Extern_GetSetting());
+
+
+            Imports.Stack_PushString("bCameraAutoRenameKeys");
+            SpacerNET.objectsWin.checkBoxAutoRenameKeys.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
         }
 
@@ -5440,6 +5445,12 @@ namespace SpacerUnion
             if (dontUpdateNumType || Imports.Extern_IsWorldLoaded() == 0) return;
 
             textBoxSearchVobs_TextChanged(textBoxSearchVobs, null);
+        }
+
+        private void checkBoxAutoRenameKeys_CheckedChanged(object sender, EventArgs e)
+        {
+            Imports.Stack_PushString("bCameraAutoRenameKeys");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxAutoRenameKeys.Checked));
         }
     }
 }
