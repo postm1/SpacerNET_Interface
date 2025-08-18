@@ -527,6 +527,12 @@ namespace SpacerUnion.Windows
 
                 Imports.Stack_PushString(visual);
                 Imports.Extern_RenderSelectedVob();
+
+                if (SpacerNET.grassWin.checkBoxGrassWinCopyName.Checked)
+                {
+                    SpacerNET.grassWin.textBoxGrassWinModel.Text = visual;
+                    SpacerNET.grassWin.buttonGrassWinApply_Click(null, null);
+                }
             }
             else
             {
