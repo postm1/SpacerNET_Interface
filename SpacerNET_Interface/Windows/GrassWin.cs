@@ -82,6 +82,8 @@ namespace SpacerUnion.Windows
             this.comboBoxAutoOffset.Items.Add(Localizator.Get("WIN_GRASS_AUTO_HEIGHT_TYPE_6"));
             this.comboBoxAutoOffset.Items.Add(Localizator.Get("WIN_GRASS_AUTO_HEIGHT_TYPE_7"));
             this.comboBoxAutoOffset.Items.Add(Localizator.Get("WIN_GRASS_AUTO_HEIGHT_TYPE_8"));
+
+            this.comboBoxAutoOffset.SelectedIndex = 0;
         }
 
         public void LoadSettings()
