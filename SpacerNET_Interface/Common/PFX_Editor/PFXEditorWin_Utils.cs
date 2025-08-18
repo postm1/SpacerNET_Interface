@@ -102,6 +102,7 @@ namespace SpacerUnion.Windows
                 || prop.Name == "dirAngleElev"
                 || prop.Name == "shpOffsetVec_s"
                 || prop.Name == "shpIsVolume"
+                || prop.Name == "useEmittersFor"
                 )
             {
                 prop.ownNode.NodeFont = new Font(treeViewPFX.Font, style);

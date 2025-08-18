@@ -960,6 +960,11 @@ namespace SpacerUnion.Common
             words.Add("UNION_VOB_UPSIDE_DOWN", new List<string> { "Воб успешно перевернут", "Vob has been flipped", "VOB wurde erfolgreich gedreht", "", "" });
             words.Add("KEYS_SET_UPSIDE_DOWN", new List<string> { "Перевернуть воб", "Flip vob upside down", "VOB drehen", "", "" });
             words.Add("WIN_CAMERA_AUTO_RENAME", new List<string> { "Авто-переименовывание ключей с пустыми именам", "Auto rename keys which have empty names", "VOB drehen", "Tasten mit leerem Namen automatisch umbenennen", "" });
+
+            words.Add("WIN_GRASS_AUTO_HEIGHT", new List<string> { "Авто-смещение по высоте", "Auto height offset", "", "", "" });
+            
+            words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_0", new List<string> { "Низ объекта (по умолчанию)", "Bottom of object (default)", "", "", "" });
+            words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_1", new List<string> { "Середина объекта (трава)", "Middle (grass)", "", "", "" });
         }
 
 

@@ -68,7 +68,13 @@ namespace SpacerUnion.Windows
             this.buttonGrassWinApply.Text = Localizator.Get("BTN_APPLY");
             this.buttonSetDefaultValue.Text = Localizator.Get("BTN_SET_DEFAULT_VALUES");
             this.buttonOpenFile.Text = Localizator.Get("BTN_OPEN_FILE");
-            this.checkBoxSowerSetOnVobs.Text = Localizator.Get("WIN_GRASS_SET_ON_VOB"); 
+            this.checkBoxSowerSetOnVobs.Text = Localizator.Get("WIN_GRASS_SET_ON_VOB");
+
+
+            this.checkBoxGrassWinAutoHeightOffset.Text = Localizator.Get("WIN_GRASS_AUTO_HEIGHT");
+            this.comboBoxAutoOffset.Items.Clear();
+            this.comboBoxAutoOffset.Items.Add(Localizator.Get("WIN_GRASS_AUTO_HEIGHT_TYPE_0"));
+            this.comboBoxAutoOffset.Items.Add(Localizator.Get("WIN_GRASS_AUTO_HEIGHT_TYPE_1"));
         }
 
         public void LoadSettings()
@@ -442,6 +448,11 @@ namespace SpacerUnion.Windows
 
             comboBoxAutoOffset.Enabled = checkBoxValue;
             
+            OnSettingsChanged();
+        }
+
+        private void comboBoxAutoOffset_SelectedIndexChanged(object sender, EventArgs e)
+        {
             OnSettingsChanged();
         }
     }

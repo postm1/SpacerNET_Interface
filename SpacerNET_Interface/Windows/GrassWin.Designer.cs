@@ -437,6 +437,7 @@
             this.comboBoxAutoOffset.Name = "comboBoxAutoOffset";
             this.comboBoxAutoOffset.Size = new System.Drawing.Size(199, 21);
             this.comboBoxAutoOffset.TabIndex = 19;
+            this.comboBoxAutoOffset.SelectedIndexChanged += new System.EventHandler(this.comboBoxAutoOffset_SelectedIndexChanged);
             // 
             // GrassWin
             // 

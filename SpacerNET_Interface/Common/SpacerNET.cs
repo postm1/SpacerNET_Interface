@@ -499,8 +499,10 @@ namespace SpacerUnion
             keysWin.LoadKeys();
 
             miscSetWin.LoadSettings();
-            grassWin.LoadSettings();
+
             grassWin.UpdateLang();
+            grassWin.LoadSettings();
+            
 
             infoWin.LoadSettings();
 
