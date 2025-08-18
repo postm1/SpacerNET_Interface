@@ -43,6 +43,7 @@
             this.checkBoxGrassWinRotRand = new System.Windows.Forms.CheckBox();
             this.checkBoxGrassWinSetNormal = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBoxSowerSetOnVobs = new System.Windows.Forms.CheckBox();
             this.checkBoxInsertGlobalParent = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.checkBoxstaticVob = new System.Windows.Forms.CheckBox();
@@ -58,7 +59,8 @@
             this.buttonSetDefaultValue = new System.Windows.Forms.Button();
             this.buttonOpenFile = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.checkBoxSowerSetOnVobs = new System.Windows.Forms.CheckBox();
+            this.checkBoxGrassWinAutoHeightOffset = new System.Windows.Forms.CheckBox();
+            this.comboBoxAutoOffset = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarWinGrassMinRadius)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarGrassWinVertical)).BeginInit();
             this.panel1.SuspendLayout();
@@ -88,7 +90,7 @@
             this.trackBarWinGrassMinRadius.Location = new System.Drawing.Point(12, 106);
             this.trackBarWinGrassMinRadius.Maximum = 3000;
             this.trackBarWinGrassMinRadius.Name = "trackBarWinGrassMinRadius";
-            this.trackBarWinGrassMinRadius.Size = new System.Drawing.Size(409, 45);
+            this.trackBarWinGrassMinRadius.Size = new System.Drawing.Size(179, 45);
             this.trackBarWinGrassMinRadius.SmallChange = 5;
             this.trackBarWinGrassMinRadius.TabIndex = 2;
             this.trackBarWinGrassMinRadius.ValueChanged += new System.EventHandler(this.trackBarWinGrassMinRadius_ValueChanged);
@@ -118,7 +120,7 @@
             this.trackBarGrassWinVertical.Maximum = 300;
             this.trackBarGrassWinVertical.Minimum = -300;
             this.trackBarGrassWinVertical.Name = "trackBarGrassWinVertical";
-            this.trackBarGrassWinVertical.Size = new System.Drawing.Size(409, 45);
+            this.trackBarGrassWinVertical.Size = new System.Drawing.Size(179, 45);
             this.trackBarGrassWinVertical.TabIndex = 5;
             this.trackBarGrassWinVertical.Value = -250;
             this.trackBarGrassWinVertical.ValueChanged += new System.EventHandler(this.trackBarGrassWinVertical_ValueChanged);
@@ -238,6 +240,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(406, 205);
             this.panel1.TabIndex = 14;
+            // 
+            // checkBoxSowerSetOnVobs
+            // 
+            this.checkBoxSowerSetOnVobs.AutoSize = true;
+            this.checkBoxSowerSetOnVobs.Checked = true;
+            this.checkBoxSowerSetOnVobs.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxSowerSetOnVobs.Location = new System.Drawing.Point(3, 185);
+            this.checkBoxSowerSetOnVobs.Name = "checkBoxSowerSetOnVobs";
+            this.checkBoxSowerSetOnVobs.Size = new System.Drawing.Size(120, 17);
+            this.checkBoxSowerSetOnVobs.TabIndex = 15;
+            this.checkBoxSowerSetOnVobs.Text = "Set objects on vobs";
+            this.checkBoxSowerSetOnVobs.UseVisualStyleBackColor = true;
+            this.checkBoxSowerSetOnVobs.CheckedChanged += new System.EventHandler(this.checkBoxSowerSetOnVobs_CheckedChanged);
             // 
             // checkBoxInsertGlobalParent
             // 
@@ -400,24 +415,36 @@
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
-            // checkBoxSowerSetOnVobs
+            // checkBoxGrassWinAutoHeightOffset
             // 
-            this.checkBoxSowerSetOnVobs.AutoSize = true;
-            this.checkBoxSowerSetOnVobs.Checked = true;
-            this.checkBoxSowerSetOnVobs.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxSowerSetOnVobs.Location = new System.Drawing.Point(3, 185);
-            this.checkBoxSowerSetOnVobs.Name = "checkBoxSowerSetOnVobs";
-            this.checkBoxSowerSetOnVobs.Size = new System.Drawing.Size(120, 17);
-            this.checkBoxSowerSetOnVobs.TabIndex = 15;
-            this.checkBoxSowerSetOnVobs.Text = "Set objects on vobs";
-            this.checkBoxSowerSetOnVobs.UseVisualStyleBackColor = true;
-            this.checkBoxSowerSetOnVobs.CheckedChanged += new System.EventHandler(this.checkBoxSowerSetOnVobs_CheckedChanged);
+            this.checkBoxGrassWinAutoHeightOffset.AutoSize = true;
+            this.checkBoxGrassWinAutoHeightOffset.Location = new System.Drawing.Point(213, 142);
+            this.checkBoxGrassWinAutoHeightOffset.Name = "checkBoxGrassWinAutoHeightOffset";
+            this.checkBoxGrassWinAutoHeightOffset.Size = new System.Drawing.Size(109, 17);
+            this.checkBoxGrassWinAutoHeightOffset.TabIndex = 18;
+            this.checkBoxGrassWinAutoHeightOffset.Text = "Auto height offset";
+            this.checkBoxGrassWinAutoHeightOffset.UseVisualStyleBackColor = true;
+            this.checkBoxGrassWinAutoHeightOffset.CheckedChanged += new System.EventHandler(this.checkBoxGrassWinAutoHeightOffset_CheckedChanged);
+            // 
+            // comboBoxAutoOffset
+            // 
+            this.comboBoxAutoOffset.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAutoOffset.FormattingEnabled = true;
+            this.comboBoxAutoOffset.Items.AddRange(new object[] {
+            "MIDDLE (GRASS)",
+            "BOTTOM (USUAL OBJECT)"});
+            this.comboBoxAutoOffset.Location = new System.Drawing.Point(213, 165);
+            this.comboBoxAutoOffset.Name = "comboBoxAutoOffset";
+            this.comboBoxAutoOffset.Size = new System.Drawing.Size(199, 21);
+            this.comboBoxAutoOffset.TabIndex = 19;
             // 
             // GrassWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(424, 594);
+            this.Controls.Add(this.comboBoxAutoOffset);
+            this.Controls.Add(this.checkBoxGrassWinAutoHeightOffset);
             this.Controls.Add(this.buttonOpenFile);
             this.Controls.Add(this.buttonSetDefaultValue);
             this.Controls.Add(this.panel2);
@@ -482,5 +509,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         public System.Windows.Forms.CheckBox checkBoxInsertGlobalParent;
         public System.Windows.Forms.CheckBox checkBoxSowerSetOnVobs;
+        private System.Windows.Forms.CheckBox checkBoxGrassWinAutoHeightOffset;
+        private System.Windows.Forms.ComboBox comboBoxAutoOffset;
     }
 }

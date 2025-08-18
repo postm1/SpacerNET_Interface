@@ -133,6 +133,14 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("grassToolSetOnVob");
             checkBoxSowerSetOnVobs.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
+
+            Imports.Stack_PushString("grassToolAutoHeightType");
+            comboBoxAutoOffset.SelectedIndex = Imports.Extern_GetSetting();
+
+            Imports.Stack_PushString("grassToolAutoHeightEnable");
+            checkBoxGrassWinAutoHeightOffset.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            checkBoxGrassWinAutoHeightOffset_CheckedChanged(checkBoxGrassWinAutoHeightOffset, null);
         }
 
 
@@ -226,6 +234,13 @@ namespace SpacerUnion.Windows
 
             Imports.Stack_PushString("grassToolSetOnVob");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxSowerSetOnVobs.Checked));
+
+            Imports.Stack_PushString("grassToolAutoHeightType");
+            Imports.Extern_SetSetting(comboBoxAutoOffset.SelectedIndex);
+
+            Imports.Stack_PushString("grassToolAutoHeightEnable");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxGrassWinAutoHeightOffset.Checked));
+
         }
 
         public void buttonGrassWinApply_Click(object sender, EventArgs e)
@@ -413,8 +428,21 @@ namespace SpacerUnion.Windows
 
             Imports.Stack_PushString("grassToolSetOnVob");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBox.Checked));
+            OnSettingsChanged();
         }
 
-        
+        private void checkBoxGrassWinAutoHeightOffset_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkBox = sender as CheckBox;
+            var checkBoxValue = checkBox.Checked;
+
+            //block vertical offset settings
+            trackBarGrassWinVertical.Enabled = !checkBoxValue;
+            labelWinGrassVertOffset.Enabled = !checkBoxValue;
+
+            comboBoxAutoOffset.Enabled = checkBoxValue;
+            
+            OnSettingsChanged();
+        }
     }
 }
