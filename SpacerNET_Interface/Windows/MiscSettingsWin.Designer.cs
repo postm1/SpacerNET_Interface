@@ -30,6 +30,7 @@
         {
             this.checkBoxSetDatePrefix = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxNoWorkCheck = new System.Windows.Forms.CheckBox();
             this.checkBoxSkipPolysCut = new System.Windows.Forms.CheckBox();
             this.checkBoxDx11Amb = new System.Windows.Forms.CheckBox();
             this.checkBoxDisableUpper = new System.Windows.Forms.CheckBox();
@@ -46,7 +47,6 @@
             this.checkBoxLastZenAuto = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
             this.btnMiscSetApply = new System.Windows.Forms.Button();
-            this.checkBoxNoWorkCheck = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,6 +84,19 @@
             this.groupBox1.Size = new System.Drawing.Size(624, 451);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // checkBoxNoWorkCheck
+            // 
+            this.checkBoxNoWorkCheck.AutoSize = true;
+            this.checkBoxNoWorkCheck.Checked = true;
+            this.checkBoxNoWorkCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxNoWorkCheck.Location = new System.Drawing.Point(13, 424);
+            this.checkBoxNoWorkCheck.Name = "checkBoxNoWorkCheck";
+            this.checkBoxNoWorkCheck.Size = new System.Drawing.Size(209, 17);
+            this.checkBoxNoWorkCheck.TabIndex = 18;
+            this.checkBoxNoWorkCheck.Text = "Don\'t check _WORK path to ZEN files";
+            this.checkBoxNoWorkCheck.UseVisualStyleBackColor = true;
+            this.checkBoxNoWorkCheck.CheckedChanged += new System.EventHandler(this.checkBoxNoWorkCheck_CheckedChanged);
             // 
             // checkBoxSkipPolysCut
             // 
@@ -152,6 +165,7 @@
             this.checkBoxMiscRemoveAllLevelCompos.TabIndex = 12;
             this.checkBoxMiscRemoveAllLevelCompos.Text = "Remove all zCVobLevelCompo while loading ZEN";
             this.checkBoxMiscRemoveAllLevelCompos.UseVisualStyleBackColor = true;
+            this.checkBoxMiscRemoveAllLevelCompos.Visible = false;
             // 
             // checkBoxOnlyLatinInInput
             // 
@@ -264,19 +278,6 @@
             this.btnMiscSetApply.Text = "Apply";
             this.btnMiscSetApply.UseVisualStyleBackColor = true;
             this.btnMiscSetApply.Click += new System.EventHandler(this.btnMiscSetApply_Click);
-            // 
-            // checkBoxNoWorkCheck
-            // 
-            this.checkBoxNoWorkCheck.AutoSize = true;
-            this.checkBoxNoWorkCheck.Checked = true;
-            this.checkBoxNoWorkCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxNoWorkCheck.Location = new System.Drawing.Point(13, 424);
-            this.checkBoxNoWorkCheck.Name = "checkBoxNoWorkCheck";
-            this.checkBoxNoWorkCheck.Size = new System.Drawing.Size(209, 17);
-            this.checkBoxNoWorkCheck.TabIndex = 18;
-            this.checkBoxNoWorkCheck.Text = "Don\'t check _WORK path to ZEN files";
-            this.checkBoxNoWorkCheck.UseVisualStyleBackColor = true;
-            this.checkBoxNoWorkCheck.CheckedChanged += new System.EventHandler(this.checkBoxNoWorkCheck_CheckedChanged);
             // 
             // MiscSettingsWin
             // 
