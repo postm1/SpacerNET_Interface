@@ -39,7 +39,7 @@ namespace SpacerUnion
             labelFilterVobsPick.Text = Localizator.Get("OBJ_TAB_PICKFILTER");
 
             comboBoxVobList.Items[0] = Localizator.Get("VOBLIST_TYPE_ANY");
-            comboBoxVobList.Items[10] = Localizator.Get("VOB_FILTER_SHOW_ONLY_INVISIBLE");
+            comboBoxVobList.Items[9] = Localizator.Get("VOB_FILTER_SHOW_ONLY_INVISIBLE");
 
 
             

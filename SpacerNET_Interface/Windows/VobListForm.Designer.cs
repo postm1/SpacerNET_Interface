@@ -181,7 +181,6 @@
             "zCVobSound",
             "zCDecal (.TGA)",
             "zCTrigger",
-            "zCVobSpot",
             "oCMOB",
             "Invisible only",
             "zCVobLight",
