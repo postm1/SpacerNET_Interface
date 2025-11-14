@@ -41,6 +41,7 @@
             this.btnRemoveContainerVobs = new System.Windows.Forms.Button();
             this.comboBoxVobList = new System.Windows.Forms.ComboBox();
             this.panelVobListBottom = new System.Windows.Forms.Panel();
+            this.checkBoxRenderOnlySelectedType = new System.Windows.Forms.CheckBox();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRadius)).BeginInit();
             this.panelVobList.SuspendLayout();
@@ -56,7 +57,7 @@
             this.listBoxVobs.Location = new System.Drawing.Point(0, 0);
             this.listBoxVobs.Name = "listBoxVobs";
             this.listBoxVobs.ScrollAlwaysVisible = true;
-            this.listBoxVobs.Size = new System.Drawing.Size(301, 295);
+            this.listBoxVobs.Size = new System.Drawing.Size(301, 200);
             this.listBoxVobs.TabIndex = 0;
             this.listBoxVobs.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxVobs_MouseClick);
             this.listBoxVobs.SelectedIndexChanged += new System.EventHandler(this.listBoxVobs_SelectedIndexChanged);
@@ -99,6 +100,7 @@
             // 
             // panelVobList
             // 
+            this.panelVobList.Controls.Add(this.checkBoxRenderOnlySelectedType);
             this.panelVobList.Controls.Add(this.labelFilterVobsPick);
             this.panelVobList.Controls.Add(this.comboBoxFilterPick);
             this.panelVobList.Controls.Add(this.buttonVobListSearch);
@@ -109,13 +111,13 @@
             this.panelVobList.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelVobList.Location = new System.Drawing.Point(2, 2);
             this.panelVobList.Name = "panelVobList";
-            this.panelVobList.Size = new System.Drawing.Size(303, 111);
+            this.panelVobList.Size = new System.Drawing.Size(303, 128);
             this.panelVobList.TabIndex = 7;
             // 
             // labelFilterVobsPick
             // 
             this.labelFilterVobsPick.AutoSize = true;
-            this.labelFilterVobsPick.Location = new System.Drawing.Point(171, 75);
+            this.labelFilterVobsPick.Location = new System.Drawing.Point(158, 94);
             this.labelFilterVobsPick.Name = "labelFilterVobsPick";
             this.labelFilterVobsPick.Size = new System.Drawing.Size(79, 13);
             this.labelFilterVobsPick.TabIndex = 9;
@@ -140,9 +142,9 @@
             "Invisible only",
             "Ignore decals",
             "Ignore PFX & Decals"});
-            this.comboBoxFilterPick.Location = new System.Drawing.Point(0, 72);
+            this.comboBoxFilterPick.Location = new System.Drawing.Point(1, 91);
             this.comboBoxFilterPick.Name = "comboBoxFilterPick";
-            this.comboBoxFilterPick.Size = new System.Drawing.Size(165, 21);
+            this.comboBoxFilterPick.Size = new System.Drawing.Size(151, 21);
             this.comboBoxFilterPick.TabIndex = 8;
             this.comboBoxFilterPick.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilterPick_SelectedIndexChanged);
             // 
@@ -196,16 +198,27 @@
             this.panelVobListBottom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelVobListBottom.Controls.Add(this.listBoxVobs);
             this.panelVobListBottom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelVobListBottom.Location = new System.Drawing.Point(2, 113);
+            this.panelVobListBottom.Location = new System.Drawing.Point(2, 130);
             this.panelVobListBottom.Name = "panelVobListBottom";
-            this.panelVobListBottom.Size = new System.Drawing.Size(303, 297);
+            this.panelVobListBottom.Size = new System.Drawing.Size(303, 202);
             this.panelVobListBottom.TabIndex = 8;
+            // 
+            // checkBoxRenderOnlySelectedType
+            // 
+            this.checkBoxRenderOnlySelectedType.AutoSize = true;
+            this.checkBoxRenderOnlySelectedType.Location = new System.Drawing.Point(2, 66);
+            this.checkBoxRenderOnlySelectedType.Name = "checkBoxRenderOnlySelectedType";
+            this.checkBoxRenderOnlySelectedType.Size = new System.Drawing.Size(168, 17);
+            this.checkBoxRenderOnlySelectedType.TabIndex = 10;
+            this.checkBoxRenderOnlySelectedType.Text = "Render only selecter Vob type";
+            this.checkBoxRenderOnlySelectedType.UseVisualStyleBackColor = true;
+            this.checkBoxRenderOnlySelectedType.CheckedChanged += new System.EventHandler(this.checkBoxRenderOnlySelectedType_CheckedChanged);
             // 
             // VobListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 412);
+            this.ClientSize = new System.Drawing.Size(307, 334);
             this.Controls.Add(this.panelVobListBottom);
             this.Controls.Add(this.panelVobList);
             this.DoubleBuffered = true;
@@ -240,5 +253,6 @@
         private System.Windows.Forms.Button buttonVobListSearch;
         private System.Windows.Forms.Label labelFilterVobsPick;
         private System.Windows.Forms.ComboBox comboBoxFilterPick;
+        private System.Windows.Forms.CheckBox checkBoxRenderOnlySelectedType;
     }
 }

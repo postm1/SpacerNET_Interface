@@ -50,6 +50,20 @@ namespace SpacerUnion
             comboBoxFilterPick.Items[13] = Localizator.Get("VOB_FILTER_IGNORE_DECALS_PFX");
 
             CleanListVobList.Text = Localizator.Get("WIN_INFO_CLEAR");
+
+            checkBoxRenderOnlySelectedType.Text = Localizator.Get("WIN_INFO_RENDER_TYPE");
+        }
+        
+        public void LoadSettings()
+        {
+            Imports.Stack_PushString("renderOnlySelectedVobType");
+            checkBoxRenderOnlySelectedType.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            // Disabled by default
+            if (comboBoxVobList.SelectedIndex == 0)
+            {
+                checkBoxRenderOnlySelectedType.Enabled = false;
+            }
         }
 
         [DllExport]
@@ -256,6 +270,19 @@ namespace SpacerUnion
             int selIndex = cb.SelectedIndex;
 
             Imports.Extern_SetVobListType(selIndex);
+
+            checkBoxRenderOnlySelectedType.Enabled = selIndex == 0 ? false : true;
+        }
+
+        private void checkBoxRenderOnlySelectedType_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkBox = sender as CheckBox;
+
+            if (checkBox != null)
+            {
+                Imports.Stack_PushString("renderOnlySelectedVobType");
+                Imports.Extern_SetSetting(Convert.ToInt32(checkBox.Checked));
+            }
         }
     }
 }

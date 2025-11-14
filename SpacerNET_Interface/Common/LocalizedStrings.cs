@@ -972,6 +972,11 @@ namespace SpacerUnion.Common
             words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_6", new List<string> { "Выше (+10%)", "Higher (+10%)", "", "", "" });
             words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_7", new List<string> { "Выше (+15%)", "Higher (+15%)", "", "", "" });
             words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_8", new List<string> { "Выше (+20%)", "Higher (+20%)", "", "", "" });
+
+
+            words.Add("WIN_INFO_RENDER_TYPE", new List<string> { "Подсветить выбранный тип воба в рендере", "Highlight selected vob type in render", "", "", "" });
+
+            
         }
 
 

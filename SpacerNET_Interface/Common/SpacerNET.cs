@@ -506,6 +506,8 @@ namespace SpacerUnion
 
             infoWin.LoadSettings();
 
+            vobList.LoadSettings();
+
             isInit = true;
 
             form.UpdateLangAfter();
