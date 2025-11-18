@@ -963,20 +963,20 @@ namespace SpacerUnion.Common
 
             words.Add("WIN_GRASS_AUTO_HEIGHT", new List<string> { "Смещение по высоте (%)", "Vertical offset (%)", "", "", "" });
             
-            words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_0", new List<string> { "Ниже (-20%)", "Lower (-20%)", "", "", "" });
-            words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_1", new List<string> { "Ниже (-15%)", "Lower (-15%))", "", "", "" });
-            words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_2", new List<string> { "Ниже (-10%)", "Lower (-10%)", "", "", "" });
-            words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_3", new List<string> { "Ниже (-5%)", "Lower (-5%)", "", "", "" });
-            words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_4", new List<string> { "Не менять (0%)", "Default (0%)", "", "", "" });
-            words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_5", new List<string> { "Выше (+5%)", "Higher (+5%)", "", "", "" });
-            words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_6", new List<string> { "Выше (+10%)", "Higher (+10%)", "", "", "" });
-            words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_7", new List<string> { "Выше (+15%)", "Higher (+15%)", "", "", "" });
-            words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_8", new List<string> { "Выше (+20%)", "Higher (+20%)", "", "", "" });
+            words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_0", new List<string> { "Ниже (-20%)", "Lower (-20%)", "Niedriger (-20%)", "", "" });
+            words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_1", new List<string> { "Ниже (-15%)", "Lower (-15%)", "Niedriger (-15%)", "", "" });
+            words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_2", new List<string> { "Ниже (-10%)", "Lower (-10%)", "Niedriger (-10%)", "", "" });
+            words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_3", new List<string> { "Ниже (-5%)", "Lower (-5%)", "Niedriger (-5%)", "", "" });
+            words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_4", new List<string> { "Не менять (0%)", "Default (0%)", "Standard (0%)", "", "" });
+            words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_5", new List<string> { "Выше (+5%)", "Higher (+5%)", "Höher (+5%)", "", "" });
+            words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_6", new List<string> { "Выше (+10%)", "Higher (+10%)", "Höher (+10%)", "", "" });
+            words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_7", new List<string> { "Выше (+15%)", "Higher (+15%)", "Höher (+15%)", "", "" });
+            words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_8", new List<string> { "Выше (+20%)", "Higher (+20%)", "Höher (+20%)", "", "" });
 
 
-            words.Add("WIN_INFO_RENDER_TYPE", new List<string> { "Подсветить выбранный тип воба в рендере", "Highlight selected vob type in render", "", "", "" });
+            words.Add("WIN_INFO_RENDER_TYPE", new List<string> { "Подсветить выбранный тип воба в рендере", "Highlight selected vob type in render", "Ausgewählten VOB-Typ im Render hervorheben", "", "" });
 
-            
+            words.Add("MSG_ERR_BROKEN_ITEM", new List<string> { "В локации найден(ы) oCItem, которых нет в скриптах! При сохранении локации они исчезнут!", "Found oCItem(s) which are used, but not found in scripts. After saving location they will disappear!", "oCItem(s) gefunden, die verwendet werden, aber nicht in Skripten gefunden wurden. Nach dem Speichern des Standorts verschwinden sie!", "", "" });
         }
 
 
