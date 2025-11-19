@@ -977,6 +977,11 @@ namespace SpacerUnion.Common
             words.Add("WIN_INFO_RENDER_TYPE", new List<string> { "Подсветить выбранный тип воба в рендере", "Highlight selected vob type in render", "Ausgewählten VOB-Typ im Render hervorheben", "", "" });
 
             words.Add("MSG_ERR_BROKEN_ITEM", new List<string> { "В локации найден(ы) oCItem, которых нет в скриптах! При сохранении локации они исчезнут!", "Found oCItem(s) which are used, but not found in scripts. After saving location they will disappear!", "oCItem(s) gefunden, die verwendet werden, aber nicht in Skripten gefunden wurden. Nach dem Speichern des Standorts verschwinden sie!", "", "" });
+
+            words.Add("MSG_NOT_SAVED_WARN", new List<string> { "Последнее сохранение локации было {0} минут назад!", "Last file save was {0} minutes ago!", "", "", "" });
+            
+
+
         }
 
 
