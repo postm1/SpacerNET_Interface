@@ -974,7 +974,7 @@ namespace SpacerUnion.Common
             words.Add("WIN_GRASS_AUTO_HEIGHT_TYPE_8", new List<string> { "Выше (+20%)", "Higher (+20%)", "Höher (+20%)", "", "" });
 
 
-            words.Add("WIN_INFO_RENDER_TYPE", new List<string> { "Подсветить выбранный тип воба в рендере", "Highlight selected vob type in render", "Ausgewählten VOB-Typ im Render hervorheben", "", "" });
+            words.Add("WIN_INFO_RENDER_TYPE", new List<string> { "Подсветить выбранный тип воба в рендере", "Highlight selected vob type in render", "Ausgewählten VOB-Typ im Render hervorheben", "Podświetl wybrany typ voba w renderze", "" });
 
             words.Add("MSG_ERR_BROKEN_ITEM", new List<string> { "В локации найден(ы) oCItem, которых нет в скриптах! При сохранении локации они исчезнут!", "Found oCItem(s) which are used, but not found in scripts. After saving location they will disappear!", "oCItem(s) gefunden, die verwendet werden, aber nicht in Skripten gefunden wurden. Nach dem Speichern des Standorts verschwinden sie!", "", "" });
 
