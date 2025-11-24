@@ -59,7 +59,7 @@
             this.listBoxVobs.Location = new System.Drawing.Point(0, 0);
             this.listBoxVobs.Name = "listBoxVobs";
             this.listBoxVobs.ScrollAlwaysVisible = true;
-            this.listBoxVobs.Size = new System.Drawing.Size(301, 243);
+            this.listBoxVobs.Size = new System.Drawing.Size(301, 69);
             this.listBoxVobs.TabIndex = 0;
             this.listBoxVobs.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxVobs_MouseClick);
             this.listBoxVobs.SelectedIndexChanged += new System.EventHandler(this.listBoxVobs_SelectedIndexChanged);
@@ -115,13 +115,13 @@
             this.panelVobList.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelVobList.Location = new System.Drawing.Point(2, 2);
             this.panelVobList.Name = "panelVobList";
-            this.panelVobList.Size = new System.Drawing.Size(303, 157);
+            this.panelVobList.Size = new System.Drawing.Size(303, 166);
             this.panelVobList.TabIndex = 7;
             // 
             // checkBoxRenderOnlySelectedType
             // 
             this.checkBoxRenderOnlySelectedType.AutoSize = true;
-            this.checkBoxRenderOnlySelectedType.Location = new System.Drawing.Point(4, 31);
+            this.checkBoxRenderOnlySelectedType.Location = new System.Drawing.Point(3, 76);
             this.checkBoxRenderOnlySelectedType.Name = "checkBoxRenderOnlySelectedType";
             this.checkBoxRenderOnlySelectedType.Size = new System.Drawing.Size(171, 17);
             this.checkBoxRenderOnlySelectedType.TabIndex = 10;
@@ -132,7 +132,7 @@
             // labelFilterVobsPick
             // 
             this.labelFilterVobsPick.AutoSize = true;
-            this.labelFilterVobsPick.Location = new System.Drawing.Point(156, 134);
+            this.labelFilterVobsPick.Location = new System.Drawing.Point(3, 124);
             this.labelFilterVobsPick.Name = "labelFilterVobsPick";
             this.labelFilterVobsPick.Size = new System.Drawing.Size(79, 13);
             this.labelFilterVobsPick.TabIndex = 9;
@@ -157,15 +157,15 @@
             "Invisible only",
             "Ignore decals",
             "Ignore PFX & Decals"});
-            this.comboBoxFilterPick.Location = new System.Drawing.Point(3, 131);
+            this.comboBoxFilterPick.Location = new System.Drawing.Point(3, 140);
             this.comboBoxFilterPick.Name = "comboBoxFilterPick";
-            this.comboBoxFilterPick.Size = new System.Drawing.Size(146, 21);
+            this.comboBoxFilterPick.Size = new System.Drawing.Size(205, 21);
             this.comboBoxFilterPick.TabIndex = 8;
             this.comboBoxFilterPick.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilterPick_SelectedIndexChanged);
             // 
             // buttonVobListSearch
             // 
-            this.buttonVobListSearch.Location = new System.Drawing.Point(128, 101);
+            this.buttonVobListSearch.Location = new System.Drawing.Point(128, 98);
             this.buttonVobListSearch.Name = "buttonVobListSearch";
             this.buttonVobListSearch.Size = new System.Drawing.Size(80, 23);
             this.buttonVobListSearch.TabIndex = 7;
@@ -175,7 +175,7 @@
             // 
             // btnRemoveContainerVobs
             // 
-            this.btnRemoveContainerVobs.Location = new System.Drawing.Point(214, 101);
+            this.btnRemoveContainerVobs.Location = new System.Drawing.Point(214, 98);
             this.btnRemoveContainerVobs.Name = "btnRemoveContainerVobs";
             this.btnRemoveContainerVobs.Size = new System.Drawing.Size(80, 23);
             this.btnRemoveContainerVobs.TabIndex = 6;
@@ -201,7 +201,7 @@
             "zCVobLight",
             "PFX (Particles)",
             "zCZone (Zones)"});
-            this.comboBoxVobList.Location = new System.Drawing.Point(3, 102);
+            this.comboBoxVobList.Location = new System.Drawing.Point(3, 99);
             this.comboBoxVobList.Name = "comboBoxVobList";
             this.comboBoxVobList.Size = new System.Drawing.Size(122, 21);
             this.comboBoxVobList.TabIndex = 5;
@@ -212,15 +212,15 @@
             this.panelVobListBottom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelVobListBottom.Controls.Add(this.listBoxVobs);
             this.panelVobListBottom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelVobListBottom.Location = new System.Drawing.Point(2, 159);
+            this.panelVobListBottom.Location = new System.Drawing.Point(2, 168);
             this.panelVobListBottom.Name = "panelVobListBottom";
-            this.panelVobListBottom.Size = new System.Drawing.Size(303, 245);
+            this.panelVobListBottom.Size = new System.Drawing.Size(303, 71);
             this.panelVobListBottom.TabIndex = 8;
             // 
             // checkBoxHightlightVisualVob
             // 
             this.checkBoxHightlightVisualVob.AutoSize = true;
-            this.checkBoxHightlightVisualVob.Location = new System.Drawing.Point(4, 52);
+            this.checkBoxHightlightVisualVob.Location = new System.Drawing.Point(3, 31);
             this.checkBoxHightlightVisualVob.Name = "checkBoxHightlightVisualVob";
             this.checkBoxHightlightVisualVob.Size = new System.Drawing.Size(145, 17);
             this.checkBoxHightlightVisualVob.TabIndex = 11;
@@ -230,7 +230,7 @@
             // 
             // textBoxVobVisualHighlight
             // 
-            this.textBoxVobVisualHighlight.Location = new System.Drawing.Point(3, 75);
+            this.textBoxVobVisualHighlight.Location = new System.Drawing.Point(3, 51);
             this.textBoxVobVisualHighlight.Name = "textBoxVobVisualHighlight";
             this.textBoxVobVisualHighlight.Size = new System.Drawing.Size(291, 20);
             this.textBoxVobVisualHighlight.TabIndex = 12;
@@ -240,13 +240,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 406);
+            this.ClientSize = new System.Drawing.Size(307, 241);
             this.Controls.Add(this.panelVobListBottom);
             this.Controls.Add(this.panelVobList);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(323, 373);
+            this.MinimumSize = new System.Drawing.Size(323, 280);
             this.Name = "VobListForm";
             this.Padding = new System.Windows.Forms.Padding(2);
             this.ShowIcon = false;
