@@ -52,6 +52,9 @@ namespace SpacerUnion
             CleanListVobList.Text = Localizator.Get("WIN_INFO_CLEAR");
 
             checkBoxRenderOnlySelectedType.Text = Localizator.Get("WIN_INFO_RENDER_TYPE");
+            checkBoxHightlightVisualVob.Text = Localizator.Get("WIN_INFO_VOB_VISUAL");
+
+            
         }
         
         public void LoadSettings()
@@ -64,6 +67,8 @@ namespace SpacerUnion
             {
                 checkBoxRenderOnlySelectedType.Enabled = false;
             }
+
+            textBoxVobVisualHighlight.Enabled = false;
         }
 
         [DllExport]
@@ -283,6 +288,28 @@ namespace SpacerUnion
                 Imports.Stack_PushString("renderOnlySelectedVobType");
                 Imports.Extern_SetSetting(Convert.ToInt32(checkBox.Checked));
             }
+        }
+
+        private void checkBoxHightlightVisualVob_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkBox = sender as CheckBox;
+
+            if (checkBox != null)
+            {
+                textBoxVobVisualHighlight.Enabled = checkBox.Checked;
+
+                Imports.Extern_SetVisualVobContainerActive(Convert.ToInt32(checkBox.Checked));
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            var text = textBoxVobVisualHighlight.Text.Trim();
+
+            Imports.Stack_PushString(text);
+            Imports.Extern_SetVisualVobContainer();
+
+            //ConsoleEx.WriteLineGreen(text);
         }
     }
 }
