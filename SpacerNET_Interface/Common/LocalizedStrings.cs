@@ -598,7 +598,7 @@ namespace SpacerUnion.Common
             words.Add("Trigget_BTN_JUMPTOKEY", new List<string> { "Прыгнуть на ключ", "Jump to key", "Zu Key Springen", "Przejdź do klucza", "Skočit na klávesu" });
             words.Add("TOOL_BBOX_EDIT_MODE_SELECTED", new List<string> { "Режим изменения BBOX", "BBOX editing mode", "Bbox Editier Modus", "Tryb edycji BBOX", "Režim editace BBOX" });
             words.Add("VOB_SEARCH_TYPE_SINGLE_WP", new List<string> { "Поиск несоединенных WP", "Search for unconnected WP", "Suche nach unverbundenden WP's", "Szukaj dla niepołączonych WP", "Hledání nepřipojených WP" });
-            words.Add("OBJ_TAB_PICKFILTER", new List<string> { "Фильтр выделения вобов", "Vob select filter", "Vob Filter auswählen", "Wybierz filtr voba", "Výběr filtru Vobu" });
+            words.Add("OBJ_TAB_PICKFILTER", new List<string> { "Фильтр выделения вобов", "Vob selection filter", "Vob Filter auswählen", "Wybierz filtr voba", "Výběr filtru Vobu" });
 
            
             
