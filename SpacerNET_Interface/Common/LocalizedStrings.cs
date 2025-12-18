@@ -981,7 +981,9 @@ namespace SpacerUnion.Common
             words.Add("MSG_NOT_SAVED_WARN", new List<string> { "Последнее сохранение локации было {0} минут назад!", "Last file save was {0} minutes ago!", "Die letzte Datei wurde vor {0} Minuten gespeichert!", "Ostatni zapis był {0} minut temu!", "" });
             words.Add("WIN_INFO_VOB_VISUAL", new List<string> { "Подсвечивать вобы с заданным визуалом", "Highlight vobs with such visual", "VOBs mit solchen visuellen Elementen hervorheben", "Podświetlaj voby o podanym wizualu", "" });
 
-            words.Add("ERROR_REPORT_PROBLEM_TYPE_MOBCONT_NOT_CLOSED", new List<string> { "oCMobContainer имеет locked = TRUE, но комбинация взлома или инстанция ключа не прописаны", "oCMobContainer has locked = TRUE, but no lock combination or key instance is set", "", "", "" });
+
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_MOBCONT_NOT_CLOSED", new List<string> { "oCMobContainer имеет locked = FALSE, но комбинация взлома или инстанция ключа установлены", "oCMobContainer has locked = FALSE, but a lock combination or key instance is set", "", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_MOBCONT_CLOSED_NO_KEY", new List<string> { "oCMobContainer имеет locked = TRUE, но комбинация взлома или инстанция ключа не прописаны", "oCMobContainer has locked = TRUE, but no lock combination or key instance is set", "", "", "" });
 
 
             
