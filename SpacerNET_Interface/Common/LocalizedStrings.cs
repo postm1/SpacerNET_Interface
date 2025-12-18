@@ -987,6 +987,9 @@ namespace SpacerUnion.Common
 
 
             words.Add("MSG_ERR_BROKEN_VISUAL_FILE", new List<string> { "В локации найден(ы) вобы, для которых не найден файл с visual (модель). После сохранения их поля visual будут пустыми!", "Vob(s) were found in the location for which no visual (model) file was found. After saving, their 'visual' fields will be empty!", "", "", "" });
+            words.Add("MSG_LOAD_AUTOFIX_SPACE_IN_NAME", new List<string> { "Удаляю символ 'пробел' в имени визуала: ", "Removing symbol 'space' in visual name: ", "", "", "" });
+            words.Add("MSG_LOAD_AUTOFIX_3DS_END", new List<string> { "Исправляю имя визуала у .3DS воба: ", "Fixing visual name in .3DS vob: ", "", "", "" });
+
         }
 
 
