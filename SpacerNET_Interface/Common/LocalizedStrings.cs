@@ -986,7 +986,7 @@ namespace SpacerUnion.Common
             words.Add("ERROR_REPORT_PROBLEM_TYPE_MOBCONT_CLOSED_NO_KEY", new List<string> { "oCMobContainer имеет locked = TRUE, но комбинация взлома или инстанция ключа не прописаны", "oCMobContainer has locked = TRUE, but no lock combination or key instance is set", "", "", "" });
 
 
-            
+            words.Add("MSG_ERR_BROKEN_VISUAL_FILE", new List<string> { "В локации найден(ы) вобы, для которых не найден файл с visual (модель). После сохранения их поля visual будут пустыми!", "Vob(s) were found in the location for which no visual (model) file was found. After saving, their 'visual' fields will be empty!", "", "", "" });
         }
 
 
