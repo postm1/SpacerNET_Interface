@@ -990,9 +990,9 @@ namespace SpacerUnion.Common
             words.Add("MSG_LOAD_AUTOFIX_SPACE_IN_NAME", new List<string> { "Удаляю символ 'пробел' в имени визуала: ", "Removing symbol 'space' in visual name: ", "", "", "" });
             words.Add("MSG_LOAD_AUTOFIX_3DS_END", new List<string> { "Исправляю имя визуала у .3DS воба: ", "Fixing visual name in .3DS vob: ", "", "", "" });
             words.Add("MSG_LOAD_NO_VISUAL_FOUND", new List<string> { "(zCVob::SetVisual): В файлах/скриптах найден визуал", "(zCVob::SetVisual): No such visual found (in files/scripts)", "", "", "" });
+            words.Add("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAME_NOINST", new List<string> { "Прописанный sndName2 (zCVobSoundDaytime) не существует в SFX.dat", "Such sndName2 (zCVobSoundDaytime) does not exist in SFX.dat", "Ein solcher sndName2 (zCVobSoundDaytime) existiert nicht in SFX.dat", "Takie sndName2 (zCVobSoundDaytime) nie istnieje w SFX.dat", "Takový sndName2 (zCVobSoundDaytime) v souboru SFX.dat neexistuje" });
 
 
-            
         }
 
 
