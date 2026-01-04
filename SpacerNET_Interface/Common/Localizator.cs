@@ -27,6 +27,17 @@ namespace SpacerUnion.Common
         private static bool dontUpdateNext = false;
 
 
+        public static void AddNewWord(string key, List<string> value)
+        {
+            if (words.ContainsKey(key))
+            {
+                MessageBox.Show("KEY ALREADY EXISTS: " + key);
+                return;
+            }
+
+            words.Add(key, value);
+        }
+
         public static void SetLanguage(LangEnum lang)
         {
             if (curLang == lang)
