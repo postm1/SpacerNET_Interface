@@ -976,7 +976,7 @@ namespace SpacerUnion.Common
 
             AddNewWord("WIN_INFO_RENDER_TYPE", new List<string> { "Подсветить выбранный тип воба в рендере", "Highlight selected vob type in render", "Ausgewählten VOB-Typ im Render hervorheben", "Podświetl wybrany typ voba w renderze", "" });
 
-            AddNewWord("MSG_ERR_BROKEN_ITEM", new List<string> { "В локации найден(ы) oCItem, которых нет в скриптах! При сохранении локации они исчезнут!", "Found oCItem(s) which are used, but not found in scripts. After saving location they will disappear!", "oCItem(s) gefunden, die verwendet werden, aber nicht in Skripten gefunden wurden. Nach dem Speichern des Standorts verschwinden sie!", "", "" });
+            AddNewWord("MSG_ERR_BROKEN_ITEM", new List<string> { "В локации найден(ы) oCItem, которых нет в скриптах!", "Found oCItem(s) which are used, but not found in scripts.", "oCItem(s) gefunden, die verwendet werden, aber nicht in Skripten gefunden wurden.", "", "" });
 
             AddNewWord("MSG_NOT_SAVED_WARN", new List<string> { "Последнее сохранение локации было {0} минут назад!", "Last file save was {0} minutes ago!", "Die letzte Datei wurde vor {0} Minuten gespeichert!", "Ostatni zapis był {0} minut temu!", "" });
             AddNewWord("WIN_INFO_VOB_VISUAL", new List<string> { "Подсвечивать вобы с заданным визуалом", "Highlight vobs with such visual", "VOBs mit solchen visuellen Elementen hervorheben", "Podświetlaj voby o podanym wizualu", "" });
@@ -989,7 +989,7 @@ namespace SpacerUnion.Common
             AddNewWord("MSG_ERR_BROKEN_VISUAL_FILE", new List<string> { "В локации найден(ы) вобы, для которых не найден visual (модель или эффект). После сохранения их поля visual будут пустыми!", "Vob(s) were found in the location for which no visual (model/instance) file was found. After saving, their 'visual' fields will be empty!", "", "", "" });
             AddNewWord("MSG_LOAD_AUTOFIX_SPACE_IN_NAME", new List<string> { "Удаляю символ 'пробел' в имени визуала: ", "Removing symbol 'space' in visual name: ", "", "", "" });
             AddNewWord("MSG_LOAD_AUTOFIX_3DS_END", new List<string> { "Исправляю имя визуала у .3DS воба: ", "Fixing visual name in .3DS vob: ", "", "", "" });
-            AddNewWord("MSG_LOAD_NO_VISUAL_FOUND", new List<string> { "(zCVob::SetVisual): В файлах/скриптах найден визуал", "(zCVob::SetVisual): No such visual found (in files/scripts)", "", "", "" });
+            AddNewWord("MSG_LOAD_NO_VISUAL_FOUND", new List<string> { "(zCVob::SetVisual): Не найден визуал (в файлах/скриптах)", "(zCVob::SetVisual): No such visual found (in files/scripts)", "", "", "" });
             AddNewWord("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_NOINST", new List<string> { "Прописанный sndName2 (zCVobSoundDaytime) не существует в SFX.dat", "Such sndName2 (zCVobSoundDaytime) does not exist in SFX.dat", "Ein solcher sndName2 (zCVobSoundDaytime) existiert nicht in SFX.dat", "Takie sndName2 (zCVobSoundDaytime) nie istnieje w SFX.dat", "Takový sndName2 (zCVobSoundDaytime) v souboru SFX.dat neexistuje" });
 
 
