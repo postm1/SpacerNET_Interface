@@ -175,7 +175,6 @@
             this.buttonCamInsert = new System.Windows.Forms.Button();
             this.textBoxCamName = new System.Windows.Forms.TextBox();
             this.groupBoxCamSettings = new System.Windows.Forms.GroupBox();
-            this.checkBoxAutoRenameKeys = new System.Windows.Forms.CheckBox();
             this.labelCamGotoKey = new System.Windows.Forms.Label();
             this.checkBoxCameraHide = new System.Windows.Forms.CheckBox();
             this.labelCamKeyCurrent = new System.Windows.Forms.Label();
@@ -185,6 +184,7 @@
             this.labelCamTimeSec = new System.Windows.Forms.Label();
             this.buttonCamMinus = new System.Windows.Forms.Button();
             this.groupBoxCamKeys = new System.Windows.Forms.GroupBox();
+            this.checkBoxAutoRenameKeys = new System.Windows.Forms.CheckBox();
             this.listBoxCameraTarget = new System.Windows.Forms.ListBox();
             this.contextMenuStripCamTarget = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -862,6 +862,7 @@
             this.textBoxVisuals.Name = "textBoxVisuals";
             this.textBoxVisuals.Size = new System.Drawing.Size(281, 22);
             this.textBoxVisuals.TabIndex = 6;
+            this.textBoxVisuals.TextChanged += new System.EventHandler(this.textBoxVisuals_TextChanged);
             this.textBoxVisuals.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVisuals_KeyPress);
             // 
             // classesTreeView
@@ -1974,19 +1975,6 @@
             this.groupBoxCamSettings.TabStop = false;
             this.groupBoxCamSettings.Text = "Settings";
             // 
-            // checkBoxAutoRenameKeys
-            // 
-            this.checkBoxAutoRenameKeys.AutoSize = true;
-            this.checkBoxAutoRenameKeys.Checked = true;
-            this.checkBoxAutoRenameKeys.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxAutoRenameKeys.Location = new System.Drawing.Point(7, 19);
-            this.checkBoxAutoRenameKeys.Name = "checkBoxAutoRenameKeys";
-            this.checkBoxAutoRenameKeys.Size = new System.Drawing.Size(142, 17);
-            this.checkBoxAutoRenameKeys.TabIndex = 16;
-            this.checkBoxAutoRenameKeys.Text = "Auto rename empty keys";
-            this.checkBoxAutoRenameKeys.UseVisualStyleBackColor = true;
-            this.checkBoxAutoRenameKeys.CheckedChanged += new System.EventHandler(this.checkBoxAutoRenameKeys_CheckedChanged);
-            // 
             // labelCamGotoKey
             // 
             this.labelCamGotoKey.AutoSize = true;
@@ -2083,6 +2071,19 @@
             this.groupBoxCamKeys.TabIndex = 1;
             this.groupBoxCamKeys.TabStop = false;
             this.groupBoxCamKeys.Text = "Keyframes";
+            // 
+            // checkBoxAutoRenameKeys
+            // 
+            this.checkBoxAutoRenameKeys.AutoSize = true;
+            this.checkBoxAutoRenameKeys.Checked = true;
+            this.checkBoxAutoRenameKeys.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxAutoRenameKeys.Location = new System.Drawing.Point(7, 19);
+            this.checkBoxAutoRenameKeys.Name = "checkBoxAutoRenameKeys";
+            this.checkBoxAutoRenameKeys.Size = new System.Drawing.Size(142, 17);
+            this.checkBoxAutoRenameKeys.TabIndex = 16;
+            this.checkBoxAutoRenameKeys.Text = "Auto rename empty keys";
+            this.checkBoxAutoRenameKeys.UseVisualStyleBackColor = true;
+            this.checkBoxAutoRenameKeys.CheckedChanged += new System.EventHandler(this.checkBoxAutoRenameKeys_CheckedChanged);
             // 
             // listBoxCameraTarget
             // 

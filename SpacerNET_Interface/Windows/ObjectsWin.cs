@@ -1111,9 +1111,9 @@ namespace SpacerUnion
 
         }
 
-
-        private void textBoxVisuals_KeyPress(object sender, KeyPressEventArgs e)
+        void HandleTextChangeVisualSearch(bool keyPressed = false)
         {
+
             if (Imports.Extern_IsWorldLoaded() == 0)
             {
                 return;
@@ -1121,115 +1121,85 @@ namespace SpacerUnion
 
             bool checkBoxDebugSearch = SpacerNET.vobCatForm.checkBoxDebugSearch.Checked;
 
-            if (e.KeyChar == (char)13)
+            string strToFind = textBoxVisuals.Text.Trim().ToUpper();
+
+            // if empty text => no search if it is not a key ENTER pressed
+            if (strToFind.Length == 0 && !keyPressed)
             {
-                e.Handled = true;
+                return;
+            }
 
-                string strToFind = textBoxVisuals.Text.Trim().ToUpper();
+            if (checkBoxSearchOnly3DS.Checked && !strToFind.ToUpper().Contains("3DS"))
+            {
+                strToFind += ".*3DS";
+            }
 
-                if (checkBoxSearchOnly3DS.Checked && !strToFind.ToUpper().Contains("3DS"))
+            //ConsoleEx.WriteLineRed(strToFind);
+
+            Regex regEx = null;
+
+            try
+            {
+                regEx = new Regex(@strToFind, RegexOptions.IgnoreCase | RegexOptions.Compiled);
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show(Localizator.Get("BAD_REGEX"));
+                return;
+            }
+
+            listBoxVisuals.BeginUpdate();
+
+            listBoxVisuals.Items.Clear();
+
+            if (radioButtonVdf.Checked)
+            {
+                for (int i = 0; i < listVisualsVDF.Count; i++)
                 {
-                    strToFind += ".*3DS";
-                }
 
-                //ConsoleEx.WriteLineRed(strToFind);
-
-                Regex regEx = null;
-
-                try
-                {
-                    regEx = new Regex(@strToFind, RegexOptions.IgnoreCase | RegexOptions.Compiled);
-                }
-                catch (ArgumentException)
-                {
-                    MessageBox.Show(Localizator.Get("BAD_REGEX"));
-                    return;
-                }
-
-                listBoxVisuals.BeginUpdate();
-
-                listBoxVisuals.Items.Clear();
-
-                if (radioButtonVdf.Checked)
-                {
-                    for (int i = 0; i < listVisualsVDF.Count; i++)
+                    if (regEx.IsMatch(listVisualsVDF[i]))
                     {
 
-                        if (regEx.IsMatch(listVisualsVDF[i]))
+                        if (comboBoxArchiveList.SelectedIndex > 0)
                         {
+                            string searchArchive = comboBoxArchiveList.GetItemText(comboBoxArchiveList.SelectedItem);
 
-                            if (comboBoxArchiveList.SelectedIndex > 0)
+                            if (searchArchive.Length > 0)
                             {
-                                string searchArchive = comboBoxArchiveList.GetItemText(comboBoxArchiveList.SelectedItem);
+                                Imports.Stack_PushString(listVisualsVDF[i]);
+                                Imports.Stack_PushString(searchArchive);
 
-                                if (searchArchive.Length > 0)
+                                if (Imports.Extern_VisualIsInVDF() == 1)
                                 {
-                                    Imports.Stack_PushString(listVisualsVDF[i]);
-                                    Imports.Stack_PushString(searchArchive);
-
-                                    if (Imports.Extern_VisualIsInVDF() == 1)
+                                    if (checkBoxDebugSearch)
                                     {
-                                        if (checkBoxDebugSearch)
+                                        var name = listVisualsVDF[i];
+
+                                        var entry = SpacerNET.vobCatForm.vobMan.GetByVisual(name);
+
+                                        if (entry != null)
                                         {
-                                            var name = listVisualsVDF[i];
-
-                                            var entry = SpacerNET.vobCatForm.vobMan.GetByVisual(name);
-
-                                            if (entry != null)
-                                            {
-                                                //ConsoleEx.WriteLineRed(String.Format("{0} / {1}", name, entry.Visual));
-                                            }
-                                            else
-                                            {
-                                                listBoxVisuals.Items.Add(name);
-                                            }
+                                            //ConsoleEx.WriteLineRed(String.Format("{0} / {1}", name, entry.Visual));
                                         }
                                         else
                                         {
-                                            listBoxVisuals.Items.Add(listVisualsVDF[i]);
+                                            listBoxVisuals.Items.Add(name);
                                         }
-
-                                    }
-                                }
-                            }
-                            else
-                            {
-
-                                if (checkBoxDebugSearch)
-                                {
-                                    var name = listVisualsVDF[i];
-
-                                    var entry = SpacerNET.vobCatForm.vobMan.GetByVisual(name);
-
-                                    if (entry != null)
-                                    {
-                                        //ConsoleEx.WriteLineRed(String.Format("{0} / {1}", name, entry.Visual));
                                     }
                                     else
                                     {
-                                        listBoxVisuals.Items.Add(name);
+                                        listBoxVisuals.Items.Add(listVisualsVDF[i]);
                                     }
 
                                 }
-                                else
-                                {
-                                    listBoxVisuals.Items.Add(listVisualsVDF[i]);
-                                }
-
                             }
                         }
-                    }
-                }
-                else
-                {
-                    for (int i = 0; i < listVisualsWORK.Count; i++)
-                    {
-                        if (regEx.IsMatch(listVisualsWORK[i]))
+                        else
                         {
 
                             if (checkBoxDebugSearch)
                             {
-                                var name = listVisualsWORK[i];
+                                var name = listVisualsVDF[i];
 
                                 var entry = SpacerNET.vobCatForm.vobMan.GetByVisual(name);
 
@@ -1245,18 +1215,64 @@ namespace SpacerUnion
                             }
                             else
                             {
-                                listBoxVisuals.Items.Add(listVisualsWORK[i]);
+                                listBoxVisuals.Items.Add(listVisualsVDF[i]);
                             }
-
 
                         }
                     }
                 }
+            }
+            else
+            {
+                for (int i = 0; i < listVisualsWORK.Count; i++)
+                {
+                    if (regEx.IsMatch(listVisualsWORK[i]))
+                    {
+
+                        if (checkBoxDebugSearch)
+                        {
+                            var name = listVisualsWORK[i];
+
+                            var entry = SpacerNET.vobCatForm.vobMan.GetByVisual(name);
+
+                            if (entry != null)
+                            {
+                                //ConsoleEx.WriteLineRed(String.Format("{0} / {1}", name, entry.Visual));
+                            }
+                            else
+                            {
+                                listBoxVisuals.Items.Add(name);
+                            }
+
+                        }
+                        else
+                        {
+                            listBoxVisuals.Items.Add(listVisualsWORK[i]);
+                        }
 
 
-                SpacerNET.objectsWin.labelSearchVisual.Text = Localizator.Get("WIN_OBJ_SEARCHVISUAL_ALL") + ": " + listBoxVisuals.Items.Count;
+                    }
+                }
+            }
 
-                listBoxVisuals.EndUpdate();
+
+            SpacerNET.objectsWin.labelSearchVisual.Text = Localizator.Get("WIN_OBJ_SEARCHVISUAL_ALL") + ": " + listBoxVisuals.Items.Count;
+
+            listBoxVisuals.EndUpdate();
+        }
+
+        private void textBoxVisuals_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Imports.Extern_IsWorldLoaded() == 0)
+            {
+                return;
+            }
+
+            if (e.KeyChar == (char)13)
+            {
+                e.Handled = true;
+
+                HandleTextChangeVisualSearch(true);
             }
         }
 
@@ -5451,6 +5467,11 @@ namespace SpacerUnion
         {
             Imports.Stack_PushString("bCameraAutoRenameKeys");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxAutoRenameKeys.Checked));
+        }
+
+        private void textBoxVisuals_TextChanged(object sender, EventArgs e)
+        {
+            HandleTextChangeVisualSearch();
         }
     }
 }
