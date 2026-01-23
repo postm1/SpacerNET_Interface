@@ -18,11 +18,6 @@ namespace SpacerUnion.Windows
         {
             InitializeComponent();
 
-            this.DoubleBuffered = true;
-            this.SetStyle(ControlStyles.OptimizedDoubleBuffer |
-                          ControlStyles.AllPaintingInWmPaint |
-                          ControlStyles.UserPaint, true);
-
             UpdateLang();
 
             comboBoxVisualCamAlign.SelectedIndex = 0;
