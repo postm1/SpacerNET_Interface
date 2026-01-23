@@ -992,8 +992,8 @@ namespace SpacerUnion.Common
             AddNewWord("MSG_LOAD_NO_VISUAL_FOUND", new List<string> { "(zCVob::SetVisual): Не найден визуал (в файлах/скриптах)", "(zCVob::SetVisual): No such visual found (in files/scripts)", "", "", "" });
             AddNewWord("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_NOINST", new List<string> { "Прописанный sndName2 (zCVobSoundDaytime) не существует в SFX.dat", "Such sndName2 (zCVobSoundDaytime) does not exist in SFX.dat", "Ein solcher sndName2 (zCVobSoundDaytime) existiert nicht in SFX.dat", "Takie sndName2 (zCVobSoundDaytime) nie istnieje w SFX.dat", "Takový sndName2 (zCVobSoundDaytime) v souboru SFX.dat neexistuje" });
 
-            AddNewWord("MSG_ERR_NO_SUCH_VAR_ATALL", new List<string> { "Ошибка. Вы используете строку для 'focusname', которой не существует в скриптах: ", "Error: you use string for 'focusname' which does not exist in scripts", "", "", "" });
-            AddNewWord("MSG_ERR_FOCUSNAME_BAD_TYPE", new List<string> { "Ошибка. Вы используете константу для 'focusname', которая в скриптах вообще не STRING (ошибка в типе данных): ", "Error: you use string for 'focusname' which IS NOT a string in scripts (type error)", "", "", "" });
+            AddNewWord("MSG_ERR_NO_SUCH_VAR_ATALL", new List<string> { "Ошибка. Вы используете строку для 'focusname', которой не существует в скриптах: ", "Error: you use string for 'focusname' which does not exist in scripts: ", "", "", "" });
+            AddNewWord("MSG_ERR_FOCUSNAME_BAD_TYPE", new List<string> { "Ошибка. Вы используете константу для 'focusname', которая в скриптах вообще не STRING (ошибка в типе данных): ", "Error: you use string for 'focusname' which IS NOT a string in scripts (type error): ", "", "", "" });
         }
 
 
