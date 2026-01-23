@@ -268,6 +268,8 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("grassToolAutoHeightEnable");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxGrassWinAutoHeightOffset.Checked));
 
+           
+
         }
 
         public void buttonGrassWinApply_Click(object sender, EventArgs e)
@@ -475,6 +477,11 @@ namespace SpacerUnion.Windows
         private void comboBoxAutoOffset_SelectedIndexChanged(object sender, EventArgs e)
         {
             OnSettingsChanged();
+        }
+
+        private void GrassWin_Shown(object sender, EventArgs e)
+        {
+            UpdateProgressBarText();
         }
     }
 }

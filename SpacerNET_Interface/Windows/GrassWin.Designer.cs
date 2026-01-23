@@ -466,6 +466,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Objects sower";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GrassWin_FormClosing);
+            this.Shown += new System.EventHandler(this.GrassWin_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarWinGrassMinRadius)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarGrassWinVertical)).EndInit();
             this.panel1.ResumeLayout(false);
