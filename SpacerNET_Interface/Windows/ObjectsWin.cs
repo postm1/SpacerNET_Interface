@@ -3877,6 +3877,7 @@ namespace SpacerUnion
         private void trackBarLocatorRad_ValueChanged(object sender, EventArgs e)
         {
             labelItemLocatorRadius.Text = Localizator.Get("labelItemLocatorRadius") + trackBarLocatorRad.Value;
+            labelItemLocatorRadius.Refresh();
 
             Imports.Stack_PushString("itemLocatorRadius");
             Imports.Extern_SetSetting(trackBarLocatorRad.Value);

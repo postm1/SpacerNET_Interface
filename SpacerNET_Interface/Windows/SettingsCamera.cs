@@ -139,6 +139,10 @@ namespace SpacerUnion
         {
             labelTrans.Text = Localizator.Get("labelTrans") + ": " + trackBarTransSpeed.Value;
             textBoxCamTrans.Text = trackBarTransSpeed.Value.ToString();
+
+            labelTrans.Refresh();
+            textBoxCamTrans.Refresh();
+
             Imports.Stack_PushString("camTransSpeed");
             Imports.Extern_SetSetting(trackBarTransSpeed.Value);
             
@@ -148,6 +152,10 @@ namespace SpacerUnion
         {
             labelRot.Text = Localizator.Get("labelRot") + ": " + trackBarRotSpeed.Value;
             textBoxCamRot.Text = trackBarRotSpeed.Value.ToString();
+
+            labelRot.Refresh();
+            textBoxCamRot.Refresh();
+
             Imports.Stack_PushString("camRotSpeed");
             Imports.Extern_SetSetting(trackBarRotSpeed.Value);
             
@@ -157,6 +165,10 @@ namespace SpacerUnion
         {
             labelWorld.Text = Localizator.Get("labelWorld") + ": " + trackBarWorld.Value;
             textBoxWorldRange.Text = trackBarWorld.Value.ToString();
+
+            labelWorld.Refresh();
+            textBoxWorldRange.Refresh();
+
             Imports.Stack_PushString("rangeWorld");
             Imports.Extern_SetSetting(trackBarWorld.Value);
             
@@ -166,6 +178,10 @@ namespace SpacerUnion
         {
             labelVobs.Text = Localizator.Get("labelVobs") + ": " + trackBarVobs.Value;
             textBoxVobsRange.Text = trackBarVobs.Value.ToString();
+
+            labelVobs.Refresh();
+            textBoxVobsRange.Refresh();
+
             Imports.Stack_PushString("rangeVobs");
             Imports.Extern_SetSetting(trackBarVobs.Value);
             
@@ -368,6 +384,10 @@ namespace SpacerUnion
         {
             labelCamSetSlerp.Text = Localizator.Get("labelCamSetSlerp") + ": " + trackBarCamSlerp.Value;
             textBoxCamSlerp.Text = trackBarCamSlerp.Value.ToString();
+
+            labelCamSetSlerp.Refresh();
+            textBoxCamSlerp.Refresh();
+
             Imports.Stack_PushString("slerpRot");
             Imports.Extern_SetSetting(trackBarCamSlerp.Value);
         }
@@ -399,6 +419,9 @@ namespace SpacerUnion
         private void trackBarSpeedPreview_ValueChanged(object sender, EventArgs e)
         {
             labelSpeedPreview.Text = Localizator.Get("labelSpeedPreview") + ": " + trackBarSpeedPreview.Value;
+
+            labelSpeedPreview.Refresh();
+
             Imports.Stack_PushString("previewSpeed");
             Imports.Extern_SetSetting(trackBarSpeedPreview.Value);
         }

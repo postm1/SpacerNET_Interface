@@ -145,6 +145,7 @@ namespace SpacerUnion
         private void trackBarRadius_ValueChanged(object sender, EventArgs e)
         {
             labelRadius.Text = Localizator.Get("labelRadius") + ": " + trackBarRadius.Value;
+            labelRadius.Refresh();
 
             Imports.Stack_PushString("vobListRadius");
 

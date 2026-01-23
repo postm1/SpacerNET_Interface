@@ -62,6 +62,10 @@ namespace SpacerUnion.Windows
         {
             labelVobTrans.Text = Localizator.Get("WIN_CONTROLSET_TRANSSPEED") + trackBarVobTransSpeed.Value;
             textBoxVobTrans.Text = trackBarVobTransSpeed.Value.ToString();
+
+            labelVobTrans.Refresh();
+            textBoxVobTrans.Refresh();
+
             Imports.Stack_PushString("vobTransSpeed");
             Imports.Extern_SetSetting(trackBarVobTransSpeed.Value);
             
@@ -71,6 +75,10 @@ namespace SpacerUnion.Windows
         {
             labelVobRot.Text = Localizator.Get("WIN_CONTROLSET_ROTSPEED") + trackBarVobRotSpeed.Value;
             textBoxVobRot.Text = trackBarVobRotSpeed.Value.ToString();
+
+            labelVobRot.Refresh();
+            textBoxVobRot.Refresh();
+
             Imports.Stack_PushString("vobRotSpeed");
             Imports.Extern_SetSetting(trackBarVobRotSpeed.Value);
             
