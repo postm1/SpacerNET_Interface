@@ -67,7 +67,8 @@ namespace SpacerUnion.Common
         ERROR_REPORT_PROBLEM_TYPE_WP_NO_TOT,
         ERROR_REPORT_PROBLEM_TYPE_MOBCONT_NOT_CLOSED,
         ERROR_REPORT_PROBLEM_TYPE_MOBCONT_CLOSED_NO_KEY,
-        ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_NOINST
+        ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_NOINST,
+        ERROR_REPORT_PROBLEM_TYPE_WP_HAS_CHILDREN
 
     }
 
@@ -169,7 +170,7 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MOBCONT_NOT_CLOSED: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_MOBCONT_NOT_CLOSED"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MOBCONT_CLOSED_NO_KEY: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_MOBCONT_CLOSED_NO_KEY"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_NOINST:result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_NOINST"); break;
-
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_WP_HAS_CHILDREN: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_WP_HAS_CHILDREN"); break;
                     
 
                     //ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_COLLISION NOT USED?   
@@ -620,6 +621,15 @@ namespace SpacerUnion.Common
                         result = String.Format(stringFormat, vobName);
                     };
                     break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_WP_HAS_CHILDREN:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_WP_HAS_CHILDREN") + " {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+                    
             }
 
 

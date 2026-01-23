@@ -994,6 +994,8 @@ namespace SpacerUnion.Common
 
             AddNewWord("MSG_ERR_NO_SUCH_VAR_ATALL", new List<string> { "Ошибка. Вы используете строку для 'focusname', которой не существует в скриптах: ", "Error: you use string for 'focusname' which does not exist in scripts: ", "", "", "" });
             AddNewWord("MSG_ERR_FOCUSNAME_BAD_TYPE", new List<string> { "Ошибка. Вы используете константу для 'focusname', которая в скриптах вообще не STRING (ошибка в типе данных): ", "Error: you use string for 'focusname' which IS NOT a string in scripts (type error): ", "", "", "" });
+            AddNewWord("ERROR_REPORT_PROBLEM_TYPE_WP_HAS_CHILDREN", new List<string> { "У zCVobWaypoint есть вложенные вобы! Их быть не должно.", "zCVobWaypoint has child vob(s) inside itself. It should not be", "", "", "" });
+            
         }
 
 
