@@ -17,6 +17,12 @@ namespace SpacerUnion.Windows
         public GrassWin()
         {
             InitializeComponent();
+
+            this.DoubleBuffered = true;
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                          ControlStyles.AllPaintingInWmPaint |
+                          ControlStyles.UserPaint, true);
+
             UpdateLang();
 
             comboBoxVisualCamAlign.SelectedIndex = 0;
@@ -49,6 +55,9 @@ namespace SpacerUnion.Windows
         {
             this.labelWinGrassMinRadius.Text = Localizator.Get("WIN_GRASS_MINRADIUS") + trackBarWinGrassMinRadius.Value;
             this.labelWinGrassVertOffset.Text = Localizator.Get("WIN_GRASS_VERTOFFSET") + trackBarGrassWinVertical.Value;
+
+            labelWinGrassMinRadius.Refresh();
+            labelWinGrassVertOffset.Refresh();
         }
         public void UpdateLang()
         {
@@ -174,10 +183,12 @@ namespace SpacerUnion.Windows
 
             var track = sender as TrackBar;
 
+            this.UpdateProgressBarText();
+
             Imports.Stack_PushString("grassMinDist");
             Imports.Extern_SetSetting(track.Value);
 
-            this.UpdateProgressBarText();
+           
         }
 
         private void textBoxGrassWinModel_TextChanged(object sender, EventArgs e)
@@ -211,11 +222,12 @@ namespace SpacerUnion.Windows
 
             var track = sender as TrackBar;
 
+            this.UpdateProgressBarText();
 
             Imports.Stack_PushString("grassVertOffset");
             Imports.Extern_SetSetting(track.Value);
 
-            this.UpdateProgressBarText();
+           
         }
 
         public void OnSettingsChanged()
