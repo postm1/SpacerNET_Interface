@@ -117,10 +117,10 @@
             // trackBarGrassWinVertical
             // 
             this.trackBarGrassWinVertical.Location = new System.Drawing.Point(12, 163);
-            this.trackBarGrassWinVertical.Maximum = 300;
-            this.trackBarGrassWinVertical.Minimum = -300;
+            this.trackBarGrassWinVertical.Maximum = 500;
+            this.trackBarGrassWinVertical.Minimum = -500;
             this.trackBarGrassWinVertical.Name = "trackBarGrassWinVertical";
-            this.trackBarGrassWinVertical.Size = new System.Drawing.Size(179, 45);
+            this.trackBarGrassWinVertical.Size = new System.Drawing.Size(231, 45);
             this.trackBarGrassWinVertical.TabIndex = 5;
             this.trackBarGrassWinVertical.Value = -250;
             this.trackBarGrassWinVertical.ValueChanged += new System.EventHandler(this.trackBarGrassWinVertical_ValueChanged);
@@ -418,7 +418,7 @@
             // checkBoxGrassWinAutoHeightOffset
             // 
             this.checkBoxGrassWinAutoHeightOffset.AutoSize = true;
-            this.checkBoxGrassWinAutoHeightOffset.Location = new System.Drawing.Point(213, 142);
+            this.checkBoxGrassWinAutoHeightOffset.Location = new System.Drawing.Point(249, 142);
             this.checkBoxGrassWinAutoHeightOffset.Name = "checkBoxGrassWinAutoHeightOffset";
             this.checkBoxGrassWinAutoHeightOffset.Size = new System.Drawing.Size(109, 17);
             this.checkBoxGrassWinAutoHeightOffset.TabIndex = 18;
@@ -433,9 +433,9 @@
             this.comboBoxAutoOffset.Items.AddRange(new object[] {
             "MIDDLE (GRASS)",
             "BOTTOM (USUAL OBJECT)"});
-            this.comboBoxAutoOffset.Location = new System.Drawing.Point(213, 165);
+            this.comboBoxAutoOffset.Location = new System.Drawing.Point(249, 165);
             this.comboBoxAutoOffset.Name = "comboBoxAutoOffset";
-            this.comboBoxAutoOffset.Size = new System.Drawing.Size(199, 21);
+            this.comboBoxAutoOffset.Size = new System.Drawing.Size(163, 21);
             this.comboBoxAutoOffset.TabIndex = 19;
             this.comboBoxAutoOffset.SelectedIndexChanged += new System.EventHandler(this.comboBoxAutoOffset_SelectedIndexChanged);
             // 

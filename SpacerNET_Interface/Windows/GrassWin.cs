@@ -45,16 +45,19 @@ namespace SpacerUnion.Windows
             
         }
 
+        public void UpdateProgressBarText()
+        {
+            this.labelWinGrassMinRadius.Text = Localizator.Get("WIN_GRASS_MINRADIUS") + trackBarWinGrassMinRadius.Value;
+            this.labelWinGrassVertOffset.Text = Localizator.Get("WIN_GRASS_VERTOFFSET") + trackBarGrassWinVertical.Value;
+        }
         public void UpdateLang()
         {
 
             
             this.Text = Localizator.Get("WIN_GRASS_TITLE");
 
-            this.labelWinGrassMinRadius.Text = Localizator.Get("WIN_GRASS_MINRADIUS") + trackBarWinGrassMinRadius.Value;
-            this.labelWinGrassVertOffset.Text = Localizator.Get("WIN_GRASS_VERTOFFSET") + trackBarGrassWinVertical.Value;
+            UpdateProgressBarText();
 
-            
             this.labelGrassWinVobName.Text = Localizator.Get("WIN_GRASS_VOBMODEL");
             this.checkBoxGrassWinCopyName.Text = Localizator.Get("WIN_GRASS_COPYNAME");
             this.checkBoxGrassWinRemove.Text = Localizator.Get("WIN_GRASS_REMOVE");
@@ -82,6 +85,8 @@ namespace SpacerUnion.Windows
             this.comboBoxAutoOffset.Items.Add(Localizator.Get("WIN_GRASS_AUTO_HEIGHT_TYPE_6"));
             this.comboBoxAutoOffset.Items.Add(Localizator.Get("WIN_GRASS_AUTO_HEIGHT_TYPE_7"));
             this.comboBoxAutoOffset.Items.Add(Localizator.Get("WIN_GRASS_AUTO_HEIGHT_TYPE_8"));
+
+           
 
             this.comboBoxAutoOffset.SelectedIndex = 0;
         }
@@ -172,7 +177,7 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("grassMinDist");
             Imports.Extern_SetSetting(track.Value);
 
-            this.UpdateLang();
+            this.UpdateProgressBarText();
         }
 
         private void textBoxGrassWinModel_TextChanged(object sender, EventArgs e)
@@ -210,7 +215,7 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("grassVertOffset");
             Imports.Extern_SetSetting(track.Value);
 
-            this.UpdateLang();
+            this.UpdateProgressBarText();
         }
 
         public void OnSettingsChanged()
