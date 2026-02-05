@@ -35,6 +35,8 @@
             this.trackBarRadius = new System.Windows.Forms.TrackBar();
             this.labelRadius = new System.Windows.Forms.Label();
             this.panelVobList = new System.Windows.Forms.Panel();
+            this.textBoxVobVisualHighlight = new System.Windows.Forms.TextBox();
+            this.checkBoxHightlightVisualVob = new System.Windows.Forms.CheckBox();
             this.checkBoxRenderOnlySelectedType = new System.Windows.Forms.CheckBox();
             this.labelFilterVobsPick = new System.Windows.Forms.Label();
             this.comboBoxFilterPick = new System.Windows.Forms.ComboBox();
@@ -42,8 +44,6 @@
             this.btnRemoveContainerVobs = new System.Windows.Forms.Button();
             this.comboBoxVobList = new System.Windows.Forms.ComboBox();
             this.panelVobListBottom = new System.Windows.Forms.Panel();
-            this.checkBoxHightlightVisualVob = new System.Windows.Forms.CheckBox();
-            this.textBoxVobVisualHighlight = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRadius)).BeginInit();
             this.panelVobList.SuspendLayout();
@@ -117,6 +117,25 @@
             this.panelVobList.Name = "panelVobList";
             this.panelVobList.Size = new System.Drawing.Size(303, 166);
             this.panelVobList.TabIndex = 7;
+            // 
+            // textBoxVobVisualHighlight
+            // 
+            this.textBoxVobVisualHighlight.Location = new System.Drawing.Point(3, 51);
+            this.textBoxVobVisualHighlight.Name = "textBoxVobVisualHighlight";
+            this.textBoxVobVisualHighlight.Size = new System.Drawing.Size(291, 20);
+            this.textBoxVobVisualHighlight.TabIndex = 12;
+            this.textBoxVobVisualHighlight.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // checkBoxHightlightVisualVob
+            // 
+            this.checkBoxHightlightVisualVob.AutoSize = true;
+            this.checkBoxHightlightVisualVob.Location = new System.Drawing.Point(3, 31);
+            this.checkBoxHightlightVisualVob.Name = "checkBoxHightlightVisualVob";
+            this.checkBoxHightlightVisualVob.Size = new System.Drawing.Size(145, 17);
+            this.checkBoxHightlightVisualVob.TabIndex = 11;
+            this.checkBoxHightlightVisualVob.Text = "Highlight vobs with visual";
+            this.checkBoxHightlightVisualVob.UseVisualStyleBackColor = true;
+            this.checkBoxHightlightVisualVob.CheckedChanged += new System.EventHandler(this.checkBoxHightlightVisualVob_CheckedChanged);
             // 
             // checkBoxRenderOnlySelectedType
             // 
@@ -200,7 +219,8 @@
             "Invisible only",
             "zCVobLight",
             "PFX (Particles)",
-            "zCZone (Zones)"});
+            "zCZone (Zones)",
+            "oCZoneMusic"});
             this.comboBoxVobList.Location = new System.Drawing.Point(3, 99);
             this.comboBoxVobList.Name = "comboBoxVobList";
             this.comboBoxVobList.Size = new System.Drawing.Size(122, 21);
@@ -216,25 +236,6 @@
             this.panelVobListBottom.Name = "panelVobListBottom";
             this.panelVobListBottom.Size = new System.Drawing.Size(303, 71);
             this.panelVobListBottom.TabIndex = 8;
-            // 
-            // checkBoxHightlightVisualVob
-            // 
-            this.checkBoxHightlightVisualVob.AutoSize = true;
-            this.checkBoxHightlightVisualVob.Location = new System.Drawing.Point(3, 31);
-            this.checkBoxHightlightVisualVob.Name = "checkBoxHightlightVisualVob";
-            this.checkBoxHightlightVisualVob.Size = new System.Drawing.Size(145, 17);
-            this.checkBoxHightlightVisualVob.TabIndex = 11;
-            this.checkBoxHightlightVisualVob.Text = "Highlight vobs with visual";
-            this.checkBoxHightlightVisualVob.UseVisualStyleBackColor = true;
-            this.checkBoxHightlightVisualVob.CheckedChanged += new System.EventHandler(this.checkBoxHightlightVisualVob_CheckedChanged);
-            // 
-            // textBoxVobVisualHighlight
-            // 
-            this.textBoxVobVisualHighlight.Location = new System.Drawing.Point(3, 51);
-            this.textBoxVobVisualHighlight.Name = "textBoxVobVisualHighlight";
-            this.textBoxVobVisualHighlight.Size = new System.Drawing.Size(291, 20);
-            this.textBoxVobVisualHighlight.TabIndex = 12;
-            this.textBoxVobVisualHighlight.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // VobListForm
             // 
