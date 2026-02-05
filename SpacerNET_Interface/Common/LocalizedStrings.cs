@@ -235,6 +235,9 @@ namespace SpacerUnion.Common
             AddNewWord("VOB_INSERT", new List<string> { "Вставить воб", "Insert vob", "Füge Vob ein", "Wklej voba", "Vložit Vob" });
             AddNewWord("VOB_CUT", new List<string> { "Вырезать воб (смена родителя)", "Cut vob (parent change)", "Schneide Vob aus (Elternwechsel)", "Wytnij voba (Zmiana nadrzędnego)", "Vyjmout vob (Změna rodiče)" });
             AddNewWord("VOB_FLOOR", new List<string> { "Прижать воб к полу", "Floor the vob", "Den Vob auf den Boden setzen", "Umieść voba na podłodze", "Umístit vob na podlahu" });
+            AddNewWord("VOB_ALIGN_TO_GROUND", new List<string> { "Выровнять воб по нормали подложки", "Align vob to ground normal", "Vob an der Bodennormalen ausrichten", "Wyrównaj voba do normalnej podłoża", "Zarovnat vob na normálu povrchu" });
+            AddNewWord("VOB_ALIGNED_TO_GROUND", new List<string> { "Воб выровнен по нормали подложки", "Vob aligned to ground normal", "Vob an der Bodennormalen ausgerichtet", "Vob wyrównany do normalnej podłoża", "Vob zarovnán na normálu povrchu" });
+            AddNewWord("VOB_ALIGN_TO_GROUND_FAILED", new List<string> { "Не удалось выровнять воб по нормали подложки", "Failed to align vob to ground normal", "Fehler beim Ausrichten des Vobs an der Bodennormalen", "Nie udało się wyrównać voba do normalnej podłoża", "Selhalo zarovnání vobu na normálu povrchu" });
             AddNewWord("VOB_RESET_AXIS", new List<string> { "Сбросить направление воба по осям", "Reset axes of the vob", "Die Achse vom Vob resetten", "Zresetuj osie voba", "Resetování osy vobu" });
             AddNewWord("VOB_DELETE", new List<string> { "Удалить воб", "Remove vob", "Vob entfernen", "Usuń voba", "Odstranit vob" });
             AddNewWord("VOB_TRANSLATE", new List<string> { "Инструмент перемещение", "Tool moving", "Bewegungswerkzeug", "Narzędzie poruszania", "Nástroj pohybu" });

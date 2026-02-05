@@ -427,6 +427,9 @@ namespace SpacerUnion.Windows
             row = new string[] { "VOB_FLOOR", Localizator.Get("VOB_FLOOR"), "" };
             dataGridKeys.Rows.Add(row);
 
+            row = new string[] { "VOB_ALIGN_TO_GROUND", Localizator.Get("VOB_ALIGN_TO_GROUND"), "" };
+            dataGridKeys.Rows.Add(row);
+
 
 
             row = new string[] { "VOB_RESET_AXIS", Localizator.Get("VOB_RESET_AXIS"), "" };
