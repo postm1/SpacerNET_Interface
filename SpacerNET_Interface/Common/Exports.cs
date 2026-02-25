@@ -258,7 +258,8 @@ namespace SpacerUnion.Common
         [DllExport]
         public static void ShowSkip3DSWarning()
         {
-            SpacerNET.infoWin.AddText(Localizator.Get("WARNING_3DS_FAST_MODE"), Color.Red);
+            // don't need it anymore
+            //SpacerNET.infoWin.AddText(Localizator.Get("WARNING_3DS_FAST_MODE"), Color.Red);
 
         }
 
