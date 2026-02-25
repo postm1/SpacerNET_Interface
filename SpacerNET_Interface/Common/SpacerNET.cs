@@ -47,7 +47,7 @@ namespace SpacerUnion
         static List<Form> windowsToHideList = null;
 
         // Список всех окон
-        static List<Form> windowsList = null;
+        public static List<Form> windowsList = null;
 
         public static bool isInit = false;
 

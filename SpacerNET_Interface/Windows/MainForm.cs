@@ -2104,6 +2104,22 @@ namespace SpacerUnion
                 
             }
 
+            // additional check: is the mouse over a visible tool-window?
+            if (result == 0)
+            {
+                foreach (Form window in SpacerNET.windowsList)
+                {
+                    if (window.Visible)
+                    {
+                        Rectangle windowRect = new Rectangle(window.Location, window.Size);
+                        if (windowRect.Contains(Cursor.Position))
+                        {
+                            result = 1;
+                            break;
+                        }
+                    }
+                }
+            }
 
             return result;
         }
