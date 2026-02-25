@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -339,6 +340,17 @@ namespace SpacerUnion
             bool result = dialogResult == DialogResult.Yes;
 
             Imports.Stack_PushInt(Convert.ToInt32(result));
+        }
+
+        public static void PrintTimeInfo(string messageKey, long ticks, string loadTimeFormat = "mm\\:ss\\.fff", string currentTimeFormat = "HH:mm:ss")
+        {
+
+            string loadTime = string.Format("{0:mm\\:ss\\.fff}", TimeSpan.FromTicks(ticks)); // только минуты:секунды.миллисекунды
+            string currentTime = " | " + Localizator.Get("COMMON_TIME_SYSTEM") + DateTime.Now.ToString("HH:mm:ss") + " ⏱";
+            string message = $"⏱  {Localizator.Get(messageKey)} {loadTime}{currentTime}";
+
+            SpacerNET.form.AddText(message, Color.Green);
+            ConsoleEx.WriteLineGreen(message);
         }
 
     }

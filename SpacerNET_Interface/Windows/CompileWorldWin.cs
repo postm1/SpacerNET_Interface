@@ -92,10 +92,7 @@ namespace SpacerUnion
 
             Imports.Extern_CompileWorld(type);
 
-            string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-            SpacerNET.form.AddText(Localizator.Get("WIN_COMPWORLD_TIME") + " (" + timeSpend + ")", Color.Green);
-
-
+            Utils.PrintTimeInfo("WIN_COMPWORLD_TIME", s.Elapsed.Ticks);
             // SpacerNET.form.AddText(Localizator.Get("WIN_COMPWORLD_LEVELCOMPO"));
 
             OnWorldCompile();

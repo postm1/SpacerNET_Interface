@@ -361,11 +361,8 @@ namespace SpacerUnion
             s.Stop();
 
 
-           
+            Utils.PrintTimeInfo("loadZenTime", s.Elapsed.Ticks);
 
-            string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-            SpacerNET.form.AddText(Localizator.Get("loadZenTime") + " (" + timeSpend + ")", Color.Green);
-            ConsoleEx.WriteLineGreen(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
             SpacerNET.form.toolStripMenuItemMerge.Enabled = false;
             SpacerNET.form.saveZenToolStripMenuItem.Enabled = true;
             SpacerNET.form.saveUncZenToolStrip.Enabled = true;
@@ -462,9 +459,8 @@ namespace SpacerUnion
                 MainMenuInterfaceToggle(true);
                 s.Stop();
 
-                string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-                SpacerNET.form.AddText(Localizator.Get("loadZenTime") + " (" + timeSpend + ")", Color.Green);
-                ConsoleEx.WriteLineGreen(Localizator.Get("loadZenTime") + " (" + timeSpend + ")");
+
+                Utils.PrintTimeInfo("loadZenTime", s.Elapsed.Ticks);
 
 
                 toolStripMenuItemMerge.Enabled = false;
@@ -759,9 +755,8 @@ namespace SpacerUnion
 
                 s.Stop();
 
-                string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-                SpacerNET.form.AddText(Localizator.Get("saveZenTime") + " (" + timeSpend + ")", Color.Green);
-                ConsoleEx.WriteLineGreen(Localizator.Get("saveZenTime") + " (" + timeSpend + ")");
+                Utils.PrintTimeInfo("saveZenTime", s.Elapsed.Ticks);
+
 
             }
             
@@ -872,8 +867,8 @@ namespace SpacerUnion
 
                     s.Stop();
 
-                    string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-                    SpacerNET.form.AddText(Localizator.Get("loadMeshTime") + " (" + timeSpend + ")");
+                    Utils.PrintTimeInfo("loadMeshTime", s.Elapsed.Ticks);
+
                 }
 
 
@@ -882,9 +877,8 @@ namespace SpacerUnion
 
                 if (countLoaded > 1)
                 {
-                    string timeSpendAll = string.Format("{0:HH:mm:ss.fff}", new DateTime(sAll.Elapsed.Ticks));
                     SpacerNET.form.AddText("==============");
-                    SpacerNET.form.AddText(Localizator.Get("loadMeshTimeAll") + " (" + timeSpendAll + ")", Color.Green);
+                    Utils.PrintTimeInfo("loadMeshTimeAll", s.Elapsed.Ticks);
                 }
                 
 
@@ -971,8 +965,7 @@ namespace SpacerUnion
 
                 MainMenuInterfaceToggle(true);
 
-                string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(sAll.Elapsed.Ticks));
-                SpacerNET.form.AddText(Localizator.Get("mergeZenTime") + " (" + timeSpend + ")", Color.Green);
+                Utils.PrintTimeInfo("mergeZenTime", sAll.Elapsed.Ticks);
 
 
                 toolStripMenuItemMerge.Enabled = true;
@@ -1515,17 +1508,16 @@ namespace SpacerUnion
 
                     s.Stop();
 
-                    string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-                    SpacerNET.form.AddText(Localizator.Get("loadMeshTime") + " (" + timeSpend + ")");
+
+                    Utils.PrintTimeInfo("loadMeshTime", s.Elapsed.Ticks);
                 }
 
 
                 MainMenuInterfaceToggle(true);
                 sAll.Stop();
 
-                string timeSpendAll = string.Format("{0:HH:mm:ss.fff}", new DateTime(sAll.Elapsed.Ticks));
                 SpacerNET.form.AddText("==============");
-                SpacerNET.form.AddText(Localizator.Get("loadMeshTimeAll") + " (" + timeSpendAll + ")", Color.Green);
+                Utils.PrintTimeInfo("loadMeshTimeAll", sAll.Elapsed.Ticks);
 
                 Imports.Stack_PushString("CS_IAI_ME_ME");
                 Imports.Extern_PlaySound();
@@ -1752,9 +1744,8 @@ namespace SpacerUnion
 
                 s.Stop();
 
-                string timeSpend = string.Format("{0:HH:mm:ss.fff}", new DateTime(s.Elapsed.Ticks));
-                SpacerNET.form.AddText(Localizator.Get("saveVobsTime") + " (" + timeSpend + ")", Color.Green);
-                ConsoleEx.WriteLineGreen(Localizator.Get("saveVobsTime") + " (" + timeSpend + ")");
+                Utils.PrintTimeInfo("saveVobsTime", s.Elapsed.Ticks);
+
 
             }
         }

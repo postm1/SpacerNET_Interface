@@ -183,8 +183,8 @@ namespace SpacerUnion
             this.Enabled = true;
             s.Stop();
 
-            string timeSpend = string.Format("{0:HH:mm:ss}", new DateTime(s.Elapsed.Ticks));
-            SpacerNET.form.AddText(Localizator.Get("WIN_COMPLIGHT_TIME") + " (" + timeSpend + ")", Color.Green);
+
+            Utils.PrintTimeInfo("WIN_COMPLIGHT_TIME", s.Elapsed.Ticks);
 
         }
 
