@@ -161,7 +161,7 @@ namespace SpacerUnion
 
             Imports.Stack_PushString("g1SkipLod");
 
-            checkBoxG1NOLOD.Enabled = Convert.ToBoolean(Imports.Extern_GetSetting());
+            checkBoxG1NOLOD.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
         }
 
