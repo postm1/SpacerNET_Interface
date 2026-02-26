@@ -34,7 +34,9 @@
             this.buttonCompileCancel = new System.Windows.Forms.Button();
             this.buttonCompileWorld = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBoxG1NOLOD = new System.Windows.Forms.CheckBox();
             this.groupBoxTypeLoc.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxTypeLoc
@@ -94,11 +96,23 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.checkBoxG1NOLOD);
             this.groupBox2.Location = new System.Drawing.Point(10, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(158, 67);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
+            // 
+            // checkBoxG1NOLOD
+            // 
+            this.checkBoxG1NOLOD.AutoSize = true;
+            this.checkBoxG1NOLOD.Location = new System.Drawing.Point(7, 19);
+            this.checkBoxG1NOLOD.Name = "checkBoxG1NOLOD";
+            this.checkBoxG1NOLOD.Size = new System.Drawing.Size(65, 17);
+            this.checkBoxG1NOLOD.TabIndex = 0;
+            this.checkBoxG1NOLOD.Text = "No LOD";
+            this.checkBoxG1NOLOD.UseVisualStyleBackColor = true;
+            this.checkBoxG1NOLOD.CheckedChanged += new System.EventHandler(this.checkBoxG1NOLOD_CheckedChanged);
             // 
             // CompileWorldWin
             // 
@@ -119,9 +133,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "World compilation";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CompileWorldWin_FormClosing);
+            this.Shown += new System.EventHandler(this.CompileWorldWin_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CompileWorldWin_KeyDown);
             this.groupBoxTypeLoc.ResumeLayout(false);
             this.groupBoxTypeLoc.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -134,5 +151,6 @@
         private System.Windows.Forms.Button buttonCompileCancel;
         private System.Windows.Forms.Button buttonCompileWorld;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox checkBoxG1NOLOD;
     }
 }

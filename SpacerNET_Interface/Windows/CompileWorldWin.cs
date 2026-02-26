@@ -129,8 +129,9 @@ namespace SpacerUnion
                 }
             }
 
-     
-            
+            Imports.Stack_PushString("g1SkipLod");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxG1NOLOD.Enabled));
+
         }
 
         public void LoadSettings()
@@ -150,6 +151,21 @@ namespace SpacerUnion
         }
 
         private void radioButtonOutdoor_CheckedChanged(object sender, EventArgs e)
+        {
+            ApplySettings();
+        }
+
+        private void CompileWorldWin_Shown(object sender, EventArgs e)
+        {
+            checkBoxG1NOLOD.Visible = Convert.ToBoolean(Imports.Extern_IsGothic_1());
+
+            Imports.Stack_PushString("g1SkipLod");
+
+            checkBoxG1NOLOD.Enabled = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+        }
+
+        private void checkBoxG1NOLOD_CheckedChanged(object sender, EventArgs e)
         {
             ApplySettings();
         }
