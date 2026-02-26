@@ -135,6 +135,7 @@ namespace SpacerUnion.Common
             AddNewWord("TOOL_ROT", new List<string> { "Выбран инструмент вращение", "Tool: rotation", "Werkzeug: Rotieren", "Narzędzie: Rotacja", "Nástroj: rotace" });
             AddNewWord("TOOL_UNSELECT", new List<string> { "Выделение воба снято", "Vob selection cancel", "Vobauswahl aufgehoben", "Wybranie voba zostało anulowane", "Výběr vobu byl zrušen" });
             AddNewWord("TOOL_FLOOR", new List<string> { "Прижимание воба к полу", "Try to floor the vob", "Vob am Boden fixieren", "Spróbuj postawić Voba na podłodze", "Zkusit položit Vob na podlahu" });
+            AddNewWord("TOOL_FLOOR_IGNORE_BBOX", new List<string> { "Прижимание воба к полу (игнорировать BBox)", "Try to floor the vob (ignore BBox)", "Vob am Boden fixieren (BBox ignorieren)", "Spróbuj postawić Voba na podłodze (ignoruj BBox)", "Zkusit položit Vob na podlahu (ignorovat BBox)" });
             AddNewWord("UNION_LIGHT_RAD_INC", new List<string> { "Радиус освещения увеличен", "Light radius increased", "Lichtradius erhöht", "Promień światła został zwiększony", "Rozsah světla zvýšen" });
             AddNewWord("UNION_LIGHT_RAD_DEC", new List<string> { "Радиус освещения уменьшен", "Light radius decreased", "Lichtradius verringert", "Promień światła został zmniejszony", "Rozsah světla snížen" });
             AddNewWord("UNION_LIGHT_RAD_ZERO", new List<string> { "Радиус освещения сброшен в 0", "Light radius set to 0", "Lichtradius auf 0 gesetzt", "Promień światła został ustawiony na 0", "Rozsah světla nastaven na 0" });
@@ -235,6 +236,10 @@ namespace SpacerUnion.Common
             AddNewWord("VOB_INSERT", new List<string> { "Вставить воб", "Insert vob", "Füge Vob ein", "Wklej voba", "Vložit Vob" });
             AddNewWord("VOB_CUT", new List<string> { "Вырезать воб (смена родителя)", "Cut vob (parent change)", "Schneide Vob aus (Elternwechsel)", "Wytnij voba (Zmiana nadrzędnego)", "Vyjmout vob (Změna rodiče)" });
             AddNewWord("VOB_FLOOR", new List<string> { "Прижать воб к полу", "Floor the vob", "Den Vob auf den Boden setzen", "Umieść voba na podłodze", "Umístit vob na podlahu" });
+            AddNewWord("VOB_FLOOR_IGNORE_BBOX", new List<string> { "Прижать воб к полу (игнорировать BBox)", "Floor the vob (ignore BBox)", "Den Vob auf den Boden setzen (BBox ignorieren)", "Umieść voba na podłodze (ignoruj BBox)", "Umístit vob na podlahu (ignorovat BBox)" });
+            AddNewWord("VOB_ALIGN_TO_GROUND", new List<string> { "Выровнять воб по нормали подложки", "Align vob to ground normal", "Vob an der Bodennormalen ausrichten", "Wyrównaj voba do normalnej podłoża", "Zarovnat vob na normálu povrchu" });
+            AddNewWord("VOB_ALIGNED_TO_GROUND", new List<string> { "Воб выровнен по нормали подложки", "Vob aligned to ground normal", "Vob an der Bodennormalen ausgerichtet", "Vob wyrównany do normalnej podłoża", "Vob zarovnán na normálu povrchu" });
+            AddNewWord("VOB_ALIGN_TO_GROUND_FAILED", new List<string> { "Не удалось выровнять воб по нормали подложки", "Failed to align vob to ground normal", "Fehler beim Ausrichten des Vobs an der Bodennormalen", "Nie udało się wyrównać voba do normalnej podłoża", "Selhalo zarovnání vobu na normálu povrchu" });
             AddNewWord("VOB_RESET_AXIS", new List<string> { "Сбросить направление воба по осям", "Reset axes of the vob", "Die Achse vom Vob resetten", "Zresetuj osie voba", "Resetování osy vobu" });
             AddNewWord("VOB_DELETE", new List<string> { "Удалить воб", "Remove vob", "Vob entfernen", "Usuń voba", "Odstranit vob" });
             AddNewWord("VOB_TRANSLATE", new List<string> { "Инструмент перемещение", "Tool moving", "Bewegungswerkzeug", "Narzędzie poruszania", "Nástroj pohybu" });
