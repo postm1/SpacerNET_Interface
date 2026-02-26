@@ -997,7 +997,7 @@ namespace SpacerUnion.Common
             AddNewWord("ERROR_REPORT_PROBLEM_TYPE_WP_HAS_CHILDREN", new List<string> { "У zCVobWaypoint есть вложенные вобы! Их быть не должно.", "zCVobWaypoint has child vob(s) inside itself. It should not be", "", "", "" });
 
 
-            AddNewWord("COMMON_TIME_SYSTEM", new List<string> { "Текущее время: ", "Current time: ", "Aktuelle Zeit: ", "", "" });
+            AddNewWord("COMMON_TIME_SYSTEM", new List<string> { "Текущее время: ", "Current time: ", "Aktuelle Zeit: ", "Aktualny czas: ", "" });
 
             
         }

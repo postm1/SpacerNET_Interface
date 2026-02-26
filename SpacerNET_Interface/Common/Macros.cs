@@ -498,6 +498,8 @@ namespace SpacerUnion.Common
 
                 isMacrosRun = false;
 
+                Utils.PrintTimeInfoSimple();
+
                 Application.DoEvents();
             }
         }

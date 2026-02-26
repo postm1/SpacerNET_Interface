@@ -353,6 +353,16 @@ namespace SpacerUnion
             ConsoleEx.WriteLineGreen(message);
         }
 
+        public static void PrintTimeInfoSimple(string loadTimeFormat = "mm\\:ss\\.fff", string currentTimeFormat = "HH:mm:ss")
+        {
+
+            string currentTime = Localizator.Get("COMMON_TIME_SYSTEM") + DateTime.Now.ToString("HH:mm:ss") + " ⏱";
+            string message = $"⏱  {currentTime}";
+
+            SpacerNET.form.AddText(message, Color.Green);
+            ConsoleEx.WriteLineGreen(message);
+        }
+
     }
 
     public static class Helper
