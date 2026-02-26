@@ -32,7 +32,10 @@ namespace SpacerUnion.Common
         MT_COMPILE_LIGHT_VERTEX,
         MT_COMPILE_LIGHT_LOW,
         MT_COMPILE_LIGHT_MID,
-        MT_COMPILE_LIGHT_HIGH
+        MT_COMPILE_LIGHT_HIGH,
+
+        MT_COMPILE_WORLD_OUTDOOR_NOLOD,
+        MT_COMPILE_WORLD_INDOOR_NOLOD
 
     }
 
@@ -255,6 +258,16 @@ namespace SpacerUnion.Common
                         else if (worldType == "INDOOR")
                         {
                             tempEntry.actions.Add(MacrosType.MT_COMPILE_WORLD_INDOOR);
+                            tempEntry.rawValues.Add(str);
+                        }
+                        else if (worldType == "OUTDOOR_NOLOD")
+                        {
+                            tempEntry.actions.Add(MacrosType.MT_COMPILE_WORLD_OUTDOOR_NOLOD);
+                            tempEntry.rawValues.Add(str);
+                        }
+                        else if (worldType == "INDOOR_NOLOD")
+                        {
+                            tempEntry.actions.Add(MacrosType.MT_COMPILE_WORLD_INDOOR_NOLOD);
                             tempEntry.rawValues.Add(str);
                         }
                         else
