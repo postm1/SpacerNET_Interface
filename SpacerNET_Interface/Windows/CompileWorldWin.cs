@@ -130,7 +130,7 @@ namespace SpacerUnion
             }
 
             Imports.Stack_PushString("g1SkipLod");
-            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxG1NOLOD.Enabled));
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxG1NOLOD.Checked));
 
         }
 
