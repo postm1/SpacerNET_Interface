@@ -1004,7 +1004,7 @@ namespace SpacerUnion.Common
 
             AddNewWord("COMMON_TIME_SYSTEM", new List<string> { "Текущее время: ", "Current time: ", "Aktuelle Zeit: ", "Aktualny czas: ", "" });
 
-            
+            AddNewWord("COMMON_CHANGES_WERE_MADE", new List<string> { "(Вы внесли изменения в текущий открытый ZEN)", "(You have made some changes in current ZEN)", "(Du hast einige Änderungen in der aktuellen ZEN vorgenommen)", "(Wprowadzono pewne zmiany w obecnym ZENie)", "" });
         }
 
 
