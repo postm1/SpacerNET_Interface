@@ -410,9 +410,45 @@ namespace SpacerUnion
         private const int TVM_SETEXTENDEDSTYLE = 0x1100 + 44;
         private const int TVM_GETEXTENDEDSTYLE = 0x1100 + 45;
         private const int TVS_EX_DOUBLEBUFFER = 0x0004;
+        private const int WM_SETREDRAW = 0x0b;
 
         [DllImport("user32.dll")]
         private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
+
+        static void BeginUpdateFast(TreeView tree)
+        {
+            SendMessage(tree.Handle, WM_SETREDRAW, IntPtr.Zero, IntPtr.Zero);
+        }
+
+        static  void EndUpdateFast(TreeView tree)
+        {
+            SendMessage(tree.Handle, WM_SETREDRAW, new IntPtr(1), IntPtr.Zero);
+            tree.Refresh();
+        }
+
+        static void SortNodes(TreeNodeCollection nodes)
+        {
+            if (nodes.Count <= 1)
+                return;
+
+            var list = nodes.Cast<TreeNode>().ToList();
+            list.Sort((a, b) => string.Compare(a.Text, b.Text, StringComparison.Ordinal));
+
+            nodes.Clear();
+            nodes.AddRange(list.ToArray());
+        }
+
+        public static void SortWholeTree(TreeView tree)
+        {
+            BeginUpdateFast(tree);
+
+            SortNodes(tree.Nodes);
+
+            foreach (TreeNode node in tree.Nodes)
+                SortNodes(node.Nodes);
+
+            EndUpdateFast(tree);
+        }
     }
 
     public class ExtMap
@@ -427,7 +463,9 @@ namespace SpacerUnion
         }
     }
 
-    
 
+    
 }
+
+
 

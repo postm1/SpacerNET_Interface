@@ -1419,7 +1419,13 @@ namespace SpacerUnion
                 return;
             }
 
-            globalTree.Sort();
+            var sw = Stopwatch.StartNew();
+
+            //globalTree.Sort();
+            Helper.SortWholeTree(globalTree);
+            sw.Stop();
+
+            MessageBox.Show($"Sort() done in {sw.ElapsedMilliseconds} ms");
         }
 
         private void globalTree_BeforeSelect(object sender, TreeViewCancelEventArgs e)
