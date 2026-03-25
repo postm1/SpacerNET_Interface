@@ -1075,7 +1075,12 @@ namespace SpacerUnion
                 return;
             }
 
+            Helper.BeginUpdateFast(globalTree);
+
             globalTree.CollapseAll();
+
+            Helper.EndUpdateFast(globalTree);
+
         }
 
         private void buttonExpand_Click(object sender, EventArgs e)
@@ -1085,7 +1090,14 @@ namespace SpacerUnion
                 return;
             }
 
+            Helper.BeginUpdateFast(globalTree);
+
             globalTree.ExpandAll();
+
+            Helper.EndUpdateFast(globalTree);
+
+
+           
         }
 
         private void ObjTree_FormClosing(object sender, FormClosingEventArgs e)

@@ -415,14 +415,19 @@ namespace SpacerUnion
         [DllImport("user32.dll")]
         private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
 
-        static void BeginUpdateFast(TreeView tree)
+        public static void BeginUpdateFast(TreeView tree)
         {
+            tree.BeginUpdate();
+            tree.SuspendLayout();
             SendMessage(tree.Handle, WM_SETREDRAW, IntPtr.Zero, IntPtr.Zero);
         }
 
-        static  void EndUpdateFast(TreeView tree)
+        public static void EndUpdateFast(TreeView tree)
         {
             SendMessage(tree.Handle, WM_SETREDRAW, new IntPtr(1), IntPtr.Zero);
+
+            tree.ResumeLayout();
+            tree.EndUpdate();
             tree.Refresh();
         }
 
@@ -448,6 +453,8 @@ namespace SpacerUnion
                 SortNodes(node.Nodes);
 
             EndUpdateFast(tree);
+
+           
         }
     }
 
