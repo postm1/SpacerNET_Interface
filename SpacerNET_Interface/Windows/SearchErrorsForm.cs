@@ -244,11 +244,16 @@ namespace SpacerUnion.Windows
                 return;
             }
 
+            comboBoxErrFilter.BeginUpdate();
+            comboBoxErrFilter.SuspendLayout();
+
             entriesList.Clear();
             Imports.Extern_ReportCreateAll(0);
 
             UpdateListFilter(comboBoxErrFilter.SelectedIndex);
 
+            comboBoxErrFilter.EndUpdate();
+            comboBoxErrFilter.ResumeLayout();
 
             if (listViewErrors.Items.Count == 0)
             {
