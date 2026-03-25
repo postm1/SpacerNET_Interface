@@ -1437,7 +1437,7 @@ namespace SpacerUnion
             Helper.SortWholeTree(globalTree);
             sw.Stop();
 
-            MessageBox.Show($"Sort() done in {sw.ElapsedMilliseconds} ms");
+            //MessageBox.Show($"Sort() done in {sw.ElapsedMilliseconds} ms");
         }
 
         private void globalTree_BeforeSelect(object sender, TreeViewCancelEventArgs e)
