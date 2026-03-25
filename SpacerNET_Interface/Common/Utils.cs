@@ -363,6 +363,41 @@ namespace SpacerUnion
             ConsoleEx.WriteLineGreen(message);
         }
 
+        public static readonly ExtMap[] allowedFileNames = new ExtMap[]
+         {
+                new ExtMap(".TGA", ".TGA"),
+                new ExtMap("-C.TEX", ".TGA"),
+
+                new ExtMap(".3DS", ".3DS"),
+                new ExtMap(".MRM", ".3DS"),
+                new ExtMap(".MSH ", ".3DS"),
+
+                new ExtMap(".ASC", ".ASC"),
+                new ExtMap(".MDL", ".ASC"),
+                new ExtMap(".MDH", ".ASC"),
+
+                new ExtMap(".MDS", ".MDS"),
+                new ExtMap(".MSB", ".MDS"),
+                new ExtMap(".MBH", ".MMS"),
+         };
+
+        public static bool IsFileAllowed(ref string name)
+        {
+            string checkStr = name;
+
+            foreach (var item in allowedFileNames)
+            {
+                if (checkStr.EndsWith(item.OldExt, StringComparison.OrdinalIgnoreCase))
+                {
+                    // Быстрая замена: отрезаем старый хвост и добавляем новый
+                    name = checkStr.Substring(0, checkStr.Length - item.OldExt.Length) + item.NewExt;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
     }
 
     public static class Helper
@@ -379,6 +414,20 @@ namespace SpacerUnion
         [DllImport("user32.dll")]
         private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
     }
+
+    public class ExtMap
+    {
+        public string OldExt;
+        public string NewExt;
+
+        public ExtMap(string oldExt, string newExt)
+        {
+            OldExt = oldExt;
+            NewExt = newExt;
+        }
+    }
+
+    
 
 }
 

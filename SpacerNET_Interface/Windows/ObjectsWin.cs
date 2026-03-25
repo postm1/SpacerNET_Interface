@@ -429,67 +429,16 @@ namespace SpacerUnion
             // ".TEX", ".MRM", ".MDM", ".MAN", ".MDH", ".MSB", ".MMB", ".MDL", ".MSH", ".MMS", ".MDS"
         };
 
-        public static Dictionary<string, string> allowedFileNames = new Dictionary<string, string>
-        {      
-            //  1        1                              1               1                        1
-            //".TEX", ".MRM", ".MDM", ".MAN", ".MDH", ".MSB", ".MMB", ".MDL", ".MSH", ".MMS", ".MDS"
-            
-            {".TGA", ".TGA" },
-            {"-C.TEX", ".TGA" },
-
-            {".3DS", ".3DS" },
-            {".MRM", ".3DS" },
-            {".MSH ", ".3DS" },
-
-            {".ASC", ".ASC" },
-            {".MDL", ".ASC" },
-            //{".MAN", ".ASC" },
-            {".MDH", ".ASC" },
-
-
-            {".MDS", ".MDS" },
-            {".MSB", ".MDS" },
-            {".MBH", ".MMS" },
-
-
-
-        };
-
-        public static bool IsFileAllowed(StringBuilder name)
-        {
-            string checkStr = name.ToString();
-
-            foreach (var item in allowedFileNames)
-            {
-                if (checkStr.EndsWith(item.Key))
-                {
-                    name = name.Replace(item.Key, item.Value);
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
         public static void AddVisualsFiles(string name, bool isVDF = true)
         {
-            StringBuilder fileName = new StringBuilder();
+            string fileName = name;
 
-            fileName.Append(name);
-
-            if (IsFileAllowed(fileName))
+            if (Utils.IsFileAllowed(ref fileName))
             {
                 if (isVDF)
-                {
-                    ObjectsWin.listVisualsVDF.Add(fileName.ToString());
-                }
-                else
-                {
-                    ObjectsWin.listVisualsWORK.Add(fileName.ToString());
-                }
+                    ObjectsWin.listVisualsVDF.Add(fileName);
+                else ObjectsWin.listVisualsWORK.Add(fileName);
             }
-
-
         }
 
         [DllExport]
