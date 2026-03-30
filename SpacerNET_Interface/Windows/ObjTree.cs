@@ -435,7 +435,7 @@ namespace SpacerUnion
             
             //ConsoleEx.WriteLineGreen("Всего вобов в списке: " + globalEntries.Count);
             countNodeView = 0;
-            CalcNodesCount(SpacerNET.objTreeWin.globalTree.Nodes);
+            //CalcNodesCount(SpacerNET.objTreeWin.globalTree.Nodes);
            // ConsoleEx.WriteLineGreen("C#: Всего узлов TreeView: " + countNodeView);
 
 
@@ -994,9 +994,12 @@ namespace SpacerUnion
 
 
             ConsoleEx.WriteLineGreen("Vobs count: " + globalEntries.Count);
+
+            /*
             countNodeView = 0;
             CalcNodesCount(SpacerNET.objTreeWin.globalTree.Nodes);
             ConsoleEx.WriteLineGreen("TreeView Nodes count: " + countNodeView);
+            */
         }
 
 
