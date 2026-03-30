@@ -379,8 +379,8 @@ namespace SpacerUnion
             globalEntries.Clear();
             matEntries.Clear();
             quickVobMan.Clear();
-            quickVobMan.Clear();
             _folderCache.Clear();
+            tempEntries.Clear();
 
             //SpacerNET.objTreeWin.tabControlObjectList.SelectedIndex = 0;
 
@@ -1603,6 +1603,8 @@ namespace SpacerUnion
         {
             TreeNode node = quickTree.SelectedNode;
 
+            if (node == null) return;
+
             string tag = node.Tag.ToString();
 
 
@@ -1697,6 +1699,8 @@ namespace SpacerUnion
         private void toolStripMenuRemoveQuickVob_Click(object sender, EventArgs e)
         {
             TreeNode node = quickTree.SelectedNode;
+
+            if (node == null) return;
 
             string tag = node.Tag.ToString();
 
