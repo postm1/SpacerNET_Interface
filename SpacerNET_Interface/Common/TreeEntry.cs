@@ -40,6 +40,11 @@ namespace SpacerUnion
             toDelete = false;
         }
 
+        public string ToString()
+        {
+            return name + " | " + Utils.ToHex(zCVob);
+        }
+
     }
 
 }

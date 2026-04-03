@@ -78,6 +78,10 @@ namespace SpacerUnion
 
             checkBoxInfoUseZSpy_CheckedChanged(null, null);
             trackBarSpy_ValueChanged(null, null);
+
+
+            Imports.Stack_PushString("infoWinzShowActions");
+            checkBoxInfoShowActions.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
         }
 
         public void AddText_External(string str, Color color)
@@ -132,6 +136,8 @@ namespace SpacerUnion
             checkBoxInfoUseZSpy.Text = Localizator.Get("checkBoxInfoUseZSpy");
 
             tabControlInfo.TabPages[0].Text = Localizator.Get("MSG_COMMON_COMMON");
+
+            checkBoxInfoShowActions.Text = Localizator.Get("WIN_INFO_SHOW_ACTIONS");
         }
         
         public void AddText(string str)
@@ -195,9 +201,15 @@ namespace SpacerUnion
         {
            
         }
+
+        private void checkBoxInfoShowActions_CheckedChanged(object sender, EventArgs e)
+        {
+            Imports.Stack_PushString("infoWinzShowActions");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxInfoShowActions.Checked));
+        }
     }
 
-     class SpyMessageEntry
+    class SpyMessageEntry
     {
         public Color color;
         public string text;

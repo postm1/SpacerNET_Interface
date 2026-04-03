@@ -33,6 +33,7 @@
             this.panelMain = new System.Windows.Forms.Panel();
             this.tabControlInfo = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.checkBoxInfoShowActions = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panelSeparate = new System.Windows.Forms.Panel();
             this.richTextBoxSpy = new System.Windows.Forms.RichTextBox();
@@ -40,6 +41,7 @@
             this.labelLevelzSPY = new System.Windows.Forms.Label();
             this.checkBoxInfoUseZSpy = new System.Windows.Forms.CheckBox();
             this.trackBarSpy = new System.Windows.Forms.TrackBar();
+            this.panelHoris = new System.Windows.Forms.Panel();
             this.panelMain.SuspendLayout();
             this.tabControlInfo.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -54,12 +56,12 @@
             this.richTextBoxInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBoxInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBoxInfo.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBoxInfo.Location = new System.Drawing.Point(3, 3);
+            this.richTextBoxInfo.Location = new System.Drawing.Point(3, 22);
             this.richTextBoxInfo.MaxLength = 0;
             this.richTextBoxInfo.Name = "richTextBoxInfo";
             this.richTextBoxInfo.ReadOnly = true;
             this.richTextBoxInfo.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBoxInfo.Size = new System.Drawing.Size(330, 272);
+            this.richTextBoxInfo.Size = new System.Drawing.Size(330, 253);
             this.richTextBoxInfo.TabIndex = 0;
             this.richTextBoxInfo.Text = "";
             this.richTextBoxInfo.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -100,6 +102,8 @@
             // 
             this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPage1.Controls.Add(this.richTextBoxInfo);
+            this.tabPage1.Controls.Add(this.panelHoris);
+            this.tabPage1.Controls.Add(this.checkBoxInfoShowActions);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -107,6 +111,20 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Common";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxInfoShowActions
+            // 
+            this.checkBoxInfoShowActions.AutoSize = true;
+            this.checkBoxInfoShowActions.Checked = true;
+            this.checkBoxInfoShowActions.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxInfoShowActions.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkBoxInfoShowActions.Location = new System.Drawing.Point(3, 3);
+            this.checkBoxInfoShowActions.Name = "checkBoxInfoShowActions";
+            this.checkBoxInfoShowActions.Size = new System.Drawing.Size(330, 17);
+            this.checkBoxInfoShowActions.TabIndex = 1;
+            this.checkBoxInfoShowActions.Text = "Show user actions";
+            this.checkBoxInfoShowActions.UseVisualStyleBackColor = true;
+            this.checkBoxInfoShowActions.CheckedChanged += new System.EventHandler(this.checkBoxInfoShowActions_CheckedChanged);
             // 
             // tabPage2
             // 
@@ -117,7 +135,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(341, 335);
+            this.tabPage2.Size = new System.Drawing.Size(338, 280);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "zSpy";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -126,9 +144,9 @@
             // 
             this.panelSeparate.BackColor = System.Drawing.Color.LightGray;
             this.panelSeparate.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelSeparate.Location = new System.Drawing.Point(3, 265);
+            this.panelSeparate.Location = new System.Drawing.Point(3, 210);
             this.panelSeparate.Name = "panelSeparate";
-            this.panelSeparate.Size = new System.Drawing.Size(333, 1);
+            this.panelSeparate.Size = new System.Drawing.Size(330, 1);
             this.panelSeparate.TabIndex = 8;
             // 
             // richTextBoxSpy
@@ -143,7 +161,7 @@
             this.richTextBoxSpy.Name = "richTextBoxSpy";
             this.richTextBoxSpy.ReadOnly = true;
             this.richTextBoxSpy.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBoxSpy.Size = new System.Drawing.Size(333, 263);
+            this.richTextBoxSpy.Size = new System.Drawing.Size(330, 208);
             this.richTextBoxSpy.TabIndex = 7;
             this.richTextBoxSpy.Text = "";
             this.richTextBoxSpy.TextChanged += new System.EventHandler(this.richTextBoxSpy_TextChanged);
@@ -156,10 +174,10 @@
             this.panelInfoBottom.Controls.Add(this.checkBoxInfoUseZSpy);
             this.panelInfoBottom.Controls.Add(this.trackBarSpy);
             this.panelInfoBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelInfoBottom.Location = new System.Drawing.Point(3, 266);
+            this.panelInfoBottom.Location = new System.Drawing.Point(3, 211);
             this.panelInfoBottom.Margin = new System.Windows.Forms.Padding(0);
             this.panelInfoBottom.Name = "panelInfoBottom";
-            this.panelInfoBottom.Size = new System.Drawing.Size(333, 64);
+            this.panelInfoBottom.Size = new System.Drawing.Size(330, 64);
             this.panelInfoBottom.TabIndex = 6;
             // 
             // labelLevelzSPY
@@ -195,6 +213,15 @@
             this.trackBarSpy.Value = 1;
             this.trackBarSpy.ValueChanged += new System.EventHandler(this.trackBarSpy_ValueChanged);
             // 
+            // panelHoris
+            // 
+            this.panelHoris.BackColor = System.Drawing.Color.Silver;
+            this.panelHoris.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelHoris.Location = new System.Drawing.Point(3, 20);
+            this.panelHoris.Name = "panelHoris";
+            this.panelHoris.Size = new System.Drawing.Size(330, 2);
+            this.panelHoris.TabIndex = 2;
+            // 
             // InfoWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,6 +241,7 @@
             this.panelMain.ResumeLayout(false);
             this.tabControlInfo.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.panelInfoBottom.ResumeLayout(false);
             this.panelInfoBottom.PerformLayout();
@@ -236,5 +264,7 @@
         private System.Windows.Forms.RichTextBox richTextBoxSpy;
         private System.Windows.Forms.Panel panelSeparate;
         private System.Windows.Forms.Button buttonInfoClear;
+        public System.Windows.Forms.CheckBox checkBoxInfoShowActions;
+        private System.Windows.Forms.Panel panelHoris;
     }
 }

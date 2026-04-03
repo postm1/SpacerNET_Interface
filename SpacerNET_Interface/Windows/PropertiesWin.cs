@@ -221,6 +221,25 @@ namespace SpacerUnion
             }
 
             tree.EndUpdate();
+
+
+            var node = SpacerNET.objTreeWin.globalTree.SelectedNode;
+
+            if (node != null)
+            {
+
+                var result = ObjTree.globalEntries.Where(x => x.Value.node == node).FirstOrDefault();
+                var entry = result.Value;
+
+                if (entry != null)
+                {
+                    Utils.AddInfoUserAction("[*]: " + Localizator.Get("WIN_INFO_SHOW_ACTION_MATRIX_CHANGED")
+                    + ". " + entry.ToString(), Color.ForestGreen);
+                }
+            }
+
+
+            
         }
 
         [DllExport]
@@ -607,9 +626,6 @@ namespace SpacerUnion
                 SpacerNET.propWin.buttonBbox.Enabled = true;
             }
 
-
-
-
             // tree.Visible = true;
             //ConsoleEx.WriteLineYellow("AddProps End");
         }
@@ -948,6 +964,19 @@ namespace SpacerUnion
             Imports.Stack_PushInt(wasPositionChanged);
             Imports.Extern_ApplyProps();
             this.treeViewProp.Refresh();
+
+
+
+
+            var resultNode = ObjTree.globalEntries.Where(x => x.Value.node == SpacerNET.objTreeWin.globalTree.SelectedNode).FirstOrDefault();
+            var entry = resultNode.Value;
+
+            if (entry != null)
+            {
+                Utils.AddInfoUserAction("[*]: " + Localizator.Get("WIN_INFO_SHOW_ACTION_PROPS_CHANGED")
+                + ". " + entry.ToString(), Color.ForestGreen);
+            }
+
         }
 
         public void DisableTabBBox()

@@ -775,6 +775,9 @@ namespace SpacerUnion
             {
                 TreeEntry entry = entries[0];
 
+                Utils.AddInfoUserAction("[-]: " + Localizator.Get("WIN_INFO_SHOW_ACTION_VOB_REMOVED")
+                    + ". " + entry.ToString(), Color.DarkRed);
+
                 RemoveChildNodesRecursive(entry);
 
                 globalEntries = globalEntries
@@ -809,6 +812,9 @@ namespace SpacerUnion
             SpacerNET.errorForm.OnRemoveVob(vob);
             SpacerNET.vobList.OnVobDelete(vob);
             ObjectsWindow.CleanProps();
+
+
+            
 
             ConsoleEx.WriteLineGreen("OnVobRemove: All vobs count: " + globalEntries.Count);
             countNodeView = 0;
@@ -992,6 +998,8 @@ namespace SpacerUnion
                 Utils.Error("OnVobInsert: parent entry is null");
             }
 
+            Utils.AddInfoUserAction("[+]: " + Localizator.Get("WIN_INFO_SHOW_ACTION_VOB_INSERTED") 
+                + ". " + entry.ToString(), Color.DarkGreen);
 
             ConsoleEx.WriteLineGreen("Vobs count: " + globalEntries.Count);
 

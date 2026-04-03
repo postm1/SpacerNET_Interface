@@ -398,6 +398,14 @@ namespace SpacerUnion
             return false;
         }
 
+        public static void AddInfoUserAction(string info, Color color)
+        {
+            if (SpacerNET.infoWin.checkBoxInfoShowActions.Checked)
+            {
+                SpacerNET.infoWin.AddText_External(info + "\n", color);
+            }
+        }
+
     }
 
     public static class Helper
