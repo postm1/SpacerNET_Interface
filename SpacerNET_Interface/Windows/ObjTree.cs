@@ -999,7 +999,7 @@ namespace SpacerUnion
             }
 
             Utils.AddInfoUserAction("[+]: " + Localizator.Get("WIN_INFO_SHOW_ACTION_VOB_INSERTED") 
-                + ". " + entry.ToString(), Color.DarkGreen);
+                + ". " + entry.ToString(), Color.DarkRed);
 
             ConsoleEx.WriteLineGreen("Vobs count: " + globalEntries.Count);
 

@@ -262,7 +262,7 @@ namespace SpacerUnion
 
                     if (entry != null)
                     {
-                        Utils.AddInfoUserAction("[*]: " + Localizator.Get("WIN_INFO_SHOW_ACTION_MATRIX_CHANGED")
+                        Utils.AddInfoUserAction("[~]: " + Localizator.Get("WIN_INFO_SHOW_ACTION_MATRIX_CHANGED")
                         + ". " + entry.ToString(), Color.ForestGreen);
                     }
                 }
