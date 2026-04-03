@@ -1006,11 +1006,11 @@ namespace SpacerUnion.Common
 
             AddNewWord("COMMON_CHANGES_WERE_MADE", new List<string> { "(Вы внесли изменения в текущий открытый ZEN)", "(You have made some changes in current ZEN)", "(Du hast einige Änderungen in der aktuellen ZEN vorgenommen)", "(Wprowadzono pewne zmiany w obecnym ZENie)", "" });
 
-            AddNewWord("WIN_INFO_SHOW_ACTIONS", new List<string> { "Показывать действия пользователя", "Show user's actions", "", "", "" });
-            AddNewWord("WIN_INFO_SHOW_ACTION_VOB_INSERTED", new List<string> { "Воб вставлен", "Vob inserted", "", "", "" });
-            AddNewWord("WIN_INFO_SHOW_ACTION_VOB_REMOVED", new List<string> { "Воб удален", "Vob removed", "", "", "" });
-            AddNewWord("WIN_INFO_SHOW_ACTION_MATRIX_CHANGED", new List<string> { "Воб был перемещен или повернут", "Vob was moved or rotated", "", "", "" });
-            AddNewWord("WIN_INFO_SHOW_ACTION_PROPS_CHANGED", new List<string> { "Свойства воба были изменены", "Vob's properties were changed", "", "", "" });
+            AddNewWord("WIN_INFO_SHOW_ACTIONS", new List<string> { "Показывать действия пользователя", "Show user's actions", "Benutzeraktionen anzeigen", "Pokaż akcje użytkownika", "" });
+            AddNewWord("WIN_INFO_SHOW_ACTION_VOB_INSERTED", new List<string> { "Воб вставлен", "Vob inserted", "Vob eingefügt", "Vob wstawiony", "" });
+            AddNewWord("WIN_INFO_SHOW_ACTION_VOB_REMOVED", new List<string> { "Воб удален", "Vob removed", "Vob entfernt", "Vob usunięty", "" });
+            AddNewWord("WIN_INFO_SHOW_ACTION_MATRIX_CHANGED", new List<string> { "Воб был перемещен или повернут", "Vob was moved or rotated", "Vob wurde verschoben oder gedreht", "Vob został przesunięty lub obrócony", "" });
+            AddNewWord("WIN_INFO_SHOW_ACTION_PROPS_CHANGED", new List<string> { "Свойства воба были изменены", "Vob's properties were changed", "Vob-Eigenschaften wurden geändert", "Zmieniono właściwości voba", "" });
         }
 
 

@@ -116,6 +116,24 @@ namespace SpacerUnion
             labelChangeFontStyleText.Text = Localizator.Get("labelChangeFontStyleText");
         }
 
+        public static void ChangePropWithCheck(string propName, string value, out bool wasChanged)
+        {
+            wasChanged = false;
+
+            for (int i = 0; i < props.Count; i++)
+            {
+                if (props[i].Name == propName)
+                {
+                    wasChanged = (props[i].value != value);
+                    props[i].value = value;
+                    props[i].ownNode.Text = props[i].Name + ": " + props[i].ShowValue();
+
+                    //ConsoleEx.WriteLineRed(propName + ": " + value + " | " + props[i].backup_value);
+                    break;
+                }
+            }
+        }
+
         public static void ChangeProp(string propName, string value)
         {
             for (int i = 0; i < props.Count; i++)
@@ -189,7 +207,13 @@ namespace SpacerUnion
 
             string[] words = inputStr.Replace("\t", "").Split('\n');
 
+
+            //ConsoleEx.WriteLineGreen(inputStr);
+
             tree.BeginUpdate();
+
+            bool wasChanged = false;
+            bool changed = false; // temprorary value
 
             for (int i = 0; i < words.Length; i++)
             {
@@ -206,15 +230,18 @@ namespace SpacerUnion
 
                 if (name == "bbox3DWS")
                 {
-                    ChangeProp("bbox3DWS", value);
+                    ChangePropWithCheck("bbox3DWS", value, out changed);
+                    wasChanged = wasChanged || changed;
                 }
                 else if (name == "trafoOSToWSRot")
                 {
-                    ChangeProp("trafoOSToWSRot", value);
+                    ChangePropWithCheck("trafoOSToWSRot", value, out changed);
+                    wasChanged = wasChanged || changed;
                 }
                 else if (name == "trafoOSToWSPos")
                 {
-                    ChangeProp("trafoOSToWSPos", value);
+                    ChangePropWithCheck("trafoOSToWSPos", value, out changed);
+                    wasChanged = wasChanged || changed;
                 }
                 
 
@@ -223,20 +250,24 @@ namespace SpacerUnion
             tree.EndUpdate();
 
 
-            var node = SpacerNET.objTreeWin.globalTree.SelectedNode;
-
-            if (node != null)
+            if (wasChanged)
             {
+                var node = SpacerNET.objTreeWin.globalTree.SelectedNode;
 
-                var result = ObjTree.globalEntries.Where(x => x.Value.node == node).FirstOrDefault();
-                var entry = result.Value;
-
-                if (entry != null)
+                if (node != null)
                 {
-                    Utils.AddInfoUserAction("[*]: " + Localizator.Get("WIN_INFO_SHOW_ACTION_MATRIX_CHANGED")
-                    + ". " + entry.ToString(), Color.ForestGreen);
+
+                    var result = ObjTree.globalEntries.Where(x => x.Value.node == node).FirstOrDefault();
+                    var entry = result.Value;
+
+                    if (entry != null)
+                    {
+                        Utils.AddInfoUserAction("[*]: " + Localizator.Get("WIN_INFO_SHOW_ACTION_MATRIX_CHANGED")
+                        + ". " + entry.ToString(), Color.ForestGreen);
+                    }
                 }
             }
+            
 
 
             
