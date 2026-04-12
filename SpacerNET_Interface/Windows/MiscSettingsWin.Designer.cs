@@ -30,6 +30,7 @@
         {
             this.checkBoxSetDatePrefix = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxAutoSave = new System.Windows.Forms.CheckBox();
             this.checkBoxNoWorkCheck = new System.Windows.Forms.CheckBox();
             this.checkBoxSkipPolysCut = new System.Windows.Forms.CheckBox();
             this.checkBoxDx11Amb = new System.Windows.Forms.CheckBox();
@@ -62,6 +63,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxAutoSave);
             this.groupBox1.Controls.Add(this.checkBoxNoWorkCheck);
             this.groupBox1.Controls.Add(this.checkBoxSkipPolysCut);
             this.groupBox1.Controls.Add(this.checkBoxDx11Amb);
@@ -81,12 +83,22 @@
             this.groupBox1.Controls.Add(this.checkBoxSetDatePrefix);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(624, 451);
+            this.groupBox1.Size = new System.Drawing.Size(624, 474);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            // 
+            //
+            // checkBoxAutoSave
+            //
+            this.checkBoxAutoSave.AutoSize = true;
+            this.checkBoxAutoSave.Location = new System.Drawing.Point(13, 447);
+            this.checkBoxAutoSave.Name = "checkBoxAutoSave";
+            this.checkBoxAutoSave.Size = new System.Drawing.Size(280, 17);
+            this.checkBoxAutoSave.TabIndex = 19;
+            this.checkBoxAutoSave.Text = "Auto-save world every 5 minutes";
+            this.checkBoxAutoSave.UseVisualStyleBackColor = true;
+            //
             // checkBoxNoWorkCheck
-            // 
+            //
             this.checkBoxNoWorkCheck.AutoSize = true;
             this.checkBoxNoWorkCheck.Checked = true;
             this.checkBoxNoWorkCheck.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -271,7 +283,7 @@
             // 
             // btnMiscSetApply
             // 
-            this.btnMiscSetApply.Location = new System.Drawing.Point(275, 469);
+            this.btnMiscSetApply.Location = new System.Drawing.Point(275, 492);
             this.btnMiscSetApply.Name = "btnMiscSetApply";
             this.btnMiscSetApply.Size = new System.Drawing.Size(115, 23);
             this.btnMiscSetApply.TabIndex = 11;
@@ -283,7 +295,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 504);
+            this.ClientSize = new System.Drawing.Size(648, 527);
             this.Controls.Add(this.btnMiscSetApply);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -322,5 +334,6 @@
         public System.Windows.Forms.CheckBox checkBoxDx11Amb;
         public System.Windows.Forms.CheckBox checkBoxSkipPolysCut;
         public System.Windows.Forms.CheckBox checkBoxNoWorkCheck;
+        public System.Windows.Forms.CheckBox checkBoxAutoSave;
     }
 }
