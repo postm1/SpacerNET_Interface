@@ -1009,7 +1009,7 @@ namespace SpacerUnion
                 return;
             }
 
-            if (checkBoxSearchOnly3DS.Checked && !strToFind.ToUpper().Contains("3DS"))
+            if (checkBoxSearchOnly3DS.Checked && !strToFind.Contains("3DS"))
             {
                 strToFind += ".*3DS";
             }
@@ -1148,12 +1148,6 @@ namespace SpacerUnion
                 return;
             }
 
-            if (e.KeyChar == (char)13)
-            {
-                e.Handled = true;
-
-                HandleTextChangeVisualSearch(true);
-            }
         }
 
         private void button7_Click(object sender, EventArgs e)
