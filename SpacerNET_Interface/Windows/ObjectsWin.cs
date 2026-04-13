@@ -551,33 +551,7 @@ namespace SpacerUnion
         {
             if (e.KeyChar == (char)13)
             {
-                string strToFind = textBoxItems.Text.Trim().ToUpper();
-
-                Regex regEx = null;
-
-                try
-                {
-                    regEx = new Regex(@strToFind, RegexOptions.IgnoreCase | RegexOptions.Compiled);
-                }
-                catch (ArgumentException)
-                {
-                    MessageBox.Show(Localizator.Get("BAD_REGEX"));
-                    return;
-                }
-
-
-                listBoxResultItems.Items.Clear();
-
-
-                for (int i = 0; i < listBoxItems.Items.Count; i++)
-                {
-                    string value = listBoxItems.GetItemText(listBoxItems.Items[i]);
-
-                    if (Regex.IsMatch(value, @strToFind))
-                    {
-                        listBoxResultItems.Items.Add(value);
-                    }
-                }
+                textBoxItems_TextChanged(null, null);
             }
         }
 
@@ -586,10 +560,7 @@ namespace SpacerUnion
 
         }
 
-        private void textBoxItems_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void buttonParticles_Click(object sender, EventArgs e)
         {
@@ -988,10 +959,7 @@ namespace SpacerUnion
 
         }
 
-        private void textBoxPfxReg_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -5422,6 +5390,97 @@ namespace SpacerUnion
         private void textBoxVisuals_TextChanged(object sender, EventArgs e)
         {
             HandleTextChangeVisualSearch();
+        }
+
+
+        // Search of items
+        private Regex _searchRegex = null;
+        
+
+        
+        private void textBoxItems_TextChanged(object sender, EventArgs e)
+        {
+            string strToFind = textBoxItems.Text.Trim();
+
+            if (string.IsNullOrEmpty(strToFind))
+            {
+                listBoxResultItems.Items.Clear();
+                // Показать все элементы? 
+                // listBoxResultItems.Items.AddRange(listBoxItems.Items);
+                return;
+            }
+
+            try
+            {
+                // Создаем Regex один раз для текущего поиска
+                _searchRegex = new Regex(Regex.Escape(strToFind),
+                    RegexOptions.IgnoreCase | RegexOptions.Compiled);
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show(Localizator.Get("BAD_REGEX"));
+                return;
+            }
+
+
+            listBoxResultItems.BeginUpdate();
+            listBoxResultItems.Items.Clear();
+
+            foreach (object item in listBoxItems.Items)
+            {
+                string value = listBoxItems.GetItemText(item);
+
+                if (_searchRegex.IsMatch(value))
+                {
+                    listBoxResultItems.Items.Add(value);
+                }
+            }
+
+            listBoxResultItems.EndUpdate();
+        }
+
+
+        // PFX SEARCH
+        private Regex _searchRegexPfx = null;
+        private void textBoxPfxReg_TextChanged(object sender, EventArgs e)
+        {
+
+            string strToFind = textBoxPfxReg.Text.Trim();
+
+            if (string.IsNullOrEmpty(strToFind))
+            {
+                listBoxPfxResult.Items.Clear();
+                // Показать все элементы? 
+                // listBoxResultItems.Items.AddRange(listBoxItems.Items);
+                return;
+            }
+
+            try
+            {
+                // Создаем Regex один раз для текущего поиска
+                _searchRegexPfx = new Regex(Regex.Escape(strToFind),
+                    RegexOptions.IgnoreCase | RegexOptions.Compiled);
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show(Localizator.Get("BAD_REGEX"));
+                return;
+            }
+
+            listBoxPfxResult.BeginUpdate();
+            listBoxPfxResult.Items.Clear();
+
+            foreach (object item in listBoxItems.Items)
+            {
+                string value = listBoxItems.GetItemText(item);
+
+                if (_searchRegexPfx.IsMatch(value))
+                {
+                    listBoxPfxResult.Items.Add(value);
+                }
+            }
+
+            listBoxPfxResult.EndUpdate();
         }
     }
 }
