@@ -403,5 +403,47 @@ namespace SpacerUnion
         {
             isLeftListActive = true;
         }
+
+        private Regex _searchRegexSound = null;
+
+        private void textBoxSnd_TextChanged(object sender, EventArgs e)
+        {
+            string strToFind = textBoxSnd.Text.Trim();
+
+            if (string.IsNullOrEmpty(strToFind))
+            {
+                listBoxSndResult.Items.Clear();
+                // Показать все элементы? 
+                // listBoxResultItems.Items.AddRange(listBoxItems.Items);
+                return;
+            }
+
+            try
+            {
+                // Создаем Regex один раз для текущего поиска
+                _searchRegexSound = new Regex(Regex.Escape(strToFind),
+                    RegexOptions.IgnoreCase | RegexOptions.Compiled);
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show(Localizator.Get("BAD_REGEX"));
+                return;
+            }
+
+            listBoxSndResult.BeginUpdate();
+            listBoxSndResult.Items.Clear();
+
+            foreach (object item in listBoxSound.Items)
+            {
+                string value = listBoxSound.GetItemText(item);
+
+                if (_searchRegexSound.IsMatch(value))
+                {
+                    listBoxSndResult.Items.Add(value);
+                }
+            }
+
+            listBoxSndResult.EndUpdate();
+        }
     }
 }

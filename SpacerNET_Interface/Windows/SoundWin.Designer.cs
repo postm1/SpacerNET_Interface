@@ -34,6 +34,7 @@
             this.labelSndList = new System.Windows.Forms.Label();
             this.labelAllSounds = new System.Windows.Forms.Label();
             this.groupBoxSound = new System.Windows.Forms.GroupBox();
+            this.buttonCreateSoundVob = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkBoxShutSounds = new System.Windows.Forms.CheckBox();
             this.checkBoxConstSound = new System.Windows.Forms.CheckBox();
@@ -46,7 +47,6 @@
             this.labelMusicVolume = new System.Windows.Forms.Label();
             this.trackBarMusicVolume = new System.Windows.Forms.TrackBar();
             this.buttonOffMusic = new System.Windows.Forms.Button();
-            this.buttonCreateSoundVob = new System.Windows.Forms.Button();
             this.groupBoxSound.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBoxMusic.SuspendLayout();
@@ -82,6 +82,7 @@
             this.textBoxSnd.Name = "textBoxSnd";
             this.textBoxSnd.Size = new System.Drawing.Size(215, 20);
             this.textBoxSnd.TabIndex = 5;
+            this.textBoxSnd.TextChanged += new System.EventHandler(this.textBoxSnd_TextChanged);
             this.textBoxSnd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSnd_KeyPress);
             // 
             // labelSndList
@@ -119,6 +120,16 @@
             this.groupBoxSound.TabIndex = 8;
             this.groupBoxSound.TabStop = false;
             this.groupBoxSound.Text = "Sounds";
+            // 
+            // buttonCreateSoundVob
+            // 
+            this.buttonCreateSoundVob.Location = new System.Drawing.Point(133, 19);
+            this.buttonCreateSoundVob.Name = "buttonCreateSoundVob";
+            this.buttonCreateSoundVob.Size = new System.Drawing.Size(99, 32);
+            this.buttonCreateSoundVob.TabIndex = 17;
+            this.buttonCreateSoundVob.Text = "Create";
+            this.buttonCreateSoundVob.UseVisualStyleBackColor = true;
+            this.buttonCreateSoundVob.Click += new System.EventHandler(this.buttonCreateSoundVob_Click);
             // 
             // panel1
             // 
@@ -246,16 +257,6 @@
             this.buttonOffMusic.Text = "Turn off music";
             this.buttonOffMusic.UseVisualStyleBackColor = true;
             this.buttonOffMusic.Click += new System.EventHandler(this.buttonOffMusic_Click);
-            // 
-            // buttonCreateSoundVob
-            // 
-            this.buttonCreateSoundVob.Location = new System.Drawing.Point(133, 19);
-            this.buttonCreateSoundVob.Name = "buttonCreateSoundVob";
-            this.buttonCreateSoundVob.Size = new System.Drawing.Size(99, 32);
-            this.buttonCreateSoundVob.TabIndex = 17;
-            this.buttonCreateSoundVob.Text = "Create";
-            this.buttonCreateSoundVob.UseVisualStyleBackColor = true;
-            this.buttonCreateSoundVob.Click += new System.EventHandler(this.buttonCreateSoundVob_Click);
             // 
             // SoundWin
             // 
