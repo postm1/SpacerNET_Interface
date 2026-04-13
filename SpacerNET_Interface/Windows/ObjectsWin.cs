@@ -549,10 +549,7 @@ namespace SpacerUnion
 
         private void textBoxItems_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)13)
-            {
-                textBoxItems_TextChanged(null, null);
-            }
+            
         }
 
         private void textBoxItems_KeyDown(object sender, KeyEventArgs e)
@@ -986,41 +983,7 @@ namespace SpacerUnion
 
         private void textBoxPfxReg_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)13)
-            {
-                string strToFind = textBoxPfxReg.Text.Trim().ToUpper();
-
-
-                Regex regEx = null;
-
-                try
-                {
-                    regEx = new Regex(@strToFind, RegexOptions.IgnoreCase | RegexOptions.Compiled);
-                }
-                catch (ArgumentException)
-                {
-                    MessageBox.Show(Localizator.Get("BAD_REGEX"));
-                    return;
-                }
-
-                listBoxPfxResult.BeginUpdate();
-
-                listBoxPfxResult.Items.Clear();
-
-
-
-                for (int i = 0; i < listBoxParticles.Items.Count; i++)
-                {
-                    string value = listBoxParticles.GetItemText(listBoxParticles.Items[i]);
-
-                    if (Regex.IsMatch(value, @strToFind))
-                    {
-                        listBoxPfxResult.Items.Add(value);
-                    }
-                }
-
-                listBoxPfxResult.EndUpdate();
-            }
+           
         }
 
         private void label1_Click(object sender, EventArgs e)

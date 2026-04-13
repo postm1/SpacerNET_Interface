@@ -263,29 +263,7 @@ namespace SpacerUnion
 
         private void textBoxSnd_KeyPress(object sender, KeyPressEventArgs e)
         {
-           // ConsoleEx.WriteLineCyan(e.KeyChar.ToString());
-
-            if (e.KeyChar == (char)13)
-            {
-                string strToFind = textBoxSnd.Text.Trim().ToUpper();
-
-
-                listBoxSndResult.BeginUpdate();
-                listBoxSndResult.Items.Clear();
-
-
-                for (int i = 0; i < listBoxSound.Items.Count; i++)
-                {
-                    string value = listBoxSound.GetItemText(listBoxSound.Items[i]);
-
-                    if (Regex.IsMatch(value, @strToFind))
-                    {
-                        listBoxSndResult.Items.Add(value);
-                    }
-                }
-
-                listBoxSndResult.EndUpdate();
-            }
+        
         }
 
         private void listBoxSndResult_KeyPress_1(object sender, KeyPressEventArgs e)
