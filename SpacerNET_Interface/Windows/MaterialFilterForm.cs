@@ -588,10 +588,14 @@ namespace SpacerUnion.Windows
         {
             string text = textBoxFilterSearch.Text.Trim().ToUpper();
 
-            if (text.Length > 0)
+            listBoxMatFilSearch.BeginUpdate();
+
+            listBoxMatFilSearch.Items.Clear();
+
+            if (!string.IsNullOrEmpty(text))
             {
-                listBoxMatFilSearch.BeginUpdate();
-                listBoxMatFilSearch.Items.Clear();
+                
+                
                 foundMatList.Clear();
 
                 Imports.Stack_PushString(text);
@@ -608,17 +612,15 @@ namespace SpacerUnion.Windows
 
                 }
                 */
-                listBoxMatFilSearch.Sorted = true;
-                listBoxMatFilSearch.EndUpdate();
+                
             }
+
+            listBoxMatFilSearch.Sorted = true;
+            listBoxMatFilSearch.EndUpdate();
         }
         private void textBoxFilterSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)13 && groupBoxFilterMenu.Enabled)
-            {
-                e.Handled = true;
-                SearchMatInMatList();
-            }
+           
         }
 
         private void listBoxMatFilSearch_SelectedIndexChanged(object sender, EventArgs e)
@@ -773,6 +775,14 @@ namespace SpacerUnion.Windows
         private void MaterialFilterForm_Shown(object sender, EventArgs e)
         {
             Imports.Extern_SetFilterMatActive(true);
+        }
+
+        private void textBoxFilterSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (groupBoxFilterMenu.Enabled)
+            {
+                SearchMatInMatList();
+            }
         }
     }
 

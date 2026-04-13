@@ -239,6 +239,7 @@
             this.textBoxFilterSearch.Name = "textBoxFilterSearch";
             this.textBoxFilterSearch.Size = new System.Drawing.Size(336, 20);
             this.textBoxFilterSearch.TabIndex = 17;
+            this.textBoxFilterSearch.TextChanged += new System.EventHandler(this.textBoxFilterSearch_TextChanged);
             this.textBoxFilterSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxFilterSearch_KeyDown);
             this.textBoxFilterSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxFilterSearch_KeyPress);
             // 
