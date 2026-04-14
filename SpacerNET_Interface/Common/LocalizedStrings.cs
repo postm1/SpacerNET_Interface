@@ -142,7 +142,7 @@ namespace SpacerUnion.Common
             AddNewWord("UNION_MESH_LOADED", new List<string> { "Меш загружен", "Mesh is loaded", "Mesh geladen", "Mesh jest załadowany", "Mesh je načten" });
             AddNewWord("UNION_MESH_READY", new List<string> { "Меш и вобы объединены. Скомпилируйте мир", "Mesh and vobs were merged. Compile the world", "Mesh und Vobs zusammengeführt. Bitte Welt kompilieren!", "Mesh i voby zostały połączone. Skompiluj świat.", "Meshe a Voby jsou sloučeny. Zkompiluj svět." });
             AddNewWord("UNION_EDITOR", new List<string> { "Редактор для ZenGin", "Editor for ZenGin", "Editor für ZenGin", "Edytor dla ZenGine", "Editor pro ZenGin" });
-            AddNewWord("UNION_TEAM", new List<string> { "Разработчик: Liker. Помогали: Patrix & Feuerbarde & Haart & Saturas & Gratt & Jr", "Author: Liker. Assistance from: Patrix & Feuerbarde & Haart & Saturas & Gratt & Jr", "Entwicklerteam: Liker & Patrix  & Feuerbarde & Haart & Saturas & Gratt & Jr", "Deweloperzy: Liker & Patrix & Feuerbarde & Haart & Saturas & Gratt & Jr", "Autoři: Liker & Patrix & Feuerbarde & Haart & Saturas & Gratt & Jr" });
+            AddNewWord("UNION_TEAM", new List<string> { "Разработчик: Liker. Помогали: Patrix & Feuerbarde & Haart & Saturas & Gratt & Jr & cpt_alex", "Author: Liker. Assistance from: Patrix & Feuerbarde & Haart & Saturas & Gratt & Jr & cpt_alex", "Entwicklerteam: Liker & Patrix  & Feuerbarde & Haart & Saturas & Gratt & Jr & cpt_alex", "Deweloperzy: Liker & Patrix & Feuerbarde & Haart & Saturas & Gratt & Jr & cpt_alex", "Autoři: Liker & Patrix & Feuerbarde & Haart & Saturas & Gratt & Jr & cpt_alex" });
             AddNewWord("UNION_DATE_COMPILE", new List<string> { "Дата компиляции: ", "Compilation date: ", "Datum der Kompilation: ", "Data kompilacji: ", "Datum kompilace: " });
             AddNewWord("UNION_RESOLUTION", new List<string> { "Разрешение рендера: ", "Render resolution: ", "Rendererauflösung: ", "Rozdzielczość renderowania: ", "Rozlišení renderování: " });
             AddNewWord("UNION_NOWORLD", new List<string> { "Мир не загружен", "World is not loaded", "Welt wurde nicht geladen", "Świat nie został wczytany.", "Svět nebyl načten" });
@@ -961,6 +961,7 @@ namespace SpacerUnion.Common
 
             AddNewWord("WIN_GRASS_SET_ON_VOB", new List<string> { "Ставить объекты на вобы", "Set objects on vobs", "Objekte auf VOBs platzieren", "", "" });
             AddNewWord("MISC_SETTINGS_NO_WORK_CHECK", new List<string> { "Не проверять путь загружаемого ZEN (игнорировать папку _WORK)", "Don't check path while loading ZEN (ignore _WORK folder)", "Beim Laden von ZEN den Pfad nicht prüfen (Ordner _WORK ignorieren)", "", "" });
+            AddNewWord("checkBoxAutoSave", new List<string> { "Автосохранение мира каждые 5 минут", "Auto-save world every 5 minutes", "Welt alle 5 Minuten automatisch speichern", "Automatyczny zapis świata co 5 minut", "Automatické ukládání světa každých 5 minut" });
 
             AddNewWord("UNION_VOB_UPSIDE_DOWN", new List<string> { "Воб успешно перевернут", "Vob has been flipped", "VOB wurde erfolgreich gedreht", "", "" });
             AddNewWord("KEYS_SET_UPSIDE_DOWN", new List<string> { "Перевернуть воб", "Flip vob upside down", "VOB drehen", "", "" });
