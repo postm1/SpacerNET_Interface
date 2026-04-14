@@ -430,6 +430,10 @@ namespace SpacerUnion
                 TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
 
                 AddVobToNodes(entry);
+
+
+                Utils.AddInfoUserAction("[~]: " + Localizator.Get("PARENT_CHANGE_OK")
+                    + ". " + entry.ToString(), Color.DarkViolet);
             }
 
             
@@ -449,6 +453,9 @@ namespace SpacerUnion
             }
 
             TreeEntry entry = null;
+
+
+            //ConsoleEx.WriteLineGreen("UpdateParentRemoveNode");
 
             try
             {
@@ -1563,7 +1570,9 @@ namespace SpacerUnion
 
             globalEntry.quickNode = newNode;
             globalEntry.realNode = node;
- 
+
+            Utils.PrintLogInfo("[~]: ", Localizator.Get("WIN_INFO_SHOW_ACTION_SET_GLOBAL_PARENT"), Color.DarkViolet);
+
 
             Imports.Extern_MakeGlobalParent(vob);
         }
@@ -1578,6 +1587,8 @@ namespace SpacerUnion
                 quickTree.Nodes.Remove(globalEntry.quickNode);
                 globalEntry.Clean();
 
+                Utils.AddInfoUserAction("[~]: " + Localizator.Get("WIN_INFO_SHOW_ACTION_NULL_GLOBAL_PARENT")
+               + ".", Color.DarkViolet);
             }
 
             Imports.Extern_CleanGlobalParent();

@@ -1011,8 +1011,11 @@ namespace SpacerUnion.Common
             AddNewWord("WIN_INFO_SHOW_ACTION_VOB_REMOVED", new List<string> { "Воб удален", "Vob removed", "Vob entfernt", "Vob usunięty", "" });
             AddNewWord("WIN_INFO_SHOW_ACTION_MATRIX_CHANGED", new List<string> { "Воб был перемещен или повернут", "Vob was moved or rotated", "Vob wurde verschoben oder gedreht", "Vob został przesunięty lub obrócony", "" });
             AddNewWord("WIN_INFO_SHOW_ACTION_PROPS_CHANGED", new List<string> { "Свойства воба были изменены", "Vob's properties were changed", "Vob-Eigenschaften wurden geändert", "Zmieniono właściwości voba", "" });
+            
             AddNewWord("WIN_INFO_SHOW_ACTION_TRIGGER_CHANGED", new List<string> { "Trigger был изменен", "Trigger was changed", "", "", "" });
             AddNewWord("WIN_INFO_SHOW_ACTION_TRIGGER_RUN", new List<string> { "Trigger был запущен", "Trigger was started", "", "", "" });
+            AddNewWord("WIN_INFO_SHOW_ACTION_SET_GLOBAL_PARENT", new List<string> { "Воб был назначен Глобальным Родителем", "Vob was set as the Global Parent", "", "", "" });
+            AddNewWord("WIN_INFO_SHOW_ACTION_NULL_GLOBAL_PARENT", new List<string> { "Глобальный Родитель был очищен", "Global Parent has been cleared", "", "", "" });
         }
 
 
