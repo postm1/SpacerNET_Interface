@@ -433,7 +433,7 @@ namespace SpacerUnion
 
 
                 Utils.AddInfoUserAction("[~]: " + Localizator.Get("PARENT_CHANGE_OK")
-                    + ". " + entry.ToString(), Color.DarkViolet);
+                    + " " + entry.ToString(), Color.DarkViolet);
             }
 
             
