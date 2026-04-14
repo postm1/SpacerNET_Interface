@@ -1016,6 +1016,9 @@ namespace SpacerUnion.Common
             AddNewWord("WIN_INFO_SHOW_ACTION_TRIGGER_RUN", new List<string> { "Trigger был запущен", "Trigger was started", "", "", "" });
             AddNewWord("WIN_INFO_SHOW_ACTION_SET_GLOBAL_PARENT", new List<string> { "Воб был назначен Глобальным Родителем", "Vob was set as the Global Parent", "", "", "" });
             AddNewWord("WIN_INFO_SHOW_ACTION_NULL_GLOBAL_PARENT", new List<string> { "Глобальный Родитель был очищен", "Global Parent has been cleared", "", "", "" });
+
+            AddNewWord("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_WRONGTIME", new List<string> { "Неверное время zCVobSoundDaytime. Время начала > времени конца", "Wrong time format of zCVobSoundDaytime: Begin time > End time", "", "", "" });
+            AddNewWord("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_NOTIME", new List<string> { "Не установлено время начала и конца у zCVobSoundDaytime", "The start and end time are not set in zCVobSoundDaytime", "", "", "" });
         }
 
 

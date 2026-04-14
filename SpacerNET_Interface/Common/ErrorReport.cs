@@ -68,7 +68,9 @@ namespace SpacerUnion.Common
         ERROR_REPORT_PROBLEM_TYPE_MOBCONT_NOT_CLOSED,
         ERROR_REPORT_PROBLEM_TYPE_MOBCONT_CLOSED_NO_KEY,
         ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_NOINST,
-        ERROR_REPORT_PROBLEM_TYPE_WP_HAS_CHILDREN
+        ERROR_REPORT_PROBLEM_TYPE_WP_HAS_CHILDREN,
+        ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_WRONGTIME,
+        ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_NOTIME,
 
     }
 
@@ -171,7 +173,8 @@ namespace SpacerUnion.Common
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_MOBCONT_CLOSED_NO_KEY: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_MOBCONT_CLOSED_NO_KEY"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_NOINST:result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_NOINST"); break;
                 case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_WP_HAS_CHILDREN: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_WP_HAS_CHILDREN"); break;
-                    
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_WRONGTIME: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_WRONGTIME"); break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_NOTIME: result = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_NOTIME"); break;
 
                     //ERROR_REPORT_PROBLEM_TYPE_MESH_MAT_COLLISION NOT USED?   
             }
@@ -629,7 +632,23 @@ namespace SpacerUnion.Common
                         result = String.Format(stringFormat, vobName);
                     };
                     break;
-                    
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_WRONGTIME:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_WRONGTIME") + " {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+                case ErrorReportProblemType.ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_NOTIME:
+                    {
+
+                        var stringFormat = Localizator.Get("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_NOTIME") + " {0}";
+
+                        result = String.Format(stringFormat, vobName);
+                    };
+                    break;
+
             }
 
 
