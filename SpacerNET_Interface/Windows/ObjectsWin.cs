@@ -1501,6 +1501,9 @@ namespace SpacerUnion
             //ConsoleEx.WriteLineRed(triggerEntry.m_kf_pos + "/" + triggerEntry.maxKey);
 
             UpdateTriggerWindow(false);
+
+            Utils.PrintLogInfo("[~]: ", Localizator.Get("WIN_INFO_SHOW_ACTION_TRIGGER_CHANGED"), Color.ForestGreen);
+
             SpacerNET.form.Focus();
         }
 
@@ -1532,6 +1535,10 @@ namespace SpacerUnion
             //ConsoleEx.WriteLineRed("CurrentKey: " + triggerEntry.m_kf_pos + "/" + triggerEntry.maxKey);
             UpdateTriggerWindow(false);
 
+
+            Utils.PrintLogInfo("[~]: ", Localizator.Get("WIN_INFO_SHOW_ACTION_TRIGGER_CHANGED"), Color.ForestGreen);
+
+
             SpacerNET.form.Focus();
         }
 
@@ -1549,6 +1556,10 @@ namespace SpacerUnion
             triggerEntry.m_kf_pos = Imports.Extern_GetCurrentKey();
 
             // UpdateTriggerWindow(false);
+
+
+            Utils.PrintLogInfo("[~]: ", Localizator.Get("WIN_INFO_SHOW_ACTION_TRIGGER_RUN"), Color.ForestGreen);
+
         }
 
         private void ParticleWin_Shown(object sender, EventArgs e)
@@ -4807,7 +4818,7 @@ namespace SpacerUnion
             triggerEntry.maxKey = Imports.Extern_GetMaxKey();
 
             //ConsoleEx.WriteLineRed(triggerEntry.m_kf_pos + "/" + triggerEntry.maxKey);
-
+            Utils.PrintLogInfo("[~]: ", Localizator.Get("WIN_INFO_SHOW_ACTION_TRIGGER_CHANGED"), Color.ForestGreen);
             UpdateTriggerWindow(false);
         }
 
@@ -4820,6 +4831,7 @@ namespace SpacerUnion
 
             //ConsoleEx.WriteLineRed(triggerEntry.m_kf_pos + "/" + triggerEntry.maxKey);
 
+            Utils.PrintLogInfo("[~]: ", Localizator.Get("WIN_INFO_SHOW_ACTION_TRIGGER_CHANGED"), Color.ForestGreen);
             UpdateTriggerWindow(false);
         }
 

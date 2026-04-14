@@ -252,20 +252,7 @@ namespace SpacerUnion
 
             if (wasChanged)
             {
-                var node = SpacerNET.objTreeWin.globalTree.SelectedNode;
-
-                if (node != null)
-                {
-
-                    var result = ObjTree.globalEntries.Where(x => x.Value.node == node).FirstOrDefault();
-                    var entry = result.Value;
-
-                    if (entry != null)
-                    {
-                        Utils.AddInfoUserAction("[~]: " + Localizator.Get("WIN_INFO_SHOW_ACTION_MATRIX_CHANGED")
-                        + ". " + entry.ToString(), Color.ForestGreen);
-                    }
-                }
+                Utils.PrintLogInfo("[~]: ", Localizator.Get("WIN_INFO_SHOW_ACTION_MATRIX_CHANGED"), Color.ForestGreen);
             }
             
 

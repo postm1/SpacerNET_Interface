@@ -406,6 +406,24 @@ namespace SpacerUnion
             }
         }
 
+        public static void PrintLogInfo(string type, string info, Color color)
+        {
+            var node = SpacerNET.objTreeWin.globalTree.SelectedNode;
+
+            if (node != null)
+            {
+
+                var result = ObjTree.globalEntries.Where(x => x.Value.node == node).FirstOrDefault();
+                var entry = result.Value;
+
+                if (entry != null)
+                {
+                    Utils.AddInfoUserAction(type + info
+                    + ". " + entry.ToString(), color);
+                }
+            }
+        }
+
     }
 
     public static class Helper
