@@ -1013,13 +1013,14 @@ namespace SpacerUnion.Common
             AddNewWord("WIN_INFO_SHOW_ACTION_MATRIX_CHANGED", new List<string> { "Воб был перемещен или повернут", "Vob was moved or rotated", "Vob wurde verschoben oder gedreht", "Vob został przesunięty lub obrócony", "" });
             AddNewWord("WIN_INFO_SHOW_ACTION_PROPS_CHANGED", new List<string> { "Свойства воба были изменены", "Vob's properties were changed", "Vob-Eigenschaften wurden geändert", "Zmieniono właściwości voba", "" });
             
-            AddNewWord("WIN_INFO_SHOW_ACTION_TRIGGER_CHANGED", new List<string> { "Trigger был изменен", "Trigger was changed", "", "", "" });
+            AddNewWord("WIN_INFO_SHOW_ACTION_TRIGGER_CHANGED", new List<string> { "Trigger был изменен", "Trigger was changed", "", "Trigger został zmieniony", "" });
             AddNewWord("WIN_INFO_SHOW_ACTION_TRIGGER_RUN", new List<string> { "Trigger был запущен", "Trigger was started", "", "", "" });
-            AddNewWord("WIN_INFO_SHOW_ACTION_SET_GLOBAL_PARENT", new List<string> { "Воб был назначен Глобальным Родителем", "Vob was set as the Global Parent", "", "", "" });
-            AddNewWord("WIN_INFO_SHOW_ACTION_NULL_GLOBAL_PARENT", new List<string> { "Глобальный Родитель был очищен", "Global Parent has been cleared", "", "", "" });
+            AddNewWord("WIN_INFO_SHOW_ACTION_SET_GLOBAL_PARENT", new List<string> { "Воб был назначен Глобальным Родителем", "Vob was set as the Global Parent", "", "Trigger został uruchomiony", "" });
+            AddNewWord("WIN_INFO_SHOW_ACTION_NULL_GLOBAL_PARENT", new List<string> { "Глобальный Родитель был очищен", "Global Parent has been cleared", "", "Vob został ustawiony jako Global Parent", "" });
 
-            AddNewWord("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_WRONGTIME", new List<string> { "Неверное время zCVobSoundDaytime. Время начала > времени конца", "Wrong time format of zCVobSoundDaytime: Begin time > End time", "", "", "" });
-            AddNewWord("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_NOTIME", new List<string> { "Не установлено время начала и конца у zCVobSoundDaytime", "The start and end time are not set in zCVobSoundDaytime", "", "", "" });
+            AddNewWord("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_WRONGTIME", new List<string> { "Неверное время zCVobSoundDaytime. Время начала > времени конца", "Wrong time format of zCVobSoundDaytime: Begin time > End time", "", "Nieprawidłowy czas zCVobSoundDaytime: czas rozpoczęcia > czas zakończenia", "" });
+            AddNewWord("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_NOTIME", new List<string> { "Не установлено время начала и конца у zCVobSoundDaytime", "The start and end time are not set in zCVobSoundDaytime", "", "Nie ustawiono czasu rozpoczęcia i zakończenia dla zCVobSoundDaytime", "" });
+            AddNewWord("WIN_INFO_SHOW_ACTION_AUTOSAVE_WORLD", new List<string> { "Автоматическое сохранение мира", "Auto-save of the world", "", "Automatyczne zapisywanie świata", "" });
         }
 
 
