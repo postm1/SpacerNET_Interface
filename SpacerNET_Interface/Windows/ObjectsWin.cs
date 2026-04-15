@@ -5439,9 +5439,9 @@ namespace SpacerUnion
             listBoxPfxResult.BeginUpdate();
             listBoxPfxResult.Items.Clear();
 
-            foreach (object item in listBoxItems.Items)
+            foreach (object item in listBoxParticles.Items)
             {
-                string value = listBoxItems.GetItemText(item);
+                string value = listBoxParticles.GetItemText(item);
 
                 if (_searchRegexPfx.IsMatch(value))
                 {
