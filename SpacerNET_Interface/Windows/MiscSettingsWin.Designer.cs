@@ -48,7 +48,9 @@
             this.checkBoxLastZenAuto = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
             this.btnMiscSetApply = new System.Windows.Forms.Button();
+            this.trackBarAutoSave = new System.Windows.Forms.TrackBar();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarAutoSave)).BeginInit();
             this.SuspendLayout();
             // 
             // checkBoxSetDatePrefix
@@ -63,6 +65,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.trackBarAutoSave);
             this.groupBox1.Controls.Add(this.checkBoxAutoSave);
             this.groupBox1.Controls.Add(this.checkBoxNoWorkCheck);
             this.groupBox1.Controls.Add(this.checkBoxSkipPolysCut);
@@ -83,22 +86,23 @@
             this.groupBox1.Controls.Add(this.checkBoxSetDatePrefix);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(624, 474);
+            this.groupBox1.Size = new System.Drawing.Size(624, 531);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            //
+            // 
             // checkBoxAutoSave
-            //
+            // 
             this.checkBoxAutoSave.AutoSize = true;
             this.checkBoxAutoSave.Location = new System.Drawing.Point(13, 447);
             this.checkBoxAutoSave.Name = "checkBoxAutoSave";
-            this.checkBoxAutoSave.Size = new System.Drawing.Size(280, 17);
+            this.checkBoxAutoSave.Size = new System.Drawing.Size(179, 17);
             this.checkBoxAutoSave.TabIndex = 19;
-            this.checkBoxAutoSave.Text = "Auto-save world every 5 minutes";
+            this.checkBoxAutoSave.Text = "Auto-save world every (minutes):";
             this.checkBoxAutoSave.UseVisualStyleBackColor = true;
-            //
+            this.checkBoxAutoSave.CheckedChanged += new System.EventHandler(this.checkBoxAutoSave_CheckedChanged);
+            // 
             // checkBoxNoWorkCheck
-            //
+            // 
             this.checkBoxNoWorkCheck.AutoSize = true;
             this.checkBoxNoWorkCheck.Checked = true;
             this.checkBoxNoWorkCheck.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -283,7 +287,7 @@
             // 
             // btnMiscSetApply
             // 
-            this.btnMiscSetApply.Location = new System.Drawing.Point(275, 492);
+            this.btnMiscSetApply.Location = new System.Drawing.Point(275, 549);
             this.btnMiscSetApply.Name = "btnMiscSetApply";
             this.btnMiscSetApply.Size = new System.Drawing.Size(115, 23);
             this.btnMiscSetApply.TabIndex = 11;
@@ -291,11 +295,22 @@
             this.btnMiscSetApply.UseVisualStyleBackColor = true;
             this.btnMiscSetApply.Click += new System.EventHandler(this.btnMiscSetApply_Click);
             // 
+            // trackBarAutoSave
+            // 
+            this.trackBarAutoSave.Location = new System.Drawing.Point(249, 447);
+            this.trackBarAutoSave.Maximum = 60;
+            this.trackBarAutoSave.Minimum = 2;
+            this.trackBarAutoSave.Name = "trackBarAutoSave";
+            this.trackBarAutoSave.Size = new System.Drawing.Size(181, 45);
+            this.trackBarAutoSave.TabIndex = 20;
+            this.trackBarAutoSave.Value = 2;
+            this.trackBarAutoSave.ValueChanged += new System.EventHandler(this.trackBarAutoSave_ValueChanged);
+            // 
             // MiscSettingsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 527);
+            this.ClientSize = new System.Drawing.Size(648, 584);
             this.Controls.Add(this.btnMiscSetApply);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -310,6 +325,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MiscSettingsWin_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarAutoSave)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -335,5 +351,6 @@
         public System.Windows.Forms.CheckBox checkBoxSkipPolysCut;
         public System.Windows.Forms.CheckBox checkBoxNoWorkCheck;
         public System.Windows.Forms.CheckBox checkBoxAutoSave;
+        private System.Windows.Forms.TrackBar trackBarAutoSave;
     }
 }

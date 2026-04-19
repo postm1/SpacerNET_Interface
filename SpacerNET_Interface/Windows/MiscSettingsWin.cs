@@ -43,6 +43,8 @@ namespace SpacerUnion.Windows
 
 
             btnMiscSetApply.Text = Localizator.Get("BTN_APPLY");
+
+            UpdateDynamicInfo();
         }
 
         public void LoadSettings()
@@ -111,6 +113,37 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("checkBoxAutoSave");
             SpacerNET.miscSetWin.checkBoxAutoSave.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
+
+
+            Imports.Stack_PushString("autoSaveZenTime");
+            int trackBarValue = Imports.Extern_GetSetting();
+            Utils.Clamp(trackBarValue, 0, 60);
+            SpacerNET.miscSetWin.trackBarAutoSave.Value = trackBarValue;
+
+
+            UpdateDynamicInfo();
+
+
+        }
+
+        public void UpdateDynamicInfo()
+        {
+
+            string baseText = Localizator.Get("checkBoxAutoSave");
+            string minutesText = trackBarAutoSave.Value.ToString();
+            string fullText = baseText + minutesText;
+
+            checkBoxAutoSave.Text = fullText;
+
+            using (Graphics g = checkBoxAutoSave.CreateGraphics())
+            {
+                string maxNumber = new string('8', 3);
+                string maxFullText = baseText + maxNumber;
+
+                Size maxSize = TextRenderer.MeasureText(g, maxFullText, checkBoxAutoSave.Font);
+
+                trackBarAutoSave.Left = checkBoxAutoSave.Left + maxSize.Width + 15;
+            }
         }
 
         public void OnApplySettings()
@@ -168,6 +201,9 @@ namespace SpacerUnion.Windows
 
             Imports.Stack_PushString("checkBoxAutoSave");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxAutoSave.Checked));
+
+            Imports.Stack_PushString("autoSaveZenTime");
+            Imports.Extern_SetSetting(Convert.ToInt32(trackBarAutoSave.Value));
         }
 
         private void MiscSettingsWin_FormClosing(object sender, FormClosingEventArgs e)
@@ -212,6 +248,16 @@ namespace SpacerUnion.Windows
         {
             Imports.Stack_PushString("ignorePathWorkCheck");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxNoWorkCheck.Checked));
+        }
+
+        private void trackBarAutoSave_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateDynamicInfo();
+        }
+
+        private void checkBoxAutoSave_CheckedChanged(object sender, EventArgs e)
+        {
+            trackBarAutoSave.Enabled = checkBoxAutoSave.Checked;
         }
     }
 }

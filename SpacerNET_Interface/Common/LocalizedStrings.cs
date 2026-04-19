@@ -961,7 +961,7 @@ namespace SpacerUnion.Common
 
             AddNewWord("WIN_GRASS_SET_ON_VOB", new List<string> { "Ставить объекты на вобы", "Set objects on vobs", "Objekte auf VOBs platzieren", "", "" });
             AddNewWord("MISC_SETTINGS_NO_WORK_CHECK", new List<string> { "Не проверять путь загружаемого ZEN (игнорировать папку _WORK)", "Don't check path while loading ZEN (ignore _WORK folder)", "Beim Laden von ZEN den Pfad nicht prüfen (Ordner _WORK ignorieren)", "", "" });
-            AddNewWord("checkBoxAutoSave", new List<string> { "Автосохранение мира каждые 5 минут", "Auto-save world every 5 minutes", "Welt alle 5 Minuten automatisch speichern", "Automatyczny zapis świata co 5 minut", "Automatické ukládání světa každých 5 minut" });
+            
 
             AddNewWord("UNION_VOB_UPSIDE_DOWN", new List<string> { "Воб успешно перевернут", "Vob has been flipped", "VOB wurde erfolgreich gedreht", "", "" });
             AddNewWord("KEYS_SET_UPSIDE_DOWN", new List<string> { "Перевернуть воб", "Flip vob upside down", "VOB drehen", "", "" });
@@ -1024,6 +1024,9 @@ namespace SpacerUnion.Common
 
 
             AddNewWord("CANT_INSERT_EMPTY_VOB", new List<string> { "Не могу вставить пустой воб! Скопируйте или вырежьте его еще раз!", "Can't insert an empty vob. Copy or cut it again", "Leerer Vob kann nicht eingefügt werden. Bitte erneut kopieren oder ausschneiden", "Nie można wstawić pustego voba. Skopiuj lub wytnij go ponownie", "" });
+
+
+            AddNewWord("checkBoxAutoSave", new List<string> { "Автосохранение мира каждые (минут): ", "Auto-save world every (minutes): ", "", "", "" });
         }
 
 
