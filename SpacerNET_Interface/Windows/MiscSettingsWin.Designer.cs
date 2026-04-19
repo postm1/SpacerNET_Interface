@@ -299,7 +299,7 @@
             // 
             this.trackBarAutoSave.Location = new System.Drawing.Point(249, 447);
             this.trackBarAutoSave.Maximum = 60;
-            this.trackBarAutoSave.Minimum = 2;
+            this.trackBarAutoSave.Minimum = 1;
             this.trackBarAutoSave.Name = "trackBarAutoSave";
             this.trackBarAutoSave.Size = new System.Drawing.Size(181, 45);
             this.trackBarAutoSave.TabIndex = 20;
