@@ -271,7 +271,7 @@
             this.Name = "SoundWin";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Sounds and music window";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SoundWin_FormClosing);
             this.Shown += new System.EventHandler(this.SoundWin_Shown);

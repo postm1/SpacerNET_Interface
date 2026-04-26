@@ -89,6 +89,7 @@
     <Compile Include="Common\Localizator.cs" />
     <Compile Include="Common\LocalizedStrings.cs" />
     <Compile Include="Common\Macros.cs" />
+    <Compile Include="Common\ScreenUtils.cs" />
     <Compile Include="Common\PFX_Editor\PFXEditorWin_Utils.cs">
       <SubType>Form</SubType>
     </Compile>
