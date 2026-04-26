@@ -30,6 +30,7 @@
         {
             this.checkBoxSetDatePrefix = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxDarkMode = new System.Windows.Forms.CheckBox();
             this.checkBoxAutoSave = new System.Windows.Forms.CheckBox();
             this.checkBoxNoWorkCheck = new System.Windows.Forms.CheckBox();
             this.checkBoxSkipPolysCut = new System.Windows.Forms.CheckBox();
@@ -63,6 +64,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxDarkMode);
             this.groupBox1.Controls.Add(this.checkBoxAutoSave);
             this.groupBox1.Controls.Add(this.checkBoxNoWorkCheck);
             this.groupBox1.Controls.Add(this.checkBoxSkipPolysCut);
@@ -83,9 +85,19 @@
             this.groupBox1.Controls.Add(this.checkBoxSetDatePrefix);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(624, 474);
+            this.groupBox1.Size = new System.Drawing.Size(624, 500);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            //
+            // checkBoxDarkMode
+            //
+            this.checkBoxDarkMode.AutoSize = true;
+            this.checkBoxDarkMode.Location = new System.Drawing.Point(13, 470);
+            this.checkBoxDarkMode.Name = "checkBoxDarkMode";
+            this.checkBoxDarkMode.Size = new System.Drawing.Size(150, 17);
+            this.checkBoxDarkMode.TabIndex = 20;
+            this.checkBoxDarkMode.Text = "Dark mode";
+            this.checkBoxDarkMode.UseVisualStyleBackColor = true;
             //
             // checkBoxAutoSave
             //
@@ -283,7 +295,7 @@
             // 
             // btnMiscSetApply
             // 
-            this.btnMiscSetApply.Location = new System.Drawing.Point(275, 492);
+            this.btnMiscSetApply.Location = new System.Drawing.Point(275, 520);
             this.btnMiscSetApply.Name = "btnMiscSetApply";
             this.btnMiscSetApply.Size = new System.Drawing.Size(115, 23);
             this.btnMiscSetApply.TabIndex = 11;
@@ -295,7 +307,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 527);
+            this.ClientSize = new System.Drawing.Size(648, 555);
             this.Controls.Add(this.btnMiscSetApply);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -335,5 +347,6 @@
         public System.Windows.Forms.CheckBox checkBoxSkipPolysCut;
         public System.Windows.Forms.CheckBox checkBoxNoWorkCheck;
         public System.Windows.Forms.CheckBox checkBoxAutoSave;
+        public System.Windows.Forms.CheckBox checkBoxDarkMode;
     }
 }

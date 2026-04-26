@@ -69,6 +69,13 @@ namespace SpacerUnion
 
             Localizator.Init();
             Localizator.SetLanguage((LangEnum)Properties.Settings.Default.Language);
+
+            Theme.IsDark = Properties.Settings.Default.DarkMode;
+            Theme.ThemeChanged += () =>
+            {
+                if (windowsList != null) ThemeApplier.ApplyAll(windowsList);
+                if (form != null) ThemeApplier.Apply(form);
+            };
            
             
             
@@ -127,6 +134,12 @@ namespace SpacerUnion
             form.menuStripTopMain.Enabled = false;
 
             Localizator.UpdateInterface();
+
+            if (Theme.IsDark)
+            {
+                ThemeApplier.Apply(form);
+                ThemeApplier.ApplyAll(windowsList);
+            }
 
             form.Show();
 

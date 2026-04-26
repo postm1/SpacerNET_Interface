@@ -39,8 +39,10 @@ namespace SpacerUnion.Windows
             checkBoxSkipPolysCut.Text = Localizator.Get("checkBoxSkipPolysCut");
             checkBoxNoWorkCheck.Text = Localizator.Get("MISC_SETTINGS_NO_WORK_CHECK");
             checkBoxAutoSave.Text = Localizator.Get("checkBoxAutoSave");
+            checkBoxDarkMode.Text = Localizator.Get("checkBoxDarkMode");
 
             ToolTipManager.Set(checkBoxAutoSave, "TT_AUTOSAVE_CHECKBOX");
+            ToolTipManager.Set(checkBoxDarkMode, "TT_MISC_DARK_MODE");
 
             btnMiscSetApply.Text = Localizator.Get("BTN_APPLY");
         }
@@ -111,6 +113,7 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("checkBoxAutoSave");
             SpacerNET.miscSetWin.checkBoxAutoSave.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
+            SpacerNET.miscSetWin.checkBoxDarkMode.Checked = Properties.Settings.Default.DarkMode;
         }
 
         public void OnApplySettings()
@@ -168,6 +171,14 @@ namespace SpacerUnion.Windows
 
             Imports.Stack_PushString("checkBoxAutoSave");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxAutoSave.Checked));
+
+            if (Properties.Settings.Default.DarkMode != checkBoxDarkMode.Checked)
+            {
+                Properties.Settings.Default.DarkMode = checkBoxDarkMode.Checked;
+                Properties.Settings.Default.Save();
+                Theme.IsDark = checkBoxDarkMode.Checked;
+                Theme.RaiseChanged();
+            }
         }
 
         private void MiscSettingsWin_FormClosing(object sender, FormClosingEventArgs e)
