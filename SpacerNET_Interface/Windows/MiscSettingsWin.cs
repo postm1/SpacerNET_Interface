@@ -40,7 +40,7 @@ namespace SpacerUnion.Windows
             checkBoxNoWorkCheck.Text = Localizator.Get("MISC_SETTINGS_NO_WORK_CHECK");
             checkBoxAutoSave.Text = Localizator.Get("checkBoxAutoSave");
             checkBoxRemind.Text = Localizator.Get("checkBoxRemind");
-            
+            checkBoxDarkMode.Text = Localizator.Get("checkBoxDarkMode");
 
             btnMiscSetApply.Text = Localizator.Get("BTN_APPLY");
 
@@ -132,6 +132,7 @@ namespace SpacerUnion.Windows
             UpdateDynamicInfo();
             UpdateDynamicInfoRemind();
 
+            SpacerNET.miscSetWin.checkBoxDarkMode.Checked = Properties.Settings.Default.DarkMode;
         }
 
         public void UpdateDynamicInfo()
@@ -241,6 +242,13 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("remindSaveTime");
             Imports.Extern_SetSetting(Convert.ToInt32(trackBarRemindSave.Value));
 
+            if (Properties.Settings.Default.DarkMode != checkBoxDarkMode.Checked)
+            {
+                Properties.Settings.Default.DarkMode = checkBoxDarkMode.Checked;
+                Properties.Settings.Default.Save();
+                Theme.IsDark = checkBoxDarkMode.Checked;
+                Theme.RaiseChanged();
+            }
         }
 
         private void MiscSettingsWin_FormClosing(object sender, FormClosingEventArgs e)
