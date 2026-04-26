@@ -41,6 +41,22 @@ namespace SpacerUnion.Windows
             checkBoxAutoSave.Text = Localizator.Get("checkBoxAutoSave");
 
             ToolTipManager.Set(checkBoxAutoSave, "TT_AUTOSAVE_CHECKBOX");
+            ToolTipManager.Set(checkBoxSetDatePrefix, "TT_MISC_DATE_PREFIX");
+            ToolTipManager.Set(checkBoxMiscExitAsk, "TT_MISC_EXIT_ASK");
+            ToolTipManager.Set(checkBoxMiscFullPath, "TT_MISC_FULL_PATH");
+            ToolTipManager.Set(checkBoxMiscAutoCompile, "TT_MISC_AUTO_COMPILE");
+            ToolTipManager.Set(checkBoxAutoCompileUncompiled, "TT_MISC_AUTO_COMPILE_UNCOMPILED");
+            ToolTipManager.Set(checkBoxAutoRemoveAllVisuals, "TT_MISC_AUTO_REMOVE_VISUALS");
+            ToolTipManager.Set(checkBoxMiscRemoveAllLevelCompos, "TT_MISC_REMOVE_LEVELCOMPOS");
+            ToolTipManager.Set(checkBoxSetNearestVobCam, "TT_MISC_NEAREST_VOB_CAM");
+            ToolTipManager.Set(checkBoxShowPolysSort, "TT_MISC_SHOW_POLYS_SORT");
+            ToolTipManager.Set(checkBoxOnlyLatinInInput, "TT_MISC_ONLY_LATIN");
+            ToolTipManager.Set(checkBoxUpperCase, "TT_MISC_UPPERCASE");
+            ToolTipManager.Set(checkBoxDisableUpper, "TT_MISC_DISABLE_UPPER");
+            ToolTipManager.Set(checkBoxFast3ds, "TT_MISC_FAST_3DS");
+            ToolTipManager.Set(checkBoxDx11Amb, "TT_MISC_DX11_AMB");
+            ToolTipManager.Set(checkBoxSkipPolysCut, "TT_MISC_SKIP_POLYS_CUT");
+            ToolTipManager.Set(checkBoxNoWorkCheck, "TT_MISC_NO_WORK_CHECK");
 
             btnMiscSetApply.Text = Localizator.Get("BTN_APPLY");
         }
