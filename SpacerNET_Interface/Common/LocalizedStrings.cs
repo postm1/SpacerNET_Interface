@@ -963,6 +963,11 @@ namespace SpacerUnion.Common
             AddNewWord("MISC_SETTINGS_NO_WORK_CHECK", new List<string> { "Не проверять путь загружаемого ZEN (игнорировать папку _WORK)", "Don't check path while loading ZEN (ignore _WORK folder)", "Beim Laden von ZEN den Pfad nicht prüfen (Ordner _WORK ignorieren)", "", "" });
             
 
+            AddNewWord("STATUS_WORLD", new List<string> { "Мир:", "World:", "Welt:", "Świat:", "Svět:" });
+            AddNewWord("STATUS_TRIS", new List<string> { "Поли:", "Tris:", "Tris:", "Tris:", "Tris:" });
+            AddNewWord("STATUS_RAM", new List<string> { "ОЗУ:", "RAM:", "RAM:", "RAM:", "RAM:" });
+            AddNewWord("checkBoxShowStatusBar", new List<string> { "Показывать строку состояния (мир / полигоны / ОЗУ)", "Show status bar (world / tris / RAM)", "Statusleiste anzeigen (Welt / Tris / RAM)", "Pokaż pasek stanu (świat / tris / RAM)", "Zobrazit stavový řádek (svět / tris / RAM)" });
+
             AddNewWord("UNION_VOB_UPSIDE_DOWN", new List<string> { "Воб успешно перевернут", "Vob has been flipped", "VOB wurde erfolgreich gedreht", "", "" });
             AddNewWord("KEYS_SET_UPSIDE_DOWN", new List<string> { "Перевернуть воб", "Flip vob upside down", "VOB drehen", "", "" });
             AddNewWord("WIN_CAMERA_AUTO_RENAME", new List<string> { "Авто-переименовывание ключей с пустыми именам", "Auto rename keys which have empty names", "VOB drehen", "Tasten mit leerem Namen automatisch umbenennen", "" });

@@ -40,7 +40,8 @@ namespace SpacerUnion.Windows
             checkBoxNoWorkCheck.Text = Localizator.Get("MISC_SETTINGS_NO_WORK_CHECK");
             checkBoxAutoSave.Text = Localizator.Get("checkBoxAutoSave");
             checkBoxRemind.Text = Localizator.Get("checkBoxRemind");
-            
+            checkBoxShowStatusBar.Text = Localizator.Get("checkBoxShowStatusBar");
+
 
             btnMiscSetApply.Text = Localizator.Get("BTN_APPLY");
 
@@ -128,6 +129,10 @@ namespace SpacerUnion.Windows
             Utils.Clamp(trackBarValueRemind, 0, 60);
             SpacerNET.miscSetWin.trackBarRemindSave.Value = trackBarValueRemind;
 
+            Imports.Stack_PushString("showStatusBar");
+            SpacerNET.miscSetWin.checkBoxShowStatusBar.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            SpacerNET.form.ApplyStatusBarVisibility(SpacerNET.miscSetWin.checkBoxShowStatusBar.Checked);
 
             UpdateDynamicInfo();
             UpdateDynamicInfoRemind();
@@ -241,6 +246,10 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("remindSaveTime");
             Imports.Extern_SetSetting(Convert.ToInt32(trackBarRemindSave.Value));
 
+            Imports.Stack_PushString("showStatusBar");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxShowStatusBar.Checked));
+
+            SpacerNET.form.ApplyStatusBarVisibility(checkBoxShowStatusBar.Checked);
         }
 
         private void MiscSettingsWin_FormClosing(object sender, FormClosingEventArgs e)
@@ -305,6 +314,11 @@ namespace SpacerUnion.Windows
         private void trackBarRemindSave_ValueChanged(object sender, EventArgs e)
         {
             UpdateDynamicInfoRemind();
+        }
+
+        private void checkBoxShowStatusBar_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
