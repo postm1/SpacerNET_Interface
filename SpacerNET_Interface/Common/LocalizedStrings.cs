@@ -964,6 +964,10 @@ namespace SpacerUnion.Common
             AddNewWord("checkBoxAutoSave", new List<string> { "Автосохранение мира каждые 5 минут", "Auto-save world every 5 minutes", "Welt alle 5 Minuten automatisch speichern", "Automatyczny zapis świata co 5 minut", "Automatické ukládání světa každých 5 minut" });
             AddNewWord("TT_AUTOSAVE_CHECKBOX", new List<string> { "Автосохранение каждые 5 минут в подпапку autosave/ (10 ротирующихся слотов)", "Auto-save every 5 minutes into autosave/ subfolder (10 rotating slots)", "Auto-Speichern alle 5 Minuten in autosave/-Unterordner (10 rotierende Slots)", "Automatyczne zapisywanie co 5 minut do podfolderu autosave/ (10 rotujących slotów)", "Automatické ukládání každých 5 minut do podsložky autosave/ (10 rotujících slotů)" });
 
+            AddNewWord("STATUS_WORLD", new List<string> { "Мир:", "World:", "Welt:", "Świat:", "Svět:" });
+            AddNewWord("STATUS_TRIS", new List<string> { "Поли:", "Tris:", "Tris:", "Tris:", "Tris:" });
+            AddNewWord("STATUS_RAM", new List<string> { "ОЗУ:", "RAM:", "RAM:", "RAM:", "RAM:" });
+
             AddNewWord("UNION_VOB_UPSIDE_DOWN", new List<string> { "Воб успешно перевернут", "Vob has been flipped", "VOB wurde erfolgreich gedreht", "", "" });
             AddNewWord("KEYS_SET_UPSIDE_DOWN", new List<string> { "Перевернуть воб", "Flip vob upside down", "VOB drehen", "", "" });
             AddNewWord("WIN_CAMERA_AUTO_RENAME", new List<string> { "Авто-переименовывание ключей с пустыми именам", "Auto rename keys which have empty names", "VOB drehen", "Tasten mit leerem Namen automatisch umbenennen", "" });

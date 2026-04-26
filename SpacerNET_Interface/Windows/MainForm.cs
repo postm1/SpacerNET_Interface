@@ -32,6 +32,8 @@ namespace SpacerUnion
         public Font mainUIFont = null;
         public float scaleIconsSize = 1.0f;
 
+        private System.Windows.Forms.Timer timerStatusBar;
+
         public enum ToggleMenuType
         {
             ToggleVobs = 0,
@@ -49,6 +51,25 @@ namespace SpacerUnion
 
 
             UpdateSpacerCaption("");
+
+            timerStatusBar = new System.Windows.Forms.Timer { Interval = 1000 };
+            timerStatusBar.Tick += TimerStatusBar_Tick;
+            timerStatusBar.Start();
+        }
+
+        private void TimerStatusBar_Tick(object sender, EventArgs e)
+        {
+            string world = string.IsNullOrEmpty(currentWorldName) ? "—" : currentWorldName;
+            int polys = 0;
+            if (!string.IsNullOrEmpty(currentWorldName))
+            {
+                polys = Imports.Extern_GetPolysCount();
+            }
+            long ramMb = Process.GetCurrentProcess().WorkingSet64 / (1024L * 1024L);
+
+            lblStatusWorld.Text = Localizator.Get("STATUS_WORLD") + " " + world;
+            lblStatusTris.Text = Localizator.Get("STATUS_TRIS") + " " + polys.ToString("N0");
+            lblStatusRam.Text = Localizator.Get("STATUS_RAM") + " " + ramMb + " MB";
         }
 
 

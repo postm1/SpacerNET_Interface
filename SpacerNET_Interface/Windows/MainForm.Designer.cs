@@ -130,7 +130,12 @@
             this.stopRainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startRainsmoothlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startRainfullyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStripBottom = new System.Windows.Forms.StatusStrip();
+            this.lblStatusWorld = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblStatusTris = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblStatusRam = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStripTopMain.SuspendLayout();
+            this.statusStripBottom.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
             this.SuspendLayout();
@@ -1039,14 +1044,45 @@
             this.startRainfullyToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.startRainfullyToolStripMenuItem.Text = "Start rain (fully)";
             this.startRainfullyToolStripMenuItem.Click += new System.EventHandler(this.startRainfullyToolStripMenuItem_Click);
-            // 
+            //
+            // statusStripBottom
+            //
+            this.statusStripBottom.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblStatusWorld,
+            this.lblStatusTris,
+            this.lblStatusRam});
+            this.statusStripBottom.Location = new System.Drawing.Point(0, 561);
+            this.statusStripBottom.Name = "statusStripBottom";
+            this.statusStripBottom.SizingGrip = false;
+            this.statusStripBottom.Size = new System.Drawing.Size(1201, 22);
+            this.statusStripBottom.TabIndex = 4;
+            //
+            // lblStatusWorld
+            //
+            this.lblStatusWorld.Name = "lblStatusWorld";
+            this.lblStatusWorld.Size = new System.Drawing.Size(60, 17);
+            this.lblStatusWorld.Text = "World: —";
+            //
+            // lblStatusTris
+            //
+            this.lblStatusTris.Name = "lblStatusTris";
+            this.lblStatusTris.Size = new System.Drawing.Size(50, 17);
+            this.lblStatusTris.Text = "Tris: 0";
+            //
+            // lblStatusRam
+            //
+            this.lblStatusRam.Name = "lblStatusRam";
+            this.lblStatusRam.Size = new System.Drawing.Size(60, 17);
+            this.lblStatusRam.Text = "RAM: 0 MB";
+            //
             // MainForm
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1201, 583);
             this.Controls.Add(this.panelMain);
+            this.Controls.Add(this.statusStripBottom);
             this.Controls.Add(this.menuStripTopMain);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Transparent;
@@ -1064,6 +1100,8 @@
             this.panelMain.PerformLayout();
             this.toolStripTop.ResumeLayout(false);
             this.toolStripTop.PerformLayout();
+            this.statusStripBottom.ResumeLayout(false);
+            this.statusStripBottom.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1171,5 +1209,9 @@
         private System.Windows.Forms.ToolStripMenuItem startRainsmoothlyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startRainfullyToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem rainToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStripBottom;
+        private System.Windows.Forms.ToolStripStatusLabel lblStatusWorld;
+        private System.Windows.Forms.ToolStripStatusLabel lblStatusTris;
+        private System.Windows.Forms.ToolStripStatusLabel lblStatusRam;
     }
 }
