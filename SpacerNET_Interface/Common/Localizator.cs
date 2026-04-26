@@ -131,6 +131,8 @@ namespace SpacerUnion.Common
             SpacerNET.vobCatForm.UpdateLang();
             SpacerNET.vobCatForm.propsForm.UpdateLang();
             SpacerNET.uvForm.UpdateLang();
+
+            ToolTipManager.RetranslateAll();
         }
 
         [DllExport]

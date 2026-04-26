@@ -40,7 +40,7 @@ namespace SpacerUnion.Windows
             checkBoxNoWorkCheck.Text = Localizator.Get("MISC_SETTINGS_NO_WORK_CHECK");
             checkBoxAutoSave.Text = Localizator.Get("checkBoxAutoSave");
 
-
+            ToolTipManager.Set(checkBoxAutoSave, "TT_AUTOSAVE_CHECKBOX");
 
             btnMiscSetApply.Text = Localizator.Get("BTN_APPLY");
         }
