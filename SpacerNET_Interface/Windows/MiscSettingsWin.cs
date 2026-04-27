@@ -39,12 +39,13 @@ namespace SpacerUnion.Windows
             checkBoxSkipPolysCut.Text = Localizator.Get("checkBoxSkipPolysCut");
             checkBoxNoWorkCheck.Text = Localizator.Get("MISC_SETTINGS_NO_WORK_CHECK");
             checkBoxAutoSave.Text = Localizator.Get("checkBoxAutoSave");
-
-
+            checkBoxRemind.Text = Localizator.Get("checkBoxRemind");
+            
 
             btnMiscSetApply.Text = Localizator.Get("BTN_APPLY");
 
             UpdateDynamicInfo();
+            UpdateDynamicInfoRemind();
         }
 
         public void LoadSettings()
@@ -113,7 +114,8 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("checkBoxAutoSave");
             SpacerNET.miscSetWin.checkBoxAutoSave.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
-
+            Imports.Stack_PushString("warnLastSaveMsg");
+            SpacerNET.miscSetWin.checkBoxRemind.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
             Imports.Stack_PushString("autoSaveZenTime");
             int trackBarValue = Imports.Extern_GetSetting();
@@ -121,8 +123,14 @@ namespace SpacerUnion.Windows
             SpacerNET.miscSetWin.trackBarAutoSave.Value = trackBarValue;
 
 
-            UpdateDynamicInfo();
+            Imports.Stack_PushString("remindSaveTime");
+            int trackBarValueRemind = Imports.Extern_GetSetting();
+            Utils.Clamp(trackBarValueRemind, 0, 60);
+            SpacerNET.miscSetWin.trackBarRemindSave.Value = trackBarValueRemind;
 
+
+            UpdateDynamicInfo();
+            UpdateDynamicInfoRemind();
 
         }
 
@@ -145,6 +153,28 @@ namespace SpacerUnion.Windows
                 trackBarAutoSave.Left = checkBoxAutoSave.Left + maxSize.Width + 15;
             }
         }
+
+        public void UpdateDynamicInfoRemind()
+        {
+
+            string baseText = Localizator.Get("checkBoxRemind");
+            string minutesText = trackBarRemindSave.Value.ToString();
+            string fullText = baseText + minutesText;
+
+            checkBoxRemind.Text = fullText;
+
+            using (Graphics g = checkBoxRemind.CreateGraphics())
+            {
+                string maxNumber = new string('8', 3);
+                string maxFullText = baseText + maxNumber;
+
+                Size maxSize = TextRenderer.MeasureText(g, maxFullText, checkBoxRemind.Font);
+
+                trackBarRemindSave.Left = checkBoxRemind.Left + maxSize.Width + 15;
+            }
+        }
+
+        
 
         public void OnApplySettings()
         {
@@ -202,8 +232,15 @@ namespace SpacerUnion.Windows
             Imports.Stack_PushString("checkBoxAutoSave");
             Imports.Extern_SetSetting(Convert.ToInt32(checkBoxAutoSave.Checked));
 
+            Imports.Stack_PushString("warnLastSaveMsg");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxRemind.Checked));
+
             Imports.Stack_PushString("autoSaveZenTime");
             Imports.Extern_SetSetting(Convert.ToInt32(trackBarAutoSave.Value));
+
+            Imports.Stack_PushString("remindSaveTime");
+            Imports.Extern_SetSetting(Convert.ToInt32(trackBarRemindSave.Value));
+
         }
 
         private void MiscSettingsWin_FormClosing(object sender, FormClosingEventArgs e)
@@ -258,6 +295,16 @@ namespace SpacerUnion.Windows
         private void checkBoxAutoSave_CheckedChanged(object sender, EventArgs e)
         {
             trackBarAutoSave.Enabled = checkBoxAutoSave.Checked;
+        }
+
+        private void checkBoxRemind_CheckedChanged(object sender, EventArgs e)
+        {
+            trackBarRemindSave.Enabled = checkBoxRemind.Checked;
+        }
+
+        private void trackBarRemindSave_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateDynamicInfoRemind();
         }
     }
 }

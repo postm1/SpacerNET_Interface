@@ -49,8 +49,11 @@
             this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
             this.btnMiscSetApply = new System.Windows.Forms.Button();
             this.trackBarAutoSave = new System.Windows.Forms.TrackBar();
+            this.checkBoxRemind = new System.Windows.Forms.CheckBox();
+            this.trackBarRemindSave = new System.Windows.Forms.TrackBar();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAutoSave)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarRemindSave)).BeginInit();
             this.SuspendLayout();
             // 
             // checkBoxSetDatePrefix
@@ -65,6 +68,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.trackBarRemindSave);
+            this.groupBox1.Controls.Add(this.checkBoxRemind);
             this.groupBox1.Controls.Add(this.trackBarAutoSave);
             this.groupBox1.Controls.Add(this.checkBoxAutoSave);
             this.groupBox1.Controls.Add(this.checkBoxNoWorkCheck);
@@ -306,6 +311,28 @@
             this.trackBarAutoSave.Value = 2;
             this.trackBarAutoSave.ValueChanged += new System.EventHandler(this.trackBarAutoSave_ValueChanged);
             // 
+            // checkBoxRemind
+            // 
+            this.checkBoxRemind.AutoSize = true;
+            this.checkBoxRemind.Location = new System.Drawing.Point(13, 478);
+            this.checkBoxRemind.Name = "checkBoxRemind";
+            this.checkBoxRemind.Size = new System.Drawing.Size(249, 17);
+            this.checkBoxRemind.TabIndex = 21;
+            this.checkBoxRemind.Text = "Remind about not saving ZEN every (minutes): ";
+            this.checkBoxRemind.UseVisualStyleBackColor = true;
+            this.checkBoxRemind.CheckedChanged += new System.EventHandler(this.checkBoxRemind_CheckedChanged);
+            // 
+            // trackBarRemindSave
+            // 
+            this.trackBarRemindSave.Location = new System.Drawing.Point(249, 478);
+            this.trackBarRemindSave.Maximum = 60;
+            this.trackBarRemindSave.Minimum = 1;
+            this.trackBarRemindSave.Name = "trackBarRemindSave";
+            this.trackBarRemindSave.Size = new System.Drawing.Size(181, 45);
+            this.trackBarRemindSave.TabIndex = 22;
+            this.trackBarRemindSave.Value = 2;
+            this.trackBarRemindSave.ValueChanged += new System.EventHandler(this.trackBarRemindSave_ValueChanged);
+            // 
             // MiscSettingsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,6 +353,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAutoSave)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarRemindSave)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -352,5 +380,7 @@
         public System.Windows.Forms.CheckBox checkBoxNoWorkCheck;
         public System.Windows.Forms.CheckBox checkBoxAutoSave;
         private System.Windows.Forms.TrackBar trackBarAutoSave;
+        private System.Windows.Forms.TrackBar trackBarRemindSave;
+        public System.Windows.Forms.CheckBox checkBoxRemind;
     }
 }
