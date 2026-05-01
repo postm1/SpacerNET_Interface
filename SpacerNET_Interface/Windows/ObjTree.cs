@@ -1285,7 +1285,7 @@ namespace SpacerUnion
 
                     string fileNameForInfo = Path.GetFileName(filePath);
 
-                    SpacerNET.form.AddText("[->] " + Localizator.Get("UNION_VOBTREE_SAVE") + " | " + fileNameForInfo, Color.FromArgb(255, 0, 255, 0));
+                    SpacerNET.form.AddText("[->] " + Localizator.Get("UNION_VOBTREE_SAVE") + " | " + fileNameForInfo, Color.Green);
 
                 }
                 else
