@@ -1276,10 +1276,29 @@ namespace SpacerUnion
                 Imports.Stack_PushString(filePath);
                 Imports.Extern_SaveVobTree();
 
-                string fileNameForInfo = Path.GetFileName(filePath);
+               
 
-                SpacerNET.form.AddText("[->] " + Localizator.Get("UNION_VOBTREE_SAVE") + " | " + fileNameForInfo, Color.FromArgb(255, 255, 0, 0));
+                if (File.Exists(filePath))
+                {
+                    Imports.Stack_PushString(Localizator.Get("UNION_VOBTREE_SAVE"));
+                    Imports.Extern_PrintGreen();
 
+                    string fileNameForInfo = Path.GetFileName(filePath);
+
+                    SpacerNET.form.AddText("[->] " + Localizator.Get("UNION_VOBTREE_SAVE") + " | " + fileNameForInfo, Color.FromArgb(255, 0, 255, 0));
+
+                }
+                else
+                {
+                    Imports.Stack_PushString(Localizator.Get("UNION_VOBTREE_SAVE_ERROR"));
+                    Imports.Extern_PrintRed();
+
+                    
+                    string fileNameForInfo = Path.GetFileName(filePath);
+
+                    SpacerNET.form.AddText("[->] " + Localizator.Get("UNION_VOBTREE_SAVE_ERROR") + " | " + fileNameForInfo, Color.FromArgb(255, 255, 0, 0));
+                }
+                    
             }
             
         }
