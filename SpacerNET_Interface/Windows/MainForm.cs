@@ -350,7 +350,7 @@ namespace SpacerUnion
            
             SpacerNET.form.ResetInterface();
 
-            SpacerNET.form.AddText(fileName + " " + Localizator.Get("isLoading"));
+            SpacerNET.form.AddText(fileName + " " + Localizator.Get("isLoading"), Color.FromArgb(255, 255, 0, 0));
             ConsoleEx.WriteLineGreen(fileName + " " + Localizator.Get("isLoading"));
 
             SpacerNET.form.currentWorldName = fileName;
@@ -446,7 +446,7 @@ namespace SpacerUnion
 
                 ResetInterface();
 
-                SpacerNET.form.AddText(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"));
+                SpacerNET.form.AddText(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"), Color.FromArgb(255, 255, 0, 0));
                 ConsoleEx.WriteLineGreen(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"));
 
                 currentWorldName = openFileDialog.SafeFileName;
@@ -844,7 +844,7 @@ namespace SpacerUnion
                         continue;
                     }
 
-                    SpacerNET.form.AddText(fileNameCurrent + " " + Localizator.Get("isLoading"));
+                    SpacerNET.form.AddText(fileNameCurrent + " " + Localizator.Get("isLoading"), Color.FromArgb(255, 255, 0, 0));
 
                     currentWorldName = fileNameCurrent;
 
@@ -954,7 +954,7 @@ namespace SpacerUnion
                 ResetInterface();
 
 
-                SpacerNET.form.AddText(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"));
+                SpacerNET.form.AddText(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"), Color.FromArgb(255, 255, 0, 0));
 
                 currentWorldName = openFileDialog.SafeFileName;
 
@@ -1499,7 +1499,7 @@ namespace SpacerUnion
                         continue;
                     }
 
-                    SpacerNET.form.AddText(fileNameCurrent + " " + Localizator.Get("isLoading"));
+                    SpacerNET.form.AddText(fileNameCurrent + " " + Localizator.Get("isLoading"), Color.FromArgb(255, 255, 0, 0));
 
                     currentWorldName = fileNameCurrent;
 
