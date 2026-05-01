@@ -2553,5 +2553,12 @@ namespace SpacerUnion
 
             Imports.Extern_ChangeRain((int)SpacerRainType.SPACER_RAIN_TYPE_FULL);
         }
+
+        private void toolStripButtonMaterial_CheckedChanged(object sender, EventArgs e)
+        {
+            SpacerNET.objTreeWin.labelPolySelectionActive.Text = Localizator.Get("LABEL_POLYS_SELECT_ACTIVE");
+            SpacerNET.objTreeWin.labelPolySelectionActive.Visible = toolStripButtonMaterial.Checked;
+            SpacerNET.objTreeWin.tabControlObjectList.Enabled = !toolStripButtonMaterial.Checked;
+        }
     }
 }
