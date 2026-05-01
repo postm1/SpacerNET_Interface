@@ -1026,8 +1026,8 @@ namespace SpacerUnion.Common
             AddNewWord("CANT_INSERT_EMPTY_VOB", new List<string> { "Не могу вставить пустой воб! Скопируйте или вырежьте его еще раз!", "Can't insert an empty vob. Copy or cut it again", "Leerer Vob kann nicht eingefügt werden. Bitte erneut kopieren oder ausschneiden", "Nie można wstawić pustego voba. Skopiuj lub wytnij go ponownie", "" });
 
 
-            AddNewWord("checkBoxAutoSave", new List<string> { "Автосохранение мира каждые (минут): ", "Auto-save world every (minutes): ", "", "Automatyczne zapisywanie świata co (min.): ", "" });
-            AddNewWord("checkBoxRemind", new List<string> { "Напоминать о сохранении мира каждые (минут): ", "Remind to save ZEN every (minutes): ", "", "Przypominaj o zapisie ZEN co (min.): ", "" });
+            AddNewWord("checkBoxAutoSave", new List<string> { "Автосохранение мира каждые (минут): ", "Auto-save world every (minutes): ", "Automatisches Speichern der Welt alle (Minuten): ", "Automatyczne zapisywanie świata co (min.): ", "" });
+            AddNewWord("checkBoxRemind", new List<string> { "Напоминать о сохранении мира каждые (минут): ", "Remind to save ZEN every (minutes): ", "An das Speichern der Welt erinnern alle (Minuten): ", "Przypominaj o zapisie ZEN co (min.): ", "" });
 
             
 
