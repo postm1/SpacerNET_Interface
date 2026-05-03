@@ -1788,6 +1788,8 @@ namespace SpacerUnion
             Imports.Stack_PushString("searchOnly3DS");
 
             Imports.Extern_SetSetting(Convert.ToInt32(ch.Checked));
+
+            textBoxVisuals_TextChanged(null, null);
         }
 
         private void listBoxVisuals_MouseClick(object sender, MouseEventArgs e)
