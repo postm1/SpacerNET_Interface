@@ -964,9 +964,9 @@ namespace SpacerUnion.Common
             
 
             AddNewWord("STATUS_WORLD", new List<string> { "Мир:", "World:", "Welt:", "Świat:", "Svět:" });
-            AddNewWord("STATUS_TRIS", new List<string> { "Поли:", "Tris:", "Tris:", "Tris:", "Tris:" });
-            AddNewWord("STATUS_RAM", new List<string> { "ОЗУ:", "RAM:", "RAM:", "RAM:", "RAM:" });
-            AddNewWord("checkBoxShowStatusBar", new List<string> { "Показывать строку состояния (мир / полигоны / ОЗУ)", "Show status bar (world / tris / RAM)", "Statusleiste anzeigen (Welt / Tris / RAM)", "Pokaż pasek stanu (świat / tris / RAM)", "Zobrazit stavový řádek (svět / tris / RAM)" });
+            AddNewWord("STATUS_TRIS", new List<string> { "Полигоны:", "Tris:", "Tris:", "Tris:", "Tris:" });
+            AddNewWord("STATUS_RAM", new List<string> { "RAM:", "RAM:", "RAM:", "RAM:", "RAM:" });
+            AddNewWord("checkBoxShowStatusBar", new List<string> { "Показывать строку состояния (мир / полигоны / RAM)", "Show status bar (world / tris / RAM)", "Statusleiste anzeigen (Welt / Tris / RAM)", "Pokaż pasek stanu (świat / tris / RAM)", "Zobrazit stavový řádek (svět / tris / RAM)" });
 
             AddNewWord("UNION_VOB_UPSIDE_DOWN", new List<string> { "Воб успешно перевернут", "Vob has been flipped", "VOB wurde erfolgreich gedreht", "", "" });
             AddNewWord("KEYS_SET_UPSIDE_DOWN", new List<string> { "Перевернуть воб", "Flip vob upside down", "VOB drehen", "", "" });
