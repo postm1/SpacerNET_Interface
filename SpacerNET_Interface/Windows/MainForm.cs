@@ -32,6 +32,8 @@ namespace SpacerUnion
         public Font mainUIFont = null;
         public float scaleIconsSize = 1.0f;
 
+        private System.Windows.Forms.Timer timerStatusBar;
+
         public enum ToggleMenuType
         {
             ToggleVobs = 0,
@@ -49,6 +51,32 @@ namespace SpacerUnion
 
 
             UpdateSpacerCaption("");
+
+            timerStatusBar = new System.Windows.Forms.Timer { Interval = 1000 };
+            timerStatusBar.Tick += TimerStatusBar_Tick;
+            timerStatusBar.Start();
+        }
+
+        private void TimerStatusBar_Tick(object sender, EventArgs e)
+        {
+            if (!statusStripBottom.Visible) return;
+
+            string world = string.IsNullOrEmpty(currentWorldName) ? "—" : currentWorldName;
+            int polys = 0;
+            if (!string.IsNullOrEmpty(currentWorldName))
+            {
+                polys = Imports.Extern_GetPolysCount();
+            }
+            long ramMb = Process.GetCurrentProcess().WorkingSet64 / (1024L * 1024L);
+
+            lblStatusWorld.Text = Localizator.Get("STATUS_WORLD") + " " + world;
+            lblStatusTris.Text = Localizator.Get("STATUS_TRIS") + " " + polys.ToString("N0");
+            lblStatusRam.Text = Localizator.Get("STATUS_RAM") + " " + ramMb + " MB";
+        }
+
+        public void ApplyStatusBarVisibility(bool visible)
+        {
+            statusStripBottom.Visible = visible;
         }
 
 
@@ -350,7 +378,7 @@ namespace SpacerUnion
            
             SpacerNET.form.ResetInterface();
 
-            SpacerNET.form.AddText(fileName + " " + Localizator.Get("isLoading"));
+            SpacerNET.form.AddText(fileName + " " + Localizator.Get("isLoading"), Color.FromArgb(255, 255, 0, 0));
             ConsoleEx.WriteLineGreen(fileName + " " + Localizator.Get("isLoading"));
 
             SpacerNET.form.currentWorldName = fileName;
@@ -446,7 +474,7 @@ namespace SpacerUnion
 
                 ResetInterface();
 
-                SpacerNET.form.AddText(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"));
+                SpacerNET.form.AddText(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"), Color.FromArgb(255, 255, 0, 0));
                 ConsoleEx.WriteLineGreen(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"));
 
                 currentWorldName = openFileDialog.SafeFileName;
@@ -844,7 +872,7 @@ namespace SpacerUnion
                         continue;
                     }
 
-                    SpacerNET.form.AddText(fileNameCurrent + " " + Localizator.Get("isLoading"));
+                    SpacerNET.form.AddText(fileNameCurrent + " " + Localizator.Get("isLoading"), Color.FromArgb(255, 255, 0, 0));
 
                     currentWorldName = fileNameCurrent;
 
@@ -954,7 +982,7 @@ namespace SpacerUnion
                 ResetInterface();
 
 
-                SpacerNET.form.AddText(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"));
+                SpacerNET.form.AddText(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"), Color.FromArgb(255, 255, 0, 0));
 
                 currentWorldName = openFileDialog.SafeFileName;
 
@@ -1499,7 +1527,7 @@ namespace SpacerUnion
                         continue;
                     }
 
-                    SpacerNET.form.AddText(fileNameCurrent + " " + Localizator.Get("isLoading"));
+                    SpacerNET.form.AddText(fileNameCurrent + " " + Localizator.Get("isLoading"), Color.FromArgb(255, 255, 0, 0));
 
                     currentWorldName = fileNameCurrent;
 
@@ -2552,6 +2580,13 @@ namespace SpacerUnion
             Imports.Extern_FreezeTime(0);
 
             Imports.Extern_ChangeRain((int)SpacerRainType.SPACER_RAIN_TYPE_FULL);
+        }
+
+        private void toolStripButtonMaterial_CheckedChanged(object sender, EventArgs e)
+        {
+            SpacerNET.objTreeWin.labelPolySelectionActive.Text = Localizator.Get("LABEL_POLYS_SELECT_ACTIVE");
+            SpacerNET.objTreeWin.labelPolySelectionActive.Visible = toolStripButtonMaterial.Checked;
+            SpacerNET.objTreeWin.tabControlObjectList.Enabled = !toolStripButtonMaterial.Checked;
         }
     }
 }

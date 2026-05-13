@@ -92,6 +92,7 @@
     <Compile Include="Common\Theme.cs" />
     <Compile Include="Common\ThemeApplier.cs" />
     <Compile Include="Common\DarkToolStripRenderer.cs" />
+    <Compile Include="Common\ScreenUtils.cs" />
     <Compile Include="Common\PFX_Editor\PFXEditorWin_Utils.cs">
       <SubType>Form</SubType>
     </Compile>

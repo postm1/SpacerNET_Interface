@@ -415,7 +415,7 @@ namespace SpacerUnion.Common
             AddNewWord("labelRenameVob", new List<string> { "Новое имя", "New name", "Neuer Name", "Nowa nazwa", "Nové jméno" });
             AddNewWord("checkBoxAutoNumerate", new List<string> { "Авто-нумерация имен", "Auto numeration of names", "Automatische Nummerierung der Namen", "Automatycznie numeruj nazwy", "Automatické číslování jmen" });
             AddNewWord("MENU_TOP_VIEW_FREEZETIME", new List<string> { "Заморозить время", "Freeze time", "Ingamezeit einfrieren", "Zatrzymanie czasu", "Zamrznutí času" });
-            AddNewWord("MENU_TOP_VIEW_POLYGON", new List<string> { "Выделение полигона", "Polygon select", "Polygonauswahl", "Wybór polygonu", "Výběr polygonu" });
+            AddNewWord("MENU_TOP_VIEW_POLYGON", new List<string> { "Выделение полигона", "Polygon selection mode", "Polygonauswahl", "Wybór polygonu", "Výběr polygonu" });
             AddNewWord("MENU_TOP_VIEW_RENDERMODE", new List<string> { "Режим рендера", "Render mode", "Renderermodus", "Tryb renderowania", "Režim renderování" });
             AddNewWord("CHECK_BADPLUGINS_MSG", new List<string> { "У вас есть плагины, которые могут помешать работе Spacer.net!", "You have plugins which may not work with Spacer.net!", "Möglicherweise sind Plugins installiert, welche nicht mit Spacer.net kompatibel sind!", "Masz pluginy, które mogą nie działać poprawnie z Spacer.net", "Máte pluginy, které nemusí fungovat se Spacer.net!" });
             AddNewWord("WIN_GRASS_TITLE", new List<string> { "Сеятель объектов", "Objects sower", "Objektgenerator", "Generator obiektów", "Generátor objektů" });
@@ -737,7 +737,7 @@ namespace SpacerUnion.Common
             AddNewWord("WIN_VOBCATALOG_GROUP_NAME", new List<string> { "Имя группы: ", "Group name: ", "Gruppen Name: ", "Nazwa grupy: ", "Jméno skupiny: " });
             AddNewWord("WIN_VOBCATALOG_VISUAL_NAME", new List<string> { "Визуал: ", "Visual: ", "Visuelles: ", "Visual: ", "Vizuál: " });
             AddNewWord("WIN_VOBCATALOG_MATFILTER_TURNOFF", new List<string> { "Сначала закройте окно Фильтра материалов!", "Turn off Materials filter window first!", "Schalte zuerst das Materialfilterfenster aus!", "Wpierw zamknij okno filtr materiałów!", "Nejprve vypněte okno filtru materiálů!" });
-            AddNewWord("WIN_VOBCATALOG_POLYSELECT_TURNOFF", new List<string> { "Сначала выключите режим выделения полигонов!", "Turn off polygon select mod first!", "Schalte zuerst den Polygonauswahlmodus aus!", "Wpierw wyłącz tryb wyboru poligonów", "Nejprve vypněte režim výběru polygonu!" });
+            AddNewWord("WIN_VOBCATALOG_POLYSELECT_TURNOFF", new List<string> { "Сначала выключите режим выделения полигонов!", "Turn off polygons selection mode first!", "Schalte zuerst den Polygonauswahlmodus aus!", "Wpierw wyłącz tryb wyboru poligonów", "Nejprve vypněte režim výběru polygonu!" });
             AddNewWord("WIN_VOBCATALOG_ASKSURE_REMOVE_GROUP", new List<string> { "Вы уверены? Все вобы в группе будут удалены!", "Are you sure? All vobs in the group will be deleted!", "Bist du sicher? Alle VOBs in der Gruppe werden gelöscht!", "Jesteś pewien? Wszystkie voby w grubie zostaną skasowane!", "Jste si jistý? Všechny voby ve skupině budou smazány!" });
             AddNewWord("WIN_VOBCATALOG_IS_STATIC_VOB", new List<string> { "Статичный воб (isStatic): ", "Static vob (isStatic): ", "Statische VOB (isStatic): ", "Vob statyczny (isStatic): ", "Statický vob (isStatic): " });
             AddNewWord("WIN_VOBCATALOG_BAD_SYMBOL", new List<string> { "Нельзя использовать символ ;", "Symbol ; is not allowed here", "Symbol ; ist nicht erlaubt", "Znak ; nie jest dozwolony w tym miejscu", "Symbol ; zde není povolen" });
@@ -867,7 +867,7 @@ namespace SpacerUnion.Common
             AddNewWord("UV_WIN_MAX_AREA", new List<string> { "Максимальная площадь UV. Плохие развертки имеют значение ≥ 5 (не всегда)", "Max UV area. Bad UV's can have value ≥ 5 (not always)", "Maximale UV-Fläche. Schlechte UVs können einen Wert ≥ 5 haben (nicht immer)", "Maksymalny zakres UV. Złe UV mają wartość ≥ 5 (nie zawsze)", "" });
             AddNewWord("UV_WIN_MAX_ANGLE_DIST", new List<string> { "Угол искажения (от 1 до 179). Плохие развертки имеют значение ≥ 30 (не всегда)", "Distortion angle (from 0 to 179). Bad UV's can have value ≥ 30 (not always)", "Verzerrungswinkel (von 1 bis 179). Schlechte UVs können einen Wert ≥ 30 haben (nicht immer)", "Kąt zniekształcenia (od 0 do 179). Złe UV mogą mieć wartość ≥ 30 (nie zawsze)", "" });
             AddNewWord("UV_WIN_IGNORE_NOCOLL", new List<string> { "Игнорировать материалы/полигоны без коллизии", "Ignore materials/polygons without collision", "Materialien/Polygone ohne Kollision ignorieren", "Ignoruj materiały/poligony bez kolizji", "" });
-            AddNewWord("UV_WIN_POLY_SELECT_MUST_BE_ON", new List<string> { "Сначала ВКЛЮЧИТЕ режим выделения полигонов!", "Turn ON polygon select mod first!", "Schalte zuerst den Polygon-Auswahlmodus EIN!", "Najpierw włącz tryb zaznaczania poligonów!", "" });
+            AddNewWord("UV_WIN_POLY_SELECT_MUST_BE_ON", new List<string> { "Сначала ВКЛЮЧИТЕ режим выделения полигонов!", "Turn ON polygons selection mode first!", "Schalte zuerst den Polygon-Auswahlmodus EIN!", "Najpierw włącz tryb zaznaczania poligonów!", "" });
             AddNewWord("UV_WIN_SLIDER_DIST", new List<string> { "Радиус отрисовки 'плохих' полигонов: ", "Draw distance of 'bad' polygons: ", "Darstellungsradius der „schlechten“ Polygone: ", "Zasięg rysowania 'złych' poligonów: ", "" });
 
             AddNewWord("ERROR_REPORT_PROBLEM_TYPE_VISUAL_SPACE", new List<string> { "В поле 'visual' есть символ 'пробел'. Пробел можно удалить введя другой визуал воба, а затем вернув оригинальный без пробела.", "Field 'visual' contains space symbol. The space can be removed by entering a different visual and then returning the original one without the space symbol.", "Das Feld 'visual' enthält ein Leerzeichen. Das Leerzeichen kann entfernt werden, indem du ein anderes Visual eingibst und anschließend das ursprüngliche ohne Leerzeichen wiederherstellst.", "Pole 'visual' zawiera znak spacji. Spacja może zostać usunięta poprzez wprowadzenie innego visuala i przywróceniu oryginalnego bez znaku spacji.", "" });
@@ -964,6 +964,10 @@ namespace SpacerUnion.Common
             
 
             AddNewWord("checkBoxDarkMode", new List<string> { "Тёмная тема", "Dark mode", "Dunkles Design", "Tryb ciemny", "Tmavý režim" });
+            AddNewWord("STATUS_WORLD", new List<string> { "Мир:", "World:", "Welt:", "Świat:", "Svět:" });
+            AddNewWord("STATUS_TRIS", new List<string> { "Полигоны:", "Tris:", "Tris:", "Tris:", "Tris:" });
+            AddNewWord("STATUS_RAM", new List<string> { "RAM:", "RAM:", "RAM:", "RAM:", "RAM:" });
+            AddNewWord("checkBoxShowStatusBar", new List<string> { "Показывать строку состояния (мир / полигоны / RAM)", "Show status bar (world / tris / RAM)", "Statusleiste anzeigen (Welt / Tris / RAM)", "Pokaż pasek stanu (świat / tris / RAM)", "Zobrazit stavový řádek (svět / tris / RAM)" });
 
             AddNewWord("UNION_VOB_UPSIDE_DOWN", new List<string> { "Воб успешно перевернут", "Vob has been flipped", "VOB wurde erfolgreich gedreht", "", "" });
             AddNewWord("KEYS_SET_UPSIDE_DOWN", new List<string> { "Перевернуть воб", "Flip vob upside down", "VOB drehen", "", "" });
@@ -1028,12 +1032,12 @@ namespace SpacerUnion.Common
             AddNewWord("CANT_INSERT_EMPTY_VOB", new List<string> { "Не могу вставить пустой воб! Скопируйте или вырежьте его еще раз!", "Can't insert an empty vob. Copy or cut it again", "Leerer Vob kann nicht eingefügt werden. Bitte erneut kopieren oder ausschneiden", "Nie można wstawić pustego voba. Skopiuj lub wytnij go ponownie", "" });
 
 
-            AddNewWord("checkBoxAutoSave", new List<string> { "Автосохранение мира каждые (минут): ", "Auto-save world every (minutes): ", "", "Automatyczne zapisywanie świata co (min.): ", "" });
-            AddNewWord("checkBoxRemind", new List<string> { "Напоминать о сохранении мира каждые (минут): ", "Remind to save ZEN every (minutes): ", "", "Przypominaj o zapisie ZEN co (min.): ", "" });
-
+            AddNewWord("checkBoxAutoSave", new List<string> { "Автосохранение мира каждые (минут): ", "Auto-save world every (minutes): ", "Automatisches Speichern der Welt alle (Minuten): ", "Automatyczne zapisywanie świata co (min.): ", "" });
+            AddNewWord("checkBoxRemind", new List<string> { "Напоминать о сохранении мира каждые (минут): ", "Remind to save ZEN every (minutes): ", "An das Speichern der Welt erinnern alle (Minuten): ", "Przypominaj o zapisie ZEN co (min.): ", "" });
             
-
-
+            AddNewWord("LABEL_POLYS_SELECT_ACTIVE", new List<string> { "Активен режим выделения полигонов", "Polygons selection mode is active", "", "", "" });
+            AddNewWord("UNION_VOBTREE_SAVE_ERROR", new List<string> { "Файл vobtree не сохранился!!! Такое бывает! Сохраните локацию (ZEN), перезагрузите ее, и попробуйте снова сохранить vobtree!", "The vobtree file was NOT saved!!! It happens sometimes! Save location (ZEN), restart it, and try again to save the vobtree!", "", "", "" });
+            
         }
 
 

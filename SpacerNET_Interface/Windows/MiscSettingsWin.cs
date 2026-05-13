@@ -41,6 +41,8 @@ namespace SpacerUnion.Windows
             checkBoxAutoSave.Text = Localizator.Get("checkBoxAutoSave");
             checkBoxRemind.Text = Localizator.Get("checkBoxRemind");
             checkBoxDarkMode.Text = Localizator.Get("checkBoxDarkMode");
+            checkBoxShowStatusBar.Text = Localizator.Get("checkBoxShowStatusBar");
+
 
             btnMiscSetApply.Text = Localizator.Get("BTN_APPLY");
 
@@ -128,6 +130,10 @@ namespace SpacerUnion.Windows
             Utils.Clamp(trackBarValueRemind, 0, 60);
             SpacerNET.miscSetWin.trackBarRemindSave.Value = trackBarValueRemind;
 
+            Imports.Stack_PushString("showStatusBar");
+            SpacerNET.miscSetWin.checkBoxShowStatusBar.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
+
+            SpacerNET.form.ApplyStatusBarVisibility(SpacerNET.miscSetWin.checkBoxShowStatusBar.Checked);
 
             UpdateDynamicInfo();
             UpdateDynamicInfoRemind();
@@ -249,6 +255,10 @@ namespace SpacerUnion.Windows
                 Theme.IsDark = checkBoxDarkMode.Checked;
                 Theme.RaiseChanged();
             }
+            Imports.Stack_PushString("showStatusBar");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxShowStatusBar.Checked));
+
+            SpacerNET.form.ApplyStatusBarVisibility(checkBoxShowStatusBar.Checked);
         }
 
         private void MiscSettingsWin_FormClosing(object sender, FormClosingEventArgs e)
@@ -313,6 +323,11 @@ namespace SpacerUnion.Windows
         private void trackBarRemindSave_ValueChanged(object sender, EventArgs e)
         {
             UpdateDynamicInfoRemind();
+        }
+
+        private void checkBoxShowStatusBar_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1275,6 +1275,30 @@ namespace SpacerUnion
                 string filePath = saveFileDialogVobTree.FileName;
                 Imports.Stack_PushString(filePath);
                 Imports.Extern_SaveVobTree();
+
+               
+
+                if (File.Exists(filePath))
+                {
+                    Imports.Stack_PushString(Localizator.Get("UNION_VOBTREE_SAVE"));
+                    Imports.Extern_PrintGreen();
+
+                    string fileNameForInfo = Path.GetFileName(filePath);
+
+                    SpacerNET.form.AddText("[->] " + Localizator.Get("UNION_VOBTREE_SAVE") + " | " + fileNameForInfo, Color.Green);
+
+                }
+                else
+                {
+                    Imports.Stack_PushString(Localizator.Get("UNION_VOBTREE_SAVE_ERROR"));
+                    Imports.Extern_PrintRed();
+
+                    
+                    string fileNameForInfo = Path.GetFileName(filePath);
+
+                    SpacerNET.form.AddText("[->] " + Localizator.Get("UNION_VOBTREE_SAVE_ERROR") + " | " + fileNameForInfo, Color.FromArgb(255, 255, 0, 0));
+                }
+                    
             }
             
         }
@@ -1337,6 +1361,10 @@ namespace SpacerUnion
                 Imports.Stack_PushString(filePath);
                 Imports.Extern_OpenVobTree(false, insertNearCamera);
 
+                string fileNameForInfo = Path.GetFileName(filePath);
+
+                SpacerNET.form.AddText("[+] " + Localizator.Get("UNION_VOBTREE_INSERT") + " | " + fileNameForInfo, Color.FromArgb(255, 255, 0, 0));
+
             }
 
             
@@ -1392,6 +1420,9 @@ namespace SpacerUnion
                     SpacerNET.objTreeWin.globalTree.SelectedNode.Expand();
                 }
 
+                string fileNameForInfo = Path.GetFileName(filePath);
+
+                SpacerNET.form.AddText("[+] " + Localizator.Get("UNION_VOBTREE_INSERT") + " | " + fileNameForInfo, Color.FromArgb(255, 255, 0, 0));
             }
             
         }
