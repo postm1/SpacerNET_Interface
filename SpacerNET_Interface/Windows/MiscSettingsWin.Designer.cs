@@ -30,6 +30,7 @@
         {
             this.checkBoxSetDatePrefix = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxDarkMode = new System.Windows.Forms.CheckBox();
             this.checkBoxAutoSave = new System.Windows.Forms.CheckBox();
             this.checkBoxNoWorkCheck = new System.Windows.Forms.CheckBox();
             this.checkBoxSkipPolysCut = new System.Windows.Forms.CheckBox();
@@ -69,6 +70,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxDarkMode);
             this.groupBox1.Controls.Add(this.checkBoxShowStatusBar);
             this.groupBox1.Controls.Add(this.trackBarRemindSave);
             this.groupBox1.Controls.Add(this.checkBoxRemind);
@@ -96,7 +98,17 @@
             this.groupBox1.Size = new System.Drawing.Size(624, 561);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            // 
+            //
+            // checkBoxDarkMode
+            //
+            this.checkBoxDarkMode.AutoSize = true;
+            this.checkBoxDarkMode.Location = new System.Drawing.Point(13, 534);
+            this.checkBoxDarkMode.Name = "checkBoxDarkMode";
+            this.checkBoxDarkMode.Size = new System.Drawing.Size(150, 17);
+            this.checkBoxDarkMode.TabIndex = 23;
+            this.checkBoxDarkMode.Text = "Dark mode";
+            this.checkBoxDarkMode.UseVisualStyleBackColor = true;
+            //
             // checkBoxAutoSave
             // 
             this.checkBoxAutoSave.AutoSize = true;
@@ -293,6 +305,7 @@
             this.checkBoxMiscExitAsk.CheckedChanged += new System.EventHandler(this.checkBoxMiscExitAsk_CheckedChanged);
             // 
             // btnMiscSetApply
+            // 
             //
             this.btnMiscSetApply.Location = new System.Drawing.Point(275, 579);
             this.btnMiscSetApply.Name = "btnMiscSetApply";
@@ -397,6 +410,7 @@
         private System.Windows.Forms.TrackBar trackBarAutoSave;
         private System.Windows.Forms.TrackBar trackBarRemindSave;
         public System.Windows.Forms.CheckBox checkBoxRemind;
+        public System.Windows.Forms.CheckBox checkBoxDarkMode;
         public System.Windows.Forms.CheckBox checkBoxShowStatusBar;
     }
 }

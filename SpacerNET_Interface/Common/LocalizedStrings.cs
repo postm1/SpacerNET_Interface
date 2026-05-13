@@ -963,6 +963,7 @@ namespace SpacerUnion.Common
             AddNewWord("MISC_SETTINGS_NO_WORK_CHECK", new List<string> { "Не проверять путь загружаемого ZEN (игнорировать папку _WORK)", "Don't check path while loading ZEN (ignore _WORK folder)", "Beim Laden von ZEN den Pfad nicht prüfen (Ordner _WORK ignorieren)", "", "" });
             
 
+            AddNewWord("checkBoxDarkMode", new List<string> { "Тёмная тема", "Dark mode", "Dunkles Design", "Tryb ciemny", "Tmavý režim" });
             AddNewWord("STATUS_WORLD", new List<string> { "Мир:", "World:", "Welt:", "Świat:", "Svět:" });
             AddNewWord("STATUS_TRIS", new List<string> { "Полигоны:", "Tris:", "Tris:", "Tris:", "Tris:" });
             AddNewWord("STATUS_RAM", new List<string> { "RAM:", "RAM:", "RAM:", "RAM:", "RAM:" });
