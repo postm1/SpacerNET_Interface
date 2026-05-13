@@ -31,6 +31,10 @@
             this.checkBoxSetDatePrefix = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBoxDarkMode = new System.Windows.Forms.CheckBox();
+            this.checkBoxShowStatusBar = new System.Windows.Forms.CheckBox();
+            this.trackBarRemindSave = new System.Windows.Forms.TrackBar();
+            this.checkBoxRemind = new System.Windows.Forms.CheckBox();
+            this.trackBarAutoSave = new System.Windows.Forms.TrackBar();
             this.checkBoxAutoSave = new System.Windows.Forms.CheckBox();
             this.checkBoxNoWorkCheck = new System.Windows.Forms.CheckBox();
             this.checkBoxSkipPolysCut = new System.Windows.Forms.CheckBox();
@@ -49,13 +53,9 @@
             this.checkBoxLastZenAuto = new System.Windows.Forms.CheckBox();
             this.checkBoxMiscExitAsk = new System.Windows.Forms.CheckBox();
             this.btnMiscSetApply = new System.Windows.Forms.Button();
-            this.trackBarAutoSave = new System.Windows.Forms.TrackBar();
-            this.checkBoxRemind = new System.Windows.Forms.CheckBox();
-            this.trackBarRemindSave = new System.Windows.Forms.TrackBar();
-            this.checkBoxShowStatusBar = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarAutoSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRemindSave)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarAutoSave)).BeginInit();
             this.SuspendLayout();
             // 
             // checkBoxSetDatePrefix
@@ -98,17 +98,63 @@
             this.groupBox1.Size = new System.Drawing.Size(624, 561);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            //
+            // 
             // checkBoxDarkMode
-            //
+            // 
             this.checkBoxDarkMode.AutoSize = true;
-            this.checkBoxDarkMode.Location = new System.Drawing.Point(13, 534);
+            this.checkBoxDarkMode.Location = new System.Drawing.Point(13, 532);
             this.checkBoxDarkMode.Name = "checkBoxDarkMode";
-            this.checkBoxDarkMode.Size = new System.Drawing.Size(150, 17);
+            this.checkBoxDarkMode.Size = new System.Drawing.Size(78, 17);
             this.checkBoxDarkMode.TabIndex = 23;
             this.checkBoxDarkMode.Text = "Dark mode";
             this.checkBoxDarkMode.UseVisualStyleBackColor = true;
-            //
+            // 
+            // checkBoxShowStatusBar
+            // 
+            this.checkBoxShowStatusBar.AutoSize = true;
+            this.checkBoxShowStatusBar.Checked = true;
+            this.checkBoxShowStatusBar.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxShowStatusBar.Location = new System.Drawing.Point(13, 509);
+            this.checkBoxShowStatusBar.Name = "checkBoxShowStatusBar";
+            this.checkBoxShowStatusBar.Size = new System.Drawing.Size(195, 17);
+            this.checkBoxShowStatusBar.TabIndex = 23;
+            this.checkBoxShowStatusBar.Text = "Show status bar (world / tris / RAM)";
+            this.checkBoxShowStatusBar.UseVisualStyleBackColor = true;
+            this.checkBoxShowStatusBar.CheckedChanged += new System.EventHandler(this.checkBoxShowStatusBar_CheckedChanged);
+            // 
+            // trackBarRemindSave
+            // 
+            this.trackBarRemindSave.Location = new System.Drawing.Point(249, 478);
+            this.trackBarRemindSave.Maximum = 60;
+            this.trackBarRemindSave.Minimum = 1;
+            this.trackBarRemindSave.Name = "trackBarRemindSave";
+            this.trackBarRemindSave.Size = new System.Drawing.Size(181, 45);
+            this.trackBarRemindSave.TabIndex = 22;
+            this.trackBarRemindSave.Value = 2;
+            this.trackBarRemindSave.ValueChanged += new System.EventHandler(this.trackBarRemindSave_ValueChanged);
+            // 
+            // checkBoxRemind
+            // 
+            this.checkBoxRemind.AutoSize = true;
+            this.checkBoxRemind.Location = new System.Drawing.Point(13, 478);
+            this.checkBoxRemind.Name = "checkBoxRemind";
+            this.checkBoxRemind.Size = new System.Drawing.Size(249, 17);
+            this.checkBoxRemind.TabIndex = 21;
+            this.checkBoxRemind.Text = "Remind about not saving ZEN every (minutes): ";
+            this.checkBoxRemind.UseVisualStyleBackColor = true;
+            this.checkBoxRemind.CheckedChanged += new System.EventHandler(this.checkBoxRemind_CheckedChanged);
+            // 
+            // trackBarAutoSave
+            // 
+            this.trackBarAutoSave.Location = new System.Drawing.Point(249, 447);
+            this.trackBarAutoSave.Maximum = 60;
+            this.trackBarAutoSave.Minimum = 1;
+            this.trackBarAutoSave.Name = "trackBarAutoSave";
+            this.trackBarAutoSave.Size = new System.Drawing.Size(181, 45);
+            this.trackBarAutoSave.TabIndex = 20;
+            this.trackBarAutoSave.Value = 2;
+            this.trackBarAutoSave.ValueChanged += new System.EventHandler(this.trackBarAutoSave_ValueChanged);
+            // 
             // checkBoxAutoSave
             // 
             this.checkBoxAutoSave.AutoSize = true;
@@ -306,7 +352,6 @@
             // 
             // btnMiscSetApply
             // 
-            //
             this.btnMiscSetApply.Location = new System.Drawing.Point(275, 579);
             this.btnMiscSetApply.Name = "btnMiscSetApply";
             this.btnMiscSetApply.Size = new System.Drawing.Size(115, 23);
@@ -315,54 +360,8 @@
             this.btnMiscSetApply.UseVisualStyleBackColor = true;
             this.btnMiscSetApply.Click += new System.EventHandler(this.btnMiscSetApply_Click);
             // 
-            // trackBarAutoSave
-            // 
-            this.trackBarAutoSave.Location = new System.Drawing.Point(249, 447);
-            this.trackBarAutoSave.Maximum = 60;
-            this.trackBarAutoSave.Minimum = 1;
-            this.trackBarAutoSave.Name = "trackBarAutoSave";
-            this.trackBarAutoSave.Size = new System.Drawing.Size(181, 45);
-            this.trackBarAutoSave.TabIndex = 20;
-            this.trackBarAutoSave.Value = 2;
-            this.trackBarAutoSave.ValueChanged += new System.EventHandler(this.trackBarAutoSave_ValueChanged);
-            // 
-            // checkBoxRemind
-            // 
-            this.checkBoxRemind.AutoSize = true;
-            this.checkBoxRemind.Location = new System.Drawing.Point(13, 478);
-            this.checkBoxRemind.Name = "checkBoxRemind";
-            this.checkBoxRemind.Size = new System.Drawing.Size(249, 17);
-            this.checkBoxRemind.TabIndex = 21;
-            this.checkBoxRemind.Text = "Remind about not saving ZEN every (minutes): ";
-            this.checkBoxRemind.UseVisualStyleBackColor = true;
-            this.checkBoxRemind.CheckedChanged += new System.EventHandler(this.checkBoxRemind_CheckedChanged);
-            //
-            // trackBarRemindSave
-            //
-            this.trackBarRemindSave.Location = new System.Drawing.Point(249, 478);
-            this.trackBarRemindSave.Maximum = 60;
-            this.trackBarRemindSave.Minimum = 1;
-            this.trackBarRemindSave.Name = "trackBarRemindSave";
-            this.trackBarRemindSave.Size = new System.Drawing.Size(181, 45);
-            this.trackBarRemindSave.TabIndex = 22;
-            this.trackBarRemindSave.Value = 2;
-            this.trackBarRemindSave.ValueChanged += new System.EventHandler(this.trackBarRemindSave_ValueChanged);
-            //
-            // checkBoxShowStatusBar
-            //
-            this.checkBoxShowStatusBar.AutoSize = true;
-            this.checkBoxShowStatusBar.Checked = true;
-            this.checkBoxShowStatusBar.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxShowStatusBar.Location = new System.Drawing.Point(13, 530);
-            this.checkBoxShowStatusBar.Name = "checkBoxShowStatusBar";
-            this.checkBoxShowStatusBar.Size = new System.Drawing.Size(231, 17);
-            this.checkBoxShowStatusBar.TabIndex = 23;
-            this.checkBoxShowStatusBar.Text = "Show status bar (world / tris / RAM)";
-            this.checkBoxShowStatusBar.UseVisualStyleBackColor = true;
-            this.checkBoxShowStatusBar.CheckedChanged += new System.EventHandler(this.checkBoxShowStatusBar_CheckedChanged);
-            //
             // MiscSettingsWin
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(648, 614);
@@ -380,8 +379,8 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MiscSettingsWin_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarAutoSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRemindSave)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarAutoSave)).EndInit();
             this.ResumeLayout(false);
 
         }
