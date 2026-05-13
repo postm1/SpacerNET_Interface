@@ -130,7 +130,16 @@
             this.toolStripButtonErrorReport = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCatalog = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonUV = new System.Windows.Forms.ToolStripButton();
+            this.rainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopRainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startRainsmoothlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startRainfullyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStripBottom = new System.Windows.Forms.StatusStrip();
+            this.lblStatusWorld = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblStatusTris = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblStatusRam = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStripTopMain.SuspendLayout();
+            this.statusStripBottom.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
             this.SuspendLayout();
@@ -1041,13 +1050,79 @@
             this.toolStripButtonUV.Text = "UV";
             this.toolStripButtonUV.Click += new System.EventHandler(this.toolStripButtonUV_Click);
             // 
-            // MainForm
+            // rainToolStripMenuItem
             // 
+            this.rainToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stopRainToolStripMenuItem,
+            this.startRainsmoothlyToolStripMenuItem,
+            this.startRainfullyToolStripMenuItem});
+            this.rainToolStripMenuItem.Name = "rainToolStripMenuItem";
+            this.rainToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rainToolStripMenuItem.Text = "Rain";
+            // 
+            // stopRainToolStripMenuItem
+            // 
+            this.stopRainToolStripMenuItem.Name = "stopRainToolStripMenuItem";
+            this.stopRainToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.stopRainToolStripMenuItem.Text = "Stop rain";
+            this.stopRainToolStripMenuItem.Click += new System.EventHandler(this.stopRainToolStripMenuItem_Click);
+            // 
+            // startRainsmoothlyToolStripMenuItem
+            // 
+            this.startRainsmoothlyToolStripMenuItem.Name = "startRainsmoothlyToolStripMenuItem";
+            this.startRainsmoothlyToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.startRainsmoothlyToolStripMenuItem.Text = "Start rain (smoothly)";
+            this.startRainsmoothlyToolStripMenuItem.Click += new System.EventHandler(this.startRainsmoothlyToolStripMenuItem_Click);
+            // 
+            // startRainfullyToolStripMenuItem
+            // 
+            this.startRainfullyToolStripMenuItem.Name = "startRainfullyToolStripMenuItem";
+            this.startRainfullyToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.startRainfullyToolStripMenuItem.Text = "Start rain (fully)";
+            this.startRainfullyToolStripMenuItem.Click += new System.EventHandler(this.startRainfullyToolStripMenuItem_Click);
+            //
+            // statusStripBottom
+            //
+            this.statusStripBottom.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblStatusWorld,
+            this.lblStatusTris,
+            this.lblStatusRam});
+            this.statusStripBottom.Location = new System.Drawing.Point(0, 561);
+            this.statusStripBottom.Name = "statusStripBottom";
+            this.statusStripBottom.SizingGrip = false;
+            this.statusStripBottom.Size = new System.Drawing.Size(1201, 22);
+            this.statusStripBottom.TabIndex = 4;
+            this.statusStripBottom.ForeColor = System.Drawing.Color.White;
+            //
+            // lblStatusWorld
+            //
+            this.lblStatusWorld.Name = "lblStatusWorld";
+            this.lblStatusWorld.Size = new System.Drawing.Size(60, 17);
+            this.lblStatusWorld.Text = "World: —";
+            this.lblStatusWorld.ForeColor = System.Drawing.Color.White;
+            //
+            // lblStatusTris
+            //
+            this.lblStatusTris.Name = "lblStatusTris";
+            this.lblStatusTris.Size = new System.Drawing.Size(50, 17);
+            this.lblStatusTris.Text = "Tris: 0";
+            this.lblStatusTris.ForeColor = System.Drawing.Color.White;
+            //
+            // lblStatusRam
+            //
+            this.lblStatusRam.Name = "lblStatusRam";
+            this.lblStatusRam.Size = new System.Drawing.Size(60, 17);
+            this.lblStatusRam.Text = "RAM: 0 MB";
+            this.lblStatusRam.ForeColor = System.Drawing.Color.White;
+            //
+            // MainForm
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1201, 583);
             this.Controls.Add(this.panelMain);
+            this.Controls.Add(this.statusStripBottom);
             this.Controls.Add(this.menuStripTopMain);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Transparent;
@@ -1065,6 +1140,8 @@
             this.panelMain.PerformLayout();
             this.toolStripTop.ResumeLayout(false);
             this.toolStripTop.PerformLayout();
+            this.statusStripBottom.ResumeLayout(false);
+            this.statusStripBottom.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1172,5 +1249,9 @@
         private System.Windows.Forms.ToolStripMenuItem startRainsmoothlyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startRainfullyToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem rainToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStripBottom;
+        private System.Windows.Forms.ToolStripStatusLabel lblStatusWorld;
+        private System.Windows.Forms.ToolStripStatusLabel lblStatusTris;
+        private System.Windows.Forms.ToolStripStatusLabel lblStatusRam;
     }
 }
