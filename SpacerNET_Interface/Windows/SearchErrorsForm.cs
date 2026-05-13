@@ -358,7 +358,6 @@ namespace SpacerUnion.Windows
                         sw.WriteLine(entry.GetProblemTypeText() + "; " 
                             + entry.GetReportTypeText() 
                             + "; " + entry.GetDescriptionText()
-                            + "; " + entry.GetLinkText()
                            );
 
                     }
