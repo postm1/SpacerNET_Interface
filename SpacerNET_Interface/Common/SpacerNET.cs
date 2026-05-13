@@ -283,72 +283,72 @@ namespace SpacerUnion
 
             if (Properties.Settings.Default.TreeWinLocation != null)
             {
-                objTreeWin.Location = Properties.Settings.Default.TreeWinLocation;
+                objTreeWin.Location = ScreenUtils.ClampToVisibleScreen(Properties.Settings.Default.TreeWinLocation, objTreeWin.Size);
             }
 
             if (Properties.Settings.Default.PartWinLocation != null)
             {
-                objectsWin.Location = Properties.Settings.Default.PartWinLocation;
+                objectsWin.Location = ScreenUtils.ClampToVisibleScreen(Properties.Settings.Default.PartWinLocation, objectsWin.Size);
             }
 
             if (Properties.Settings.Default.VobListWinLocation != null)
             {
-                vobList.Location = Properties.Settings.Default.VobListWinLocation;
+                vobList.Location = ScreenUtils.ClampToVisibleScreen(Properties.Settings.Default.VobListWinLocation, vobList.Size);
             }
 
             if (Properties.Settings.Default.PropWinLocation != null)
             {
-                propWin.Location = Properties.Settings.Default.PropWinLocation;
+                propWin.Location = ScreenUtils.ClampToVisibleScreen(Properties.Settings.Default.PropWinLocation, propWin.Size);
             }
 
 
             if (Properties.Settings.Default.InfoWinLocation != null)
             {
-                infoWin.Location = Properties.Settings.Default.InfoWinLocation;
+                infoWin.Location = ScreenUtils.ClampToVisibleScreen(Properties.Settings.Default.InfoWinLocation, infoWin.Size);
             }
 
 
             if (Properties.Settings.Default.SoundWinLocation != null)
             {
-                soundWin.Location = Properties.Settings.Default.SoundWinLocation;
+                soundWin.Location = ScreenUtils.ClampToVisibleScreen(Properties.Settings.Default.SoundWinLocation, soundWin.Size);
             }
 
             if (Properties.Settings.Default.GrassWinLocation != null)
             {
-                grassWin.Location = Properties.Settings.Default.GrassWinLocation;
+                grassWin.Location = ScreenUtils.ClampToVisibleScreen(Properties.Settings.Default.GrassWinLocation, grassWin.Size);
             }
 
             if (Properties.Settings.Default.MacrosWinLocation != null)
             {
-                macrosWin.Location = Properties.Settings.Default.MacrosWinLocation;
+                macrosWin.Location = ScreenUtils.ClampToVisibleScreen(Properties.Settings.Default.MacrosWinLocation, macrosWin.Size);
             }
 
             if (Properties.Settings.Default.MatFilterWinLocation != null)
             {
-                matFilterWin.Location = Properties.Settings.Default.MatFilterWinLocation;
+                matFilterWin.Location = ScreenUtils.ClampToVisibleScreen(Properties.Settings.Default.MatFilterWinLocation, matFilterWin.Size);
             }
 
             // pfx editor form
             if (Properties.Settings.Default.PFXEditorLocation != null)
             {
-                pfxWin.Location = Properties.Settings.Default.PFXEditorLocation;
+                pfxWin.Location = ScreenUtils.ClampToVisibleScreen(Properties.Settings.Default.PFXEditorLocation, pfxWin.Size);
             }
 
             // error reports form
             if (Properties.Settings.Default.ErrorWinLocation != null)
             {
-                errorForm.Location = Properties.Settings.Default.ErrorWinLocation;
+                errorForm.Location = ScreenUtils.ClampToVisibleScreen(Properties.Settings.Default.ErrorWinLocation, errorForm.Size);
             }
-            // UV form 
+            // UV form
             if (Properties.Settings.Default.UVWinLocation != null)
             {
-                uvForm.Location = Properties.Settings.Default.UVWinLocation;
+                uvForm.Location = ScreenUtils.ClampToVisibleScreen(Properties.Settings.Default.UVWinLocation, uvForm.Size);
             }
-            
+
             // Vob catalog form
             if (Properties.Settings.Default.VobCatalogWinLocation != null)
             {
-                vobCatForm.Location = Properties.Settings.Default.VobCatalogWinLocation;
+                vobCatForm.Location = ScreenUtils.ClampToVisibleScreen(Properties.Settings.Default.VobCatalogWinLocation, vobCatForm.Size);
             }
 
             //=======================================================================================

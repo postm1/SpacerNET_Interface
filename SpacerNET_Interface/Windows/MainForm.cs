@@ -378,7 +378,7 @@ namespace SpacerUnion
            
             SpacerNET.form.ResetInterface();
 
-            SpacerNET.form.AddText(fileName + " " + Localizator.Get("isLoading"));
+            SpacerNET.form.AddText(fileName + " " + Localizator.Get("isLoading"), Color.FromArgb(255, 255, 0, 0));
             ConsoleEx.WriteLineGreen(fileName + " " + Localizator.Get("isLoading"));
 
             SpacerNET.form.currentWorldName = fileName;
@@ -474,7 +474,7 @@ namespace SpacerUnion
 
                 ResetInterface();
 
-                SpacerNET.form.AddText(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"));
+                SpacerNET.form.AddText(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"), Color.FromArgb(255, 255, 0, 0));
                 ConsoleEx.WriteLineGreen(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"));
 
                 currentWorldName = openFileDialog.SafeFileName;
@@ -872,7 +872,7 @@ namespace SpacerUnion
                         continue;
                     }
 
-                    SpacerNET.form.AddText(fileNameCurrent + " " + Localizator.Get("isLoading"));
+                    SpacerNET.form.AddText(fileNameCurrent + " " + Localizator.Get("isLoading"), Color.FromArgb(255, 255, 0, 0));
 
                     currentWorldName = fileNameCurrent;
 
@@ -982,7 +982,7 @@ namespace SpacerUnion
                 ResetInterface();
 
 
-                SpacerNET.form.AddText(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"));
+                SpacerNET.form.AddText(openFileDialog.SafeFileName + " " + Localizator.Get("isLoading"), Color.FromArgb(255, 255, 0, 0));
 
                 currentWorldName = openFileDialog.SafeFileName;
 
@@ -1527,7 +1527,7 @@ namespace SpacerUnion
                         continue;
                     }
 
-                    SpacerNET.form.AddText(fileNameCurrent + " " + Localizator.Get("isLoading"));
+                    SpacerNET.form.AddText(fileNameCurrent + " " + Localizator.Get("isLoading"), Color.FromArgb(255, 255, 0, 0));
 
                     currentWorldName = fileNameCurrent;
 
@@ -2580,6 +2580,13 @@ namespace SpacerUnion
             Imports.Extern_FreezeTime(0);
 
             Imports.Extern_ChangeRain((int)SpacerRainType.SPACER_RAIN_TYPE_FULL);
+        }
+
+        private void toolStripButtonMaterial_CheckedChanged(object sender, EventArgs e)
+        {
+            SpacerNET.objTreeWin.labelPolySelectionActive.Text = Localizator.Get("LABEL_POLYS_SELECT_ACTIVE");
+            SpacerNET.objTreeWin.labelPolySelectionActive.Visible = toolStripButtonMaterial.Checked;
+            SpacerNET.objTreeWin.tabControlObjectList.Enabled = !toolStripButtonMaterial.Checked;
         }
     }
 }

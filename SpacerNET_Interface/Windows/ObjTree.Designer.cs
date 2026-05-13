@@ -62,6 +62,7 @@
             this.toolStripClearGlobalPar = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuRemoveQuickVob = new System.Windows.Forms.ToolStripMenuItem();
             this.createCONTEXTMENUTREECREATECAMERASTARTPOSVobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelPolySelectionActive = new System.Windows.Forms.Label();
             this.contextMenuStripTree.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.tabControlObjectList.SuspendLayout();
@@ -81,7 +82,7 @@
             this.globalTree.Location = new System.Drawing.Point(3, 46);
             this.globalTree.Name = "globalTree";
             this.globalTree.SelectedImageIndex = 0;
-            this.globalTree.Size = new System.Drawing.Size(375, 378);
+            this.globalTree.Size = new System.Drawing.Size(375, 325);
             this.globalTree.TabIndex = 0;
             this.globalTree.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.globalTree_BeforeSelect);
             this.globalTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.globalTree_AfterSelect);
@@ -280,7 +281,7 @@
             this.tabControlObjectList.Location = new System.Drawing.Point(0, 0);
             this.tabControlObjectList.Name = "tabControlObjectList";
             this.tabControlObjectList.SelectedIndex = 0;
-            this.tabControlObjectList.Size = new System.Drawing.Size(389, 453);
+            this.tabControlObjectList.Size = new System.Drawing.Size(389, 400);
             this.tabControlObjectList.TabIndex = 5;
             this.tabControlObjectList.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -291,7 +292,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(381, 427);
+            this.tabPage1.Size = new System.Drawing.Size(381, 374);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Objects";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -332,7 +333,7 @@
             this.toolStripMenuRemoveQuickVob,
             this.createCONTEXTMENUTREECREATECAMERASTARTPOSVobToolStripMenuItem});
             this.contextMenuQuick.Name = "contextMenuQuick";
-            this.contextMenuQuick.Size = new System.Drawing.Size(293, 92);
+            this.contextMenuQuick.Size = new System.Drawing.Size(293, 70);
             // 
             // toolStripClearGlobalPar
             // 
@@ -355,11 +356,25 @@
             this.createCONTEXTMENUTREECREATECAMERASTARTPOSVobToolStripMenuItem.Text = "Create VOB_SPACER_CAMERA_START vob";
             this.createCONTEXTMENUTREECREATECAMERASTARTPOSVobToolStripMenuItem.Click += new System.EventHandler(this.createCONTEXTMENUTREECREATECAMERASTARTPOSVobToolStripMenuItem_Click);
             // 
+            // labelPolySelectionActive
+            // 
+            this.labelPolySelectionActive.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.labelPolySelectionActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPolySelectionActive.ForeColor = System.Drawing.Color.Red;
+            this.labelPolySelectionActive.Location = new System.Drawing.Point(10, 120);
+            this.labelPolySelectionActive.Name = "labelPolySelectionActive";
+            this.labelPolySelectionActive.Size = new System.Drawing.Size(367, 23);
+            this.labelPolySelectionActive.TabIndex = 5;
+            this.labelPolySelectionActive.Text = "Selection polygons mod is active...";
+            this.labelPolySelectionActive.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelPolySelectionActive.Visible = false;
+            // 
             // ObjTree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(389, 453);
+            this.ClientSize = new System.Drawing.Size(389, 400);
+            this.Controls.Add(this.labelPolySelectionActive);
             this.Controls.Add(this.tabControlObjectList);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
@@ -368,7 +383,7 @@
             this.Name = "ObjTree";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Objects list window";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ObjTree_FormClosing);
             this.Load += new System.EventHandler(this.ObjTree_Load);
@@ -402,7 +417,6 @@
         private System.Windows.Forms.ToolStripMenuItem сделатьРодителемДляНовыхВобовToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem очиститьРодителяДляВобовToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.TabControl tabControlObjectList;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         public System.Windows.Forms.TreeView quickTree;
@@ -418,5 +432,7 @@
         private System.Windows.Forms.ToolStripMenuItem onlyParentVobToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem allChildrenVobsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createCONTEXTMENUTREECREATECAMERASTARTPOSVobToolStripMenuItem;
+        public System.Windows.Forms.TabControl tabControlObjectList;
+        public System.Windows.Forms.Label labelPolySelectionActive;
     }
 }
