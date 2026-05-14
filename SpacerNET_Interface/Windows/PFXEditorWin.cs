@@ -40,6 +40,7 @@ namespace SpacerUnion.Windows
             Helper.EnableDoubleBuffering(this.treeViewPFX);
 
             formConf = new ConfirmForm(null);
+            SpacerUnion.Common.ThemeApplier.RegisterDialog(formConf);
             ToggleInterface(false);
 
             

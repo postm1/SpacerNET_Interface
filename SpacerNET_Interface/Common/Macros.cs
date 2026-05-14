@@ -78,6 +78,7 @@ namespace SpacerUnion.Common
             objWin = win;
 
             formConf = new ConfirmForm(this);
+            ThemeApplier.RegisterDialog(formConf);
             pathFile = Path.GetFullPath(@"../_work/tools/macros_spacernet.txt");
 
             //ConsoleEx.WriteLineRed(pathFile);

@@ -40,6 +40,7 @@ namespace SpacerUnion.Windows
             filderIndexToSaveList = new List<int>();
             foundMatList = new Dictionary<string, int>();
             formConf = new ConfirmForm(null);
+            SpacerUnion.Common.ThemeApplier.RegisterDialog(formConf);
             textBoxTexName.BackColor = textBoxTexName.BackColor;
         }
 
