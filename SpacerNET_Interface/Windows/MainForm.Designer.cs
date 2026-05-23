@@ -130,10 +130,6 @@
             this.toolStripButtonErrorReport = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCatalog = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonUV = new System.Windows.Forms.ToolStripButton();
-            this.rainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stopRainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.startRainsmoothlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.startRainfullyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripBottom = new System.Windows.Forms.StatusStrip();
             this.lblStatusWorld = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblStatusTris = new System.Windows.Forms.ToolStripStatusLabel();
@@ -1049,37 +1045,6 @@
             this.toolStripButtonUV.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonUV.Text = "UV";
             this.toolStripButtonUV.Click += new System.EventHandler(this.toolStripButtonUV_Click);
-            // 
-            // rainToolStripMenuItem
-            // 
-            this.rainToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.stopRainToolStripMenuItem,
-            this.startRainsmoothlyToolStripMenuItem,
-            this.startRainfullyToolStripMenuItem});
-            this.rainToolStripMenuItem.Name = "rainToolStripMenuItem";
-            this.rainToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.rainToolStripMenuItem.Text = "Rain";
-            // 
-            // stopRainToolStripMenuItem
-            // 
-            this.stopRainToolStripMenuItem.Name = "stopRainToolStripMenuItem";
-            this.stopRainToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.stopRainToolStripMenuItem.Text = "Stop rain";
-            this.stopRainToolStripMenuItem.Click += new System.EventHandler(this.stopRainToolStripMenuItem_Click);
-            // 
-            // startRainsmoothlyToolStripMenuItem
-            // 
-            this.startRainsmoothlyToolStripMenuItem.Name = "startRainsmoothlyToolStripMenuItem";
-            this.startRainsmoothlyToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.startRainsmoothlyToolStripMenuItem.Text = "Start rain (smoothly)";
-            this.startRainsmoothlyToolStripMenuItem.Click += new System.EventHandler(this.startRainsmoothlyToolStripMenuItem_Click);
-            // 
-            // startRainfullyToolStripMenuItem
-            // 
-            this.startRainfullyToolStripMenuItem.Name = "startRainfullyToolStripMenuItem";
-            this.startRainfullyToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.startRainfullyToolStripMenuItem.Text = "Start rain (fully)";
-            this.startRainfullyToolStripMenuItem.Click += new System.EventHandler(this.startRainfullyToolStripMenuItem_Click);
             //
             // statusStripBottom
             //
