@@ -548,6 +548,41 @@ namespace SpacerUnion
 
         }
 
+        private DateTime lastKeyPress = DateTime.MinValue;
+        private int lastSelectedIndex = -1;
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (listBoxVisuals.Focused)
+            {
+                bool isUp = (keyData == Keys.Up);
+                bool isDown = (keyData == Keys.Down);
+
+                if (isUp || isDown)
+                {
+                    if ((DateTime.Now - lastKeyPress).TotalMilliseconds < 100)
+                        return true;
+
+                    lastKeyPress = DateTime.Now;
+
+                    if (isUp && listBoxVisuals.SelectedIndex > 0)
+                    {
+                        listBoxVisuals.SelectedIndex--;
+                        lastSelectedIndex = listBoxVisuals.SelectedIndex;
+                        return true;
+                    }
+                    else if (isDown && listBoxVisuals.SelectedIndex < listBoxVisuals.Items.Count - 1)
+                    {
+                        listBoxVisuals.SelectedIndex++;
+                        lastSelectedIndex = listBoxVisuals.SelectedIndex;
+                        return true;
+                    }
+                }
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         private void textBoxItems_KeyPress(object sender, KeyPressEventArgs e)
         {
             
@@ -1683,6 +1718,42 @@ namespace SpacerUnion
 
         private void listBoxVisuals_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            if (listBoxVisuals.SelectedItem != null && checkBoxShowPreview.Checked)
+            {
+                string visual = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
+
+
+                bool hadFocus = listBoxVisuals.Focused;
+
+                if (SpacerNET.grassWin.checkBoxGrassWinCopyName.Checked)
+                {
+                    if (Utils.IsOptionActive("checkBoxOnlyLatinInInput"))
+                    {
+                        if (visual.Length > 0 && Utils.IsOnlyLatin(visual))
+                        {
+                            SpacerNET.grassWin.textBoxGrassWinModel.Text = visual;
+                            SpacerNET.grassWin.buttonGrassWinApply_Click(null, null);
+                        }
+                    }
+                    else
+                    {
+                        SpacerNET.grassWin.textBoxGrassWinModel.Text = visual;
+                        SpacerNET.grassWin.buttonGrassWinApply_Click(null, null);
+                    }
+                }
+
+                Imports.Stack_PushString(visual);
+                Imports.Extern_RenderSelectedVob();
+
+               
+                if (hadFocus)
+                {
+                    listBoxVisuals.Focus();
+                }
+            }
+
+            /*
             if (listBoxVisuals.SelectedItem != null && checkBoxShowPreview.Checked)
             {
                 string visual = listBoxVisuals.GetItemText(listBoxVisuals.SelectedItem);
@@ -1713,6 +1784,7 @@ namespace SpacerUnion
 
                 SpacerNET.form.Focus();
             }
+            */
 
         }
 
@@ -1733,7 +1805,7 @@ namespace SpacerUnion
                 Imports.Stack_PushString(visual);
                 Imports.Extern_RenderSelectedVob();
 
-                SpacerNET.form.Focus();
+                //SpacerNET.form.Focus();
             }
             else
             {
@@ -1746,7 +1818,7 @@ namespace SpacerUnion
 
 
 
-                    SpacerNET.form.Focus();
+                    //SpacerNET.form.Focus();
                 }
 
             }
@@ -1795,7 +1867,7 @@ namespace SpacerUnion
 
         private void listBoxVisuals_MouseClick(object sender, MouseEventArgs e)
         {
-
+        
         }
 
         private void listBoxVisuals_MouseDown(object sender, MouseEventArgs e)
@@ -3842,25 +3914,7 @@ namespace SpacerUnion
 
         private void listBoxVisuals_KeyDown(object sender, KeyEventArgs e)
         {
-            /*
-            ListBox listBox = sender as ListBox;
-
-            ConsoleEx.WriteLineRed("listBoxVisuals_KeyDown");
-
-            if (e.KeyCode == Keys.S && listBox.SelectedIndex < listBox.Items.Count - 1)
-            {
-                listBox.SelectedIndex += 1;
-
-                ConsoleEx.WriteLineRed("index plus");
-            }
-
-            if (e.KeyCode == Keys.W && listBox.SelectedIndex > 0)
-            {
-                listBox.SelectedIndex -= 1;
-            }
-
-            Application.DoEvents();
-            */
+           
         }
 
         private void listBoxVisuals_KeyPress(object sender, KeyPressEventArgs e)
