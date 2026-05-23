@@ -87,46 +87,47 @@ namespace SpacerUnion
   
         public static int CreateAndGetFolder(string className)
         {
-            /*
-            TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
 
-            int classNameFoundPos = -1;
+            //ConsoleEx.WriteLineYellow("CreateAndGetFolder: " + className);
+
+            if (_folderCache.TryGetValue(className, out TreeNode existingNode))
+            {
+                //ConsoleEx.WriteLineYellow("\tCache: " + className);
+                
+                // Checking if this node really exists!
+                if (existingNode.TreeView != null)
+                    return existingNode.Index;
+                else
+                    _folderCache.Remove(className); 
+
+            }
+                
+
+            // Not in cache? Look for in (a new entry)
+            TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
 
             for (int i = 0; i < nodes.Count; i++)
             {
-                if (nodes[i].Text == className)
+                if (nodes[i].Text == className && nodes[i].Tag is Constants.TAG_FOLDER)
                 {
-                    classNameFoundPos = i;
-                    break;
+                    //ConsoleEx.WriteLineYellow("\tList: " + className);
+                    _folderCache[className] = nodes[i];
+                    return nodes[i].Index;
                 }
             }
 
-            if (classNameFoundPos == -1)
-            {
 
-                TreeNode newNode = nodes.Add(className);
-                newNode.Tag = Constants.TAG_FOLDER;
-                newNode.ImageIndex = 0;
-                newNode.SelectedImageIndex = 0;
-
-                classNameFoundPos = newNode.Index;
-            }
-
-            return classNameFoundPos;
-            */
-            if (_folderCache.TryGetValue(className, out TreeNode cachedNode))
-                return cachedNode.Index;
-
-            TreeNodeCollection nodes = SpacerNET.objTreeWin.globalTree.Nodes;
-
-            // Create new folder if not found in cache list
             TreeNode newNode = nodes.Add(className);
             newNode.Tag = Constants.TAG_FOLDER;
             newNode.ImageIndex = 0;
             newNode.SelectedImageIndex = 0;
 
             _folderCache[className] = newNode;
+
+            //ConsoleEx.WriteLineYellow("\tNew: " + className);
+
             return newNode.Index;
+
         }
 
 
@@ -154,6 +155,8 @@ namespace SpacerUnion
                 newNode.SelectedImageIndex = 0;
 
                 classNameFoundPos = newNode.Index;
+
+                //ConsoleEx.WriteLineRed("CreateAndGetFolderQuickTree New: " + className);
             }
 
             return classNameFoundPos;
@@ -210,7 +213,6 @@ namespace SpacerUnion
                 };
 
                 nodesTreeData[className] = newNode;
-                _folderCache[className] = newNode;
             }
 
             // Creating main tree of nodes
