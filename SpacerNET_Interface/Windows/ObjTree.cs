@@ -435,7 +435,7 @@ namespace SpacerUnion
 
 
                 Utils.AddInfoUserAction("[~]: " + Localizator.Get("PARENT_CHANGE_OK")
-                    + " " + entry.ToString(), Color.DarkViolet);
+                    + " " + entry.ToString(), Theme.IsDark ? Color.FromArgb(255, 255, 255, 0) : Color.DarkViolet);
             }
 
             
@@ -785,7 +785,7 @@ namespace SpacerUnion
                 TreeEntry entry = entries[0];
 
                 Utils.AddInfoUserAction("[-]: " + Localizator.Get("WIN_INFO_SHOW_ACTION_VOB_REMOVED")
-                    + ". " + entry.ToString(), Color.DarkRed);
+                    + ". " + entry.ToString(), Theme.IsDark ? Color.FromArgb(255, 255, 255, 0) : Color.DarkRed);
 
                 RemoveChildNodesRecursive(entry);
 
@@ -1008,7 +1008,7 @@ namespace SpacerUnion
             }
 
             Utils.AddInfoUserAction("[+]: " + Localizator.Get("WIN_INFO_SHOW_ACTION_VOB_INSERTED") 
-                + ". " + entry.ToString(), Color.DarkRed);
+                + ". " + entry.ToString(), Theme.IsDark ? Color.FromArgb(255, 255, 255, 0) : Color.DarkRed);
 
             ConsoleEx.WriteLineGreen("Vobs count: " + globalEntries.Count);
 
@@ -1365,7 +1365,8 @@ namespace SpacerUnion
 
                 string fileNameForInfo = Path.GetFileName(filePath);
 
-                SpacerNET.form.AddText("[+] " + Localizator.Get("UNION_VOBTREE_INSERT") + " | " + fileNameForInfo, Color.FromArgb(255, 255, 0, 0));
+                SpacerNET.form.AddText("[+] " + Localizator.Get("UNION_VOBTREE_INSERT") + " | " + fileNameForInfo, 
+                    Theme.IsDark ? Color.FromArgb(255, 255, 255, 0) : Color.FromArgb(255, 255, 0, 0));
 
             }
 
@@ -1424,7 +1425,8 @@ namespace SpacerUnion
 
                 string fileNameForInfo = Path.GetFileName(filePath);
 
-                SpacerNET.form.AddText("[+] " + Localizator.Get("UNION_VOBTREE_INSERT") + " | " + fileNameForInfo, Color.FromArgb(255, 255, 0, 0));
+                SpacerNET.form.AddText("[+] " + Localizator.Get("UNION_VOBTREE_INSERT") + " | " + fileNameForInfo, 
+                    Theme.IsDark ? Color.FromArgb(255, 255, 255, 0) : Color.FromArgb(255, 255, 0, 0));
             }
             
         }
@@ -1604,7 +1606,7 @@ namespace SpacerUnion
             globalEntry.quickNode = newNode;
             globalEntry.realNode = node;
 
-            Utils.PrintLogInfo("[~]: ", Localizator.Get("WIN_INFO_SHOW_ACTION_SET_GLOBAL_PARENT"), Color.DarkViolet);
+            Utils.PrintLogInfo("[~]: ", Localizator.Get("WIN_INFO_SHOW_ACTION_SET_GLOBAL_PARENT"), Theme.IsDark ? Color.FromArgb(255, 255, 255, 0) : Color.DarkViolet);
 
 
             Imports.Extern_MakeGlobalParent(vob);
@@ -1621,7 +1623,7 @@ namespace SpacerUnion
                 globalEntry.Clean();
 
                 Utils.AddInfoUserAction("[~]: " + Localizator.Get("WIN_INFO_SHOW_ACTION_NULL_GLOBAL_PARENT")
-               + ".", Color.DarkViolet);
+               + ".", Theme.IsDark ? Color.FromArgb(255, 255, 255, 0) : Color.DarkViolet);
             }
 
             Imports.Extern_CleanGlobalParent();
