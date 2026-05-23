@@ -548,40 +548,6 @@ namespace SpacerUnion
 
         }
 
-        private DateTime lastKeyPress = DateTime.MinValue;
-        private int lastSelectedIndex = -1;
-
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (listBoxVisuals.Focused)
-            {
-                bool isUp = (keyData == Keys.Up);
-                bool isDown = (keyData == Keys.Down);
-
-                if (isUp || isDown)
-                {
-                    if ((DateTime.Now - lastKeyPress).TotalMilliseconds < 100)
-                        return true;
-
-                    lastKeyPress = DateTime.Now;
-
-                    if (isUp && listBoxVisuals.SelectedIndex > 0)
-                    {
-                        listBoxVisuals.SelectedIndex--;
-                        lastSelectedIndex = listBoxVisuals.SelectedIndex;
-                        return true;
-                    }
-                    else if (isDown && listBoxVisuals.SelectedIndex < listBoxVisuals.Items.Count - 1)
-                    {
-                        listBoxVisuals.SelectedIndex++;
-                        lastSelectedIndex = listBoxVisuals.SelectedIndex;
-                        return true;
-                    }
-                }
-            }
-
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
 
         private void textBoxItems_KeyPress(object sender, KeyPressEventArgs e)
         {
