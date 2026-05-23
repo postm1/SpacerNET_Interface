@@ -1035,8 +1035,8 @@ namespace SpacerUnion.Common
             AddNewWord("checkBoxAutoSave", new List<string> { "Автосохранение мира каждые (минут): ", "Auto-save world every (minutes): ", "Automatisches Speichern der Welt alle (Minuten): ", "Automatyczne zapisywanie świata co (min.): ", "" });
             AddNewWord("checkBoxRemind", new List<string> { "Напоминать о сохранении мира каждые (минут): ", "Remind to save ZEN every (minutes): ", "An das Speichern der Welt erinnern alle (Minuten): ", "Przypominaj o zapisie ZEN co (min.): ", "" });
             
-            AddNewWord("LABEL_POLYS_SELECT_ACTIVE", new List<string> { "Активен режим выделения полигонов", "Polygons selection mode is active", "", "", "" });
-            AddNewWord("UNION_VOBTREE_SAVE_ERROR", new List<string> { "Файл vobtree не сохранился!!! Такое бывает! Сохраните локацию (ZEN), перезагрузите ее, и попробуйте снова сохранить vobtree!", "The vobtree file was NOT saved!!! It happens sometimes! Save location (ZEN), restart it, and try again to save the vobtree!", "", "", "" });
+            AddNewWord("LABEL_POLYS_SELECT_ACTIVE", new List<string> { "Активен режим выделения полигонов", "Polygons selection mode is active", "Polygon-Auswahlmodus aktiv", "Aktywny jest tryb zaznaczania poligonów", "" });
+            AddNewWord("UNION_VOBTREE_SAVE_ERROR", new List<string> { "Файл vobtree не сохранился!!! Такое бывает! Сохраните локацию (ZEN), перезагрузите ее, и попробуйте снова сохранить vobtree!", "The vobtree file was NOT saved!!! It happens sometimes! Save location (ZEN), restart it, and try again to save the vobtree!", "Die VOBtree-Datei wurde NICHT gespeichert!!! Das passiert manchmal! Speichere die Welt (ZEN), lade sie neu und versuche anschließend erneut, die VOBtree-Datei zu speichern!", "Plik vobtree nie został zapisany!!! Czasem tak się zdarza! Zapisz lokację (ZEN), zrestartuj ją i spróbuj ponownie zapisać vobtree!", "" });
             
         }
 
