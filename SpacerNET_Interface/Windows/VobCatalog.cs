@@ -31,6 +31,11 @@ namespace SpacerUnion.Windows
             formConf = new ConfirmForm(null);
             propsForm = new VobCatalogPropsForm();
             moveForm = new VobCatalogMoveForm();
+            // Modal dialogs aren't in SpacerNET.windowsList — register so they pick up dark theme
+            // (postm1 feedback 2026-05-15: Vob Catalog Add/Edit + Add-new-group were white).
+            SpacerUnion.Common.ThemeApplier.RegisterDialog(formConf);
+            SpacerUnion.Common.ThemeApplier.RegisterDialog(propsForm);
+            SpacerUnion.Common.ThemeApplier.RegisterDialog(moveForm);
 
             pathFile = Path.GetFullPath(@"../_work/tools/vobcatalog_spacernet.txt");
             pathFileCopy = Path.GetFullPath(@"../_work/tools/vobcatalog_spacernet_backup.txt");

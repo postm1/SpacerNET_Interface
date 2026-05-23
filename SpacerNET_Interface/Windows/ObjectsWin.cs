@@ -56,6 +56,7 @@ namespace SpacerUnion
             comboBoxSphereType.SelectedIndex = 0;
             camEntry = new CameraKeyEntry(this);
             formConf = new ConfirmForm(null);
+            SpacerUnion.Common.ThemeApplier.RegisterDialog(formConf);
             spawnListData = new Dictionary<string, List<string>>();
             pathFile = Path.GetFullPath(@"../_work/tools/spawnlist_spacernet.txt");
         }

@@ -75,6 +75,7 @@ namespace SpacerUnion
             {
                 if (windowsList != null) ThemeApplier.ApplyAll(windowsList);
                 if (form != null) ThemeApplier.Apply(form);
+                ThemeApplier.ReapplyRegisteredDialogs();
             };
            
             
