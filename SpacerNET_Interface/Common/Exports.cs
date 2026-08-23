@@ -537,7 +537,7 @@ namespace SpacerUnion.Common
             SpacerNET.matFilterWin.labelTexSize.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_SIZE") + " -";
             SpacerNET.matFilterWin.labelTexAlpha.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_ALPHA") + " -";
             SpacerNET.matFilterWin.textBoxTexName.Text = String.Empty;
-            SpacerNET.matFilterWin.textBoxTexName.ForeColor = Color.Black;
+            SpacerNET.matFilterWin.textBoxTexName.ForeColor = Theme.FgPrimary;
 
         }
 
@@ -552,7 +552,7 @@ namespace SpacerUnion.Common
             SpacerNET.matFilterWin.labelTexSize.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_SIZE") + size + Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_BITS");
             // SpacerNET.matFilterWin.labelTextureName.Text = "Текстура: " + name;
             SpacerNET.matFilterWin.textBoxTexName.Text = name;
-            SpacerNET.matFilterWin.textBoxTexName.ForeColor = Color.Black;
+            SpacerNET.matFilterWin.textBoxTexName.ForeColor = Theme.FgPrimary;
         }
 
 
@@ -600,7 +600,7 @@ namespace SpacerUnion.Common
             win.labelTexSize.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_SIZE") + " -";
             win.labelTexAlpha.Text = Localizator.Get("WIN_MATFILTER_FILTER_SETTINGS_ALPHA") + " -";
             win.textBoxTexName.Text = String.Empty;
-            win.textBoxTexName.ForeColor = Color.Black;
+            win.textBoxTexName.ForeColor = Theme.FgPrimary;
     
             win.labelMatCountCurrentFilter.Text = Localizator.Get("WIN_MATFILTER_MATLIST_CURRENT_EMPTY");
         }

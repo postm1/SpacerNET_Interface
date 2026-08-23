@@ -204,6 +204,7 @@
             this.pictureBoxTexture.Location = new System.Drawing.Point(11, 41);
             this.pictureBoxTexture.Name = "pictureBoxTexture";
             this.pictureBoxTexture.Size = new System.Drawing.Size(130, 130);
+            this.pictureBoxTexture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxTexture.TabIndex = 15;
             this.pictureBoxTexture.TabStop = false;
             // 

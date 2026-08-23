@@ -37,9 +37,17 @@ namespace SpacerUnion
         public ObjTree()
         {
             InitializeComponent();
+            ApplyPolySelectionActiveStyle();
+            Theme.ThemeChanged += ApplyPolySelectionActiveStyle;
             quickVobMan = new QuickVobsManager();
 
             //this.imageListObjects.ImageSize = new Size(16, 16);
+        }
+
+        private void ApplyPolySelectionActiveStyle()
+        {
+            labelPolySelectionActive.BackColor = Theme.BgPanel;
+            labelPolySelectionActive.ForeColor = Theme.Error;
         }
 
         public void UpdateLang()
