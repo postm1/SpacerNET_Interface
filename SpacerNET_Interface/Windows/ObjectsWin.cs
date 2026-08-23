@@ -47,6 +47,7 @@ namespace SpacerUnion
         public ConfirmForm formConf;
 
         int onlyNameVisualSearch = 0;
+        private bool lightVobSelected;
 
         public ObjectsWin()
         {
@@ -4481,9 +4482,17 @@ namespace SpacerUnion
         private void buttonApplyChangesLight_Click(object sender, EventArgs e)
         {
             PushLightPresetData();
-            Imports.Stack_PushString(textBoxLightVobName.Text);
 
-            Imports.Stack_PushString(listBoxLightPresets.SelectedItem != null ? listBoxLightPresets.SelectedItem.ToString() : "");
+            if (listBoxLightPresets.SelectedItem != null)
+            {
+                Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
+                if (Imports.Extern_Light_ApplyPresetChanges() == 1)
+                    buttonSaveLightPresets.Enabled = true;
+                return;
+            }
+
+            Imports.Stack_PushString(textBoxLightVobName.Text);
+            Imports.Stack_PushString("");
             if (Imports.Extern_Light_ApplyChanges() == 1)
                 buttonSaveLightPresets.Enabled = true;
         }
@@ -4547,6 +4556,8 @@ namespace SpacerUnion
             }
 
             listBoxLightPresetsPreviouslySelectedItem = listBoxLightPresets.SelectedItem;
+            UpdateLightWindow(lightVobSelected);
+            buttonSaveLightPresets.Enabled = listBoxLightPresets.SelectedItem != null;
         }
 
         private void listBoxLightPresetColors_DrawItem(object sender, DrawItemEventArgs e)
@@ -4701,6 +4712,14 @@ namespace SpacerUnion
         }
         private void buttonSaveLightPresets_Click(object sender, EventArgs e)
         {
+            if (listBoxLightPresets.SelectedItem != null)
+            {
+                PushLightPresetData();
+                Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
+                if (Imports.Extern_Light_ApplyPresetChanges() == 0)
+                    return;
+            }
+
             Imports.Extern_Light_SavePresets();
             buttonSaveLightPresets.Enabled = false;
         }
@@ -4738,6 +4757,7 @@ namespace SpacerUnion
             Imports.Stack_PushString(listBoxLightPresets.Items[index].ToString());
             Imports.Extern_Light_UpdatePresetName();
             listBoxLightPresets.Items[index] = text;
+            buttonSaveLightPresets.Enabled = true;
         }
         private void buttonUpdateLightPresetOnLightVobs_Click(object sender, EventArgs e)
         {
@@ -5350,11 +5370,12 @@ namespace SpacerUnion
             }
         }
 
-        void UpdateLightWindow(bool toggleButtons)
+        void UpdateLightWindow(bool isLightVobSelected)
         {
-            buttonApplyChangesLight.Enabled = toggleButtons;
-            buttonUpdateLightPresetFromLightVob.Enabled = toggleButtons;
-            buttonUsePresetOnLightVob.Enabled = toggleButtons;
+            lightVobSelected = isLightVobSelected;
+            buttonApplyChangesLight.Enabled = lightVobSelected || listBoxLightPresets.SelectedItem != null;
+            buttonUpdateLightPresetFromLightVob.Enabled = lightVobSelected;
+            buttonUsePresetOnLightVob.Enabled = lightVobSelected;
         }
 
         [DllExport]
