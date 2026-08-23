@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -669,7 +670,7 @@ namespace SpacerUnion.Common
         [DllExport]
         public static void MatFilter_SendTexture()
         {
-            //ConsoleEx.WriteLineYellow("MatFilter_SendTexture");
+            Stopwatch timer = Stopwatch.StartNew();
 
             uint addr = Imports.Stack_PeekUInt();
             bool hasAlpha = Convert.ToBoolean(Imports.Stack_PeekInt());
@@ -688,6 +689,7 @@ namespace SpacerUnion.Common
             IntPtr intPtr = (IntPtr)(int)(uint)ptr;
 
             Marshal.Copy(intPtr, pixels, 0, pixels.Length);
+            long nativeCopyTicks = timer.ElapsedTicks;
 
 
 
@@ -714,6 +716,7 @@ namespace SpacerUnion.Common
                     outputPixels[y * IMAGE_SIZE + x] = unchecked((int)0xFF000000) | (red << 16) | (green << 8) | blue;
                 }
             }
+            long composeTicks = timer.ElapsedTicks;
 
             var bitMap = new Bitmap(IMAGE_SIZE, IMAGE_SIZE, PixelFormat.Format32bppArgb);
             BitmapData bitmapData = bitMap.LockBits(new Rectangle(0, 0, IMAGE_SIZE, IMAGE_SIZE), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
@@ -725,6 +728,7 @@ namespace SpacerUnion.Common
             {
                 bitMap.UnlockBits(bitmapData);
             }
+            long bitmapWriteTicks = timer.ElapsedTicks;
 
             Image previousImage = box.Image;
             box.Image = bitMap;
@@ -732,10 +736,19 @@ namespace SpacerUnion.Common
             {
                 previousImage.Dispose();
             }
-            
-            //watch.Stop();
-           // ConsoleEx.WriteLineYellow("5");
-            // ConsoleEx.WriteLineYellow("FillBrush: " + watch.ElapsedMilliseconds);
+            timer.Stop();
+
+            double millisecondsPerTick = 1000.0 / Stopwatch.Frequency;
+
+            /*
+            ConsoleEx.WriteLineCyan(String.Format(
+                "MatFilter_SendTexture: native copy {0:F3} ms, compose {1:F3} ms, bitmap write {2:F3} ms, assign {3:F3} ms, total {4:F3} ms",
+                nativeCopyTicks * millisecondsPerTick,
+                (composeTicks - nativeCopyTicks) * millisecondsPerTick,
+                (bitmapWriteTicks - composeTicks) * millisecondsPerTick,
+                (timer.ElapsedTicks - bitmapWriteTicks) * millisecondsPerTick,
+                timer.ElapsedTicks * millisecondsPerTick));
+            */
 
         }
 
