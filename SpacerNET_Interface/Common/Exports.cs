@@ -691,67 +691,46 @@ namespace SpacerUnion.Common
 
 
 
-            if (box.Image != null)
+            bool showAlpha = hasAlpha && SpacerNET.matFilterWin.checkBoxTexImageUseAlpha.Checked;
+            int[] outputPixels = new int[IMAGE_SIZE * IMAGE_SIZE];
+
+            for (int y = 0; y < IMAGE_SIZE; y++)
             {
-                box.Image.Dispose();
-            }
-
-            //ConsoleEx.WriteLineYellow("3");
-            var bitMap = new Bitmap(IMAGE_SIZE, IMAGE_SIZE);
-            box.Image = bitMap;
-
-
-            if (!hasAlpha || !SpacerNET.matFilterWin.checkBoxTexImageUseAlpha.Checked)
-            {
-                Fill_BlackLayer();
-            }
-            else
-            {
-                Fill_AlphaChannelLayer();
-            }
-
-            //ConsoleEx.WriteLineYellow("4");
-
-           // watch.Stop();
-          //  ConsoleEx.WriteLineYellow("Fill_AlphaChannelLayer: " + watch.ElapsedMilliseconds);
-
-
-           // watch = System.Diagnostics.Stopwatch.StartNew();
-
-
-
-
-
-
-            
-            Graphics graph = Graphics.FromImage(box.Image);
-
-            using (SolidBrush brush = new SolidBrush(Color.FromArgb(128, 255, 0, 0)))
-            {
-
-
-                for (int y = 0; y < IMAGE_SIZE; y++)
+                for (int x = 0; x < IMAGE_SIZE; x++)
                 {
-                    for (int x = 0; x < IMAGE_SIZE; x++)
+                    int source = pixels[y * IMAGE_SIZE + x];
+                    int alpha = (source >> 24) & 0xFF;
+                    int background = showAlpha && (((x / 8) + (y / 8)) & 1) == 0 ? 192 : 0;
+
+                    if (showAlpha && background == 0)
                     {
-                        int pos = y * IMAGE_SIZE + x;
-
-                        int col = pixels[pos];
-                        byte[] intBytes = BitConverter.GetBytes(col);
-
-
-                        byte r = intBytes[2];
-                        byte g = intBytes[1];
-                        byte b = intBytes[0];
-                        byte a = intBytes[3];
-
-                        brush.Color = Color.FromArgb(
-                               a, r, g, b
-                            );
-
-                        graph.FillRectangle(brush, x, y, 1, 1);
+                        background = 255;
                     }
+
+                    int inverseAlpha = 255 - alpha;
+                    int red = (((source >> 16) & 0xFF) * alpha + background * inverseAlpha + 127) / 255;
+                    int green = (((source >> 8) & 0xFF) * alpha + background * inverseAlpha + 127) / 255;
+                    int blue = ((source & 0xFF) * alpha + background * inverseAlpha + 127) / 255;
+                    outputPixels[y * IMAGE_SIZE + x] = unchecked((int)0xFF000000) | (red << 16) | (green << 8) | blue;
                 }
+            }
+
+            var bitMap = new Bitmap(IMAGE_SIZE, IMAGE_SIZE, PixelFormat.Format32bppArgb);
+            BitmapData bitmapData = bitMap.LockBits(new Rectangle(0, 0, IMAGE_SIZE, IMAGE_SIZE), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+            try
+            {
+                Marshal.Copy(outputPixels, 0, bitmapData.Scan0, outputPixels.Length);
+            }
+            finally
+            {
+                bitMap.UnlockBits(bitmapData);
+            }
+
+            Image previousImage = box.Image;
+            box.Image = bitMap;
+            if (previousImage != null)
+            {
+                previousImage.Dispose();
             }
             
             //watch.Stop();
