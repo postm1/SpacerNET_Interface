@@ -48,6 +48,7 @@ namespace SpacerUnion
 
         int onlyNameVisualSearch = 0;
         private bool lightVobSelected;
+        private bool suppressLightPresetDirtyState;
 
         public ObjectsWin()
         {
@@ -55,6 +56,12 @@ namespace SpacerUnion
             comboBoxSearchType.SelectedIndex = 0;
             comboBoxLightVobLightQuality.SelectedIndex = 1;
             comboBoxSphereType.SelectedIndex = 0;
+            numericUpDownLightVobRange.ValueChanged += lightPresetControl_ValueChanged;
+            comboBoxLightVobLightQuality.SelectedIndexChanged += lightPresetControl_ValueChanged;
+            textBoxLightVobColorAniFPS.TextChanged += lightPresetControl_ValueChanged;
+            textBoxLightVobRangeAniFPS.TextChanged += lightPresetControl_ValueChanged;
+            checkBoxLightVobColorAniSmooth.CheckedChanged += lightPresetControl_ValueChanged;
+            checkBoxLightVobRangeAniSmooth.CheckedChanged += lightPresetControl_ValueChanged;
             camEntry = new CameraKeyEntry(this);
             formConf = new ConfirmForm(null);
             SpacerUnion.Common.ThemeApplier.RegisterDialog(formConf);
@@ -4354,6 +4361,7 @@ namespace SpacerUnion
         [DllExport]
         public static void UpdateLightPresetView()
         {
+            SpacerNET.objectsWin.suppressLightPresetDirtyState = true;
             bool staticLight = Imports.Stack_PeekBool();
             if (staticLight)
                 SpacerNET.objectsWin.radioButtonLightVobStatic.Checked = true;
@@ -4394,6 +4402,8 @@ namespace SpacerUnion
 
             bool rangeAniSmooth = Imports.Stack_PeekBool();
             SpacerNET.objectsWin.checkBoxLightVobRangeAniSmooth.Checked = rangeAniSmooth;
+            SpacerNET.objectsWin.suppressLightPresetDirtyState = false;
+            SpacerNET.objectsWin.buttonSaveLightPresets.Enabled = false;
         }
 
         [DllExport]
@@ -4406,6 +4416,7 @@ namespace SpacerUnion
             SpacerNET.objectsWin.textBoxLightVobPresetName.Text = presetName;
 
             SpacerNET.objectsWin.UpdateLightWindow(true);
+            SpacerNET.objectsWin.SelectPresetForLightVob(presetName);
         }
 
         [DllExport]
@@ -4421,6 +4432,30 @@ namespace SpacerUnion
             }
 
             SpacerNET.objectsWin.UpdateLightWindow(false);
+        }
+
+        private void SelectPresetForLightVob(string presetName)
+        {
+            int presetIndex = -1;
+            for (int i = 0; i < listBoxLightPresets.Items.Count; ++i)
+            {
+                if (String.Equals(listBoxLightPresets.Items[i].ToString(), presetName, StringComparison.OrdinalIgnoreCase))
+                {
+                    presetIndex = i;
+                    break;
+                }
+            }
+
+            if (presetIndex == -1)
+            {
+                listBoxLightPresets.SelectedIndex = -1;
+                MessageBox.Show(Localizator.Get("WIN_LIGHT_PRESET_NOT_FOUND"), "Light preset", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            listBoxLightPresets.SelectedIndex = presetIndex;
+            Imports.Stack_PushString(listBoxLightPresets.Items[presetIndex].ToString());
+            Imports.Extern_Light_QueryPresetData();
         }
 
         private void PushLightPresetData()
@@ -4455,14 +4490,30 @@ namespace SpacerUnion
             Imports.Stack_PushInt(comboBoxLightVobLightQuality.SelectedIndex);
             Imports.Stack_PushBool(radioButtonLightVobStatic.Checked);
         }
+
+        private void lightPresetControl_ValueChanged(object sender, EventArgs e)
+        {
+            MarkLightPresetDirty();
+        }
+
+        private void MarkLightPresetDirty()
+        {
+            if (suppressLightPresetDirtyState || listBoxLightPresets.SelectedItem == null)
+                return;
+
+            buttonSaveLightPresets.Enabled = true;
+        }
+
         private void radioButtonLightVobStatic_CheckedChanged(object sender, EventArgs e)
         {
             comboBoxLightVobLightQuality.Enabled = false;
+            MarkLightPresetDirty();
         }
 
         private void radioButtonLightVobDynamic_CheckedChanged(object sender, EventArgs e)
         {
             comboBoxLightVobLightQuality.Enabled = true;
+            MarkLightPresetDirty();
         }
 
         private void buttonCreateLightVob_Click(object sender, EventArgs e)
@@ -4503,6 +4554,7 @@ namespace SpacerUnion
                 return;
 
             listBoxLightPresetColors.Items.Add(colorDialogLightPresetColor.Color);
+            MarkLightPresetDirty();
         }
 
         private void buttonRemoveLightPresetColor_Click(object sender, EventArgs e)
@@ -4511,6 +4563,7 @@ namespace SpacerUnion
                 return;
 
             listBoxLightPresetColors.Items.RemoveAt((listBoxLightPresetColors.SelectedIndex != -1) ? listBoxLightPresetColors.SelectedIndex : listBoxLightPresetColors.Items.Count - 1);
+            MarkLightPresetDirty();
         }
 
         private void buttonMoveLightPresetColorUp_Click(object sender, EventArgs e)
@@ -4526,6 +4579,7 @@ namespace SpacerUnion
             listBoxLightPresetColors.Items.Insert(index, item);
 
             listBoxLightPresetColors.SelectedIndex = index;
+            MarkLightPresetDirty();
         }
 
         private void buttonMoveLightPresetColorDown_Click(object sender, EventArgs e)
@@ -4541,6 +4595,7 @@ namespace SpacerUnion
             listBoxLightPresetColors.Items.Insert(index, item);
 
             listBoxLightPresetColors.SelectedIndex = index;
+            MarkLightPresetDirty();
         }
 
         private object listBoxLightPresetsPreviouslySelectedItem = null;
@@ -4557,7 +4612,7 @@ namespace SpacerUnion
 
             listBoxLightPresetsPreviouslySelectedItem = listBoxLightPresets.SelectedItem;
             UpdateLightWindow(lightVobSelected);
-            buttonSaveLightPresets.Enabled = listBoxLightPresets.SelectedItem != null;
+            buttonSaveLightPresets.Enabled = false;
         }
 
         private void listBoxLightPresetColors_DrawItem(object sender, DrawItemEventArgs e)
@@ -4603,6 +4658,7 @@ namespace SpacerUnion
                 return;
 
             listBoxLightPresetColors.Items[index] = colorDialogLightPresetColor.Color;
+            MarkLightPresetDirty();
         }
 
         private void buttonAddLightRangeScale_Click(object sender, EventArgs e)
@@ -4616,6 +4672,7 @@ namespace SpacerUnion
                 return;
 
             listBoxLightPresetRangeAniScales.Items.Add(value.ToString(CultureInfo.InvariantCulture));
+            MarkLightPresetDirty();
         }
 
         private void buttonRemoveLightRangeScale_Click(object sender, EventArgs e)
@@ -4624,6 +4681,7 @@ namespace SpacerUnion
                 return;
 
             listBoxLightPresetRangeAniScales.Items.RemoveAt((listBoxLightPresetRangeAniScales.SelectedIndex != -1) ? listBoxLightPresetRangeAniScales.SelectedIndex : listBoxLightPresetRangeAniScales.Items.Count - 1);
+            MarkLightPresetDirty();
         }
 
         private void buttonMoveLightPresetRangeAniScaleUp_Click(object sender, EventArgs e)
@@ -4639,6 +4697,7 @@ namespace SpacerUnion
             listBoxLightPresetRangeAniScales.Items.Insert(index, item);
 
             listBoxLightPresetRangeAniScales.SelectedIndex = index;
+            MarkLightPresetDirty();
         }
 
         private void buttonMoveLightPresetRangeAniScaleDown_Click(object sender, EventArgs e)
@@ -4654,6 +4713,7 @@ namespace SpacerUnion
             listBoxLightPresetRangeAniScales.Items.Insert(index, item);
 
             listBoxLightPresetRangeAniScales.SelectedIndex = index;
+            MarkLightPresetDirty();
         }
 
         private void listBoxLightPresetRangeAniScales_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -4667,6 +4727,7 @@ namespace SpacerUnion
                 return;
 
             listBoxLightPresetRangeAniScales.Items[index] = text;
+            MarkLightPresetDirty();
         }
 
         private void buttonNewLightPreset_Click(object sender, EventArgs e)
