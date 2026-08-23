@@ -810,6 +810,7 @@
             this.radioButtonWork.TabIndex = 14;
             this.radioButtonWork.Text = "_WORK";
             this.radioButtonWork.UseVisualStyleBackColor = true;
+            this.radioButtonWork.CheckedChanged += new System.EventHandler(this.radioButtonWork_CheckedChanged);
             // 
             // radioButtonVdf
             // 
@@ -822,6 +823,7 @@
             this.radioButtonVdf.TabStop = true;
             this.radioButtonVdf.Text = "VDF";
             this.radioButtonVdf.UseVisualStyleBackColor = true;
+            this.radioButtonVdf.CheckedChanged += new System.EventHandler(this.radioButtonVdf_CheckedChanged);
             // 
             // buttonAllClassesClear
             // 

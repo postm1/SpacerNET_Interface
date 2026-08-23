@@ -5474,5 +5474,15 @@ namespace SpacerUnion
 
             listBoxPfxResult.EndUpdate();
         }
+
+        private void radioButtonVdf_CheckedChanged(object sender, EventArgs e)
+        {
+            HandleTextChangeVisualSearch();
+        }
+
+        private void radioButtonWork_CheckedChanged(object sender, EventArgs e)
+        {
+            HandleTextChangeVisualSearch();
+        }
     }
 }
