@@ -1028,7 +1028,7 @@ namespace SpacerUnion.Common
             AddNewWord("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_WRONGTIME", new List<string> { "Неверное время zCVobSoundDaytime. Время начала > времени конца", "Wrong time format of zCVobSoundDaytime: Begin time > End time", "Falsches Zeitformat bei zCVobSoundDaytime: Startzeit > Endzeit", "Nieprawidłowy czas zCVobSoundDaytime: czas rozpoczęcia > czas zakończenia", "" });
             AddNewWord("ERROR_REPORT_PROBLEM_TYPE_SOUNDNAMEDAYTIME_NOTIME", new List<string> { "Не установлено время начала и конца у zCVobSoundDaytime", "The start and end time are not set in zCVobSoundDaytime", "Start- und Endzeit sind in zCVobSoundDaytime nicht gesetzt", "Nie ustawiono czasu rozpoczęcia i zakończenia dla zCVobSoundDaytime", "" });
             AddNewWord("WIN_INFO_SHOW_ACTION_AUTOSAVE_WORLD", new List<string> { "Автоматическое сохранение мира", "Auto-save of the world", "Automatisches Speichern der Welt", "Automatyczne zapisywanie świata", "" });
-
+            AddNewWord("WIN_INFO_SHOW_ACTION_AUTOSAVE_WORLD_REJECT", new List<string> { "Изменений не было. Не сохраняю мир.", "No changes were made. There is no point to save the world.", "Es wurden keine Änderungen vorgenommen. Die Welt wird nicht gespeichert.", "Nie wprowadzono żadnych zmian. Świat nie zostanie zapisany.", "Nebyly provedeny žádné změny. Svět nebude uložen." });
 
             AddNewWord("CANT_INSERT_EMPTY_VOB", new List<string> { "Не могу вставить пустой воб! Скопируйте или вырежьте его еще раз!", "Can't insert an empty vob. Copy or cut it again", "Leerer Vob kann nicht eingefügt werden. Bitte erneut kopieren oder ausschneiden", "Nie można wstawić pustego voba. Skopiuj lub wytnij go ponownie", "" });
 
