@@ -33,12 +33,24 @@ namespace SpacerUnion
         static bool nextAfterEventBlocked = false;
         static TreeNode lastSelectedNode = null;
         static bool IsWaypointReload = false;
+        private TreeNode dragHoverNode;
+        private Color dragHoverBackColor;
+        private Color dragHoverForeColor;
+        private Point? dragInsertionLineStart;
+        private Point? dragInsertionLineEnd;
 
         public ObjTree()
         {
             InitializeComponent();
+            Helper.EnableDoubleBuffering(globalTree);
             ApplyPolySelectionActiveStyle();
             Theme.ThemeChanged += ApplyPolySelectionActiveStyle;
+            globalTree.AllowDrop = true;
+            globalTree.ItemDrag += globalTree_ItemDrag;
+            globalTree.DragEnter += globalTree_DragEnter;
+            globalTree.DragOver += globalTree_DragOver;
+            globalTree.DragDrop += globalTree_DragDrop;
+            globalTree.DragLeave += globalTree_DragLeave;
             quickVobMan = new QuickVobsManager();
 
             //this.imageListObjects.ImageSize = new Size(16, 16);
@@ -48,6 +60,177 @@ namespace SpacerUnion
         {
             labelPolySelectionActive.BackColor = Theme.BgPanel;
             labelPolySelectionActive.ForeColor = Theme.Error;
+        }
+
+        private void globalTree_ItemDrag(object sender, ItemDragEventArgs e)
+        {
+            var node = e.Item as TreeNode;
+            uint vob;
+            if (!TryGetVobNode(node, out vob)) return;
+
+            try
+            {
+                DoDragDrop(node, DragDropEffects.Move);
+            }
+            finally
+            {
+                ClearDragFeedback();
+            }
+        }
+
+        private void globalTree_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = e.Data.GetDataPresent(typeof(TreeNode)) ? DragDropEffects.Move : DragDropEffects.None;
+        }
+
+        private void globalTree_DragOver(object sender, DragEventArgs e)
+        {
+            var sourceNode = e.Data.GetData(typeof(TreeNode)) as TreeNode;
+            Point point = globalTree.PointToClient(new Point(e.X, e.Y));
+            TreeNode targetNode = globalTree.GetNodeAt(point);
+            bool insertAtParentLevel;
+            TreeNode parentNode = GetDropParentNode(targetNode, point, out insertAtParentLevel);
+            e.Effect = CanChangeParent(sourceNode, parentNode) ? DragDropEffects.Move : DragDropEffects.None;
+
+            if (e.Effect == DragDropEffects.None)
+            {
+                ClearDragFeedback();
+                return;
+            }
+
+            if (insertAtParentLevel)
+            {
+                if (targetNode != null)
+                {
+                    DrawInsertionLine(targetNode, point.Y < targetNode.Bounds.Top + targetNode.Bounds.Height / 2
+                        ? targetNode.Bounds.Top
+                        : targetNode.Bounds.Bottom);
+                }
+                else
+                {
+                    ClearInsertionLine();
+                }
+                SetDragHoverNode(parentNode);
+            }
+            else
+            {
+                ClearInsertionLine();
+                SetDragHoverNode(targetNode);
+            }
+        }
+
+        private void globalTree_DragDrop(object sender, DragEventArgs e)
+        {
+            var sourceNode = e.Data.GetData(typeof(TreeNode)) as TreeNode;
+            Point point = globalTree.PointToClient(new Point(e.X, e.Y));
+            TreeNode targetNode = globalTree.GetNodeAt(point);
+            bool insertAtParentLevel;
+            TreeNode parentNode = GetDropParentNode(targetNode, point, out insertAtParentLevel);
+            if (!CanChangeParent(sourceNode, parentNode)) return;
+
+            uint child;
+            TryGetVobNode(sourceNode, out child);
+            uint parent = 0;
+            if (parentNode != null)
+                TryGetVobNode(parentNode, out parent);
+            Imports.Extern_ChangeVobParent(child, parent);
+            SelectMovedVob(child);
+        }
+
+        private void globalTree_DragLeave(object sender, EventArgs e)
+        {
+            ClearDragFeedback();
+        }
+
+        private void SetDragHoverNode(TreeNode node)
+        {
+            if (dragHoverNode != null)
+            {
+                dragHoverNode.BackColor = dragHoverBackColor;
+                dragHoverNode.ForeColor = dragHoverForeColor;
+            }
+
+            dragHoverNode = node;
+            if (dragHoverNode != null)
+            {
+                dragHoverBackColor = dragHoverNode.BackColor;
+                dragHoverForeColor = dragHoverNode.ForeColor;
+                dragHoverNode.BackColor = Theme.IsDark ? Theme.Accent : SystemColors.Highlight;
+                dragHoverNode.ForeColor = Theme.IsDark ? Theme.FgPrimary : SystemColors.HighlightText;
+            }
+        }
+
+        private void ClearDragFeedback()
+        {
+            SetDragHoverNode(null);
+            ClearInsertionLine();
+        }
+
+        private void SelectMovedVob(uint vob)
+        {
+            TreeEntry entry;
+            if (!globalEntries.TryGetValue(vob, out entry) || entry.node == null) return;
+
+            globalTree.SelectedNode = entry.node;
+            entry.node.EnsureVisible();
+        }
+
+        private static TreeNode GetDropParentNode(TreeNode targetNode, Point point, out bool insertAtParentLevel)
+        {
+            insertAtParentLevel = targetNode == null;
+            if (targetNode == null) return null;
+
+            const int edgeSize = 5;
+            insertAtParentLevel = point.Y <= targetNode.Bounds.Top + edgeSize
+                || point.Y >= targetNode.Bounds.Bottom - edgeSize;
+            if (!insertAtParentLevel) return targetNode;
+
+            uint parentVob;
+            return TryGetVobNode(targetNode.Parent, out parentVob) ? targetNode.Parent : null;
+        }
+
+        private void DrawInsertionLine(TreeNode targetNode, int y)
+        {
+            ClearInsertionLine();
+            if (targetNode == null) return;
+
+            dragInsertionLineStart = globalTree.PointToScreen(new Point(targetNode.Bounds.Left, y));
+            dragInsertionLineEnd = globalTree.PointToScreen(new Point(globalTree.ClientSize.Width - 3, y));
+            ControlPaint.DrawReversibleLine(dragInsertionLineStart.Value, dragInsertionLineEnd.Value, Color.White);
+        }
+
+        private void ClearInsertionLine()
+        {
+            if (!dragInsertionLineStart.HasValue || !dragInsertionLineEnd.HasValue) return;
+
+            ControlPaint.DrawReversibleLine(dragInsertionLineStart.Value, dragInsertionLineEnd.Value, Color.White);
+            dragInsertionLineStart = null;
+            dragInsertionLineEnd = null;
+        }
+
+        private static bool CanChangeParent(TreeNode sourceNode, TreeNode targetNode)
+        {
+            uint child;
+            if (!TryGetVobNode(sourceNode, out child)) return false;
+            if (targetNode == null) return true;
+
+            uint parent;
+            if (!TryGetVobNode(targetNode, out parent)) return false;
+            if (child == parent || sourceNode.Parent == targetNode) return false;
+
+            for (var node = targetNode.Parent; node != null; node = node.Parent)
+            {
+                if (node == sourceNode) return false;
+            }
+
+            return true;
+        }
+
+        private static bool TryGetVobNode(TreeNode node, out uint vob)
+        {
+            vob = 0;
+            if (node == null || node.Tag == null || node.Tag.ToString() == Constants.TAG_FOLDER) return false;
+            return UInt32.TryParse(node.Tag.ToString(), out vob) && vob != 0;
         }
 
         public void UpdateLang()
