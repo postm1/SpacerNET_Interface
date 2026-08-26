@@ -795,20 +795,30 @@ namespace SpacerUnion
                 Utils.AddInfoUserAction("[-]: " + Localizator.Get("WIN_INFO_SHOW_ACTION_VOB_REMOVED")
                     + ". " + entry.ToString(), Theme.IsDark ? Color.FromArgb(255, 255, 255, 0) : Color.DarkRed);
 
-                RemoveChildNodesRecursive(entry);
-
-                globalEntries = globalEntries
-                        .Where(pair => !pair.Value.toDelete)
-                        .ToDictionary(pair=>pair.Key, pair=>pair.Value);
-
-                if (globalEntries.ContainsKey(vob))
+                Helper.BeginUpdateFast(SpacerNET.objTreeWin.globalTree);
+                Helper.BeginUpdateFast(SpacerNET.objTreeWin.quickTree);
+                try
                 {
-                    Utils.Error("WTF? I have removed the vob with such key: " + Utils.ToHex(vob) + " " + entry.name);
+                    RemoveChildNodesRecursive(entry);
+
+                    globalEntries = globalEntries
+                            .Where(pair => !pair.Value.toDelete)
+                            .ToDictionary(pair=>pair.Key, pair=>pair.Value);
+
+                    if (globalEntries.ContainsKey(vob))
+                    {
+                        Utils.Error("WTF? I have removed the vob with such key: " + Utils.ToHex(vob) + " " + entry.name);
+                    }
+
+                    if (entries.Count > 1)
+                    {
+                        Utils.Error("Warning! I found more than 1 entries with same Vob addr! Count: " + entries.Count);
+                    }
                 }
-
-                if (entries.Count > 1)
+                finally
                 {
-                    Utils.Error("Warning! I found more than 1 entries with same Vob addr! Count: " + entries.Count);
+                    Helper.EndUpdateFast(SpacerNET.objTreeWin.quickTree);
+                    Helper.EndUpdateFast(SpacerNET.objTreeWin.globalTree);
                 }
             }
             

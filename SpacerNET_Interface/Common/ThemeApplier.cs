@@ -402,24 +402,10 @@ namespace SpacerUnion.Common
             tv.ForeColor = Theme.FgPrimary;
             tv.BorderStyle = Theme.IsDark ? BorderStyle.FixedSingle : BorderStyle.Fixed3D;
             ApplyImageListToDark(tv.ImageList);
-            if (Theme.IsDark)
-            {
-                // OwnerDrawText: handler paints text area only; OS keeps drawing indent + ImageList icons.
-                // This means existing designer-time DrawNode handlers (e.g. classesTreeView_DrawNode) fire
-                // too — they paint with SystemBrushes.Highlight on (selected && unfocused), but our handler
-                // runs after them and overpaints with Theme.Accent. Harmless.
-                tv.DrawMode = TreeViewDrawMode.OwnerDrawText;
-                if (!_tvHandlers.Contains(tv))
-                {
-                    tv.DrawNode += TreeView_DrawNode;
-                    _tvHandlers.Add(tv);
-                }
-            }
-            else
-            {
-                // Light mode: OS handles everything. Designer handlers become dormant at Normal.
-                tv.DrawMode = TreeViewDrawMode.Normal;
-            }
+            // OwnerDrawText repaints every visible node in managed code whenever the tree changes.
+            // Large vob trees therefore stall on insert/remove/parent changes in dark mode.
+            // Native rendering keeps the dark colors above while handling invalidation efficiently.
+            tv.DrawMode = TreeViewDrawMode.Normal;
             TryDarkenNative(tv);
         }
 
