@@ -4449,7 +4449,7 @@ namespace SpacerUnion
             if (presetIndex == -1)
             {
                 listBoxLightPresets.SelectedIndex = -1;
-                MessageBox.Show(Localizator.Get("WIN_LIGHT_PRESET_NOT_FOUND"), "Light preset", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show(Localizator.Get("WIN_LIGHT_PRESET_NOT_FOUND"), "Light preset", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
