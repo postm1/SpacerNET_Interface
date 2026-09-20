@@ -663,6 +663,26 @@ namespace SpacerUnion
             //saveFileDialog1.InitialDirectory = Directory.GetCurrentDirectory() + "../_WORK/DATA/Worlds/";
 
 
+            if (Imports.Extern_CheckBadVisuals() == 1)
+            {
+                DialogResult result = MessageBox.Show(
+                          Localizator.Get("CHECK_EMPTY_VISUALS_SAFE"),
+                          Localizator.Get("groupBoxInfo"),
+
+                          MessageBoxButtons.YesNo,
+                          MessageBoxIcon.Information,
+                          MessageBoxDefaultButton.Button1,
+                          MessageBoxOptions.DefaultDesktopOnly
+                    );
+
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+
+                Application.DoEvents();
+            }
+
             Imports.Stack_PushString("zenzPath");
             Imports.Extern_GetSettingStr();
             string path = Utils.FixPath(Imports.Stack_PeekString());
@@ -1717,6 +1737,27 @@ namespace SpacerUnion
             if (currentWorldName.Length == 0)
             {
                 return;
+            }
+
+
+            if (Imports.Extern_CheckBadVisuals() == 1)
+            {
+                DialogResult result = MessageBox.Show(
+                          Localizator.Get("CHECK_EMPTY_VISUALS_SAFE"),
+                          Localizator.Get("groupBoxInfo"),
+
+                          MessageBoxButtons.YesNo,
+                          MessageBoxIcon.Information,
+                          MessageBoxDefaultButton.Button1,
+                          MessageBoxOptions.DefaultDesktopOnly
+                    );
+
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+
+                Application.DoEvents();
             }
 
             saveFileDialog.Filter = Constants.FILE_FILTER_SAVE_ZEN_UNC;

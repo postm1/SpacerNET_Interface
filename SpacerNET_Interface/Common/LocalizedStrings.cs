@@ -1038,7 +1038,10 @@ namespace SpacerUnion.Common
             
             AddNewWord("LABEL_POLYS_SELECT_ACTIVE", new List<string> { "Активен режим выделения полигонов", "Polygons selection mode is active", "Polygon-Auswahlmodus aktiv", "Aktywny jest tryb zaznaczania poligonów", "" });
             AddNewWord("UNION_VOBTREE_SAVE_ERROR", new List<string> { "Файл vobtree не сохранился!!! Такое бывает! Сохраните локацию (ZEN), перезагрузите ее, и попробуйте снова сохранить vobtree!", "The vobtree file was NOT saved!!! It happens sometimes! Save location (ZEN), restart it, and try again to save the vobtree!", "Die VOBtree-Datei wurde NICHT gespeichert!!! Das passiert manchmal! Speichere die Welt (ZEN), lade sie neu und versuche anschließend erneut, die VOBtree-Datei zu speichern!", "Plik vobtree nie został zapisany!!! Czasem tak się zdarza! Zapisz lokację (ZEN), zrestartuj ją i spróbuj ponownie zapisać vobtree!", "" });
-            
+
+            AddNewWord("CHECK_EMPTY_VISUALS_SAFE", new List<string> { "В локации есть вобы с несуществующими zCVisual, при сохранении их visual будет пустым, инфорация потеряется. Продолжить?", "There are vobs with non-existent zCVisuals in the location. Saving them will result in their visuals being empty and the information lost. Continue?", "An diesem Standort befinden sich VOBs ohne vorhandene zCVisuals. Wenn Sie diese speichern, werden ihre Visualisierungen leer sein und die Informationen gehen verloren. Fortfahren?", "", "" });
+
+
         }
 
 
