@@ -193,7 +193,7 @@ namespace SpacerUnion.Windows
             var text = textBox.Text.Trim();
 
 
-            if (!Utils.IsOnlyLatin(text))
+            if (text.Length > 0 && !Utils.IsOnlyLatin(text))
             {
                 MessageBox.Show(Localizator.Get("FORM_ENTER_BAD_STRING_INPUT"));
                 return;
