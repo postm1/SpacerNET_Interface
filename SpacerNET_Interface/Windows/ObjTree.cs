@@ -451,12 +451,21 @@ namespace SpacerUnion
                 entry.node = newNode;
             }
 
-            foreach (var entry in nodesTreeData.Values)
+            var globalTree = SpacerNET.objTreeWin.globalTree;
+            Helper.BeginUpdateFast(globalTree);
+            try
             {
-                if (entry.Nodes.Count > 0)
+                foreach (var entry in nodesTreeData.Values)
                 {
-                    SpacerNET.objTreeWin.globalTree.Nodes.Add(entry);
+                    if (entry.Nodes.Count > 0)
+                    {
+                        globalTree.Nodes.Add(entry);
+                    }
                 }
+            }
+            finally
+            {
+                Helper.EndUpdateFast(globalTree);
             }
 
             Console.WriteLine($"Total entries: {globalEntries.Count}, No parent cases: {noParentCount}");
@@ -565,20 +574,39 @@ namespace SpacerUnion
         [DllExport]
         public static void ClearAllEntries()
         {
-            SpacerNET.objTreeWin.globalTree.Nodes.Clear();
-            SpacerNET.objTreeWin.quickTree.Nodes.Clear();
-           // SpacerNET.objTreeWin.matTree.Nodes.Clear();
+            var globalTree = SpacerNET.objTreeWin.globalTree;
+            var quickTree = SpacerNET.objTreeWin.quickTree;
+            bool globalUpdateStarted = false;
+            bool quickUpdateStarted = false;
+            try
+            {
+                Helper.BeginUpdateFast(globalTree);
+                globalUpdateStarted = true;
+                Helper.BeginUpdateFast(quickTree);
+                quickUpdateStarted = true;
 
-            globalEntries.Clear();
-            matEntries.Clear();
-            quickVobMan.Clear();
-            _folderCache.Clear();
-            tempEntries.Clear();
+                globalTree.Nodes.Clear();
+                quickTree.Nodes.Clear();
+               // SpacerNET.objTreeWin.matTree.Nodes.Clear();
 
-            //SpacerNET.objTreeWin.tabControlObjectList.SelectedIndex = 0;
+                globalEntries.Clear();
+                matEntries.Clear();
+                quickVobMan.Clear();
+                _folderCache.Clear();
+                tempEntries.Clear();
 
-            CreateAndGetFolderQuickTree(Localizator.Get("QUICKVOBS_PARENT"));
-            CreateAndGetFolderQuickTree(Localizator.Get("QUICKVOBS_ACCESS"));
+                //SpacerNET.objTreeWin.tabControlObjectList.SelectedIndex = 0;
+
+                CreateAndGetFolderQuickTree(Localizator.Get("QUICKVOBS_PARENT"));
+                CreateAndGetFolderQuickTree(Localizator.Get("QUICKVOBS_ACCESS"));
+            }
+            finally
+            {
+                if (quickUpdateStarted)
+                    Helper.EndUpdateFast(quickTree);
+                if (globalUpdateStarted)
+                    Helper.EndUpdateFast(globalTree);
+            }
         }
 
 
@@ -887,13 +915,22 @@ namespace SpacerUnion
         {
             //ConsoleEx.WriteLineGreen("C#: Перестраиваю список вейпоинтов в интерфейсе: Кол-во вобов в списке " + globalEntries.Count);
 
-            foreach (var entry in tempEntries)
+            var globalTree = SpacerNET.objTreeWin.globalTree;
+            Helper.BeginUpdateFast(globalTree);
+            try
             {
-                AddVobToNodes(entry.Value);
-            }
+                foreach (var entry in tempEntries)
+                {
+                    AddVobToNodes(entry.Value);
+                }
 
-            IsWaypointReload = false;
-            tempEntries.Clear();
+                IsWaypointReload = false;
+                tempEntries.Clear();
+            }
+            finally
+            {
+                Helper.EndUpdateFast(globalTree);
+            }
 
             //ConsoleEx.WriteLineGreen("C#: Дерево вейпоинтов обновлено заполнено. Всего записей: " + globalEntries.Count);
         }
@@ -930,21 +967,30 @@ namespace SpacerUnion
 
 
 
-            foreach (var entry in waypointsNodesList)
+            var globalTree = SpacerNET.objTreeWin.globalTree;
+            Helper.BeginUpdateFast(globalTree);
+            try
             {
-                if (entry.Value.node != null)
+                foreach (var entry in waypointsNodesList)
                 {
-                    entry.Value.node.Remove();
+                    if (entry.Value.node != null)
+                    {
+                        entry.Value.node.Remove();
+                    }
                 }
+
+                globalEntries = globalEntries
+                            .Where(pair => pair.Value.className != "zCVobWaypoint")
+                            .ToDictionary(pair => pair.Key, pair => pair.Value);
+
+
+                IsWaypointReload = true;
+                tempEntries.Clear();
             }
-
-            globalEntries = globalEntries
-                        .Where(pair => pair.Value.className != "zCVobWaypoint")
-                        .ToDictionary(pair => pair.Key, pair => pair.Value);
-
-
-            IsWaypointReload = true;
-            tempEntries.Clear();
+            finally
+            {
+                Helper.EndUpdateFast(globalTree);
+            }
            // ConsoleEx.WriteLineGreen("Clean waypoints. All vobs count: " + globalEntries.Count);
 
         }

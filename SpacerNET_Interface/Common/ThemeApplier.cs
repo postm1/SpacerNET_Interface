@@ -16,14 +16,44 @@ namespace SpacerUnion.Common
         private static readonly HashSet<RadioButton> _radioPaintHooks = new HashSet<RadioButton>();
         private static readonly HashSet<ListView> _lvHandlers = new HashSet<ListView>();
         private static readonly HashSet<ComboBox> _cbHandlers = new HashSet<ComboBox>();
+        private static readonly HashSet<ComboBox> _cbOwnerDrawApplied = new HashSet<ComboBox>();
         private static readonly HashSet<Label> _lblPaintHooks = new HashSet<Label>();
-        private static readonly HashSet<TreeView> _tvHandlers = new HashSet<TreeView>();
         private static readonly HashSet<ImageList> _ilDarkApplied = new HashSet<ImageList>();
         private static readonly List<Form> _registeredDialogs = new List<Form>();
+
+        // Renderer instances are stateless with respect to an individual ToolStrip. Reusing them
+        // avoids allocating a new renderer every time a form is reapplied after a theme change.
+        private static readonly ToolStripRenderer _lightToolStripRenderer = new ToolStripProfessionalRenderer();
+        private static readonly ToolStripRenderer _darkToolStripRenderer = new DarkToolStripRenderer();
+
+        // The owner-draw paths can run once per visible cell or tab. Keep the palette resources
+        // alive for the lifetime of the UI instead of allocating and disposing a GDI object for
+        // every paint event.
+        private static readonly SolidBrush _panelBrush = new SolidBrush(Color.Transparent);
+        private static readonly SolidBrush _inputBrush = new SolidBrush(Color.Transparent);
+        private static readonly SolidBrush _accentBrush = new SolidBrush(Color.Transparent);
+        private static readonly SolidBrush _menuHighlightBrush = new SolidBrush(Color.Transparent);
+        private static readonly SolidBrush _foregroundBrush = new SolidBrush(Color.Transparent);
+        private static readonly Pen _borderPen = new Pen(Color.Transparent);
+        private static bool _paintResourcesDark = !Theme.IsDark;
 
         // Disabled-state in dark mode — system default is unreadable (grey-on-grey).
         // 165/165/165 gives clear contrast against BgPanel (45/45/48) without looking enabled.
         private static readonly Color _dDisabledFg = Color.FromArgb(165, 165, 165);
+
+        private static void EnsurePaintResources()
+        {
+            bool isDark = Theme.IsDark;
+            if (_paintResourcesDark == isDark) return;
+
+            _panelBrush.Color = Theme.BgPanel;
+            _inputBrush.Color = Theme.BgInput;
+            _accentBrush.Color = Theme.Accent;
+            _menuHighlightBrush.Color = Theme.MenuHigh;
+            _foregroundBrush.Color = Theme.FgPrimary;
+            _borderPen.Color = Theme.Border;
+            _paintResourcesDark = isDark;
+        }
 
         [DllImport("dwmapi.dll", PreserveSig = true)]
         private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
@@ -42,8 +72,17 @@ namespace SpacerUnion.Common
         public static void Apply(Form form)
         {
             if (form == null) return;
-            ApplyToControl(form);
-            ApplyRecursive(form);
+            EnsurePaintResources();
+            form.SuspendLayout();
+            try
+            {
+                ApplyToControl(form);
+                ApplyRecursive(form);
+            }
+            finally
+            {
+                form.ResumeLayout(false);
+            }
             form.Invalidate(true);
             TryApplyTitleBar(form);
             HookShownReapply(form);
@@ -70,8 +109,16 @@ namespace SpacerUnion.Common
                     var f = (Form)s;
                     SetTitleBarDark(f);
                     // Re-apply controls — some forms reset BackColor or only realize handles in their own Show flow
-                    ApplyToControl(f);
-                    ApplyRecursive(f);
+                    f.SuspendLayout();
+                    try
+                    {
+                        ApplyToControl(f);
+                        ApplyRecursive(f);
+                    }
+                    finally
+                    {
+                        f.ResumeLayout(false);
+                    }
                     f.Invalidate(true);
                 }
                 catch { }
@@ -253,9 +300,9 @@ namespace SpacerUnion.Common
                 var ts = (ToolStrip)c;
                 ts.BackColor = Theme.BgPanel;
                 ts.ForeColor = Theme.FgPrimary;
-                ts.Renderer = Theme.IsDark
-                    ? (ToolStripRenderer)new DarkToolStripRenderer()
-                    : new ToolStripProfessionalRenderer();
+                var renderer = Theme.IsDark ? _darkToolStripRenderer : _lightToolStripRenderer;
+                if (!object.ReferenceEquals(ts.Renderer, renderer))
+                    ts.Renderer = renderer;
                 return;
             }
 
@@ -328,12 +375,22 @@ namespace SpacerUnion.Common
             if (Theme.IsDark)
             {
                 if (cb.DrawMode == DrawMode.Normal)
+                {
                     cb.DrawMode = DrawMode.OwnerDrawFixed;
+                    _cbOwnerDrawApplied.Add(cb);
+                }
                 if (!_cbHandlers.Contains(cb))
                 {
                     cb.DrawItem += ComboBox_DrawItem;
                     _cbHandlers.Add(cb);
                 }
+            }
+            else if (_cbOwnerDrawApplied.Contains(cb))
+            {
+                // OwnerDraw is only needed for the dark palette. Returning to Normal lets the
+                // native WinForms renderer handle light-mode combo boxes without a managed callback.
+                cb.DrawMode = DrawMode.Normal;
+                _cbOwnerDrawApplied.Remove(cb);
             }
             TryDarkenCombo(cb);
         }
@@ -348,11 +405,10 @@ namespace SpacerUnion.Common
         private static void ComboBox_DrawItem(object sender, DrawItemEventArgs e)
         {
             if (!Theme.IsDark) { e.DrawBackground(); return; }
+            EnsurePaintResources();
             var cb = (ComboBox)sender;
             bool selected = (e.State & DrawItemState.Selected) != 0;
-            Color bgColor = selected ? Theme.Accent : Theme.BgInput;
-            using (var bg = new SolidBrush(bgColor))
-                e.Graphics.FillRectangle(bg, e.Bounds);
+            e.Graphics.FillRectangle(selected ? _accentBrush : _inputBrush, e.Bounds);
             string text = (e.Index >= 0 && e.Index < cb.Items.Count)
                 ? cb.GetItemText(cb.Items[e.Index])
                 : string.Empty;
@@ -462,22 +518,6 @@ namespace SpacerUnion.Common
             // are visually OK with TransparentColor=White (no white-frame artifact).
         }
 
-        private static void TreeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
-        {
-            if (!Theme.IsDark || e.Node == null) { e.DrawDefault = true; return; }
-            bool selected = (e.State & TreeNodeStates.Selected) == TreeNodeStates.Selected;
-            if (!selected) { e.DrawDefault = true; return; }
-            var tv = (TreeView)sender;
-            var font = e.Node.NodeFont ?? tv.Font;
-            using (var bg = new SolidBrush(Theme.Accent))
-                e.Graphics.FillRectangle(bg, e.Bounds);
-            TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, Theme.FgPrimary,
-                TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.VerticalCenter | TextFormatFlags.NoPadding);
-            // We painted everything in e.Bounds — override DrawDefault that the prior designer-time
-            // handler may have set, so the OS doesn't draw on top of us.
-            e.DrawDefault = false;
-        }
-
         // ---- ListView (Details view: header + zebra/severity backgrounds) ----------
 
         private static void ApplyListView(ListView lv)
@@ -487,9 +527,9 @@ namespace SpacerUnion.Common
             if (Theme.IsDark)
             {
                 lv.BorderStyle = BorderStyle.FixedSingle;
+                lv.OwnerDraw = true;
                 if (!_lvHandlers.Contains(lv))
                 {
-                    lv.OwnerDraw = true;
                     lv.DrawColumnHeader += ListView_DrawColumnHeader;
                     lv.DrawItem += ListView_DrawItem;
                     lv.DrawSubItem += ListView_DrawSubItem;
@@ -499,8 +539,10 @@ namespace SpacerUnion.Common
             else
             {
                 lv.BorderStyle = BorderStyle.Fixed3D;
-                // OwnerDraw handlers are stable across theme switches — keep them attached;
-                // they early-out when !Theme.IsDark via DrawDefault.
+                // OwnerDraw is only needed for the dark palette. Returning to native drawing avoids
+                // invoking three managed callbacks for every visible cell in light mode.
+                if (_lvHandlers.Contains(lv))
+                    lv.OwnerDraw = false;
             }
             TryDarkenNative(lv);
         }
@@ -508,10 +550,9 @@ namespace SpacerUnion.Common
         private static void ListView_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
         {
             if (!Theme.IsDark) { e.DrawDefault = true; return; }
-            using (var bg = new SolidBrush(Theme.BgPanel))
-                e.Graphics.FillRectangle(bg, e.Bounds);
-            using (var pen = new Pen(Theme.Border))
-                e.Graphics.DrawRectangle(pen, e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1);
+            EnsurePaintResources();
+            e.Graphics.FillRectangle(_panelBrush, e.Bounds);
+            e.Graphics.DrawRectangle(_borderPen, e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1);
             var textRect = new Rectangle(e.Bounds.X + 4, e.Bounds.Y, e.Bounds.Width - 8, e.Bounds.Height);
             TextRenderer.DrawText(e.Graphics, e.Header.Text, e.Font, textRect, Theme.FgPrimary,
                 TextFormatFlags.Left | TextFormatFlags.VerticalCenter | TextFormatFlags.NoPadding | TextFormatFlags.EndEllipsis);
@@ -527,9 +568,8 @@ namespace SpacerUnion.Common
                 return;
             }
             bool selected = (e.State & ListViewItemStates.Selected) != 0;
-            var bgColor = selected ? Theme.Accent : Theme.BgInput;
-            using (var bg = new SolidBrush(bgColor))
-                e.Graphics.FillRectangle(bg, e.Bounds);
+            EnsurePaintResources();
+            e.Graphics.FillRectangle(selected ? _accentBrush : _inputBrush, e.Bounds);
             TextRenderer.DrawText(e.Graphics, e.Item.Text, e.Item.Font, e.Bounds, Theme.FgPrimary,
                 TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
         }
@@ -561,9 +601,8 @@ namespace SpacerUnion.Common
             bool selected = e.Item != null && e.Item.Selected;
 
             // All cells get the same uniform background — no per-column severity fill.
-            Color bgColor = selected ? Theme.Accent : Theme.BgInput;
-            using (var bg = new SolidBrush(bgColor))
-                e.Graphics.FillRectangle(bg, e.Bounds);
+            EnsurePaintResources();
+            e.Graphics.FillRectangle(selected ? _accentBrush : _inputBrush, e.Bounds);
 
             int textIndent = 4;
             if (e.ColumnIndex == 0)
@@ -633,11 +672,10 @@ namespace SpacerUnion.Common
             if (!Theme.IsDark) return;
             var b = (Button)sender;
             if (b.Enabled) return;
+            EnsurePaintResources();
             var g = e.Graphics;
-            using (var bg = new SolidBrush(Theme.BgPanel))
-                g.FillRectangle(bg, 0, 0, b.Width, b.Height);
-            using (var pen = new Pen(Theme.Border))
-                g.DrawRectangle(pen, 0, 0, b.Width - 1, b.Height - 1);
+            g.FillRectangle(_panelBrush, 0, 0, b.Width, b.Height);
+            g.DrawRectangle(_borderPen, 0, 0, b.Width - 1, b.Height - 1);
             TextRenderer.DrawText(g, b.Text, b.Font, b.ClientRectangle, _dDisabledFg,
                 TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
         }
@@ -680,10 +718,12 @@ namespace SpacerUnion.Common
             var gb = (GroupBox)sender;
             var g = e.Graphics;
 
-            using (var bg = new SolidBrush(gb.BackColor))
-            {
-                g.FillRectangle(bg, gb.ClientRectangle);
-            }
+            EnsurePaintResources();
+            if (gb.BackColor == Theme.BgPanel)
+                g.FillRectangle(_panelBrush, gb.ClientRectangle);
+            else
+                using (var bg = new SolidBrush(gb.BackColor))
+                    g.FillRectangle(bg, gb.ClientRectangle);
 
             var textSize = string.IsNullOrEmpty(gb.Text)
                 ? Size.Empty
@@ -691,23 +731,22 @@ namespace SpacerUnion.Common
             int top = textSize.Height / 2;
 
             var border = new Rectangle(0, top, gb.Width - 1, gb.Height - top - 1);
-            using (var pen = new Pen(Theme.Border))
-            {
-                g.DrawRectangle(pen, border);
-            }
+            g.DrawRectangle(_borderPen, border);
 
             if (!string.IsNullOrEmpty(gb.Text))
             {
                 var textRect = new Rectangle(8, 0, textSize.Width, textSize.Height);
-                using (var bg = new SolidBrush(gb.BackColor))
-                {
-                    g.FillRectangle(bg, textRect);
-                }
+                if (gb.BackColor == Theme.BgPanel)
+                    g.FillRectangle(_panelBrush, textRect);
+                else
+                    using (var bg = new SolidBrush(gb.BackColor))
+                        g.FillRectangle(bg, textRect);
                 Color titleColor = gb.Enabled ? gb.ForeColor : _dDisabledFg;
-                using (var fg = new SolidBrush(titleColor))
-                {
-                    g.DrawString(gb.Text, gb.Font, fg, 8, 0);
-                }
+                if (gb.Enabled && gb.ForeColor == Theme.FgPrimary)
+                    g.DrawString(gb.Text, gb.Font, _foregroundBrush, 8, 0);
+                else
+                    using (var fg = new SolidBrush(titleColor))
+                        g.DrawString(gb.Text, gb.Font, fg, 8, 0);
             }
         }
 
@@ -723,29 +762,21 @@ namespace SpacerUnion.Common
             //    versions, leaving white slivers behind the headers and around the page perimeter.
             //    TabPages overdraw their own area afterwards (see TabPage branch in ApplyToControl), so
             //    over-fill here is harmless.
-            using (var bg = new SolidBrush(Theme.BgPanel))
-            {
-                g.FillRectangle(bg, 0, 0, tc.Width, tc.Height);
-            }
+            EnsurePaintResources();
+            g.FillRectangle(_panelBrush, 0, 0, tc.Width, tc.Height);
 
             // 2. Draw each tab header on top
             for (int i = 0; i < tc.TabCount; i++)
             {
                 var rect = tc.GetTabRect(i);
                 var page = tc.TabPages[i];
-                var headerBg = i == tc.SelectedIndex ? Theme.MenuHigh : Theme.BgPanel;
 
-                using (var bg = new SolidBrush(headerBg))
-                    g.FillRectangle(bg, rect);
-                using (var pen = new Pen(Theme.Border))
-                    g.DrawRectangle(pen, rect.X, rect.Y, rect.Width - 1, rect.Height - 1);
-                using (var fg = new SolidBrush(Theme.FgPrimary))
-                {
-                    var size = g.MeasureString(page.Text, tc.Font);
-                    g.DrawString(page.Text, tc.Font, fg,
-                        rect.Left + (rect.Width - size.Width) / 2,
-                        rect.Top + (rect.Height - size.Height) / 2);
-                }
+                g.FillRectangle(i == tc.SelectedIndex ? _menuHighlightBrush : _panelBrush, rect);
+                g.DrawRectangle(_borderPen, rect.X, rect.Y, rect.Width - 1, rect.Height - 1);
+                var size = g.MeasureString(page.Text, tc.Font);
+                g.DrawString(page.Text, tc.Font, _foregroundBrush,
+                    rect.Left + (rect.Width - size.Width) / 2,
+                    rect.Top + (rect.Height - size.Height) / 2);
             }
 
             // 3. Border around the displayed TabPage area
@@ -754,8 +785,7 @@ namespace SpacerUnion.Common
                 var pageRect = tc.GetTabRect(tc.SelectedIndex);
                 var contentTop = pageRect.Bottom;
                 var contentRect = new Rectangle(0, contentTop, tc.Width - 1, tc.Height - contentTop - 1);
-                using (var pen = new Pen(Theme.Border))
-                    g.DrawRectangle(pen, contentRect);
+                g.DrawRectangle(_borderPen, contentRect);
             }
         }
     }
