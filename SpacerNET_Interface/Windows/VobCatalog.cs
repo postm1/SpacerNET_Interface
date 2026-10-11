@@ -51,7 +51,7 @@ namespace SpacerUnion.Windows
             formConf.labelTextShow.Text = Localizator.Get("WIN_VOBCATALOG_GROUP_NAME");
             formConf.confType = "VOBCATALOG_NEW_GROUP";
             formConf.clearText = true;
-            formConf.ShowDialog();
+            formConf.ShowDialog(this);
         }
 
         private void buttonRenaneSelected_Click(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace SpacerUnion.Windows
                 formConf.confType = "VOBCATALOG_RENAME_GROUP";
                 formConf.clearText = false;
                 formConf.textBoxValueEnter.Text = listBoxGroups.SelectedItem.ToString();
-                formConf.ShowDialog();
+                formConf.ShowDialog(this);
             }
         }
 
@@ -564,7 +564,7 @@ namespace SpacerUnion.Windows
                 propsForm.labelTextShow.Text = Localizator.Get("WIN_VOBCATALOG_VISUAL_NAME");
                 propsForm.confType = "VOBCATALOG_ADD_NEW";
                 propsForm.clearText = true;
-                propsForm.ShowDialog();
+                propsForm.ShowDialog(this);
             }
         }
 
@@ -680,7 +680,7 @@ namespace SpacerUnion.Windows
                     propsForm.checkBoxStatic.Checked = newEntry.StatColl;
                     propsForm.checkBoxIsStaticVob.Checked = newEntry.IsStaticVob;
 
-                    propsForm.ShowDialog();
+                    propsForm.ShowDialog(this);
                 }
 
             }
@@ -1005,7 +1005,7 @@ namespace SpacerUnion.Windows
                 moveForm.Visual = name.ToUpper();
                 moveForm.OldGroup = oldGroup;
                 moveForm.UpdateWindow();
-                moveForm.ShowDialog();
+                moveForm.ShowDialog(this);
             }
         }
 
@@ -1027,7 +1027,7 @@ namespace SpacerUnion.Windows
                 moveForm.Visual = name.ToUpper();
                 moveForm.OldGroup = oldGroup;
                 moveForm.UpdateWindow();
-                moveForm.ShowDialog();
+                moveForm.ShowDialog(this);
             }
         }
 

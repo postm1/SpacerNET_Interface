@@ -770,7 +770,7 @@ namespace SpacerUnion.Windows
 
             MyDialog.Color = Color.FromArgb(255, r, g, b);
 
-            if (MyDialog.ShowDialog() == DialogResult.OK)
+            if (MyDialog.ShowDialog(this) == DialogResult.OK)
             {
                 textBoxPfxInput.Text =
                     MyDialog.Color.R.ToString()
@@ -803,7 +803,7 @@ namespace SpacerUnion.Windows
 
             openFileDialogFileName.RestoreDirectory = true;
 
-            if (openFileDialogFileName.ShowDialog() == DialogResult.OK)
+            if (openFileDialogFileName.ShowDialog(this) == DialogResult.OK)
             {
                 Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(openFileDialogFileName.FileName)));
                 Imports.Stack_PushString("pfxTexturesPath");
@@ -865,7 +865,7 @@ namespace SpacerUnion.Windows
 
             safeFileDialogFileName.RestoreDirectory = true;
 
-            if (safeFileDialogFileName.ShowDialog() == DialogResult.OK)
+            if (safeFileDialogFileName.ShowDialog(this) == DialogResult.OK)
             {
                 Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(safeFileDialogFileName.FileName)));
                 Imports.Stack_PushString("pfxSavesPath");
@@ -1067,7 +1067,7 @@ namespace SpacerUnion.Windows
             formConf.labelTextShow.Text = Localizator.Get("PFX_EDITOR_NEW_PFX_NAME");
             formConf.confType = "PFX_EDITOR_NEW_PFX";
             formConf.clearText = true;
-            formConf.ShowDialog();
+            formConf.ShowDialog(this);
         }
     }
 }

@@ -3670,7 +3670,7 @@ namespace SpacerUnion
                     renameWin = new RenameForm();
                 }
 
-                renameWin.ShowDialog();
+                renameWin.ShowDialog(this);
             }
 
             if (cb.SelectedIndex == 1)
@@ -3715,7 +3715,7 @@ namespace SpacerUnion
 
                 openFileDialogVobTree.RestoreDirectory = true;
 
-                if (openFileDialogVobTree.ShowDialog() == DialogResult.OK)
+                if (openFileDialogVobTree.ShowDialog(this) == DialogResult.OK)
                 {
                     replaceZenPath = openFileDialogVobTree.FileName.Trim();
                 }
@@ -4345,7 +4345,7 @@ namespace SpacerUnion
             };
             prompt.Controls.Add(buttonCancel);
 
-            DialogResult result = prompt.ShowDialog();
+            DialogResult result = prompt.ShowDialog(this);
             text = inputBox.Text;
 
             return result;
@@ -4550,7 +4550,7 @@ namespace SpacerUnion
 
         private void buttonAddLightPresetColor_Click(object sender, EventArgs e)
         {
-            if (colorDialogLightPresetColor.ShowDialog() != DialogResult.OK)
+            if (colorDialogLightPresetColor.ShowDialog(this) != DialogResult.OK)
                 return;
 
             listBoxLightPresetColors.Items.Add(colorDialogLightPresetColor.Color);
@@ -4654,7 +4654,7 @@ namespace SpacerUnion
 
             colorDialogLightPresetColor.Color = Color.FromArgb(color);
 
-            if (colorDialogLightPresetColor.ShowDialog() != DialogResult.OK)
+            if (colorDialogLightPresetColor.ShowDialog(this) != DialogResult.OK)
                 return;
 
             listBoxLightPresetColors.Items[index] = colorDialogLightPresetColor.Color;
@@ -5056,7 +5056,7 @@ namespace SpacerUnion
             formConf.labelTextShow.Text = Localizator.Get("WIN_SPAWN_PRESET_NAME");
             formConf.confType = "SPAWN_NEW_GROUP";
             formConf.clearText = true;
-            formConf.ShowDialog();
+            formConf.ShowDialog(this);
         }
 
         private void buttonLocationRename_Click(object sender, EventArgs e)
@@ -5070,7 +5070,7 @@ namespace SpacerUnion
                 formConf.confType = "SPAWN_RENAME_GROUP";
                 formConf.clearText = false;
                 formConf.textBoxValueEnter.Text = listBoxLocations.SelectedItem.ToString();
-                formConf.ShowDialog();
+                formConf.ShowDialog(this);
             }
         }
 
@@ -5159,7 +5159,7 @@ namespace SpacerUnion
             formConf.labelTextShow.Text = Localizator.Get("WIN_SPAWN_FUNC_NAME");
             formConf.confType = "SPAWN_NEW_FUNC";
             formConf.clearText = true;
-            formConf.ShowDialog();
+            formConf.ShowDialog(this);
         }
 
         private void buttonFuncDelete_Click(object sender, EventArgs e)
@@ -5398,7 +5398,7 @@ namespace SpacerUnion
 
             colorDialog.Color = panelColor.BackColor;
 
-            if (colorDialog.ShowDialog() == DialogResult.OK)
+            if (colorDialog.ShowDialog(this) == DialogResult.OK)
             {
                 panelColor.BackColor = colorDialog.Color;
 

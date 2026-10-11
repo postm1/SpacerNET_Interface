@@ -116,7 +116,7 @@ namespace SpacerUnion.Windows
 
             openFileDialogFileName.RestoreDirectory = true;
 
-            if (openFileDialogFileName.ShowDialog() == DialogResult.OK)
+            if (openFileDialogFileName.ShowDialog(this) == DialogResult.OK)
             {
                 Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(openFileDialogFileName.FileName)));
                 Imports.Stack_PushString("vobResPath");

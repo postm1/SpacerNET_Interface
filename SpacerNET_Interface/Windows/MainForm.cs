@@ -428,7 +428,7 @@ namespace SpacerUnion
             openFileDialog.RestoreDirectory = true;
             openFileDialog.FileName = String.Empty;
 
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;
 
@@ -715,7 +715,7 @@ namespace SpacerUnion
             //zenName = Utils.CorrectZenName(zenName);
             saveFileDialog.FileName = zenName;
 
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 // uncompiled zen
                 if (saveFileDialog.FilterIndex == 1)
@@ -851,7 +851,7 @@ namespace SpacerUnion
             openFileDialog.Multiselect = true;
 
 
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
 
 
@@ -970,7 +970,7 @@ namespace SpacerUnion
             openFileDialog.InitialDirectory = Utils.GetInitialDirectory(path);
             openFileDialog.RestoreDirectory = true;
 
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;
 
@@ -1507,7 +1507,7 @@ namespace SpacerUnion
             openFileDialog.FileName = String.Empty;
             openFileDialog.Multiselect = true;
 
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
 
 
@@ -1785,7 +1785,7 @@ namespace SpacerUnion
             //zenName = Utils.CorrectZenName(zenName);
             saveFileDialog.FileName = "_VOBS_" + zenName;
 
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
             {
 
                 Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(saveFileDialog.FileName))));
@@ -1869,7 +1869,7 @@ namespace SpacerUnion
 
             saveFileDialog.FileName = zenName;
 
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
             {
 
 
@@ -1998,7 +1998,7 @@ namespace SpacerUnion
             saveFileDialog1.InitialDirectory = "./";
             saveFileDialog1.FileName = "_REPORT_" + fileName + ".html";
 
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog1.ShowDialog(this) == DialogResult.OK)
             {
                 string path = Path.GetFullPath(saveFileDialog1.FileName);
 
@@ -2382,7 +2382,7 @@ namespace SpacerUnion
 
            
 
-            if (fontDialogSelect.ShowDialog() == DialogResult.OK)
+            if (fontDialogSelect.ShowDialog(this) == DialogResult.OK)
             {
 
                 mainUIFont = fontDialogSelect.Font;

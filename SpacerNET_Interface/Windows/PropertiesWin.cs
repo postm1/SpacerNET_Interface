@@ -1645,7 +1645,7 @@ namespace SpacerUnion
 
             openFileDialogFileName.RestoreDirectory = true;
 
-            if (openFileDialogFileName.ShowDialog() == DialogResult.OK)
+            if (openFileDialogFileName.ShowDialog(this) == DialogResult.OK)
             {
                 Imports.Stack_PushString(Utils.FixPath(Path.GetDirectoryName(openFileDialogFileName.FileName)));
                 Imports.Stack_PushString("vobResPath");
@@ -1783,7 +1783,7 @@ namespace SpacerUnion
 
             MyDialog.Color = Color.FromArgb(a, r, g, b);
 
-            if (MyDialog.ShowDialog() == DialogResult.OK)
+            if (MyDialog.ShowDialog(this) == DialogResult.OK)
             {
                 textBoxString.Text =
                     MyDialog.Color.R.ToString()
@@ -1797,7 +1797,7 @@ namespace SpacerUnion
 
         private void buttonSelectFontProps_Click(object sender, EventArgs e)
         {
-            if (fontDialogSelect.ShowDialog() == DialogResult.OK)
+            if (fontDialogSelect.ShowDialog(this) == DialogResult.OK)
             {
 
                 treeViewProp.Font = fontDialogSelect.Font;

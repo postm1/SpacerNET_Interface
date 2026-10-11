@@ -348,7 +348,7 @@ namespace SpacerUnion.Windows
             saveDialog.InitialDirectory = "./";
             saveDialog.FileName = "ZEN_REPORT_" + SpacerNET.form.currentWorldName.ToUpper().Replace(".ZEN", "") + ".txt";
 
-            if (saveDialog.ShowDialog() == DialogResult.OK)
+            if (saveDialog.ShowDialog(this) == DialogResult.OK)
             {
 
                 using (StreamWriter sw = new StreamWriter(saveDialog.FileName))

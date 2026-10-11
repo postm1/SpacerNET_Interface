@@ -1511,7 +1511,7 @@ namespace SpacerUnion
 
             //Imports.Extern_BlockMouse(true);
 
-            if (saveFileDialogVobTree.ShowDialog() == DialogResult.OK)
+            if (saveFileDialogVobTree.ShowDialog(this) == DialogResult.OK)
             {
 
 
@@ -1587,7 +1587,7 @@ namespace SpacerUnion
 
             //Imports.Extern_BlockMouse(true);
 
-            if (openFileDialogVobTree.ShowDialog() == DialogResult.OK)
+            if (openFileDialogVobTree.ShowDialog(this) == DialogResult.OK)
             {
                 bool insertNearCamera = false;
 
@@ -1642,7 +1642,7 @@ namespace SpacerUnion
 
             //Imports.Extern_BlockMouse(true);
 
-            if (openFileDialogVobTree.ShowDialog() == DialogResult.OK)
+            if (openFileDialogVobTree.ShowDialog(this) == DialogResult.OK)
             {
                 bool insertNearCamera = false;
 
@@ -2345,7 +2345,7 @@ namespace SpacerUnion
 
             //Imports.Extern_BlockMouse(true);
 
-            if (saveFileDialogVobTree.ShowDialog() == DialogResult.OK)
+            if (saveFileDialogVobTree.ShowDialog(this) == DialogResult.OK)
             {
                 string pathSave = Utils.FixPath(Path.GetDirectoryName(Utils.FixPath(saveFileDialogVobTree.FileName)));
 

@@ -432,7 +432,7 @@ namespace SpacerUnion.Windows
             openFileDialog.RestoreDirectory = true;
             openFileDialog.FileName = String.Empty;
 
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 textBoxGrassWinModel.Text = openFileDialog.SafeFileName;
 

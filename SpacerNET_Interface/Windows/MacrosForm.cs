@@ -96,7 +96,7 @@ namespace SpacerUnion.Windows
             }
 
 
-            macros.formConf.ShowDialog();
+            macros.formConf.ShowDialog(this);
         }
 
         private void buttonCreateNewMacros_Click(object sender, EventArgs e)
@@ -108,7 +108,7 @@ namespace SpacerUnion.Windows
 
             macros.formConf.textBoxValueEnter.Text = "";
 
-            macros.formConf.ShowDialog();
+            macros.formConf.ShowDialog(this);
         }
 
         private void richTextBoxMacros_KeyDown(object sender, KeyEventArgs e)

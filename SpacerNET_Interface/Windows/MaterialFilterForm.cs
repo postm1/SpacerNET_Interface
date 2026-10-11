@@ -529,7 +529,7 @@ namespace SpacerUnion.Windows
           formConf.labelTextShow.Text = Localizator.Get("MSG_MATFILTER_NEW_NAME");
           formConf.confType = "MATFILTER_NEWFILTER";
           formConf.clearText = true;
-          formConf.ShowDialog();
+          formConf.ShowDialog(this);
         }
 
 
@@ -580,7 +580,7 @@ namespace SpacerUnion.Windows
 
                 formConf.confType = "MATFILTER_RENAME_FILTER";
 
-                formConf.ShowDialog();
+                formConf.ShowDialog(this);
             }
         }
 
@@ -721,7 +721,7 @@ namespace SpacerUnion.Windows
             formConf.labelTextShow.Text = Localizator.Get("MSG_MATFILTER_NEW_MAT_NAME");
             formConf.confType = "MATFILTER_NEWMATERIAL";
 
-            formConf.ShowDialog();
+            formConf.ShowDialog(this);
 
            
         }
