@@ -4315,7 +4315,7 @@ namespace SpacerUnion
             Imports.Extern_SetMoverToKey();
         }
 
-        public static DialogResult ShowInputDialog(ref string text)
+        public static DialogResult ShowInputDialog(ref string text, IWin32Window owner)
         {
             Form prompt = new Form();
             prompt.ShowIcon = false;
@@ -4345,7 +4345,7 @@ namespace SpacerUnion
             };
             prompt.Controls.Add(buttonCancel);
 
-            DialogResult result = prompt.ShowDialog(this);
+            DialogResult result = prompt.ShowDialog(owner);
             text = inputBox.Text;
 
             return result;
@@ -4664,7 +4664,7 @@ namespace SpacerUnion
         private void buttonAddLightRangeScale_Click(object sender, EventArgs e)
         {
             string text = "";
-            if (ShowInputDialog(ref text) != DialogResult.OK)
+            if (ShowInputDialog(ref text, this) != DialogResult.OK)
                 return;
 
             float value = 0.0f;
@@ -4723,7 +4723,7 @@ namespace SpacerUnion
                 return;
 
             string text = listBoxLightPresetRangeAniScales.Items[index].ToString();
-            if (ShowInputDialog(ref text) != DialogResult.OK)
+            if (ShowInputDialog(ref text, this) != DialogResult.OK)
                 return;
 
             listBoxLightPresetRangeAniScales.Items[index] = text;
@@ -4792,7 +4792,7 @@ namespace SpacerUnion
                 return;
 
             string text = listBoxLightPresets.Items[index].ToString();
-            if (ShowInputDialog(ref text) != DialogResult.OK)
+            if (ShowInputDialog(ref text, this) != DialogResult.OK)
                 return;
 
             text = text.ToUpper();

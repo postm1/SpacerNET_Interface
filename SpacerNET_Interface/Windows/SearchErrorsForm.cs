@@ -343,7 +343,7 @@ namespace SpacerUnion.Windows
             SaveFileDialog saveDialog = new SaveFileDialog();
 
             saveDialog.RestoreDirectory = true;
-            saveDialog.Filter = "Text files (*.text)|";
+            saveDialog.Filter = Constants.FILE_FILTER_TXT;
 
             saveDialog.InitialDirectory = "./";
             saveDialog.FileName = "ZEN_REPORT_" + SpacerNET.form.currentWorldName.ToUpper().Replace(".ZEN", "") + ".txt";

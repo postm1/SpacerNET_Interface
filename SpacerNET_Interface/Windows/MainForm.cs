@@ -1992,7 +1992,7 @@ namespace SpacerUnion
 
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
-            saveFileDialog1.Filter = "HTML file (*.html)|*.html|All files (*.*)|*.*";
+            saveFileDialog1.Filter = Constants.FILE_FILTER_HTML;
             saveFileDialog1.FilterIndex = 1;
             saveFileDialog1.RestoreDirectory = true;
             saveFileDialog1.InitialDirectory = "./";
