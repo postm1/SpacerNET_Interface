@@ -655,6 +655,8 @@ namespace SpacerUnion
 
             if (currentWorldName.Length == 0)
             {
+                Imports.Stack_PushString(Localizator.Get("WIN_MESSAGE_ERROR_0"));
+                Imports.Extern_PrintRed();
                 return;
             }
 
@@ -1736,6 +1738,8 @@ namespace SpacerUnion
         {
             if (currentWorldName.Length == 0)
             {
+                Imports.Stack_PushString(Localizator.Get("WIN_MESSAGE_ERROR_0"));
+                Imports.Extern_PrintRed();
                 return;
             }
 
@@ -1848,6 +1852,8 @@ namespace SpacerUnion
         {
             if (currentWorldName.Length == 0)
             {
+                Imports.Stack_PushString(Localizator.Get("WIN_MESSAGE_ERROR_0"));
+                Imports.Extern_PrintRed();
                 return;
             }
 

@@ -337,6 +337,8 @@ namespace SpacerUnion.Windows
         {
             if (entriesList.Count == 0)
             {
+                Imports.Stack_PushString(Localizator.Get("WIN_MESSAGE_ERROR_1"));
+                Imports.Extern_PrintRed();
                 return;
             }
 
