@@ -26,7 +26,7 @@ namespace SpacerUnion
         public const string FILE_FILTER_MERGE_VOBS = "World (*.zen)|*.zen|All Files (*.*)|*.*";
         public const string FILE_FILTER_SAVE_ZEN = "Compiled ZEN (ascii)|*.zen|Uncompiled ZEN (ascii)|*.zen|Compiled ZEN (binary safe)|*.zen";
         public const string FILE_FILTER_SAVE_ZEN_UNC = "Uncompiled ZEN (ascii)|*.zen";
-        public const string FILE_FILTER_SAVE_ONLY_MESH = "COMPILED MESH|*.MSH";
+        public const string FILE_FILTER_SAVE_ONLY_MESH = "COMPILED MESH|*.msh";
 
         public const string FILE_FILTER_ALL = "All files (*.*)|*.*";
         public const string FILE_FILTER_TXT = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
