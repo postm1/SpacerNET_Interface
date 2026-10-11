@@ -1041,9 +1041,9 @@ namespace SpacerUnion.Common
 
             AddNewWord("CHECK_EMPTY_VISUALS_SAFE", new List<string> { "В локации есть вобы с несуществующими zCVisual, при сохранении их visual будет пустым, инфорация потеряется. Продолжить?", "There are vobs with non-existent zCVisuals in the location. Saving them will result in their visuals being empty and the information lost. Continue?", "An diesem Standort befinden sich VOBs ohne vorhandene zCVisuals. Wenn Sie diese speichern, werden ihre Visualisierungen leer sein und die Informationen gehen verloren. Fortfahren?", "", "" });
 
-            AddNewWord("WIN_MESSAGE_ERROR_0", new List<string> { "Не могу сохранить. Имя локации пустое!", "Can't save! The location's name is empty!", "", "", "" });
-            AddNewWord("WIN_MESSAGE_ERROR_1", new List<string> { "Данных нет. Сохранять нечего!", "There is nothing to save!", "", "", "" });
-            AddNewWord("WIN_MESSAGE_ERROR_2", new List<string> { "Некорректный путь!", "Invalid path to file!", "", "", "" });
+            AddNewWord("WIN_MESSAGE_ERROR_0", new List<string> { "Не могу сохранить. Имя локации пустое!", "Can't save! The location's name is empty!", "Speichern nicht möglich! Der Location Name ist leer!", "", "" });
+            AddNewWord("WIN_MESSAGE_ERROR_1", new List<string> { "Данных нет. Сохранять нечего!", "There is nothing to save!", "Hier gibt es nichts zu speichern!", "", "" });
+            AddNewWord("WIN_MESSAGE_ERROR_2", new List<string> { "Некорректный путь!", "Invalid path to file!", "Ungültiger Pfad zur Datei!", "", "" });
         }
 
 
