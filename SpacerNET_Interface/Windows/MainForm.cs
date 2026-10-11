@@ -652,13 +652,7 @@ namespace SpacerUnion
 
         private void сохранитьZENToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            if (currentWorldName.Length == 0)
-            {
-                Imports.Stack_PushString(Localizator.Get("WIN_MESSAGE_ERROR_0"));
-                Imports.Extern_PrintRed();
-                return;
-            }
+         
 
             saveFileDialog.Filter = Constants.FILE_FILTER_SAVE_ZEN;
 
@@ -712,10 +706,20 @@ namespace SpacerUnion
             //Path.GetFileName(currentWorldName.Replace(".zen", "").Replace(".ZEN", ""));
 
 
+            if (!Utils.IsValidFileName(zenName, out string err))
+            {
+                Imports.Stack_PushString(Localizator.Get("WIN_MESSAGE_ERROR_2"));
+                Imports.Extern_PrintRed();
+
+                MessageBox.Show(this, err, Localizator.Get("WIN_MESSAGE_ERROR_2"),
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
 
             //zenName = Utils.CorrectZenName(zenName);
             saveFileDialog.FileName = zenName;
+
 
             if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
             {
@@ -1786,6 +1790,17 @@ namespace SpacerUnion
 
             //Path.GetFileName(currentWorldName.Replace(".zen", "").Replace(".ZEN", ""));
 
+
+            if (!Utils.IsValidFileName(zenName, out string err))
+            {
+                Imports.Stack_PushString(Localizator.Get("WIN_MESSAGE_ERROR_2"));
+                Imports.Extern_PrintRed();
+
+                MessageBox.Show(this, err, Localizator.Get("WIN_MESSAGE_ERROR_2"),
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             //zenName = Utils.CorrectZenName(zenName);
             saveFileDialog.FileName = "_VOBS_" + zenName;
 
@@ -1872,6 +1887,16 @@ namespace SpacerUnion
 
             //ConsoleEx.WriteLineRed(zenName);
             zenName = zenName.Replace(".ZEN", ".MSH");
+
+            if (!Utils.IsValidFileName(zenName, out string err))
+            {
+                Imports.Stack_PushString(Localizator.Get("WIN_MESSAGE_ERROR_2"));
+                Imports.Extern_PrintRed();
+
+                MessageBox.Show(this, err, Localizator.Get("WIN_MESSAGE_ERROR_2"),
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             saveFileDialog.FileName = zenName;
 

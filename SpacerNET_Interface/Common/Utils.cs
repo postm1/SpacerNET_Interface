@@ -431,6 +431,88 @@ namespace SpacerUnion
             }
         }
 
+
+        private static readonly string[] ReservedNames =
+        {
+            "CON", "PRN", "AUX", "NUL",
+            "COM1", "COM2", "COM3", "COM4", "COM5", "COM6", "COM7", "COM8", "COM9",
+            "LPT1", "LPT2", "LPT3", "LPT4", "LPT5", "LPT6", "LPT7", "LPT8", "LPT9"
+        };
+
+        /// <summary>
+        /// Проверяет путь/имя файла на недопустимые символы и зарезервированные имена.
+        /// </summary>
+        /// <param name="path">Путь или просто имя файла.</param>
+        /// <param name="error">Текст ошибки, если валидация провалилась.</param>
+        /// <returns>true — путь корректен, false — есть проблема.</returns>
+        public static bool IsValidFileName(string path, out string error)
+        {
+            error = null;
+
+            if (string.IsNullOrEmpty(path))
+            {
+                error = "PATH IS EMPTY!";
+                return false;
+            }
+
+            // 1) Управляющие символы (0x00–0x1F). Они невидимы, но WinAPI их отвергает.
+            foreach (var c in path)
+            {
+                if (c < 32)
+                {
+                    error = $"THE PATH CONTAINS BAD SYMBOL (0x{(int)c:X2}).";
+                    return false;
+                }
+            }
+
+            // 2) Недопустимые символы. Обычно GetInvalidFileNameChars строже,
+            //    чем GetInvalidPathChars, но берём объединение — так безопаснее,
+            //    потому что мы проверяем и имя файла, и путь целиком.
+            var invalidChars = Path.GetInvalidFileNameChars()
+                .Union(Path.GetInvalidPathChars())
+                .Distinct()
+                .ToArray();
+
+            var bad = path.Where(c => invalidChars.Contains(c)).Distinct().ToArray();
+
+            if (bad.Length > 0)
+            {
+                var sb = new StringBuilder();
+                foreach (var c in bad)
+                {
+                    sb.Append($"'{c}' (0x{(int)c:X2}) ");
+                }
+
+                error = "THE PATH CONTAINS BAD SYMBOLS: " + sb.ToString().TrimEnd();
+                return false;
+            }
+
+            // 3) Точки и пробелы в конце имени файла/папки — Windows их молча
+            //    отбрасывает, из-за чего имя может «схлопнуться» и стать пустым.
+            var trimmed = path.TrimEnd(' ', '.');
+            if (trimmed.Length != path.Length && !path.EndsWith("\\") && !path.EndsWith("/"))
+            {
+                error = "FILE NAME CAN'T END WITH SPACE OR DOT!";
+                return false;
+            }
+
+            // 4) Зарезервированные имена DOS. Проверяем только имя файла (без каталога)
+            //    и без расширения — Windows блокирует даже "CON.txt".
+            var fileName = Path.GetFileName(path);
+            if (!string.IsNullOrEmpty(fileName))
+            {
+                var nameNoExt = Path.GetFileNameWithoutExtension(fileName);
+
+                if (ReservedNames.Contains(nameNoExt, StringComparer.OrdinalIgnoreCase))
+                {
+                    error = $"NAME '{fileName}' CAN'T BE USED!";
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
     }
 
     public static class Helper
@@ -489,6 +571,7 @@ namespace SpacerUnion
 
            
         }
+
     }
 
     public class ExtMap

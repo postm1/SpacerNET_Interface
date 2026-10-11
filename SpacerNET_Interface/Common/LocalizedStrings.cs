@@ -1043,6 +1043,7 @@ namespace SpacerUnion.Common
 
             AddNewWord("WIN_MESSAGE_ERROR_0", new List<string> { "Не могу сохранить. Имя локации пустое!", "Can't save! The location's name is empty!", "", "", "" });
             AddNewWord("WIN_MESSAGE_ERROR_1", new List<string> { "Данных нет. Сохранять нечего!", "There is nothing to save!", "", "", "" });
+            AddNewWord("WIN_MESSAGE_ERROR_2", new List<string> { "Некорректный путь!", "Invalid path to file!", "", "", "" });
         }
 
 
