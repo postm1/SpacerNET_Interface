@@ -34,6 +34,11 @@ namespace SpacerUnion
 
         private System.Windows.Forms.Timer timerStatusBar;
 
+        internal bool IsMultiSelectionMode
+        {
+            get { return toolStripButtonMulti.Checked; }
+        }
+
         public enum ToggleMenuType
         {
             ToggleVobs = 0,

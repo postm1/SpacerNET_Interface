@@ -37,6 +37,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьВобToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.makeParentOfSelectedVobsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сделатьРодителемДляНовыхВобовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.очиститьРодителяДляВобовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddQuickVobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -101,6 +102,7 @@
             this.toolStripMenuItem1,
             this.удалитьВобToolStripMenuItem,
             this.toolStripSeparator1,
+            this.makeParentOfSelectedVobsToolStripMenuItem,
             this.сделатьРодителемДляНовыхВобовToolStripMenuItem,
             this.очиститьРодителяДляВобовToolStripMenuItem,
             this.AddQuickVobToolStripMenuItem,
@@ -146,6 +148,15 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(279, 6);
             // 
+            // makeParentOfSelectedVobsToolStripMenuItem
+            //
+            this.makeParentOfSelectedVobsToolStripMenuItem.Image = global::SpacerUnion.Properties.Resources.vob_parent_fav;
+            this.makeParentOfSelectedVobsToolStripMenuItem.Name = "makeParentOfSelectedVobsToolStripMenuItem";
+            this.makeParentOfSelectedVobsToolStripMenuItem.Size = new System.Drawing.Size(282, 22);
+            this.makeParentOfSelectedVobsToolStripMenuItem.Text = "Make parent of selected vobs";
+            this.makeParentOfSelectedVobsToolStripMenuItem.Visible = false;
+            this.makeParentOfSelectedVobsToolStripMenuItem.Click += new System.EventHandler(this.makeParentOfSelectedVobsToolStripMenuItem_Click);
+            //
             // сделатьРодителемДляНовыхВобовToolStripMenuItem
             // 
             this.сделатьРодителемДляНовыхВобовToolStripMenuItem.Image = global::SpacerUnion.Properties.Resources.vob_parent_fav;
@@ -414,6 +425,7 @@
         private System.Windows.Forms.ToolStripMenuItem удалитьВобToolStripMenuItem;
         private System.Windows.Forms.Button buttonTreeSort;
         private System.Windows.Forms.Panel panelButtons;
+        private System.Windows.Forms.ToolStripMenuItem makeParentOfSelectedVobsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сделатьРодителемДляНовыхВобовToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem очиститьРодителяДляВобовToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
