@@ -38,6 +38,7 @@ namespace SpacerUnion
         private Color dragHoverForeColor;
         private Point? dragInsertionLineStart;
         private Point? dragInsertionLineEnd;
+        private uint contextMenuParentVob;
 
         public ObjTree()
         {
@@ -240,20 +241,21 @@ namespace SpacerUnion
             buttonExpand.Text = Localizator.Get("buttonExpand");
             buttonTreeSort.Text = Localizator.Get("buttonTreeSort");
 
-            contextMenuStripTree.Items[0].Text = Localizator.Get("CONTEXTMENU_TREE_INSERT_VOBTREE_PARENT");
-            contextMenuStripTree.Items[1].Text = Localizator.Get("CONTEXTMENU_TREE_INSERT_VOBTREE_GLOBAL");
-            contextMenuStripTree.Items[2].Text = Localizator.Get("CONTEXTMENU_TREE_SAVE_VOBTREE");
-            contextMenuStripTree.Items[3].Text = Localizator.Get("CONTEXTMENU_TREE_REMOVE_VOB");
+            toolStripMenuItem2.Text = Localizator.Get("CONTEXTMENU_TREE_INSERT_VOBTREE_PARENT");
+            вставитьVobTreeГлобальноToolStripMenuItem.Text = Localizator.Get("CONTEXTMENU_TREE_INSERT_VOBTREE_GLOBAL");
+            toolStripMenuItem1.Text = Localizator.Get("CONTEXTMENU_TREE_SAVE_VOBTREE");
+            удалитьВобToolStripMenuItem.Text = Localizator.Get("CONTEXTMENU_TREE_REMOVE_VOB");
             //---------------------------------
-            contextMenuStripTree.Items[5].Text = Localizator.Get("CONTEXTMENU_TREE_ADD_PARENT");
-            contextMenuStripTree.Items[6].Text = Localizator.Get("CONTEXTMENU_TREE_REMOVE_PARENT");
-            contextMenuStripTree.Items[7].Text = Localizator.Get("CONTEXTMENU_TREE_ADD_VOB");
+            makeParentOfSelectedVobsToolStripMenuItem.Text = Localizator.Get("CONTEXTMENU_TREE_PARENT_SELECTED");
+            сделатьРодителемДляНовыхВобовToolStripMenuItem.Text = Localizator.Get("CONTEXTMENU_TREE_ADD_PARENT");
+            очиститьРодителяДляВобовToolStripMenuItem.Text = Localizator.Get("CONTEXTMENU_TREE_REMOVE_PARENT");
+            AddQuickVobToolStripMenuItem.Text = Localizator.Get("CONTEXTMENU_TREE_ADD_VOB");
             //---------------------------------
-            contextMenuStripTree.Items[9].Text = Localizator.Get("CONTEXTMENU_TREE_RESTORE_POS");
-            contextMenuStripTree.Items[10].Text = Localizator.Get("CONTEXTMENU_TREE_REPLACE_FROM_PARENT");
+            toolStripMenuRestorePos.Text = Localizator.Get("CONTEXTMENU_TREE_RESTORE_POS");
+            tempInvisibleToolStrip.Text = Localizator.Get("CONTEXTMENU_TREE_REPLACE_FROM_PARENT");
 
 
-            contextMenuStripTree.Items[12].Text = Localizator.Get("CONTEXTMENU_SAVE_VISUAL_TO_FILE");
+            SaveVisualTofileCommon.Text = Localizator.Get("CONTEXTMENU_SAVE_VISUAL_TO_FILE");
             allChildrenVobsToolStripMenuItem.Text = Localizator.Get("CONTEXTMENU_SAVE_VISUAL_TO_FILE_CHILDREN");
             onlyParentVobToolStripMenuItem.Text = Localizator.Get("CONTEXTMENU_SAVE_VISUAL_TO_FILE_ONLY_PARENT");
 
@@ -1468,9 +1470,11 @@ namespace SpacerUnion
                // ObjectsWin.ChangeTab(4);
             }
 
-            Imports.Extern_SelectVobSync(addr);
-
-            SpacerNET.form.Focus();
+            if (!SpacerNET.form.IsMultiSelectionMode)
+            {
+                Imports.Extern_SelectVobSync(addr);
+                SpacerNET.form.Focus();
+            }
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -1780,7 +1784,10 @@ namespace SpacerUnion
 
         private void globalTree_KeyDown(object sender, KeyEventArgs e)
         {
-           // e.Handled = true;
+            if (e.KeyCode == Keys.Apps || (e.Shift && e.KeyCode == Keys.F10))
+            {
+                TryGetVobNode(globalTree.SelectedNode, out contextMenuParentVob);
+            }
         }
 
         private void сделатьРодителемДляНовыхВобовToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1876,6 +1883,24 @@ namespace SpacerUnion
             Imports.Extern_CleanGlobalParent();
         }
 
+        private void makeParentOfSelectedVobsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (contextMenuParentVob == 0) return;
+
+            int moved = Imports.Extern_ReparentSelectedVobs(contextMenuParentVob);
+            if (moved == 0) return;
+
+            TreeEntry parentEntry;
+            if (globalEntries.TryGetValue(contextMenuParentVob, out parentEntry) && parentEntry.node != null)
+            {
+                parentEntry.node.Expand();
+                parentEntry.node.EnsureVisible();
+            }
+
+            Utils.AddInfoUserAction("[~]: " + Localizator.Get("CONTEXTMENU_TREE_PARENT_SELECTED")
+                + " (" + moved + ").", Theme.IsDark ? Color.FromArgb(255, 255, 255, 0) : Color.DarkViolet);
+        }
+
         private void contextMenuStripTree_Opening(object sender, CancelEventArgs e)
         {
             if (SpacerNET.form.toolStripButtonMaterial.Checked)
@@ -1886,7 +1911,12 @@ namespace SpacerUnion
                 return;
             }
 
-
+            bool multiSelection = SpacerNET.form.IsMultiSelectionMode;
+            makeParentOfSelectedVobsToolStripMenuItem.Visible = multiSelection;
+            makeParentOfSelectedVobsToolStripMenuItem.Enabled = multiSelection
+                && contextMenuParentVob != 0
+                && globalEntries.ContainsKey(contextMenuParentVob)
+                && Imports.Extern_GetMultiSelectionCount() > 0;
         }
 
         private void quickTree_BeforeCollapse(object sender, TreeViewCancelEventArgs e)
@@ -2245,6 +2275,11 @@ namespace SpacerUnion
 
         private void globalTree_MouseDown(object sender, MouseEventArgs e)
         {
+            if (e.Button == MouseButtons.Right)
+            {
+                TryGetVobNode(globalTree.GetNodeAt(e.Location), out contextMenuParentVob);
+            }
+
             if (SpacerNET.form.toolStripButtonMaterial.Checked)
             {
                 Imports.Stack_PushString(Localizator.Get("WIN_VOBCATALOG_POLYSELECT_TURNOFF"));
