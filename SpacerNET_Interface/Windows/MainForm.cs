@@ -2674,10 +2674,8 @@ namespace SpacerUnion
         private void toolStripButtonAxis_Click(object sender, EventArgs e)
         {
 
-            if (currentWorldName.Length == 0)
+            if (Imports.Extern_IsWorldLoaded() == 0 || currentWorldName.Length == 0)
             {
-                Imports.Stack_PushString(Localizator.Get("WIN_MESSAGE_ERROR_0"));
-                Imports.Extern_PrintRed();
                 return;
             }
 
