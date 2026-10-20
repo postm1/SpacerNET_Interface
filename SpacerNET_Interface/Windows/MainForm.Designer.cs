@@ -130,14 +130,15 @@
             this.toolStripButtonErrorReport = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCatalog = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonUV = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonAxis = new System.Windows.Forms.ToolStripButton();
             this.statusStripBottom = new System.Windows.Forms.StatusStrip();
             this.lblStatusWorld = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblStatusTris = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblStatusRam = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStripTopMain.SuspendLayout();
-            this.statusStripBottom.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.toolStripTop.SuspendLayout();
+            this.statusStripBottom.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripTopMain
@@ -757,7 +758,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 24);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1201, 559);
+            this.panelMain.Size = new System.Drawing.Size(1201, 537);
             this.panelMain.TabIndex = 3;
             // 
             // toolStripTop
@@ -788,12 +789,14 @@
             this.toolStripButtonPfxEditor,
             this.toolStripButtonErrorReport,
             this.toolStripButtonCatalog,
-            this.toolStripButtonUV});
+            this.toolStripButtonUV,
+            this.toolStripButtonAxis});
             this.toolStripTop.Location = new System.Drawing.Point(0, 0);
             this.toolStripTop.Name = "toolStripTop";
             this.toolStripTop.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStripTop.Size = new System.Drawing.Size(1201, 25);
             this.toolStripTop.TabIndex = 3;
+            this.toolStripTop.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripTop_ItemClicked);
             this.toolStripTop.MouseClick += new System.Windows.Forms.MouseEventHandler(this.toolStripTop_MouseClick);
             this.toolStripTop.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.toolStripTop_MouseDoubleClick);
             // 
@@ -1045,43 +1048,53 @@
             this.toolStripButtonUV.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonUV.Text = "UV";
             this.toolStripButtonUV.Click += new System.EventHandler(this.toolStripButtonUV_Click);
-            //
+            // 
+            // toolStripButtonAxis
+            // 
+            this.toolStripButtonAxis.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonAxis.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAxis.Image")));
+            this.toolStripButtonAxis.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonAxis.Name = "toolStripButtonAxis";
+            this.toolStripButtonAxis.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonAxis.Text = "XYZ";
+            this.toolStripButtonAxis.Click += new System.EventHandler(this.toolStripButtonAxis_Click);
+            // 
             // statusStripBottom
-            //
+            // 
+            this.statusStripBottom.ForeColor = System.Drawing.Color.White;
             this.statusStripBottom.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatusWorld,
             this.lblStatusTris,
             this.lblStatusRam});
             this.statusStripBottom.Location = new System.Drawing.Point(0, 561);
             this.statusStripBottom.Name = "statusStripBottom";
-            this.statusStripBottom.SizingGrip = false;
             this.statusStripBottom.Size = new System.Drawing.Size(1201, 22);
+            this.statusStripBottom.SizingGrip = false;
             this.statusStripBottom.TabIndex = 4;
-            this.statusStripBottom.ForeColor = System.Drawing.Color.White;
-            //
+            // 
             // lblStatusWorld
-            //
-            this.lblStatusWorld.Name = "lblStatusWorld";
-            this.lblStatusWorld.Size = new System.Drawing.Size(60, 17);
-            this.lblStatusWorld.Text = "World: —";
+            // 
             this.lblStatusWorld.ForeColor = System.Drawing.Color.White;
-            //
+            this.lblStatusWorld.Name = "lblStatusWorld";
+            this.lblStatusWorld.Size = new System.Drawing.Size(57, 17);
+            this.lblStatusWorld.Text = "World: —";
+            // 
             // lblStatusTris
-            //
-            this.lblStatusTris.Name = "lblStatusTris";
-            this.lblStatusTris.Size = new System.Drawing.Size(50, 17);
-            this.lblStatusTris.Text = "Tris: 0";
+            // 
             this.lblStatusTris.ForeColor = System.Drawing.Color.White;
-            //
+            this.lblStatusTris.Name = "lblStatusTris";
+            this.lblStatusTris.Size = new System.Drawing.Size(36, 17);
+            this.lblStatusTris.Text = "Tris: 0";
+            // 
             // lblStatusRam
-            //
-            this.lblStatusRam.Name = "lblStatusRam";
-            this.lblStatusRam.Size = new System.Drawing.Size(60, 17);
-            this.lblStatusRam.Text = "RAM: 0 MB";
+            // 
             this.lblStatusRam.ForeColor = System.Drawing.Color.White;
-            //
+            this.lblStatusRam.Name = "lblStatusRam";
+            this.lblStatusRam.Size = new System.Drawing.Size(66, 17);
+            this.lblStatusRam.Text = "RAM: 0 MB";
+            // 
             // MainForm
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
@@ -1218,5 +1231,6 @@
         private System.Windows.Forms.ToolStripStatusLabel lblStatusWorld;
         private System.Windows.Forms.ToolStripStatusLabel lblStatusTris;
         private System.Windows.Forms.ToolStripStatusLabel lblStatusRam;
+        private System.Windows.Forms.ToolStripButton toolStripButtonAxis;
     }
 }

@@ -2665,5 +2665,29 @@ namespace SpacerUnion
             SpacerNET.objTreeWin.labelPolySelectionActive.Visible = toolStripButtonMaterial.Checked;
             SpacerNET.objTreeWin.tabControlObjectList.Enabled = !toolStripButtonMaterial.Checked;
         }
+
+        private void toolStripTop_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripButtonAxis_Click(object sender, EventArgs e)
+        {
+
+            if (currentWorldName.Length == 0)
+            {
+                Imports.Stack_PushString(Localizator.Get("WIN_MESSAGE_ERROR_0"));
+                Imports.Extern_PrintRed();
+                return;
+            }
+
+            ToolStripButton item = sender as ToolStripButton;
+
+
+            item.Checked = !item.Checked;
+
+            Imports.Stack_PushString("showAxisSystem");
+            Imports.Extern_SetSetting(Convert.ToInt32(item.Checked));
+        }
     }
 }
