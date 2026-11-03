@@ -1,4 +1,4 @@
-﻿
+
 using SpacerUnion.Common;
 using SpacerUnion.Windows;
 using System;
@@ -4532,20 +4532,23 @@ namespace SpacerUnion
         }
         private void buttonApplyChangesLight_Click(object sender, EventArgs e)
         {
-            PushLightPresetData();
+            // Apply to vob if selected
+            if (lightVobSelected)
+            {
+                PushLightPresetData();
+                Imports.Stack_PushString(textBoxLightVobName.Text);
+                Imports.Stack_PushString("");
+                Imports.Extern_Light_ApplyChanges();
+            }
 
+            // Apply to preset if selected
             if (listBoxLightPresets.SelectedItem != null)
             {
+                PushLightPresetData();
                 Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
                 if (Imports.Extern_Light_ApplyPresetChanges() == 1)
                     buttonSaveLightPresets.Enabled = true;
-                return;
             }
-
-            Imports.Stack_PushString(textBoxLightVobName.Text);
-            Imports.Stack_PushString("");
-            if (Imports.Extern_Light_ApplyChanges() == 1)
-                buttonSaveLightPresets.Enabled = true;
         }
 
         private void buttonAddLightPresetColor_Click(object sender, EventArgs e)
