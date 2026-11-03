@@ -4552,17 +4552,29 @@ namespace SpacerUnion
             }
             */
 
-            if (listBoxLightPresets.SelectedItem == null)
-                return;
+            if (listBoxLightPresets.SelectedItem != null)
+            {
+                PushLightPresetData();
+                Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
+                if (Imports.Extern_Light_ApplyPresetChanges() == 1)
+                    buttonSaveLightPresets.Enabled = true;
 
-            PushLightPresetData();
-            Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
-            if (Imports.Extern_Light_ApplyPresetChanges() == 1)
-                buttonSaveLightPresets.Enabled = true;
 
+                Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
+                Imports.Extern_Light_UsePresetOnLightVob();
+            }
+            else
+            {
+                if (lightVobSelected)
+                {
+                    PushLightPresetData();
+                    Imports.Stack_PushString(textBoxLightVobName.Text);
+                    Imports.Stack_PushString("");
+                    Imports.Extern_Light_ApplyChanges();
+                }
+            }
 
-            Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
-            Imports.Extern_Light_UsePresetOnLightVob();
+            
 
            
         }
