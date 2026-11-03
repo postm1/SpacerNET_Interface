@@ -4555,8 +4555,16 @@ namespace SpacerUnion
             if (listBoxLightPresets.SelectedItem == null)
                 return;
 
+            PushLightPresetData();
+            Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
+            if (Imports.Extern_Light_ApplyPresetChanges() == 1)
+                buttonSaveLightPresets.Enabled = true;
+
+
             Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
             Imports.Extern_Light_UsePresetOnLightVob();
+
+           
         }
 
         private void buttonAddLightPresetColor_Click(object sender, EventArgs e)
