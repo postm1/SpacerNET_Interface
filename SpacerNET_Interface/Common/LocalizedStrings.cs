@@ -1046,6 +1046,8 @@ namespace SpacerUnion.Common
             AddNewWord("WIN_MESSAGE_ERROR_0", new List<string> { "Не могу сохранить. Имя локации пустое!", "Can't save! The location's name is empty!", "Speichern nicht möglich! Der Location Name ist leer!", "", "" });
             AddNewWord("WIN_MESSAGE_ERROR_1", new List<string> { "Данных нет. Сохранять нечего!", "There is nothing to save!", "Hier gibt es nichts zu speichern!", "", "" });
             AddNewWord("WIN_MESSAGE_ERROR_2", new List<string> { "Некорректный путь!", "Invalid path to file!", "Ungültiger Pfad zur Datei!", "", "" });
+
+            AddNewWord("checkBoxIgnorePreset", new List<string> { "Игнорировать пресет если выбран воб", "Ignore preset if vob selected", "Voreinstellung ignorieren, falls VOB ausgewählt", "", "" });
         }
 
 

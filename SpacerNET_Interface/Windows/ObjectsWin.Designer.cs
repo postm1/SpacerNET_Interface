@@ -262,6 +262,7 @@
             this.labelScriptFunction = new System.Windows.Forms.Label();
             this.listBoxFuncs = new System.Windows.Forms.ListBox();
             this.colorDialogLightPresetColor = new System.Windows.Forms.ColorDialog();
+            this.checkBoxIgnorePreset = new System.Windows.Forms.CheckBox();
             this.groupBoxPFX.SuspendLayout();
             this.groupBoxObjItems.SuspendLayout();
             this.groupBoxItemsLocator.SuspendLayout();
@@ -2231,6 +2232,7 @@
             // 
             // listBoxLightPresetRangeAniScales
             // 
+            this.listBoxLightPresetRangeAniScales.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.listBoxLightPresetRangeAniScales.FormattingEnabled = true;
             this.listBoxLightPresetRangeAniScales.Location = new System.Drawing.Point(6, 16);
             this.listBoxLightPresetRangeAniScales.Name = "listBoxLightPresetRangeAniScales";
@@ -2279,6 +2281,7 @@
             // 
             // groupBoxLightSelected
             // 
+            this.groupBoxLightSelected.Controls.Add(this.checkBoxIgnorePreset);
             this.groupBoxLightSelected.Controls.Add(this.checkBoxShowLightRadiusAsText);
             this.groupBoxLightSelected.Controls.Add(this.panelColor);
             this.groupBoxLightSelected.Controls.Add(this.comboBoxSphereType);
@@ -2448,7 +2451,7 @@
             // checkBoxLightVobInstantCompile
             // 
             this.checkBoxLightVobInstantCompile.AutoSize = true;
-            this.checkBoxLightVobInstantCompile.Location = new System.Drawing.Point(6, 102);
+            this.checkBoxLightVobInstantCompile.Location = new System.Drawing.Point(6, 94);
             this.checkBoxLightVobInstantCompile.Name = "checkBoxLightVobInstantCompile";
             this.checkBoxLightVobInstantCompile.Size = new System.Drawing.Size(97, 17);
             this.checkBoxLightVobInstantCompile.TabIndex = 31;
@@ -2490,7 +2493,7 @@
             // labelLightVobPresetInUse
             // 
             this.labelLightVobPresetInUse.AutoSize = true;
-            this.labelLightVobPresetInUse.Location = new System.Drawing.Point(6, 58);
+            this.labelLightVobPresetInUse.Location = new System.Drawing.Point(6, 54);
             this.labelLightVobPresetInUse.Name = "labelLightVobPresetInUse";
             this.labelLightVobPresetInUse.Size = new System.Drawing.Size(87, 13);
             this.labelLightVobPresetInUse.TabIndex = 32;
@@ -2498,7 +2501,7 @@
             // 
             // textBoxLightVobPresetName
             // 
-            this.textBoxLightVobPresetName.Location = new System.Drawing.Point(6, 76);
+            this.textBoxLightVobPresetName.Location = new System.Drawing.Point(6, 72);
             this.textBoxLightVobPresetName.Name = "textBoxLightVobPresetName";
             this.textBoxLightVobPresetName.ReadOnly = true;
             this.textBoxLightVobPresetName.Size = new System.Drawing.Size(227, 20);
@@ -2891,6 +2894,17 @@
             this.listBoxFuncs.Size = new System.Drawing.Size(195, 225);
             this.listBoxFuncs.TabIndex = 0;
             // 
+            // checkBoxIgnorePreset
+            // 
+            this.checkBoxIgnorePreset.AutoSize = true;
+            this.checkBoxIgnorePreset.Location = new System.Drawing.Point(6, 111);
+            this.checkBoxIgnorePreset.Name = "checkBoxIgnorePreset";
+            this.checkBoxIgnorePreset.Size = new System.Drawing.Size(160, 17);
+            this.checkBoxIgnorePreset.TabIndex = 58;
+            this.checkBoxIgnorePreset.Text = "Ignore preset if vob selected";
+            this.checkBoxIgnorePreset.UseVisualStyleBackColor = true;
+            this.checkBoxIgnorePreset.CheckStateChanged += new System.EventHandler(this.checkBoxIgnorePreset_CheckStateChanged);
+            // 
             // ObjectsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3206,5 +3220,6 @@
         private System.Windows.Forms.ComboBox comboBoxSphereType;
         private System.Windows.Forms.CheckBox checkBoxMoreThanZero;
         private System.Windows.Forms.CheckBox checkBoxAutoRenameKeys;
+        public System.Windows.Forms.CheckBox checkBoxIgnorePreset;
     }
 }

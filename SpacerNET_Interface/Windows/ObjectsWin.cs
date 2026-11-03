@@ -291,6 +291,9 @@ namespace SpacerUnion
             comboBoxSphereType.Items[1] = Localizator.Get("LIGHT_EDITOR_SPHERE_TYPE_ORBITS");
             comboBoxSphereType.Items[2] = Localizator.Get("LIGHT_EDITOR_SPHERE_TYPE_SPHERE");
 
+
+            checkBoxIgnorePreset.Text = Localizator.Get("checkBoxIgnorePreset");
+
         }
 
 
@@ -342,6 +345,10 @@ namespace SpacerUnion
 
             Imports.Stack_PushString("itemLocatorRadius");
             trackBarLocatorRad.Value = Imports.Extern_GetSetting();
+
+
+            Imports.Stack_PushString("bIgnoreLightPresetIfVobSelected");
+            checkBoxIgnorePreset.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
 
             GetVdfArchivesList();
 
@@ -4416,7 +4423,12 @@ namespace SpacerUnion
             SpacerNET.objectsWin.textBoxLightVobPresetName.Text = presetName;
 
             SpacerNET.objectsWin.UpdateLightWindow(true);
-            SpacerNET.objectsWin.SelectPresetForLightVob(presetName);
+
+            if (!SpacerNET.objectsWin.checkBoxIgnorePreset.Checked)
+            {
+                SpacerNET.objectsWin.SelectPresetForLightVob(presetName);
+            }
+            
         }
 
         [DllExport]
@@ -5603,6 +5615,12 @@ namespace SpacerUnion
         private void radioButtonWork_CheckedChanged(object sender, EventArgs e)
         {
             HandleTextChangeVisualSearch();
+        }
+
+        private void checkBoxIgnorePreset_CheckStateChanged(object sender, EventArgs e)
+        {
+            Imports.Stack_PushString("bIgnoreLightPresetIfVobSelected");
+            Imports.Extern_SetSetting(Convert.ToInt32(checkBoxIgnorePreset.Checked));
         }
     }
 }
