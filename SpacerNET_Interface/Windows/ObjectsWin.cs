@@ -4844,6 +4844,13 @@ namespace SpacerUnion
             if (listBoxLightPresets.SelectedItem == null)
                 return;
 
+            DialogResult res = MessageBox.Show(Localizator.Get("askSure"), Localizator.Get("confirmation"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (res != DialogResult.OK)
+            {
+                return;
+            }
+
             Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
             Imports.Extern_Light_ApplyPresetOnLightVobs();
         }
