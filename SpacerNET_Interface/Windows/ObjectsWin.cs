@@ -4532,6 +4532,7 @@ namespace SpacerUnion
         }
         private void buttonApplyChangesLight_Click(object sender, EventArgs e)
         {
+            /*
             // Apply to vob if selected
             if (lightVobSelected)
             {
@@ -4549,6 +4550,13 @@ namespace SpacerUnion
                 if (Imports.Extern_Light_ApplyPresetChanges() == 1)
                     buttonSaveLightPresets.Enabled = true;
             }
+            */
+
+            if (listBoxLightPresets.SelectedItem == null)
+                return;
+
+            Imports.Stack_PushString(listBoxLightPresets.SelectedItem.ToString());
+            Imports.Extern_Light_UsePresetOnLightVob();
         }
 
         private void buttonAddLightPresetColor_Click(object sender, EventArgs e)
