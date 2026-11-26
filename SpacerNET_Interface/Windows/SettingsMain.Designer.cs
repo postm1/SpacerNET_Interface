@@ -204,7 +204,7 @@
             this.labelApplyHint.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelApplyHint.Location = new System.Drawing.Point(16, 8);
             this.labelApplyHint.Name = "labelApplyHint";
-            this.labelApplyHint.Padding = new System.Windows.Forms.Padding(0, 9, 12, 0);
+            this.labelApplyHint.Padding = new System.Windows.Forms.Padding(0, 13, 12, 0);
             this.labelApplyHint.Size = new System.Drawing.Size(608, 42);
             this.labelApplyHint.TabIndex = 0;
             this.labelApplyHint.Text = "apply hint";
@@ -214,7 +214,8 @@
             this.buttonApply.Dock = System.Windows.Forms.DockStyle.Right;
             this.buttonApply.Location = new System.Drawing.Point(624, 8);
             this.buttonApply.Name = "buttonApply";
-            this.buttonApply.Size = new System.Drawing.Size(140, 42);
+            this.buttonApply.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.buttonApply.Size = new System.Drawing.Size(140, 22);
             this.buttonApply.TabIndex = 1;
             this.buttonApply.Text = "Apply";
             this.buttonApply.UseVisualStyleBackColor = true;

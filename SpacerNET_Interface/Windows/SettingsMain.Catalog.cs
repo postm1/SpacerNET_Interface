@@ -27,7 +27,8 @@ namespace SpacerUnion.Windows
             TrackBox,       // caption + track bar + editable numeric box
             Number,         // caption + numeric box
             RadioGroup,     // caption + a group of radio buttons
-            CheckTrack      // check box with the value in its caption + track bar
+            CheckTrack,     // check box with the value in its caption + track bar
+            Separator       // blank line that keeps unrelated options apart
         }
 
         // One option of the page: description + the controls generated for it.
@@ -54,6 +55,7 @@ namespace SpacerUnion.Windows
             public int[] RadioValues;             // radio group: value written for every option
             public string DependsOnKey;           // option is enabled only while that option is used
             public bool InvertDependency;         // ... and only while it is NOT checked
+            public bool Hidden;                   // stays in the catalog, but is not shown on the page
             public Action<Setting> AfterChange;   // extra reaction after the value was written
             public Func<int> LocalGetter;         // reading of a StoreLocally option
             public Action<int> LocalSetter;       // writing of a StoreLocally option
@@ -82,6 +84,34 @@ namespace SpacerUnion.Windows
             }
         }
 
+        // An option of the catalog that is kept but not shown, and a blank line of a section, are no
+        // options for the user: they are not counted, not searched and carry no value.
+        private static bool IsSeparator(Setting setting)
+        {
+            return setting.Kind == SettingKind.Separator;
+        }
+
+        private static bool IsOption(Setting setting)
+        {
+            return !setting.Hidden && !IsSeparator(setting);
+        }
+
+        // How many options the page really shows: hidden ones and blank lines are not counted.
+        private int VisibleOptions()
+        {
+            int count = 0;
+
+            for (int i = 0; i < settings.Count; i++)
+            {
+                if (IsOption(settings[i]))
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+
         // A titled box on the page holding a few options.
         private class Section
         {
@@ -107,7 +137,15 @@ namespace SpacerUnion.Windows
                     int count = 0;
                     for (int i = 0; i < Sections.Count; i++)
                     {
-                        count += Sections[i].Items.Count;
+                        List<Setting> items = Sections[i].Items;
+
+                        for (int j = 0; j < items.Count; j++)
+                        {
+                            if (IsOption(items[j]))
+                            {
+                                count++;
+                            }
+                        }
                     }
                     return count;
                 }
@@ -195,13 +233,28 @@ namespace SpacerUnion.Windows
             list.Add(CheckOption("askExitZen", "checkBoxMiscExitAsk", CAT_MISC, group));
             list.Add(CheckOption("fullPathTitle", "checkBoxMiscFullPath", CAT_MISC, group));
             list.Add(CheckOption("checkBoxSetNearestVobCam", "checkBoxSetNearestVobCam", CAT_MISC, group));
+
+            list.Add(Separator(CAT_MISC, group));
+
             list.Add(CheckOption("autoCompileWorldLight", "checkBoxMiscAutoCompile", CAT_MISC, group));
             list.Add(CheckOption("autoCompileWorldLightForUnc", "checkBoxMiscAutoCompileUncZen", CAT_MISC, group));
-            list.Add(CheckOption("removeAllLevelCompos", "checkBoxMiscRemoveAllLevelCompos", CAT_MISC, group));
+
+            // The core still knows this option, the page does not show it: the record stays in the catalog
+            // so the key of the core is not lost.
+            Setting removeAllCompos = CheckOption("removeAllLevelCompos", "checkBoxMiscRemoveAllLevelCompos", CAT_MISC, group);
+            removeAllCompos.Hidden = true;
+            list.Add(removeAllCompos);
+
             list.Add(CheckOption("checkBoxAutoRemoveAllVisuals", "checkBoxAutoRemoveAllVisuals", CAT_MISC, group));
+
+            list.Add(Separator(CAT_MISC, group));
+
             list.Add(CheckOption("checkBoxShowPolysSort", "checkBoxShowPolysSort", CAT_MISC, group));
             list.Add(CheckOption("bFastLoad3DSLocation", "TITLE_3DS_FAST_MODE", CAT_MISC, group));
             list.Add(CheckOption("bSkipPolysCut", "checkBoxSkipPolysCut", CAT_MISC, group));
+
+            list.Add(Separator(CAT_MISC, group));
+
             list.Add(CheckOption("checkBoxOnlyLatinInInput", "checkBoxOnlyLatinInInput", CAT_MISC, group));
 
             // "Make some vob's fields to upper case" makes no sense when converting is disabled.
@@ -310,6 +363,19 @@ namespace SpacerUnion.Windows
                 ShowValueInCaption = false
             };
             return setting;
+        }
+
+        // A blank line inside a section: it keeps the options that follow apart. It has neither a caption
+        // nor a value, so it is not counted and cannot be found by the search.
+        private static Setting Separator(string category, string group)
+        {
+            return new Setting
+            {
+                Category = category,
+                Group = group,
+                Kind = SettingKind.Separator,
+                ShowValueInCaption = false
+            };
         }
 
         private static Setting CheckTrackOption(string key, string locKey, string category, string group, string trackKey, int min, int max)

@@ -96,9 +96,10 @@ namespace SpacerUnion.Common
 
         // WM_SETREDRAW switches the child windows off together with the parent, and Invalidate(true) of
         // a Form does not always reach them - controls stay unpainted. RedrawWindow with RDW_ALLCHILDREN
-        // paints the whole tree, RDW_ERASENOW does it before we return.
+        // paints the whole tree. RDW_UPDATENOW is what makes the controls paint themselves right away:
+        // RDW_ERASENOW only erases their places, and anything that draws itself would stand empty.
         private const uint RedrawEverything = 0x0001 /* RDW_INVALIDATE */ | 0x0004 /* RDW_ERASE */
-            | 0x0080 /* RDW_ALLCHILDREN */ | 0x0200 /* RDW_ERASENOW */ | 0x0400 /* RDW_FRAME */;
+            | 0x0080 /* RDW_ALLCHILDREN */ | 0x0100 /* RDW_UPDATENOW */ | 0x0400 /* RDW_FRAME */;
 
         // The walk assigns a color to every control of the window, and every such assignment repaints
         // that control: on a window with a thousand controls this is the slowest part of showing it.

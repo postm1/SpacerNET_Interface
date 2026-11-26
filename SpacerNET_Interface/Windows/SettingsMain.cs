@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using SpacerUnion.Common;
@@ -47,14 +48,17 @@ namespace SpacerUnion.Windows
         // Height of the whole page, measured by us: the scroll range is taken from it (see SetScroll).
         private int contentHeight;
 
-        // The page is scrolled by us: the bar next to it, the current offset and the wheel filter.
+        // The page is scrolled by us: the bar next to it, the current offset and the wheel hook.
         private VScrollBar pageScrollBar;
         private int scrollOffset;
-        private MouseWheelFilter wheel;
+        private WheelHook wheel;
 
         // One notch of the mouse wheel walks three options of the page.
         private const int WheelStep = 24;
         private const int WheelLines = 3;
+
+        // A blank line between unrelated options of one section.
+        private const int SeparatorHeight = 16;
 
         private string searchPlaceholder = "";
         private bool placeholderShown;
@@ -93,10 +97,12 @@ namespace SpacerUnion.Windows
 
         // WM_SETREDRAW turns the children off together with the window, and an ordinary Invalidate() to
         // the parent does not reach them - the page would stay half empty. Only RedrawWindow with
-        // RDW_ALLCHILDREN paints every control of the window; RDW_ERASENOW does it before we return, so
-        // the window is never shown in a half painted state.
+        // RDW_ALLCHILDREN paints every control of the window. RDW_UPDATENOW is what makes the controls
+        // paint themselves right away: RDW_ERASENOW only erases the places, and everything that draws
+        // itself (the buttons of the search, the list on the left, the stripes of the matches) would
+        // stand there empty until some other reason finally painted it.
         private const uint RedrawEverything = 0x0001 /* RDW_INVALIDATE */ | 0x0004 /* RDW_ERASE */
-            | 0x0080 /* RDW_ALLCHILDREN */ | 0x0200 /* RDW_ERASENOW */ | 0x0400 /* RDW_FRAME */;
+            | 0x0080 /* RDW_ALLCHILDREN */ | 0x0100 /* RDW_UPDATENOW */ | 0x0400 /* RDW_FRAME */;
 
         private int paintLock;
         private bool paintSuspended;
@@ -294,6 +300,41 @@ namespace SpacerUnion.Windows
             {
                 EndPaintBatch();
             }
+
+            // Captions of another language are wider or shorter, so the docked panels moved their controls
+            // about, and the places they left behind still show the picture of the previous language. The
+            // window has to be laid out and painted over from head to toe.
+            RefreshWholeWindow();
+        }
+
+        // Lays the window out again and paints every control of it.
+        private void RefreshWholeWindow()
+        {
+            if (IsDisposed || !IsHandleCreated || !Visible)
+            {
+                return;
+            }
+
+            LayoutTree(this);
+
+            Invalidate(true);
+
+            RedrawWindow(Handle, IntPtr.Zero, IntPtr.Zero, RedrawEverything);
+        }
+
+        // Every container of the window lays out again, the deepest ones first, so that another language
+        // never leaves a control on the place the previous language had given it.
+        private static void LayoutTree(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control.HasChildren)
+                {
+                    LayoutTree(control);
+                }
+            }
+
+            parent.PerformLayout();
         }
 
         private void UpdateLangCaptions()
@@ -316,6 +357,12 @@ namespace SpacerUnion.Windows
 
             foreach (Setting setting in settings)
             {
+                // Hidden options and blank lines have no caption at all.
+                if (!IsOption(setting))
+                {
+                    continue;
+                }
+
                 for (int i = 0; i < setting.Radios.Count; i++)
                 {
                     setting.Radios[i].Text = Localizator.Get(setting.RadioKeys[i]);
@@ -346,6 +393,13 @@ namespace SpacerUnion.Windows
         {
             foreach (Setting setting in settings)
             {
+                // A hidden option keeps its place in the catalog, but the page never hears of it: no box,
+                // no row, no place in the height of the page.
+                if (setting.Hidden)
+                {
+                    continue;
+                }
+
                 CategoryInfo category = FindCategory(setting.Category);
                 Section section = FindSection(category, setting);
                 section.Items.Add(setting);
@@ -499,9 +553,28 @@ namespace SpacerUnion.Windows
 
                 case SettingKind.RadioGroup:
                     return BuildRadioRow(setting);
+
+                case SettingKind.Separator:
+                    return BuildSeparatorRow(setting);
             }
 
             return BuildCheckRow(setting);
+        }
+
+        // A blank line of a section: the row holds nothing but a fixed height, so the options around it
+        // stay visible but apart from each other.
+        private Control BuildSeparatorRow(Setting setting)
+        {
+            TableLayoutPanel row = NewRowTable(new ColumnStyle(SizeType.AutoSize));
+
+            Label space = new Label();
+            space.AutoSize = false;
+            space.Height = SeparatorHeight;
+            space.Margin = new Padding(0);
+            row.Controls.Add(space, 0, 0);
+
+            setting.Row = row;
+            return row;
         }
 
         // A single check box is wrapped into a row table as well, so every row of the page reserves
@@ -878,6 +951,13 @@ namespace SpacerUnion.Windows
             for (int i = 0; i < settings.Count; i++)
             {
                 Setting setting = settings[i];
+
+                // A hidden option and a blank line can never be a hit.
+                if (!IsOption(setting))
+                {
+                    continue;
+                }
+
                 bool match = searching && setting.SearchText.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0;
 
                 setting.IsMatch = match;
@@ -921,7 +1001,7 @@ namespace SpacerUnion.Windows
             if (matches.Count == 0)
             {
                 labelSearchInfo.Text = Query.Length == 0
-                    ? Localizator.Get("SETTINGS_ALL") + ": " + settings.Count
+                    ? Localizator.Get("SETTINGS_ALL") + ": " + VisibleOptions()
                     : Localizator.Get("SETTINGS_NOTHING_FOUND");
                 return;
             }
@@ -1112,6 +1192,12 @@ namespace SpacerUnion.Windows
 
             foreach (Setting setting in settings)
             {
+                // Hidden options and blank lines have nothing to search for.
+                if (!IsOption(setting))
+                {
+                    continue;
+                }
+
                 StringBuilder text = new StringBuilder();
 
                 AppendAllLanguages(text, setting.LocKey, langs);
@@ -1241,7 +1327,7 @@ namespace SpacerUnion.Windows
             navList.BeginUpdate();
             navList.Items.Clear();
 
-            navList.Items.Add(NavCaption(NavAllIndex, settings.Count));
+            navList.Items.Add(NavCaption(NavAllIndex, VisibleOptions()));
 
             for (int i = 0; i < categories.Count; i++)
             {
@@ -1374,10 +1460,18 @@ namespace SpacerUnion.Windows
             // bar, and a control painted over a bar eats its mouse clicks as well.
             pageScrollBar.BringToFront();
 
-            // The wheel of the mouse never reaches panelContent: the controls under the cursor get it
-            // themselves, so the wheel has to be caught before it is dispatched to any control.
-            wheel = new MouseWheelFilter(this);
-            Application.AddMessageFilter(wheel);
+            // The wheel of the mouse never reaches panelContent: the control under the cursor receives it
+            // and keeps it, so the wheel has to be taken away before it is dispatched to any control.
+            wheel = new WheelHook(this);
+            wheel.Install();
+
+            Disposed += delegate
+            {
+                if (wheel != null)
+                {
+                    wheel.Uninstall();
+                }
+            };
         }
 
         // The wheel above the page scrolls the page, one notch - three options.
@@ -1626,6 +1720,12 @@ namespace SpacerUnion.Windows
 
         private void ReadValue(Setting setting)
         {
+            // A blank line has no value to read.
+            if (IsSeparator(setting))
+            {
+                return;
+            }
+
             if (setting.StoreLocally)
             {
                 setting.Value = setting.LocalGetter != null ? setting.LocalGetter() : 0;
@@ -1998,6 +2098,12 @@ namespace SpacerUnion.Windows
         // "Moving speed" + ": 42" for track options, minutes for the auto save check boxes.
         private void SyncCaption(Setting setting)
         {
+            // Hidden options and blank lines have no caption to sync.
+            if (!IsOption(setting))
+            {
+                return;
+            }
+
             string caption = setting.CaptionText;
             int value = setting.Kind == SettingKind.CheckTrack ? setting.TrackValue : setting.Value;
 
@@ -2188,27 +2294,16 @@ namespace SpacerUnion.Windows
         }
 
         // Track bars on the page ignore the mouse wheel: otherwise scrolling the page with the wheel
-        // over a slider quietly changes that setting. The wheel goes to the page instead.
+        // over a slider quietly changes that setting. The hook gives the wheel to the page, this is the
+        // second line of defense in case a message reaches the bar itself.
         private class PageTrackBar : TrackBar
         {
             private const int WmMouseWheel = 0x020A;
-
-            [System.Runtime.InteropServices.DllImport("user32.dll")]
-            private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
 
             protected override void WndProc(ref Message m)
             {
                 if (m.Msg == WmMouseWheel)
                 {
-                    Control parent = Parent;
-
-                    if (parent != null && parent.IsHandleCreated)
-                    {
-                        // One level up is enough: a control that does not care about the wheel passes
-                        // it further to its parent, so the page ends up scrolling.
-                        SendMessage(parent.Handle, WmMouseWheel, m.WParam, m.LParam);
-                    }
-
                     return;
                 }
 
@@ -2245,43 +2340,137 @@ namespace SpacerUnion.Windows
             }
         }
 
-        // The mouse wheel is not passed to the panel under it: the control under the cursor receives the
-        // message itself, and only that control decides what to do. So the wheel is caught here, before
-        // it is dispatched, and given to our page.
-        private class MouseWheelFilter : IMessageFilter
+        // The mouse wheel is not passed to the page under it: the control under the cursor receives the
+        // message itself, and only that control decides what to do. Application.AddMessageFilter is of no
+        // use here: its filters are asked by the message loop of Windows Forms (Application.Run), while
+        // this window lives inside the native editor, which pumps its messages itself - and so a filter is
+        // never called at all. A hook of our own thread runs in the pump of the editor, before the message
+        // reaches the control, and there the wheel can be taken away for the page.
+        private class WheelHook
         {
+            private const int WhGetMessage = 3;
             private const int WmMouseWheel = 0x020A;
+            private const int WmNull = 0;
+            private const int PmRemove = 1;
+            private const uint GaRoot = 2;
 
-            private readonly SettingsMain page;
+            // The delegate lives in a field: the unmanaged code holds a pointer to it, so the garbage
+            // collector must not move it away.
+            private delegate IntPtr GetMsgProc(int code, IntPtr wParam, IntPtr lParam);
 
-            public MouseWheelFilter(SettingsMain page)
-            {
-                this.page = page;
-            }
+            [DllImport("user32.dll")]
+            private static extern IntPtr SetWindowsHookEx(int idHook, GetMsgProc lpfn, IntPtr hInstance, uint threadId);
+
+            [DllImport("user32.dll")]
+            private static extern bool UnhookWindowsHookEx(IntPtr hhk);
+
+            [DllImport("user32.dll")]
+            private static extern IntPtr CallNextHookEx(IntPtr hhk, int code, IntPtr wParam, IntPtr lParam);
+
+            [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
+            private static extern IntPtr GetModuleHandle(string name);
+
+            [DllImport("kernel32.dll", SetLastError = true)]
+            private static extern uint GetCurrentThreadId();
 
             // Control.FromPoint is not in this .NET, so the window under the cursor is asked of Windows.
-            [System.Runtime.InteropServices.DllImport("user32.dll")]
+            [DllImport("user32.dll")]
             private static extern IntPtr WindowFromPoint(Point point);
 
             // Control.FromHandle walks every control of the application to find the window behind a
-            // handle - that is far too slow for every notch of the wheel. The root window of the window
-            // under the cursor says the same: the wheel is ours or it is not.
-            [System.Runtime.InteropServices.DllImport("user32.dll")]
+            // handle - far too slow for every notch of the wheel. The root window of the window under the
+            // cursor says the same: the wheel is ours or it is not.
+            [DllImport("user32.dll")]
             private static extern IntPtr GetAncestor(IntPtr hwnd, uint flags);
 
-            private const uint GaRoot = 2;
-
-            public bool PreFilterMessage(ref Message m)
+            // The message Windows has just taken out of the queue: the first four fields are exactly where
+            // Win32 puts them, and the editor is x86, the platform these fields are read on. The fields are
+            // filled by the marshaller, not by us, hence the warning of the compiler is not of use here.
+#pragma warning disable 649
+            private struct Msg
             {
-                if (m.Msg != WmMouseWheel || page.IsDisposed || !page.Visible)
+                public IntPtr hwnd;
+                public uint message;
+                public IntPtr wParam;
+                public IntPtr lParam;
+            }
+#pragma warning restore 649
+
+            private readonly SettingsMain page;
+            private readonly GetMsgProc procedure;
+            private IntPtr hook;
+
+            public WheelHook(SettingsMain page)
+            {
+                this.page = page;
+                procedure = new GetMsgProc(Run);
+            }
+
+            public void Install()
+            {
+                if (hook != IntPtr.Zero)
+                {
+                    return;
+                }
+
+                // A hook of our own thread: it is called by the pump of that very thread, the editor's
+                // one, and it needs no native dll of its own.
+                hook = SetWindowsHookEx(WhGetMessage, procedure, GetModuleHandle(null), GetCurrentThreadId());
+            }
+
+            public void Uninstall()
+            {
+                if (hook == IntPtr.Zero)
+                {
+                    return;
+                }
+
+                UnhookWindowsHookEx(hook);
+                hook = IntPtr.Zero;
+            }
+
+            private IntPtr Run(int code, IntPtr wParam, IntPtr lParam)
+            {
+                // A negative code means "pass the message to the next hook as it is".
+                if (code >= 0 && (int)wParam == PmRemove && !page.IsDisposed)
+                {
+                    Msg msg = (Msg)Marshal.PtrToStructure(lParam, typeof(Msg));
+
+                    if (msg.message == WmMouseWheel)
+                    {
+                        int notch = unchecked((short)((long)msg.wParam >> 16));
+
+                        if (Take(notch))
+                        {
+                            // The wheel is ours: the message is emptied, so that no control sees it and a
+                            // slider under the cursor does not change its setting behind the user's back.
+                            Marshal.WriteInt32(lParam, Marshal.OffsetOf(typeof(Msg), "message").ToInt32(), WmNull);
+                        }
+                    }
+                }
+
+                return CallNextHookEx(hook, code, wParam, lParam);
+            }
+
+            // true when the wheel belongs to the page: the cursor stands over it.
+            private bool Take(int notch)
+            {
+                if (!page.Visible)
                 {
                     return false;
                 }
 
                 Point where = Cursor.Position;
                 IntPtr under = WindowFromPoint(where);
+                IntPtr root = under == IntPtr.Zero ? IntPtr.Zero : GetAncestor(under, GaRoot);
 
-                if (under == IntPtr.Zero || GetAncestor(under, GaRoot) != page.Handle)
+                if (under == IntPtr.Zero || root != page.Handle)
+                {
+                    return false;
+                }
+
+                // The bar scrolls the page like any ordinary bar: its own wheel is left to it.
+                if (page.pageScrollBar != null && under == page.pageScrollBar.Handle)
                 {
                     return false;
                 }
@@ -2292,8 +2481,6 @@ namespace SpacerUnion.Windows
                 {
                     return false;
                 }
-
-                int notch = unchecked((short)((long)m.WParam >> 16));
 
                 page.OnMouseWheelOverPage(notch);
                 return true;
