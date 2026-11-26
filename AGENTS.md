@@ -20,8 +20,8 @@ The editor itself (engine, `.ZEN` handling, rendering) lives in the native C++ b
 ## Namespaces (important — they are mixed)
 
 Windows are spread across several namespaces; there is no single convention in the `.cs` files:
-- `SpacerUnion` — legacy windows: `MainForm`, `ObjTree`, `PropertiesWin` (class `ObjectsWindow`), `ObjectsWin`, `VobListForm`, `SoundWin`, `InfoWin`, `CompileWorldWin`, `CompileLightWin`, `LoadingForm`, `SettingsCamera`, `SpacerNET`, `Utils`, `CProperty`, `TreeEntry`, `TriggerEntry`, `ConsoleEx`.
-- `SpacerUnion.Windows` — newer windows: `MaterialFilterForm`, `UVReporterForm`, `PFXEditorWin`, `VobCatalog*`, `GrassWin`, `CameraCoords`, `KeysForm`, `MacrosForm`, `MiscSettingsWin`, `SettingsMain`, `SettingsVobs`, `SearchErrorsForm`, `ConfirmForm`, `RenameForm`.
+- `SpacerUnion` — legacy windows: `MainForm`, `ObjTree`, `PropertiesWin` (class `ObjectsWindow`), `ObjectsWin`, `VobListForm`, `SoundWin`, `InfoWin`, `CompileWorldWin`, `CompileLightWin`, `LoadingForm`, `SpacerNET`, `Utils`, `CProperty`, `TreeEntry`, `TriggerEntry`, `ConsoleEx`.
+- `SpacerUnion.Windows` — newer windows: `MaterialFilterForm`, `UVReporterForm`, `PFXEditorWin`, `VobCatalog*`, `GrassWin`, `CameraCoords`, `KeysForm`, `MacrosForm`, `SettingsMain`, `SearchErrorsForm`, `ConfirmForm`, `RenameForm`.
 - `SpacerUnion.Common` — `Imports`, `Exports`, `Localizator`, `Theme`, `ThemeApplier`, `DarkToolStripRenderer`, `Macros`, `ErrorReport`, `ScreenUtils`, `CameraKeyEntry`, `VobCatalogEntry`, `QuickVobsManager`, `VobCatalogManager`.
 
 ## Interop architecture (the key concept)
@@ -59,7 +59,7 @@ and embeds its own 3D-view render window there. The whole "view area" is that `r
 
 ## Window lifecycle
 - All windows are created **once** in `UnionInitialize` and stored as `public static` fields:
-  `SpacerNET.form / objTreeWin / propWin / objectsWin / vobList / infoWin / ...`. Access them as `SpacerNET.<window>.<control>`.
+  `SpacerNET.form / objTreeWin / propWin / objectsWin / vobList / infoWin / settingsMain / ...`. Access them as `SpacerNET.<window>.<control>`.
 - Each window's `Owner = form`. All (except modal dialogs) are in `windowsList` → theme toggling and `HideWindows/ShowWindows`.
 - Closing is **`Hide()`, not `Close()`**: `FormClosing` sets `e.Cancel = true`. Actual shutdown — `SpacerNET.CloseApplication()` → saves settings then `Imports.Extern_Exit()`.
 - On close, window visibility/positions/sizes are saved into `Properties.Settings.Default`
@@ -137,14 +137,37 @@ and embeds its own 3D-view render window there. The whole "view area" is that `r
 | File | Class | Purpose |
 |---|---|---|
 | `CameraCoords.cs` | `CameraCoords` | Set camera position/orientation (X/Y/Z + yaw/pitch). |
-| `SettingsCamera.cs` | `SettingsCamera` | Camera control settings. |
-| `SettingsVobs.cs` | `SettingsVobs` | Vob insertion/rotation settings. |
-| `SettingsMain.cs` | `SettingsMain` | Settings-page host (panels switched by the left list). |
-| `MiscSettingsWin.cs` | `MiscSettingsWin` | Misc behavior settings + dark theme + status bar + auto-compile. |
+| `SettingsMain.cs` (+`SettingsMain.Catalog.cs`) | `SettingsMain` | One settings window for camera, vobs and misc (see "Settings window" below). |
 | `CompileWorldWin.cs` / `CompileLightWin.cs` | `CompileWorldWin`/`CompileLightWin` | Dialogs for compiling the world (indoor/outdoor) and lighting (quality/radius). |
 | `KeysForm.cs` (+`Common/KeyFormInit.cs`) | `KeysForm` | Hotkey configuration (VK → Gothic code mapping). |
 | `MacrosForm.cs` (+`Common/Macros.cs`) | `MacrosForm` | Macro-script runner window. |
 | `RenameForm.cs` | `RenameForm` | Batch rename dialog (`ObjectsWin.renameWin`). |
+
+## Settings window (`Windows/SettingsMain.cs`)
+
+- One window for camera, vobs and misc — the old `SettingsCamera`, `SettingsVobs` and `MiscSettingsWin` are gone.
+  Open it through `SpacerNET.settingsMain.ShowSettings(category)`: `Settings → Main` shows the whole page,
+  `Camera` / `Vobs` / `Misc` open the same window and scroll to their category.
+- `SettingsMain.Catalog.cs` describes every option once (`BuildCatalog()`): key in the C++ settings stack,
+  localization key, category, group, kind, ranges. The page, the search and the counts of the left list are
+  built from that catalog — add new options there, not in the designer.
+- Values are read in `LoadSettings()` and written back only if the user really changed them
+  (`Setting.Dirty`, `ApplyAll()`). Other classes keep reading flags as before:
+  `SpacerNET.settingsMain.GetFlag(key)` / `GetValue(key)`.
+- `Setting.Hidden` keeps an option in the catalog but hides it (no row, no place, no count, no search);
+  `Separator(...)` is a blank line inside a section that keeps unrelated options apart.
+- Scrolling is ours, not `AutoScroll`: `pageScrollBar` (a `VScrollBar` docked to the right) plus `scrollOffset`,
+  `SetScroll`, `PlacePage`, `UpdateScrollSize`. Heights are measured by hand (`UpdateSectionHeight`), so
+  `RelayoutPage()` must run after a font, width or language change.
+- The wheel of the mouse is taken by a thread hook (`WheelHook`, `WH_GETMESSAGE`): this window lives inside the
+  native editor, which pumps its messages itself, so `Application.AddMessageFilter` is never called at all.
+  The hook scrolls the page from over any of its controls and empties the message, so a slider under the cursor
+  never changes its value (`PageTrackBar` also ignores the wheel). The wheel over the bar itself is left to the bar.
+- The search marks the options it finds (green stripe at the left edge of the section, "Found: 1 / 20") and
+  never hides or reorders anything; the left list is rebuilt only on a language change.
+- Language is applied on start-up and on a manual language change only (`UpdateLang`), and then the whole window
+  is re-laid out and repainted (`RefreshWholeWindow`). Heavy repaints are batched with
+  `BeginPaintBatch` / `EndPaintBatch` (`WM_SETREDRAW` + `RedrawWindow` with `RDW_UPDATENOW`).
 
 ## Conventions: how to add a feature
 
