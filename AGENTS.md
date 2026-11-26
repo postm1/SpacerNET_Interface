@@ -23,6 +23,9 @@ Windows are spread across several namespaces; there is no single convention in t
 - `SpacerUnion` — legacy windows: `MainForm`, `ObjTree`, `PropertiesWin` (class `ObjectsWindow`), `ObjectsWin`, `VobListForm`, `SoundWin`, `InfoWin`, `CompileWorldWin`, `CompileLightWin`, `LoadingForm`, `SpacerNET`, `Utils`, `CProperty`, `TreeEntry`, `TriggerEntry`, `ConsoleEx`.
 - `SpacerUnion.Windows` — newer windows: `MaterialFilterForm`, `UVReporterForm`, `PFXEditorWin`, `VobCatalog*`, `GrassWin`, `CameraCoords`, `KeysForm`, `MacrosForm`, `SettingsMain`, `SearchErrorsForm`, `ConfirmForm`, `RenameForm`.
 - `SpacerUnion.Common` — `Imports`, `Exports`, `Localizator`, `Theme`, `ThemeApplier`, `DarkToolStripRenderer`, `Macros`, `ErrorReport`, `ScreenUtils`, `CameraKeyEntry`, `VobCatalogEntry`, `QuickVobsManager`, `VobCatalogManager`.
+- The namespace of a file does not follow its folder: `Common/KeyFormInit.cs` is `SpacerUnion.Windows`,
+  `Common/PFX_Editor/PFXEditorWin_Utils.cs` is `SpacerUnion.Windows`, `Common/Extended/DBufPanel.cs` is
+  `SpacerUnion.Common.Extended`.
 
 ## Interop architecture (the key concept)
 
@@ -30,7 +33,7 @@ Bidirectional PInvoke with `SpacerUnionNet.dll`. All communication goes through 
 
 ### 1. UI → backend: `Common/Imports.cs` + `Imports_Interchange.cs`
 - `[DllImport("SpacerUnionNet.dll", CallingConvention=Cdecl)] public static extern void Extern_*(...)`.
-- ~200 `Extern_*` functions: load/save/compile world, select/create/reparent vobs,
+- ~175 `Extern_*` functions: load/save/compile world, select/create/reparent vobs,
   triggers and mover keys, camera and camera key-frames, light/presets, PFX, material filter, UV,
   search, spawn, rain, settings (`Extern_GetSetting`/`SetSetting` — they read/write arguments via the stack).
 - **Marshalling via a "stack"** (`Imports_Interchange.cs`): before an `Extern_*` call, push data with
@@ -95,7 +98,7 @@ and embeds its own 3D-view render window there. The whole "view area" is that `r
 - `Theme.cs`, `ThemeApplier.cs`, `DarkToolStripRenderer.cs` — dark/light theme.
 - `Macros.cs` (`Macros`, `MacroEntry`) — macro parser/runner; file `../_work/tools/macros_spacernet.txt`.
 - `CProperty.cs` — property model (`TPropEditType`: bool/enum/int/float/string/vec3/color/raw), used by the property editor and PFX.
-- `Utils.cs` — `Constants` (version, file filters, path `/​_WORK/DATA`), `Utils` (hashes, sorting, `PrintTimeInfo`, `[DllExport] GetConfirmWindowYesNo`), `ExtMap`.
+- `Utils.cs` — `Constants` (version, file filters, path `/_WORK/DATA`), `Utils` (hashes, sorting, `PrintTimeInfo`, `[DllExport] GetConfirmWindowYesNo`), `ExtMap`.
 - `TreeEntry.cs` — vob tree entry (`zCVob` uint address, parent, name, className, `TreeNode node`, children).
 - `TriggerEntry.cs`, `CameraKeyEntry.cs` — trigger / camera-key models (with `[DllExport]` callbacks).
 - `VobCatalogEntry.cs` (`VobCatalogEntry`, `VobCatalogManager`) — model for the user vob catalog.
@@ -119,7 +122,7 @@ and embeds its own 3D-view render window there. The whole "view area" is that `r
 |---|---|---|
 | `ObjTree.cs` | `ObjTree` | Vob hierarchy tree (`globalTree`, static dictionary `globalEntries: uint→TreeEntry`), drag&drop reparenting, context menu, quick vobs. Many export callbacks. |
 | `PropertiesWin.cs` | `ObjectsWindow` | Editor for the selected object's properties (`CProperty` in a TreeView), "Apply properties" (`Extern_ApplyProps`). |
-| `ObjectsWin.cs` | `ObjectsWin` | "Parts/objects" palette (the largest file, ~5500 lines): class tree, lists of items/PFX/camera presets/search results, spawn, trigger editing (`triggerEntry`), camera key-frames (`camEntry`), light presets, vob search/compare/convert. |
+| `ObjectsWin.cs` | `ObjectsWin` | "Parts/objects" palette (the largest file, ~4250 lines): class tree, lists of items/PFX/camera presets/search results, spawn, trigger editing (`triggerEntry`), camera key-frames (`camEntry`), light presets, vob search/compare/convert. |
 | `VobListForm.cs` | `VobListForm` | List of vobs near the camera (radius `trackBarRadius`), pick/type filters. |
 
 ### Sub-editors and reports
@@ -159,7 +162,8 @@ and embeds its own 3D-view render window there. The whole "view area" is that `r
 - Scrolling is ours, not `AutoScroll`: `pageScrollBar` (a `VScrollBar` docked to the right) plus `scrollOffset`,
   `SetScroll`, `PlacePage`, `UpdateScrollSize`. Heights are measured by hand (`UpdateSectionHeight`), so
   `RelayoutPage()` must run after a font, width or language change.
-- The wheel of the mouse is taken by a thread hook (`WheelHook`, `WH_GETMESSAGE`): this window lives inside the
+- The wheel of the mouse is taken by a thread hook (`WheelHook` class, a Win32 `WH_GETMESSAGE` hook — the
+  const is `WhGetMessage`): this window lives inside the
   native editor, which pumps its messages itself, so `Application.AddMessageFilter` is never called at all.
   The hook scrolls the page from over any of its controls and empties the message, so a slider under the cursor
   never changes its value (`PageTrackBar` also ignores the wheel). The wheel over the bar itself is left to the bar.
@@ -173,7 +177,7 @@ and embeds its own 3D-view render window there. The whole "view area" is that `r
 
 - **Comments and commit messages are English only.** Never write them in Russian: the user-visible text lives
   in `LocalizedStrings.cs` (5 languages), everything else in the sources is English. Do not translate the
-  Russian text that is part of the data (a value in `Settings.settings`, a string in a commented-out code).
+  Russian text that is part of the data (a value in `Settings.settings`, a string inside commented-out code).
 - **New backend call:** add a `[DllImport] Extern_*` to `Imports.cs`, call it from a handler; push strings via `Imports.Stack_PushString` before the call.
 - **New backend callback:** add a `public static void` with `[DllExport]` (in the relevant window or `Exports.cs`), read args via `Imports.Stack_Peek*`, update a control through `SpacerNET.<window>.<control>`. The method must be `static`.
 - **New button/menu item:** control in `*MainForm.Designer.cs` → handler in `*MainForm.cs` → `Imports.Extern_*`. Toolbar toggles are synced in `SpacerNET.LoadSettingsToInterface()` (indices `toolStripTop.Items[i]`).
@@ -184,6 +188,6 @@ and embeds its own 3D-view render window there. The whole "view area" is that `r
 - `[DllExport]` methods and backend fields use **uint vob addresses** as identifiers (see `TreeEntry.zCVob`, `Extern_SelectVob(uint)`).
 - Strings over PInvoke are ANSI/UTF; wide (`Wide`) are used for localization; don't forget to free `HGlobal` (already handled in the wrappers).
 - `Settings.Default` has many `...ShowNext` fields — windows "closed but to restore next run".
-- Config files live **outside the build output**: `../_work/tools/*.txt` (macros, vob catalog), data in `/​_WORK/DATA`.
+- Config files live **outside the build output**: `../_work/tools/*.txt` (macros, vob catalog), data in `/_WORK/DATA`.
 - Some code is commented out and disabled (e.g. `AddGlobalEntryMat`, parts of `UVWinSize`, `GrassWin.Show`) — historically disabled features; don't accidentally restore them.
 - `packages/`, `bin/`, `obj/` and `*.Designer.cs`/`*.resx` are generated/auto-code; no need to read them (except `Settings.settings`, `app.config`).
