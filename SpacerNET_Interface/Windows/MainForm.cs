@@ -210,6 +210,7 @@ namespace SpacerUnion
 
             toolStripMenuHelp.Text = Localizator.Get("MENU_TOP_HELP");
             toolStripMenuItemSettings.Text = Localizator.Get("MENU_TOP_SETTINGS");
+            mainToolStripMenuItem.Text = Localizator.Get("MENU_TOP_SETTINGS_MAIN");
             ToolStripMenuWorld.Text = Localizator.Get("MENU_TOP_WORLD");
             ToolStripMenuView.Text = Localizator.Get("MENU_TOP_VIEW");
 
@@ -769,12 +770,12 @@ namespace SpacerUnion
 
                 int polysCountLoc = Imports.Extern_GetPolysCount();
 
-                //ConsoleEx.WriteLineRed("Polys: " + polysCountLoc + " Check: " + SpacerNET.miscSetWin.checkBoxShowPolysSort.Checked);
+                //ConsoleEx.WriteLineRed("Polys: " + polysCountLoc + " Check: " + SpacerNET.settingsMain.GetFlag("checkBoxShowPolysSort"));
 
 
                 ToggleWindowOnTop(true);
 
-                if (SpacerNET.miscSetWin.checkBoxShowPolysSort.Checked && polysCountLoc >= 200000)
+                if (SpacerNET.settingsMain.GetFlag("checkBoxShowPolysSort") && polysCountLoc >= 200000)
                 {
                     DialogResult result = MessageBox.Show(
                           Localizator.Get("CHECK_SORTING_POLYS"),
@@ -829,8 +830,7 @@ namespace SpacerUnion
 
         private void камераToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SpacerNET.settingsCam.UpdateAll();
-            SpacerNET.settingsCam.Show();
+            SpacerNET.settingsMain.ShowSettings(SpacerUnion.Windows.SettingsMain.CategoryCamera);
         }
 
 
@@ -1263,44 +1263,7 @@ namespace SpacerUnion
 
         private void управлениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            Imports.Stack_PushString("selectMoveWhenVobInsert");
-            Imports.Stack_PushString("wpTurnOn");
-            Imports.Stack_PushString("vobInsertHierarchy");
-            Imports.Stack_PushString("vobInsertVobRotRand");
-            Imports.Stack_PushString("vobInsertItemLevel");
-            Imports.Stack_PushString("vobRotSpeed");
-            Imports.Stack_PushString("vobTransSpeed");
-            
-
-            int transSpeed = Imports.Extern_GetSetting();
-            int rotSpeed = Imports.Extern_GetSetting();
-            bool insertVobItemLevel = Convert.ToBoolean(Imports.Extern_GetSetting());
-            bool vobInsertVobRotRand = Convert.ToBoolean(Imports.Extern_GetSetting());
-            bool vobInsertHierarchy = Convert.ToBoolean(Imports.Extern_GetSetting());
-            int turnMode = Imports.Extern_GetSetting();
-            bool selectMove = Convert.ToBoolean(Imports.Extern_GetSetting());
-
-
-            SpacerNET.settingsControl.trackBarVobTransSpeed.Value = transSpeed;
-            SpacerNET.settingsControl.trackBarVobRotSpeed.Value = rotSpeed;
-            SpacerNET.settingsControl.checkBoxInsertVob.Checked = insertVobItemLevel;
-            SpacerNET.settingsControl.checkBoxVobRotRandAngle.Checked = vobInsertVobRotRand;
-            SpacerNET.settingsControl.checkBoxVobInsertHierarchy.Checked = vobInsertHierarchy;
-            SpacerNET.settingsControl.checkBoxSelectMoveInsert.Checked = selectMove;
-
-
-
-            Imports.Stack_PushString("checkBoxShowVobTraceFloor");
-            SpacerNET.settingsControl.checkBoxShowVobTraceFloor.Checked = Convert.ToBoolean(Imports.Extern_GetSetting());
-
-
-
-            SpacerNET.settingsControl.UpdateAll();
-
-            SpacerNET.settingsControl.SetRadioTurnMode(turnMode);
-
-            SpacerNET.settingsControl.Show();
+            SpacerNET.settingsMain.ShowSettings(SpacerUnion.Windows.SettingsMain.CategoryVobs);
         }
 
         private void toolStripButtonInvisible_Click(object sender, EventArgs e)
@@ -1416,10 +1379,13 @@ namespace SpacerUnion
 
         private void mistSetttingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SpacerNET.miscSetWin.LoadSettings();
-            SpacerNET.miscSetWin.Show();
+            SpacerNET.settingsMain.ShowSettings(SpacerUnion.Windows.SettingsMain.CategoryMisc);
+        }
 
-            
+        // Settings -> Main: the whole settings page.
+        private void mainToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SpacerNET.settingsMain.ShowSettings(null);
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
@@ -2451,9 +2417,7 @@ namespace SpacerUnion
             SpacerNET.propWin.Font = font;
             SpacerNET.macrosWin.Font = font;
             SpacerNET.matFilterWin.Font = font;
-            SpacerNET.miscSetWin.Font = font;
-            SpacerNET.settingsCam.Font = font;
-            SpacerNET.settingsControl.Font = font;
+            SpacerNET.settingsMain.Font = font;
             SpacerNET.soundWin.Font = font;
             SpacerNET.vobList.Font = font;
             SpacerNET.grassWin.Font = font;

@@ -187,10 +187,10 @@ namespace SpacerUnion.Common
             AddNewWord("checkBoxMiscExitAsk", new List<string> { "Подтверждать выход если открыт зен", "Confirm exit if ZEN is opened", "Falls ZEN geöffnet ist, bestätige beenden des Editors", "Potwierdź wyjście, gdy ZEN jest otwarty", "Potvrzení ukončení, pokud je otevřen ZEN" });
             AddNewWord("checkBoxLastZenAuto", new List<string> { "Открывать последний ZEN автоматически", "Auto opening last ZEN", "Letzte ZEN automatisch öffnen", "Otwórz automatycznie ostatni świat", "Automaticky otevřít poslední ZEN" });
             AddNewWord("checkBoxMiscFullPath", new List<string> { "Писать полный путь до ZEN в главном окне", "Show full path to ZEN file in main window", "Zeige den vollständigen Pfad zur ZEN Datei im Hauptmenü an", "Pokaż pełną ścieżkę do świata w głównym oknie", "Zobrazení úplné cesty k souboru ZEN v hlavním okně" });
-            AddNewWord("WIN_CONTROLSET_TEXT", new List<string> { "Настройки управления", "Controls setttings", "Steuerungseinstellungen", "Ustawienia sterowania", "Nastavení ovládání" });
+            AddNewWord("WIN_CONTROLSET_TEXT", new List<string> { "Настройки вобов", "Vobs settings", "Vobj-Einstellungen", "Ustawienia vobów", "Nastavení vobů" });
             AddNewWord("WIN_CONTROLSET_TRANSSPEED", new List<string> { "Скорость перемещения: ", "Moving speed: ", "Bewegungsgeschwindigkeit: ", "Szybkość poruszania: ", "Rychlost pohybu:" });
             AddNewWord("WIN_CONTROLSET_ROTSPEED", new List<string> { "Скорость вращения: ", "Rotation speed: ", "Rotationsgeschiwndigkeit: ", "Szybkość rotacji: ", "Rychlost rotace:" });
-            AddNewWord("WIN_CONTROLSET_GROUP0", new List<string> { "Управление вобом", "Vob control", "Vob Kontrolle", "Kontrola Voba", "Ovládání Vobu" });
+            AddNewWord("WIN_CONTROLSET_GROUP0", new List<string> { "Настройки вобов", "Vobs settings", "Vobs-Einstellungen", "Ustawienia vobów", "Nastavení vobů" });
             AddNewWord("WIN_CONTROLSET_GROUP1", new List<string> { "Вставка воба", "Vob insertion", "Vob Einfügung", "Wstawianie Voba", "Vkládání Vobu" });
             AddNewWord("checkBoxInsertVob", new List<string> { "Вставлять воб на той же высоте", "Insert vob on the same height", "Füge Vob in der Höhe der Quelle ein", "Wstaw voba na wysokości kamery", "Vložit Vob do výšky kamery" });
             AddNewWord("checkBoxVobRotRandAngle", new List<string> { "Поворачивать воб на случайный угол", "Turn vob on a random angle", "Versetze den Vob in einen zufälligen Winkel", "Obróć voba pod dowolnym kątem", "Otočit Vob v náhodném úhlu" });
@@ -202,6 +202,13 @@ namespace SpacerUnion.Common
             AddNewWord("radioButtonWPTurnOn", new List<string> { "На камеру", "At the camera", "Bei der Kamera", "Do kamery", "Do kamery" });
             AddNewWord("radioButtonWPTurnOnRandom", new List<string> { "Случайно", "Random", "Zufällig", "Losowo", "Náhodně" });
             AddNewWord("WIN_CONTROLCAM_TEXT", new List<string> { "Настройки камеры", "Camera settings", "Kameraeinstellungen", "Ustawienia kamery", "Nastavení kamery" });
+            AddNewWord("MENU_TOP_SETTINGS_MAIN", new List<string> { "Главное", "Main", "Allgemein", "Menu", "Hlavní" });
+            AddNewWord("WIN_SETTINGS_MAIN", new List<string> { "Настройки", "Settings", "Einstellungen", "Ustawienia", "Nastavení" });
+            AddNewWord("SETTINGS_ALL", new List<string> { "Все настройки", "All settings", "Alle Einstellungen", "Wszystkie ustawienia", "Všechna nastavení" });
+            AddNewWord("SETTINGS_SEARCH_HINT", new List<string> { "Поиск по настройкам...", "Search settings...", "Einstellungen suchen...", "Szukaj ustawień...", "Hledat nastavení..." });
+            AddNewWord("SETTINGS_FOUND", new List<string> { "Найдено", "Found", "Gefunden", "Znalezione", "Nalezeno" });
+            AddNewWord("SETTINGS_NOTHING_FOUND", new List<string> { "Ничего не найдено", "Nothing found", "Keine Ergebnisse", "Nic nie znaleziono", "Nic nenalezeno" });
+            AddNewWord("SETTINGS_APPLY_HINT", new List<string> { "Значения применяются сразу при изменении", "Values are applied right away when they change", "Werte werden sofort übernommen", "Wartości są stosowane natychmiast", "Hodnoty jsou užity okamžitě" });
             AddNewWord("groupBoxCam", new List<string> { "Камера", "Camera", "Kamera", "Kamera", "Kamera" });
             AddNewWord("labelTrans", new List<string> { "Скорость полета", "Moving speed", "Bewegungsgeschwindigkeit", "Prędkość poruszania", "Rychlost pohybu" });
             AddNewWord("labelRot", new List<string> { "Скорость повотора", "Rotation speed", "Rotationsgeschiwndigkeit", "Prędkość rotacji", "Rychlost rotace" });

@@ -64,7 +64,14 @@ namespace SpacerUnion.Common
 
         public static string Get(string key)
         {
-            int langIndex = (int)curLang;
+            return Get(key, curLang);
+        }
+
+        // Returns the text of one given language, no matter which one is shown: used by the search
+        // of the settings page, which matches captions in all languages at once.
+        public static string Get(string key, LangEnum lang)
+        {
+            int langIndex = (int)lang;
 
             string result = "";
 
@@ -72,7 +79,7 @@ namespace SpacerUnion.Common
             {
                 if (langIndex < words[key].Count && langIndex >= 0)
                 {
-                    result = words[key][(int)curLang];
+                    result = words[key][langIndex];
                 }
                 else
                 {
@@ -107,9 +114,7 @@ namespace SpacerUnion.Common
             SpacerNET.compWorldWin.UpdateLang();
             SpacerNET.camCoordsWin.UpdateLang();
             SpacerNET.infoWin.UpdateLang();
-            SpacerNET.miscSetWin.UpdateLang();
-            SpacerNET.settingsControl.UpdateLang();
-            SpacerNET.settingsCam.UpdateLang();
+            SpacerNET.settingsMain.UpdateLang();
             SpacerNET.keysWin.UpdateLang();
 
             SpacerNET.objTreeWin.UpdateLang();

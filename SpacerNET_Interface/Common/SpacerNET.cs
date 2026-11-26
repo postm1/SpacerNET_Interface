@@ -31,10 +31,8 @@ namespace SpacerUnion
         public static SoundWin soundWin;
         public static CompileWorldWin compWorldWin;
         public static LoadingForm loadForm;
-        public static SettingsCamera settingsCam;
-        public static SettingsVobs settingsControl;
+        public static SettingsMain settingsMain;
         public static CameraCoords camCoordsWin;
-        public static MiscSettingsWin miscSetWin;
         public static KeysForm keysWin;
         public static PFXEditorWin pfxWin;
         public static GrassWin grassWin;
@@ -91,12 +89,10 @@ namespace SpacerUnion
             objectsWin = new ObjectsWin();
             soundWin = new SoundWin();
             comLightWin = new CompileLightWin();
-            settingsCam = new SettingsCamera();
-            settingsControl = new SettingsVobs();
+            settingsMain = new SettingsMain();
             compWorldWin = new CompileWorldWin();
             loadForm = new LoadingForm();
             camCoordsWin = new CameraCoords();
-            miscSetWin = new MiscSettingsWin();
             keysWin = new KeysForm();
             pfxWin = new PFXEditorWin();
             grassWin = new GrassWin();
@@ -114,11 +110,9 @@ namespace SpacerUnion
             windowsList.Add(vobList);
             windowsList.Add(compWorldWin);
             windowsList.Add(comLightWin);
-            windowsList.Add(settingsCam);
+            windowsList.Add(settingsMain);
             windowsList.Add(loadForm);
-            windowsList.Add(settingsControl);
             windowsList.Add(camCoordsWin);
-            windowsList.Add(miscSetWin);
             windowsList.Add(keysWin);
             windowsList.Add(pfxWin);
             windowsList.Add(grassWin);
@@ -512,7 +506,7 @@ namespace SpacerUnion
             macrosWin.macros.SetupInterface();
             keysWin.LoadKeys();
 
-            miscSetWin.LoadSettings();
+            settingsMain.LoadSettings();
 
             grassWin.UpdateLang();
             grassWin.LoadSettings();

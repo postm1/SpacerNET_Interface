@@ -158,12 +158,6 @@
     <Compile Include="Windows\MaterialFilterForm.Designer.cs">
       <DependentUpon>MaterialFilterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Windows\MiscSettingsWin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Windows\MiscSettingsWin.Designer.cs">
-      <DependentUpon>MiscSettingsWin.cs</DependentUpon>
-    </Compile>
     <Compile Include="Windows\ObjTree.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,23 +188,14 @@
     <Compile Include="Windows\SearchErrorsForm.Designer.cs">
       <DependentUpon>SearchErrorsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Windows\SettingsCamera.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Windows\SettingsCamera.Designer.cs">
-      <DependentUpon>SettingsCamera.cs</DependentUpon>
-    </Compile>
     <Compile Include="Windows\SettingsMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Windows\SettingsMain.Designer.cs">
+    <Compile Include="Windows\SettingsMain.Catalog.cs">
       <DependentUpon>SettingsMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Windows\SettingsVobs.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Windows\SettingsVobs.Designer.cs">
-      <DependentUpon>SettingsVobs.cs</DependentUpon>
+    <Compile Include="Windows\SettingsMain.Designer.cs">
+      <DependentUpon>SettingsMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\SoundWin.cs">
       <SubType>Form</SubType>
@@ -309,9 +294,6 @@
     <EmbeddedResource Include="Windows\MaterialFilterForm.resx">
       <DependentUpon>MaterialFilterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Windows\MiscSettingsWin.resx">
-      <DependentUpon>MiscSettingsWin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Windows\ObjTree.resx">
       <DependentUpon>ObjTree.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -340,14 +322,8 @@
     <EmbeddedResource Include="Windows\SearchErrorsForm.resx">
       <DependentUpon>SearchErrorsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Windows\SettingsCamera.resx">
-      <DependentUpon>SettingsCamera.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Windows\SettingsMain.resx">
       <DependentUpon>SettingsMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\SettingsVobs.resx">
-      <DependentUpon>SettingsVobs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\SoundWin.resx">
       <DependentUpon>SoundWin.cs</DependentUpon>
