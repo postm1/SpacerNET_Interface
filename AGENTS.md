@@ -184,7 +184,10 @@ and embeds its own 3D-view render window there. The whole "view area" is that `r
 - **New text:** key in `LocalizedStrings.cs` (5 columns) + `Localizator.Get(key)` in the window's `UpdateLang()`; if the window is new, add its `UpdateLang()` call to `Localizator.UpdateInterface()`.
 - **New window:** create it in `UnionInitialize`, add it to `windowsList`, wire positions/sizes in `SpacerNET.LoadSettingsToInterface()`/`CloseApplication()` (setting fields in `Properties/Settings.settings` + `app.config`). Don't forget `ThemeApplier.RegisterDialog` if it's a modal.
 
-## Gotchas
+## Common pitfalls
+
+The things that look wrong but are not, and that an agent can break by accident:
+
 - `[DllExport]` methods and backend fields use **uint vob addresses** as identifiers (see `TreeEntry.zCVob`, `Extern_SelectVob(uint)`).
 - Strings over PInvoke are ANSI/UTF; wide (`Wide`) are used for localization; don't forget to free `HGlobal` (already handled in the wrappers).
 - `Settings.Default` has many `...ShowNext` fields — windows "closed but to restore next run".
