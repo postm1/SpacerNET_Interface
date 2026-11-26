@@ -62,7 +62,7 @@ namespace SpacerUnion.Common
     public class Exports
     {
 
-        // Переключает интерфейс чтобы не лагал во время загрузки списков
+        // turns the interface off and on so it does not freeze while the lists are loading
         [DllExport]
         public static void Export_ToggleUIElement(int elemType, int val)
         {
@@ -172,7 +172,7 @@ namespace SpacerUnion.Common
 
 
 
-        // добавляет материал в список
+        // adds a material to the list
         [DllExport]
         public static void AddGlobalEntryMat(uint mat)
         {
@@ -211,7 +211,7 @@ namespace SpacerUnion.Common
             */
         }
 
-        // выбранный (picked) воб принудительно выделяем в списке
+        // the picked vob is selected in the list no matter what
         [DllExport]
         public static void Export_SelectNodeByPtr(uint ptr)
         {
@@ -266,7 +266,7 @@ namespace SpacerUnion.Common
 
         
 
-        // сообщение в окно
+        // a message into the log window
         [DllExport]
         public static void InfoWin_AddText()
         {
@@ -291,7 +291,7 @@ namespace SpacerUnion.Common
         }
 
 
-        // сообщение в окно zspy
+        // a message into the zSpy window
         [DllExport]
         public static void InfoWin_AddTextZSPY()
         {
@@ -327,7 +327,7 @@ namespace SpacerUnion.Common
 
 
 
-        // фильтр материалов
+        // the material filter
         [DllExport]
         public static void Fill_MatFilter_Filters()
         {
@@ -624,41 +624,41 @@ namespace SpacerUnion.Common
            // ConsoleEx.WriteLineYellow("alpha enter");
             var box = SpacerNET.matFilterWin.pictureBoxTexture;
 
-            // создаём полотно для рисования из текущей картинки в pictureBox
+            // takes the drawing surface from the image that is now in the pictureBox
             Graphics g = Graphics.FromImage(box.Image);
 
-            // создаём серую кисть для закрашивания подкладки альфа-канала
+            // a gray brush for the background of the alpha channel
             using (SolidBrush gray = new SolidBrush(Color.FromArgb(255, 192, 192, 192)))
             {
 
-                // смещение слева от начала закрашивания серых квадратов
-                // (пропадает(0) и появляется(4) с каждой новой закрашиваемой строкой)
+                // the offset from the left edge where the gray squares start
+                // (it disappears(0) and appears(4) with every new row of squares)
                 int offsetX = 0;
 
-                // размеры элементов(квадратов) альфа-канала (в пикселях)
+                // the size of the alpha channel squares (in pixels)
                 int fillBox = 8;
 
-                // очищаем полотно перед началом рисования
+                // clean the surface before drawing
                 g.Clear(Color.White);
 
-                // пробегаемся по всей высоте бокса
-                // (каждую новую строку переключаем смещение от начала для имитации шахматной доски)
+                // walk over the whole height of the box
+                // (every new row switches the offset to make a chequer board)
                 for (int y = 0; y < box.Height; y = y + fillBox)
                 {
-                    // и по всей ширине бокса
-                    // (блок закрашиваем, блок пропускаем и так по всему ряду)
+                    // and over its whole width
+                    // (one square painted, one skipped, and so on along the row)
                     for (int x = offsetX; x < box.Width; x = x + fillBox * 2)
                     {
-                        // закрашиваем серый квадрат заданным размером в "fillBox"
+                        // paint the gray square of the size given by "fillBox"
                         g.FillRectangle(gray, x, y, fillBox, fillBox);
                     }
 
-                    // если смещения не было
+                    // there was no offset
                     if (offsetX == 0)
-                        // включаем
+                        // switch it on
                         offsetX = fillBox;
-                    else // иначе, смещение было
-                        // выключаем
+                    else // the offset was there
+                        // switch it off
                         offsetX = 0;
                 }
 

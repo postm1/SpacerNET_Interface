@@ -391,14 +391,14 @@ namespace SpacerUnion
             if (string.IsNullOrEmpty(strToFind))
             {
                 listBoxSndResult.Items.Clear();
-                // Показать все элементы? 
+                // Show every item? 
                 // listBoxResultItems.Items.AddRange(listBoxItems.Items);
                 return;
             }
 
             try
             {
-                // Создаем Regex один раз для текущего поиска
+                // build the Regex once for the current search
                 _searchRegexSound = new Regex(Regex.Escape(strToFind),
                     RegexOptions.IgnoreCase | RegexOptions.Compiled);
             }

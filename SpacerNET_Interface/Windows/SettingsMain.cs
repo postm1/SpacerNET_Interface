@@ -806,7 +806,7 @@ namespace SpacerUnion.Windows
         }
 
         // Height of the search field: the height of the font plus a pixel above and below the line, so
-        // that the bottom of letters like "ф" always has place.
+        // that the bottom of letters with a descender always has place.
         private int SearchFieldHeight
         {
             get
@@ -1185,7 +1185,7 @@ namespace SpacerUnion.Windows
         }
 
         // The search matches the caption in every language, the keys of the core and the name of the
-        // category, so "rangeVobs", "Протяженность" and "vobs" all find the same option.
+        // category, so "rangeVobs", the Russian caption and "vobs" all find the same option.
         private void BuildSearchText()
         {
             LangEnum[] langs = new LangEnum[] { LangEnum.RU, LangEnum.EN, LangEnum.DE, LangEnum.PL, LangEnum.CZ };
@@ -2488,7 +2488,7 @@ namespace SpacerUnion.Windows
         }
 
         // The one line search field. An ordinary text box is always exactly as high as its font and
-        // clips the bottom of letters like "ф", and it cannot be made a pixel or two higher. This one is
+        // clips the bottom of letters with a descender, and it cannot be made a pixel or two higher. This one is
         // a multiline box (only those accept any height), one line high plus a pixel above and below, so
         // the whole line of the font always fits.
         private class SearchTextBox : TextBox

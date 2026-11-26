@@ -110,7 +110,7 @@ namespace SpacerUnion.Windows
                 }
 
                 /*
-                // поиск дублей кнопок
+                // search for duplicated keys
                 var dictCheckDouble = new Dictionary<string, List<int>>();
 
                 for (int i = 0; i < dataGridKeys.Rows.Count; i++)

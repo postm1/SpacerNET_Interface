@@ -313,7 +313,7 @@ namespace SpacerUnion
 
             string[] words = inputStr.Replace("\t", "").Split('\n');
 
-            // сохраняем нетронутую строку
+            // keeps the string untouched
 
             //ConsoleEx.WriteLineGreen(inputStr);
 
@@ -534,7 +534,7 @@ namespace SpacerUnion
                 }
 
 
-                // значки для свойств
+                // icons for the properties
                
                 if (prop.type == TPropEditType.PETbool)
                 {
@@ -900,7 +900,7 @@ namespace SpacerUnion
 
 
 
-            // блокируем кнопку Применить
+            // disable the Apply button
             changed = false;
             buttonApplyOnVob.Enabled = false;
 
@@ -952,7 +952,7 @@ namespace SpacerUnion
                     visual = props[i].value;
                 }
 
-                // обновляем позицию воба из введенных данных
+                // update the position of the vob from the values we typed in
                 if (props[i].Name == "trafoOSToWSPos" && props[i].value != props[i].backup_value)
                 {
                     wasPositionChanged = 1;
@@ -1248,7 +1248,7 @@ namespace SpacerUnion
                             bool isFloat = float.TryParse(
                             textTry,
                             NumberStyles.Float | NumberStyles.AllowThousands,
-                            CultureInfo.InvariantCulture, // Разрешает точку как разделитель
+                            CultureInfo.InvariantCulture, // allows a dot as the separator
                             out float number
                         );
 

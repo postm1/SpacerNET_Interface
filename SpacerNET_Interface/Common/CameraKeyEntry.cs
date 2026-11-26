@@ -83,7 +83,7 @@ namespace SpacerUnion.Common
 
 
 
-        // интерфейс
+        // interface
         [DllExport]
         public static void OnRenameSplineKey_Interface()
         {

@@ -20,7 +20,7 @@ namespace SpacerUnion
     public static class SpacerNET
     {
 
-        // Окна приложения
+        // windows of the application
         public static MainForm form;
         public static VobListForm vobList;
         public static ObjectsWindow propWin;
@@ -41,10 +41,10 @@ namespace SpacerUnion
         public static SearchErrorsForm errorForm;
         public static VobCatalogForm vobCatForm;
         public static UVReporterForm uvForm;
-        // Список скрытых окон
+        // the windows that are currently hidden
         static List<Form> windowsToHideList = null;
 
-        // Список всех окон
+        // every window of the interface
         public static List<Form> windowsList = null;
 
         public static bool isInit = false;
@@ -57,7 +57,7 @@ namespace SpacerUnion
             Application.EnableVisualStyles();
         }
 
-        // Главная функция запуска, вызывается из Union
+        // the main entry point, called by Union
         [DllExport]
         public static void UnionInitialize()
         {
@@ -123,7 +123,7 @@ namespace SpacerUnion
             windowsList.Add(uvForm);
 
             
-            // каждому окну из списка задаем владельца: главную форму
+            // every window of the list gets an owner: the main form
             windowsList.ForEach(x => x.Owner = form);
 
             form.menuStripTopMain.Enabled = false;
@@ -202,7 +202,7 @@ namespace SpacerUnion
             form.UpdateIconsSize(iconsScale, false);
         }
 
-        // Функция вызывается, когда загрузился движок игры (Game_Init), вызывается из Union
+        // called once the game engine has loaded (Game_Init), called from Union
         [DllExport]
         public static void Form_EnableInterface()
         {
@@ -420,7 +420,7 @@ namespace SpacerUnion
         
 
 
-        // загружает настройки в интерфейс 
+        // puts the settings into the interface 
         public static void LoadSettingsToInterface()
         {
             //ConsoleEx.WriteLineRed("LoadSettingsToInterface");

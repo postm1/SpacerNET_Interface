@@ -3477,14 +3477,14 @@ namespace SpacerUnion
                         if (compareProps[pc].Name == searchProps[j].Name)
                         {
                             //ConsoleEx.WriteLineRed(compareProps[pc].Name + ": " + compareProps[pc].value + "/" + searchProps[j].value);
-                            // compare это текущий воб, search это то что в интерфейсе
+                            // compare is the vob we are looking at, search is what the interface holds
 
                             if (compareProps[pc].type == TPropEditType.PETint || compareProps[pc].type == TPropEditType.PETfloat)
                             {
 
                                 match = compareProps[pc].value == searchProps[j].value;
 
-                                // если строки (числа) не равны, то
+                                // if the strings (numbers) are not equal, then
                                 if (!match 
                                     && searchProps[j].numSearchType != TSearchNumberType.TS_EQUALS
                                     && searchProps[j].value != ""
@@ -5529,14 +5529,14 @@ namespace SpacerUnion
             if (string.IsNullOrEmpty(strToFind))
             {
                 listBoxResultItems.Items.Clear();
-                // Показать все элементы? 
+                // Show every item? 
                 // listBoxResultItems.Items.AddRange(listBoxItems.Items);
                 return;
             }
 
             try
             {
-                // Создаем Regex один раз для текущего поиска
+                // build the Regex once for the current search
                 _searchRegex = new Regex(Regex.Escape(strToFind),
                     RegexOptions.IgnoreCase | RegexOptions.Compiled);
             }
@@ -5574,14 +5574,14 @@ namespace SpacerUnion
             if (string.IsNullOrEmpty(strToFind))
             {
                 listBoxPfxResult.Items.Clear();
-                // Показать все элементы? 
+                // Show every item? 
                 // listBoxResultItems.Items.AddRange(listBoxItems.Items);
                 return;
             }
 
             try
             {
-                // Создаем Regex один раз для текущего поиска
+                // build the Regex once for the current search
                 _searchRegexPfx = new Regex(Regex.Escape(strToFind),
                     RegexOptions.IgnoreCase | RegexOptions.Compiled);
             }

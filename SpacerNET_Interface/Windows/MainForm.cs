@@ -192,7 +192,7 @@ namespace SpacerUnion
             // UnionNET.partWin.listBoxItems.Items.Clear();
         }
 
-        // применение после загрузки
+        // applied after the language has been loaded
         public void UpdateLangAfter()
         {
             //ConsoleEx.WriteLineRed("Main:UpdateLangAfter");
@@ -1798,7 +1798,7 @@ namespace SpacerUnion
                 SpacerNET.form.AddText(selectedFileName + " " + Localizator.Get("IS_SAVING"));
 
                 Imports.Stack_PushString(filePath);
-                Imports.Stack_PushInt(1); // опция сортировки поликов, здесь 1 для общности
+                Imports.Stack_PushInt(1); // the option of how to sort the polys, 1 here for the sake of generality
                 Imports.Extern_SaveWorld(1);
 
                 s.Stop();
@@ -2113,7 +2113,7 @@ namespace SpacerUnion
             SpacerNET.form.toolStripButtonMaterial.Checked = Convert.ToBoolean(val);
         }
 
-        // блок прокликивания окон
+        // blocks clicks inside the windows
         [DllExport]
         public static int IsClickBlocked()
         {

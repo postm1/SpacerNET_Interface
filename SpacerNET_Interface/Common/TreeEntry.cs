@@ -8,28 +8,28 @@ namespace SpacerUnion
 {
     public class TreeEntry
     {
-        // адрес воба в памяти
+        // address of the vob in memory
         public uint zCVob;
-        // адрес его родителя или 0 если родителя нет
+        // address of its parent, or 0 when there is no parent
         public uint parent;
-        // имя воба
+        // name of the vob
         public string name;
-        // имя папки в структуре tree
+        // name of the folder in the tree structure
         public string folderName;
-        // класс моба (oCMobInter, zCVob...)
+        // class of the actor (oCMobInter, zCVob...)
         public string className;
         // is zCVobLevelCompo
         public bool isLevel;
-        // флаг для удаления
+        // flag for deletion
         public bool toDelete;
 
-        // с каким узлом в TreeView связан воб
+        // the node of the TreeView this vob is bound to
         public TreeNode node;
 
-        // ссылка на родительскую запись
+        // link to the parent entry
         public TreeEntry parentEntry;
 
-        // список ссылок на своих детей
+        // links to the children of this entry
         public List<TreeEntry> childs;
 
        

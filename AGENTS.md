@@ -171,6 +171,9 @@ and embeds its own 3D-view render window there. The whole "view area" is that `r
 
 ## Conventions: how to add a feature
 
+- **Comments and commit messages are English only.** Never write them in Russian: the user-visible text lives
+  in `LocalizedStrings.cs` (5 languages), everything else in the sources is English. Do not translate the
+  Russian text that is part of the data (a value in `Settings.settings`, a string in a commented-out code).
 - **New backend call:** add a `[DllImport] Extern_*` to `Imports.cs`, call it from a handler; push strings via `Imports.Stack_PushString` before the call.
 - **New backend callback:** add a `public static void` with `[DllExport]` (in the relevant window or `Exports.cs`), read args via `Imports.Stack_Peek*`, update a control through `SpacerNET.<window>.<control>`. The method must be `static`.
 - **New button/menu item:** control in `*MainForm.Designer.cs` → handler in `*MainForm.cs` → `Imports.Extern_*`. Toolbar toggles are synced in `SpacerNET.LoadSettingsToInterface()` (indices `toolStripTop.Items[i]`).

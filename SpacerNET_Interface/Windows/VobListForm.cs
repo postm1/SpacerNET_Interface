@@ -244,7 +244,7 @@ namespace SpacerUnion
         bool SelectVobInWorldByListIndex(int index, bool bMoveCamToVob)
         {
             if (index < 0 || index >= listBoxVobs.Items.Count)
-                // выходим
+                // leave it
                 return false;
 
 

@@ -48,7 +48,7 @@ namespace SpacerUnion
     }
 
 
-    // Класс различных функций
+    // various helper functions
     public class Utils
     {
         public static void SortListBox(ListBox lstBox)
@@ -139,7 +139,7 @@ namespace SpacerUnion
             return result;  
         }
 
-        // задает начальный путь для открытия/сохранения файлов
+        // sets the directory the open / save dialogs start in
         public static string GetInitialDirectory(string path)
         {
             string result = String.Empty;
@@ -157,7 +157,7 @@ namespace SpacerUnion
             return result;
         }
 
-        // удаляет ёбаные \\ из пути, иначе COptios считает some\newFolder = \n и пиздец
+        // removes the back slashes from a path, otherwise COptios reads some\newFolder as a new line and breaks
         public static string FixPath(string path)
         {
             string fixedPath = path.Trim().Replace('\\', '/');
@@ -289,11 +289,11 @@ namespace SpacerUnion
 
             foreach (string str in stringArray)
             {
-                // Попытка преобразовать строку в число
+                // try to turn the string into a number
                 if (!double.TryParse(str, out _))
                 {
                     allAreNumbers = false;
-                    break; // Выход из цикла, если найдено нечисловое значение
+                    break; // leave the loop as soon as a non numeric value is found
                 }
             }
 
@@ -352,7 +352,7 @@ namespace SpacerUnion
         public static void PrintTimeInfo(string messageKey, long ticks, string loadTimeFormat = "mm\\:ss\\.fff", string currentTimeFormat = "HH:mm:ss")
         {
 
-            string loadTime = string.Format("{0:mm\\:ss\\.fff}", TimeSpan.FromTicks(ticks)); // только минуты:секунды.миллисекунды
+            string loadTime = string.Format("{0:mm\\:ss\\.fff}", TimeSpan.FromTicks(ticks)); // only minutes:seconds.milliseconds
             string currentTime = " | " + Localizator.Get("COMMON_TIME_SYSTEM") + DateTime.Now.ToString("HH:mm:ss") + " ⏱";
             string message = $"⏱  {Localizator.Get(messageKey)} {loadTime}{currentTime}";
 
@@ -396,7 +396,7 @@ namespace SpacerUnion
             {
                 if (checkStr.EndsWith(item.OldExt, StringComparison.OrdinalIgnoreCase))
                 {
-                    // Быстрая замена: отрезаем старый хвост и добавляем новый
+                    // quick replace: cut the old tail of the name and add the new one
                     name = checkStr.Substring(0, checkStr.Length - item.OldExt.Length) + item.NewExt;
                     return true;
                 }
@@ -440,11 +440,11 @@ namespace SpacerUnion
         };
 
         /// <summary>
-        /// Проверяет путь/имя файла на недопустимые символы и зарезервированные имена.
+        /// Checks a path / file name for invalid characters and for reserved names.
         /// </summary>
-        /// <param name="path">Путь или просто имя файла.</param>
-        /// <param name="error">Текст ошибки, если валидация провалилась.</param>
-        /// <returns>true — путь корректен, false — есть проблема.</returns>
+        /// <param name="path">A path or just a file name.</param>
+        /// <param name="error">The text of the error, if the check failed.</param>
+        /// <returns>true - the path is fine, false - there is a problem.</returns>
         public static bool IsValidFileName(string path, out string error)
         {
             error = null;
@@ -455,7 +455,7 @@ namespace SpacerUnion
                 return false;
             }
 
-            // 1) Управляющие символы (0x00–0x1F). Они невидимы, но WinAPI их отвергает.
+            // 1) control characters (0x00-0x1F). They are invisible, but WinAPI rejects them.
             foreach (var c in path)
             {
                 if (c < 32)
@@ -465,9 +465,9 @@ namespace SpacerUnion
                 }
             }
 
-            // 2) Недопустимые символы. Обычно GetInvalidFileNameChars строже,
-            //    чем GetInvalidPathChars, но берём объединение — так безопаснее,
-            //    потому что мы проверяем и имя файла, и путь целиком.
+            // 2) invalid characters. GetInvalidFileNameChars is usually stricter than
+            //    GetInvalidPathChars, but we take the union of both - it is safer,
+            //    because we check both a file name and a whole path.
             var invalidChars = Path.GetInvalidFileNameChars()
                 .Union(Path.GetInvalidPathChars())
                 .Distinct()
@@ -487,8 +487,8 @@ namespace SpacerUnion
                 return false;
             }
 
-            // 3) Точки и пробелы в конце имени файла/папки — Windows их молча
-            //    отбрасывает, из-за чего имя может «схлопнуться» и стать пустым.
+            // 3) dots and spaces at the end of a file or folder name - Windows silently drops
+            //    them, so the name can collapse and become empty.
             var trimmed = path.TrimEnd(' ', '.');
             if (trimmed.Length != path.Length && !path.EndsWith("\\") && !path.EndsWith("/"))
             {
@@ -496,8 +496,8 @@ namespace SpacerUnion
                 return false;
             }
 
-            // 4) Зарезервированные имена DOS. Проверяем только имя файла (без каталога)
-            //    и без расширения — Windows блокирует даже "CON.txt".
+            // 4) reserved DOS names. Checked only on the file name (without the folder)
+            //    and without the extension - Windows blocks even "CON.txt".
             var fileName = Path.GetFileName(path);
             if (!string.IsNullOrEmpty(fileName))
             {

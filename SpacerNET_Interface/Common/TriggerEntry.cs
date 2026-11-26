@@ -10,24 +10,24 @@ namespace SpacerUnion
         public bool dynColl;
         public bool statColl;
 
-        //текущая позиция ключа
+        // current position of the key
         public int m_kf_pos;
-        //максимальная позиция ключа
+        // highest position of the key
         public int maxKey;
 
         public string name;
 
         public string className;
 
-        //текущее действие (TRIGGER, UNTRIGGER...)
+        // current action (TRIGGER, UNTRIGGER...)
         public int currentActionIndex;
 
         public bool enabled;
 
-        // Адреса вобов-triggerTarget
+        // addresses of the vobs that are targets of this trigger
         public List<uint> targetListAddr;
 
-        // Адреса вобов-triggerTarget
+        // addresses of the vobs that are sources of this trigger
         public List<uint> sourcesListAddr;
 
 

@@ -151,7 +151,7 @@ namespace SpacerUnion.Windows
 
             if (listBox != null)
             {
-                // сбросы чтобы не было багов
+                // resets, so that there are no bugs
                 lastMaterialSelectIndex = -1;
 
                 int index = listBox.SelectedIndex;
@@ -354,7 +354,7 @@ namespace SpacerUnion.Windows
             bool followFilter = checkBoxMatFilterGoApply.Checked;
 
 
-            // если мы меняем фильтр
+            // if we are changing the filter
             if (filterIndex != libFlag)
             {
                 bChangeFilter = true;

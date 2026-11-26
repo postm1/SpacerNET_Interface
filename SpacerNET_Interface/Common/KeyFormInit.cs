@@ -107,7 +107,7 @@ namespace SpacerUnion.Windows
             }
 
 
-            // если введены 2 и более только клафиш shift/ctrl/alt
+            // if only shift / ctrl / alt keys were entered (two or more of them)
             public bool IsOnlyModKeys()
             {
                 bool result = false;

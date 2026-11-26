@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SpacerUnion
 {
-    // Класс для управления цветом текста консоли
+    // sets the color of the console text
     public static class ConsoleEx
     {
         private const string PREFIX = "C#: ";

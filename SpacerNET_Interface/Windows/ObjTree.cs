@@ -496,7 +496,7 @@ namespace SpacerUnion
 
             classNameFoundPos = CreateAndGetFolder(className);
 
-            // levelCompo или воб без родителя
+            // levelCompo or a vob without a parent
             if (entry.isLevel || entry.parent == 0)
             {
                 TreeNode node = nodes[classNameFoundPos].Nodes.Add(entry.name);
@@ -614,7 +614,7 @@ namespace SpacerUnion
 
 
 
-        // Обновление родителя для сущ. воба
+        // updating the parent of an existing vob
         [DllExport]
         public static void updateParentAddNode(uint ptr, uint ptrParent)
         {
@@ -946,7 +946,8 @@ namespace SpacerUnion
 
             TreeNode node = SpacerNET.objTreeWin.globalTree.SelectedNode;
 
-            // Если есть выделенный объект и это вейпоинт, то снимает выделение, потому что Node будет удален, иначе вылет
+            // if a waypoint is selected, drop the selection: the node is going to be removed, and a node
+            // that is still selected makes the tree throw
             if (node != null)
             {
                 string tag = node.Tag.ToString();

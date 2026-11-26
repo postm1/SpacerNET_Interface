@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SpacerUnion.Common
 {
-    // Функции импорта из Юниона
+    // functions imported from Union
     public partial class Imports
     {
         public const string UNION_DLL_NAME = "SpacerUnionNet.dll";
@@ -191,7 +191,7 @@ namespace SpacerUnion.Common
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern int Extern_StopAllSounds();
 
-        #region Функции триггеров
+        #region Trigger functions
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void Extern_SetToKeyPos(int pos);
 
