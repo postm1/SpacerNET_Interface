@@ -347,6 +347,11 @@ namespace SpacerUnion.Windows
 
             List<string> arr = System.IO.File.ReadLines(pathFile, Encoding.UTF8).ToList();
 
+            if (arr.Count() == 0)
+            {
+                return;
+            }
+
             string firstLine = arr[0].Trim();
 
             if (firstLine.Length > 0)
