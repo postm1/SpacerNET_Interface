@@ -69,6 +69,99 @@ namespace SpacerUnion.Windows
         // true while the navigation selection is synced from the scroll position.
         private bool syncingNav;
 
+        // Width and font the page was measured for: -1 means "measuring is needed again".
+        private int measuredWidth = -1;
+        private Font measuredFont;
+
+        // true while a measuring pass runs or one is queued behind a burst of resize messages.
+        private bool relayoutBusy;
+        private bool relayoutQueued;
+
+        //======================================== paint batching ============================================
+
+        // Every property we set invalidates its control, so a batch of them makes the page paint itself
+        // over and over while it is still incomplete. Redraw is switched off for the time of a batch -
+        // SuspendLayout does not help here, it stops layout but not painting.
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool RedrawWindow(IntPtr hWnd, IntPtr lprcUpdate, IntPtr hrgnUpdate, uint flags);
+
+        private const int WmSetRedraw = 0x000B;
+
+        // WM_SETREDRAW turns the children off together with the window, and an ordinary Invalidate() to
+        // the parent does not reach them - the page would stay half empty. Only RedrawWindow with
+        // RDW_ALLCHILDREN paints every control of the window; RDW_ERASENOW does it before we return, so
+        // the window is never shown in a half painted state.
+        private const uint RedrawEverything = 0x0001 /* RDW_INVALIDATE */ | 0x0004 /* RDW_ERASE */
+            | 0x0080 /* RDW_ALLCHILDREN */ | 0x0200 /* RDW_ERASENOW */ | 0x0400 /* RDW_FRAME */;
+
+        private int paintLock;
+        private bool paintSuspended;
+
+        // Batches may nest (opening the page reads values, which repaints rows), only the outermost one
+        // touches the window.
+        private void BeginPaintBatch()
+        {
+            paintLock++;
+
+            if (paintLock != 1 || paintSuspended || !IsHandleCreated)
+            {
+                return;
+            }
+
+            paintSuspended = true;
+            SendMessage(Handle, WmSetRedraw, IntPtr.Zero, IntPtr.Zero);
+        }
+
+        private void EndPaintBatch()
+        {
+            if (paintLock > 0)
+            {
+                paintLock--;
+            }
+
+            if (paintLock != 0 || !paintSuspended)
+            {
+                return;
+            }
+
+            paintSuspended = false;
+
+            if (!IsHandleCreated)
+            {
+                return;
+            }
+
+            SendMessage(Handle, WmSetRedraw, new IntPtr(1), IntPtr.Zero);
+
+            // Everything the batch invalidated is marked again, this time for the whole window with all
+            // its controls: without RDW_ALLCHILDREN the left list, the buttons and the bottom bar stayed
+            // unpainted.
+            RedrawWindow(Handle, IntPtr.Zero, IntPtr.Zero, RedrawEverything);
+        }
+
+        // One measuring pass of the whole page instead of one per message of a resize drag.
+        private void QueueRelayout()
+        {
+            measuredWidth = -1;
+
+            if (relayoutQueued || !IsHandleCreated)
+            {
+                return;
+            }
+
+            relayoutQueued = true;
+
+            BeginInvoke(new MethodInvoker(delegate
+            {
+                relayoutQueued = false;
+                RelayoutPage();
+            }));
+        }
+
         public SettingsMain()
         {
             InitializeComponent();
@@ -98,13 +191,21 @@ namespace SpacerUnion.Windows
         // Opens the page. category may be null (whole page) or one of the CAT_... constants.
         public void ShowSettings(string category)
         {
-            LoadSettings();
+            BeginPaintBatch();
+            try
+            {
+                LoadSettings();
 
-            Show();
-            BringToFront();
+                Show();
+                BringToFront();
 
-            RelayoutPage();
-            ScrollToCategory(category);
+                RelayoutPage();
+                ScrollToCategory(category);
+            }
+            finally
+            {
+                EndPaintBatch();
+            }
         }
 
         // Value of a boolean option, used by other classes (CProperty, MainForm).
@@ -132,6 +233,8 @@ namespace SpacerUnion.Windows
         public void LoadSettings()
         {
             loading = true;
+
+            BeginPaintBatch();
             try
             {
                 foreach (Setting setting in settings)
@@ -146,6 +249,7 @@ namespace SpacerUnion.Windows
             }
             finally
             {
+                EndPaintBatch();
                 loading = false;
             }
 
@@ -180,6 +284,19 @@ namespace SpacerUnion.Windows
 
         // Fills all captions of the page with the current language.
         public void UpdateLang()
+        {
+            BeginPaintBatch();
+            try
+            {
+                UpdateLangCaptions();
+            }
+            finally
+            {
+                EndPaintBatch();
+            }
+        }
+
+        private void UpdateLangCaptions()
         {
             Text = Localizator.Get("WIN_SETTINGS_MAIN");
             buttonApply.Text = Localizator.Get("BTN_APPLY");
@@ -217,6 +334,9 @@ namespace SpacerUnion.Windows
             // The list on the left is only rebuilt here: the search never touches it.
             RefreshNavigation();
             UpdateSearch();
+
+            // Another language means other captions, and the heights of the page are measured from them.
+            measuredWidth = -1;
             RelayoutPage();
         }
 
@@ -916,15 +1036,72 @@ namespace SpacerUnion.Windows
             }
         }
 
-        // Heights are measured once the window has its real width.
+        // Heights are measured once the window has its real width. Nothing but the width and the font
+        // can change a height on this page - the search does not hide rows, and the options that depend
+        // on each other only get enabled - so the measuring runs for those two cases only.
         private void RelayoutPage()
         {
-            for (int i = 0; i < sections.Count; i++)
+            if (relayoutBusy)
             {
-                UpdateSectionHeight(sections[i]);
+                return;
             }
 
-            UpdateScrollSize();
+            relayoutBusy = true;
+
+            try
+            {
+                // Two passes: the bar of the scroll may appear with this height and take a few pixels of
+                // the width, and the rows have to be measured for the width they really live in.
+                for (int pass = 0; pass < 2; pass++)
+                {
+                    int width = PageWidth();
+
+                    bool measured = contentHeight != 0 && width == measuredWidth && measuredFont == Font;
+
+                    if (measured || (pass != 0 && width == measuredWidth))
+                    {
+                        break;
+                    }
+
+                    measuredWidth = width;
+                    measuredFont = Font;
+
+                    BeginPaintBatch();
+                    try
+                    {
+                        for (int i = 0; i < sections.Count; i++)
+                        {
+                            UpdateSectionHeight(sections[i]);
+                        }
+
+                        UpdateScrollSize();
+                    }
+                    finally
+                    {
+                        EndPaintBatch();
+                    }
+                }
+            }
+            finally
+            {
+                relayoutBusy = false;
+            }
+        }
+
+        // Width the page lives in: the panel without its padding and without the place of the bar. Both
+        // the page and the measuring of the heights work from this value.
+        private int PageWidth()
+        {
+            if (panelContent == null)
+            {
+                return 0;
+            }
+
+            int bar = pageScrollBar != null && pageScrollBar.Visible ? pageScrollBar.Width : 0;
+
+            int width = panelContent.ClientSize.Width - panelContent.Padding.Horizontal - bar;
+
+            return width < 100 ? 100 : width;
         }
 
         // The search matches the caption in every language, the keys of the core and the name of the
@@ -1250,13 +1427,7 @@ namespace SpacerUnion.Windows
 
             // The page takes the width of the panel without the place of the bar: the bar is docked to
             // the right inside the padding, and the page must not reach under it.
-            int bar = pageScrollBar != null && pageScrollBar.Visible ? pageScrollBar.Width : 0;
-            int width = panelContent.ClientSize.Width - panelContent.Padding.Horizontal - bar;
-
-            if (width < 100)
-            {
-                width = 100;
-            }
+            int width = PageWidth();
 
             if (tableSections.Size != new Size(width, height))
             {
@@ -1480,21 +1651,30 @@ namespace SpacerUnion.Windows
             switch (setting.Kind)
             {
                 case SettingKind.CheckBox:
-                    if (setting.Box != null)
+                    if (setting.Box != null && setting.Box.Checked != setting.Flag)
                     {
                         setting.Box.Checked = setting.Flag;
                     }
                     break;
 
                 case SettingKind.CheckTrack:
-                    if (setting.Box != null)
+                    if (setting.Box != null && setting.Box.Checked != setting.Flag)
                     {
                         setting.Box.Checked = setting.Flag;
                     }
                     if (setting.Track != null)
                     {
-                        setting.Track.Value = Utils.Clamp(setting.TrackValue, setting.Track.Minimum, setting.Track.Maximum);
-                        setting.Track.Enabled = setting.Flag;
+                        int trackValue = Utils.Clamp(setting.TrackValue, setting.Track.Minimum, setting.Track.Maximum);
+
+                        if (setting.Track.Value != trackValue)
+                        {
+                            setting.Track.Value = trackValue;
+                        }
+
+                        if (setting.Track.Enabled != setting.Flag)
+                        {
+                            setting.Track.Enabled = setting.Flag;
+                        }
                     }
                     break;
 
@@ -1502,7 +1682,12 @@ namespace SpacerUnion.Windows
                 case SettingKind.TrackBox:
                     if (setting.Track != null)
                     {
-                        setting.Track.Value = Utils.Clamp(setting.Value, setting.Track.Minimum, setting.Track.Maximum);
+                        int value = Utils.Clamp(setting.Value, setting.Track.Minimum, setting.Track.Maximum);
+
+                        if (setting.Track.Value != value)
+                        {
+                            setting.Track.Value = value;
+                        }
                     }
                     SyncNumberBox(setting);
                     break;
@@ -1514,7 +1699,12 @@ namespace SpacerUnion.Windows
                 case SettingKind.RadioGroup:
                     for (int i = 0; i < setting.Radios.Count; i++)
                     {
-                        setting.Radios[i].Checked = setting.RadioValues[i] == setting.Value;
+                        bool isChecked = setting.RadioValues[i] == setting.Value;
+
+                        if (setting.Radios[i].Checked != isChecked)
+                        {
+                            setting.Radios[i].Checked = isChecked;
+                        }
                     }
                     break;
             }
@@ -1562,7 +1752,10 @@ namespace SpacerUnion.Windows
             FormClosing += new FormClosingEventHandler(OnFormClosingWindow);
 
             Shown += delegate { RelayoutPage(); };
-            Resize += delegate { RelayoutPage(); };
+
+            // A drag of the window asks for a relayout on every pixel of it: the measuring of the page
+            // runs once after the burst instead.
+            Resize += delegate { QueueRelayout(); };
 
             // The editor pushes its own interface font into every window.
             FontChanged += delegate
@@ -1571,7 +1764,7 @@ namespace SpacerUnion.Windows
                 searchFieldTop = -1;
 
                 LayoutSearchRow();
-                RelayoutPage();
+                QueueRelayout();
             };
 
             panelSearch.Resize += delegate { LayoutSearchRow(); };
@@ -1791,7 +1984,12 @@ namespace SpacerUnion.Windows
                     enabled = !enabled;
                 }
 
-                setting.Row.Enabled = enabled;
+                // Assigning Enabled invalidates the whole row with all its controls: worth doing only
+                // when the row really changes.
+                if (setting.Row.Enabled != enabled)
+                {
+                    setting.Row.Enabled = enabled;
+                }
             }
         }
 
@@ -1805,12 +2003,13 @@ namespace SpacerUnion.Windows
 
             string text = setting.ShowValueInCaption ? caption + setting.ValueSeparator + value : caption;
 
-            if (setting.Box != null)
+            // A caption with AutoSize re-measures its row on any assignment, even the same text.
+            if (setting.Box != null && setting.Box.Text != text)
             {
                 setting.Box.Text = text;
             }
 
-            if (setting.Caption != null)
+            if (setting.Caption != null && setting.Caption.Text != text)
             {
                 setting.Caption.Text = text;
             }
@@ -1837,6 +2036,19 @@ namespace SpacerUnion.Windows
         // Colors of the parts ThemeApplier does not know about: the search field, the navigation list,
         // secondary labels. Called after ThemeApplier has done its work.
         private void ApplyCustomTheme()
+        {
+            BeginPaintBatch();
+            try
+            {
+                ApplyCustomThemeColors();
+            }
+            finally
+            {
+                EndPaintBatch();
+            }
+        }
+
+        private void ApplyCustomThemeColors()
         {
             BackColor = Theme.BgPanel;
             panelLeft.BackColor = Theme.BgPanel;
@@ -1883,50 +2095,41 @@ namespace SpacerUnion.Windows
 
             foreach (Setting setting in settings)
             {
-                if (setting.Row != null)
-                {
-                    setting.Row.BackColor = Theme.BgPanel;
-                }
-                if (setting.Box != null)
-                {
-                    setting.Box.BackColor = Theme.BgPanel;
-                }
-                if (setting.Caption != null)
-                {
-                    setting.Caption.BackColor = Theme.BgPanel;
-                }
-                if (setting.Hint != null)
-                {
-                    setting.Hint.ForeColor = Theme.FgMuted;
-                }
-                if (setting.Main != null)
-                {
-                    setting.Main.BackColor = Theme.BgPanel;
-                }
+                SetBackground(setting.Row, Theme.BgPanel);
+                SetBackground(setting.Box, Theme.BgPanel);
+                SetBackground(setting.Caption, Theme.BgPanel);
+                SetBackground(setting.Main, Theme.BgPanel);
 
                 for (int i = 0; i < setting.Radios.Count; i++)
                 {
-                    setting.Radios[i].BackColor = Theme.BgPanel;
+                    SetBackground(setting.Radios[i], Theme.BgPanel);
                 }
 
-                if (setting.Row != null)
+                if (setting.Hint != null && setting.Hint.ForeColor != Theme.FgMuted)
                 {
-                    setting.Row.Invalidate();
+                    setting.Hint.ForeColor = Theme.FgMuted;
                 }
             }
 
             for (int i = 0; i < sections.Count; i++)
             {
-                if (sections[i].Box != null)
-                {
-                    sections[i].Box.BackColor = Theme.BgPanel;
-                }
+                SetBackground(sections[i].Box, Theme.BgPanel);
             }
 
             // The option we are standing on keeps its background after a theme switch.
             if (matchIndex >= 0 && matchIndex < matches.Count)
             {
                 SetRowBackground(matches[matchIndex], MatchBackground);
+            }
+        }
+
+        // A color is assigned only when it differs from the one the control has: every assignment makes
+        // the control and all its children paint again, and the page has a thousand of them.
+        private static void SetBackground(Control control, Color color)
+        {
+            if (control != null && !control.IsDisposed && control.BackColor != color)
+            {
+                control.BackColor = color;
             }
         }
 
@@ -2060,6 +2263,14 @@ namespace SpacerUnion.Windows
             [System.Runtime.InteropServices.DllImport("user32.dll")]
             private static extern IntPtr WindowFromPoint(Point point);
 
+            // Control.FromHandle walks every control of the application to find the window behind a
+            // handle - that is far too slow for every notch of the wheel. The root window of the window
+            // under the cursor says the same: the wheel is ours or it is not.
+            [System.Runtime.InteropServices.DllImport("user32.dll")]
+            private static extern IntPtr GetAncestor(IntPtr hwnd, uint flags);
+
+            private const uint GaRoot = 2;
+
             public bool PreFilterMessage(ref Message m)
             {
                 if (m.Msg != WmMouseWheel || page.IsDisposed || !page.Visible)
@@ -2067,16 +2278,17 @@ namespace SpacerUnion.Windows
                     return false;
                 }
 
-                Control under = Control.FromHandle(WindowFromPoint(Cursor.Position));
+                Point where = Cursor.Position;
+                IntPtr under = WindowFromPoint(where);
 
-                if (under == null || under.FindForm() != page)
+                if (under == IntPtr.Zero || GetAncestor(under, GaRoot) != page.Handle)
                 {
                     return false;
                 }
 
                 Rectangle area = page.panelContent.RectangleToScreen(page.panelContent.ClientRectangle);
 
-                if (!area.Contains(Cursor.Position))
+                if (!area.Contains(where))
                 {
                     return false;
                 }

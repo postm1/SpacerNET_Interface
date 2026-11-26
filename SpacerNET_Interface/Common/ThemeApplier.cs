@@ -76,16 +76,59 @@ namespace SpacerUnion.Common
             form.SuspendLayout();
             try
             {
-                ApplyToControl(form);
-                ApplyRecursive(form);
+                ApplyWithRedrawOff(form);
             }
             finally
             {
                 form.ResumeLayout(false);
             }
-            form.Invalidate(true);
             TryApplyTitleBar(form);
             HookShownReapply(form);
+        }
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
+
+        [DllImport("user32.dll")]
+        private static extern bool RedrawWindow(IntPtr hWnd, IntPtr lprcUpdate, IntPtr hrgnUpdate, uint flags);
+
+        private const int WmSetRedraw = 0x000B;
+
+        // WM_SETREDRAW switches the child windows off together with the parent, and Invalidate(true) of
+        // a Form does not always reach them - controls stay unpainted. RedrawWindow with RDW_ALLCHILDREN
+        // paints the whole tree, RDW_ERASENOW does it before we return.
+        private const uint RedrawEverything = 0x0001 /* RDW_INVALIDATE */ | 0x0004 /* RDW_ERASE */
+            | 0x0080 /* RDW_ALLCHILDREN */ | 0x0200 /* RDW_ERASENOW */ | 0x0400 /* RDW_FRAME */;
+
+        // The walk assigns a color to every control of the window, and every such assignment repaints
+        // that control: on a window with a thousand controls this is the slowest part of showing it.
+        // Redraw is turned off while the walk runs, and the whole window paints once after it.
+        private static void ApplyWithRedrawOff(Form form)
+        {
+            if (!form.IsHandleCreated)
+            {
+                ApplyToControl(form);
+                ApplyRecursive(form);
+                form.Invalidate(true);
+                return;
+            }
+
+            IntPtr handle = form.Handle;
+
+            SendMessage(handle, WmSetRedraw, IntPtr.Zero, IntPtr.Zero);
+            try
+            {
+                ApplyToControl(form);
+                ApplyRecursive(form);
+            }
+            finally
+            {
+                SendMessage(handle, WmSetRedraw, new IntPtr(1), IntPtr.Zero);
+            }
+
+            // The children were turned off with the window: only a redraw of the whole tree makes them
+            // paint again.
+            RedrawWindow(handle, IntPtr.Zero, IntPtr.Zero, RedrawEverything);
         }
 
         private static void TryApplyTitleBar(Form form)
@@ -112,14 +155,12 @@ namespace SpacerUnion.Common
                     f.SuspendLayout();
                     try
                     {
-                        ApplyToControl(f);
-                        ApplyRecursive(f);
+                        ApplyWithRedrawOff(f);
                     }
                     finally
                     {
                         f.ResumeLayout(false);
                     }
-                    f.Invalidate(true);
                 }
                 catch { }
             };
