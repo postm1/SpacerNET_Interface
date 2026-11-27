@@ -146,6 +146,39 @@ namespace SpacerUnion.Common
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern int Extern_ReparentSelectedVobs(uint parent);
 
+
+        /// <summary>Set group filter ID 0..21; the backend prunes nonmatching members.</summary>
+        [DllImport(UNION_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SetMultiSelectionFilter(int filter);
+        /// <summary>Action 0 replaces, 1 adds, 2 removes. Returns group size, or -1 on rejection.</summary>
+        [DllImport(UNION_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int Extern_ChangeMultiSelection(uint vob, int action);
+        /// <summary>Query with null/0, then fill a caller-owned x86 address buffer. Returns total size.</summary>
+        [DllImport(UNION_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int Extern_GetMultiSelectionVobs([Out] uint[] vobs, int capacity);
+        /// <summary>Persist whether rectangle selection ignores world-geometry occlusion.</summary>
+        [DllImport(UNION_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SetMultiSelectionThroughWalls(int enabled);
+        /// <summary>Apply world deltas. Results: count, 0 no-op, -1 invalid state, -2 blocked children, -3 invalid input.</summary>
+        [DllImport(UNION_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int Extern_MoveSelectedVobs(float x, float y, float z);
+        /// <summary>Undo the last group translation or rotation: 1 restored, 0 empty, -1 rejected.</summary>
+        [DllImport(UNION_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int Extern_UndoSelectionMove();
+        /// <summary>Return 1 if a group gesture/history entry exists; final validation happens on undo.</summary>
+        [DllImport(UNION_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int Extern_CanUndoSelectionMove();
+        /// <summary>Clear group membership, preserving valid transform undo history.</summary>
+        [DllImport(UNION_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_ClearMultiSelection();
+
+        /// <summary>Set 0 for translation or 1 for rotation; finishes the current keyboard gesture.</summary>
+        [DllImport(UNION_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Extern_SetMultiSelectionTransformMode(int mode);
+        /// <summary>Rotate by degrees about shared-center world axes X, Y, Z. Results match MoveSelectedVobs.</summary>
+        [DllImport(UNION_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int Extern_RotateSelectedVobs(float x, float y, float z);
+
         // check global parent
         [DllImport(UNION_DLL_NAME, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern int Extern_CanBeGlobalParent(uint vob);

@@ -461,7 +461,10 @@ namespace SpacerUnion.Common
             // OwnerDrawText repaints every visible node in managed code whenever the tree changes.
             // Large vob trees therefore stall on insert/remove/parent changes in dark mode.
             // Native rendering keeps the dark colors above while handling invalidation efficiently.
-            tv.DrawMode = TreeViewDrawMode.Normal;
+            // Group selection draws node labels itself so multiple members can stay highlighted.
+            var groupTree = tv as GroupSelectionTreeView;
+            tv.DrawMode = groupTree != null && groupTree.GroupMode
+                ? TreeViewDrawMode.OwnerDrawText : TreeViewDrawMode.Normal;
             TryDarkenNative(tv);
         }
 
