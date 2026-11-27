@@ -39,10 +39,17 @@ namespace SpacerUnion
         private Point? dragInsertionLineStart;
         private Point? dragInsertionLineEnd;
         private uint contextMenuParentVob;
+        private readonly ToolTip groupSelectionTip;
 
         public ObjTree()
         {
             InitializeComponent();
+            ((GroupSelectionTreeView)globalTree).GroupClick =
+                (point, modifiers, twice) => HandleGroupTreeClick(globalTree, point, modifiers, twice);
+            ((GroupSelectionTreeView)quickTree).GroupClick =
+                (point, modifiers, twice) => HandleGroupTreeClick(quickTree, point, modifiers, twice);
+            groupSelectionTip = new ToolTip(components);
+            UpdateGroupSelectionTip();
             Helper.EnableDoubleBuffering(globalTree);
             ApplyPolySelectionActiveStyle();
             Theme.ThemeChanged += ApplyPolySelectionActiveStyle;
@@ -61,6 +68,56 @@ namespace SpacerUnion
         {
             labelPolySelectionActive.BackColor = Theme.BgPanel;
             labelPolySelectionActive.ForeColor = Theme.Error;
+            globalTree.Invalidate();
+            quickTree.Invalidate();
+        }
+
+        private void UpdateGroupSelectionTip()
+        {
+            groupSelectionTip.SetToolTip(globalTree, Localizator.Get("MULTI_LIST_HELP"));
+            groupSelectionTip.SetToolTip(quickTree, Localizator.Get("MULTI_LIST_HELP"));
+        }
+
+        /// <summary>Consume a group click before native tree selection; false preserves normal navigation.</summary>
+        internal bool HandleGroupTreeClick(TreeView tree, Point point, Keys modifiers, bool twice)
+        {
+            if (SpacerNET.form == null || !SpacerNET.form.IsMultiSelectionMode
+                || string.IsNullOrEmpty(SpacerNET.form.currentWorldName)) return false;
+            var hit = tree.HitTest(point);
+            // Expanders and folders keep their normal tree navigation behavior.
+            uint vob;
+            if ((hit.Location & (TreeViewHitTestLocations.Label | TreeViewHitTestLocations.Image)) == 0
+                || !TryGetVobNode(hit.Node, out vob)) return false;
+            if (Imports.Extern_IsGameModActive() != 0) return true;
+            int action = (modifiers & Keys.Alt) != 0 ? 2
+                : (modifiers & (Keys.Control | Keys.Shift)) != 0 ? 1 : 0;
+            int count = Imports.Extern_ChangeMultiSelection(vob, action);
+            if (count >= 0)
+            {
+                tree.SelectedNode = hit.Node;
+                if (twice && action == 0) Imports.Extern_SelectVob(vob);
+            }
+            SpacerNET.form.RefreshMultiSelectionWindow();
+            return true;
+        }
+
+        /// <summary>Share one backend address snapshot between Objects and Fast access highlighting.</summary>
+        internal void RefreshMultiSelection(bool active)
+        {
+            if (IsDisposed) return;
+            var selected = new HashSet<uint>();
+            if (active)
+            {
+                int count = Imports.Extern_GetMultiSelectionVobs(null, 0);
+                if (count > 0)
+                {
+                    var addresses = new uint[count];
+                    count = Imports.Extern_GetMultiSelectionVobs(addresses, addresses.Length);
+                    selected.UnionWith(addresses.Take(Math.Max(0, Math.Min(count, addresses.Length))));
+                }
+            }
+            ((GroupSelectionTreeView)globalTree).SetGroupSelection(active, selected);
+            ((GroupSelectionTreeView)quickTree).SetGroupSelection(active, selected);
         }
 
         private void globalTree_ItemDrag(object sender, ItemDragEventArgs e)
@@ -236,6 +293,7 @@ namespace SpacerUnion
 
         public void UpdateLang()
         {
+            UpdateGroupSelectionTip();
             this.Text = Localizator.Get("WIN_TREE_TITLE");
             buttonCollapse.Text = Localizator.Get("buttonCollapse");
             buttonExpand.Text = Localizator.Get("buttonExpand");
@@ -1435,6 +1493,7 @@ namespace SpacerUnion
            
             TreeNode node = globalTree.SelectedNode;
 
+            if (node == null || node.Tag == null) return;
             if (previousSelectedNode != null)
             {
                 if (previousSelectedNode.Tag.ToString() == Constants.TAG_FOLDER)
@@ -2441,6 +2500,67 @@ namespace SpacerUnion
             Imports.Extern_CreateVobSpacerCameraStartPos();
 
             SpacerNET.form.Focus();
+        }
+    }
+
+    internal sealed class GroupSelectionTreeView : TreeView
+    {
+        internal Func<Point, Keys, bool, bool> GroupClick;
+        internal bool GroupMode { get; private set; }
+        private HashSet<uint> groupSelection = new HashSet<uint>();
+
+        internal void SetGroupSelection(bool active, HashSet<uint> selected)
+        {
+            bool changed = GroupMode != active || !groupSelection.SetEquals(selected);
+            GroupMode = active;
+            groupSelection = selected;
+            DrawMode = active ? TreeViewDrawMode.OwnerDrawText : TreeViewDrawMode.Normal;
+            if (changed) Invalidate();
+        }
+
+        internal bool IsGroupSelected(TreeNode node)
+        {
+            uint address;
+            return GroupMode && node != null && node.Tag != null
+                && uint.TryParse(node.Tag.ToString(), out address) && groupSelection.Contains(address);
+        }
+
+        protected override void OnDrawNode(DrawTreeNodeEventArgs e)
+        {
+            if (!GroupMode) { e.DrawDefault = true; return; }
+            bool selected = IsGroupSelected(e.Node);
+            Color back = selected ? (Theme.IsDark ? Theme.Accent : SystemColors.Highlight)
+                : e.Node.BackColor.IsEmpty ? BackColor : e.Node.BackColor;
+            Color fore = selected ? (Theme.IsDark ? Theme.FgPrimary : SystemColors.HighlightText)
+                : e.Node.ForeColor.IsEmpty ? ForeColor : e.Node.ForeColor;
+            using (var brush = new SolidBrush(back)) e.Graphics.FillRectangle(brush, e.Bounds);
+            TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.NodeFont ?? Font,
+                e.Bounds, fore, back, TextFormatFlags.NoPrefix | TextFormatFlags.NoPadding
+                | TextFormatFlags.SingleLine | TextFormatFlags.VerticalCenter);
+            if (Focused && e.Node == SelectedNode)
+                ControlPaint.DrawFocusRectangle(e.Graphics, e.Bounds, fore, back);
+        }
+
+        protected override void WndProc(ref Message message)
+        {
+            const int leftDown = 0x0201, leftDoubleClick = 0x0203;
+            // Run before native selection, drag/drop and single-object callbacks.
+            if ((message.Msg == leftDown || message.Msg == leftDoubleClick) && GroupClick != null)
+            {
+                int position = message.LParam.ToInt32();
+                var point = new Point((short)(position & 0xffff), (short)(position >> 16));
+                Keys modifiers = ModifierKeys & Keys.Alt;
+                int buttons = message.WParam.ToInt32();
+                if ((buttons & 0x0008) != 0) modifiers |= Keys.Control;
+                if ((buttons & 0x0004) != 0) modifiers |= Keys.Shift;
+                if (GroupClick(point, modifiers, message.Msg == leftDoubleClick))
+                {
+                    Focus();
+                    message.Result = IntPtr.Zero;
+                    return;
+                }
+            }
+            base.WndProc(ref message);
         }
     }
 }

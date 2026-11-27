@@ -1,0 +1,33 @@
+LIBRARY SpacerUnionNet
+EXPORTS
+    Extern_ChangeMultiSelection
+    Extern_GetMultiSelectionVobs
+    Extern_SetVobListType
+    Extern_SetVobPickFilter
+    Extern_SelectVobSync
+    Extern_SelectVob
+    Test_GetSingleSelectCalls
+    Test_GetSelectionCalls
+    Stack_PushString
+    Extern_GetSetting
+    Extern_GetMultiSelectionCount
+    Extern_IsGameModActive
+    Extern_CanUndoSelectionMove
+    Extern_SetMultiSelectionFilter
+    Extern_SetMultiSelectionThroughWalls
+    Extern_MoveSelectedVobs
+    Extern_UndoSelectionMove
+    Extern_ClearMultiSelection
+    Test_GetOffset
+    Test_GetFilter
+    Test_GetThrough
+    Test_GetUndo
+    Test_SetPlaying
+
+    Extern_SetSetting
+    Extern_SetMultiSelectionTransformMode
+    Extern_RotateSelectedVobs
+    Test_GetAngle
+    Test_GetMode
+    Test_GetWorkMode
+    Test_GetLastAction

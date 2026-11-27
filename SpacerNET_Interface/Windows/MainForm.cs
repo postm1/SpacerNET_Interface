@@ -39,6 +39,63 @@ namespace SpacerUnion
             get { return toolStripButtonMulti.Checked; }
         }
 
+
+        private GroupSelectionForm multiSelectionWindow;
+        private System.Windows.Forms.Timer multiSelectionTimer;
+        private bool groupWindowActive;
+
+        private void InitializeMultiSelectionWindow()
+        {
+            multiSelectionWindow=new GroupSelectionForm(this);
+            if(SpacerNET.windowsList!=null)SpacerNET.windowsList.Add(multiSelectionWindow);
+            ThemeApplier.RegisterDialog(multiSelectionWindow);
+            multiSelectionTimer=new System.Windows.Forms.Timer {Interval=200};
+            multiSelectionTimer.Tick+=(s,e)=>RefreshMultiSelectionWindow();
+            multiSelectionTimer.Start();
+            FormClosed+=(s,e)=> {
+                multiSelectionTimer.Stop();multiSelectionTimer.Dispose();multiSelectionWindow.Dispose();
+            };
+        }
+
+        /// <summary>Leave group mode while retaining the reusable tool window and restoring tree drawing.</summary>
+        internal void LeaveGroupSelection()
+        {
+            toolStripButtonMulti.Checked=false;
+            Imports.Stack_PushString("bToggleWorkMode");
+            Imports.Extern_SetSetting(0);
+            multiSelectionWindow.Hide();
+            groupWindowActive=false;
+            if(SpacerNET.objTreeWin!=null)SpacerNET.objTreeWin.RefreshMultiSelection(false);
+        }
+
+        /// <summary>Native callback: 1 blocks group viewport input over UI/fields, 0 permits it.</summary>
+        [DllExport]
+        public static int IsMultiSelectionInputBlocked()
+        {
+            var form=SpacerNET.form;
+            if(form==null||form.IsDisposed||form.renderTarget==null)return 1;
+            if(form.multiSelectionWindow!=null&&form.multiSelectionWindow.ContainsFocus)return 1;
+            if(!IsMouseOverControl(form.renderTarget))return 1;
+            return IsSceneClickBlocked();
+        }
+
+        /// <summary>Synchronize the group controls and Objects tree without repeatedly taking focus.</summary>
+        internal void RefreshMultiSelectionWindow()
+        {
+            if(multiSelectionWindow==null||IsDisposed)return;
+            bool active=IsMultiSelectionMode&&!string.IsNullOrEmpty(currentWorldName);
+            if(SpacerNET.objTreeWin!=null&&!SpacerNET.objTreeWin.IsDisposed)
+                SpacerNET.objTreeWin.RefreshMultiSelection(active);
+            if(!active) {
+                multiSelectionWindow.Hide();groupWindowActive=false;return;
+            }
+            multiSelectionWindow.RefreshState();
+            // Show once per activation. Do not fight HideWindows or steal focus every timer tick.
+            if(!groupWindowActive&&Visible) {
+                multiSelectionWindow.Show(this);groupWindowActive=true;
+            }
+        }
+
         public enum ToggleMenuType
         {
             ToggleVobs = 0,
@@ -53,6 +110,7 @@ namespace SpacerUnion
         {
             InitializeComponent();
             this.KeyPreview = true;
+            InitializeMultiSelectionWindow();
 
 
             UpdateSpacerCaption("");
@@ -202,6 +260,7 @@ namespace SpacerUnion
         }
         public void UpdateLang()
         {
+            multiSelectionWindow.UpdateLanguage();
             ToolStripMenuFile.Text = Localizator.Get("MENU_TOP_FILE");
             toolStripMenuResetWorld.Text = Localizator.Get("MENU_TOP_RESET");
             exitToolStripMenuItem.Text = Localizator.Get("MENU_TOP_EXIT");
@@ -1857,6 +1916,7 @@ namespace SpacerUnion
             item.Checked = !item.Checked;
 
             int mode = item.Checked ? 3 : 0;
+            multiSelectionWindow.UpdateLanguage();
 
             if (item.Checked)
             {
@@ -1866,6 +1926,7 @@ namespace SpacerUnion
 
             Imports.Stack_PushString("bToggleWorkMode");
             Imports.Extern_SetSetting(mode);
+            RefreshMultiSelectionWindow();
         }
 
         private void toolStripMenuExtractMesh_Click(object sender, EventArgs e)
@@ -2151,6 +2212,17 @@ namespace SpacerUnion
         [DllExport]
         public static int IsClickBlocked()
         {
+            return IsSceneClickBlocked();
+        }
+
+        private static int IsSceneClickBlocked()
+        {
+            var form = SpacerNET.form;
+            if (form == null) return 1;
+            if (form.multiSelectionWindow != null && form.multiSelectionWindow.Visible
+                && IsMouseOverControl(form.multiSelectionWindow)) return 1;
+            if (form.toolStripTop.Visible && IsMouseOverControl(form.toolStripTop)) return 1;
+            if (form.statusStripBottom.Visible && IsMouseOverControl(form.statusStripBottom)) return 1;
             int result = 0;
             var menuTop = SpacerNET.form.menuStripTopMain;
 
@@ -2210,7 +2282,7 @@ namespace SpacerUnion
             }
 
             // additional check: is the mouse over a visible tool-window?
-            if (result == 0)
+            if (result == 0 && SpacerNET.windowsList != null)
             {
                 foreach (Form window in SpacerNET.windowsList)
                 {
